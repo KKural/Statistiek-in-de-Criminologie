@@ -2,32 +2,14 @@
   testcases:
     - expression: "hypothesis"
       return: !expression |
-        import re
-        # Check if hypothesis is a string
-        if not isinstance(hypothesis, str):
-            return False
-        
-        # Convert to lowercase for case-insensitive checking
-        hyp_lower = hypothesis.lower()
-        
-        # Check for age-related terms
-        age_terms = ['leeftijd', 'ouder', 'jong', 'age', 'oud', 'jaar']
-        has_age = any(term in hyp_lower for term in age_terms)
-        
-        # Check for crime-related terms  
-        crime_terms = ['misdrijf', 'misdaad', 'delict', 'crime', 'criminaliteit', 'geweld', 'diefstal', 'fraude']
-        has_crime = any(term in hyp_lower for term in crime_terms)
-        
-        # Check for association terms
-        assoc_terms = ['associatie', 'verband', 'relatie', 'samenhang', 'correlatie', 'association', 'relationship']
-        has_association = any(term in hyp_lower for term in assoc_terms)
-        
-        # Check minimum length (should be a proper sentence)
-        min_length = len(hypothesis) > 20
-        
-        # All conditions must be met
-        return has_age and has_crime and has_association and min_length
-    - expression: "len(hypothesis) > 20"
+        (
+          isinstance(hypothesis, str) and
+          len(hypothesis) > 20 and
+          any(term in hypothesis.lower() for term in ['leeftijd', 'ouder', 'jong', 'age', 'oud', 'jaar']) and
+          any(term in hypothesis.lower() for term in ['misdrijf', 'misdaad', 'delict', 'crime', 'criminaliteit', 'geweld', 'diefstal', 'fraude']) and
+          any(term in hypothesis.lower() for term in ['associatie', 'verband', 'relatie', 'samenhang', 'correlatie', 'association', 'relationship'])
+        )
+    - expression: "isinstance(hypothesis, str)"
       return: true
-    - expression: "'associatie' in hypothesis.lower() or 'verband' in hypothesis.lower() or 'relatie' in hypothesis.lower() or 'samenhang' in hypothesis.lower()"
+    - expression: "len(hypothesis) > 20"
       return: true
