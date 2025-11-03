@@ -1,10 +1,14 @@
 {
-    "description": {
-        "names": {
-            "en": "0.2 Practical use of Dodona",
-            "nl": "0.2 Praktische gebruik van Dodona"
-        }
-    },
-    "access": "private",
-    "type": "content"
+  "description": {
+    "names": {
+      "en": "0.2 Practical use of Dodona",
+      "nl": "0.2 Praktische gebruik van Dodona"
+    }
+  },
+  "access": "private",
+  "type": "content",
+  "internals": {
+    "token": "IECZNPxRXKIaU7SM8HfQT8R9usTB7ySvU4qQGAsB8qQAuaSdB_3CSvhAC4EM__gw",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
