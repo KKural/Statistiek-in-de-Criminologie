@@ -4,12 +4,11 @@
       "nl": "1.3 Meetniveau - Leeftijd van verdachte"
     }
   },
-  "evaluation": {
-    "handler": "R",
-    "test_suite": "evaluation"
-  },
   "programming_language": "R",
-  "boilerplate": "# Meetniveau van leeftijd bepalen\n# Kies het juiste antwoord:\n# 1 = Nominaal\n# 2 = Ordinaal  \n# 3 = Dichotoom\n# 4 = Interval/Ratio\n\nevaluationResult <- ",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
   "access": "public",
   "labels": [],
   "internals": {
