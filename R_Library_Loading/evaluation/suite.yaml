@@ -1,0 +1,10 @@
+- tab: "dplyr library"
+  testcases:
+    - expression: "library(dplyr)"
+      return: true
+    - expression: "exists('filter', mode='function')"
+      return: true
+    - expression: "exists('select', mode='function')" 
+      return: true
+    - expression: "exists('mutate', mode='function')"
+      return: true
