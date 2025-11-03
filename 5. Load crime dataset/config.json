@@ -1,0 +1,18 @@
+{
+  "description": {
+    "names": {
+      "nl": "5. Het laden van de crime dataset"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "internals": {
+    "token": "GPYTQ_B_f3CqUBPGt-BcSs27-YcSaK42zq72TN_NUTHsUjdIrbM8BhqhPifPjJtS",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  },
+  "labels": []
+}

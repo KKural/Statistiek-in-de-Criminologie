@@ -1,0 +1,18 @@
+{
+  "description": {
+    "names": {
+      "nl": "10. De berekening van het misdaadcijfer"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "internals": {
+    "token": "EwS7j93h98dtG8mGfdzhdj8uB-UN49XNiE2se5Ra9ED-AYyP_qwDaD_ET46yWKN9",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  },
+  "labels": []
+}

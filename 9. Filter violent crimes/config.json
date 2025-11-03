@@ -1,0 +1,18 @@
+{
+  "description": {
+    "names": {
+      "nl": "9. Filteren van gewelddadige misdrijven"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "internals": {
+    "token": "tWeJBPCYI--9zFYcgJXVTUjj5Ww7hz2zcMTT98CZpsuc8f68j7N-exaPQKUe4K9S",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  },
+  "labels": []
+}

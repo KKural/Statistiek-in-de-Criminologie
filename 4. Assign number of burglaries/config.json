@@ -1,0 +1,18 @@
+{
+  "description": {
+    "names": {
+      "nl": "4. Het aantal inbraken toewijzen"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "internals": {
+    "token": "pDGSGJsy9UcP7H3Ha4qqTG774hqUgYESex3k4bhJJSQzTcx_Be_x8TANDwqWhjzA",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  },
+  "labels": []
+}
