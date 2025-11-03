@@ -1,8 +1,9 @@
-# Meetniveau van leeftijd bepalen
-# Kies het juiste antwoord:
-# 1 = Nominaal
-# 2 = Ordinaal  
-# 3 = Dichotoom
-# 4 = Interval/Ratio
+# Bepaal het meetniveau van de variabele 'leeftijd van verdachte'
+# 
+# Meetniveaus:
+# 1 = Nominaal (categorieën zonder rangorde)
+# 2 = Ordinaal (categorieën met rangorde)  
+# 3 = Dichotoom (twee categorieën)
+# 4 = Interval/Ratio (numerieke waarden met gelijke intervallen)
 
 evaluationResult <- 

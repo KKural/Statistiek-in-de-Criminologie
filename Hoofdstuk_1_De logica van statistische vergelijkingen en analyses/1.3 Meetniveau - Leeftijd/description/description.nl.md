@@ -5,6 +5,9 @@ Als de leeftijd van een verdachte wordt uitgedrukt in een exact getal in jaren, 
 3. Dichotoom
 4. Interval/Ratio
 
-**Hint:** *Denk na over de eigenschappen van leeftijd. Kun je leeftijden rangschikken? Zijn de afstanden tussen jaren altijd hetzelfde? Is de afstand tussen 20 en 30 hetzelfde als de afstand tussen 30 en 40?  Wat betekent 0 jaar?*
+**Hint:** *Denk na over de eigenschappen van leeftijd. Kun je leeftijden rangschikken? Zijn de afstanden tussen jaren altijd hetzelfde? Is de afstand tussen 20 en 30 hetzelfde als de afstand tussen 30 en 40? Wat betekent 0 jaar?*
 
-Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.
+**Instructies:** 
+- Sla je antwoord op in de variabele `evaluationResult`
+- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven
+- Voorbeeld: `evaluationResult <- 4`

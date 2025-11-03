@@ -21,20 +21,4 @@ context({
       )
     }
   )
-}, preExec = {
-  # This code runs BEFORE student code
-  # You can set up datasets, load libraries, etc.
-  
-  # Example: Load a dataset for students to use
-  crime_data <- data.frame(
-    id = 1:5,
-    age = c(25, 30, 22, 45, 18),
-    crime_type = c("Theft", "Assault", "Fraud", "Theft", "Vandalism")
-  )
-  
-  # Example: Load required libraries
-  # library(dplyr)
-  
-  # Example: Set up helper variables
-  measurement_levels <- c("Nominal", "Ordinal", "Dichotomous", "Interval/Ratio")
 })

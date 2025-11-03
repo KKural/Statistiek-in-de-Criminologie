@@ -9,6 +9,8 @@
     "handler": "R"
   },
   "test_suite": "evaluation",
+  "workdir": "workdir",
+  "boilerplate": "template.R",
   "access": "public",
   "labels": [],
   "internals": {
