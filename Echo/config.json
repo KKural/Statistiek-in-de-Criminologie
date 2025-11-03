@@ -5,6 +5,11 @@
       "nl": "Echo"
     }
   },
-  "evaluation": {},
+  "evaluation": {
+    "handler": "R",
+    "test_suite": "evaluation"
+  },
+  "programming_language": "R",
+  "access": "public",
   "labels": []
 }
