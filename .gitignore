@@ -1,0 +1,18 @@
+# Exclude example exercises folder
+example-exercises-master/
+
+# Common files to ignore
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# R specific
+.Rhistory
+.RData
+.Ruserdata
+
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
