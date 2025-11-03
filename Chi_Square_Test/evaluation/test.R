@@ -36,21 +36,21 @@ context({
       "Chi-kwadraat test uitvoeren",
       function(env) {
         result <- tryCatch({
-          # Check if the function was called and returns correct result
-          test_result <- env$chisq.test(data_matrix)
+          # Try to execute the student's code and get the result
+          student_result <- eval(parse(text = "chisq.test(data_matrix)"), envir = env)
           
           # Check if it's the right type of object
-          if (!inherits(test_result, "htest")) {
+          if (!inherits(student_result, "htest")) {
             return("not_htest")
           }
           
           # Check if the statistic is approximately correct
-          if (abs(test_result$statistic - expected_result$statistic) > 0.001) {
+          if (abs(student_result$statistic - expected_result$statistic) > 0.001) {
             return("wrong_statistic")
           }
           
           # Check if p-value is approximately correct
-          if (abs(test_result$p.value - expected_result$p.value) > 0.001) {
+          if (abs(student_result$p.value - expected_result$p.value) > 0.001) {
             return("wrong_pvalue")
           }
           
@@ -76,6 +76,7 @@ context({
           "not_htest"   = "❌ Het resultaat is geen geldige statistische test. Gebruik `chisq.test(data_matrix)`.",
           "wrong_statistic" = "❌ De chi-kwadraat statistiek is niet correct. Controleer je data matrix.",
           "wrong_pvalue" = "❌ De p-waarde is niet correct. Controleer je test.",
+          "error"       = "❌ Er is een fout opgetreden bij het uitvoeren van je code. Controleer je syntax.",
           "correct"     = "✅ Correct! Je hebt de chi-kwadraat test succesvol uitgevoerd."
         )
         
