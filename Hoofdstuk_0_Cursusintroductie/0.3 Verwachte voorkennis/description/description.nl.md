@@ -1,4 +1,4 @@
-# Verwachte voorkennis
+# **Verwachte voorkennis**
 
 Voor een goed begrip van deze cursus wordt verondersteld dat je:
 

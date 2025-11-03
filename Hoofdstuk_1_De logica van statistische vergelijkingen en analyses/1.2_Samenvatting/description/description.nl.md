@@ -1,0 +1,5 @@
+# **Samenvatting**
+
+Dit hoofdstuk behandelt de centrale rol van **statistiek** in het wetenschappelijk en criminologisch onderzoek. Statistiek wordt gepresenteerd als zowel een methode om data te verzamelen en samen te vatten als een denkwijze om patronen te ontdekken en theorieën te toetsen. Vanuit haar historische ontwikkeling – van beschrijvende tot inferentiële technieken – wordt duidelijk hoe statistiek onderzoekers in staat stelt om empirisch bewijs te leveren voor sociale verschijnselen.
+
+Daarnaast wordt het volledige **onderzoeksproces** besproken: van observatie en theorievorming tot operationalisering, dataverzameling, analyse en interpretatie. Studenten leren dat theorie, methode en statistiek onlosmakelijk verbonden zijn en dat de kwaliteit van data bepalend is voor betrouwbare conclusies. Het hoofdstuk benadrukt dat **statistische geletterdheid** essentieel is voor criminologen: het stelt hen in staat om kritisch om te gaan met cijfers, resultaten te interpreteren en bij te dragen aan evidence-based kennis over criminaliteit en menselijk gedrag.

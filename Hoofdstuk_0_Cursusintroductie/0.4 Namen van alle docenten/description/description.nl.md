@@ -1,12 +1,12 @@
-# Namen van alle docenten
+# **Namen van alle docenten**
 
-## Docenten
+## **Docenten**
 
 - **Prof. Dr. Lieven Pauwels** - Lieven.Pauwels@UGent.be
 - **Prof. Dr. Christophe Vandeviver** - Christophe.Vandeviver@UGent.be
 - **Dr. Ann De Buck** - Ann.DeBuck@UGent.be
 
-## Vragen?
+## **Vragen?**
 
 Als je vragen hebt over de cursusinhoud of oefeningen, aarzel dan niet om contact op te nemen met de docenten via:
 
