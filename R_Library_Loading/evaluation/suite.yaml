@@ -1,4 +1,0 @@
-- expression: "library(dplyr)"
-  return: !expression ""
-- expression: "'dplyr' %in% (.packages())"
-  return: true
