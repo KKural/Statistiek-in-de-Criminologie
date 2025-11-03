@@ -1,0 +1,21 @@
+# Oefening: Meetniveau - Leeftijd van verdachte
+#
+# Vraag: Als de leeftijd van een verdachte wordt uitgedrukt in een exact getal in jaren,
+# wat is dan het meetniveau van deze variabele?
+#
+# 1. Nominaal
+# 2. Ordinaal  
+# 3. Dichotoom
+# 4. Interval/Ratio
+#
+# Instructies: Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven
+
+# Voorbeelddata ter context
+verdachte_leeftijden <- c(25, 32, 19, 45, 28, 36, 22, 41, 29, 33)
+
+# JOUW ANTWOORD HIER:
+# Vervang "jouw_antwoord_hier" door het getal van je keuze (1, 2, 3, of 4)
+antwoord <- "jouw_antwoord_hier"
+
+# Print je antwoord
+print(paste("Mijn antwoord is:", antwoord))
