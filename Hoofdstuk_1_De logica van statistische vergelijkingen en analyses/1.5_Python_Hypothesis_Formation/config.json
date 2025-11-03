@@ -1,12 +1,16 @@
 {
-    "description": {
-        "names": {
-            "en": "Hypothesis Formation",
-            "nl": "Hypothesevorming"
-        }
-    },
-    "evaluation": {
-        "pythia_judge": "output"
-    },
-    "labels": []
+  "description": {
+    "names": {
+      "en": "Hypothesis Formation",
+      "nl": "Hypothesevorming"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [],
+  "internals": {
+    "token": "JqDS2vatZU8ZRnmjjC6NvIkrT4nBMSupMNpcyFKh_aX_cGsry2BgdEsZjd4xNGD3",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
