@@ -1,1 +1,4 @@
-# test
+x <- rnorm(100)
+y <- x + rnorm(100, mean=1, sd=10)
+
+test <- t.test(...)
