@@ -1,0 +1,18 @@
+{
+  "description": {
+    "names": {
+      "nl": "6. Het gemiddelde aantal delicten berekenen"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "internals": {
+    "token": "jZbZFp-TtIsygzub2jbXvN8myZ7N-RVA3gd4gy-Ig8MRu4Ex3zP7mb-FD2aExUpM",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  },
+  "labels": []
+}

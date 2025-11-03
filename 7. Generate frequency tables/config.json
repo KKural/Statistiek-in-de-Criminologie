@@ -1,0 +1,23 @@
+{
+  "description": {
+    "names": {
+      "nl": "7. Frequentietabellen genereren met table()"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "internals": {
+    "token": "rWWfKu6n_VvFVzCU3cNgiSb6-6PKKQCXvfRTTx2EUk7ZiCS_C8KT-fkgA5yVqjIX",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  },
+  "labels": [
+    "R",
+    "table",
+    "frequentietabel",
+    "basis"
+  ]
+}

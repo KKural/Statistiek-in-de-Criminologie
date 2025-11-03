@@ -1,0 +1,18 @@
+{
+  "description": {
+    "names": {
+      "nl": "2. Variabelen met het juiste type aanmaken"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "internals": {
+    "token": "pjjr27dDWCcPwgB5JkSUzCYhH9vkbrDBBgjyRhg_Msn93gi4h7Cr8MAT2IvkBxsU",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  },
+  "labels": []
+}
