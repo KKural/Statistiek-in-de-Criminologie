@@ -1,3 +1,6 @@
+# Load dataset in test environment
+source("../workdir/load_data.R", local = TRUE)
+
 context({
   testcase('Dataset exploration with str()', {
     # Use testFunctionUsed to check if str() was called
