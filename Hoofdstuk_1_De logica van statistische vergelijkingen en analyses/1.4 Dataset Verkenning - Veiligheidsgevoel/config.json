@@ -6,7 +6,8 @@
   },
   "programming_language": "R",
   "evaluation": {
-    "handler": "R"
+    "handler": "R",
+    "memory_limit": 10000000
   },
   "test_suite": "evaluation",
   "workdir": "workdir",
