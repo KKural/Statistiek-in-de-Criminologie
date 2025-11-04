@@ -1,20 +1,64 @@
-# Load dataset in test environment (for the test code itself)
+# Load dataset in test environment
 source("../workdir/load_data.R", local = TRUE)
 
 context({
   testcase("Dataset exploration with str()", {
 
-    # Check if the student has called str(df_fear_of_crime_gent)
-    used_correct_call <- exists(".used_str_correctly", envir = .GlobalEnv) &&
-                         isTRUE(get(".used_str_correctly", envir = .GlobalEnv))
+    # --- Read flags from the student environment ---------------------------
+    used_any <- exists(".used_str_any", envir = .GlobalEnv, inherits = FALSE) &&
+                isTRUE(get(".used_str_any", envir = .GlobalEnv))
 
-    # If NOT correct: fail and STOP before any positive feedback
-    if (!used_correct_call) {
-      fail("Gebruik exact: `str(df_fear_of_crime_gent)` om de dataset te verkennen.")
-      return(invisible(NULL))  # prevents the ✅ feedback from running
+    used_correct <- exists(".used_str_correctly", envir = .GlobalEnv, inherits = FALSE) &&
+                    isTRUE(get(".used_str_correctly", envir = .GlobalEnv))
+
+    first_expr <- if (exists(".first_str_expr", envir = .GlobalEnv, inherits = FALSE)) {
+      get(".first_str_expr", envir = .GlobalEnv)
+    } else {
+      NULL
     }
 
-    # Only here: student used str(df_fear_of_crime_gent) correctly
+    # --- 1. Handle wrong / incomplete answers ------------------------------
+    if (!used_correct) {
+
+      if (used_any) {
+        # Student did use str(), but not with the correct argument
+        msg <- "Je hebt `str()` gebruikt, maar niet exact met `df_fear_of_crime_gent` als argument.\n\n"
+
+        if (!is.null(first_expr)) {
+          msg <- paste0(
+            msg,
+            "We zagen bijvoorbeeld een oproep zoals:\n\n",
+            "```r\nstr(", first_expr, ")\n```\n\n"
+          )
+        }
+
+        msg <- paste0(
+          msg,
+          "Gebruik **exact** deze code om de dataset te verkennen:\n\n",
+          "```r\nstr(df_fear_of_crime_gent)\n```\n",
+          "Vermijd varianten zoals alleen `str()`, alleen `df_fear_of_crime_gent`, ",
+          "`str <- df_fear_of_crime_gent` of `str((df_fear_of_crime_gent))`."
+        )
+
+        fail(msg)
+        return(invisible(NULL))
+
+      } else {
+        # Student never used str() (probably just printed the object or did something else)
+        msg <- paste0(
+          "We hebben geen correcte oproep van `str()` gevonden.\n\n",
+          "Misschien heb je bijvoorbeeld alleen `df_fear_of_crime_gent` uitgevoerd, ",
+          "`str <- df_fear_of_crime_gent` geschreven of een andere vorm gebruikt.\n\n",
+          "De bedoeling is dat je de structuur van de dataset bekijkt met **exact**:\n\n",
+          "```r\nstr(df_fear_of_crime_gent)\n```"
+        )
+
+        fail(msg)
+        return(invisible(NULL))
+      }
+    }
+
+    # --- 2. Correct answer: full positive feedback -------------------------
     str_output <- capture.output(utils::str(df_fear_of_crime_gent))
 
     get_reporter()$add_message(
@@ -46,21 +90,33 @@ context({
   # Load the dataset in the student environment
   source("load_data.R", local = TRUE)
 
-  # ---- Instrument str() in the student environment --------------------
-  # Flag in the global env: did the student call str(df_fear_of_crime_gent)?
+  # ---- Instrument str() in the student environment -----------------------
+  assign(".used_str_any", FALSE, envir = .GlobalEnv)
   assign(".used_str_correctly", FALSE, envir = .GlobalEnv)
+  assign(".first_str_expr", NULL, envir = .GlobalEnv)
 
-  # Save original utils::str
   orig_str <- utils::str
 
-  # Wrapper that records the exact call and then delegates to utils::str
   str_wrapper <- function(object, ...) {
-    if (identical(substitute(object), quote(df_fear_of_crime_gent))) {
+    expr <- substitute(object)
+
+    # Mark that str() was used at least once
+    assign(".used_str_any", TRUE, envir = .GlobalEnv)
+
+    # Store the first expression we saw, for feedback
+    first <- get(".first_str_expr", envir = .GlobalEnv)
+    if (is.null(first)) {
+      assign(".first_str_expr", paste(deparse(expr), collapse = " "), envir = .GlobalEnv)
+    }
+
+    # Check for exact str(df_fear_of_crime_gent)
+    if (identical(expr, quote(df_fear_of_crime_gent))) {
       assign(".used_str_correctly", TRUE, envir = .GlobalEnv)
     }
+
     orig_str(object, ...)
   }
 
-  # Mask str() in the (student) global env
+  # Mask str() in the student's global environment
   assign("str", str_wrapper, envir = .GlobalEnv)
 })
