@@ -1,0 +1,18 @@
+{
+    "description": {
+        "names": {
+            "nl": "1.4 Dataset Verkenning - Veiligheidsgevoel in Gent"
+        }
+    },
+    "programming_language": "R",
+    "evaluation": {
+        "handler": "R"
+    },
+    "test_suite": "evaluation",
+    "access": "public",
+    "labels": [
+        "dataset",
+        "exploratie",
+        "str"
+    ]
+}
