@@ -1,8 +1,8 @@
 {
   "description": {
     "names": {
-      "en": "Echo",
-      "nl": "Echo"
+      "en": "hello world",
+      "nl": "hello world"
     }
   },
   "evaluation": {
