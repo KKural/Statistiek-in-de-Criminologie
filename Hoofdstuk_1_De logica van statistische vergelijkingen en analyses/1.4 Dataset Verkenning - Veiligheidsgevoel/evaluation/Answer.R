@@ -11,34 +11,13 @@ df_fear_of_crime_gent <- data.frame(
 )
 
 context({
-  testcase("str() functie gebruikt", {
-    # Capture what the student types
-    student_code <- readLines("student_code.R")
-    student_code_clean <- paste(student_code, collapse = " ")
-    
-    # Check if they used str() with the correct dataset
-    if (grepl("str\\s*\\(\\s*df_fear_of_crime_gent\\s*\\)", student_code_clean)) {
+  testcase("str(df_fear_of_crime_gent)", {
+    testEqual(NULL, function(env) { 
+      # Make dataset available in student environment
+      env$df_fear_of_crime_gent <- df_fear_of_crime_gent
       
-      # Show the actual str() output in feedback
-      get_reporter()$add_message("✅ Correct! Je hebt str(df_fear_of_crime_gent) gebruikt.", type = "markdown")
-      
-      # Capture and show the actual output
-      str_output <- capture.output(str(df_fear_of_crime_gent))
-      formatted_output <- paste("```", paste(str_output, collapse = "\n"), "```", sep = "\n")
-      
-      get_reporter()$add_message(paste("**De structuur van df_fear_of_crime_gent:**", formatted_output, sep = "\n\n"), type = "markdown")
-      
-      get_reporter()$add_message("**Wat zie je hier?**\n- **Data type:** data.frame\n- **Observaties:** 500 rijen (respondenten)\n- **Variabelen:** 8 kolommen\n- **Variabele types:** int (gehele getallen), chr (tekst/character)", type = "markdown")
-      
-      return(TRUE)
-      
-    } else if (grepl("str\\s*\\(", student_code_clean)) {
-      get_reporter()$add_message("❌ Je hebt wel str() gebruikt, maar niet met de juiste dataset. Gebruik: str(df_fear_of_crime_gent)")
-      return(FALSE)
-      
-    } else {
-      get_reporter()$add_message("❌ Gebruik de str() functie om de dataset structuur te bekijken. Typ: str(df_fear_of_crime_gent)")
-      return(FALSE)
-    }
+      # Capture the str() output
+      capture.output(env$str(env$df_fear_of_crime_gent))
+    }, capture.output(str(df_fear_of_crime_gent)))
   })
 })
