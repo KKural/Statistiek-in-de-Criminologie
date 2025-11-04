@@ -9,6 +9,7 @@
     "handler": "R"
   },
   "test_suite": "evaluation",
+  "workdir": "workdir",
   "access": "public",
   "labels": [
     "dataset",
