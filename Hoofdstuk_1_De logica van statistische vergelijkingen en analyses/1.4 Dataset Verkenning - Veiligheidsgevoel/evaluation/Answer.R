@@ -1,12 +1,14 @@
+# Load the dataset that will be available to students
+source("load_data.R")
+
 context({
-  testcase("Dataset structure check", {
+  testcase("str(df_fear_of_crime_gent)", {
     testEqual(NULL, function(env) { 
-      # Just check if the dataset exists and has the right structure
-      if (exists("df_fear_of_crime_gent", envir = env)) {
-        ncol(env$df_fear_of_crime_gent)
-      } else {
-        0
-      }
-    }, 8)
+      # Execute the data loading in student environment
+      env$source("load_data.R")
+      
+      # Capture their str() output
+      capture.output(env$str(env$df_fear_of_crime_gent))
+    }, capture.output(str(df_fear_of_crime_gent)))
   })
 })
