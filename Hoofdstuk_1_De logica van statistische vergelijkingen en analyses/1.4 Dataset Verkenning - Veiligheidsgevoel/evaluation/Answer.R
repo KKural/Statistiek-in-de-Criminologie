@@ -1,19 +1,17 @@
-# Load dataset in test environment
-source("../workdir/load_data.R", local = TRUE)
-
 context({
   testcase('Dataset exploration with str()', {
-    # First check if str() function was used
+    # Use testFunctionUsed to check if str() was called
     testFunctionUsed("str")
-    
-    # Then show the dataset structure in feedback
-    testEqual("Dataset structure display", function(studentEnv) { 
-      # Execute str() on our dataset and capture the output
+  })
+  
+  testcase('Display dataset structure', {
+    # Always show the dataset structure as feedback
+    testEqual("Dataset structure", function(studentEnv) { 
+      # Show the dataset structure in feedback
       str_output <- capture.output(str(df_fear_of_crime_gent))
       
-      # Add feedback messages
       get_reporter()$add_message("✅ **Goed gedaan! Je hebt str() gebruikt om de dataset te verkennen.**", type="markdown")
-      get_reporter()$add_message("**De structuur van df_fear_of_crime_gent:**", type="markdown")
+      get_reporter()$add_message("**Resultaat van str(df_fear_of_crime_gent):**", type="markdown")
       
       # Show the structure in a code block
       formatted_output <- paste("```r", paste(str_output, collapse = "\n"), "```", sep = "\n")
@@ -26,7 +24,7 @@ context({
       get_reporter()$add_message("- **int**: numerieke waarden (leeftijd, kinderen, etc.)", type="markdown")
       get_reporter()$add_message("- **chr**: categorische waarden (geslacht, buurt, etc.)", type="markdown")
       
-      # Return TRUE to indicate success
+      # Return TRUE to pass the test
       return(TRUE)
     }, TRUE)
   })
