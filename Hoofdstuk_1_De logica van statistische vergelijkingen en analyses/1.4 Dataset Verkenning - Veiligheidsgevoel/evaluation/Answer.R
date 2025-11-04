@@ -1,4 +1,4 @@
-# Load dataset in test environment
+# Load dataset in test environment (for the test code itself)
 source("../workdir/load_data.R", local = TRUE)
 
 context({
@@ -6,10 +6,10 @@ context({
 
     # --- Read flags from the student environment ---------------------------
     used_any <- exists(".used_str_any", envir = .GlobalEnv, inherits = FALSE) &&
-                isTRUE(get(".used_str_any", envir = .GlobalEnv))
+      isTRUE(get(".used_str_any", envir = .GlobalEnv))
 
     used_correct <- exists(".used_str_correctly", envir = .GlobalEnv, inherits = FALSE) &&
-                    isTRUE(get(".used_str_correctly", envir = .GlobalEnv))
+      isTRUE(get(".used_str_correctly", envir = .GlobalEnv))
 
     first_expr <- if (exists(".first_str_expr", envir = .GlobalEnv, inherits = FALSE)) {
       get(".first_str_expr", envir = .GlobalEnv)
@@ -44,7 +44,7 @@ context({
         return(invisible(NULL))
 
       } else {
-        # Student never used str() (probably just printed the object or did something else)
+        # Student never used str()
         msg <- paste0(
           "We hebben geen correcte oproep van `str()` gevonden.\n\n",
           "Misschien heb je bijvoorbeeld alleen `df_fear_of_crime_gent` uitgevoerd, ",
@@ -106,7 +106,8 @@ context({
     # Store the first expression we saw, for feedback
     first <- get(".first_str_expr", envir = .GlobalEnv)
     if (is.null(first)) {
-      assign(".first_str_expr", paste(deparse(expr), collapse = " "), envir = .GlobalEnv)
+      assign(".first_str_expr", paste(deparse(expr), collapse = " "),
+             envir = .GlobalEnv)
     }
 
     # Check for exact str(df_fear_of_crime_gent)
@@ -114,7 +115,16 @@ context({
       assign(".used_str_correctly", TRUE, envir = .GlobalEnv)
     }
 
-    orig_str(object, ...)
+    # Call the real str(), but **swallow errors** so tests can still run
+    tryCatch(
+      {
+        orig_str(object, ...)
+      },
+      error = function(e) {
+        # Don't break the grading; just return silently
+        invisible(NULL)
+      }
+    )
   }
 
   # Mask str() in the student's global environment
