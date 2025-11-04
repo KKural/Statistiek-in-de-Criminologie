@@ -1,18 +1,22 @@
 {
-    "description": {
-        "names": {
-            "nl": "1.4 Dataset Verkenning - Veiligheidsgevoel in Gent"
-        }
-    },
-    "programming_language": "R",
-    "evaluation": {
-        "handler": "R"
-    },
-    "test_suite": "evaluation",
-    "access": "public",
-    "labels": [
-        "dataset",
-        "exploratie",
-        "str"
-    ]
+  "description": {
+    "names": {
+      "nl": "1.4 Dataset Verkenning - Veiligheidsgevoel in Gent"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "labels": [
+    "dataset",
+    "exploratie",
+    "str"
+  ],
+  "internals": {
+    "token": "vhBEej7MQRYpzMvqUhwRIrEv5G7KrY9nR8ecFHwNXwbYfPxmcFzU2B3eB-68Uv_f",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
