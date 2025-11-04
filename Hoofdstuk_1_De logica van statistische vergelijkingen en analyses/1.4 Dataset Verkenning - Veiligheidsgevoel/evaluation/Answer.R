@@ -1,40 +1,21 @@
-# Load dataset in test environment
+# Load dataset in test environment (for the test code itself)
 source("../workdir/load_data.R", local = TRUE)
 
 context({
   testcase("Dataset exploration with str()", {
 
-    # OPTIONAL: still check that str() is used somewhere
-    testFunctionUsed("str")
+    # Check if the student has called str(df_fear_of_crime_gent)
+    used_correct_call <- exists(".used_str_correctly", envir = .GlobalEnv) &&
+                         isTRUE(get(".used_str_correctly", envir = .GlobalEnv))
 
-    # 1. Read the student's code as plain text
-    #    In Dodona, the student code is typically in the working directory
-    tryCatch({
-      # Try to read the student's submitted code
-      student_files <- list.files(pattern = "\\.R$", ignore.case = TRUE)
-      if (length(student_files) > 0) {
-        # Read the first R file found (usually the student's submission)
-        student_code <- paste(readLines(student_files[1]), collapse = "\n")
-      } else {
-        # Fallback: check if there's a specific submission file
-        student_code <- ""
-      }
-    }, error = function(e) {
-      student_code <- ""
-    })
-
-    # 2. Check for the *exact* call: str(df_fear_of_crime_gent)
-    pattern <- "str\\s*\\(\\s*df_fear_of_crime_gent\\s*\\)"
-    used_correct_call <- grepl(pattern, student_code)
-
-    # 3. If NOT correct: fail and STOP before any positive feedback
+    # If NOT correct: fail and STOP before any positive feedback
     if (!used_correct_call) {
       fail("Gebruik exact: `str(df_fear_of_crime_gent)` om de dataset te verkennen.")
-      return(invisible(NULL))  # ⬅️ prevents the ✅ feedback from running
+      return(invisible(NULL))  # prevents the ✅ feedback from running
     }
 
-    # 4. Only here: student used str(df_fear_of_crime_gent) correctly
-    str_output <- capture.output(str(df_fear_of_crime_gent))
+    # Only here: student used str(df_fear_of_crime_gent) correctly
+    str_output <- capture.output(utils::str(df_fear_of_crime_gent))
 
     get_reporter()$add_message(
       "✅ **Goed gedaan! Je hebt `str(df_fear_of_crime_gent)` gebruikt om de dataset te verkennen.**",
@@ -64,4 +45,22 @@ context({
 }, preExec = {
   # Load the dataset in the student environment
   source("load_data.R", local = TRUE)
+
+  # ---- Instrument str() in the student environment --------------------
+  # Flag in the global env: did the student call str(df_fear_of_crime_gent)?
+  assign(".used_str_correctly", FALSE, envir = .GlobalEnv)
+
+  # Save original utils::str
+  orig_str <- utils::str
+
+  # Wrapper that records the exact call and then delegates to utils::str
+  str_wrapper <- function(object, ...) {
+    if (identical(substitute(object), quote(df_fear_of_crime_gent))) {
+      assign(".used_str_correctly", TRUE, envir = .GlobalEnv)
+    }
+    orig_str(object, ...)
+  }
+
+  # Mask str() in the (student) global env
+  assign("str", str_wrapper, envir = .GlobalEnv)
 })
