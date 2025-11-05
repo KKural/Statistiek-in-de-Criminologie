@@ -1,7 +1,7 @@
 {
   "description": {
     "names": {
-      "nl": "Q2.1"
+      "nl": "2.7"
     }
   },
   "programming_language": "R",
@@ -13,11 +13,10 @@
   "workdir": "workdir",
   "access": "public",
   "labels": [
-    "begrippen",
-    "meetniveau"
+    "begrippen"
   ],
   "internals": {
-    "token": "KKndErSigaUnM7gwqF2UCy22RtNhDMrynBfpK3z7asnbfbmEx6usi759AaMC3Nxj",
+    "token": "tb-jy2aYz_EiG_8E3Z5cxKKSIgz5iUPaacuM5WgBkwCtfAJ_9-mZjjcbfmUxz99V",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

@@ -1,7 +1,7 @@
 {
   "description": {
     "names": {
-      "nl": "Q2.7"
+      "nl": "2.6"
     }
   },
   "programming_language": "R",
@@ -16,7 +16,7 @@
     "begrippen"
   ],
   "internals": {
-    "token": "tb-jy2aYz_EiG_8E3Z5cxKKSIgz5iUPaacuM5WgBkwCtfAJ_9-mZjjcbfmUxz99V",
+    "token": "SyAB5yqsIZFDCUF8-A9HybWXweqhWvPDmZsCDy_TF3fVnP_RqgDriCYhJwpz79Jn",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
