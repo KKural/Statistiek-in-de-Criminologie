@@ -1,18 +1,16 @@
 {
   "description": {
     "names": {
-      "nl": "1.3 Meetniveau - Leeftijd van verdachte"
+      "nl": "1.3 Meetniveau - Leeftijd"
     }
   },
-  "programming_language": "R",
   "evaluation": {
     "handler": "R"
   },
-  "test_suite": "evaluation",
-  "access": "public",
+  "programming_language": "R",
   "labels": [],
   "internals": {
-    "token": "nP-HKPujDEuCACJwSB5u-664Ii_gQNsTGPsAyv2GFrf9nvQSJ6bj6FjddP2RA92c",
+    "token": "N5Pve34ji2zEEGeX6VwsCbI9EcWQU-MKjepVtgcEp6tf55pcPtzrfTMn8J9iuXwH",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

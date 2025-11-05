@@ -10,14 +10,11 @@
         "token": "U75v-IMjMcK9G_YcQFBXBUHndkFUSVw6XNbGnWzzR9ICX5qtPe6f_WZuu9i6SZ_H",
         "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
     }
-<<<<<<< HEAD
-=======
-  },
-  "access": "private",
-  "type": "content",
-  "internals": {
+},
+"access": "private",
+"type": "content",
+"internals": {
     "token": "kXd7DRqK32XrhW_7ExWzksFntIUrcFwcDiYkn_s-Z8pwfpPAI-D8ysZUghdIjV6v",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-  }
->>>>>>> c61999fd04307f6db2cae96848fd947701e283de
+}
 }
