@@ -1,0 +1,13 @@
+{
+  "description": {
+    "names": {
+      "nl": "6.2_Samenvatting"
+    }
+  },
+  "access": "private",
+  "type": "content",
+  "internals": {
+    "token": "U75v-IMjMcK9G_YcQFBXBUHndkFUSVw6XNbGnWzzR9ICX5qtPe6f_WZuu9i6SZ_H",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
