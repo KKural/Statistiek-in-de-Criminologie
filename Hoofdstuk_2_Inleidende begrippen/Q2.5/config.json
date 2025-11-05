@@ -1,22 +1,22 @@
 {
-    "description": {
-        "names": {
-            "nl": "Q2.5"
-        }
-    },
-    "programming_language": "R",
-    "evaluation": {
-        "handler": "R",
-        "memory_limit": 512
-    },
-    "test_suite": "evaluation",
-    "workdir": "workdir",
-    "access": "public",
-    "labels": [
-        "begrippen"
-    ],
-    "internals": {
-        "token": "vhBEej7MQRYpzMvqUhwRIrEv5G7KrY9nR8ecFHwNXwbYfPxmcFzU2B3eB-68Uv_f",
-        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  "description": {
+    "names": {
+      "nl": "Q2.5"
     }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "workdir": "workdir",
+  "access": "public",
+  "labels": [
+    "begrippen"
+  ],
+  "internals": {
+    "token": "64NYTIXryhTeChHhM7GhvhSusFBU6IpUGpy22wHNmx7JbVsPqhGDuGiYkDkdxVz8",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

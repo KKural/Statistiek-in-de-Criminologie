@@ -1,13 +1,13 @@
 {
-    "description": {
-        "names": {
-            "nl": "9.2_Samenvatting"
-        }
-    },
-    "access": "private",
-    "type": "content",
-    "internals": {
-        "token": "U75v-IMjMcK9G_YcQFBXBUHndkFUSVw6XNbGnWzzR9ICX5qtPe6f_WZuu9i6SZ_H",
-        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  "description": {
+    "names": {
+      "nl": "9.2_Samenvatting"
     }
+  },
+  "access": "private",
+  "type": "content",
+  "internals": {
+    "token": "hMDMryjc7BAY3rHhsWDDP4kGTpcKKtqP3BmhrI9HnDiIHBETMGzEdpFQuMMm3P8R",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
