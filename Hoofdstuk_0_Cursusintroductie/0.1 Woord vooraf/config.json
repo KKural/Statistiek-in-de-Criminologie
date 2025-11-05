@@ -4,7 +4,7 @@
       "nl": "0.1 Woord vooraf"
     }
   },
-  "access": "private",
+  "access": "public",
   "type": "content",
   "internals": {
     "token": "p9EF3DM5n37BZ-u2xrWH6wus58j32NgV-_sfGypMZJQPHpEQrb2p-aZXUrmeZ-Ng",

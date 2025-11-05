@@ -4,7 +4,7 @@
       "nl": "0.3 Verwachte voorkennis"
     }
   },
-  "access": "private",
+  "access": "public",
   "type": "content",
   "internals": {
     "token": "eKUDgGqBIP8CpNvwRpqzHivEa8EmsyPrFMpvvDzTG9xRCTTHG-v6xUfNVhnpJB39",

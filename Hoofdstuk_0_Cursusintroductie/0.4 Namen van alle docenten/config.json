@@ -4,7 +4,7 @@
       "nl": "0.4 Namen van alle docenten"
     }
   },
-  "access": "private",
+  "access": "public",
   "type": "content",
   "internals": {
     "token": "wfbS-HZAj_j3zVFTumf2We9Hb5FTQzP_Is25PJJA7EwCdYs2ZhVMHn6khIvGmatK",
