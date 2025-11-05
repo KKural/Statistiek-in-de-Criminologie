@@ -4,7 +4,7 @@
       "nl": "3.1_Inleiding en leerdoelen"
     }
   },
-  "access": "private",
+  "access": "public",
   "type": "content",
   "internals": {
     "token": null,

@@ -4,7 +4,7 @@
       "nl": "3.2_Samenvatting"
     }
   },
-  "access": "private",
+  "access": "public",
   "type": "content",
   "internals": {
     "token": null,

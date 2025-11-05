@@ -1,0 +1,13 @@
+{
+  "description": {
+    "names": {
+      "nl": "8.8_Opdrachten voor de werkcolleges"
+    }
+  },
+  "access": "private",
+  "type": "content",
+  "internals": {
+    "token": "n6s7HfFN2zt8TyMB4cVeMKdBuFRYWEEe-RnyWUCQFwZpCMtttmMBaq6SP4sb9c9Z",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
