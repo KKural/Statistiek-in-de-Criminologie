@@ -1,5 +1,3 @@
-# **Besluit en vooruitblik naar volgende leerpad**
-
 ## **🎯 Wat hebben we bereikt in Hoofdstuk 2?**
 
 In dit hoofdstuk hebben we de **fundamentele bouwstenen** van statistische analyse in criminologisch onderzoek gelegd. Deze begrippen vormen de basis voor alle verdere statistische technieken die we in de cursus zullen behandelen.

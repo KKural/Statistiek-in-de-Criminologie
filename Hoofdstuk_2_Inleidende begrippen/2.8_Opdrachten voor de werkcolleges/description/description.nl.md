@@ -1,5 +1,3 @@
-# **Opdrachten voor de werkcolleges**
-
 ## **Groepsopdracht 1: Meetniveaus identificeren**
 
 **Tijd:** 20 minuten  
