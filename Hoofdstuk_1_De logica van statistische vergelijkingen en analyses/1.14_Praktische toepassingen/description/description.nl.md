@@ -1,5 +1,3 @@
-# **Praktische toepassingen**
-
 ## **Toepassing 1: Politieonderzoek - Meetniveaus in criminaliteitsregistratie**
 
 ### **Situatie:**

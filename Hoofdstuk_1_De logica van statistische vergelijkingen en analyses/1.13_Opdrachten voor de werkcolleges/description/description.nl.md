@@ -1,5 +1,3 @@
-# **Opdrachten voor de werkcolleges**
-
 ## **Opdracht 1: Meetniveaus identificeren**
 
 ### **Opdracht:**
