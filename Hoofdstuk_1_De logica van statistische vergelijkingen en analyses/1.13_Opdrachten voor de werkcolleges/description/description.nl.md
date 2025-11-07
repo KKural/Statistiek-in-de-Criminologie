@@ -1,12 +1,9 @@
 # **Opdrachten voor de werkcolleges**
 
-## **Groepsopdracht 1: Meetniveaus identificeren**
-
-**Tijd:** 20 minuten  
-**Groepsgrootte:** 2-3 studenten
+## **Opdracht 1: Meetniveaus identificeren**
 
 ### **Opdracht:**
-Bestudeer de volgende criminologische variabelen en bepaal voor elke variabele het **meetniveau** (nominaal, ordinaal, interval, ratio). Motiveer jullie keuzes.
+Bestudeer de volgende criminologische variabelen en bepaal voor elke variabele het **meetniveau** (nominaal, ordinaal, interval, ratio). Motiveer je keuzes.
 
 1. **Geslacht van verdachte** (man/vrouw)
 2. **Ernst van het misdrijf** (licht/gemiddeld/zwaar)
@@ -23,10 +20,7 @@ Bestudeer de volgende criminologische variabelen en bepaal voor elke variabele h
 
 ---
 
-## **Groepsopdracht 2: Populatie vs. Steekproef**
-
-**Tijd:** 25 minuten  
-**Groepsgrootte:** 3-4 studenten
+## **Opdracht 2: Populatie vs. Steekproef**
 
 ### **Scenario:**
 Een onderzoeker wil de relatie tussen werkloosheid en criminaliteit in Vlaanderen onderzoeken.
@@ -37,14 +31,9 @@ Een onderzoeker wil de relatie tussen werkloosheid en criminaliteit in Vlaandere
 3. **Identificeer mogelijke vertekeningen** - welke groepen zouden onder- of oververtegenwoordigd kunnen zijn?
 4. **Bepaal steekproefgrootte** - hoeveel observaties zijn nodig voor betrouwbare resultaten?
 
-### **Presentatie:**
-Elke groep presenteert hun steekproefstrategie in 3 minuten aan de klas.
-
 ---
 
-## **Individuele oefening: Parameters vs. Statistieken**
-
-**Tijd:** 15 minuten
+## **Opdracht 3: Parameters vs. Statistieken**
 
 ### **Opdracht:**
 Voor elk van de volgende stellingen, bepaal of het gaat om een **parameter** of een **statistiek**:
@@ -57,10 +46,7 @@ Voor elk van de volgende stellingen, bepaal of het gaat om een **parameter** of 
 
 ---
 
-## **Groepsopdracht 3: Onderzoeksdesign**
-
-**Tijd:** 30 minuten  
-**Groepsgrootte:** 4-5 studenten
+## **Opdracht 4: Onderzoeksdesign**
 
 ### **Casus:**
 De burgemeester van Gent wil weten of de invoering van bodycams bij politieagenten het aantal klachten tegen de politie heeft verminderd.
@@ -82,10 +68,7 @@ Welke statistische analyses zou je uitvoeren met deze data?
 
 ---
 
-## **Reflectieopdracht: Betrouwbaarheid vs. Validiteit**
-
-**Tijd:** 20 minuten  
-**Individueel, daarna klassikale discussie**
+## **Opdracht 5: Betrouwbaarheid vs. Validiteit**
 
 ### **Scenario's:**
 Beoordeel voor elk scenario de **betrouwbaarheid** en **validiteit**:
@@ -101,13 +84,10 @@ Beoordeel voor elk scenario de **betrouwbaarheid** en **validiteit**:
 
 ---
 
-## **Afronding: Begrippenquiz**
+## **Opdracht 6: Begrippentest**
 
-**Tijd:** 10 minuten  
-**Teams van 4 studenten**
-
-### **Snelle ronde begrippen:**
-De docent noemt een begrip, teams schrijven in 30 seconden de definitie op.
+### **Begrippen:**
+Geef voor elk van de volgende begrippen een korte, duidelijke definitie:
 
 - Nominaal meetniveau
 - Parameter
