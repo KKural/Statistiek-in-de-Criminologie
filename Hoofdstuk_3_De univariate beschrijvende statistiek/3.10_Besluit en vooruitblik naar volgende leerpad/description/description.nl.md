@@ -1,33 +1,64 @@
 # **Besluit en vooruitblik naar volgende leerpad**
 
-## **🎯 Wat hebben we bereikt in Hoofdstuk 2?**
+## **Besluit**
 
-In dit hoofdstuk hebben we de **fundamentele bouwstenen** van statistische analyse in criminologisch onderzoek gelegd. Deze begrippen vormen de basis voor alle verdere statistische technieken die we in de cursus zullen behandelen.
+**Univariate beschrijvende statistiek** is de **solide basis** voor alle verdere statistische analyses. Door de juiste combinatie van technieken toe te passen, vermijd je misleidende conclusies en leg je een **betrouwbaar fundament** voor verder onderzoek.
 
-### **Kernbegrippen die je nu beheerst:**
+### **Kernprincipes om te onthouden:**
 
-✅ **Meetniveaus:** Je kunt onderscheid maken tussen nominaal, ordinaal, interval en ratio meetniveau, en weet welke statistische technieken bij elk niveau horen.
+✅ **Meetniveau bepaalt keuze:** Kies grafieken en maten **passend bij het meetniveau** van je variabele
 
-✅ **Variabelen:** Je begrijpt het verschil tussen kwalitatieve en kwantitatieve variabelen, en kunt discrete en continue variabelen identificeren.
+✅ **Rapporteer altijd context:** Vermeld **n (totaal)**, onderscheid **valid vs missing**, en leg uit wat percentages betekenen
 
-✅ **Populatie vs. Steekproef:** Je snapt waarom we steekproeven gebruiken en hoe we van steekproefresultaten kunnen generaliseren naar populaties.
+✅ **Combineer maten:** Gebruik **centrum** (mediaan/gemiddelde) samen met **spreiding** (IKA/standaardafwijking) en **vorm** (scheefheid)
 
-✅ **Parameters vs. Statistieken:** Je kunt onderscheid maken tussen populatiewaarden en steekproefwaarden.
+✅ **Wees alert op uitschieters:** Gebruik **robuuste maten** (mediaan, IKA) bij scheve verdelingen of uitschieters
 
-✅ **Betrouwbaarheid vs. Validiteit:** Je begrijpt deze cruciale kwaliteitscriteria voor metingen.
+✅ **Koppel aan onderzoeksvraag:** Elke statistische keuze moet **inhoudelijk zinvol** zijn voor je criminologische vraagstelling
+
+### **Praktische checklist:**
+- [ ] Meetniveau gecontroleerd?
+- [ ] Juiste grafiek gekozen?
+- [ ] Centrummaat passend bij verdeling?
+- [ ] Spreiding gerapporteerd?
+- [ ] Uitschieters gedetecteerd?
+- [ ] n en missings vermeld?
 
 ---
 
-## **🔗 Hoe deze begrippen verbinden met de praktijk**
+## **Vooruitblik naar volgende leerpad**
 
-### **In criminologisch onderzoek gebruik je deze begrippen om:**
-- **Onderzoeksopzetten te evalueren:** Welke variabelen meet je op welk niveau?
-- **Datatypes te herkennen:** Welke analyses zijn mogelijk met jouw data?
-- **Resultaten te interpreteren:** Gaan conclusies over een steekproef of populatie?
-- **Methodologische keuzes te maken:** Welke meetinstrumenten zijn betrouwbaar en valide?
+Nu je **univariate beschrijving** beheerst, bouwen we verder naar **geavanceerdere technieken** die criminologen dagelijks gebruiken:
 
-### **In de praktijk van criminaliteitsbeleid:**
-- **Beleidseffectiviteit meten:** Welke indicatoren gebruik je?
+### **🎯 Volgende hoofdstukken:**
+
+**Hoofdstuk 4: Normale en standaardnormale verdeling**
+- **Eigenschappen** van de normaalverdeling
+- **Z-scores** en standaardiseren
+- **68-95-99.7 regel** voor interpretatie
+- **Centreren** en impact op verdelingsvorm
+
+**Hoofdstuk 5: Brug naar inferentiële statistiek**
+- Van **beschrijven** naar **voorspellen**
+- **Kansmodellen** en **steekproevenverdeling**
+- **Schattingen** en **betrouwbaarheidsintervallen**
+- **Significantietoetsing** - basis voor hypotheseonderzoek
+
+**Hoofdstuk 6: Bivariate beschrijvende statistiek**
+- **Associatie tussen twee variabelen**
+- **Kruistabellen** en **correlatie**
+- **Regressieanalyse** - voorspellen van uitkomsten
+- Toepassingen in **criminologisch onderzoek**
+
+### **🔗 Lange termijn perspectief:**
+
+Met deze **statistiche gereedschapskist** kun je straks:
+- **Onderzoeksresultaten** kritisch evalueren
+- **Beleidseffectiviteit** meten en rapporteren  
+- **Criminologische theorieën** empirisch toetsen
+- **Evidence-based** adviezen geven aan praktijk en beleid
+
+**De reis naar statistische expertise begint met een solide basis - die heb je nu gelegd! 📊**
 - **Risicoinschattingen maken:** Op welk niveau meet je risicofactoren?
 - **Interventies evalueren:** Hoe operationaliseer je 'succes'?
 

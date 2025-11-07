@@ -1,32 +1,94 @@
 # **Opdrachten voor de werkcolleges**
 
-## **Groepsopdracht 1: Meetniveaus identificeren**
+## **A. Warm-up (papieren rekenwerk, 15-20 min)**
 
-**Tijd:** 20 minuten  
-**Groepsgrootte:** 2-3 studenten
+### **Opdracht 1: Basisfrequenties**
+**Mini-dataset (n=12):** Aantal eerdere arrestaties: 0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0
 
-### **Opdracht:**
-Bestudeer de volgende criminologische variabelen en bepaal voor elke variabele het **meetniveau** (nominaal, ordinaal, interval, ratio). Motiveer jullie keuzes.
+**Taak:**
+1. Bereken **absolute**, **relatieve** en **cumulatieve** frequenties
+2. Rapporteer **n (totaal én geldig)**
+3. Teken **manueel**: staafdiagram (nominaal), cumulatief frequentiediagram (ordinaal)
 
-1. **Geslacht van verdachte** (man/vrouw)
-2. **Ernst van het misdrijf** (licht/gemiddeld/zwaar)
-3. **Aantal eerdere veroordelingen** (0, 1, 2, 3, ...)
-4. **Type misdrijf** (diefstal/geweld/fraude/drugs)
-5. **Tevredenheid met politie** (zeer ontevreden/ontevreden/neutraal/tevreden/zeer tevreden)
-6. **Leeftijd bij eerste arrestatie** (in jaren)
-7. **Inkomen** (in euro's per jaar)
-8. **Postcode woongebied** (9000, 9050, 9051, ...)
+### **Opdracht 2: Centrummaten handmatig**
+**Dataset:** Leeftijd eerste arrestatie: 14, 15, 15, 16, 16, 17, 45
 
-### **Discussievragen:**
-- Welke variabelen kunnen problemen opleveren bij classificatie? Waarom?
-- Hoe zou je ordinale variabelen kunnen omzetten naar interval/ratio niveau?
+**Taak:**
+1. Bepaal **modus**, **mediaan** en **gemiddelde**
+2. Leg uit **welke** je zou rapporteren en **waarom** (koppel aan scheefheid)
+3. Wat doet de uitschieter '45' met elke maat?
 
 ---
 
-## **Groepsopdracht 2: Populatie vs. Steekproef**
+## **B. R/Excel/SPSS oefenset (hand-in)**
 
-**Tijd:** 25 minuten  
-**Groepsgrootte:** 3-4 studenten
+### **Opdracht 3: SPSS/R Frequentietabel**
+**Dataset:** Zelfgerapporteerde delicten (n=100, inclusief 8 missings)
+
+**Taak:**
+1. Maak frequentietabel met **valid %** en **cumulatieve %**
+2. Interpreteer het aandeel **missings** en impact op 'geldig %'
+3. Waarom zijn percentages problematisch bij kleine n (<30)?
+
+### **Opdracht 4: Histogram + Scheefheid**
+**Taak:**
+1. Maak **histogram + normaalcurve**
+2. Beoordeel **scheefheid visueel**; check of **gemiddelde ≈ mediaan**
+3. Bereken **Pearson-scheefheid**: (μ - mediaan)/s
+4. Interpreteer teken en grootte in woorden
+
+### **Opdracht 5: Boxplot analyse**
+**Taak:**
+1. Rapporteer **vijf-getallensamenvatting**
+2. Bereken **IKA** (Q3-Q1)
+3. Wijs **zwakke** (°) en **extreme** (*) uitschieters aan
+4. Leg **1.5×IKA-regel** uit
+
+### **Opdracht 6: Spreiding (metrisch niveau)**
+**Taak:**
+1. Bereken **SS**, **s²** (n-1), **s** en **CV**
+2. Leg uit waarom **CV** geschikt is voor vergelijking tussen variabelen met **verschillende eenheden**
+3. Vergelijk spreiding van 'inkomen' vs 'leeftijd' via CV
+
+---
+
+## **C. Toepassingscases (criminologie)**
+
+### **Opdracht 7: Zelfrapportage delicten**
+**Scenario:** Verdeling aantal delicten (0-9) is sterk rechtsscheef
+
+**Taak:**
+1. Kies passende maat voor **centrum** en **spreiding**
+2. Motiveer t.a.v. **scheefheid** en **uitschieters**
+3. Waarom is gemiddelde hier misleidend?
+
+### **Opdracht 8: Incidentie vs Prevalentie**
+**Taak:**
+1. Geef **correcte definitie** van beide begrippen
+2. Maak voorbeeldtabel met **n** en **missing**
+3. Bereken incidentie voor 'nieuwe gedetineerden 2024'
+
+### **Opdracht 9: Nominale analyse**
+**Variabele:** Slachtofferschap (ja/nee) - 75% nee, 25% ja
+
+**Taak:**
+1. Bereken **variatieratio** (VR) 
+2. Bereken **index van diversiteit** (ID)
+3. Interpreteer beide in **gewone taal**
+
+---
+
+## **D. Format & Beoordelingscriteria**
+
+### **Inlevering:**
+- **Kort rapport** (max 2 p.) + figuren
+- Secties: **Doel – Methode – Resultaten – Interpretatie**
+
+### **Rubric:**
+- **Juistheid berekeningen** (40%)
+- **Keuze/argumentatie t.o.v. meetniveau** (30%) 
+- **Grafische kwaliteit** (20%)
+- **Helderheid** (10%)
 
 ### **Scenario:**
 Een onderzoeker wil de relatie tussen werkloosheid en criminaliteit in Vlaanderen onderzoeken.

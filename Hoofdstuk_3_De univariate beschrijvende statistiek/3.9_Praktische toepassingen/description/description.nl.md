@@ -1,33 +1,74 @@
 # **Praktische toepassingen**
 
-## **Toepassing 1: Politieonderzoek - Meetniveaus in criminaliteitsregistratie**
+## **Surveyanalyse (jeugdcriminaliteit)**
 
 ### **Situatie:**
-De politie van Gent wil hun criminaliteitsregistratie verbeteren om betere analyses te kunnen maken voor beleidsbeslissingen.
+Onderzoek naar zelfgerapporteerde delicten bij 3000 jongeren, waarbij 8% niet alle vragen heeft beantwoord.
 
-### **Huidige registratie:**
-- **Locatie:** Straatnaam (tekst)
-- **Tijdstip:** "Ochtend/Middag/Avond/Nacht"
-- **Ernst:** "Licht/Gemiddeld/Zwaar"
-- **Daderleeftijd:** "Jong/Volwassen/Ouder"
-- **Schade:** Bedrag in euro's
+### **Praktische aanpak:**
+- Gebruik **geldige percentages** en rapporteer altijd **n (totaal én geldig)**
+- Voorkom bias door missings te negeren in "valid %"
+- Bij gevoelige vragen (drugs, geweld): analyseer **missingspatroon** - zijn bepaalde groepen oververtegenwoordigd?
 
-### **Probleem:**
-De huidige categorieën maken het moeilijk om:
-- Trends over tijd te analyseren
-- Geografische hotspots te identificeren
-- Effectiviteit van interventies te meten
+### **Voorbeeld:**
+"Van de 3000 bevraagde jongeren gaven 2760 een geldig antwoord (92%). Van deze 2760 rapporteerde 23% minstens één delict het afgelopen jaar."
 
-### **Praktische oplossing:**
-**Verbeterde registratie:**
-- **Locatie:** GPS-coördinaten (ratio niveau)
-- **Tijdstip:** Exacte tijd in uren en minuten (ratio niveau)
-- **Ernst:** Numerieke schaal 1-10 (ordinaal/interval niveau)
-- **Daderleeftijd:** Exacte leeftijd in jaren (ratio niveau)
-- **Schade:** Bedrag in euro's (ratio niveau - behouden)
+---
 
-### **Voordelen:**
-- Mogelijkheid tot geavanceerde statistische analyses
+## **Communicatie naar beleid**
+
+### **Situatie:** 
+Beleidsmaker wil weten "hoeveel delicten plegen jongeren gemiddeld?" bij sterk rechtscheve verdeling.
+
+### **Praktische aanpak:**
+- Presenteer **mediaan + IKA** naast gemiddelde om vertekening door uitschieters te voorkomen
+- Leg uit waarom beide maten relevant zijn
+
+### **Voorbeeld:**
+"Het gemiddelde aantal delicten is 2.1 per jongere, maar de **mediaan is 0** - de helft pleegt geen enkel delict. De meeste actieve 25% (Q3) pleegt maximaal 3 delicten. Een kleine groep 'veelplegers' trekt het gemiddelde omhoog."
+
+---
+
+## **Kwaliteitscontrole datastroom**
+
+### **Situatie:**
+Maandelijkse criminaliteitscijfers van 5 politiezones - zijn er plotselinge veranderingen of invoerfouten?
+
+### **Praktische aanpak:**
+- **Boxplot per meetmoment** (pre/post) detecteert datainvoerfouten en uitzonderlijke casussen
+- **1.5×IKA regel** markeert automatisch verdachte waarden voor nader onderzoek
+
+### **Voorbeeld:**
+"Zone 3 toont plotseling 40% meer geweldsdelicten (*-markering in boxplot). Check: nieuwe registratieprocedure? Andere definitie? Echte stijging?"
+
+---
+
+## **Indicatorvergelijking tussen regio's**
+
+### **Situatie:**
+Vergelijking van 'criminaliteitsgraad per 1000 inwoners' vs 'politiecapaciteit per 1000 inwoners' tussen Vlaamse steden.
+
+### **Praktische aanpak:**
+- Gebruik **variatiecoëfficiënt (CV)** om variabelen met verschillende eenheden eerlijk te vergelijken
+- CV = s/gemiddelde (dimensieloos)
+
+### **Voorbeeld:**
+"Criminaliteitsgraad varieert tussen steden (CV = 0.34) meer dan politiecapaciteit (CV = 0.18). Dit suggereert dat andere factoren dan politie-inzet de criminaliteitsverschillen bepalen."
+
+---
+
+## **Educationele feedback**
+
+### **Situatie:**
+Studenten denken dat "gemiddelde" altijd "typisch" betekent.
+
+### **Praktische aanpak:**
+- Toon met **histogram + normaalcurve** waarom "gemiddelde" niet altijd "typisch" is
+- Koppel aan keuze van centrummaat bij scheefheid
+- Gebruik criminologische voorbeelden (recidive, slachtofferschap)
+
+### **Voorbeeld:**
+"Bij strafmaten is het gemiddelde 18 maanden, maar de **modus is 6 maanden** (meest voorkomende straf). Voor beleid is beide informatie relevant: typische straf (modus) vs gemiddelde kosten (gemiddelde)."
 - Betere voorspellingsmodellen
 - Meer precieze evaluatie van interventies
 
