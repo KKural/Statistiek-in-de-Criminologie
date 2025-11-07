@@ -1,9 +1,27 @@
-# **Samenvatting**
+## **Samenvatting**
 
-Dit hoofdstuk introduceert de **fundamentele begrippen** die essentieel zijn voor statistische analyse in de criminologie. De kern van het hoofdstuk ligt in het begrijpen van verschillende **meetniveaus** (nominaal, ordinaal, interval, ratio), omdat deze bepalen welke statistische technieken toegepast kunnen worden op specifieke variabelen.
+- **Causaliteit vs. statistiek:**  
+  Statistische verbanden tonen samenhang, maar geen bewijs voor oorzakelijkheid. Causaliteit veronderstelt een regelmatige en theoretisch verklaarbare afhankelijkheid tussen X en Y.
 
-Het hoofdstuk behandelt het cruciale onderscheid tussen **populatie en steekproef**, waarbij wordt uitgelegd hoe onderzoekers van steekproefgegevens kunnen generaliseren naar populaties. Daarnaast wordt het verschil tussen **beschrijvende statistiek** (het samenvatten van gegevens) en **inferentiële statistiek** (het trekken van conclusies over populaties) toegelicht.
+- **Vormen van causaliteit:**
+  - *Productieve causaliteit:* X brengt Y teweeg via een mechanisme.  
+  - *Tegenfeitelijke causaliteit:* Y zou niet optreden zonder X.  
+  - *Robuuste statistische afhankelijkheid:* P(Y|X) > P(Y); X gaat temporeel vooraf aan Y.
 
-Belangrijke concepten zoals **variabelen, parameters en statistieken** worden gedefinieerd, evenals het onderscheid tussen kwalitatieve en kwantitatieve variabelen. Het hoofdstuk benadrukt ook het belang van **betrouwbaarheid en validiteit** in statistisch onderzoek.
+- **Symmetrische relaties:**  
+  Beide variabelen beïnvloeden elkaar of zijn indicatoren van hetzelfde concept (bijv. overlast ↔ criminaliteit).
 
-Door deze fundamentele begrippen te beheersen, zijn studenten voorbereid om complexere statistische analyses te begrijpen en toe te passen in criminologisch onderzoek, waarbij ze de juiste terminologie kunnen gebruiken en de gepaste methoden kunnen selecteren voor hun onderzoeksvragen.
+- **Asymmetrische relaties:**  
+  Eén variabele beïnvloedt de andere (bijv. slechte vrienden → meer delinquentie).  
+  - **Direct effect:** X beïnvloedt Y rechtstreeks.  
+  - **Indirect effect:** X beïnvloedt Y via een derde variabele Z.
+
+- **Bivariate frequentieverdelingen:**  
+  - Voor **categorische variabelen** gebruiken we kruistabellen (contingentietabellen).  
+  - Voor **metrische variabelen** gebruiken we scatterplots (puntenwolken).  
+  Beide tonen hoe waarden van X en Y samen voorkomen.
+
+- **Keuze van associatiemaat:**  
+  1. Bepaal het **meetniveau** (nominaal, ordinaal, interval, ratio).  
+  2. Bepaal de **verwachte richting** van de relatie (symmetrisch of asymmetrisch).  
+  De juiste maat hangt af van de onderzoeksvraag en theoretische veronderstelling.
