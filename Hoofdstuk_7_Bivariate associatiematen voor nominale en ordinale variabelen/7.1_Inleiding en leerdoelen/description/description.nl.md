@@ -1,20 +1,14 @@
 # **Inleiding**
+In dit hoofdstuk staan we stil bij de belangrijkste maten die het mogelijk maken de **relatie tussen twee variabelen** te beschrijven wanneer deze op **nominaal** of **ordinaal** niveau gemeten zijn.  
+Veel criminologisch relevante kenmerken — zoals **geslacht**, **schoolniveau**, **delictsoort**, of **houding tegenover regels** — behoren tot deze categorie.  
 
-**Associatiematen** voor nominale en ordinale variabelen helpen criminologen om de **sterkte van verbanden** tussen categorische variabelen te kwantificeren. Terwijl kruistabellen laten zien óf er een verband bestaat, geven associatiematen aan **hoe sterk** dat verband is.
-
-In criminologisch onderzoek zijn we vaak geïnteresseerd in vragen zoals: Hoe sterk is het verband tussen geslacht en type delict? Is er een associatie tussen opleidingsniveau en recidive? Deze vragen vereisen **geschikte maatstaven** die rekening houden met het **meetniveau** van de variabelen.
-
-Voor **nominale variabelen** gebruiken we maten zoals **Cramér's V** en **phi-coëfficiënt**, terwijl voor **ordinale variabelen** maten zoals **gamma** en **Kendall's tau** geschikt zijn omdat ze rekening houden met de **volgorde** van categorieën.
+De centrale vraag luidt: *in welke mate hangen twee kenmerken samen?*  
+Om dit te onderzoeken gebruiken we bivariate associatiematen die inzicht geven in de **richting**, **sterkte** en **vorm** van een verband.  
+Deze analyses zijn beschrijvend van aard; ze tonen samenhang, maar **bewijzen geen causaliteit**.  
 
 # **Leerdoelen**
-
-Na dit hoofdstuk kunnen studenten:
-
-- Het verschil tussen nominale en ordinale associatiematen uitleggen.
-- Chi-kwadraat statistiek berekenen en interpreteren.
-- Cramér's V en phi-coëfficiënt toepassen voor nominale variabelen.
-- Gamma, Kendall's tau en Spearman's rho gebruiken voor ordinale variabelen.
-- De juiste associatiemaat kiezen afhankelijk van het meetniveau.
-- Associatiematen correct interpreteren in termen van sterkte van verband.
-- Beperkingen van associatiematen begrijpen.
-- Resultaten rapporteren in criminologische context.
+- Inzien hoe kruistabellen worden opgebouwd en hoe **percentages** correct worden berekend.  
+- Kunnen werken met het **percentageverschil** en de **odds ratio** bij nominale variabelen.  
+- Begrijpen hoe de **chi-kwadraat** toets (X²) wordt gebruikt om associaties te testen, en hoe hieruit **Phi** en **Cramer’s V** afgeleid worden.  
+- Inzicht hebben in de toepassing van **Gamma**, **Spearman’s Rho**, en **Kendall’s Tau-b** bij ordinale variabelen.  
+- Resultaten kunnen **inhoudelijk interpreteren** en koppelen aan criminologische theorieën.  
