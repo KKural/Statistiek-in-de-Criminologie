@@ -1,0 +1,18 @@
+{
+  "description": {
+    "names": {
+      "nl": "Oef - 1.10 Onderzoeksproces Eerste Stap"
+    }
+  },
+  "evaluation": {
+    "handler": "R",
+    "test_suite": "evaluation"
+  },
+  "programming_language": "R",
+  "access": "public",
+  "labels": [],
+  "internals": {
+    "token": "dP67g3Dxineux6rnM78bhGTSbaD5xh8VpT8xbS7zMhPE7_NX4j-CtEXPV6eC5u2j",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "description": {
+    "names": {
+      "nl": "Oef - 1.3 Nominale Variabele Identificatie"
+    }
+  },
+  "evaluation": {
+    "handler": "R",
+    "test_suite": "evaluation"
+  },
+  "programming_language": "R",
+  "access": "public",
+  "labels": [],
+  "internals": {
+    "token": "Qv2dAtdKQr-w-A_jjSxnB6Ur2HxCjh8Rbd2qaQ8F9Tb6YIdK7GWqNG5jps82f4qS",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
