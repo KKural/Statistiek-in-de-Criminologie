@@ -1,20 +1,20 @@
-# **Introductie**
+# **Inleiding**
 
-**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
+**Associatiematen** voor nominale en ordinale variabelen helpen criminologen om de **sterkte van verbanden** tussen categorische variabelen te kwantificeren. Terwijl kruistabellen laten zien óf er een verband bestaat, geven associatiematen aan **hoe sterk** dat verband is.
 
-We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
+In criminologisch onderzoek zijn we vaak geïnteresseerd in vragen zoals: Hoe sterk is het verband tussen geslacht en type delict? Is er een associatie tussen opleidingsniveau en recidive? Deze vragen vereisen **geschikte maatstaven** die rekening houden met het **meetniveau** van de variabelen.
 
-Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
+Voor **nominale variabelen** gebruiken we maten zoals **Cramér's V** en **phi-coëfficiënt**, terwijl voor **ordinale variabelen** maten zoals **gamma** en **Kendall's tau** geschikt zijn omdat ze rekening houden met de **volgorde** van categorieën.
 
-## **Leerdoelen**
+# **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
-- Het verschil tussen populatie en steekproef uitleggen.
-- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
-- Parameters en statistieken correct definiëren en gebruiken.
-- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
-- De concepten betrouwbaarheid en validiteit begrijpen.
-- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
-- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.
+- Het verschil tussen nominale en ordinale associatiematen uitleggen.
+- Chi-kwadraat statistiek berekenen en interpreteren.
+- Cramér's V en phi-coëfficiënt toepassen voor nominale variabelen.
+- Gamma, Kendall's tau en Spearman's rho gebruiken voor ordinale variabelen.
+- De juiste associatiemaat kiezen afhankelijk van het meetniveau.
+- Associatiematen correct interpreteren in termen van sterkte van verband.
+- Beperkingen van associatiematen begrijpen.
+- Resultaten rapporteren in criminologische context.

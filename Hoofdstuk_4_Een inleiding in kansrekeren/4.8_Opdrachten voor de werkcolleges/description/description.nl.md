@@ -1,5 +1,3 @@
-# **Opdrachten voor de werkcolleges**
-
 ## **A. Basisbegrip en rekenvaardigheid**
 
 ### **Opdracht 1: Dobbelsteen-experiment**

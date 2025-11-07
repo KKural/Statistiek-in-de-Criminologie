@@ -1,20 +1,21 @@
-# **Introductie**
+# **Inleiding**
 
-**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
+**Multiple regressieanalyse** breidt de eenvoudige regressie uit naar **meerdere onafhankelijke variabelen**. Terwijl eenvoudige regressie het effect van één predictor onderzoekt, stelt multiple regressie ons in staat om het **gecombineerde effect** van verschillende factoren te analyseren.
 
-We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
+In criminologisch onderzoek zijn verschijnselen zelden het gevolg van één enkele factor. Recidive hangt bijvoorbeeld af van leeftijd, eerdere veroordelingen, opleidingsniveau, werkstatus, en vele andere variabelen. **Multiple regressie** helpt ons om het **relatieve belang** van elk van deze factoren te bepalen.
 
-Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
+We leren over **regressiecoëfficiënten**, **gestandaardiseerde coëfficiënten (bèta's)**, **verklaarde variantie (R²)**, en **significantietoetsing** van individuele predictoren. Dit hoofdstuk vormt de basis voor complexere multivariate analyses.
 
-## **Leerdoelen**
+# **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
-- Het verschil tussen populatie en steekproef uitleggen.
-- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
-- Parameters en statistieken correct definiëren en gebruiken.
-- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
-- De concepten betrouwbaarheid en validiteit begrijpen.
-- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
-- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.
+- Het verschil tussen eenvoudige en multiple regressie uitleggen.
+- Multiple regressievergelijkingen opstellen en interpreteren.
+- Regressiecoëfficiënten berekenen en interpreteren.
+- Het onderscheid tussen gestandaardiseerde en ongestandaardiseerde coëfficiënten maken.
+- R² (verklaarde variantie) berekenen en interpreteren.
+- Significantietoetsing uitvoeren voor individuele predictoren.
+- Assumpties van multiple regressie controleren.
+- Multicollineariteit herkennen en beoordelen.
+- Resultaten van multiple regressie correct rapporteren in criminologische context.

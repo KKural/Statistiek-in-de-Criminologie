@@ -1,33 +1,20 @@
-# **Praktische toepassingen**
+* **Beleidsevaluatie:**
+  t-toetsen en ANOVA worden gebruikt om de effectiviteit van criminaliteitspreventie-programma's te evalueren door voor-na vergelijkingen of vergelijkingen tussen interventie- en controlegroepen.
 
-## **Toepassing 1: Politieonderzoek - Meetniveaus in criminaliteitsregistratie**
+* **Recidive-onderzoek:**
+  Betrouwbaarheidsintervallen helpen bij het rapporteren van recidivepercentages met hun onzekerheidsmarge, wat essentieel is voor beleidsmakers die realistische verwachtingen willen stellen.
 
-### **Situatie:**
-De politie van Gent wil hun criminaliteitsregistratie verbeteren om betere analyses te kunnen maken voor beleidsbeslissingen.
+* **Vergelijking tussen rechterlijke arrondissementen:**
+  ANOVA kan gebruikt worden om te onderzoeken of er significante verschillen bestaan in straftoemeting tussen verschillende rechterlijke arrondissementen.
 
-### **Huidige registratie:**
-- **Locatie:** Straatnaam (tekst)
-- **Tijdstip:** "Ochtend/Middag/Avond/Nacht"
-- **Ernst:** "Licht/Gemiddeld/Zwaar"
-- **Daderleeftijd:** "Jong/Volwassen/Ouder"
-- **Schade:** Bedrag in euro's
+* **Slachtofferonderzoek:**
+  Hypothesetoetsing helpt bij het onderzoeken of bepaalde demografische groepen significant vaker slachtoffer worden van specifieke misdrijven.
 
-### **Probleem:**
-De huidige categorieën maken het moeilijk om:
-- Trends over tijd te analyseren
-- Geografische hotspots te identificeren
-- Effectiviteit van interventies te meten
+* **Kwaliteitscontrole in onderzoek:**
+  p-waarden en significantieniveaus waarborgen dat criminologische bevindingen niet op toeval berusten, wat cruciaal is voor evidence-based beleid.
 
-### **Praktische oplossing:**
-**Verbeterde registratie:**
-- **Locatie:** GPS-coördinaten (ratio niveau)
-- **Tijdstip:** Exacte tijd in uren en minuten (ratio niveau)
-- **Ernst:** Numerieke schaal 1-10 (ordinaal/interval niveau)
-- **Daderleeftijd:** Exacte leeftijd in jaren (ratio niveau)
-- **Schade:** Bedrag in euro's (ratio niveau - behouden)
-
-### **Voordelen:**
-- Mogelijkheid tot geavanceerde statistische analyses
+* **Internationale vergelijkingen:**
+  Statistische toetsen maken het mogelijk om criminaliteitscijfers tussen landen te vergelijken en te bepalen of waargenomen verschillen statistisch significant zijn.
 - Betere voorspellingsmodellen
 - Meer precieze evaluatie van interventies
 

@@ -1,13 +1,12 @@
+# **Inleiding**
 
-## **Inleiding**
-
-**Kansrekenen** is onmisbaar voor criminologen. Elke uitspraak over **recidive, slachtofferschap of onveiligheidsbeleving** steunt op waarschijnlijkheden.
+**Kansrekeren** is onmisbaar voor criminologen. Elke uitspraak over **recidive, slachtofferschap of onveiligheidsbeleving** steunt op waarschijnlijkheden.
 
 Omdat criminologisch onderzoek vaak gebaseerd is op **steekproeven** — niet op hele populaties — moeten we begrijpen **wat een kans is**, **hoe ze berekend wordt**, en **hoe ze beslissingen onder onzekerheid ondersteunt**.
 
 Of het nu gaat om het voorspellen van **herval**, het interpreteren van **steekproefresultaten**, of het inschatten van **beleidseffecten**: kansrekenen vormt de wiskundige basis van **statistische inferentie**.
 
-## **Leerdoelen**
+# **Leerdoelen**
 
 Na dit hoofdstuk kan je:
 

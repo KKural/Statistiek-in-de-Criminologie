@@ -1,5 +1,3 @@
-# **Samenvatting Hoofdstuk 3: De univariate beschrijvende statistiek**
-
 ## **Frequentieverdelingen en grafische voorstellingen**
 
 ### **Absolute en relatieve frequenties**

@@ -1,33 +1,11 @@
-# **Besluit en vooruitblik naar volgende leerpad**
+**Inferentiële statistiek** vormt de brug tussen **steekproefgegevens** en **populatieuitspraken**. Door hypothesetoetsing, betrouwbaarheidsintervallen en variantieanalyse kunnen criminologen wetenschappelijk onderbouwde conclusies trekken die verder reiken dan hun directe observaties.
 
-## **🎯 Wat hebben we bereikt in Hoofdstuk 2?**
+De **logica van hypothesetoetsing** — het systematisch evalueren van claims tegen de kans dat ze op toeval berusten — is fundamenteel voor evidence-based criminologie. **ANOVA** breidt deze logica uit naar complexere onderzoeksdesigns met meerdere groepen.
 
-In dit hoofdstuk hebben we de **fundamentele bouwstenen** van statistische analyse in criminologisch onderzoek gelegd. Deze begrippen vormen de basis voor alle verdere statistische technieken die we in de cursus zullen behandelen.
+**Betrouwbaarheidsintervallen** communiceren onzekerheid op een eerlijke manier en helpen beleidsmakers realistische verwachtingen te vormen over interventie-effecten.
 
-### **Kernbegrippen die je nu beheerst:**
-
-✅ **Meetniveaus:** Je kunt onderscheid maken tussen nominaal, ordinaal, interval en ratio meetniveau, en weet welke statistische technieken bij elk niveau horen.
-
-✅ **Variabelen:** Je begrijpt het verschil tussen kwalitatieve en kwantitatieve variabelen, en kunt discrete en continue variabelen identificeren.
-
-✅ **Populatie vs. Steekproef:** Je snapt waarom we steekproeven gebruiken en hoe we van steekproefresultaten kunnen generaliseren naar populaties.
-
-✅ **Parameters vs. Statistieken:** Je kunt onderscheid maken tussen populatiewaarden en steekproefwaarden.
-
-✅ **Betrouwbaarheid vs. Validiteit:** Je begrijpt deze cruciale kwaliteitscriteria voor metingen.
-
----
-
-## **🔗 Hoe deze begrippen verbinden met de praktijk**
-
-### **In criminologisch onderzoek gebruik je deze begrippen om:**
-- **Onderzoeksopzetten te evalueren:** Welke variabelen meet je op welk niveau?
-- **Datatypes te herkennen:** Welke analyses zijn mogelijk met jouw data?
-- **Resultaten te interpreteren:** Gaan conclusies over een steekproef of populatie?
-- **Methodologische keuzes te maken:** Welke meetinstrumenten zijn betrouwbaar en valide?
-
-### **In de praktijk van criminaliteitsbeleid:**
-- **Beleidseffectiviteit meten:** Welke indicatoren gebruik je?
+**Volgende leerpad:**
+In het volgende hoofdstuk introduceren we **partiële correlatie** als eerste stap naar multivariate statistiek. We leren hoe we de invloed van **derde variabelen** kunnen controleren en **schijnverbanden** kunnen ontmaskeren — essentiële vaardigheden voor het begrijpen van complexe criminologische verschijnselen.
 - **Risicoinschattingen maken:** Op welk niveau meet je risicofactoren?
 - **Interventies evalueren:** Hoe operationaliseer je 'succes'?
 

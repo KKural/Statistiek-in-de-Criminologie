@@ -1,5 +1,3 @@
-# **Besluit en vooruitblik naar volgende leerpad**
-
 ## **Besluit**
 
 **Univariate beschrijvende statistiek** is de **solide basis** voor alle verdere statistische analyses. Door de juiste combinatie van technieken toe te passen, vermijd je misleidende conclusies en leg je een **betrouwbaar fundament** voor verder onderzoek.

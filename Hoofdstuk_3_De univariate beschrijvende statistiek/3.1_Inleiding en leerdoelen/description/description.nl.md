@@ -1,6 +1,4 @@
-# **Inleiding en leerdoelen**
-
-## **Inleiding tot univariate beschrijvende statistiek**
+# **Inleiding**
 
 Een **datamatrix** voor statistische analyse bestaat uit één of meerdere metingen voor alle verschillende onderzoekseenheden (individuen, objecten, gebieden, criminele gebeurtenissen). De methodologie voor het organiseren en samenvatten van gegevens wordt **beschrijvende statistiek** genoemd. 
 
@@ -8,7 +6,7 @@ Welke statistische technieken we gebruiken hangt af van twee zaken: **(1) de ond
 
 We kiezen **parameters van centraliteit** om centrale tendensen weer te geven en **parameters van spreiding** om waargenomen verschillen samen te vatten. Het **meetniveau** bepaalt welke mogelijkheden er bestaan - vergelijk het met een gereedschapskist waaruit je kiest wat geschikt is voor je variabelen.
 
-## **Leerdoelen**
+# **Leerdoelen**
 
 Na het bestuderen van dit hoofdstuk ben je in staat om:
 

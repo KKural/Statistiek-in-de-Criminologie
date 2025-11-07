@@ -1,32 +1,35 @@
-# **Opdrachten voor de werkcolleges**
+1. **Hypothesen formuleren**
 
-## **Groepsopdracht 1: Meetniveaus identificeren**
+   * Voor het onderzoek "Verschillen mannen en vrouwen in gemiddeld aantal delicten?":
+   * Formuleer H₀ en H₁
+   * Welke toets gebruik je en waarom?
+   * Wat betekenen Type I en Type II fouten in deze context?
 
-**Tijd:** 20 minuten  
-**Groepsgrootte:** 2-3 studenten
+2. **t-toets interpretatie**
 
-### **Opdracht:**
-Bestudeer de volgende criminologische variabelen en bepaal voor elke variabele het **meetniveau** (nominaal, ordinaal, interval, ratio). Motiveer jullie keuzes.
+   * Resultaat: t = -2.35, df = 48, p = 0.023
+   * Interpreteer dit resultaat bij α = 0.05
+   * Wat kun je concluderen over de groepsverschillen?
+   * Zou je conclusie veranderen bij α = 0.01?
 
-1. **Geslacht van verdachte** (man/vrouw)
-2. **Ernst van het misdrijf** (licht/gemiddeld/zwaar)
-3. **Aantal eerdere veroordelingen** (0, 1, 2, 3, ...)
-4. **Type misdrijf** (diefstal/geweld/fraude/drugs)
-5. **Tevredenheid met politie** (zeer ontevreden/ontevreden/neutraal/tevreden/zeer tevreden)
-6. **Leeftijd bij eerste arrestatie** (in jaren)
-7. **Inkomen** (in euro's per jaar)
-8. **Postcode woongebied** (9000, 9050, 9051, ...)
+3. **ANOVA oefening**
 
-### **Discussievragen:**
-- Welke variabelen kunnen problemen opleveren bij classificatie? Waarom?
-- Hoe zou je ordinale variabelen kunnen omzetten naar interval/ratio niveau?
+   * Drie wijken hebben gemiddelde criminaliteitscijfers: A=15, B=18, C=22
+   * F = 4.12, p = 0.048
+   * Wat betekent dit resultaat?
+   * Waarom heb je post-hoc toetsen nodig?
 
----
+4. **Betrouwbaarheidsinterval**
 
-## **Groepsopdracht 2: Populatie vs. Steekproef**
+   * 95% BI voor gemiddelde recidive: [0.23, 0.41]
+   * Interpreteer dit interval in gewone woorden
+   * Wat zou er gebeuren met het interval als je n vergroot?
 
-**Tijd:** 25 minuten  
-**Groepsgrootte:** 3-4 studenten
+5. **Assumpties controleren**
+
+   * Bij welke situaties is een t-toets niet geschikt?
+   * Hoe controleer je normaliteit van data?
+   * Wat doe je als varianties ongelijk zijn?
 
 ### **Scenario:**
 Een onderzoeker wil de relatie tussen werkloosheid en criminaliteit in Vlaanderen onderzoeken.

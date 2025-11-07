@@ -1,108 +1,20 @@
-# **Praktische toepassingen**
+* **Vergelijkbaarheid tussen schalen:**
+  Z-scores maken het mogelijk om prestaties of waarden op verschillende meeteenheden (bijv. angstscore, stressniveau, inkomen) op één gemeenschappelijke schaal te zetten.
 
-## **Toepassing 1: Politieonderzoek - Meetniveaus in criminaliteitsregistratie**
+* **Detectie van uitschieters:**
+  Waarden groter dan |z| > 3 komen zelden voor (slechts 0.3%) en worden als uitzonderlijk beschouwd.
 
-### **Situatie:**
-De politie van Gent wil hun criminaliteitsregistratie verbeteren om betere analyses te kunnen maken voor beleidsbeslissingen.
+* **Beleidsanalyse:**
+  Kansen onder de normale curve helpen beleidsmakers het percentage personen boven of onder een drempel (bijv. hoge recidive, hoge werkdruk) in te schatten.
 
-### **Huidige registratie:**
-- **Locatie:** Straatnaam (tekst)
-- **Tijdstip:** "Ochtend/Middag/Avond/Nacht"
-- **Ernst:** "Licht/Gemiddeld/Zwaar"
-- **Daderleeftijd:** "Jong/Volwassen/Ouder"
-- **Schade:** Bedrag in euro's
+* **Kwaliteitscontrole en evaluatie:**
+  De normale verdeling wordt gebruikt om variatie te monitoren — waarden binnen ±2σ zijn normaal, daarbuiten is mogelijk sprake van afwijkingen.
 
-### **Probleem:**
-De huidige categorieën maken het moeilijk om:
-- Trends over tijd te analyseren
-- Geografische hotspots te identificeren
-- Effectiviteit van interventies te meten
+* **Criminologische toepassing:**
+  Kansmodellen zoals de normale verdeling worden gebruikt bij schattingen van recidive, slachtofferschap of meetfouten in surveys.
 
-### **Praktische oplossing:**
-**Verbeterde registratie:**
-- **Locatie:** GPS-coördinaten (ratio niveau)
-- **Tijdstip:** Exacte tijd in uren en minuten (ratio niveau)
-- **Ernst:** Numerieke schaal 1-10 (ordinaal/interval niveau)
-- **Daderleeftijd:** Exacte leeftijd in jaren (ratio niveau)
-- **Schade:** Bedrag in euro's (ratio niveau - behouden)
-
-### **Voordelen:**
-- Mogelijkheid tot geavanceerde statistische analyses
-- Betere voorspellingsmodellen
-- Meer precieze evaluatie van interventies
-
----
-
-## **Toepassing 2: Gevangenisonderzoek - Steekproefdesign**
-
-### **Onderzoeksvraag:**
-"Wat is de effectiviteit van resocialisatieprogramma's op recidive in Belgische gevangenissen?"
-
-### **Populatie vs. Steekproef uitdaging:**
-
-**Populatie:** Alle gedetineerden die tussen 2020-2024 deelnamen aan resocialisatieprogramma's in België
-
-**Steekproefproblemen:**
-1. **Toegankelijkheid:** Niet alle gevangenissen verlenen onderzoekstoegang
-2. **Selectiebias:** Alleen gemotiveerde gedetineerden nemen deel aan programma's
-3. **Uitval:** Gedetineerden kunnen vervroegd vrijkomen of overgeplaatst worden
-
-### **Praktische oplossing:**
-
-**Gestratificeerde steekproef:**
-- **Stratum 1:** Gesloten gevangenissen (60% van steekproef)
-- **Stratum 2:** Halfopen gevangenissen (25% van steekproef)  
-- **Stratum 3:** Open gevangenissen (15% van steekproef)
-
-**Controlegroep:** Vergelijkbare gedetineerden die niet deelnamen aan programma's
-
-**Follow-up:** 2 jaar na vrijlating voor recidivemeting
-
----
-
-## **Toepassing 3: Slachtofferonderzoek - Betrouwbaarheid vs. Validiteit**
-
-### **Casus:**
-Onderzoek naar ongeregistreerde criminaliteit via slachtofferenquêtes.
-
-### **Betrouwbaarheidsproblemen:**
-1. **Herinneringsbias:** Slachtoffers vergeten details of timing
-2. **Telescoping:** Gebeurtenissen worden dichter bij het heden geplaatst
-3. **Sociale wenselijkheid:** Onderrapportage van gevoelige misdrijven
-
-### **Validiteitsproblemen:**
-1. **Non-response bias:** Bepaalde groepen weigeren mee te werken
-2. **Dekking:** Daklozen, illegalen niet bereikt via telefonische enquêtes
-3. **Definitieverschillen:** Wat slachtoffers als "misdrijf" beschouwen
-
-### **Praktische verbeteringen:**
-
-**Voor betrouwbaarheid:**
-- Multiple-item vragen voor hetzelfde incident
-- Kalendar-aided recall (gebruik van mijlpalen)
-- Test-retest procedures bij subsample
-
-**Voor validiteit:**
-- Mixed-mode datacollectie (telefoon + online + face-to-face)
-- Vertaling in meerdere talen
-- Gebruik van vertrouwde organisaties voor werving
-
----
-
-## **Toepassing 4: Reclassering - Parameters vs. Statistieken**
-
-### **Situatie:**
-De Belgische reclassering wil rapporteren over het succes van hun begeleiding.
-
-### **Beschikbare data:**
-
-**Parameter (populatiewaarde):**
-- Alle 15.000 personen onder toezicht van reclassering in 2023
-- Officiële recidivecijfers van het Centraal Strafregister
-
-**Statistiek (steekproefwaarde):**
-- Enquête bij 800 willekeurig geselecteerde cliënten
-- Zelfgerapporteerde tevredenheid met begeleiding
+* **Voorbereiding op inferentie:**
+  De kennis van de normale verdeling is essentieel voor het begrijpen van betrouwbaarheidsintervallen, p-waarden en toetsstatistieken in latere hoofdstukken.
 
 ### **Interpretatie-uitdaging:**
 - **82% van alle cliënten pleegt geen nieuwe misdrijven** (parameter)

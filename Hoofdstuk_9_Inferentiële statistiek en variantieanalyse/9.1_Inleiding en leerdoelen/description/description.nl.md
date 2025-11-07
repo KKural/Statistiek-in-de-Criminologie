@@ -1,20 +1,21 @@
-# **Introductie**
+# **Inleiding**
 
-**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
+**Inferentiële statistiek** markeert de overgang van **beschrijven** naar **generaliseren**. Terwijl beschrijvende statistiek steekproefgegevens samenvat, stelt inferentiële statistiek ons in staat om **uitspraken te doen over populaties** op basis van steekproefresultaten.
 
-We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
+**Variantieanalyse (ANOVA)** is een van de meest gebruikte technieken in criminologisch onderzoek voor het vergelijken van **gemiddelden tussen groepen**. Vragen zoals "Verschilt het gemiddelde aantal delicten tussen verschillende wijken?" of "Is er een verschil in recidive tussen verschillende interventiegroepen?" vereisen inferentiële technieken.
 
-Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
+We leren over **hypothesetoetsing**, **betrouwbaarheidsintervallen**, **p-waarden** en **significantieniveaus**. Deze concepten vormen de basis voor het trekken van wetenschappelijk onderbouwde conclusies in criminologisch onderzoek.
 
-## **Leerdoelen**
+# **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
-- Het verschil tussen populatie en steekproef uitleggen.
-- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
-- Parameters en statistieken correct definiëren en gebruiken.
-- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
-- De concepten betrouwbaarheid en validiteit begrijpen.
-- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
-- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.
+- Het verschil tussen beschrijvende en inferentiële statistiek toepassen.
+- Hypothesen formuleren (nul- en alternatieve hypothese).
+- t-toetsen uitvoeren voor één en twee steekproeven.
+- Variantieanalyse (ANOVA) toepassen voor meerdere groepen.
+- Betrouwbaarheidsintervallen berekenen en interpreteren.
+- p-waarden correct interpreteren in criminologische context.
+- Type I en Type II fouten begrijpen.
+- Assumpties van parametrische toetsen controleren.
+- Resultaten van inferentiële analyses correct rapporteren.

@@ -1,9 +1,28 @@
-# **Samenvatting**
+* **Normale verdeling (N(μ,σ))**:
 
-Dit hoofdstuk introduceert de **fundamentele begrippen** die essentieel zijn voor statistische analyse in de criminologie. De kern van het hoofdstuk ligt in het begrijpen van verschillende **meetniveaus** (nominaal, ordinaal, interval, ratio), omdat deze bepalen welke statistische technieken toegepast kunnen worden op specifieke variabelen.
+  * Symmetrisch, klokvormig en unimodaal (één piek).
+  * μ bepaalt het **centrum** van de verdeling; σ bepaalt de **spreiding** en de positie van de buigpunten (μ ± σ).
+  * 50% van de observaties ligt boven, 50% onder het gemiddelde.
 
-Het hoofdstuk behandelt het cruciale onderscheid tussen **populatie en steekproef**, waarbij wordt uitgelegd hoe onderzoekers van steekproefgegevens kunnen generaliseren naar populaties. Daarnaast wordt het verschil tussen **beschrijvende statistiek** (het samenvatten van gegevens) en **inferentiële statistiek** (het trekken van conclusies over populaties) toegelicht.
+* **Belangrijke vuistregels voor kansen:**
 
-Belangrijke concepten zoals **variabelen, parameters en statistieken** worden gedefinieerd, evenals het onderscheid tussen kwalitatieve en kwantitatieve variabelen. Het hoofdstuk benadrukt ook het belang van **betrouwbaarheid en validiteit** in statistisch onderzoek.
+  * Ongeveer **68%** ligt binnen μ ± 1σ
+  * Ongeveer **95%** ligt binnen μ ± 1.96σ
+  * Ongeveer **99.7%** ligt binnen μ ± 3σ
+    Deze regel noemt men de **68–95–99.7-regel**.
 
-Door deze fundamentele begrippen te beheersen, zijn studenten voorbereid om complexere statistische analyses te begrijpen en toe te passen in criminologisch onderzoek, waarbij ze de juiste terminologie kunnen gebruiken en de gepaste methoden kunnen selecteren voor hun onderzoeksvragen.
+* **Van normale naar standaardnormale verdeling:**
+
+  * Omdat elke normale verdeling andere waarden heeft, wordt ze **gestandaardiseerd** zodat μ = 0 en σ = 1.
+  * Formule:
+    $$Z = \frac{X - μ}{σ}$$
+  * Hierdoor kunnen kansen worden opgezocht in één tabel of berekend met `pnorm()` (R).
+
+* **Voorbeeld:**
+
+  * Gewicht ~ N(75,4).
+  * Wat is P(X > 81)?
+    Z = (81−75)/4 = 1.5 → kans links van 81 is 0.9332 → rechts is 1−0.9332 = **0.0668 (6.68%)**.
+
+* **Toepassing:**
+  De standaardnormale verdeling maakt het mogelijk om kansen te berekenen, waarden te vergelijken, en conclusies te trekken over populaties op basis van steekproeven.

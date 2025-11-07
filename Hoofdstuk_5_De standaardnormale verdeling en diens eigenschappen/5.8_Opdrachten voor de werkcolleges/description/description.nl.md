@@ -1,119 +1,29 @@
-# **Opdrachten voor de werkcolleges**
 
-## **Groepsopdracht 1: Meetniveaus identificeren**
+1. **Z-scores berekenen en interpreteren**
 
-**Tijd:** 20 minuten  
-**Groepsgrootte:** 2-3 studenten
+   * Bij N(168,12): bereken Z voor 143 cm en geef aan wat dit betekent.
+   * Zoek met de tabel de kans dat X ≤ 143 cm.
+   * Vergelijk je resultaat met de symmetrie van de verdeling.
 
-### **Opdracht:**
-Bestudeer de volgende criminologische variabelen en bepaal voor elke variabele het **meetniveau** (nominaal, ordinaal, interval, ratio). Motiveer jullie keuzes.
+2. **Intervallen rond het gemiddelde**
 
-1. **Geslacht van verdachte** (man/vrouw)
-2. **Ernst van het misdrijf** (licht/gemiddeld/zwaar)
-3. **Aantal eerdere veroordelingen** (0, 1, 2, 3, ...)
-4. **Type misdrijf** (diefstal/geweld/fraude/drugs)
-5. **Tevredenheid met politie** (zeer ontevreden/ontevreden/neutraal/tevreden/zeer tevreden)
-6. **Leeftijd bij eerste arrestatie** (in jaren)
-7. **Inkomen** (in euro's per jaar)
-8. **Postcode woongebied** (9000, 9050, 9051, ...)
+   * Bij N(100,15): bereken de kans dat een score tussen 85 en 115 ligt.
+   * Bereken ook de kans tussen 70 en 130.
+   * Vergelijk je resultaten met de 68–95–99.7-regel.
 
-### **Discussievragen:**
-- Welke variabelen kunnen problemen opleveren bij classificatie? Waarom?
-- Hoe zou je ordinale variabelen kunnen omzetten naar interval/ratio niveau?
+3. **Criminologisch voorbeeld: gewicht**
 
----
+   * In een steekproef van delinquenten geldt N(75,4).
+   * Wat is de kans dat iemand meer dan 81 kg weegt?
+   * Wat is de kans dat iemand tussen 71 en 79 kg weegt?
 
-## **Groepsopdracht 2: Populatie vs. Steekproef**
+4. **Zwangerschapsduur N(280,10):**
 
-**Tijd:** 25 minuten  
-**Groepsgrootte:** 3-4 studenten
+   * Kans op geboorte later dan 294 dagen.
+   * Kans op geboorte tussen 272 en 288 dagen.
+   * Leg uit wat deze kansen betekenen in gewone taal.
 
-### **Scenario:**
-Een onderzoeker wil de relatie tussen werkloosheid en criminaliteit in Vlaanderen onderzoeken.
+5. **Interpretatie-oefening**
 
-### **Opdracht:**
-1. **Definieer de populatie** voor dit onderzoek
-2. **Ontwerp een steekproefstrategie** - welke methode zou je gebruiken?
-3. **Identificeer mogelijke vertekeningen** - welke groepen zouden onder- of oververtegenwoordigd kunnen zijn?
-4. **Bepaal steekproefgrootte** - hoeveel observaties zijn nodig voor betrouwbare resultaten?
-
-### **Presentatie:**
-Elke groep presenteert hun steekproefstrategie in 3 minuten aan de klas.
-
----
-
-## **Individuele oefening: Parameters vs. Statistieken**
-
-**Tijd:** 15 minuten
-
-### **Opdracht:**
-Voor elk van de volgende stellingen, bepaal of het gaat om een **parameter** of een **statistiek**:
-
-1. Het gemiddelde aantal misdrijven per inwoner in België in 2023
-2. Het percentage gewelddadige criminaliteit in een steekproef van 500 politierapporten
-3. De correlatie tussen leeftijd en criminaliteit in alle Europese landen
-4. De standaarddeviatie van gevangenisstraffen in een onderzoek naar 200 rechtszaken
-5. Het percentage recidive in de volledige populatie ex-gedetineerden van 2020
-
----
-
-## **Groepsopdracht 3: Onderzoeksdesign**
-
-**Tijd:** 30 minuten  
-**Groepsgrootte:** 4-5 studenten
-
-### **Casus:**
-De burgemeester van Gent wil weten of de invoering van bodycams bij politieagenten het aantal klachten tegen de politie heeft verminderd.
-
-### **Opdracht:**
-1. **Formuleer de onderzoeksvraag** precies
-2. **Identificeer variabelen:**
-   - Afhankelijke variabele(n)
-   - Onafhankelijke variabele(n)
-   - Mogelijk confounding variabelen
-3. **Bepaal meetniveaus** voor alle variabelen
-4. **Ontwerp datacollectie:**
-   - Welke data heb je nodig?
-   - Waar vind je deze data?
-   - Hoe lang moet je data verzamelen?
-
-### **Bonus:**
-Welke statistische analyses zou je uitvoeren met deze data?
-
----
-
-## **Reflectieopdracht: Betrouwbaarheid vs. Validiteit**
-
-**Tijd:** 20 minuten  
-**Individueel, daarna klassikale discussie**
-
-### **Scenario's:**
-Beoordeel voor elk scenario de **betrouwbaarheid** en **validiteit**:
-
-**Scenario A:** Een politieagent telt elke dag het aantal fietsdiefstallen door meldingen op het commissariaat
-**Scenario B:** Een onderzoeker gebruikt camerabewaking om geweldsincidenten in uitgaansgebieden te tellen
-**Scenario C:** Een enquête vraagt respondenten naar hun eigen criminele gedrag in het afgelopen jaar
-
-### **Vragen:**
-1. Welke metingen zijn betrouwbaar maar niet valide?
-2. Welke metingen zijn valide maar niet betrouwbaar?
-3. Hoe zou je de betrouwbaarheid en validiteit kunnen verbeteren?
-
----
-
-## **Afronding: Begrippenquiz**
-
-**Tijd:** 10 minuten  
-**Teams van 4 studenten**
-
-### **Snelle ronde begrippen:**
-De docent noemt een begrip, teams schrijven in 30 seconden de definitie op.
-
-- Nominaal meetniveau
-- Parameter
-- Steekproefvertekening
-- Kwantitatieve variabele
-- Betrouwbaarheid
-- Populatie
-- Statistiek
-- Validiteit
+   * Schrijf in eigen woorden wat een negatieve z-score betekent.
+   * Leg uit waarom z = 0 overeenkomt met het gemiddelde.

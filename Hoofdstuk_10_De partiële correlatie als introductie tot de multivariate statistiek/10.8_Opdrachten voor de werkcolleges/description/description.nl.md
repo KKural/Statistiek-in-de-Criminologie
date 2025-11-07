@@ -1,12 +1,31 @@
-# **Opdrachten voor de werkcolleges**
+1. **Partiële correlatie berekenen**
 
-## **Groepsopdracht 1: Meetniveaus identificeren**
+   * Gegeven: r_xy = 0.65, r_xz = 0.40, r_yz = 0.30
+   * Bereken r_xy.z (partiële correlatie tussen X en Y gecontroleerd voor Z)
+   * Interpreteer het verschil tussen r_xy en r_xy.z
 
-**Tijd:** 20 minuten  
-**Groepsgrootte:** 2-3 studenten
+2. **Schijnverbanden herkennen**
 
-### **Opdracht:**
-Bestudeer de volgende criminologische variabelen en bepaal voor elke variabele het **meetniveau** (nominaal, ordinaal, interval, ratio). Motiveer jullie keuzes.
+   * Verband tussen leeftijd en criminaliteit: r = -0.45
+   * Na controle voor inkomen: r_partieel = -0.15
+   * Wat betekent dit? Is er sprake van mediatie of suppressie?
+
+3. **Controlevariabelen kiezen**
+
+   * Onderzoek naar verband tussen alcoholgebruik en geweldsdelicten
+   * Welke variabelen zou je willen controleren en waarom?
+   * Rangschik ze naar belangrijkheid
+
+4. **Mediatie vs. directe effecten**
+
+   * X = Werkloosheid, Y = Criminaliteit, Z = Stress
+   * r_xy = 0.50, r_xy.z = 0.25
+   * Teken het paddiagram en leg de resultaten uit
+
+5. **Multiple controle**
+
+   * Wanneer controleer je voor meerdere variabelen tegelijk?
+   * Wat zijn de voor- en nadelen hiervan?
 
 1. **Geslacht van verdachte** (man/vrouw)
 2. **Ernst van het misdrijf** (licht/gemiddeld/zwaar)

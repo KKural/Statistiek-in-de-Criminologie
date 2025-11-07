@@ -1,5 +1,3 @@
-# **Praktische toepassingen**
-
 ## **Steekproeftrekking**
 
 ### **Situatie:**

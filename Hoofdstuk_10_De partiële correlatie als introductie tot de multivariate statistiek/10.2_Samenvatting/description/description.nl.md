@@ -1,9 +1,24 @@
-# **Samenvatting**
+* **Partiële correlatie** meet het verband tussen twee variabelen **na controle voor één of meer derde variabelen**.
 
-Dit hoofdstuk introduceert de **fundamentele begrippen** die essentieel zijn voor statistische analyse in de criminologie. De kern van het hoofdstuk ligt in het begrijpen van verschillende **meetniveaus** (nominaal, ordinaal, interval, ratio), omdat deze bepalen welke statistische technieken toegepast kunnen worden op specifieke variabelen.
+* **Formule voor eerste-orde partiële correlatie**:
+  $$r_{xy.z} = \frac{r_{xy} - r_{xz} \cdot r_{yz}}{\sqrt{(1-r_{xz}^2)(1-r_{yz}^2)}}$$
 
-Het hoofdstuk behandelt het cruciale onderscheid tussen **populatie en steekproef**, waarbij wordt uitgelegd hoe onderzoekers van steekproefgegevens kunnen generaliseren naar populaties. Daarnaast wordt het verschil tussen **beschrijvende statistiek** (het samenvatten van gegevens) en **inferentiële statistiek** (het trekken van conclusies over populaties) toegelicht.
+* **Interpretatie**:
+  * **|r_{xy.z}| < |r_{xy}|**: derde variabele verklaart een deel van het verband (mediatie)
+  * **|r_{xy.z}| ≈ |r_{xy}|**: derde variabele heeft weinig invloed
+  * **r_{xy.z} ≈ 0** maar **r_{xy} ≠ 0**: schijnverband (suppressie)
 
-Belangrijke concepten zoals **variabelen, parameters en statistieken** worden gedefinieerd, evenals het onderscheid tussen kwalitatieve en kwantitatieve variabelen. Het hoofdstuk benadrukt ook het belang van **betrouwbaarheid en validiteit** in statistisch onderzoek.
+* **Controlevariabelen kiezen**:
+  * **Theoretisch relevant**: moet logisch verband hebben met X en Y
+  * **Temporele volgorde**: controlevariabele komt meestal eerder in tijd
+  * **Niet te veel tegelijk**: elke controlevariabele kost vrijheidsgraden
 
-Door deze fundamentele begrippen te beheersen, zijn studenten voorbereid om complexere statistische analyses te begrijpen en toe te passen in criminologisch onderzoek, waarbij ze de juiste terminologie kunnen gebruiken en de gepaste methoden kunnen selecteren voor hun onderzoeksvragen.
+* **Multivariate logica**:
+  * **Directe effecten**: X → Y (na controle voor Z)
+  * **Indirecte effecten**: X → Z → Y (mediatie)
+  * **Schijnverbanden**: X ← Z → Y (confounding)
+
+* **Beperkingen**:
+  * Alleen lineaire verbanden
+  * Assumpties van Pearson correlatie blijven gelden
+  * Causale interpretatie vereist theoretische onderbouwing

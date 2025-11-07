@@ -1,5 +1,3 @@
-# **Besluit en vooruitblik naar volgende leerpad**
-
 ## **Besluit**
 
 **Kansrekenen** biedt criminologen de **taal om onzekerheid te kwantificeren**. Of het nu gaat om **steekproeven**, **risico-inschatting** of **beleidsevaluatie**: zonder inzicht in kansregels en verdelingen is statistische redenering onmogelijk.

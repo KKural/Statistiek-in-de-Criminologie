@@ -1,5 +1,3 @@
-# **Opdrachten voor de werkcolleges**
-
 ## **A. Warm-up (papieren rekenwerk, 15-20 min)**
 
 ### **Opdracht 1: Basisfrequenties**

@@ -1,5 +1,3 @@
-# **Samenvatting Hoofdstuk 4: Een inleiding in kansrekenen**
-
 ## **Kansen als fundament**
 Een **kans (P)** is een waarde tussen 0 en 1 of 0–100%:
 

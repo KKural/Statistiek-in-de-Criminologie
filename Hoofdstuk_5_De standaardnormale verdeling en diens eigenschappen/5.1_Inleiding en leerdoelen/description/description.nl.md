@@ -1,20 +1,15 @@
-# **Introductie**
+# **Inleiding**
 
-**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
+De **normale verdeling** of **Gauss-curve** is een theoretische verdeling die veel natuurlijke en sociale verschijnselen beschrijft. Wanneer we de waarden van een continu kenmerk op de X-as plaatsen en de frequenties op de Y-as, ontstaat vaak een klokvormige curve. De meeste observaties liggen rond het **gemiddelde (μ)**, terwijl er minder voorkomen aan de uiterste zijden.
 
-We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
+De **oppervlakte onder de curve** stelt 100% van de observaties voor en kan worden geïnterpreteerd als een **kans (probabiliteit)**. De verdeling is symmetrisch rond het gemiddelde en wordt volledig bepaald door twee parameters: het gemiddelde (μ) en de standaardafwijking (σ).
 
-Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
+Bij het analyseren van steekproefgegevens gebruiken criminologen vaak kansen om uitspraken te doen over een grotere populatie. De normale verdeling speelt hierbij een centrale rol, zeker wanneer we waarden standaardiseren tot **z-scores**. Deze standaardisering maakt het mogelijk om alle normale verdelingen te herleiden tot één gemeenschappelijke schaal: de **standaardnormale verdeling** (N(0,1)).
 
-## **Leerdoelen**
+# **Leerdoelen**
 
-Na dit hoofdstuk kunnen studenten:
-
-- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
-- Het verschil tussen populatie en steekproef uitleggen.
-- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
-- Parameters en statistieken correct definiëren en gebruiken.
-- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
-- De concepten betrouwbaarheid en validiteit begrijpen.
-- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
-- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.
+* De eigenschappen van de normale verdeling uitleggen (symmetrie, buigpunten, 68–95–99.7-regel).
+* Inzien hoe kansen overeenkomen met oppervlakten onder de curve.
+* Waarden standaardiseren tot z-scores en de betekenis ervan interpreteren.
+* De tabel van de standaardnormale verdeling gebruiken om kansen te berekenen.
+* Begrijpen waarom standaardisering essentieel is voor inferentiële statistiek.

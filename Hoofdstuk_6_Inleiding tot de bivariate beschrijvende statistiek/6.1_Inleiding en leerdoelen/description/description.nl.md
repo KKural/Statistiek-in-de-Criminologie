@@ -1,20 +1,21 @@
-# **Introductie**
+# **Inleiding**
 
-**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
+De **bivariate beschrijvende statistiek** onderzoekt relaties tussen twee variabelen. In de criminologie is dit belangrijk omdat crimineel gedrag zelden één enkele oorzaak heeft, maar voortkomt uit een **complex samenspel van factoren** op individueel, sociaal en contextueel niveau.
 
-We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
+Hoewel **causaliteit** een kernbegrip is in theoretische criminologie, kan statistiek nooit oorzakelijke verbanden bewijzen. Statistische relaties tonen enkel de **sterkte**, **richting** en **vorm** van samenhangen tussen variabelen.  
+Toch geldt: **waar causaliteit bestaat, is er ook statistische samenhang.**
 
-Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
+Criminologen spreken meestal over **contributieve oorzaken** — factoren die de kans op een bepaald gedrag verhogen of verlagen, maar die niet op zichzelf voldoende of noodzakelijk zijn.
 
-## **Leerdoelen**
+Daarnaast maken we onderscheid tussen twee niveaus van causaliteit:
+- **Singuliere causaliteit:** verklaring op individueel niveau (bijv. waarom een persoon een misdrijf pleegde).
+- **Algemene causaliteit:** verklaring op groepsniveau (bijv. waarom jongeren met bepaalde kenmerken vaker delicten plegen).
 
-Na dit hoofdstuk kunnen studenten:
+De bivariate statistiek bestudeert deze **veralgemeenbare causaliteit**, waarbij men zoekt naar systematische patronen die beleidsrelevant zijn.
 
-- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
-- Het verschil tussen populatie en steekproef uitleggen.
-- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
-- Parameters en statistieken correct definiëren en gebruiken.
-- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
-- De concepten betrouwbaarheid en validiteit begrijpen.
-- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
-- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.
+**Leerdoelen:**
+- Het verschil begrijpen tussen causale en statistische relaties.  
+- De verschillende vormen van causaliteit kunnen benoemen (productief, tegenfeitelijk, robuust statistisch).  
+- Het onderscheid kennen tussen **symmetrische** en **asymmetrische** relaties.  
+- De juiste **associatiemaat** kunnen kiezen op basis van meetniveau en onderzoeksvraag.  
+- De betekenis van **celfrequenties, rijtotalen, kolomtotalen** en **scatterplots** begrijpen.

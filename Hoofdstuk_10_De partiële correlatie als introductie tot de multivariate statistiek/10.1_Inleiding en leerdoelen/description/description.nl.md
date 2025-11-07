@@ -1,20 +1,21 @@
-# **Introductie**
+# **Inleiding**
 
-**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
+**Partiële correlatie** vormt de brug tussen **bivariate** en **multivariate statistiek**. Terwijl gewone correlatie het verband tussen twee variabelen meet, houdt partiële correlatie rekening met de **invloed van derde variabelen** (controlevariabelen).
 
-We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
+In criminologisch onderzoek is dit cruciaal omdat verbanden vaak **schijnverbanden** kunnen zijn. Het verband tussen leeftijd en criminaliteit kan bijvoorbeeld worden beïnvloed door sociaal-economische status. **Partiële correlatie** helpt ons om het **'echte' verband** te ontdekken door de invloed van andere factoren uit te schakelen.
 
-Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
+Dit hoofdstuk introduceert de logica van **multivariate analyse**: het gelijktijdig bestuderen van meerdere variabelen om een complexer beeld te krijgen van criminologische verschijnselen. We bereiden ons voor op geavanceerdere technieken zoals **multiple regressie**.
 
-## **Leerdoelen**
+# **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
-- Het verschil tussen populatie en steekproef uitleggen.
-- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
-- Parameters en statistieken correct definiëren en gebruiken.
-- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
-- De concepten betrouwbaarheid en validiteit begrijpen.
-- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
-- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.
+- Het verschil tussen gewone en partiële correlatie uitleggen.
+- Het concept van controlevariabelen begrijpen en toepassen.
+- Partiële correlatiecoëfficiënten berekenen en interpreteren.
+- Schijnverbanden herkennen en analyseren.
+- De logica van multivariate analyse begrijpen.
+- Het verschil tussen directe en indirecte effecten uitleggen.
+- Resultaten van partiële correlatie correct interpreteren in criminologische context.
+- Voorbereid zijn op complexere multivariate technieken.
+- De beperkingen van partiële correlatie begrijpen.
