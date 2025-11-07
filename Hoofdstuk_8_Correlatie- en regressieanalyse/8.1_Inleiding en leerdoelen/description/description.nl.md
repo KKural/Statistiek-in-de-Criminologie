@@ -1,22 +1,20 @@
 # **Introductie**
 
-**Correlatie- en regressieanalyse** behoren tot de meest gebruikte en krachtige statistische technieken in criminologisch onderzoek. Dit hoofdstuk introduceert deze fundamentele methoden voor het analyseren van lineaire relaties tussen continue variabelen.
+**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
 
-We beginnen met **correlatieanalyse**, waarbij we leren hoe we de sterkte en richting van lineaire relaties kunnen meten met de Pearson correlatiecoëfficiënt. Vervolgens stappen we over naar **regressieanalyse**, die ons niet alleen toelaat om relaties te beschrijven, maar ook om voorspellingen te maken.
+We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
 
-Het hoofdstuk behandelt **assumptie-controle**, interpretatie van resultaten, en de praktische betekenis van correlatie- en regressiecoëfficiënten. Bijzondere aandacht gaat uit naar het onderscheid tussen correlatie en causatie - een cruciaal concept in criminologisch onderzoek.
-
-In de criminologie zijn deze technieken onmisbaar: van het onderzoeken van de relatie tussen sociaaleconomische status en criminaliteitscijfers tot het voorspellen van recidiverisico op basis van verschillende risicofactoren. Door correlatie en regressie te beheersen, kunnen onderzoekers complexe relaties analyseren en evidence-based aanbevelingen formuleren.
+Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
 
 ## **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- Pearson correlatiecoëfficiënten berekenen en interpreteren.
-- Spreidingsdiagrammen analyseren en lineaire patronen identificeren.
-- Eenvoudige lineaire regressieanalyses uitvoeren.
-- Regressievergelijkingen opstellen en interpreteren.
-- Het verschil tussen correlatie en causatie uitleggen.
-- Assumptie-controles uitvoeren voor correlatie en regressie.
-- Voorspellingen maken met regressiemodellen.
-- Criminologische toepassingen van correlatie en regressie herkennen.
+- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
+- Het verschil tussen populatie en steekproef uitleggen.
+- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
+- Parameters en statistieken correct definiëren en gebruiken.
+- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
+- De concepten betrouwbaarheid en validiteit begrijpen.
+- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
+- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.

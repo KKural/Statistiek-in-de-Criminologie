@@ -1,9 +1,9 @@
 # **Samenvatting**
 
-Dit slothoofdstuk behandelt **complexere relaties tussen variabelen** en introduceert geavanceerde statistische concepten die de realiteit van criminologisch onderzoek beter benaderen. Het gaat verder dan eenvoudige lineaire en additieve modellen naar meer genuanceerde analyses.
+Dit hoofdstuk introduceert de **fundamentele begrippen** die essentieel zijn voor statistische analyse in de criminologie. De kern van het hoofdstuk ligt in het begrijpen van verschillende **meetniveaus** (nominaal, ordinaal, interval, ratio), omdat deze bepalen welke statistische technieken toegepast kunnen worden op specifieke variabelen.
 
-**Interactie-effecten** worden systematisch behandeld, waarbij wordt uitgelegd hoe de relatie tussen variabelen kan verschillen afhankelijk van de waarde van andere variabelen. **Niet-lineaire relaties** worden geïntroduceerd, inclusief kwadratische en andere polynomiale termen.
+Het hoofdstuk behandelt het cruciale onderscheid tussen **populatie en steekproef**, waarbij wordt uitgelegd hoe onderzoekers van steekproefgegevens kunnen generaliseren naar populaties. Daarnaast wordt het verschil tussen **beschrijvende statistiek** (het samenvatten van gegevens) en **inferentiële statistiek** (het trekken van conclusies over populaties) toegelicht.
 
-Het hoofdstuk introduceert de belangrijke concepten van **mediatie en moderatie** als kaders voor het begrijpen van complexe causale mechanismen. Deze technieken helpen onderzoekers om te begrijpen hoe effecten tot stand komen (mediatie) en wanneer ze optreden (moderatie).
+Belangrijke concepten zoals **variabelen, parameters en statistieken** worden gedefinieerd, evenals het onderscheid tussen kwalitatieve en kwantitatieve variabelen. Het hoofdstuk benadrukt ook het belang van **betrouwbaarheid en validiteit** in statistisch onderzoek.
 
-De toepassingen in modern criminologisch onderzoek zijn veelvuldig: het onderzoeken van drempeleffecten in preventie-interventies, het analyseren van interacties tussen risicofactoren, of het begrijpen van de mechanismen waardoor sociale interventies werkzaam zijn. Door deze geavanceerde technieken te beheersen, kunnen onderzoekers meer accurate en genuanceerde modellen ontwikkelen die recht doen aan de complexiteit van criminologische fenomenen.
+Door deze fundamentele begrippen te beheersen, zijn studenten voorbereid om complexere statistische analyses te begrijpen en toe te passen in criminologisch onderzoek, waarbij ze de juiste terminologie kunnen gebruiken en de gepaste methoden kunnen selecteren voor hun onderzoeksvragen.

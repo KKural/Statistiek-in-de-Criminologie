@@ -1,22 +1,20 @@
 # **Introductie**
 
-**Bivariate associatiematen** voor nominale en ordinale variabelen vormen essentiële instrumenten in criminologisch onderzoek, waar veel variabelen categorisch van aard zijn. Dit hoofdstuk introduceert specifieke statistische maten die de sterkte van associaties tussen categorische variabelen kwantificeren.
+**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
 
-We behandelen verschillende **associatiematen** zoals chi-kwadraat, Cramér's V, lambda, en gamma, waarbij elk geschikt is voor verschillende combinaties van nominale en ordinale variabelen. Deze maten stellen onderzoekers in staat om objectief te bepalen hoe sterk variabelen met elkaar gerelateerd zijn.
+We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
 
-Het hoofdstuk legt ook de nadruk op **interpretatie en toepassing**: wanneer gebruik je welke maat? Hoe interpreteer je de resultaten? En wat zijn de beperkingen van elke maat? Deze kennis is cruciaal voor het correct analyseren van criminologische data.
-
-In de criminologie komen we vaak categorische variabelen tegen: geslacht, type misdrijf, strafrechtelijke geschiedenis, buurttype, of recidive (ja/nee). Door de juiste associatiematen te kunnen toepassen, kunnen onderzoekers belangrijke verbanden ontdekken die bijdragen aan ons begrip van criminele fenomenen.
+Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
 
 ## **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- Verschillende bivariate associatiematen voor categorische variabelen onderscheiden.
-- Chi-kwadraat statistiek berekenen en interpreteren.
-- Cramér's V, lambda, en gamma toepassen waar geschikt.
-- De juiste associatiemaat kiezen voor verschillende combinaties van variabelen.
-- Resultaten van associatiematen correct interpreteren.
-- Beperkingen van verschillende maten herkennen.
-- Associatiematen toepassen op criminologische vraagstellingen.
-- Statistische significantie en praktische relevantie onderscheiden.
+- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
+- Het verschil tussen populatie en steekproef uitleggen.
+- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
+- Parameters en statistieken correct definiëren en gebruiken.
+- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
+- De concepten betrouwbaarheid en validiteit begrijpen.
+- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
+- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.

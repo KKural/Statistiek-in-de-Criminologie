@@ -1,11 +1,9 @@
 # **Samenvatting**
 
-Dit hoofdstuk introduceert **correlatie- en regressieanalyse**, twee van de meest gebruikte statistische technieken voor het analyseren van lineaire relaties tussen continue variabelen in criminologisch onderzoek.
+Dit hoofdstuk introduceert de **fundamentele begrippen** die essentieel zijn voor statistische analyse in de criminologie. De kern van het hoofdstuk ligt in het begrijpen van verschillende **meetniveaus** (nominaal, ordinaal, interval, ratio), omdat deze bepalen welke statistische technieken toegepast kunnen worden op specifieke variabelen.
 
-**Correlatieanalyse** wordt behandeld als methode voor het meten van de sterkte en richting van lineaire relaties, met de Pearson correlatiecoëfficiënt als centrale maat. Het hoofdstuk legt uit hoe correlaties geïnterpreteerd worden en welke voorzorgsmaatregelen genomen moeten worden.
+Het hoofdstuk behandelt het cruciale onderscheid tussen **populatie en steekproef**, waarbij wordt uitgelegd hoe onderzoekers van steekproefgegevens kunnen generaliseren naar populaties. Daarnaast wordt het verschil tussen **beschrijvende statistiek** (het samenvatten van gegevens) en **inferentiële statistiek** (het trekken van conclusies over populaties) toegelicht.
 
-**Regressieanalyse** wordt geïntroduceerd als uitbreiding van correlatie, waarbij niet alleen relaties beschreven worden maar ook voorspellingen mogelijk zijn. Het opstellen en interpreteren van regressievergelijkingen wordt systematisch behandeld.
+Belangrijke concepten zoals **variabelen, parameters en statistieken** worden gedefinieerd, evenals het onderscheid tussen kwalitatieve en kwantitatieve variabelen. Het hoofdstuk benadrukt ook het belang van **betrouwbaarheid en validiteit** in statistisch onderzoek.
 
-Cruciale aandacht gaat uit naar **assumptie-controle** en het onderscheid tussen **correlatie en causatie**. Het hoofdstuk benadrukt dat statistische associaties niet automatisch causale relaties impliceren.
-
-De toepassingen in criminologie zijn veelvuldig: van het onderzoeken van relaties tussen sociaaleconomische variabelen en criminaliteit tot het ontwikkelen van voorspellingsmodellen voor recidive. Deze technieken stellen onderzoekers in staat om complexe relaties te analyseren en evidence-based conclusies te trekken.
+Door deze fundamentele begrippen te beheersen, zijn studenten voorbereid om complexere statistische analyses te begrijpen en toe te passen in criminologisch onderzoek, waarbij ze de juiste terminologie kunnen gebruiken en de gepaste methoden kunnen selecteren voor hun onderzoeksvragen.

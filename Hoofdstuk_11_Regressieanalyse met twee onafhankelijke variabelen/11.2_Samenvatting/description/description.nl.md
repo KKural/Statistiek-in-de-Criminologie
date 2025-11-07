@@ -1,9 +1,9 @@
 # **Samenvatting**
 
-Dit hoofdstuk introduceert **multiple regressieanalyse** als fundamentele techniek voor het analyseren van complexe relaties in criminologisch onderzoek. De overgang van eenvoudige naar multiple regressie markeert de stap naar echte multivariate statistiek.
+Dit hoofdstuk introduceert de **fundamentele begrippen** die essentieel zijn voor statistische analyse in de criminologie. De kern van het hoofdstuk ligt in het begrijpen van verschillende **meetniveaus** (nominaal, ordinaal, interval, ratio), omdat deze bepalen welke statistische technieken toegepast kunnen worden op specifieke variabelen.
 
-Het hoofdstuk behandelt de **interpretatie van regressiecoëfficiënten** in multivariate context, waarbij elke coëfficiënt de relatie weergeeft tussen een predictor en de afhankelijke variabele, gecontroleerd voor alle andere predictoren in het model. **R-kwadraat** wordt uitgelegd als maat voor de totale verklaarde variantie.
+Het hoofdstuk behandelt het cruciale onderscheid tussen **populatie en steekproef**, waarbij wordt uitgelegd hoe onderzoekers van steekproefgegevens kunnen generaliseren naar populaties. Daarnaast wordt het verschil tussen **beschrijvende statistiek** (het samenvatten van gegevens) en **inferentiële statistiek** (het trekken van conclusies over populaties) toegelicht.
 
-Bijzondere aandacht gaat uit naar **multicollineariteit** - het probleem wanneer onafhankelijke variabelen sterk gecorreleerd zijn - en de gevolgen daarvan voor interpretatie. **Assumptie-controles** worden systematisch behandeld om valide resultaten te waarborgen.
+Belangrijke concepten zoals **variabelen, parameters en statistieken** worden gedefinieerd, evenals het onderscheid tussen kwalitatieve en kwantitatieve variabelen. Het hoofdstuk benadrukt ook het belang van **betrouwbaarheid en validiteit** in statistisch onderzoek.
 
-De toepassingen in criminologie zijn veelvuldig: het ontwikkelen van voorspellingsmodellen voor recidive op basis van meerdere risicofactoren, het onderzoeken van de gecombineerde effecten van sociale en economische variabelen op criminaliteit, of het evalueren van interventies terwijl gecontroleerd wordt voor confounding variabelen. Multiple regressie vormt de basis voor veel geavanceerdere statistische modellen in criminologisch onderzoek.
+Door deze fundamentele begrippen te beheersen, zijn studenten voorbereid om complexere statistische analyses te begrijpen en toe te passen in criminologisch onderzoek, waarbij ze de juiste terminologie kunnen gebruiken en de gepaste methoden kunnen selecteren voor hun onderzoeksvragen.

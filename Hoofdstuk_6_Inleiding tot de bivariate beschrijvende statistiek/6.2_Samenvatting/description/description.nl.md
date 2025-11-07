@@ -1,9 +1,9 @@
 # **Samenvatting**
 
-Dit hoofdstuk introduceert **bivariate beschrijvende statistiek**, waarbij de focus verschuift van het analyseren van individuele variabelen naar het onderzoeken van **relaties tussen variabelen**. Deze overgang is cruciaal voor criminologisch onderzoek, omdat veel onderzoeksvragen gaan over associaties tussen verschillende factoren.
+Dit hoofdstuk introduceert de **fundamentele begrippen** die essentieel zijn voor statistische analyse in de criminologie. De kern van het hoofdstuk ligt in het begrijpen van verschillende **meetniveaus** (nominaal, ordinaal, interval, ratio), omdat deze bepalen welke statistische technieken toegepast kunnen worden op specifieke variabelen.
 
-Het hoofdstuk behandelt **kruistabellen** als fundamenteel instrument voor het analyseren van relaties tussen categorische variabelen, en introduceert verschillende **grafische methoden** zoals spreidingsdiagrammen voor continue variabelen. Deze visualisatietechnieken helpen onderzoekers om patronen en trends in hun data te identificeren.
+Het hoofdstuk behandelt het cruciale onderscheid tussen **populatie en steekproef**, waarbij wordt uitgelegd hoe onderzoekers van steekproefgegevens kunnen generaliseren naar populaties. Daarnaast wordt het verschil tussen **beschrijvende statistiek** (het samenvatten van gegevens) en **inferentiële statistiek** (het trekken van conclusies over populaties) toegelicht.
 
-Centrale concepten zoals **associatie, sterkte en richting** van relaties worden systematisch behandeld. Studenten leren onderscheid te maken tussen sterke en zwakke associaties en kunnen de richting van relaties (positief/negatief) identificeren.
+Belangrijke concepten zoals **variabelen, parameters en statistieken** worden gedefinieerd, evenals het onderscheid tussen kwalitatieve en kwantitatieve variabelen. Het hoofdstuk benadrukt ook het belang van **betrouwbaarheid en validiteit** in statistisch onderzoek.
 
-De toepassingen in criminologie zijn veelvuldig: van het onderzoeken van de relatie tussen leeftijd en criminaliteit tot het analyseren van verbanden tussen sociale factoren en slachtofferschap. Dit hoofdstuk legt de fundamenten voor meer geavanceerde statistische technieken zoals correlatie en regressie, en stelt studenten in staat om betekenisvolle bivariate analyses uit te voeren.
+Door deze fundamentele begrippen te beheersen, zijn studenten voorbereid om complexere statistische analyses te begrijpen en toe te passen in criminologisch onderzoek, waarbij ze de juiste terminologie kunnen gebruiken en de gepaste methoden kunnen selecteren voor hun onderzoeksvragen.

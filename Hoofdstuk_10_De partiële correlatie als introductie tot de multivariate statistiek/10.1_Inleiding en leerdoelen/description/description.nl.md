@@ -1,22 +1,20 @@
 # **Introductie**
 
-**Partiële correlatie** vormt de brug tussen bivariate en multivariate statistiek en introduceert het cruciale concept van **controleren voor derde variabelen**. Dit hoofdstuk behandelt deze fundamentele techniek die essentieel is voor het begrijpen van complexere statistische analyses in criminologisch onderzoek.
+**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
 
-In de werkelijkheid zijn relaties tussen variabelen zelden simpel tweedimensionaal. **Schijnverbanden** kunnen ontstaan door de invloed van derde variabelen, en echte relaties kunnen gemaskeerd worden. Partiële correlatie stelt ons in staat om de "zuivere" relatie tussen twee variabelen te onderzoeken door de invloed van één of meer controlevariabelen uit te schakelen.
+We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
 
-Het hoofdstuk behandelt **conceptuele en praktische aspecten** van partiële correlatie: hoe bereken je partiële correlatiecoëfficiënten? Hoe interpreteer je de resultaten? En hoe herken je situaties waarin controle voor derde variabelen nodig is?
-
-Deze technieken zijn cruciaal in criminologisch onderzoek, waar veel relaties beïnvloed worden door confounding variabelen. Door partiële correlatie te beheersen, leggen studenten de basis voor het begrijpen van multivariate analyses zoals multiple regressie en maken ze een belangrijke stap richting meer geavanceerde statistische modellen.
+Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
 
 ## **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- Het concept van partiële correlatie uitleggen.
-- Schijnverbanden identificeren en controleren.
-- Partiële correlatiecoëfficiënten berekenen en interpreteren.
-- Situaties herkennen waarin controle voor derde variabelen nodig is.
-- Het verschil tussen zero-order en partiële correlaties begrijpen.
-- Mediatie en suppressie als concepten begrijpen.
-- De basis leggen voor multivariate statistische analyses.
-- Criminologische toepassingen van partiële correlatie herkennen.
+- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
+- Het verschil tussen populatie en steekproef uitleggen.
+- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
+- Parameters en statistieken correct definiëren en gebruiken.
+- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
+- De concepten betrouwbaarheid en validiteit begrijpen.
+- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
+- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.

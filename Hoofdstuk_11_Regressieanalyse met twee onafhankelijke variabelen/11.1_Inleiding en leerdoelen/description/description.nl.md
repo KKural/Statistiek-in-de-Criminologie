@@ -1,22 +1,20 @@
 # **Introductie**
 
-**Regressieanalyse met twee onafhankelijke variabelen** markeert de overgang naar echte multivariate statistiek in criminologisch onderzoek. Dit hoofdstuk bouwt voort op eenvoudige regressie en introduceert de krachtige techniek van multiple regressie voor het analyseren van complexe relaties.
+**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
 
-In de werkelijkheid wordt crimineel gedrag beïnvloed door meerdere factoren tegelijkertijd. **Multiple regressie** stelt ons in staat om de simultane invloed van verschillende predictoren te onderzoeken en hun relatieve bijdrage aan het verklaren van variatie in de afhankelijke variabele te bepalen.
+We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
 
-Het hoofdstuk behandelt **conceptuele en praktische aspecten**: hoe interpreteer je regressiecoëfficiënten in multiple regressie? Wat betekent **R-kwadraat** en hoe vergelijk je de belangrijkheid van verschillende predictoren? Ook komt de **assumptie-controle** aan bod, die cruciaal is voor valide resultaten.
-
-Deze technieken zijn fundamenteel in criminologisch onderzoek: van het voorspellen van recidive op basis van meerdere risicofactoren tot het onderzoeken van de gecombineerde effecten van sociale en economische variabelen op criminaliteitscijfers. Multiple regressie vormt de basis voor vele geavanceerde statistische modellen.
+Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
 
 ## **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- Multiple regressieanalyses uitvoeren en interpreteren.
-- Regressiecoëfficiënten in multivariate context begrijpen.
-- R-kwadraat en aangepaste R-kwadraat interpreteren.
-- De relatieve belangrijkheid van predictoren beoordelen.
-- Multicollineariteit herkennen en begrijpen.
-- Assumptie-controles uitvoeren voor multiple regressie.
-- Voorspellingen maken met multiple regressiemodellen.
-- Criminologische toepassingen van multiple regressie identificeren.
+- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
+- Het verschil tussen populatie en steekproef uitleggen.
+- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
+- Parameters en statistieken correct definiëren en gebruiken.
+- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
+- De concepten betrouwbaarheid en validiteit begrijpen.
+- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
+- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.

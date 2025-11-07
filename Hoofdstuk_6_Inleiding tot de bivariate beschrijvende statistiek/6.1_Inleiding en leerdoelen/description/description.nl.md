@@ -1,22 +1,20 @@
 # **Introductie**
 
-**Bivariate beschrijvende statistiek** markeert de overgang van het beschrijven van individuele variabelen naar het onderzoeken van **relaties tussen variabelen**. Dit hoofdstuk introduceert de fundamentele concepten en technieken voor het analyseren van associaties tussen twee variabelen, wat essentieel is voor criminologisch onderzoek.
+**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
 
-We beginnen met **kruistabellen** en hun interpretatie, die ons helpen om relaties tussen categorische variabelen te visualiseren. Vervolgens verkennen we **grafische methoden** zoals spreidingsdiagrammen voor het weergeven van relaties tussen continue variabelen. Deze visualisaties vormen de basis voor het begrijpen van associatiepatronen.
+We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
 
-Het hoofdstuk introduceert ook **basisbegrippen van associatie**: wat betekent het dat variabelen gerelateerd zijn? Hoe kunnen we de sterkte en richting van relaties beschrijven? Deze concepten zijn fundamenteel voor het begrijpen van meer geavanceerde statistische technieken zoals correlatie en regressie.
-
-In criminologisch onderzoek zijn bivariate analyses cruciaal: de relatie tussen leeftijd en criminaliteit, het verband tussen sociale status en slachtofferschap, of de associatie tussen buurtkenmerken en misdaadcijfers. Door deze relaties te kunnen analyseren, krijgen onderzoekers inzicht in potentiële causale mechanismen.
+Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
 
 ## **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- Kruistabellen opstellen en interpreteren.
-- Verschillende soorten grafische representaties voor bivariate data kiezen en interpreteren.
-- Patronen en trends in bivariate data identificeren.
-- Het concept van associatie tussen variabelen uitleggen.
-- Onderscheid maken tussen sterke en zwakke associaties.
-- De richting van relaties (positief/negatief) identificeren.
-- Bivariate analyses toepassen op criminologische vraagstellingen.
-- De basis leggen voor meer geavanceerde associatiematen.
+- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
+- Het verschil tussen populatie en steekproef uitleggen.
+- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
+- Parameters en statistieken correct definiëren en gebruiken.
+- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
+- De concepten betrouwbaarheid en validiteit begrijpen.
+- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
+- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.

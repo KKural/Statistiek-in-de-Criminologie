@@ -1,22 +1,20 @@
 # **Introductie**
 
-De **standaardnormale verdeling** is waarschijnlijk de meest belangrijke verdeling in de statistiek en vormt de basis voor talrijke statistische procedures in criminologisch onderzoek. Dit hoofdstuk introduceert deze fundamentele verdeling en haar eigenschappen, die essentieel zijn voor het begrijpen van inferentiële statistiek.
+**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
 
-We beginnen met het concept van de **normale verdeling** en leggen uit waarom deze verdeling zo centraal staat in statistiek - veel natuurlijke fenomenen volgen ongeveer een normale verdeling. Vervolgens introduceren we de **standardisatie** (z-scores), waarmee we elke normale verdeling kunnen omzetten naar de standaardnormale verdeling.
+We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
 
-Het hoofdstuk behandelt de **eigenschappen en toepassingen** van de standaardnormale verdeling: hoe we waarschijnlijkheden berekenen, percentages onder de curve interpreteren, en hoe we deze kennis gebruiken voor statistische inferentie. Deze concepten zijn fundamenteel voor het begrijpen van betrouwbaarheidsintervallen en hypothesetoetsing.
-
-In criminologisch onderzoek komen normale verdelingen vaak voor: scores op psychologische tests, leeftijdsverdelingen, of foutmarges in metingen. Door de standaardnormale verdeling te begrijpen, kunnen studenten deze fenomenen analyseren en interpreteren.
+Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
 
 ## **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- De eigenschappen van de normale verdeling beschrijven.
-- Z-scores berekenen en interpreteren.
-- Waarschijnlijkheden berekenen met behulp van de standaardnormale verdeling.
-- De 68-95-99.7 regel toepassen.
-- Percentages en percentielen bepalen met de normale verdeling.
-- De centrale limietstelling conceptueel begrijpen.
-- De relatie tussen normale verdeling en statistische inferentie uitleggen.
-- Normale verdelingen herkennen en toepassen in criminologische context.
+- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
+- Het verschil tussen populatie en steekproef uitleggen.
+- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
+- Parameters en statistieken correct definiëren en gebruiken.
+- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
+- De concepten betrouwbaarheid en validiteit begrijpen.
+- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
+- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.

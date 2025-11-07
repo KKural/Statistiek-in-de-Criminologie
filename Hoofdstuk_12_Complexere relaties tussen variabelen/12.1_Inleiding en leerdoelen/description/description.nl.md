@@ -1,22 +1,20 @@
 # **Introductie**
 
-**Complexere relaties tussen variabelen** vormt het sluitstuk van de statistische cursus en introduceert geavanceerde concepten die de realiteit van criminologisch onderzoek beter benaderen. Dit hoofdstuk behandelt niet-lineaire relaties, interactie-effecten, en mediatie- en moderatie-analyses.
+**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
 
-In de praktijk zijn relaties tussen variabelen zelden perfect lineair of simpel additief. **Interactie-effecten** kunnen optreden waarbij de relatie tussen twee variabelen afhangt van de waarde van een derde variabele. **Niet-lineaire relaties** kunnen belangrijke patronen in criminologische data onthullen die lineaire analyses zouden missen.
+We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
 
-Het hoofdstuk introduceert ook **mediatie en moderatie** als conceptuele kaders voor het begrijpen van complexe causale mechanismen. Deze technieken helpen onderzoekers om te begrijpen hoe en wanneer bepaalde effecten optreden.
-
-Deze geavanceerde technieken zijn cruciaal voor moderne criminologisch onderzoek: het onderzoeken van drempeleffecten in criminaliteitspreventie, het analyseren van interacties tussen risicofactoren, of het begrijpen van mediërende mechanismen in interventie-effecten. Door deze complexere relaties te begrijpen, kunnen onderzoekers meer genuanceerde en accurate modellen ontwikkelen.
+Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
 
 ## **Leerdoelen**
 
 Na dit hoofdstuk kunnen studenten:
 
-- Niet-lineaire relaties herkennen en analyseren.
-- Interactie-effecten in regressieanalyse interpreteren.
-- Mediatie- en moderatie-analyses conceptueel begrijpen.
-- Kwadratische en andere polynomiale termen toepassen.
-- Complexe statistische modellen kritisch evalueren.
-- Geavanceerde grafische representaties interpreteren.
-- De beperkingen van lineaire modellen herkennen.
-- Complexere criminologische fenomenen statistisch benaderen.
+- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
+- Het verschil tussen populatie en steekproef uitleggen.
+- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
+- Parameters en statistieken correct definiëren en gebruiken.
+- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
+- De concepten betrouwbaarheid en validiteit begrijpen.
+- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
+- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.
