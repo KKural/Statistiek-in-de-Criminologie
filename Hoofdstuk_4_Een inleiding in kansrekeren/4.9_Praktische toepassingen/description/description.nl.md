@@ -1,42 +1,77 @@
 # **Praktische toepassingen**
 
-## **Toepassing 1: Politieonderzoek - Meetniveaus in criminaliteitsregistratie**
+## **Steekproeftrekking**
 
 ### **Situatie:**
-De politie van Gent wil hun criminaliteitsregistratie verbeteren om betere analyses te kunnen maken voor beleidsbeslissingen.
+Onderzoek naar criminaliteitspatronen vereist **representatieve steekproeven** uit grote populaties.
 
-### **Huidige registratie:**
-- **Locatie:** Straatnaam (tekst)
-- **Tijdstip:** "Ochtend/Middag/Avond/Nacht"
-- **Ernst:** "Licht/Gemiddeld/Zwaar"
-- **Daderleeftijd:** "Jong/Volwassen/Ouder"
-- **Schade:** Bedrag in euro's
+### **Praktische aanpak:**
+- **Kansrekening** bepaalt of een steekproef representatief is
+- **Random selectie** garandeert gelijke kansen voor alle eenheden
+- **Steekproefgrootte** berekenen op basis van gewenste **betrouwbaarheid**
 
-### **Probleem:**
-De huidige categorieën maken het moeilijk om:
-- Trends over tijd te analyseren
-- Geografische hotspots te identificeren
-- Effectiviteit van interventies te meten
-
-### **Praktische oplossing:**
-**Verbeterde registratie:**
-- **Locatie:** GPS-coördinaten (ratio niveau)
-- **Tijdstip:** Exacte tijd in uren en minuten (ratio niveau)
-- **Ernst:** Numerieke schaal 1-10 (ordinaal/interval niveau)
-- **Daderleeftijd:** Exacte leeftijd in jaren (ratio niveau)
-- **Schade:** Bedrag in euro's (ratio niveau - behouden)
-
-### **Voordelen:**
-- Mogelijkheid tot geavanceerde statistische analyses
-- Betere voorspellingsmodellen
-- Meer precieze evaluatie van interventies
+### **Voorbeeld:**
+"Voor een betrouwbaarheidsinterval van 95% en foutmarge van 3% bij onbekende populatieproportie, hebben we n ≈ 1067 respondenten nodig. Bij bekende proportie p=0.25 (slachtofferschap) volstaan n ≈ 800 respondenten."
 
 ---
 
-## **Toepassing 2: Gevangenisonderzoek - Steekproefdesign**
+## **Beleidsevaluatie**
 
-### **Onderzoeksvraag:**
-"Wat is de effectiviteit van resocialisatieprogramma's op recidive in Belgische gevangenissen?"
+### **Situatie:**
+Evaluatie van **alternatieve straffen** - wat is de kans op herval vergeleken met gevangenisstraf?
+
+### **Praktische aanpak:**
+- **Binomiale verdeling** modelleert kans op recidive (wel/niet binnen 2 jaar)
+- **Vergelijking** tussen groepen via kansverschillen
+- **Betrouwbaarheidsintervallen** rond geschatte recidivekansen
+
+### **Voorbeeld:**
+"Elektronisch toezicht: 30% recidive (95% BI: 25%-35%). Traditionele gevangenisstraf: 45% recidive (95% BI: 40%-50%). Verschil is statistisch significant en praktisch relevant voor beleid."
+
+---
+
+## **Risico-inschatting**
+
+### **Situatie:**
+**Risicotaxatie-instrumenten** voorspellen kans op recidive voor individuele daders.
+
+### **Praktische aanpak:**
+- **Kansmodellen** combineren meerdere risicofactoren
+- **Binomiale logica**: elke factor verhoogt/verlaagt kans op herval
+- **Probabilistische uitspraken** in plaats van absolute voorspellingen
+
+### **Voorbeeld:**
+"Dader X heeft 65% kans op recidive binnen 2 jaar (95% BI: 55%-75%) op basis van leeftijd, criminele geschiedenis en sociaal-economische factoren. Dit rechtvaardigt intensievere begeleiding."
+
+---
+
+## **Toevalsmechanismen in surveys**
+
+### **Situatie:**
+**Random selectie** van respondenten voor slachtofferenquêtes om selectiebias te voorkomen.
+
+### **Praktische aanpak:**
+- **Objectieve kansberekening** voor selectieprocedures
+- **Stratified sampling**: verschillende kansen per stratum
+- **Weging** achteraf op basis van selectiekansen
+
+### **Voorbeeld:**
+"Huishoudens in centrum hebben 3× hogere kans geselecteerd te worden dan in buitenwijken. Weging factor centrum = 0.33, buitenwijken = 1.0 om representatieve resultaten te verkrijgen."
+
+---
+
+## **Simulaties**
+
+### **Situatie:**
+**Scenario-analyse** voor beleidseffecten - wat gebeurt er als recidivekansen veranderen?
+
+### **Praktische aanpak:**
+- **Monte Carlo simulaties** met verschillende kansparameters
+- **Binomiale trekkingen** simuleren groepen daders
+- **Sensitiviteitsanalyse** voor robuustheid resultaten
+
+### **Voorbeeld:**
+"Als recidivekans daalt van 40% naar 30% door nieuw programma, verwachten we 180 minder recidivisten per 1000 behandelde daders (95% BI: 120-240). Dit bespaart geschat €2.1M aan maatschappelijke kosten."
 
 ### **Populatie vs. Steekproef uitdaging:**
 

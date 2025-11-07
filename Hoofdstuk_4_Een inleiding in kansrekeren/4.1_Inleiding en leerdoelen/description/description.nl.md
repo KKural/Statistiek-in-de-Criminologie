@@ -1,20 +1,40 @@
-# **Introductie**
 
-**Inleidende begrippen** vormen de basis voor elke statistische analyse in de criminologie. Voordat we complexe analyses kunnen uitvoeren, moeten we vertrouwd zijn met de fundamentele concepten die de basis vormen van statistisch denken. Dit hoofdstuk introduceert de essentiële terminologie en concepten die doorheen de cursus gebruikt zullen worden.
+## **Inleiding**
 
-We beginnen met het onderscheid tussen verschillende **soorten data** en **meetniveaus**, omdat deze bepalen welke statistische technieken toegepast kunnen worden. Vervolgens verkennen we de concepten van **populatie en steekproef**, die cruciaal zijn voor het begrijpen van inferentiële statistiek. We behandelen ook het verschil tussen **beschrijvende en inferentiële statistiek**, en introduceren belangrijke begrippen zoals **variabelen, parameters en statistieken**.
+**Kansrekenen** is onmisbaar voor criminologen. Elke uitspraak over **recidive, slachtofferschap of onveiligheidsbeleving** steunt op waarschijnlijkheden.
 
-Dit hoofdstuk legt de **conceptuele fundamenten** waarop alle verdere statistische kennis gebouwd wordt. Het biedt de terminologie en het begrippenkader dat nodig is om statistische resultaten correct te interpreteren en om de juiste statistische methoden te kiezen voor specifieke onderzoeksvragen in de criminologie.
+Omdat criminologisch onderzoek vaak gebaseerd is op **steekproeven** — niet op hele populaties — moeten we begrijpen **wat een kans is**, **hoe ze berekend wordt**, en **hoe ze beslissingen onder onzekerheid ondersteunt**.
+
+Of het nu gaat om het voorspellen van **herval**, het interpreteren van **steekproefresultaten**, of het inschatten van **beleidseffecten**: kansrekenen vormt de wiskundige basis van **statistische inferentie**.
 
 ## **Leerdoelen**
 
-Na dit hoofdstuk kunnen studenten:
+Na dit hoofdstuk kan je:
 
-- De verschillende meetniveaus (nominaal, ordinaal, interval, ratio) onderscheiden en toepassen.
-- Het verschil tussen populatie en steekproef uitleggen.
-- Beschrijvende en inferentiële statistiek van elkaar onderscheiden.
-- Parameters en statistieken correct definiëren en gebruiken.
-- Verschillende soorten variabelen (kwalitatief/kwantitatief, discreet/continu) identificeren.
-- De concepten betrouwbaarheid en validiteit begrijpen.
-- De juiste terminologie gebruiken bij het beschrijven van statistische analyses.
-- Bepalen welke statistische methoden geschikt zijn voor verschillende meetniveaus.
+### **Kansconcepten begrijpen**
+* Het concept **kans** correct definiëren en onderscheiden tussen:
+  - **Theoretische (objectieve) kans** — Laplace-definitie
+  - **Experimentele (relatieve) kans** — frequentie uit observatie  
+  - **Subjectieve kans** — perceptie of inschatting
+
+### **Kansregels toepassen**
+* De **basisregels** van het kansrekenen toepassen:
+  - **Algemene en speciale somregel**
+  - **Algemene en speciale productregel** (met voorwaardelijke kans)
+  - **Complementregel**
+
+### **Combinatoriek beheersen**
+* **Permutaties en combinaties** berekenen en hun verschil uitleggen
+* Toepassingen in criminologische **steekproeftrekking** en **experimentopzetten**
+
+### **Kansvariabelen analyseren**
+* Uitleggen wat een **kansvariabele**, **verwachte waarde** en **standaardafwijking** zijn
+* Onderscheid maken tussen **discrete** en **continue** kansvariabelen
+
+### **Binomiale verdeling toepassen**
+* De logica van de **binomiale verdeling** begrijpen en toepassen
+* Verklaren waarom de **binomiale verdeling** bij toenemend aantal observaties overgaat in een **normale verdeling**
+
+### **Criminologische relevantie**
+* De relevantie van deze concepten voor **kwantitatief criminologisch onderzoek** toelichten
+* Kansmodellen gebruiken voor **risico-inschatting** en **beleidsevaluatie**

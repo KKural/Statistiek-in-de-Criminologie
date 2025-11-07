@@ -1,43 +1,56 @@
 # **Besluit en vooruitblik naar volgende leerpad**
 
-## **🎯 Wat hebben we bereikt in Hoofdstuk 2?**
+## **Besluit**
 
-In dit hoofdstuk hebben we de **fundamentele bouwstenen** van statistische analyse in criminologisch onderzoek gelegd. Deze begrippen vormen de basis voor alle verdere statistische technieken die we in de cursus zullen behandelen.
+**Kansrekenen** biedt criminologen de **taal om onzekerheid te kwantificeren**. Of het nu gaat om **steekproeven**, **risico-inschatting** of **beleidsevaluatie**: zonder inzicht in kansregels en verdelingen is statistische redenering onmogelijk.
 
-### **Kernbegrippen die je nu beheerst:**
+### **Wat heb je nu geleerd:**
 
-✅ **Meetniveaus:** Je kunt onderscheid maken tussen nominaal, ordinaal, interval en ratio meetniveau, en weet welke statistische technieken bij elk niveau horen.
+✅ **Wat een kans is** en hoe je verschillende kansdefinities toepast (Laplace, frequentistisch, subjectief)
 
-✅ **Variabelen:** Je begrijpt het verschil tussen kwalitatieve en kwantitatieve variabelen, en kunt discrete en continue variabelen identificeren.
+✅ **Hoe kansen gecombineerd worden** via som- en productregels, complementregel en voorwaardelijke kans
 
-✅ **Populatie vs. Steekproef:** Je snapt waarom we steekproeven gebruiken en hoe we van steekproefresultaten kunnen generaliseren naar populaties.
+✅ **Permutaties en combinaties** gebruiken voor tellproblemen in steekproeftrekking en experimentopzetten
 
-✅ **Parameters vs. Statistieken:** Je kunt onderscheid maken tussen populatiewaarden en steekproefwaarden.
+✅ **Kansvariabelen** onderscheiden (discreet/continu) en verwachte waarden berekenen
 
-✅ **Betrouwbaarheid vs. Validiteit:** Je begrijpt deze cruciale kwaliteitscriteria voor metingen.
+✅ **Binomiale verdeling** toepassen op criminologische ja/nee-situaties (recidive, slachtofferschap, overtredingen)
 
----
-
-## **🔗 Hoe deze begrippen verbinden met de praktijk**
-
-### **In criminologisch onderzoek gebruik je deze begrippen om:**
-- **Onderzoeksopzetten te evalueren:** Welke variabelen meet je op welk niveau?
-- **Datatypes te herkennen:** Welke analyses zijn mogelijk met jouw data?
-- **Resultaten te interpreteren:** Gaan conclusies over een steekproef of populatie?
-- **Methodologische keuzes te maken:** Welke meetinstrumenten zijn betrouwbaar en valide?
-
-### **In de praktijk van criminaliteitsbeleid:**
-- **Beleidseffectiviteit meten:** Welke indicatoren gebruik je?
-- **Risicoinschattingen maken:** Op welk niveau meet je risicofactoren?
-- **Interventies evalueren:** Hoe operationaliseer je 'succes'?
+### **Praktische gereedschapskist:**
+- **P-waarden** correct interpreteren in onderzoeksrapporten
+- **Betrouwbaarheidsintervallen** begrijpen rond kansschattingen  
+- **Steekproefgroottes** berekenen voor gewenste nauwkeurigheid
+- **Simulaties** opzetten voor scenario-analyses
+- **Risicokansen** communiceren naar beleidsmakers
 
 ---
 
-## **📚 Vooruitblik: Waar gaan we naartoe?**
+## **Vooruitblik naar volgende leerpad**
 
-De begrippen uit dit hoofdstuk zijn de **gereedschapskist** voor alles wat volgt. Hier zie je hoe ze gebruikt worden in de komende hoofdstukken:
+Het volgende hoofdstuk behandelt de **normale en standaardnormale verdeling** - de meest belangrijke kansverdeling in de statistiek.
 
-### **🎯 Hoofdstuk 3: Univariate beschrijvende statistiek**
+### **🎯 Hoofdstuk 5: Normale en standaardnormale verdeling**
+
+**Wat je gaat leren:**
+- **Eigenschappen van de Gauss-curve** en waarom zoveel fenomenen normaal verdeeld zijn
+- **Z-scores** berekenen en interpreteren voor standaardisatie
+- **68-95-99.7 regel** gebruiken voor snelle kansberekeningen
+- **Kansgebieden** bepalen onder de normale curve
+
+**Brug naar inferentiële statistiek:**
+- Hoe **steekproefgemiddeldes** normaal verdeeld zijn (Centrale Limietstelling)
+- Basis voor **betrouwbaarheidsintervallen** en **hypothesetoetsing**
+- Van **beschrijving** naar **verklaring** in criminologisch onderzoek
+
+### **� De grote lijn:**
+
+**Hoofdstuk 4 (kansrekenen)** → **Hoofdstuk 5 (normale verdeling)** → **Hoofdstuk 6+ (inferentiële statistiek)**
+
+**Van:** "Wat is de kans op gebeurtenis X?"  
+**Naar:** "Hoe zeker zijn we van onze conclusies over populaties?"  
+**Tot:** "Welke factoren verklaren criminologische fenomenen?"
+
+**Je hebt nu de wiskundige fundamenten - tijd om ze toe te passen! 🎯**
 **Wat je gaat leren:**
 - Frequentietabellen en grafische representaties
 - Centrale tendentie (gemiddelde, mediaan, modus)
