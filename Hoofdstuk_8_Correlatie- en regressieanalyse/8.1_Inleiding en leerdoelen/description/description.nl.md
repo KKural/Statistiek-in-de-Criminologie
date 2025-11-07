@@ -1,20 +1,15 @@
 # **Inleiding**
+In dit hoofdstuk wordt de **lineaire samenhang** tussen **metrische kenmerken** onderzocht aan de hand van **covariatie**, **covariantie**, **correlatie** en **bivariate regressieanalyse**.  
+Deze analysetechnieken zijn essentieel in de **criminologie**, waar men vaak werkt met **vragenlijstindicatoren** of intrinsiek **metrische variabelen** zoals het **aantal delicten**, **slachtofferschappen**, of **detenties**.  
 
-**Correlatie- en regressieanalyse** zijn essentiële technieken voor het onderzoeken van **lineaire verbanden** tussen continue variabelen. Terwijl correlatie de **sterkte en richting** van een verband meet, gaat regressie een stap verder door **voorspellingen** mogelijk te maken.
+De **puntenwolk (scatterplot)** vormt een visuele weergave van deze samenhang en maakt het mogelijk de **richting** (positief of negatief) en **sterkte** van de relatie te beoordelen.  
+Symmetrische associatiematen veronderstellen **geen causaliteit** maar geven inzicht in de mate waarin kenmerken samen variëren.  
 
-In criminologisch onderzoek zijn deze technieken onmisbaar voor vragen zoals: Wat is het verband tussen leeftijd en criminaliteit? Kunnen we op basis van socio-economische factoren recidive voorspellen? Hoe sterk hangt werkloosheid samen met criminaliteitscijfers?
-
-De **Pearson correlatiecoëfficiënt** meet lineaire verbanden tussen continue variabelen, terwijl **regressieanalyse** ons in staat stelt om **regressievergelijkingen** op te stellen en **voorspellingen** te doen. We leren ook over de **assumpties** van deze technieken en wanneer ze al dan niet van toepassing zijn.
+Kennis van deze technieken is onmisbaar: wie statistische resultaten niet begrijpt, riskeert verkeerde interpretaties in **criminologisch onderzoek** en **beleidstoepassing**.
 
 # **Leerdoelen**
-
-Na dit hoofdstuk kunnen studenten:
-
-- Het verschil tussen correlatie en regressie uitleggen.
-- Pearson correlatiecoëfficiënt berekenen en interpreteren.
-- Spreidingsdiagrammen maken en patronen herkennen.
-- Regressielijnen opstellen en interpreteren.
-- Voorspellingen maken met regressievergelijkingen.
-- Assumpties van correlatie en regressie controleren.
-- Het verschil tussen correlatie en causatie begrijpen.
-- Resultaten correct rapporteren en interpreteren in criminologische context.
+- Inzicht verwerven in de **logica van correlatie- en regressieanalyse**.  
+- Weten wanneer men kiest voor een **correlatieanalyse** en wanneer voor een **regressieanalyse**.  
+- **Covariatie**, **covariantie** en **Pearson-correlatiecoëfficiënt** kunnen berekenen en interpreteren.  
+- De parameters van de **bivariate regressie** (intercept, helling, residu, **R²**) correct kunnen uitleggen.  
+- Resultaten van statistische analyses **inhoudelijk kunnen rapporteren** in criminologisch onderzoek.  

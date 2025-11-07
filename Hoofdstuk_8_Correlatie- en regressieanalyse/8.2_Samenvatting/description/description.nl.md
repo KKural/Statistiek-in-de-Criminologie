@@ -1,9 +1,23 @@
 # **Samenvatting**
 
-Dit hoofdstuk introduceert de **fundamentele begrippen** die essentieel zijn voor statistische analyse in de criminologie. De kern van het hoofdstuk ligt in het begrijpen van verschillende **meetniveaus** (nominaal, ordinaal, interval, ratio), omdat deze bepalen welke statistische technieken toegepast kunnen worden op specifieke variabelen.
+De **covariatie** of **kruisproductensom** drukt uit in welke mate twee variabelen samen variëren.  
+De **covariantie** is hiervan een genormeerde vorm, gedeeld door *(n−1)*, maar blijft afhankelijk van de **meeteenheid**.  
+Om vergelijkbaarheid te verzekeren, wordt de **covariantie gestandaardiseerd** tot de **Pearson-correlatiecoëfficiënt (r)**, die varieert tussen **−1** en **+1**.  
 
-Het hoofdstuk behandelt het cruciale onderscheid tussen **populatie en steekproef**, waarbij wordt uitgelegd hoe onderzoekers van steekproefgegevens kunnen generaliseren naar populaties. Daarnaast wordt het verschil tussen **beschrijvende statistiek** (het samenvatten van gegevens) en **inferentiële statistiek** (het trekken van conclusies over populaties) toegelicht.
+Een **puntenwolk** toont de aard van het verband:
+- **Positieve samenhang:** hoge waarden van X gaan samen met hoge waarden van Y.  
+- **Negatieve samenhang:** hoge waarden van X gaan samen met lage waarden van Y.  
+- **Geen samenhang:** punten liggen verspreid zonder duidelijk patroon.  
 
-Belangrijke concepten zoals **variabelen, parameters en statistieken** worden gedefinieerd, evenals het onderscheid tussen kwalitatieve en kwantitatieve variabelen. Het hoofdstuk benadrukt ook het belang van **betrouwbaarheid en validiteit** in statistisch onderzoek.
+Het uitgewerkte **rekenvoorbeeld** illustreert de berekening van **r = 0,798**, wat een **sterk positief verband** aangeeft.  
+Dezelfde gegevens worden bevestigd via **SPSS**, waarmee de **covariantie**, **variantie** en **significantie** gecontroleerd worden.  
 
-Door deze fundamentele begrippen te beheersen, zijn studenten voorbereid om complexere statistische analyses te begrijpen en toe te passen in criminologisch onderzoek, waarbij ze de juiste terminologie kunnen gebruiken en de gepaste methoden kunnen selecteren voor hun onderzoeksvragen.
+De **bivariate regressieanalyse** is een **asymmetrische analysetechniek** die een **causale of predictieve richting** aanneemt:  
+\[
+Y = a + bX + e
+\]  
+waarbij **a** het **intercept** is, **b** de **helling**, en **e** de **foutterm**.  
+De regressielijn wordt bepaald via het **OLS-principe (Ordinary Least Squares)**, dat de som van de gekwadrateerde residuen minimaliseert.  
+
+De **determinatiecoëfficiënt (R²)** geeft aan welk deel van de variatie in Y verklaard wordt door X.  
+In het voorbeeld bedraagt **R² = 0,637**, wat betekent dat **63,7% van de variabiliteit** in Y verklaard wordt door X.  
