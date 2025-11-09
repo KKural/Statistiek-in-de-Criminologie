@@ -1,0 +1,13 @@
+{
+  "description": {
+    "names": {
+      "nl": "Oef - 6.7"
+    }
+  },
+  "access": "public",
+  "type": "content",
+  "internals": {
+    "token": "VdiNqKGySZ9gECCQVxzeySS-pPdkKmiFMn_EV7b2aTMGTMin8hQe47EfDsQHuNGy",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

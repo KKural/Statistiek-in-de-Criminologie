@@ -1,0 +1,22 @@
+{
+  "description": {
+    "names": {
+      "nl": "Oef - 4.4"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "workdir": "workdir",
+  "access": "public",
+  "labels": [
+    "begrippen"
+  ],
+  "internals": {
+    "token": "tI-zYKIBe8yVuu_QIVx5NuU-EgbcyjV9HMPDzuW63ITgN8jQrTRSXv8NwBmeNxNR",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

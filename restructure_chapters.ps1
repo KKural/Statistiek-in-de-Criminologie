@@ -16,7 +16,7 @@ $chapters = @(
 )
 
 foreach ($chapter in $chapters) {
-    $chapterNum = ($chapter -split "_")[1].Replace("Hoofdstuk","")
+    $chapterNum = ($chapter -split "_")[1].Replace("Hoofdstuk", "")
     $chapterPath = Join-Path $baseDir $chapter
     
     if (Test-Path $chapterPath) {
