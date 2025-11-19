@@ -1,17 +1,12 @@
 - tab: "Meetniveau Classificatie"
-  contexts:
-    - before:
-        data: |
-          Feedback voor elk meetniveau:
-          • Favoriete keuze voor online onderzoek: Dit zijn categorieën zonder natuurlijke volgorde → Nominaal
-          • Leeftijd in jaren: Dit zijn getallen met gelijke afstanden en echt nulpunt → Ratio  
-          • Geslacht (man/vrouw): Dit zijn categorieën zonder natuurlijke volgorde → Nominaal
-          • Studierichting: Dit zijn categorieën zonder natuurlijke volgorde → Nominaal
-          • Studentnummer (1-552): Dit zijn labels voor identificatie, niet voor berekeningen → Nominaal
   testcases:
-    - stdout: |
-        Nominaal
-        Ratio
-        Nominaal
-        Nominaal
-        Nominaal
+    - expression: "favoriete_keuze"
+      return: "Nominaal"
+    - expression: "leeftijd"
+      return: "Ratio"
+    - expression: "geslacht"
+      return: "Nominaal"
+    - expression: "studierichting"
+      return: "Nominaal"
+    - expression: "studentnummer"
+      return: "Nominaal"
