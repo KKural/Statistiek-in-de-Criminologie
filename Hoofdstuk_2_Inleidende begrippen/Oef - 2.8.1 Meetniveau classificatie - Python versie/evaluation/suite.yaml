@@ -1,26 +1,21 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - statement: "favoriete_keuze_lower = favoriete_keuze.lower()"
-    - expression: "favoriete_keuze_lower"
+    - expression: "favoriete_keuze.lower()"
       return: "nominaal"
       description: "Favoriete keuze voor online onderzoek moet 'Nominaal' zijn (categorieën zonder ordening)"
 
-    - statement: "leeftijd_lower = leeftijd.lower()"
-    - expression: "leeftijd_lower"
+    - expression: "leeftijd.lower()"
       return: "ratio"
       description: "Leeftijd moet 'Ratio' zijn (getallen met echt nulpunt: 0 jaar)"
 
-    - statement: "geslacht_lower = geslacht.lower()"
-    - expression: "geslacht_lower"
+    - expression: "geslacht.lower()"
       return: "nominaal"
       description: "Geslacht moet 'Nominaal' zijn (man/vrouw zijn categorieën zonder ordening)"
 
-    - statement: "studierichting_lower = studierichting.lower()"
-    - expression: "studierichting_lower"
+    - expression: "studierichting.lower()"
       return: "nominaal"
       description: "Studierichting moet 'Nominaal' zijn (verschillende richtingen zonder ordening)"
 
-    - statement: "studentnummer_lower = studentnummer.lower()"
-    - expression: "studentnummer_lower"
+    - expression: "studentnummer.lower()"
       return: "nominaal"
       description: "Studentnummer moet 'Nominaal' zijn (alleen identificatie, geen rekenkundige betekenis)"
