@@ -3,16 +3,16 @@
 # Mogelijke antwoorden: "nominaal", "ordinaal", "interval", "ratio"
 
 # Variabele 1: Favoriete keuze uit meerkeuzevraag
-favoriete_keuze = "jouw_antwoord_hier"
+favoriete_keuze = "nominaal"
 
 # Variabele 2: Leeftijd in jaren
-leeftijd = "jouw_antwoord_hier"
+leeftijd = "ratio"
 
 # Variabele 3: Geslacht (man/vrouw)
-geslacht = "jouw_antwoord_hier"
+geslacht = "nominaal"
 
 # Variabele 4: Studierichting
-studierichting = "jouw_antwoord_hier"
+studierichting = "nominaal"
 
 # Variabele 5: Studentnummer
-studentnummer = "jouw_antwoord_hier"
+studentnummer = "nominaal"
