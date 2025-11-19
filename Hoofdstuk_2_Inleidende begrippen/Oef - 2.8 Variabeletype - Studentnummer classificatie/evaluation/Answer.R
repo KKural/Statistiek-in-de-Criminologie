@@ -3,11 +3,9 @@ context({
     "Favoriete keuze voor online onderzoek",
     {
       testEqual(
-        "Categorisch",
-        if(exists("antwoorden") && "favoriete_keuze" %in% names(antwoorden)) {
-          tolower(antwoorden$favoriete_keuze)
-        } else "niet gevonden",
-        "categorisch"
+        "Nominaal",
+        if(exists("favoriete_keuze")) tolower(favoriete_keuze) else "niet gevonden",
+        "nominaal"
       )
     }
   )
@@ -16,11 +14,9 @@ context({
     "Leeftijd",
     {
       testEqual(
-        "Kwantitatief", 
-        if(exists("antwoorden") && "leeftijd" %in% names(antwoorden)) {
-          tolower(antwoorden$leeftijd)
-        } else "niet gevonden",
-        "kwantitatief"
+        "Ratio", 
+        if(exists("leeftijd")) tolower(leeftijd) else "niet gevonden",
+        "ratio"
       )
     }
   )
@@ -29,11 +25,9 @@ context({
     "Geslacht",
     {
       testEqual(
-        "Categorisch",
-        if(exists("antwoorden") && "geslacht" %in% names(antwoorden)) {
-          tolower(antwoorden$geslacht)
-        } else "niet gevonden",
-        "categorisch"
+        "Nominaal",
+        if(exists("geslacht")) tolower(geslacht) else "niet gevonden",
+        "nominaal"
       )
     }
   )
@@ -42,24 +36,20 @@ context({
     "Studierichting", 
     {
       testEqual(
-        "Categorisch",
-        if(exists("antwoorden") && "studierichting" %in% names(antwoorden)) {
-          tolower(antwoorden$studierichting)
-        } else "niet gevonden",
-        "categorisch"
+        "Nominaal",
+        if(exists("studierichting")) tolower(studierichting) else "niet gevonden",
+        "nominaal"
       )
     }
   )
   
   testcase(
-    "Label (studentnummer)",
+    "Studentnummer",
     {
       testEqual(
-        "Identificatie",
-        if(exists("antwoorden") && "studentnummer" %in% names(antwoorden)) {
-          tolower(antwoorden$studentnummer)
-        } else "niet gevonden",
-        "identificatie"
+        "Nominaal",
+        if(exists("studentnummer")) tolower(studentnummer) else "niet gevonden",
+        "nominaal"
       )
     }
   )

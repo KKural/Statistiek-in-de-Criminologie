@@ -1,14 +1,17 @@
-# Vervang ??? door het juiste variabeletype
-# Mogelijke antwoorden: Categorisch, Kwantitatief, Identificatie
+# Vervang ??? door het juiste meetniveau
+# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
 
-# Maak een lijst met je antwoorden
-antwoorden <- list(
-  favoriete_keuze = "???",     # Google, Bibliotheek, Wikipedia etc.
-  leeftijd = "???",            # 17, 18, 19 jaar - getallen
-  geslacht = "???",            # man/vrouw - categorieën  
-  studierichting = "???",      # verschillende richtingen
-  studentnummer = "???"        # nummer 1-552 voor identificatie
-)
+# Favoriete keuze voor online onderzoek (Google, Bibliotheek, Wikipedia, etc.)
+favoriete_keuze <- "???"
 
-# Dit toont je antwoorden
-antwoorden
+# Leeftijd van studenten (17, 18, 19 jaar etc.)
+leeftijd <- "???"
+
+# Geslacht (man/vrouw)
+geslacht <- "???"
+
+# Studierichting (verschillende richtingen)  
+studierichting <- "???"
+
+# Studentnummer (1-552 voor identificatie)
+studentnummer <- "???"
