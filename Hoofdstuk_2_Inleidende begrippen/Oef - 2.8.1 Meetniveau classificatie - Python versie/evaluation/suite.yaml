@@ -1,7 +1,6 @@
 - tab: "Meetniveau Classificatie"
   contexts:
     - testcases:
-        - statement: "pass" # Execute the student's code first
         - expression: "favoriete_keuze"
           return: "nominaal"
         - expression: "leeftijd"
