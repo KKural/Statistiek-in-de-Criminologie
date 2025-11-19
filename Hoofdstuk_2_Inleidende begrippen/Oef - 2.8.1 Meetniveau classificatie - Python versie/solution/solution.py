@@ -15,3 +15,10 @@ studierichting = "Nominaal"
 
 # Variabele 5: Studentnummer
 studentnummer = "Nominaal"
+
+# Print de antwoorden (NIET AANPASSEN!)
+print(favoriete_keuze)
+print(leeftijd)
+print(geslacht)
+print(studierichting)
+print(studentnummer)

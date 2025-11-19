@@ -1,12 +1,8 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - expression: "favoriete_keuze"
-      return: "Nominaal"
-    - expression: "leeftijd"
-      return: "Ratio"
-    - expression: "geslacht"
-      return: "Nominaal"
-    - expression: "studierichting"
-      return: "Nominaal"
-    - expression: "studentnummer"
-      return: "Nominaal"
+    - stdout: |
+        Nominaal
+        Ratio
+        Nominaal
+        Nominaal
+        Nominaal
