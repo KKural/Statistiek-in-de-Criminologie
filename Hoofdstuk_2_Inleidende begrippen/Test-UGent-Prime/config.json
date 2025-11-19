@@ -8,5 +8,11 @@
   "evaluation": {
     "pythia_judge": "output"
   },
-  "labels": []
+  "programming_language": "python",
+  "access": "public",
+  "labels": [],
+  "internals": {
+    "token": "test-ugent-prime-token-12345",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
