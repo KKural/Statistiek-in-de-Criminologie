@@ -9,8 +9,15 @@
         }
     },
     "evaluation": {
-        "pythia_judge": "output"
+        "handler": "tested",
+        "test_suite": "suite.yaml",
+        "time_limit": 30,
+        "memory_limit": 134217728
     },
     "boilerplate": "description/boilerplate/boilerplate",
-    "labels": []
+    "labels": [],
+    "internals": {
+        "token": "gAMB7ED96TjtZf4rtupqQNSpNqV3Y-k7h6jrhRkUfFI2mr92SARQkDpK_EEWWX3h",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+    }
 }
