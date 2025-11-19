@@ -1,7 +1,7 @@
 {
     "type": "exercise",
     "programming_language": "python",
-    "access": "private",
+    "access": "public",
     "description": {
         "names": {
             "nl": "Oef - 2.8.1 Meetniveau classificatie - Python versie",
@@ -10,14 +10,13 @@
     },
     "evaluation": {
         "handler": "tested",
+        "test_suite": "suite.yaml",
         "time_limit": 10,
         "memory_limit": 50000000
     },
-    "labels": [
-        "meetniveau",
-        "classificatie",
-        "variabelen",
-        "statistiek",
-        "onderzoek"
-    ]
+    "labels": [],
+    "internals": {
+        "token": "Stu8B8TK84cZhhPFGCGF33XSus6NI3XcfuPjJc6Sip84DM3JU8mwmgwCsf_UV8mz",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+    }
 }
