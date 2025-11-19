@@ -1,5 +1,4 @@
-# BELANGRIJK: Verander ALLEEN de waarden tussen aanhalingstekens!
-# Verwijder NOOIT de variabelenamen of het = teken!
+# BELANGRIJK: Vul de juiste meetniveaus in!
 # Mogelijke antwoorden: "nominaal", "ordinaal", "interval", "ratio"
 
 # Variabele 1: Favoriete keuze uit meerkeuzevraag
@@ -16,3 +15,10 @@ studierichting = "jouw_antwoord_hier"
 
 # Variabele 5: Studentnummer
 studentnummer = "jouw_antwoord_hier"
+
+# Print de antwoorden (NIET AANPASSEN!)
+print(favoriete_keuze)
+print(leeftijd)
+print(geslacht)
+print(studierichting)
+print(studentnummer)

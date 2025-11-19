@@ -1,13 +1,8 @@
 - tab: "Meetniveau Classificatie"
-  contexts:
-    - testcases:
-        - statement: "print(favoriete_keuze)"
-          stdout: "nominaal"
-        - statement: "print(leeftijd)"
-          stdout: "ratio"
-        - statement: "print(geslacht)"
-          stdout: "nominaal"
-        - statement: "print(studierichting)"
-          stdout: "nominaal"
-        - statement: "print(studentnummer)"
-          stdout: "nominaal"
+  testcases:
+    - stdout: |
+        nominaal
+        ratio
+        nominaal
+        nominaal
+        nominaal
