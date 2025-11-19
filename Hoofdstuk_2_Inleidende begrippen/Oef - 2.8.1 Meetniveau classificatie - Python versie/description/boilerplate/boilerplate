@@ -16,3 +16,18 @@ studierichting = "jouw_antwoord_hier"
 
 # Variabele 5: Studentnummer
 studentnummer = "jouw_antwoord_hier"
+
+# Hulpfunctie voor TESTed (NIET AANPASSEN!)
+def get_answer(variable_name):
+    if variable_name == 'favoriete_keuze':
+        return favoriete_keuze
+    elif variable_name == 'leeftijd':
+        return leeftijd
+    elif variable_name == 'geslacht':
+        return geslacht
+    elif variable_name == 'studierichting':
+        return studierichting
+    elif variable_name == 'studentnummer':
+        return studentnummer
+    else:
+        return None
