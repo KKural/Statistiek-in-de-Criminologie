@@ -1,6 +1,5 @@
-# Besluit en vooruitblik naar volgende leerpad
+**Wat hebben we bereikt in Hoofdstuk 9?**  
+In Hoofdstuk 9 heb je geleerd hoe inferentiële statistiek onderzoekers toelaat om uitspraken te doen over populaties op basis van steekproeven. Je kon steekproevenverdelingen interpreteren, betrouwbaarheidsintervallen berekenen en de logica van hypothesetoetsing toepassen. De rol van kansverdelingen (normaal, t, χ², F) werd duidelijk, net als de werking van variantieanalyse (ANOVA) als methode om verschillen tussen groepsgemiddelden te evalueren. Hoofdstuk 9 vormde zo het fundament van statistische generalisatie en toetsing in criminologisch onderzoek.
 
-**Wat hebben we bereikt in Hoofdstuk 9?**
-
-
-**Vooruitblik naar Hoofdstuk 10**
+**Vooruitblik naar Hoofdstuk 10**  
+In Hoofdstuk 10 verschuift de aandacht van **inference** naar **multivariate verklaring**. Je leert waarom bivariate analyses vaak tekortschieten en hoe storende variabelen, intermediaire mechanismen of suppressorvariabelen de interpretatie van verbanden volledig kunnen veranderen. De **partiële correlatie** wordt geïntroduceerd als eerste stap richting multivariate statistiek: een methode om de **unieke** samenhang tussen twee variabelen te isoleren nadat gedeelde variantie met een derde variabele is verwijderd. Het hoofdstuk laat zien hoe spurieuze effecten, indirecte relaties en suppressie zich manifesteren in criminologische data en hoe partiële correlatie deze patronen inzichtelijk maakt. Hoofdstuk 10 vormt daarmee de noodzakelijke brug naar echte **multivariate regressiemodellen**.

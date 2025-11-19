@@ -1,6 +1,5 @@
-# Besluit en vooruitblik naar volgende leerpad
+**Wat hebben we bereikt in Hoofdstuk 11?**  
+Hoofdstuk 11 introduceerde de **meervoudige regressieanalyse**, waarbij meerdere onafhankelijke variabelen simultaan worden opgenomen in één model. Studenten leerden hoe gedeelde variantie (multicollineariteit) bivariate regressies kan vertekenen en waarom multipele regressie een beter beeld geeft van de unieke effecten van X₁ en X₂ op Y. Daarnaast werd aandacht besteed aan regressieassumpties (lineariteit, normaliteit, homoscedasticiteit, additiviteit, uitbijters) en aan de interpretatie van gestandaardiseerde regressiegewichten (β), ongestandaardiseerde parameters (b) en R². Hoofdstuk 11 vormde zo de basis voor multivariaat verklarend onderzoek in de criminologie.
 
-**Wat hebben we bereikt in Hoofdstuk 11?**
-
-
-**Vooruitblik naar Hoofdstuk 12**
+**Vooruitblik naar Hoofdstuk 12**  
+In Hoofdstuk 12 verschuift de aandacht naar **complexere causale structuren**, waarin variabelen niet enkel directe maar ook indirecte en conditionele effecten hebben. Je leert hoe **mediërende variabelen** mechanismen blootleggen, hoe **moderatoren** de sterkte van relaties veranderen en hoe **interactie-effecten** zowel grafisch als statistisch worden geïnterpreteerd. Het hoofdstuk introduceert tevens de **pad-analyse**, een techniek om volledige causale netwerken te modelleren, inclusief directe, indirecte en totale effecten. Hiermee vormt Hoofdstuk 12 het inhoudelijke fundament voor structurele vergelijkingsmodellen en voor geavanceerde theorietoetsing in criminologisch onderzoek.

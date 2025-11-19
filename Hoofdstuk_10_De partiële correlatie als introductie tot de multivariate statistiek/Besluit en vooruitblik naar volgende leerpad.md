@@ -1,6 +1,5 @@
-# Besluit en vooruitblik naar volgende leerpad
+**Wat hebben we bereikt in Hoofdstuk 10?**  
+In Hoofdstuk 10 heb je geleerd hoe de **partiële correlatie** toelaat om de unieke samenhang tussen twee variabelen te bepalen onder controle van een derde variabele. Aan de hand van spurieuze relaties, indirecte effecten en suppressie werd duidelijk gemaakt dat bivariate verbanden vaak misleidend zijn. Het hoofdstuk introduceerde de kern van multivariate denken: gedeelde variantie verwijderen om tot een zuivere schatting te komen. Daarmee vormde Hoofdstuk 10 het analytisch fundament voor echte multivariate modellen.
 
-**Wat hebben we bereikt in Hoofdstuk 10?**
-
-
-**Vooruitblik naar Hoofdstuk 11**
+**Vooruitblik naar Hoofdstuk 11**  
+In Hoofdstuk 11 wordt deze logica verder uitgebreid naar de **meervoudige regressieanalyse**, waarin de effecten van meerdere voorspellers gelijktijdig worden geschat. Je leert hoe regressiecoëfficiënten veranderen wanneer er wordt gecontroleerd voor andere variabelen, waarom multicollineariteit een probleem vormt en hoe je gestandaardiseerde en ongestandaardiseerde regressiegewichten berekent. Daarnaast leer je hoe de totale verklaarde variatie (R²) moet worden geïnterpreteerd in een multivariaat model en welke assumpties noodzakelijk zijn voor een betrouwbare analyse. Hoofdstuk 11 vormt zo de brug naar de praktische toepassing van multivariate regressie, de basis voor verdere technieken zoals logistische regressie, Poisson-modellen en interactieanalyse.
