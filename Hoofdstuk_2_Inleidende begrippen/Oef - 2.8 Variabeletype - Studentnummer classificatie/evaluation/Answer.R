@@ -14,8 +14,8 @@ context({
             "label (studentnummer)" = c("identificatie", "identification", "id")
           )
           
-          # Get student's submission
-          submission <- tolower(env$evaluationResult)
+          # Get student's submission (should be printed output from cat() function)
+          submission <- tolower(paste(capture.output(env$evaluationResult), collapse = "\n"))
           
           # Check if all correct classifications are present
           all_correct <- TRUE
