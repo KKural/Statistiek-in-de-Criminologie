@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "type": "exercise",
     "programming_language": "python",
     "access": "public",
@@ -10,35 +9,12 @@
         }
     },
     "evaluation": {
-        "handler": "tested",
-        "test_suite": "suite.yaml",
-        "time_limit": 30,
-        "memory_limit": 134217728
+        "pythia_judge": "output"
     },
     "boilerplate": "description/boilerplate/boilerplate",
     "labels": [],
     "internals": {
-        "token": "gAMB7ED96TjtZf4rtupqQNSpNqV3Y-k7h6jrhRkUfFI2mr92SARQkDpK_EEWWX3h",
+        "token": "IBSBVj4CbgspfxqCfAadJ4U-xd-2wN2rKXqK3edA7WjZwv8nUrvEUVaTRXEzsF8F",
         "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
     }
-=======
-  "type": "exercise",
-  "programming_language": "python",
-  "access": "public",
-  "description": {
-    "names": {
-      "nl": "Oef - 2.8.2 Meetniveau classificatie - Namen - Python versie",
-      "en": "Exercise - 2.8.2 Measurement Level Classification - Names - Python version"
-    }
-  },
-  "evaluation": {
-    "pythia_judge": "output"
-  },
-  "boilerplate": "description/boilerplate/boilerplate",
-  "labels": [],
-  "internals": {
-    "token": "IBSBVj4CbgspfxqCfAadJ4U-xd-2wN2rKXqK3edA7WjZwv8nUrvEUVaTRXEzsF8F",
-    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-  }
->>>>>>> 063b1c94a3add7a5c80de13b7fddf6b52c0b04b8
 }
