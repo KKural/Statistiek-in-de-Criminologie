@@ -1,5 +1,5 @@
 # BELANGRIJK: Vul de juiste meetniveaus in!
-# Mogelijke antwoorden: "nominaal", "ordinaal", "interval", "ratio"
+# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
 
 # Variabele 1: Namen van verdachten
 naam_verdachte = "???"
@@ -15,10 +15,3 @@ geboortejaar = "???"
 
 # Variabele 5: Bewijs ID (identificatienummer)
 bewijs_ID = "???"
-
-# Print de antwoorden (NIET AANPASSEN!)
-print(naam_verdachte)
-print(uitkringscategorie)
-print(boetebedrag)
-print(geboortejaar)
-print(bewijs_ID)

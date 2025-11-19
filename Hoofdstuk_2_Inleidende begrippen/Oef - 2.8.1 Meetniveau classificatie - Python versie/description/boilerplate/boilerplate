@@ -1,5 +1,5 @@
 # BELANGRIJK: Vul de juiste meetniveaus in!
-# Mogelijke antwoorden: "nominaal", "ordinaal", "interval", "ratio"
+# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
 
 # Variabele 1: Favoriete keuze uit meerkeuzevraag
 favoriete_keuze = "???"
@@ -15,10 +15,3 @@ studierichting = "???"
 
 # Variabele 5: Studentnummer
 studentnummer = "???"
-
-# Print de antwoorden (NIET AANPASSEN!)
-print(favoriete_keuze)
-print(leeftijd)
-print(geslacht)
-print(studierichting)
-print(studentnummer)

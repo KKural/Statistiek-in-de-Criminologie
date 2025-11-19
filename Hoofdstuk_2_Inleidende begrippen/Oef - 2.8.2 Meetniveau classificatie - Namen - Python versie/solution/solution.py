@@ -1,20 +1,20 @@
 # BELANGRIJK: Vul de juiste meetniveaus in!
-# Mogelijke antwoorden: "nominaal", "ordinaal", "interval", "ratio"
+# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
 
 # Variabele 1: Namen van verdachten
-naam_verdachte = "nominaal"
+naam_verdachte = "Nominaal"
 
 # Variabele 2: Uitkringscategorie (laag, midden, hoog)
-uitkringscategorie = "ordinaal"
+uitkringscategorie = "Ordinaal"
 
 # Variabele 3: Boetebedrag in euro's
-boetebedrag = "ratio"
+boetebedrag = "Ratio"
 
 # Variabele 4: Geboortejaar
-geboortejaar = "interval"
+geboortejaar = "Interval"
 
 # Variabele 5: Bewijs ID (identificatienummer)
-bewijs_ID = "nominaal"
+bewijs_ID = "Nominaal"
 
 # Print de antwoorden (NIET AANPASSEN!)
 print(naam_verdachte)

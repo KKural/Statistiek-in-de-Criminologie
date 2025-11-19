@@ -1,8 +1,0 @@
-- tab: "Meetniveau Classificatie"
-  testcases:
-    - stdout: |
-        nominaal
-        ratio
-        nominaal
-        nominaal
-        nominaal

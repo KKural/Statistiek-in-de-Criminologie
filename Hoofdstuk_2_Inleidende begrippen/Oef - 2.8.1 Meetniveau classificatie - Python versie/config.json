@@ -9,10 +9,7 @@
         }
     },
     "evaluation": {
-        "handler": "tested",
-        "test_suite": "suite.yaml",
-        "time_limit": 30,
-        "memory_limit": 134217728
+        "pythia_judge": "output"
     },
     "boilerplate": "description/boilerplate/boilerplate",
     "labels": [],

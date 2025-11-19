@@ -1,20 +1,20 @@
 # BELANGRIJK: Vul de juiste meetniveaus in!
-# Mogelijke antwoorden: "nominaal", "ordinaal", "interval", "ratio"
+# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
 
 # Variabele 1: Favoriete keuze uit meerkeuzevraag
-favoriete_keuze = "nominaal"
+favoriete_keuze = "Nominaal"
 
 # Variabele 2: Leeftijd in jaren
-leeftijd = "ratio"
+leeftijd = "Ratio"
 
 # Variabele 3: Geslacht (man/vrouw)
-geslacht = "nominaal"
+geslacht = "Nominaal"
 
 # Variabele 4: Studierichting
-studierichting = "nominaal"
+studierichting = "Nominaal"
 
 # Variabele 5: Studentnummer
-studentnummer = "nominaal"
+studentnummer = "Nominaal"
 
 # Print de antwoorden (NIET AANPASSEN!)
 print(favoriete_keuze)
