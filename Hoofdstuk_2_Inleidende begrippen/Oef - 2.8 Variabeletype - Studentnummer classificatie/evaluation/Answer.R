@@ -3,9 +3,8 @@ context({
     "Favoriete keuze voor online onderzoek",
     {
       testEqual(
-        "Nominaal",
-        if(exists("favoriete_keuze")) tolower(favoriete_keuze) else "niet gevonden",
-        "nominaal"
+        "nominaal",
+        if(exists("favoriete_keuze")) tolower(favoriete_keuze) else "niet gevonden"
       )
     }
   )
@@ -14,9 +13,8 @@ context({
     "Leeftijd",
     {
       testEqual(
-        "Ratio", 
-        if(exists("leeftijd")) tolower(leeftijd) else "niet gevonden",
-        "ratio"
+        "ratio", 
+        if(exists("leeftijd")) tolower(leeftijd) else "niet gevonden"
       )
     }
   )
@@ -25,9 +23,8 @@ context({
     "Geslacht",
     {
       testEqual(
-        "Nominaal",
-        if(exists("geslacht")) tolower(geslacht) else "niet gevonden",
-        "nominaal"
+        "nominaal",
+        if(exists("geslacht")) tolower(geslacht) else "niet gevonden"
       )
     }
   )
@@ -36,9 +33,8 @@ context({
     "Studierichting", 
     {
       testEqual(
-        "Nominaal",
-        if(exists("studierichting")) tolower(studierichting) else "niet gevonden",
-        "nominaal"
+        "nominaal",
+        if(exists("studierichting")) tolower(studierichting) else "niet gevonden"
       )
     }
   )
@@ -47,9 +43,8 @@ context({
     "Studentnummer",
     {
       testEqual(
-        "Nominaal",
-        if(exists("studentnummer")) tolower(studentnummer) else "niet gevonden",
-        "nominaal"
+        "nominaal",
+        if(exists("studentnummer")) tolower(studentnummer) else "niet gevonden"
       )
     }
   )
