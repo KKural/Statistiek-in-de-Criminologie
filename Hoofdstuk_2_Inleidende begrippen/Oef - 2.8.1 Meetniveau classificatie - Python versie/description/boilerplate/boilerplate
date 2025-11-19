@@ -1,0 +1,17 @@
+# Vervang ??? door het juiste meetniveau
+# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
+
+# Favoriete keuze voor online onderzoek (Google, Bibliotheek, Wikipedia, etc.)
+favoriete_keuze = "???"
+
+# Leeftijd van studenten (17, 18, 19 jaar etc.)
+leeftijd = "???"
+
+# Geslacht (man/vrouw)
+geslacht = "???"
+
+# Studierichting (verschillende richtingen)  
+studierichting = "???"
+
+# Studentnummer (1-552 voor identificatie)
+studentnummer = "???"
