@@ -1,8 +1,14 @@
-# Vervang ??? door het juiste variabeletype (zonder aanhalingstekens)
+# Vervang ??? door het juiste variabeletype
 # Mogelijke antwoorden: Categorisch, Kwantitatief, Identificatie
 
-favoriete_keuze <- "???"
-leeftijd <- "???"
-geslacht <- "???"
-studierichting <- "???"
-studentnummer <- "???"
+# Maak een lijst met je antwoorden
+antwoorden <- list(
+  favoriete_keuze = "???",     # Google, Bibliotheek, Wikipedia etc.
+  leeftijd = "???",            # 17, 18, 19 jaar - getallen
+  geslacht = "???",            # man/vrouw - categorieën  
+  studierichting = "???",      # verschillende richtingen
+  studentnummer = "???"        # nummer 1-552 voor identificatie
+)
+
+# Dit toont je antwoorden
+antwoorden

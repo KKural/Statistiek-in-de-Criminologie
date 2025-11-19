@@ -4,7 +4,9 @@ context({
     {
       testEqual(
         "Categorisch",
-        tolower(favoriete_keuze),
+        if(exists("antwoorden") && "favoriete_keuze" %in% names(antwoorden)) {
+          tolower(antwoorden$favoriete_keuze)
+        } else "niet gevonden",
         "categorisch"
       )
     }
@@ -15,7 +17,9 @@ context({
     {
       testEqual(
         "Kwantitatief", 
-        tolower(leeftijd),
+        if(exists("antwoorden") && "leeftijd" %in% names(antwoorden)) {
+          tolower(antwoorden$leeftijd)
+        } else "niet gevonden",
         "kwantitatief"
       )
     }
@@ -26,7 +30,9 @@ context({
     {
       testEqual(
         "Categorisch",
-        tolower(geslacht),
+        if(exists("antwoorden") && "geslacht" %in% names(antwoorden)) {
+          tolower(antwoorden$geslacht)
+        } else "niet gevonden",
         "categorisch"
       )
     }
@@ -37,7 +43,9 @@ context({
     {
       testEqual(
         "Categorisch",
-        tolower(studierichting),
+        if(exists("antwoorden") && "studierichting" %in% names(antwoorden)) {
+          tolower(antwoorden$studierichting)
+        } else "niet gevonden",
         "categorisch"
       )
     }
@@ -48,7 +56,9 @@ context({
     {
       testEqual(
         "Identificatie",
-        tolower(studentnummer),
+        if(exists("antwoorden") && "studentnummer" %in% names(antwoorden)) {
+          tolower(antwoorden$studentnummer)
+        } else "niet gevonden",
         "identificatie"
       )
     }

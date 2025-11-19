@@ -13,15 +13,20 @@ Vul de onderstaande tabel in door voor elke variabele het juiste type in te vull
 **Instructies:**
 
 1. **Kopieer de boilerplate code** in het antwoordveld
-2. **Vervang elke "???" door het juiste variabeletype** (let op: zonder aanhalingstekens in je antwoord):
+2. **Vervang elke "???" door het juiste variabeletype:**
    - **Categorisch** (voor variabelen met categorieën zonder rekenkundige betekenis)
    - **Kwantitatief** (voor variabelen met getallen waar rekenkundige bewerkingen op mogelijk zijn)
    - **Identificatie** (voor labels die alleen dienen ter identificatie)
 
-**Voorbeeld van correct ingevulde variabelen:**
+**Voorbeeld van correct ingevulde antwoorden:**
 ```r
-favoriete_keuze <- "Categorisch"
-leeftijd <- "Kwantitatief"
+antwoorden <- list(
+  favoriete_keuze = "Categorisch",
+  leeftijd = "Kwantitatief",
+  geslacht = "Categorisch",
+  studierichting = "Categorisch", 
+  studentnummer = "Identificatie"
+)
 ```
 
 **Hint:** *Denk na welke variabelen **getallen met rekenkundige betekenis** hebben versus **categorieën** of **alleen identificatie**.*
