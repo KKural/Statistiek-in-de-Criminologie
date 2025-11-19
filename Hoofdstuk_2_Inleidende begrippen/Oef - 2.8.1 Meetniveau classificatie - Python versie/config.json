@@ -1,23 +1,27 @@
 {
-    "type": "exercise",
-    "programming_language": "python",
-    "access": "private",
-    "description": {
-        "names": {
-            "nl": "Oef - 2.8.1 Meetniveau classificatie - Python versie",
-            "en": "Exercise - 2.8.1 Measurement Level Classification - Python version"
-        }
-    },
-    "evaluation": {
-        "handler": "tested",
-        "time_limit": 10,
-        "memory_limit": 50000000
-    },
-    "labels": [
-        "meetniveau",
-        "classificatie",
-        "variabelen",
-        "statistiek",
-        "onderzoek"
-    ]
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "private",
+  "description": {
+    "names": {
+      "nl": "Oef - 2.8.1 Meetniveau classificatie - Python versie",
+      "en": "Exercise - 2.8.1 Measurement Level Classification - Python version"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "time_limit": 10,
+    "memory_limit": 50000000
+  },
+  "labels": [
+    "meetniveau",
+    "classificatie",
+    "variabelen",
+    "statistiek",
+    "onderzoek"
+  ],
+  "internals": {
+    "token": "gAMB7ED96TjtZf4rtupqQNSpNqV3Y-k7h6jrhRkUfFI2mr92SARQkDpK_EEWWX3h",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
