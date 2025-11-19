@@ -1,0 +1,17 @@
+{
+  "description": {
+    "names": {
+      "en": "Test Measurement Levels",
+      "nl": "Test Meetniveau"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "programming_language": "python",
+  "access": "private",
+  "internals": {
+    "token": "tttDAfymy9hcESUiGPiGdYChanWmc5kAeyfudufrkcWqNIh-tTuqFfqCkCmuxaHK",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
