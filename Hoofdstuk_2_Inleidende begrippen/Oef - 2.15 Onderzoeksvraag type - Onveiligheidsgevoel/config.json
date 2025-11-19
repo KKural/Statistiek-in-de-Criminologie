@@ -1,0 +1,18 @@
+{
+    "description": {
+        "names": {
+            "nl": "Oef - 2.15 Onderzoeksvraag type - Onveiligheidsgevoel"
+        }
+    },
+    "evaluation": {
+        "handler": "R",
+        "test_suite": "evaluation"
+    },
+    "programming_language": "R",
+    "access": "public",
+    "labels": [],
+    "internals": {
+        "token": "Unv15B8TK84cZhhPFGCGF33XSus6NI3XcfuPjJc6Sip84DM3JU8mwmgwCsf_UV15z",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+    }
+}
