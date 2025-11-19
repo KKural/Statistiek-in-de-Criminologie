@@ -1,8 +1,17 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - stdout: |
-        Nominaal
-        Ratio
-        Nominaal
-        Nominaal
-        Nominaal
+    - description: "Favoriete keuze voor online onderzoek: Dit zijn categorieën zonder natuurlijke volgorde → Nominaal"
+      expression: "favoriete_keuze"
+      return: "Nominaal"
+    - description: "Leeftijd in jaren: Dit zijn getallen met gelijke afstanden en echt nulpunt → Ratio"
+      expression: "leeftijd"
+      return: "Ratio"
+    - description: "Geslacht (man/vrouw): Dit zijn categorieën zonder natuurlijke volgorde → Nominaal"
+      expression: "geslacht"
+      return: "Nominaal"
+    - description: "Studierichting: Dit zijn categorieën zonder natuurlijke volgorde → Nominaal"
+      expression: "studierichting"
+      return: "Nominaal"
+    - description: "Studentnummer (1-552): Dit zijn labels voor identificatie, niet voor berekeningen → Nominaal"
+      expression: "studentnummer"
+      return: "Nominaal"
