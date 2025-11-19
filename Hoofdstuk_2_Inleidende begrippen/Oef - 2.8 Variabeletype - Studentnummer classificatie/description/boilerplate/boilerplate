@@ -1,8 +1,8 @@
-# Vervang ??? door het juiste variabeletype (Categorisch, Kwantitatief, of Identificatie)
-cat("
-Favoriete keuze voor online onderzoek: ???
-Leeftijd: ???
-Geslacht: ???
-Studierichting: ???
-Label (studentnummer): ???
-")
+# Vervang ??? door het juiste variabeletype (zonder aanhalingstekens)
+# Mogelijke antwoorden: Categorisch, Kwantitatief, Identificatie
+
+favoriete_keuze <- "???"
+leeftijd <- "???"
+geslacht <- "???"
+studierichting <- "???"
+studentnummer <- "???"

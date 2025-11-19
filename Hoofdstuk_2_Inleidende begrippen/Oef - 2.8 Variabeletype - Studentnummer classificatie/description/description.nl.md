@@ -13,16 +13,15 @@ Vul de onderstaande tabel in door voor elke variabele het juiste type in te vull
 **Instructies:**
 
 1. **Kopieer de boilerplate code** in het antwoordveld
-2. **Vervang elke ??? door het juiste variabeletype:**
+2. **Vervang elke "???" door het juiste variabeletype** (let op: zonder aanhalingstekens in je antwoord):
    - **Categorisch** (voor variabelen met categorieën zonder rekenkundige betekenis)
    - **Kwantitatief** (voor variabelen met getallen waar rekenkundige bewerkingen op mogelijk zijn)
    - **Identificatie** (voor labels die alleen dienen ter identificatie)
 
-3. **Voer je code uit** - de output toont jouw classificaties
-
-**Voorbeeld van een correct ingevulde regel:**
+**Voorbeeld van correct ingevulde variabelen:**
 ```r
-Favoriete keuze voor online onderzoek: Categorisch
+favoriete_keuze <- "Categorisch"
+leeftijd <- "Kwantitatief"
 ```
 
 **Hint:** *Denk na welke variabelen **getallen met rekenkundige betekenis** hebben versus **categorieën** of **alleen identificatie**.*
