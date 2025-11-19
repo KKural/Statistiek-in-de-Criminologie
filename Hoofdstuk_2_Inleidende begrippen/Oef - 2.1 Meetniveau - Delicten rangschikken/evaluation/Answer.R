@@ -5,7 +5,7 @@ context({
       testEqual(
         "",
         function(env) as.numeric(env$evaluationResult),
-        2,  # Correct answer: Q7 from your rotation pattern
+        2,  # Correct answer
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
             "1" = "❌ Fout - nominaal betekent categorieën zonder rangorde, zoals haarkleur of nationaliteit.",

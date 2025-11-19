@@ -1,10 +1,10 @@
-Welke van de volgende variabelen is een **nominale variabele**?
+Een schaal om **empathie** te meten voor slachtoffers van verkeersdelicten met antwoordcategorieën gaande van '**heel onwaarschijnlijk**' tot en met '**heel waarschijnlijk**' is van welk **meetniveau**?
 
-1. Type misdrijf (diefstal, geweld, vandalisme)
-2. Temperatuur in graden Celsius
-3. Opleidingsniveau (laag, gemiddeld, hoog)
-4. Leeftijd in jaren
+1. Nominaal
+2. Ordinaal
+3. Interval 
+4. Ratio
 
-**Hint:** *Pas je kennis van meetniveaus toe. Nominale variabelen zijn categorieën zonder rangorde.*
+**Hint:** *Overweeg of de antwoordcategorieën kunnen worden **gerangschikt** en of de **afstanden** tussen de categorieën gelijk zijn.*
 
-Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.
+Typ je antwoord als één enkel getal (**1-4**) om je keuze aan te geven.
