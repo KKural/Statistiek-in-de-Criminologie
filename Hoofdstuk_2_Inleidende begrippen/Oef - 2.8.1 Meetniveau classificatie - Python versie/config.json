@@ -14,6 +14,7 @@
         "time_limit": 30,
         "memory_limit": 134217728
     },
+    "boilerplate": "description/boilerplate",
     "labels": [],
     "internals": {
         "token": "gAMB7ED96TjtZf4rtupqQNSpNqV3Y-k7h6jrhRkUfFI2mr92SARQkDpK_EEWWX3h",
