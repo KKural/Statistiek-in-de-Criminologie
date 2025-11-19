@@ -1,0 +1,16 @@
+{
+    "type": "exercise",
+    "programming_language": "python",
+    "access": "public",
+    "description": {
+        "names": {
+            "nl": "Oef - 2.8.2 Meetniveau classificatie - Namen - Python versie",
+            "en": "Exercise - 2.8.2 Measurement Level Classification - Names - Python version"
+        }
+    },
+    "evaluation": {
+        "pythia_judge": "output"
+    },
+    "boilerplate": "description/boilerplate/boilerplate",
+    "labels": []
+}

@@ -2,19 +2,19 @@
 # Mogelijke antwoorden: "nominaal", "ordinaal", "interval", "ratio"
 
 # Variabele 1: Favoriete keuze uit meerkeuzevraag
-favoriete_keuze = "jouw_antwoord_hier"
+favoriete_keuze = "???"
 
 # Variabele 2: Leeftijd in jaren
-leeftijd = "jouw_antwoord_hier"
+leeftijd = "???"
 
 # Variabele 3: Geslacht (man/vrouw)
-geslacht = "jouw_antwoord_hier"
+geslacht = "???"
 
 # Variabele 4: Studierichting
-studierichting = "jouw_antwoord_hier"
+studierichting = "???"
 
 # Variabele 5: Studentnummer
-studentnummer = "jouw_antwoord_hier"
+studentnummer = "???"
 
 # Print de antwoorden (NIET AANPASSEN!)
 print(favoriete_keuze)
