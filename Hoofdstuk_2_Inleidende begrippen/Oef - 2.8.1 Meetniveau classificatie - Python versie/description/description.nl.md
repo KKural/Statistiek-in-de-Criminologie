@@ -34,12 +34,15 @@ Classificeer elke variabele volgens het juiste meetniveau.
 
 **Voorbeeld van correct ingevulde code:**
 ```python
-# Voorbeeld voor leeftijd (heeft echt nulpunt en gelijke afstanden)
+# JUIST: Behoud de aanhalingstekens
 leeftijd = "Ratio"
-
-# Voorbeeld voor geslacht (categorieën zonder volgorde) 
 geslacht = "Nominaal"
+
+# FOUT: Vergeet de aanhalingstekens niet!
+# leeftijd = Ratio    ← Dit geeft een fout!
 ```
+
+⚠️ **LET OP: Behoud altijd de aanhalingstekens rond je antwoord!**
 
 **Hint:** *Denk na:*
 - *Zijn er **categorieën** zonder volgorde? → **Nominaal***
