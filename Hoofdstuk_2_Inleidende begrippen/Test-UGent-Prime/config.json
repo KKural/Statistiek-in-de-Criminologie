@@ -1,4 +1,7 @@
 {
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
   "description": {
     "names": {
       "en": "The Ghent University prime number",
@@ -8,8 +11,6 @@
   "evaluation": {
     "pythia_judge": "output"
   },
-  "programming_language": "python",
-  "access": "public",
   "labels": [],
   "internals": {
     "token": "test-ugent-prime-working-token-xyz",
