@@ -15,3 +15,10 @@ geboortejaar = "???"
 
 # Variabele 5: Bewijs ID (identificatienummer)
 bewijs_ID = "???"
+
+# Print de antwoorden (NIET AANPASSEN!)
+print(naam_verdachte)
+print(uitkringscategorie)
+print(boetebedrag)
+print(geboortejaar)
+print(bewijs_ID)
