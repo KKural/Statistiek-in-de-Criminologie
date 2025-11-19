@@ -1,18 +1,17 @@
-# BELANGRIJK: Vervang alleen ??? door het juiste antwoord
-# Behoud de aanhalingstekens! Bijvoorbeeld: "Nominaal"
-# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
+# Classificeer het meetniveau van elke variabele
+# Mogelijke antwoorden: "nominaal", "ordinaal", "interval", "ratio"
 
-# Favoriete keuze voor online onderzoek (Google, Bibliotheek, Wikipedia, etc.)
-favoriete_keuze = "???"
+# Variabele 1: Favoriete keuze uit meerkeuzevraag
+favoriete_keuze = "nominaal"
 
-# Leeftijd van studenten (17, 18, 19 jaar etc.)
-leeftijd = "???"
+# Variabele 2: Leeftijd in jaren
+leeftijd = "ratio"
 
-# Geslacht (man/vrouw)
-geslacht = "???"
+# Variabele 3: Geslacht (man/vrouw)
+geslacht = "nominaal"
 
-# Studierichting (verschillende richtingen)  
-studierichting = "???"
+# Variabele 4: Studierichting
+studierichting = "nominaal"
 
-# Studentnummer (1-552 voor identificatie)
-studentnummer = "???"
+# Variabele 5: Studentnummer
+studentnummer = "nominaal"
