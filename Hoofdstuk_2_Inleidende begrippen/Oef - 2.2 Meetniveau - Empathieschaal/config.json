@@ -1,0 +1,18 @@
+{
+  "description": {
+    "names": {
+      "nl": "Oef - 2.2 Meetniveau - Empathieschaal"
+    }
+  },
+  "evaluation": {
+    "handler": "R",
+    "test_suite": "evaluation"
+  },
+  "programming_language": "R",
+  "access": "public",
+  "labels": [],
+  "internals": {
+    "token": "EmP2B8TK84cZhhPFGCGF33XSus6NI3XcfuPjJc6Sip84DM3JU8mwmgwCsf_UV5mz",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
