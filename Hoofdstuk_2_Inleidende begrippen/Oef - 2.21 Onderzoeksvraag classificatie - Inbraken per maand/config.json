@@ -1,20 +1,19 @@
 {
-  "type": "exercise",
-  "programming_language": "r",
-  "access": "public",
-  "description": {
-    "names": {
-      "nl": "Oef - 2.21 Onderzoeksvraag classificatie - Inbraken per maand",
-      "en": "Exercise - 2.21 Research Question Classification - Burglaries per month"
+    "type": "exercise",
+    "programming_language": "r",
+    "access": "public",
+    "description": {
+        "names": {
+            "nl": "Oef - 2.21 Onderzoeksvraag classificatie - Inbraken per maand"
+        }
+    },
+    "evaluation": {
+        "handler": "r"
+    },
+    "boilerplate": "description/boilerplate/boilerplate",
+    "labels": [],
+    "internals": {
+        "token": "z_FxF65aMs8_IguU7GTIUQgAT5my5cGSQN8rVxvpMuS8kcZ2X3CMPm5Ckwyepfnd",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
     }
-  },
-  "evaluation": {
-    "handler": "r"
-  },
-  "boilerplate": "description/boilerplate/boilerplate",
-  "labels": [],
-  "internals": {
-    "token": "z_FxF65aMs8_IguU7GTIUQgAT5my5cGSQN8rVxvpMuS8kcZ2X3CMPm5Ckwyepfnd",
-    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-  }
 }

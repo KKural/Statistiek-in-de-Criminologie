@@ -34,7 +34,15 @@ context({
                                   "het aantal inbraken per maand",
                                   "aantal gerapporteerde inbraken per maand in belgische steden",
                                   "gerapporteerde inbraken per maand",
-                                  "aantal inbraken per maand in belgische steden")
+                                  "aantal inbraken per maand in belgische steden",
+                                  "het gemiddelde aantal gerapporteerde inbraken per maand in belgische steden",
+                                  "gemiddelde aantal gerapporteerde inbraken per maand in belgische steden",
+                                  "het gemiddelde aantal inbraken per maand in belgische steden",
+                                  "gemiddelde aantal inbraken per maand in belgische steden",
+                                  "het gemiddelde aantal gerapporteerde inbraken per maand",
+                                  "gemiddelde aantal gerapporteerde inbraken per maand",
+                                  "het gemiddelde aantal inbraken per maand",
+                                  "gemiddelde aantal inbraken per maand")
             results$bestudeerde_variabele <- list(
               exists = TRUE,
               value = get("bestudeerde_variabele", envir = env),

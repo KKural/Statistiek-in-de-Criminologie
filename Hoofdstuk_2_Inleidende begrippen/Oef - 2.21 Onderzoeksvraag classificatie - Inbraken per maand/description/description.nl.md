@@ -1,4 +1,3 @@
-## Onderzoeksvraag:
 > **"Hoeveel inbraken worden er gemiddeld per maand gerapporteerd in Belgische steden?"**
 
 **Jouw taak:**
