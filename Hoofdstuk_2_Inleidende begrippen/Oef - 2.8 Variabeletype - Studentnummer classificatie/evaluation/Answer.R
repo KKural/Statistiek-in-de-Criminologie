@@ -118,11 +118,11 @@ context({
             # Add helpful tips for incorrect answers
             incorrect_vars <- sapply(results, function(x) !x$correct)
             if(any(incorrect_vars)) {
-              feedback_parts <- c(feedback_parts, "**Tips voor de foute antwoorden:**")
+              feedback_parts <- c(feedback_parts, "**📚 Uitleg waarom deze antwoorden fout zijn:**")
               
               if(!results$favoriete_keuze$correct) {
                 if(!results$favoriete_keuze$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Vergeet niet aanhalingstekens! Gebruik: `favoriete_keuze <- \"Nominaal\"`")
+                  feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `favoriete_keuze <- \"Nominaal\"` (let op de aanhalingstekens!)")
                 } else {
                   student_answer <- tolower(as.character(results$favoriete_keuze$value))
                   if(student_answer == "ordinaal") {
@@ -139,7 +139,7 @@ context({
               
               if(!results$leeftijd$correct) {
                 if(!results$leeftijd$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Leeftijd**: Vergeet niet aanhalingstekens! Gebruik: `leeftijd <- \"Ratio\"`")
+                  feedback_parts <- c(feedback_parts, "• **Leeftijd**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `leeftijd <- \"Ratio\"` (let op de aanhalingstekens!)")
                 } else {
                   student_answer <- tolower(as.character(results$leeftijd$value))
                   if(student_answer == "nominaal") {
@@ -156,7 +156,7 @@ context({
               
               if(!results$geslacht$correct) {
                 if(!results$geslacht$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Geslacht**: Vergeet niet aanhalingstekens! Gebruik: `geslacht <- \"Nominaal\"`")
+                  feedback_parts <- c(feedback_parts, "• **Geslacht**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `geslacht <- \"Nominaal\"` (let op de aanhalingstekens!)")
                 } else {
                   student_answer <- tolower(as.character(results$geslacht$value))
                   if(student_answer == "ordinaal") {
@@ -173,7 +173,7 @@ context({
               
               if(!results$studierichting$correct) {
                 if(!results$studierichting$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Studierichting**: Vergeet niet aanhalingstekens! Gebruik: `studierichting <- \"Nominaal\"`")
+                  feedback_parts <- c(feedback_parts, "• **Studierichting**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `studierichting <- \"Nominaal\"` (let op de aanhalingstekens!)")
                 } else {
                   student_answer <- tolower(as.character(results$studierichting$value))
                   if(student_answer == "ordinaal") {
@@ -190,7 +190,7 @@ context({
               
               if(!results$studentnummer$correct) {
                 if(!results$studentnummer$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Studentnummer**: Vergeet niet aanhalingstekens! Gebruik: `studentnummer <- \"Nominaal\"`")
+                  feedback_parts <- c(feedback_parts, "• **Studentnummer**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `studentnummer <- \"Nominaal\"` (let op de aanhalingstekens!)")
                 } else {
                   student_answer <- tolower(as.character(results$studentnummer$value))
                   if(student_answer == "ordinaal") {
