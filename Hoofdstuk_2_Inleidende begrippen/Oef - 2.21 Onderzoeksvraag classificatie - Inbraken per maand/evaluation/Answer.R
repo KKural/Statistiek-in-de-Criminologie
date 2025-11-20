@@ -67,71 +67,98 @@ context({
             results$waarden <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Natuurlijke getallen (0, 1, 2, ...)")
           }
           
-          # Generate numbered feedback
-          feedback_parts <- c("## **Resultaten per onderdeel:**\n")
+          # Store results for use in comparator
+          assign("detailed_results", results, envir = globalenv())
+          
+          # Return overall success
+          all_correct <- all(sapply(results, function(x) x$correct))
+          return(all_correct)
+        },
+        TRUE,
+        comparator = function(generated, expected, ...) {
+          # Get detailed results from global environment
+          results <- get("detailed_results", envir = globalenv())
+          
+          # Create detailed output showing all variables
+          feedback_parts <- c("**Resultaten per onderdeel:**\n")
+          
+          variable_names <- c(
+            "type_vraag" = "Type onderzoeksvraag",
+            "bestudeerde_variabele" = "Bestudeerde variabele", 
+            "meetniveau" = "Meetniveau",
+            "waarden" = "Mogelijke waarden"
+          )
           
           counter <- 1
-          variable_names <- c("Type onderzoeksvraag", "Bestudeerde variabele", "Meetniveau", "Mogelijke waarden")
-          var_keys <- c("type_vraag", "bestudeerde_variabele", "meetniveau", "waarden")
-          
-          for (i in 1:length(var_keys)) {
-            var_key <- var_keys[i]
-            var_display <- variable_names[i]
+          for(var_key in names(variable_names)) {
+            var_display <- variable_names[var_key]
             result <- results[[var_key]]
             
-            if (!result$exists) {
-              feedback_parts <- c(feedback_parts, paste(counter, ". **", var_display, "**: *Ontbreekt* ❌", sep = ""))
-            } else if (result$correct) {
-              feedback_parts <- c(feedback_parts, paste(counter, ". **", var_display, "**: ", result$value, " ✅", sep = ""))
+            if(!result$exists) {
+              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: *Ontbreekt* ❌"))
+            } else if(result$correct) {
+              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ✅"))
             } else {
-              feedback_parts <- c(feedback_parts, paste(counter, ". **", var_display, "**: ", result$value, " ❌", sep = ""))
+              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ❌"))
             }
             counter <- counter + 1
           }
           
-          # Check if all correct
-          all_correct <- all(sapply(results, function(x) x$correct))
-          
-          if (all_correct) {
+          if (generated == expected) {
             feedback_parts <- c(feedback_parts, "\n✅ **Alle onderdelen correct geclassificeerd.**")
             feedback_parts <- c(feedback_parts, "\n**Uitstekend!** Je begrijpt onderzoeksvraag classificatie goed.")
           } else {
-            # Add specific feedback for wrong answers
-            incorrect_vars <- names(results)[sapply(results, function(x) !x$correct)]
-            if (length(incorrect_vars) > 0) {
+            
+            # Add helpful tips for incorrect answers
+            incorrect_vars <- sapply(results, function(x) !x$correct)
+            if(any(incorrect_vars)) {
               feedback_parts <- c(feedback_parts, "**📚 Uitleg waarom deze antwoorden fout zijn:**")
               
-              for (var_key in incorrect_vars) {
-                result <- results[[var_key]]
-                var_display <- variable_names[which(var_keys == var_key)]
-                
-                if (!result$exists) {
-                  feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: ❌ Variabele niet gevonden. Vergeet je de variabele te definiëren? Gebruik: `", var_key, " <- \"", result$expected, "\"`", sep = ""))
+              if(!results$type_vraag$correct) {
+                if(!results$type_vraag$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `type_vraag <- \"univariate beschrijvende\"` (let op de aanhalingstekens!)")
                 } else {
-                  student_answer <- tolower(as.character(result$value))
-                  if (var_key == "type_vraag") {
-                    if (student_answer == "bivariate beschrijvende") {
-                      feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: Je koos 'bivariate beschrijvende', maar dit is fout. Deze vraag gaat over slechts één variabele (aantal inbraken). Er wordt geen relatie tussen twee variabelen onderzocht → **univariate beschrijvende**", sep = ""))
-                    } else if (student_answer == "bivariate verklarende") {
-                      feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: Je koos 'bivariate verklarende', maar dit is fout. Deze vraag zoekt geen oorzakelijk verband tussen variabelen. Het gaat om het beschrijven van één variabele → **univariate beschrijvende**", sep = ""))
-                    } else {
-                      feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: Deze vraag onderzoekt slechts één variabele (aantal inbraken per maand) zonder relatie met andere variabelen → **univariate beschrijvende**", sep = ""))
-                    }
-                  } else if (var_key == "bestudeerde_variabele") {
-                    feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: De variabele die wordt bestudeerd is 'het aantal gerapporteerde inbraken per maand in Belgische steden'. Focus op wat er precies wordt geteld/gemeten.", sep = ""))
-                  } else if (var_key == "meetniveau") {
-                    if (student_answer == "nominaal") {
-                      feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: Je koos 'nominaal', maar dit is fout. Aantal inbraken zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt (0 inbraken) en betekenisvolle verhoudingen → **ratio**", sep = ""))
-                    } else if (student_answer == "ordinaal") {
-                      feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: Je koos 'ordinaal', maar dit is fout. Aantal inbraken heeft niet alleen rangorde maar ook gelijke afstanden en een echt nulpunt → **ratio**", sep = ""))
-                    } else if (student_answer == "interval") {
-                      feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: Je koos 'interval', maar dit is fout. Aantal inbraken heeft wel een echt nulpunt: 0 inbraken betekent echt geen inbraken → **ratio**", sep = ""))
-                    } else {
-                      feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: Aantal inbraken heeft gelijke afstanden, een echt nulpunt (0 = geen inbraken) en betekenisvolle verhoudingen → **ratio**", sep = ""))
-                    }
-                  } else if (var_key == "waarden") {
-                    feedback_parts <- c(feedback_parts, paste("• **", var_display, "**: De mogelijke waarden zijn natuurlijke getallen: 0, 1, 2, 3, ... (je kunt geen negatief aantal inbraken hebben)", sep = ""))
+                  student_answer <- tolower(as.character(results$type_vraag$value))
+                  if(student_answer == "bivariate beschrijvende") {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate beschrijvende', maar dit is fout. Deze vraag gaat over slechts één variabele (aantal inbraken). Er wordt geen relatie tussen twee variabelen onderzocht → **univariate beschrijvende**")
+                  } else if(student_answer == "bivariate verklarende") {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate verklarende', maar dit is fout. Deze vraag zoekt geen oorzakelijk verband tussen variabelen. Het gaat om het beschrijven van één variabele → **univariate beschrijvende**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Deze vraag onderzoekt slechts één variabele (aantal inbraken per maand) zonder relatie met andere variabelen → **univariate beschrijvende**")
                   }
+                }
+              }
+              
+              if(!results$bestudeerde_variabele$correct) {
+                if(!results$bestudeerde_variabele$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `bestudeerde_variabele <- \"Het aantal gerapporteerde inbraken per maand in Belgische steden\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele**: De variabele die wordt bestudeerd is 'het aantal gerapporteerde inbraken per maand in Belgische steden'. Focus op wat er precies wordt geteld/gemeten.")
+                }
+              }
+              
+              if(!results$meetniveau$correct) {
+                if(!results$meetniveau$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `meetniveau <- \"ratio\"` (let op de aanhalingstekens!)")
+                } else {
+                  student_answer <- tolower(as.character(results$meetniveau$value))
+                  if(student_answer == "nominaal") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau**: Je koos 'nominaal', maar dit is fout. Aantal inbraken zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt (0 inbraken) en betekenisvolle verhoudingen → **ratio**")
+                  } else if(student_answer == "ordinaal") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau**: Je koos 'ordinaal', maar dit is fout. Aantal inbraken heeft niet alleen rangorde maar ook gelijke afstanden en een echt nulpunt → **ratio**")
+                  } else if(student_answer == "interval") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau**: Je koos 'interval', maar dit is fout. Aantal inbraken heeft wel een echt nulpunt: 0 inbraken betekent echt geen inbraken → **ratio**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau**: Aantal inbraken heeft gelijke afstanden, een echt nulpunt (0 = geen inbraken) en betekenisvolle verhoudingen → **ratio**")
+                  }
+                }
+              }
+              
+              if(!results$waarden$correct) {
+                if(!results$waarden$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Mogelijke waarden**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `waarden <- \"Natuurlijke getallen (0, 1, 2, ...)\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Mogelijke waarden**: De mogelijke waarden zijn natuurlijke getallen: 0, 1, 2, 3, ... (je kunt geen negatief aantal inbraken hebben)")
                 }
               }
             }
@@ -143,12 +170,10 @@ context({
           feedback_parts <- c(feedback_parts, "• **Bivariate beschrijvende**: Beschrijft relatie tussen twee variabelen") 
           feedback_parts <- c(feedback_parts, "• **Bivariate verklarende**: Onderzoekt of één variabele invloed heeft op een andere")
           
-          # Print the feedback as markdown
-          cat(paste(feedback_parts, collapse = "\n\n"))
+          get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
-          return(all_correct)
-        },
-        TRUE
+          generated == expected
+        }
       )
     }
   )
