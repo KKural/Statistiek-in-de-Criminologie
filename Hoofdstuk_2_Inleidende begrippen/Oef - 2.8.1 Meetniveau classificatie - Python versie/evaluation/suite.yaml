@@ -1,22 +1,6 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - description: |
-        UITLEG PER VARIABELE:
-
-        1) favoriete_keuze = Nominaal
-           Categorieën zonder natuurlijke rangorde zoals Google, Bibliotheek, Wikipedia
-
-        2) leeftijd = Ratio  
-           Numerieke waarden met echt nulpunt (0 jaar = geen leeftijd) en zinvolle verhoudingen
-
-        3) geslacht = Nominaal
-           Categorieën man/vrouw zonder logische volgorde
-
-        4) studierichting = Nominaal
-           Vakgebieden zonder hiërarchie
-
-        5) studentnummer = Nominaal
-           Labels voor identificatie, niet voor berekeningen
+    - description: "UITLEG PER VARIABELE:\n\n1) favoriete_keuze = Nominaal\n   Categorieën zonder natuurlijke rangorde zoals Google, Bibliotheek, Wikipedia\n\n2) leeftijd = Ratio\n   Numerieke waarden met echt nulpunt (0 jaar = geen leeftijd) en zinvolle verhoudingen\n\n3) geslacht = Nominaal\n   Categorieën man/vrouw zonder logische volgorde\n\n4) studierichting = Nominaal\n   Vakgebieden zonder hiërarchie\n\n5) studentnummer = Nominaal\n   Labels voor identificatie, niet voor berekeningen"
       stdout: |
         Nominaal
         Ratio
