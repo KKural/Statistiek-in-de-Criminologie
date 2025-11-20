@@ -3,17 +3,29 @@
     - description: "favoriete_keuze = Nominaal - Categorieën zonder natuurlijke rangorde zoals Google, Bibliotheek, Wikipedia. Deze hebben geen hiërarchie tussen elkaar."
       stdout: |
         Nominaal
+        Ratio
+        Nominaal
+        Nominaal
+        Nominaal
 
 - tab: "2. Leeftijd"
   testcases:
     - description: "leeftijd = Ratio - Numerieke waarden met echt nulpunt waar 0 jaar = geen leeftijd. Verhoudingen zijn zinvol: 20 jaar is 2x zo oud als 10 jaar."
       stdout: |
+        Nominaal
         Ratio
+        Nominaal
+        Nominaal
+        Nominaal
 
 - tab: "3. Geslacht"
   testcases:
     - description: "geslacht = Nominaal - Categorieën man/vrouw zonder logische volgorde. Er is geen hiërarchie tussen de geslachten."
       stdout: |
+        Nominaal
+        Ratio
+        Nominaal
+        Nominaal
         Nominaal
 
 - tab: "4. Studierichting"
@@ -21,9 +33,17 @@
     - description: "studierichting = Nominaal - Verschillende vakgebieden zonder hiërarchie. Rechten, geneeskunde, psychologie hebben geen natuurlijke rangorde."
       stdout: |
         Nominaal
+        Ratio
+        Nominaal
+        Nominaal
+        Nominaal
 
 - tab: "5. Studentnummer"
   testcases:
     - description: "studentnummer = Nominaal - Labels voor identificatie (nummers 1-552). Deze worden gebruikt voor herkenning, niet voor wiskundige berekeningen."
       stdout: |
+        Nominaal
+        Ratio
+        Nominaal
+        Nominaal
         Nominaal
