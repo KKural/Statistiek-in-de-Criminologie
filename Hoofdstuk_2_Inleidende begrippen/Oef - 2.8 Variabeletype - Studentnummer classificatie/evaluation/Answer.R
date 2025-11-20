@@ -87,11 +87,7 @@ context({
           results <- get("detailed_results", envir = globalenv())
           
           # Create detailed output showing all variables
-          feedback_parts <- c("## **Resultaten per variabele:**\n")
-          
-          # Create a table-like output
-          feedback_parts <- c(feedback_parts, "| Variabele | Jouw antwoord | Verwacht antwoord | Status |")  
-          feedback_parts <- c(feedback_parts, "|-----------|---------------|-------------------|--------|")
+          feedback_parts <- c("# **Resultaten per variabele:**\n")
           
           variable_names <- c(
             "favoriete_keuze" = "Favoriete keuze",
@@ -106,17 +102,12 @@ context({
             result <- results[[var_key]]
             
             if(!result$exists) {
-              your_answer <- "*Ontbreekt*"
-              status <- "❌"
+              feedback_parts <- c(feedback_parts, paste0("• **", var_display, "**: *Ontbreekt* ❌"))
             } else if(result$correct) {
-              your_answer <- result$value
-              status <- "✅"
+              feedback_parts <- c(feedback_parts, paste0("• **", var_display, "**: ", result$value, " ✅"))
             } else {
-              your_answer <- result$value
-              status <- "❌"
+              feedback_parts <- c(feedback_parts, paste0("• **", var_display, "**: ", result$value, " ❌"))
             }
-            
-            feedback_parts <- c(feedback_parts, paste0("| ", var_display, " | ", your_answer, " | ", result$expected, " | ", status, " |"))
           }
           
           if (generated == expected) {
@@ -131,41 +122,41 @@ context({
               
               if(!results$favoriete_keuze$correct) {
                 if(!results$favoriete_keuze$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Gebruik: `favoriete_keuze <- \"Nominaal\"`")
+                  feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Vergeet niet aanhalingstekens! Gebruik: `favoriete_keuze <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Google, Bibliotheek, Wikipedia zijn categorieën zonder ordening → Nominaal")
+                  feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Google, Bibliotheek, Wikipedia zijn verschillende categorieën zonder rangorde. Dit zijn keuzemogelijkheden die niet geordend kunnen worden → **Nominaal**")
                 }
               }
               
               if(!results$leeftijd$correct) {
                 if(!results$leeftijd$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Leeftijd**: Gebruik: `leeftijd <- \"Ratio\"`")
+                  feedback_parts <- c(feedback_parts, "• **Leeftijd**: Vergeet niet aanhalingstekens! Gebruik: `leeftijd <- \"Ratio\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Leeftijd**: Heeft echt nulpunt (0 jaar = geen leeftijd) → Ratio")
+                  feedback_parts <- c(feedback_parts, "• **Leeftijd**: Leeftijd is een getal met betekenisvolle verhoudingen én een echt nulpunt (0 jaar = geen leeftijd). Je kunt zeggen: 20 jaar is twee keer zo oud als 10 jaar → **Ratio**")
                 }
               }
               
               if(!results$geslacht$correct) {
                 if(!results$geslacht$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Geslacht**: Gebruik: `geslacht <- \"Nominaal\"`")
+                  feedback_parts <- c(feedback_parts, "• **Geslacht**: Vergeet niet aanhalingstekens! Gebruik: `geslacht <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Geslacht**: Man/vrouw zijn categorieën zonder ordening → Nominaal")
+                  feedback_parts <- c(feedback_parts, "• **Geslacht**: Man en vrouw zijn verschillende categorieën zonder rangorde. Er is geen 'hoger' of 'lager' geslacht → **Nominaal**")
                 }
               }
               
               if(!results$studierichting$correct) {
                 if(!results$studierichting$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Studierichting**: Gebruik: `studierichting <- \"Nominaal\"`")
+                  feedback_parts <- c(feedback_parts, "• **Studierichting**: Vergeet niet aanhalingstekens! Gebruik: `studierichting <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Studierichting**: Verschillende richtingen zonder ordening → Nominaal")
+                  feedback_parts <- c(feedback_parts, "• **Studierichting**: Statistiek, wiskunde, techniek, Engels zijn verschillende richtingen zonder rangorde. Geen richting is 'beter' dan een andere → **Nominaal**")
                 }
               }
               
               if(!results$studentnummer$correct) {
                 if(!results$studentnummer$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Studentnummer**: Gebruik: `studentnummer <- \"Nominaal\"`")
+                  feedback_parts <- c(feedback_parts, "• **Studentnummer**: Vergeet niet aanhalingstekens! Gebruik: `studentnummer <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Studentnummer**: Alleen identificatie, geen rekenkundige betekenis → Nominaal")
+                  feedback_parts <- c(feedback_parts, "• **Studentnummer**: Nummers 1-552 zijn alleen labels voor identificatie. Student 100 is niet 'twee keer meer' dan student 50 → **Nominaal**")
                 }
               }
             }
