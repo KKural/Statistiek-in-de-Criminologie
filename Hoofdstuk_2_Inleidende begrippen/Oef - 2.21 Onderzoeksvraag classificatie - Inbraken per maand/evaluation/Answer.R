@@ -47,7 +47,8 @@ context({
           # Meetniveau
           if(exists("meetniveau", envir = env)) {
             current_val <- tolower(as.character(get("meetniveau", envir = env)))
-            acceptable_answers <- c("ratio", "kwantitatief (ratio)", "kwantitatief ratio")
+            current_val <- trimws(current_val)  # Remove extra spaces
+            acceptable_answers <- c("ratio", "nominaal", "ordinaal", "interval")
             results$meetniveau <- list(
               exists = TRUE,
               value = get("meetniveau", envir = env),
@@ -58,18 +59,52 @@ context({
             results$meetniveau <- list(exists = FALSE, value = NA, correct = FALSE, expected = "ratio")
           }
           
-          # Waarden
-          if(exists("waarden", envir = env)) {
-            current_val <- tolower(as.character(get("waarden", envir = env)))
-            acceptable_answers <- c("natuurlijke getallen", "0, 1, 2, ...", "gehele getallen", "getallen", "0 of meer")
-            results$waarden <- list(
+          # Kwantitatief (ja/nee)
+          if(exists("kwantitatief", envir = env)) {
+            current_val <- tolower(as.character(get("kwantitatief", envir = env)))
+            acceptable_answers <- c("ja", "yes", "j")
+            results$kwantitatief <- list(
               exists = TRUE,
-              value = get("waarden", envir = env),
-              correct = any(sapply(acceptable_answers, function(x) grepl(x, current_val, fixed = TRUE))),
-              expected = "Natuurlijke getallen (0, 1, 2, ...)"
+              value = get("kwantitatief", envir = env),
+              correct = current_val %in% acceptable_answers,
+              expected = "ja"
             )
           } else {
-            results$waarden <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Natuurlijke getallen (0, 1, 2, ...)")
+            results$kwantitatief <- list(exists = FALSE, value = NA, correct = FALSE, expected = "ja")
+          }
+          
+
+          
+          # Type waarden
+          if(exists("type_waarden", envir = env)) {
+            current_val <- tolower(as.character(get("type_waarden", envir = env)))
+            current_val <- gsub("\\([^)]*\\)", "", current_val)  # Remove anything in parentheses
+            current_val <- trimws(current_val)  # Remove extra spaces
+            acceptable_answers <- c("natuurlijke getallen", "gehele getallen", "getallen")
+            results$type_waarden <- list(
+              exists = TRUE,
+              value = get("type_waarden", envir = env),
+              correct = current_val %in% acceptable_answers,
+              expected = "Natuurlijke getallen"
+            )
+          } else {
+            results$type_waarden <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Natuurlijke getallen")
+          }
+          
+          # Voorbeeld waarden
+          if(exists("voorbeeld_waarden", envir = env)) {
+            current_val <- tolower(as.character(get("voorbeeld_waarden", envir = env)))
+            current_val <- gsub("[^0-9,\\s]", "", current_val)  # Keep only numbers, commas, and spaces
+            current_val <- trimws(current_val)  # Remove extra spaces
+            acceptable_patterns <- c("0, 1, 2", "0,1,2", "0 1 2", "0, 1, 2,", "0, 1, 2, ...", "0,1,2,...")
+            results$voorbeeld_waarden <- list(
+              exists = TRUE,
+              value = get("voorbeeld_waarden", envir = env),
+              correct = any(sapply(acceptable_patterns, function(x) grepl(x, current_val, fixed = TRUE))),
+              expected = "0, 1, 2, ..."
+            )
+          } else {
+            results$voorbeeld_waarden <- list(exists = FALSE, value = NA, correct = FALSE, expected = "0, 1, 2, ...")
           }
           
           # Store results for use in comparator
@@ -91,7 +126,9 @@ context({
             "type_vraag" = "Type onderzoeksvraag",
             "bestudeerde_variabele" = "Bestudeerde variabele", 
             "meetniveau" = "Meetniveau",
-            "waarden" = "Mogelijke waarden"
+            "kwantitatief" = "Kwantitatief (ja/nee)",
+            "type_waarden" = "Type waarden",
+            "voorbeeld_waarden" = "Voorbeeld waarden"
           )
           
           counter <- 1
@@ -159,11 +196,29 @@ context({
                 }
               }
               
-              if(!results$waarden$correct) {
-                if(!results$waarden$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Mogelijke waarden**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `waarden <- \"Natuurlijke getallen (0, 1, 2, ...)\"` (let op de aanhalingstekens!)")
+              if(!results$kwantitatief$correct) {
+                if(!results$kwantitatief$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief (ja/nee)**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `kwantitatief <- \"ja\"` (let op de aanhalingstekens!)")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Mogelijke waarden**: De mogelijke waarden zijn natuurlijke getallen: 0, 1, 2, 3, ... (je kunt geen negatief aantal inbraken hebben)")
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief (ja/nee)**: Aantal inbraken bestaat uit getallen waarmee je kunt rekenen → **ja**")
+                }
+              }
+              
+
+              
+              if(!results$type_waarden$correct) {
+                if(!results$type_waarden$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `type_waarden <- \"Natuurlijke getallen\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden**: De mogelijke waarden zijn natuurlijke getallen (je kunt geen negatief aantal inbraken hebben)")
+                }
+              }
+              
+              if(!results$voorbeeld_waarden$correct) {
+                if(!results$voorbeeld_waarden$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `voorbeeld_waarden <- \"0, 1, 2, ...\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden**: Voorbeeldwaarden zijn: 0, 1, 2, 3, ... (bijvoorbeeld: 0, 1, 2, ...)")
                 }
               }
             }
