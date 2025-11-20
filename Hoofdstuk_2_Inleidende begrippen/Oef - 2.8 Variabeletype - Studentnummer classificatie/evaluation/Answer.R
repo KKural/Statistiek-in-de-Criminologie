@@ -192,7 +192,16 @@ context({
                 if(!results$studentnummer$exists) {
                   feedback_parts <- c(feedback_parts, "• **Studentnummer**: Vergeet niet aanhalingstekens! Gebruik: `studentnummer <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Studentnummer**: Nummers 1-552 zijn alleen labels voor identificatie. Student 100 is niet 'twee keer meer' dan student 50 → **Nominaal**")
+                  student_answer <- tolower(as.character(results$studentnummer$value))
+                  if(student_answer == "ordinaal") {
+                    feedback_parts <- c(feedback_parts, "• **Studentnummer**: Je koos 'Ordinaal', maar dit is fout. Ordinaal betekent rangorde. Studentnummer 100 is niet 'hoger' of 'beter' dan nummer 50 - het zijn alleen labels → **Nominaal**")
+                  } else if(student_answer == "interval") {
+                    feedback_parts <- c(feedback_parts, "• **Studentnummer**: Je koos 'Interval', maar dit is fout. Interval betekent dat je kunt rekenen met de getallen. Je kunt niet zeggen dat student 100 '50 meer' is dan student 50 - het zijn alleen labels → **Nominaal**")
+                  } else if(student_answer == "ratio") {
+                    feedback_parts <- c(feedback_parts, "• **Studentnummer**: Je koos 'Ratio', maar dit is fout. Ratio betekent dat verhoudingen betekenis hebben. Student 100 is niet 'twee keer meer' dan student 50 - het zijn alleen labels voor identificatie → **Nominaal**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Studentnummer**: Nummers 1-552 zijn alleen labels voor identificatie. Student 100 is niet 'twee keer meer' dan student 50 → **Nominaal**")
+                  }
                 }
               }
             }
