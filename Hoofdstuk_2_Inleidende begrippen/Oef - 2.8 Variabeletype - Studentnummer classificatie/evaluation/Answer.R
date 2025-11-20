@@ -90,8 +90,8 @@ context({
           feedback_parts <- c("## **Resultaten per variabele:**\n")
           
           # Create a table-like output
-          feedback_parts <- c(feedback_parts, "| Variabele | Jouw antwoord | Verwacht | Status |")  
-          feedback_parts <- c(feedback_parts, "|-----------|---------------|----------|--------|")
+          feedback_parts <- c(feedback_parts, "| Variabele | Jouw antwoord | Verwacht antwoord | Status |")  
+          feedback_parts <- c(feedback_parts, "|-----------|---------------|-------------------|--------|")
           
           variable_names <- c(
             "favoriete_keuze" = "Favoriete keuze",
@@ -120,13 +120,9 @@ context({
           }
           
           if (generated == expected) {
-            feedback_parts <- c(feedback_parts, "\n✅ **Perfecte score! Alle variabelen correct geclassificeerd.**")
+            feedback_parts <- c(feedback_parts, "\n✅ **Alle variabelen correct geclassificeerd.**")
             feedback_parts <- c(feedback_parts, "\n**Uitstekend!** Je begrijpt de verschillende meetniveaus goed.")
           } else {
-            # Count correct/incorrect for summary
-            correct_count <- sum(sapply(results, function(x) x$correct))
-            total_count <- length(results)
-            feedback_parts <- c(feedback_parts, paste0("\n❌ **Score: ", correct_count, "/", total_count, " variabelen correct**\n"))
             
             # Add helpful tips for incorrect answers
             incorrect_vars <- sapply(results, function(x) !x$correct)
