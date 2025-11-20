@@ -1,0 +1,15 @@
+{
+    "type": "content",
+    "access": "public",
+    "description": {
+        "names": {
+            "nl": "Oef - 2.20 Onderzoeksvragen - Theorie en voorbeelden",
+            "en": "Exercise - 2.20 Research Questions - Theory and examples"
+        }
+    },
+    "labels": [],
+    "internals": {
+        "token": "research-questions-theory-2024",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+    }
+}

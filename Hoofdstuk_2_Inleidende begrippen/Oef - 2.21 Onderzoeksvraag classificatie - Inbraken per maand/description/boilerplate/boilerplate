@@ -1,0 +1,14 @@
+# Vervang ??? door het juiste antwoord
+# Onderzoeksvraag: "Hoeveel inbraken worden er gemiddeld per maand gerapporteerd in Belgische steden?"
+
+# Type onderzoeksvraag (univariate beschrijvende, bivariate beschrijvende, of bivariate verklarende)
+type_vraag <- "???"
+
+# Bestudeerde variabele(n) - beschrijf kort maar volledig
+bestudeerde_variabele <- "???"
+
+# Meetniveau (nominaal, ordinaal, interval, ratio)
+meetniveau <- "???"
+
+# Mogelijke waarden - beschrijf het type waarden
+waarden <- "???"
