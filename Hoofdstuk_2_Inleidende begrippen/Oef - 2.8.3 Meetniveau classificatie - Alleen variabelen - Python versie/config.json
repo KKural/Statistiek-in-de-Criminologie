@@ -8,7 +8,8 @@
         }
     },
     "evaluation": {
-        "handler": "pythia_judge"
+        "handler": "pythia_judge",
+        "test_suite": "plan.json"
     },
     "boilerplate": "description/boilerplate/boilerplate",
     "labels": [

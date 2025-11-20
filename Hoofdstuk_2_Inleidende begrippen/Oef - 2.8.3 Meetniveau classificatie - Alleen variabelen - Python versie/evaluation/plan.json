@@ -1,0 +1,23 @@
+{
+    "tabs": [
+        {
+            "name": "Correct",
+            "contexts": [
+                {
+                    "testcases": [
+                        {
+                            "input": {
+                                "code": "from solution import *\n\n# Check if all variables exist and have correct values\nexpected = {\n    'favoriete_keuze': 'Nominaal',\n    'leeftijd': 'Ratio', \n    'geslacht': 'Nominaal',\n    'studierichting': 'Nominaal',\n    'studentnummer': 'Nominaal'\n}\n\nresults = []\nfor var_name, expected_value in expected.items():\n    try:\n        actual_value = globals()[var_name]\n        if actual_value == expected_value:\n            results.append(f\"{var_name}: ✓ Correct ({actual_value})\")\n        else:\n            results.append(f\"{var_name}: ✗ Expected '{expected_value}', got '{actual_value}'\")\n    except NameError:\n        results.append(f\"{var_name}: ✗ Variable not defined\")\n\nfor result in results:\n    print(result)\n\n# Final check\nall_correct = all('✓' in result for result in results)\nprint(f\"\\nOverall result: {'All correct!' if all_correct else 'Some errors found'}\")"
+                            },
+                            "output": {
+                                "stdout": {
+                                    "data": "favoriete_keuze: ✓ Correct (Nominaal)\nleeftijd: ✓ Correct (Ratio)\ngeslacht: ✓ Correct (Nominaal)\nstudierichting: ✓ Correct (Nominaal)\nstudentnummer: ✓ Correct (Nominaal)\n\nOverall result: All correct!"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
