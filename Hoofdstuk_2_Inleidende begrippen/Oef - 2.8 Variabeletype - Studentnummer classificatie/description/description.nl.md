@@ -23,4 +23,4 @@ De namen van de studenten werden niet geregistreerd, maar de studenten werden ge
 
 Classificeer elke variabele volgens het juiste meetniveau.
 
-**Instructie** Vervang "???" door het juiste antwoord tussen de aanhalingstekens. Bijvoorbeeld: "???" wordt "Nominaal" of "nominaal".
+**Instructie:** Vervang "???" door het juiste antwoord tussen de aanhalingstekens. Bijvoorbeeld: "???" wordt "Nominaal" of "nominaal".

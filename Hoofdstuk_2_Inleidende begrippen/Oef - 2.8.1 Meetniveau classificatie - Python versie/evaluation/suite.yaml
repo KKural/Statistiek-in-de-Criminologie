@@ -1,5 +1,7 @@
 - tab: "Meetniveau Classificatie"
   contexts:
+    - before: |
+        from evaluate import evaluate_classification
     - testcases:
       - expression: "evaluate_classification()"
         return: True
