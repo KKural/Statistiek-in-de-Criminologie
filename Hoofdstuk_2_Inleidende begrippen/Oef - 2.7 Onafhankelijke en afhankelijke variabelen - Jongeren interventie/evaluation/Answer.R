@@ -20,7 +20,13 @@ context({
                                   "wijk zonder interventie",
                                   "interventiewijk versus controlegroep",
                                   "groep (interventie of controle)",
-                                  "type wijk")
+                                  "type wijk",
+                                  "type interventie",
+                                  "interventiegroep vs controlegroep",
+                                  "wel/geen interventie",
+                                  "interventie wel/niet",
+                                  "interventie (ja/nee)",
+                                  "groepsindeling")
             results$onafhankelijke_variabele <- list(
               exists = TRUE,
               value = get("onafhankelijke_variabele", envir = env),
@@ -140,7 +146,18 @@ context({
                 if(!results$onafhankelijke_variabele$exists) {
                   feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `onafhankelijke_variabele <- \"De interventie\"` (let op de aanhalingstekens!)")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: De onafhankelijke variabele is wat de onderzoeker manipuleert of controleert. Hier is dat de interventie (wel/geen interventie) → **De interventie**")
+                  student_answer <- tolower(as.character(results$onafhankelijke_variabele$value))
+                  if(student_answer %in% c("overlast", "meldingen", "overlastmeldingen", "aantal meldingen")) {
+                    feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Je noemde 'overlast' of 'meldingen', maar dat is de afhankelijke variabele (wat wordt gemeten). De onafhankelijke variabele is wat de onderzoeker controleert: wel/geen interventie → **De interventie**")
+                  } else if(student_answer %in% c("jongeren", "de jongeren", "groep jongeren")) {
+                    feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Je noemde 'jongeren', maar dat zijn de onderzoekseenheden (wie wordt bestudeerd). De onafhankelijke variabele is wat varieert tussen groepen: wel/geen interventie → **De interventie**")
+                  } else if(student_answer %in% c("wijk", "wijken", "interventiewijk", "controlegroep")) {
+                    feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Je noemde de wijken, wat dicht bij het goede antwoord ligt! De onafhankelijke variabele is preciezer gezegd: het wel/niet krijgen van de interventie → **De interventie**")
+                  } else if(student_answer %in% c("leeftijd", "geslacht", "opleiding")) {
+                    feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Je noemde een demografische variabele, maar die wordt hier niet gecontroleerd door de onderzoeker. De interventie wordt wel bewust toegepast → **De interventie**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: De onafhankelijke variabele is wat de onderzoeker manipuleert of controleert. Hier wordt één groep een interventie gegeven en de andere niet → **De interventie**")
+                  }
                 }
               }
               
@@ -165,7 +182,18 @@ context({
                 if(!results$afhankelijke_variabele$exists) {
                   feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `afhankelijke_variabele <- \"Het aantal meldingen van overlast\"` (let op de aanhalingstekens!)")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: De afhankelijke variabele is wat wordt gemeten als uitkomst. Hier wordt het aantal overlastmeldingen geteld → **Het aantal meldingen van overlast**")
+                  student_answer <- tolower(as.character(results$afhankelijke_variabele$value))
+                  if(student_answer %in% c("interventie", "de interventie", "type interventie")) {
+                    feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Je noemde 'interventie', maar dat is de onafhankelijke variabele (wat wordt toegepast). De afhankelijke variabele is het effect dat wordt gemeten → **Het aantal meldingen van overlast**")
+                  } else if(student_answer %in% c("jongeren", "de jongeren", "gedrag jongeren", "gedrag van jongeren")) {
+                    feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Je noemde 'jongeren' of hun gedrag. Dat klopt conceptueel, maar specifieker: wat wordt er precies geteld/gemeten? → **Het aantal meldingen van overlast**")
+                  } else if(student_answer %in% c("criminaliteit", "misdaad", "crimineel gedrag")) {
+                    feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Je noemde 'criminaliteit', wat thematisch klopt. Maar specifieker: hoe wordt dit gemeten in het onderzoek? → **Het aantal meldingen van overlast**")
+                  } else if(student_answer %in% c("wijk", "wijken", "buurt")) {
+                    feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Je noemde 'wijk', maar dat is waar het onderzoek plaatsvindt. De afhankelijke variabele is wat wordt gemeten als uitkomst → **Het aantal meldingen van overlast**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: De afhankelijke variabele is wat wordt gemeten als uitkomst van de interventie. In dit onderzoek wordt specifiek geteld → **Het aantal meldingen van overlast**")
+                  }
                 }
               }
               
