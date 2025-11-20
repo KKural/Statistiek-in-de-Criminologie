@@ -1,66 +1,20 @@
-- tab: "Meetniveau Classificatie"
-  testcases:
-    - stdout: |
-        Nominaal
-        Ratio
-        Nominaal
-        Nominaal
-        Nominaal
-      description: |
-        <p><strong>CORRECTE OUTPUT</strong></p>
-        <ul>
-          <li>Nominaal</li>
-          <li>Ratio</li>
-          <li>Nominaal</li>
-          <li>Nominaal</li>
-          <li>Nominaal</li>
-        </ul>
+- tab: "Uitleg van de juiste meetniveaus"
+  contexts:
+    - testcase:
+        input: ""
+        output: |
+          Nominaal
+          Ratio
+          Nominaal
+          Nominaal
+          Nominaal
+        description: |
+          1. favoriete_keuze = "Nominaal" - Categorieën zonder rangorde (Google, Bibliotheek, Wikipedia)
 
-        <p><strong>UITLEG PER VARIABELE</strong></p>
+          2. leeftijd = "Ratio" - Getallen met echt nulpunt (0 jaar = geen leeftijd)
 
-        <ol>
-          <li>
-            <strong>favoriete_keuze = "Nominaal"</strong>
-            <ul>
-              <li>Categorieën zonder natuurlijke rangorde</li>
-              <li>Voorbeelden: Google, Bibliotheek, Wikipedia</li>
-              <li>Geen hiërarchie tussen de opties</li>
-            </ul>
-          </li>
+          3. geslacht = "Nominaal" - Categorieën zonder rangorde (man, vrouw)
 
-          <li>
-            <strong>leeftijd = "Ratio"</strong>
-            <ul>
-              <li>Numerieke waarden met gelijke intervallen</li>
-              <li>Heeft een echt nulpunt (0 jaar = geen leeftijd)</li>
-              <li>Verhoudingen zijn zinvol (20 jaar is 2x zo oud als 10 jaar)</li>
-            </ul>
-          </li>
+          4. studierichting = "Nominaal" - Categorieën zonder rangorde (verschillende vakgebieden)
 
-          <li>
-            <strong>geslacht = "Nominaal"</strong>
-            <ul>
-              <li>Categorieën zonder natuurlijke rangorde</li>
-              <li>Voorbeelden: man, vrouw</li>
-              <li>Geen volgorde tussen categorieën</li>
-            </ul>
-          </li>
-
-          <li>
-            <strong>studierichting = "Nominaal"</strong>
-            <ul>
-              <li>Categorieën zonder natuurlijke rangorde</li>
-              <li>Verschillende vakgebieden</li>
-              <li>Geen hiërarchie tussen studierichtingen</li>
-            </ul>
-          </li>
-
-          <li>
-            <strong>studentnummer = "Nominaal"</strong>
-            <ul>
-              <li>Labels voor identificatie</li>
-              <li>Nummers hebben geen rekenkundige betekenis</li>
-              <li>Gebruikt voor herkenning, niet voor berekeningen</li>
-            </ul>
-          </li>
-        </ol>
+          5. studentnummer = "Nominaal" - Labels voor identificatie (nummers 1-552)
