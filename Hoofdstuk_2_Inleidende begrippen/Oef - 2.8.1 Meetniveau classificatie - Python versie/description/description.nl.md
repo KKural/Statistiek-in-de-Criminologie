@@ -22,30 +22,3 @@ De namen van de studenten werden niet geregistreerd, maar de studenten werden ge
 **Bepaal het meetniveau van alle variabelen:**
 
 Classificeer elke variabele volgens het juiste meetniveau.
-
-**Instructies:**
-
-1. **Kopieer de boilerplate code EXACT** in het antwoordveld
-2. **Vervang ALLEEN de "???" door het juiste meetniveau:**
-   - **"Nominaal"** (categorieën zonder natuurlijke volgorde, bijv. geslacht, kleuren)
-   - **"Ordinaal"** (categorieën met natuurlijke volgorde, bijv. tevredenheidsscores)
-   - **"Interval"** (getallen met gelijke afstanden, geen echt nulpunt, bijv. temperatuur in Celsius)
-   - **"Ratio"** (getallen met gelijke afstanden en echt nulpunt, bijv. leeftijd, gewicht)
-
-**Voorbeeld van correct ingevulde code:**
-```python
-# JUIST: Behoud de aanhalingstekens
-leeftijd = "Ratio"
-geslacht = "Nominaal"
-
-# FOUT: Vergeet de aanhalingstekens niet!
-# leeftijd = Ratio    ← Dit geeft een fout!
-```
-
-⚠️ **LET OP: Behoud altijd de aanhalingstekens rond je antwoord!**
-
-**Hint:** *Denk na:*
-- *Zijn er **categorieën** zonder volgorde? → **Nominaal***
-- *Zijn er **categorieën** met volgorde? → **Ordinaal***  
-- *Zijn er **getallen** zonder echt nulpunt? → **Interval***
-- *Zijn er **getallen** met echt nulpunt? → **Ratio***
