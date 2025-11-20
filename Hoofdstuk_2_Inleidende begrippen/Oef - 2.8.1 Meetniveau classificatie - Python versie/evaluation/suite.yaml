@@ -1,20 +1,9 @@
-- tab: "Uitleg van de juiste meetniveaus"
-  contexts:
-    - testcase:
-        input: ""
-        output: |
-          Nominaal
-          Ratio
-          Nominaal
-          Nominaal
-          Nominaal
-        description: |
-          1. favoriete_keuze = "Nominaal" - Categorieën zonder rangorde (Google, Bibliotheek, Wikipedia)
-
-          2. leeftijd = "Ratio" - Getallen met echt nulpunt (0 jaar = geen leeftijd)
-
-          3. geslacht = "Nominaal" - Categorieën zonder rangorde (man, vrouw)
-
-          4. studierichting = "Nominaal" - Categorieën zonder rangorde (verschillende vakgebieden)
-
-          5. studentnummer = "Nominaal" - Labels voor identificatie (nummers 1-552)
+- tab: "Meetniveau Classificatie"
+  testcases:
+    - description: "1. favoriete_keuze = Nominaal (categorieën zonder rangorde) 2. leeftijd = Ratio (getallen met echt nulpunt) 3. geslacht = Nominaal (categorieën zonder rangorde) 4. studierichting = Nominaal (categorieën zonder rangorde) 5. studentnummer = Nominaal (labels voor identificatie)"
+      stdout: |
+        Nominaal
+        Ratio
+        Nominaal
+        Nominaal
+        Nominaal
