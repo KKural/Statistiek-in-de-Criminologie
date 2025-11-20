@@ -1,110 +1,22 @@
-def evaluate_classification():
-    """
-    Sophisticated evaluation function that provides detailed feedback
-    similar to the R version, with markdown formatting support.
-    """
-    import sys
+# Python judge evaluation script
+# Expected answers (case insensitive)
+import sys
+expected_answers = {
+    'favoriete_keuze': 'nominaal',
+    'leeftijd': 'ratio',
+    'geslacht': 'nominaal',
+    'studierichting': 'nominaal',
+    'studentnummer': 'nominaal'
+}
 
-    # Expected answers (case insensitive)
-    expected_answers = {
-        'favoriete_keuze': 'nominaal',
-        'leeftijd': 'ratio',
-        'geslacht': 'nominaal',
-        'studierichting': 'nominaal',
-        'studentnummer': 'nominaal'
-    }
-
-    # Variable display names
-    variable_names = {
-        'favoriete_keuze': 'Favoriete keuze',
-        'leeftijd': 'Leeftijd',
-        'geslacht': 'Geslacht',
-        'studierichting': 'Studierichting',
-        'studentnummer': 'Studentnummer'
-    }
-
-    # Check each variable
-    results = {}
-    all_correct = True
-
-    for var_name, expected in expected_answers.items():
-        if var_name in globals():
-            student_answer = str(globals()[var_name]).lower().strip()
-            results[var_name] = {
-                'exists': True,
-                'value': globals()[var_name],
-                'correct': student_answer == expected,
-                'expected': expected.capitalize()
-            }
-            if not results[var_name]['correct']:
-                all_correct = False
-        else:
-            results[var_name] = {
-                'exists': False,
-                'value': None,
-                'correct': False,
-                'expected': expected.capitalize()
-            }
-            all_correct = False
-
-    # Generate detailed feedback
-    feedback_parts = ["## **Resultaten per variabele:**\n"]
-
-    counter = 1
-    for var_key in expected_answers.keys():
-        var_display = variable_names[var_key]
-        result = results[var_key]
-
-        if not result['exists']:
-            feedback_parts.append(
-                f"{counter}. **{var_display}**: *Ontbreekt* ❌")
-        elif result['correct']:
-            feedback_parts.append(
-                f"{counter}. **{var_display}**: {result['value']} ✅")
-        else:
-            feedback_parts.append(
-                f"{counter}. **{var_display}**: {result['value']} ❌")
-        counter += 1
-
-    if all_correct:
-        feedback_parts.append(
-            "\n✅ **Alle variabelen correct geclassificeerd.**")
-        feedback_parts.append(
-            "\n**Uitstekend!** Je begrijpt de verschillende meetniveaus goed.")
-    else:
-        # Add specific feedback for incorrect answers
-        incorrect_vars = [k for k, v in results.items() if not v['correct']]
-        if incorrect_vars:
-            feedback_parts.append(
-                "**📚 Uitleg waarom deze antwoorden fout zijn:**")
-
-            for var_key in incorrect_vars:
-                result = results[var_key]
-                var_display = variable_names[var_key]
-
-                if not result['exists']:
-                    feedback_parts.append(
-                        f"• **{var_display}**: ❌ Variabele niet gevonden. Vergeet je de variabele te definiëren? Gebruik: `{var_key} = \"{result['expected']}\"`")
-                else:
-                    student_answer = str(result['value']).lower()
-                    feedback_parts.append(get_specific_feedback(
-                        var_key, student_answer, var_display))
-
-    # Always add educational content
-    feedback_parts.append("**Meetniveaus uitleg:**")
-    feedback_parts.append(
-        "• **Nominaal**: Categorieën zonder ordening (bijv. kleuren, geslacht)")
-    feedback_parts.append(
-        "• **Ordinaal**: Categorieën met ordening (bijv. schoolcijfers: slecht < goed < uitstekend)")
-    feedback_parts.append(
-        "• **Interval**: Getallen met gelijke afstanden, geen echt nulpunt (bijv. temperatuur in °C)")
-    feedback_parts.append(
-        "• **Ratio**: Getallen met gelijke afstanden én echt nulpunt (bijv. leeftijd, gewicht)")
-
-    # Print the feedback as markdown
-    print("\n\n".join(feedback_parts))
-
-    return all_correct
+# Variable display names
+variable_names = {
+    'favoriete_keuze': 'Favoriete keuze',
+    'leeftijd': 'Leeftijd',
+    'geslacht': 'Geslacht',
+    'studierichting': 'Studierichting',
+    'studentnummer': 'Studentnummer'
+}
 
 
 def get_specific_feedback(var_key, student_answer, var_display):
@@ -161,3 +73,88 @@ def get_specific_feedback(var_key, student_answer, var_display):
             return f"• **{var_display}**: Nummers 1-552 zijn alleen labels voor identificatie. Student 100 is niet 'twee keer meer' dan student 50 → **Nominaal**"
 
     return f"• **{var_display}**: Controleer je antwoord en probeer opnieuw."
+
+
+# Check each variable
+results = {}
+all_correct = True
+
+for var_name, expected in expected_answers.items():
+    if var_name in globals():
+        student_answer = str(globals()[var_name]).lower().strip()
+        results[var_name] = {
+            'exists': True,
+            'value': globals()[var_name],
+            'correct': student_answer == expected,
+            'expected': expected.capitalize()
+        }
+        if not results[var_name]['correct']:
+            all_correct = False
+    else:
+        results[var_name] = {
+            'exists': False,
+            'value': None,
+            'correct': False,
+            'expected': expected.capitalize()
+        }
+        all_correct = False
+
+# Generate detailed feedback
+feedback_parts = ["## **Resultaten per variabele:**\n"]
+
+counter = 1
+for var_key in expected_answers.keys():
+    var_display = variable_names[var_key]
+    result = results[var_key]
+
+    if not result['exists']:
+        feedback_parts.append(f"{counter}. **{var_display}**: *Ontbreekt* ❌")
+    elif result['correct']:
+        feedback_parts.append(
+            f"{counter}. **{var_display}**: {result['value']} ✅")
+    else:
+        feedback_parts.append(
+            f"{counter}. **{var_display}**: {result['value']} ❌")
+    counter += 1
+
+if all_correct:
+    feedback_parts.append("\n✅ **Alle variabelen correct geclassificeerd.**")
+    feedback_parts.append(
+        "\n**Uitstekend!** Je begrijpt de verschillende meetniveaus goed.")
+else:
+    # Add specific feedback for incorrect answers
+    incorrect_vars = [k for k, v in results.items() if not v['correct']]
+    if incorrect_vars:
+        feedback_parts.append("**📚 Uitleg waarom deze antwoorden fout zijn:**")
+
+        for var_key in incorrect_vars:
+            result = results[var_key]
+            var_display = variable_names[var_key]
+
+            if not result['exists']:
+                feedback_parts.append(
+                    f"• **{var_display}**: ❌ Variabele niet gevonden. Vergeet je de variabele te definiëren? Gebruik: `{var_key} = \"{result['expected']}\"`")
+            else:
+                student_answer = str(result['value']).lower()
+                feedback_parts.append(get_specific_feedback(
+                    var_key, student_answer, var_display))
+
+# Always add educational content
+feedback_parts.append("**Meetniveaus uitleg:**")
+feedback_parts.append(
+    "• **Nominaal**: Categorieën zonder ordening (bijv. kleuren, geslacht)")
+feedback_parts.append(
+    "• **Ordinaal**: Categorieën met ordening (bijv. schoolcijfers: slecht < goed < uitstekend)")
+feedback_parts.append(
+    "• **Interval**: Getallen met gelijke afstanden, geen echt nulpunt (bijv. temperatuur in °C)")
+feedback_parts.append(
+    "• **Ratio**: Getallen met gelijke afstanden én echt nulpunt (bijv. leeftijd, gewicht)")
+
+# Print the feedback as markdown
+print("\n\n".join(feedback_parts))
+
+# Return success/failure for the judge
+if all_correct:
+    sys.exit(0)  # Success
+else:
+    sys.exit(1)  # Failure

@@ -9,8 +9,7 @@
         }
     },
     "evaluation": {
-        "handler": "tested",
-        "test_suite": "suite.yaml"
+        "handler": "python"
     },
     "boilerplate": "description/boilerplate/boilerplate",
     "labels": [],
