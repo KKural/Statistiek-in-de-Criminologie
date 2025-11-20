@@ -1,7 +1,3 @@
-# Onderzoeksvraag Classificatie
-
-**Bestudeer de volgende onderzoeksvraag en classificeer deze:**
-
 ## Onderzoeksvraag:
 > **"Hoeveel inbraken worden er gemiddeld per maand gerapporteerd in Belgische steden?"**
 
@@ -14,14 +10,3 @@ Analyseer deze onderzoeksvraag en bepaal:
 
 **Instructie:** 
 Vervang "???" door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie.
-
-**Mogelijke antwoorden voor type vraag:**
-- "univariate beschrijvende"
-- "bivariate beschrijvende"  
-- "bivariate verklarende"
-
-**Mogelijke antwoorden voor meetniveau:**
-- "nominaal"
-- "ordinaal"
-- "interval"
-- "ratio"
