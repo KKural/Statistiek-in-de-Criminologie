@@ -1,12 +1,29 @@
-- tab: "Meetniveau Classificatie"
+- tab: "Variabele 1: Favoriete keuze"
   testcases:
-    - description: "favoriete_keuze = Nominaal - Categorieën zonder natuurlijke rangorde. Voorbeelden zoals Google, Bibliotheek, Wikipedia hebben geen hiërarchie. Je kunt ze niet van laag naar hoog ordenen."
-      stdout: "Nominaal"
+    - description: "favoriete_keuze = Nominaal - Categorieën zonder natuurlijke rangorde. Voorbeelden zoals Google, Bibliotheek, Wikipedia hebben geen hiërarchie tussen elkaar."
+      expression: "favoriete_keuze"
+      return: "Nominaal"
+
+- tab: "Variabele 2: Leeftijd"
+  testcases:
     - description: "leeftijd = Ratio - Numerieke waarden met gelijke intervallen én een echt nulpunt. 0 jaar betekent letterlijk geen leeftijd. Verhoudingen zijn zinvol: 20 jaar is 2x zo oud als 10 jaar."
-      stdout: "Ratio"
+      expression: "leeftijd"
+      return: "Ratio"
+
+- tab: "Variabele 3: Geslacht"
+  testcases:
     - description: "geslacht = Nominaal - Categorieën zonder natuurlijke rangorde. Man en vrouw zijn verschillende categorieën, maar er is geen logische volgorde tussen hen."
-      stdout: "Nominaal"
+      expression: "geslacht"
+      return: "Nominaal"
+
+- tab: "Variabele 4: Studierichting"
+  testcases:
     - description: "studierichting = Nominaal - Categorieën zonder natuurlijke rangorde. Verschillende vakgebieden zoals rechten, geneeskunde, of psychologie hebben geen hiërarchie."
-      stdout: "Nominaal"
+      expression: "studierichting"
+      return: "Nominaal"
+
+- tab: "Variabele 5: Studentnummer"
+  testcases:
     - description: "studentnummer = Nominaal - Labels voor identificatie. Deze nummers (1-552) worden gebruikt om studenten te herkennen, niet voor wiskundige berekeningen."
-      stdout: "Nominaal"
+      expression: "studentnummer"
+      return: "Nominaal"
