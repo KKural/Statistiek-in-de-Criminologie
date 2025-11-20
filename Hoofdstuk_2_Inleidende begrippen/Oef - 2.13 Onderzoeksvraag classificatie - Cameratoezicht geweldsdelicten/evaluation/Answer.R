@@ -310,6 +310,7 @@ context({
           
           if(generated != expected) {
             feedback_parts <- c(feedback_parts, "**💡 Tip**: Bekijk eerst **Oef - 2.8** voor onderzoeksvraagtypen en **Oef - 2.1 t/m 2.6** voor variabele-eigenschappen voordat je opnieuw probeert!")
+          }
           
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
