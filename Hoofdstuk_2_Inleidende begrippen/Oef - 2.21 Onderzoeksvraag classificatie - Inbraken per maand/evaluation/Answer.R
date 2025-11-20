@@ -28,21 +28,12 @@ context({
             # Remove any trailing punctuation and extra spaces
             current_val <- gsub("\\.$", "", trimws(current_val))
             acceptable_answers <- c("het aantal gerapporteerde inbraken per maand in belgische steden", 
-                                  "aantal inbraken per maand", 
-                                  "inbraken per maand",
                                   "aantal gerapporteerde inbraken per maand",
-                                  "het aantal inbraken per maand",
-                                  "aantal gerapporteerde inbraken per maand in belgische steden",
+                                  "inbraken per maand",
+                                  "inbraken per maand in belgische steden",
+                                  "inbraken",
                                   "gerapporteerde inbraken per maand",
-                                  "aantal inbraken per maand in belgische steden",
-                                  "het gemiddelde aantal gerapporteerde inbraken per maand in belgische steden",
-                                  "gemiddelde aantal gerapporteerde inbraken per maand in belgische steden",
-                                  "het gemiddelde aantal inbraken per maand in belgische steden",
-                                  "gemiddelde aantal inbraken per maand in belgische steden",
-                                  "het gemiddelde aantal gerapporteerde inbraken per maand",
-                                  "gemiddelde aantal gerapporteerde inbraken per maand",
-                                  "het gemiddelde aantal inbraken per maand",
-                                  "gemiddelde aantal inbraken per maand")
+                                  "gerapporteerde inbraken")
             results$bestudeerde_variabele <- list(
               exists = TRUE,
               value = get("bestudeerde_variabele", envir = env),
