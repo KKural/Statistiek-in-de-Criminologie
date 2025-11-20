@@ -1,9 +1,12 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - description: "Uitleg: 1) favoriete_keuze=Nominaal (categorieën zonder rangorde), 2) leeftijd=Ratio (getallen met echt nulpunt), 3) geslacht=Nominaal (categorieën zonder rangorde), 4) studierichting=Nominaal (categorieën zonder rangorde), 5) studentnummer=Nominaal (labels voor identificatie)"
-      stdout: |
-        Nominaal
-        Ratio
-        Nominaal
-        Nominaal
-        Nominaal
+    - description: "favoriete_keuze = Nominaal - Categorieën zonder natuurlijke rangorde. Voorbeelden zoals Google, Bibliotheek, Wikipedia hebben geen hiërarchie. Je kunt ze niet van laag naar hoog ordenen."
+      stdout: "Nominaal"
+    - description: "leeftijd = Ratio - Numerieke waarden met gelijke intervallen én een echt nulpunt. 0 jaar betekent letterlijk geen leeftijd. Verhoudingen zijn zinvol: 20 jaar is 2x zo oud als 10 jaar."
+      stdout: "Ratio"
+    - description: "geslacht = Nominaal - Categorieën zonder natuurlijke rangorde. Man en vrouw zijn verschillende categorieën, maar er is geen logische volgorde tussen hen."
+      stdout: "Nominaal"
+    - description: "studierichting = Nominaal - Categorieën zonder natuurlijke rangorde. Verschillende vakgebieden zoals rechten, geneeskunde, of psychologie hebben geen hiërarchie."
+      stdout: "Nominaal"
+    - description: "studentnummer = Nominaal - Labels voor identificatie. Deze nummers (1-552) worden gebruikt om studenten te herkennen, niet voor wiskundige berekeningen."
+      stdout: "Nominaal"
