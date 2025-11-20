@@ -1,0 +1,12 @@
+- tab: "Meetniveau Classificatie"
+  testcases:
+    - expression: "str(favoriete_keuze).lower()"
+      return: "nominaal"
+    - expression: "str(leeftijd).lower()"
+      return: "ratio"
+    - expression: "str(geslacht).lower()"
+      return: "nominaal"
+    - expression: "str(studierichting).lower()"
+      return: "nominaal"
+    - expression: "str(studentnummer).lower()"
+      return: "nominaal"
