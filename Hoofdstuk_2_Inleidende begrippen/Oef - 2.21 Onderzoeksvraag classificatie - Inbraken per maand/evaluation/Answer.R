@@ -80,7 +80,7 @@ context({
             current_val <- tolower(as.character(get("type_waarden", envir = env)))
             current_val <- gsub("\\([^)]*\\)", "", current_val)  # Remove anything in parentheses
             current_val <- trimws(current_val)  # Remove extra spaces
-            acceptable_answers <- c("natuurlijke getallen", "gehele getallen", "getallen")
+            acceptable_answers <- c("natuurlijke getallen", "gehele getallen", "rationale getallen", "continue waarden", "discrete waarden")
             results$type_waarden <- list(
               exists = TRUE,
               value = get("type_waarden", envir = env),
@@ -93,18 +93,23 @@ context({
           
           # Voorbeeld waarden
           if(exists("voorbeeld_waarden", envir = env)) {
-            current_val <- tolower(as.character(get("voorbeeld_waarden", envir = env)))
-            current_val <- gsub("[^0-9,\\s]", "", current_val)  # Keep only numbers, commas, and spaces
+            current_val <- as.character(get("voorbeeld_waarden", envir = env))
+            current_val <- gsub("[^0-9,\\s.-]", "", current_val)  # Keep numbers, commas, spaces, dots, dashes
             current_val <- trimws(current_val)  # Remove extra spaces
-            acceptable_patterns <- c("0, 1, 2", "0,1,2", "0 1 2", "0, 1, 2,", "0, 1, 2, ...", "0,1,2,...")
+            
+            # Check if it contains at least 2 numbers separated by commas or spaces
+            has_multiple_numbers <- grepl("[0-9]+[,\\s]+[0-9]+", current_val)
+            # Or check for patterns like "0, 1, 2" or "55, 52" or "1 2 3" etc.
+            acceptable_pattern <- grepl("^[0-9]+([,\\s]+[0-9]+)*([,\\s]*\\.\\.\\.?)?[,\\s]*$", current_val)
+            
             results$voorbeeld_waarden <- list(
               exists = TRUE,
               value = get("voorbeeld_waarden", envir = env),
-              correct = any(sapply(acceptable_patterns, function(x) grepl(x, current_val, fixed = TRUE))),
-              expected = "0, 1, 2, ..."
+              correct = has_multiple_numbers && acceptable_pattern,
+              expected = "Bijvoorbeeld: 0, 1, 2, ... of 55, 52, 48 of 1 2 3"
             )
           } else {
-            results$voorbeeld_waarden <- list(exists = FALSE, value = NA, correct = FALSE, expected = "0, 1, 2, ...")
+            results$voorbeeld_waarden <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Bijvoorbeeld: 0, 1, 2, ... of 55, 52, 48 of 1 2 3")
           }
           
           # Store results for use in comparator
@@ -218,7 +223,7 @@ context({
                 if(!results$voorbeeld_waarden$exists) {
                   feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `voorbeeld_waarden <- \"0, 1, 2, ...\"` (let op de aanhalingstekens!)")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden**: Voorbeeldwaarden zijn: 0, 1, 2, 3, ... (bijvoorbeeld: 0, 1, 2, ...)")
+                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden**: Geef enkele voorbeeldgetallen gescheiden door komma's of spaties (bijvoorbeeld: 0, 1, 2, ... of 55, 52, 48 of 1 2 3)")
                 }
               }
             }

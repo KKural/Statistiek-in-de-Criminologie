@@ -12,7 +12,7 @@ meetniveau <- "???"
 # Kwantitatief (ja of nee)
 kwantitatief <- "???"
 
-# Type waarden (natuurlijke getallen, gehele getallen, decimale getallen)
+# Type waarden (natuurlijke getallen, gehele getallen, rationale getallen, continue waarden)
 type_waarden <- "???"
 
 # Voorbeeld waarden - geef enkele voorbeelden
