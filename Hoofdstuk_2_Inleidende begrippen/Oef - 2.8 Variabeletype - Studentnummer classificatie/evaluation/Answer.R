@@ -5,25 +5,16 @@ context({
       testEqual(
         "Alle variabelen correct geclassificeerd",
         function(env) {
-          # Check each variable in the student's environment
+          # Use the provided environment (env) instead of globalenv()
           correct_count <- 0
           total_count <- 5
           
-          # Get variables from student's code execution environment
-          tryCatch({
-            if(exists("favoriete_keuze", envir = globalenv()) && tolower(get("favoriete_keuze", envir = globalenv())) == "nominaal") correct_count <- correct_count + 1
-            if(exists("leeftijd", envir = globalenv()) && tolower(get("leeftijd", envir = globalenv())) == "ratio") correct_count <- correct_count + 1
-            if(exists("geslacht", envir = globalenv()) && tolower(get("geslacht", envir = globalenv())) == "nominaal") correct_count <- correct_count + 1
-            if(exists("studierichting", envir = globalenv()) && tolower(get("studierichting", envir = globalenv())) == "nominaal") correct_count <- correct_count + 1
-            if(exists("studentnummer", envir = globalenv()) && tolower(get("studentnummer", envir = globalenv())) == "nominaal") correct_count <- correct_count + 1
-          }, error = function(e) {
-            # Fallback: try without specifying environment
-            if(exists("favoriete_keuze") && tolower(favoriete_keuze) == "nominaal") correct_count <<- correct_count + 1
-            if(exists("leeftijd") && tolower(leeftijd) == "ratio") correct_count <<- correct_count + 1
-            if(exists("geslacht") && tolower(geslacht) == "nominaal") correct_count <<- correct_count + 1
-            if(exists("studierichting") && tolower(studierichting) == "nominaal") correct_count <<- correct_count + 1
-            if(exists("studentnummer") && tolower(studentnummer) == "nominaal") correct_count <<- correct_count + 1
-          })
+          # Check each variable using the provided environment
+          if(exists("favoriete_keuze", envir = env) && tolower(as.character(get("favoriete_keuze", envir = env))) == "nominaal") correct_count <- correct_count + 1
+          if(exists("leeftijd", envir = env) && tolower(as.character(get("leeftijd", envir = env))) == "ratio") correct_count <- correct_count + 1
+          if(exists("geslacht", envir = env) && tolower(as.character(get("geslacht", envir = env))) == "nominaal") correct_count <- correct_count + 1
+          if(exists("studierichting", envir = env) && tolower(as.character(get("studierichting", envir = env))) == "nominaal") correct_count <- correct_count + 1
+          if(exists("studentnummer", envir = env) && tolower(as.character(get("studentnummer", envir = env))) == "nominaal") correct_count <- correct_count + 1
           
           return(correct_count == total_count)
         },
