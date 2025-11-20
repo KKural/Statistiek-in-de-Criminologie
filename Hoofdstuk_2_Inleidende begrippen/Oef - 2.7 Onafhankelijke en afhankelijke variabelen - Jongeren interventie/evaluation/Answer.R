@@ -56,7 +56,14 @@ context({
                                   "aantal meldingen",
                                   "meldingen van overlast",
                                   "aantal overlastmeldingen",
-                                  "overlastmeldingen")
+                                  "overlastmeldingen",
+                                  "overlast",
+                                  "meldingen",
+                                  "het aantal overlastmeldingen",
+                                  "aantal klachten van overlast",
+                                  "klachten van overlast",
+                                  "overlastklachten",
+                                  "aantal overlastklachten")
             results$afhankelijke_variabele <- list(
               exists = TRUE,
               value = get("afhankelijke_variabele", envir = env),
