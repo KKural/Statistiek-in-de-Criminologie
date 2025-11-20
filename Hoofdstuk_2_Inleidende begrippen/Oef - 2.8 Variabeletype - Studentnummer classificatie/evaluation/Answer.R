@@ -183,7 +183,6 @@ context({
           feedback_parts <- c(feedback_parts, "• **Ratio**: Getallen met gelijke afstanden én echt nulpunt (bijv. leeftijd, gewicht)")
           
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
-          }
           
           generated == expected
         }
