@@ -1,0 +1,31 @@
+# Vervang ??? door het juiste antwoord
+
+# 1. Wat voor type onderzoeksvraag is dit?
+type_vraag <- "???"
+
+# 2. Wat zijn de bestudeerde variabelen? (gebruik voor meerdere variabelen: "Variabele 1 en Variabele 2")
+bestudeerde_variabele <- "???"
+
+# 3. Wat is het meetniveau van de eerste variabele (aantal politiemensen per 1000 inwoners)?
+meetniveau_politie <- "???"
+
+# 4. Is de eerste variabele (aantal politiemensen per 1000 inwoners) kwantitatief? (ja/nee)
+kwantitatief_politie <- "???"
+
+# 5. Wat voor type waarden heeft de eerste variabele (aantal politiemensen per 1000 inwoners)?
+type_waarden_politie <- "???"
+
+# 6. Geef voorbeelden van waarden voor de eerste variabele (aantal politiemensen per 1000 inwoners)
+voorbeeld_waarden_politie <- "???"
+
+# 7. Wat is het meetniveau van de tweede variabele (aantal diefstallen)?
+meetniveau_diefstallen <- "???"
+
+# 8. Is de tweede variabele (aantal diefstallen) kwantitatief? (ja/nee)
+kwantitatief_diefstallen <- "???"
+
+# 9. Wat voor type waarden heeft de tweede variabele (aantal diefstallen)?
+type_waarden_diefstallen <- "???"
+
+# 10. Geef voorbeelden van waarden voor de tweede variabele (aantal diefstallen)
+voorbeeld_waarden_diefstallen <- "???"

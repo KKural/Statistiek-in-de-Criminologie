@@ -1,0 +1,19 @@
+{
+    "type": "exercise",
+    "programming_language": "r",
+    "access": "public",
+    "description": {
+        "names": {
+            "nl": "Oef - 2.14 Onderzoeksvraag classificatie - Politie dichtheid en diefstallen"
+        }
+    },
+    "evaluation": {
+        "handler": "r"
+    },
+    "boilerplate": "description/boilerplate/boilerplate",
+    "labels": [],
+    "internals": {
+        "token": "P0l1c3_D3ns1ty_Th3ft_R3l4t10n_Cl4ss1f1c4t10n_Ex3rc1s3_2_14_Stats",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+    }
+}

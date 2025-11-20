@@ -1,0 +1,19 @@
+{
+    "type": "exercise",
+    "programming_language": "r",
+    "access": "public",
+    "description": {
+        "names": {
+            "nl": "Oef - 2.12 Onderzoeksvraag classificatie - Recidive verschil geslacht"
+        }
+    },
+    "evaluation": {
+        "handler": "r"
+    },
+    "boilerplate": "description/boilerplate/boilerplate",
+    "labels": [],
+    "internals": {
+        "token": "R3c1d1v3_G3nd3r_D1ff3r3nc3_Cl4ss1f1c4t10n_Ex3rc1s3_2_12_Cr1m1n0l0gy",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+    }
+}

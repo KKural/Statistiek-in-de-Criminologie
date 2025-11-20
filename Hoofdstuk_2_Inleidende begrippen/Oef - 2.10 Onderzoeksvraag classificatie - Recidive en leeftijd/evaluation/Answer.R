@@ -77,34 +77,7 @@ context({
             results$kwantitatief_recidive <- list(exists = FALSE, value = NA, correct = FALSE, expected = "nee")
           }
           
-          # Type waarden recidive
-          if(exists("type_waarden_recidive", envir = env)) {
-            current_val <- tolower(as.character(get("type_waarden_recidive", envir = env)))
-            acceptable_answers <- c("binaire categorieën", "binair", "binaire waarden", "ja/nee", "categorieën", "nominale categorieën")
-            results$type_waarden_recidive <- list(
-              exists = TRUE,
-              value = get("type_waarden_recidive", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "binaire categorieën"
-            )
-          } else {
-            results$type_waarden_recidive <- list(exists = FALSE, value = NA, correct = FALSE, expected = "binaire categorieën")
-          }
-          
-          # Voorbeeld waarden recidive
-          if(exists("voorbeeld_waarden_recidive", envir = env)) {
-            current_val <- tolower(as.character(get("voorbeeld_waarden_recidive", envir = env)))
-            # Check if it contains ja/nee or yes/no patterns
-            acceptable_pattern <- grepl("ja.*nee|nee.*ja|yes.*no|no.*yes|0.*1|1.*0", current_val)
-            results$voorbeeld_waarden_recidive <- list(
-              exists = TRUE,
-              value = get("voorbeeld_waarden_recidive", envir = env),
-              correct = acceptable_pattern,
-              expected = "Ja of nee (of 0/1)"
-            )
-          } else {
-            results$voorbeeld_waarden_recidive <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Ja of nee (of 0/1)")
-          }
+
           
           # Meetniveau leeftijd
           if(exists("meetniveau_leeftijd", envir = env)) {
@@ -184,8 +157,6 @@ context({
             "bestudeerde_variabele" = "Bestudeerde variabele(n)", 
             "meetniveau_recidive" = "Meetniveau recidive",
             "kwantitatief_recidive" = "Kwantitatief recidive",
-            "type_waarden_recidive" = "Type waarden recidive",
-            "voorbeeld_waarden_recidive" = "Voorbeeld waarden recidive",
             "meetniveau_leeftijd" = "Meetniveau leeftijd",
             "kwantitatief_leeftijd" = "Kwantitatief leeftijd",
             "type_waarden_leeftijd" = "Type waarden leeftijd",

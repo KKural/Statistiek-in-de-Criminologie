@@ -1,0 +1,31 @@
+# Vervang ??? door het juiste antwoord
+
+# 1. Wat voor type onderzoeksvraag is dit?
+type_vraag <- "???"
+
+# 2. Wat zijn de bestudeerde variabelen? (gebruik voor meerdere variabelen: "Variabele 1 en Variabele 2")
+bestudeerde_variabele <- "???"
+
+# 3. Wat is het meetniveau van de eerste variabele (aanwezigheid cameratoezicht)?
+meetniveau_camera <- "???"
+
+# 4. Is de eerste variabele (aanwezigheid cameratoezicht) kwantitatief? (ja/nee)
+kwantitatief_camera <- "???"
+
+# 5. Wat voor type waarden heeft de eerste variabele (aanwezigheid cameratoezicht)?
+type_waarden_camera <- "???"
+
+# 6. Geef voorbeelden van waarden voor de eerste variabele (aanwezigheid cameratoezicht)
+voorbeeld_waarden_camera <- "???"
+
+# 7. Wat is het meetniveau van de tweede variabele (aantal geweldsdelicten)?
+meetniveau_geweld <- "???"
+
+# 8. Is de tweede variabele (aantal geweldsdelicten) kwantitatief? (ja/nee)
+kwantitatief_geweld <- "???"
+
+# 9. Wat voor type waarden heeft de tweede variabele (aantal geweldsdelicten)?
+type_waarden_geweld <- "???"
+
+# 10. Geef voorbeelden van waarden voor de tweede variabele (aantal geweldsdelicten)
+voorbeeld_waarden_geweld <- "???"
