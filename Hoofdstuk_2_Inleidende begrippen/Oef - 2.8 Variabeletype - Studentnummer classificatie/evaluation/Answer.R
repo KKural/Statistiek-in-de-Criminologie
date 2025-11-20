@@ -21,7 +21,7 @@ context({
         TRUE,
         comparator = function(generated, expected, ...) {
           if (generated == expected) {
-            get_reporter()$add_message("✅ **Juist - perfecte classificatie van alle variabelen!**\n\n• **Favoriete keuze voor online onderzoek**: Nominaal ✓ (categorieën zonder ordening)\n• **Leeftijd**: Ratio ✓ (getallen met echt nulpunt: 0 jaar betekent geen leeftijd)\n• **Geslacht**: Nominaal ✓ (man/vrouw zijn categorieën zonder ordening)\n• **Studierichting**: Nominaal ✓ (verschillende richtingen zonder ordening)\n• **Studentnummer**: Nominaal ✓ (alleen identificatie, geen rekenkundige betekenis)\n\n**Uitstekend!** Je begrijpt de verschillende meetniveaus.", type = "markdown")
+            get_reporter()$add_message("✅ **Juist - perfecte classificatie van alle variabelen!**\n\n• **Favoriete keuze voor online onderzoek**: Nominaal ✓ (categorieën zonder ordening)\n\n• **Leeftijd**: Ratio ✓ (getallen met echt nulpunt: 0 jaar betekent geen leeftijd)\n\n• **Geslacht**: Nominaal ✓ (man/vrouw zijn categorieën zonder ordening)\n\n• **Studierichting**: Nominaal ✓ (verschillende richtingen zonder ordening)\n\n• **Studentnummer**: Nominaal ✓ (alleen identificatie, geen rekenkundige betekenis)\n\n**Uitstekend!** Je begrijpt de verschillende meetniveaus.", type = "markdown")
           } else {
             # Provide detailed feedback on what's wrong
             feedback_parts <- c("❌ **Niet alle variabelen zijn correct geclassificeerd.**\n")
