@@ -25,10 +25,16 @@ context({
           # Bestudeerde variabele
           if(exists("bestudeerde_variabele", envir = env)) {
             current_val <- tolower(as.character(get("bestudeerde_variabele", envir = env)))
+            # Remove any trailing punctuation and extra spaces
+            current_val <- gsub("\\.$", "", trimws(current_val))
             acceptable_answers <- c("het aantal gerapporteerde inbraken per maand in belgische steden", 
                                   "aantal inbraken per maand", 
                                   "inbraken per maand",
-                                  "aantal gerapporteerde inbraken per maand")
+                                  "aantal gerapporteerde inbraken per maand",
+                                  "het aantal inbraken per maand",
+                                  "aantal gerapporteerde inbraken per maand in belgische steden",
+                                  "gerapporteerde inbraken per maand",
+                                  "aantal inbraken per maand in belgische steden")
             results$bestudeerde_variabele <- list(
               exists = TRUE,
               value = get("bestudeerde_variabele", envir = env),
