@@ -21,4 +21,10 @@ De namen van de studenten werden niet geregistreerd, maar de studenten werden ge
 
 **Bepaal het meetniveau van alle variabelen:**
 
-Classificeer elke variabele volgens het juiste meetniveau.
+Classificeer elke variabele volgens het juiste meetniveau. Mogelijke meetniveaus zijn:
+- **"Nominaal"**: Categorieën zonder natuurlijke rangorde
+- **"Ordinaal"**: Categorieën met natuurlijke rangorde, maar geen gelijke intervallen
+- **"Interval"**: Numerieke waarden met gelijke intervallen, maar geen echt nulpunt
+- **"Ratio"**: Numerieke waarden met gelijke intervallen en een echt nulpunt
+
+**Belangrijk**: In deze versie hoef je alleen de variabelen toe te wijzen - geen print statements nodig!
