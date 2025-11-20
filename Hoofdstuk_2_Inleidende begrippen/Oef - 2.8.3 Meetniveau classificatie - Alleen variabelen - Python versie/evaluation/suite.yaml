@@ -1,0 +1,10 @@
+- tab: "Meetniveau Classificatie - Alleen Variabelen"
+  testcases:
+    - description: "Controleer alle variabelen: favoriete_keuze (Nominaal), leeftijd (Ratio), geslacht (Nominaal), studierichting (Nominaal), studentnummer (Nominaal). Studenten hoeven alleen variabelen toe te wijzen, geen print statements."
+      expression: |
+        (favoriete_keuze == "Nominaal" and 
+         leeftijd == "Ratio" and 
+         geslacht == "Nominaal" and 
+         studierichting == "Nominaal" and 
+         studentnummer == "Nominaal")
+      return: true

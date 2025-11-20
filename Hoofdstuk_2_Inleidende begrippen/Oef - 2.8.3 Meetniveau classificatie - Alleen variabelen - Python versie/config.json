@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "type": "exercise",
     "programming_language": "python",
     "access": "public",
@@ -9,8 +8,8 @@
         }
     },
     "evaluation": {
-        "handler": "pythia_judge",
-        "test_suite": "plan.json"
+        "handler": "tested",
+        "test_suite": "suite.yaml"
     },
     "boilerplate": "description/boilerplate/boilerplate",
     "labels": [
@@ -21,31 +20,7 @@
         "variabelen"
     ],
     "internals": {
-        "token": "gAMB7ED96TjtZf4rtupqQNSpNqV3Y-k7h6jrhRkUfFI2mr92SARQkDpK_EEWWX3h",
+        "token": "ukFZrARZ7pH8EzjwHf2uz42N3GQFxgCvC6vzxW7P5c8WybwdnsFdc2kr7_FVnRBg",
         "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-=======
-  "type": "exercise",
-  "programming_language": "python",
-  "access": "public",
-  "description": {
-    "names": {
-      "nl": "Oef - 2.8.3 Meetniveau classificatie - Alleen variabelen - Python versie"
->>>>>>> 757c39f49edf0aa85184fa28f5ba010efe524eb7
     }
-  },
-  "evaluation": {
-    "handler": "pythia_judge"
-  },
-  "boilerplate": "description/boilerplate/boilerplate",
-  "labels": [
-    "meetniveau",
-    "statistiek",
-    "criminologie",
-    "python",
-    "variabelen"
-  ],
-  "internals": {
-    "token": "ukFZrARZ7pH8EzjwHf2uz42N3GQFxgCvC6vzxW7P5c8WybwdnsFdc2kr7_FVnRBg",
-    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-  }
 }
