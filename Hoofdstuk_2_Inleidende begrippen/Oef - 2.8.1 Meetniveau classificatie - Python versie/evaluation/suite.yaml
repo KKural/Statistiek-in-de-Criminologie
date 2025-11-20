@@ -1,6 +1,7 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - description: "UITLEG: 1) favoriete_keuze=Nominaal (categorieën zonder rangorde), 2) leeftijd=Ratio (getallen met echt nulpunt), 3) geslacht=Nominaal (categorieën zonder rangorde), 4) studierichting=Nominaal (categorieën zonder rangorde), 5) studentnummer=Nominaal (labels voor identificatie)"
+    - description: "UITLEG: 1) favoriete_keuze=Nominaal (categorieën zonder rangorde), 
+    - description:  2) leeftijd=Ratio (getallen met echt nulpunt), 3) geslacht=Nominaal (categorieën zonder rangorde), 4) studierichting=Nominaal (categorieën zonder rangorde), 5) studentnummer=Nominaal (labels voor identificatie)",
       stdout: |
         Nominaal
         Ratio
