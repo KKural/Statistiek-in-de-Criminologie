@@ -1,43 +1,43 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - stdout: |
+    - stdin: ""
+      stdout: |
         Nominaal
         Ratio
         Nominaal
         Nominaal
         Nominaal
       description: |
-        CORRECTE OUTPUT:
-
-        • Nominaal  
-        • Ratio  
-        • Nominaal  
-        • Nominaal  
-        • Nominaal  
-
-        UITLEG PER VARIABELE:
-
-        1. favoriete_keuze = "Nominaal"
-           - Categorieën zonder natuurlijke rangorde
-           - Voorbeelden: Google, Bibliotheek, Wikipedia
-           - Geen hiërarchie tussen de opties
-
-        2. leeftijd = "Ratio"
-           - Numerieke waarden met gelijke intervallen
-           - Heeft een echt nulpunt (0 jaar = geen leeftijd)
-           - Verhoudingen zijn zinvol (20 jaar is 2x zo oud als 10 jaar)
-
-        3. geslacht = "Nominaal"
-           - Categorieën zonder natuurlijke rangorde
-           - Voorbeelden: man, vrouw
-           - Geen volgorde tussen categorieën
-
-        4. studierichting = "Nominaal"
-           - Categorieën zonder natuurlijke rangorde
-           - Verschillende vakgebieden
-           - Geen hiërarchie tussen studierichtingen
-
-        5. studentnummer = "Nominaal"
-           - Labels voor identificatie
-           - Nummers hebben geen rekenkundige betekenis
-           - Gebruikt voor herkenning, niet voor berekeningen
+        CORRECTE OUTPUT:<br>
+        Nominaal<br>
+        Ratio<br>
+        Nominaal<br>
+        Nominaal<br>
+        Nominaal<br>
+        <br>
+        UITLEG PER VARIABELE:<br>
+        <br>
+        1. favoriete_keuze = "Nominaal"<br>
+        - Categorieën zonder natuurlijke rangorde<br>
+        - Voorbeelden: Google, Bibliotheek, Wikipedia<br>
+        - Geen hiërarchie tussen de opties<br>
+        <br>
+        2. leeftijd = "Ratio"<br>
+        - Numerieke waarden met gelijke intervallen<br>
+        - Heeft een echt nulpunt (0 jaar = geen leeftijd)<br>
+        - Verhoudingen zijn zinvol (20 jaar is 2x zo oud als 10 jaar)<br>
+        <br>
+        3. geslacht = "Nominaal"<br>
+        - Categorieën zonder natuurlijke rangorde<br>
+        - Voorbeelden: man, vrouw<br>
+        - Geen volgorde tussen categorieën<br>
+        <br>
+        4. studierichting = "Nominaal"<br>
+        - Categorieën zonder natuurlijke rangorde<br>
+        - Verschillende vakgebieden<br>
+        - Geen hiërarchie tussen studierichtingen<br>
+        <br>
+        5. studentnummer = "Nominaal"<br>
+        - Labels voor identificatie<br>
+        - Nummers hebben geen rekenkundige betekenis<br>
+        - Gebruikt voor herkenning, niet voor berekeningen<br>
