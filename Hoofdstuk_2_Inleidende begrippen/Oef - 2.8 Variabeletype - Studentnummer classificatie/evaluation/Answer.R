@@ -87,7 +87,7 @@ context({
           results <- get("detailed_results", envir = globalenv())
           
           # Create detailed output showing all variables
-          feedback_parts <- c("# **Resultaten per variabele:**\n")
+          feedback_parts <- c("**Resultaten per variabele:**\n")
           
           variable_names <- c(
             "favoriete_keuze" = "Favoriete keuze",
@@ -124,7 +124,16 @@ context({
                 if(!results$favoriete_keuze$exists) {
                   feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Vergeet niet aanhalingstekens! Gebruik: `favoriete_keuze <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Google, Bibliotheek, Wikipedia zijn verschillende categorieën zonder rangorde. Dit zijn keuzemogelijkheden die niet geordend kunnen worden → **Nominaal**")
+                  student_answer <- tolower(as.character(results$favoriete_keuze$value))
+                  if(student_answer == "ordinaal") {
+                    feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Je koos 'Ordinaal', maar dit is fout. Ordinaal betekent dat categorieën een rangorde hebben. Google, Bibliotheek, Wikipedia zijn gewoon verschillende keuzes zonder dat één 'beter' is dan de ander → **Nominaal**")
+                  } else if(student_answer == "interval") {
+                    feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Je koos 'Interval', maar dit is fout. Interval betekent numerieke waarden met gelijke afstanden. Dit zijn categorieën (Google, Bibliotheek, Wikipedia), geen getallen → **Nominaal**")
+                  } else if(student_answer == "ratio") {
+                    feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Je koos 'Ratio', maar dit is fout. Ratio betekent numerieke waarden met een echt nulpunt. Dit zijn categorieën (Google, Bibliotheek, Wikipedia), geen getallen → **Nominaal**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Google, Bibliotheek, Wikipedia zijn verschillende categorieën zonder rangorde → **Nominaal**")
+                  }
                 }
               }
               
@@ -132,7 +141,16 @@ context({
                 if(!results$leeftijd$exists) {
                   feedback_parts <- c(feedback_parts, "• **Leeftijd**: Vergeet niet aanhalingstekens! Gebruik: `leeftijd <- \"Ratio\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Leeftijd**: Leeftijd is een getal met betekenisvolle verhoudingen én een echt nulpunt (0 jaar = geen leeftijd). Je kunt zeggen: 20 jaar is twee keer zo oud als 10 jaar → **Ratio**")
+                  student_answer <- tolower(as.character(results$leeftijd$value))
+                  if(student_answer == "nominaal") {
+                    feedback_parts <- c(feedback_parts, "• **Leeftijd**: Je koos 'Nominaal', maar dit is fout. Nominaal betekent categorieën zonder ordening. Leeftijd bestaat uit getallen waarmee je kunt rekenen (17, 18, 19 jaar) → **Ratio**")
+                  } else if(student_answer == "ordinaal") {
+                    feedback_parts <- c(feedback_parts, "• **Leeftijd**: Je koos 'Ordinaal', maar dit is fout. Ordinaal heeft wel ordening maar geen gelijke afstanden. Leeftijd heeft wel gelijke afstanden (1 jaar verschil is altijd hetzelfde) én een echt nulpunt (0 jaar = geen leeftijd) → **Ratio**")
+                  } else if(student_answer == "interval") {
+                    feedback_parts <- c(feedback_parts, "• **Leeftijd**: Je koos 'Interval', maar dit is fout. Interval heeft geen echt nulpunt. Leeftijd heeft wel een echt nulpunt: 0 jaar betekent echt 'geen leeftijd' → **Ratio**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Leeftijd**: Leeftijd heeft een echt nulpunt (0 jaar = geen leeftijd) en betekenisvolle verhoudingen (20 jaar is twee keer zo oud als 10 jaar) → **Ratio**")
+                  }
                 }
               }
               
@@ -140,7 +158,16 @@ context({
                 if(!results$geslacht$exists) {
                   feedback_parts <- c(feedback_parts, "• **Geslacht**: Vergeet niet aanhalingstekens! Gebruik: `geslacht <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Geslacht**: Man en vrouw zijn verschillende categorieën zonder rangorde. Er is geen 'hoger' of 'lager' geslacht → **Nominaal**")
+                  student_answer <- tolower(as.character(results$geslacht$value))
+                  if(student_answer == "ordinaal") {
+                    feedback_parts <- c(feedback_parts, "• **Geslacht**: Je koos 'Ordinaal', maar dit is fout. Ordinaal betekent dat categorieën een rangorde hebben (bijv. slecht < goed < uitstekend). Man en vrouw hebben geen rangorde - er is geen 'hoger' of 'lager' geslacht → **Nominaal**")
+                  } else if(student_answer == "interval") {
+                    feedback_parts <- c(feedback_parts, "• **Geslacht**: Je koos 'Interval', maar dit is fout. Interval betekent numerieke waarden met gelijke afstanden. Geslacht bestaat uit categorieën (man/vrouw), niet uit getallen → **Nominaal**")
+                  } else if(student_answer == "ratio") {
+                    feedback_parts <- c(feedback_parts, "• **Geslacht**: Je koos 'Ratio', maar dit is fout. Ratio betekent numerieke waarden met een echt nulpunt. Geslacht bestaat uit categorieën (man/vrouw), niet uit getallen → **Nominaal**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Geslacht**: Man en vrouw zijn verschillende categorieën zonder rangorde. Er is geen 'hoger' of 'lager' geslacht → **Nominaal**")
+                  }
                 }
               }
               
@@ -148,7 +175,16 @@ context({
                 if(!results$studierichting$exists) {
                   feedback_parts <- c(feedback_parts, "• **Studierichting**: Vergeet niet aanhalingstekens! Gebruik: `studierichting <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Studierichting**: Statistiek, wiskunde, techniek, Engels zijn verschillende richtingen zonder rangorde. Geen richting is 'beter' dan een andere → **Nominaal**")
+                  student_answer <- tolower(as.character(results$studierichting$value))
+                  if(student_answer == "ordinaal") {
+                    feedback_parts <- c(feedback_parts, "• **Studierichting**: Je koos 'Ordinaal', maar dit is fout. Ordinaal betekent dat categorieën een rangorde hebben. Statistiek, wiskunde, techniek, Engels hebben geen rangorde - geen richting is 'hoger' dan een andere → **Nominaal**")
+                  } else if(student_answer == "interval") {
+                    feedback_parts <- c(feedback_parts, "• **Studierichting**: Je koos 'Interval', maar dit is fout. Interval betekent numerieke waarden met gelijke afstanden. Studierichtingen zijn categorieën (statistiek, wiskunde, techniek), geen getallen → **Nominaal**")
+                  } else if(student_answer == "ratio") {
+                    feedback_parts <- c(feedback_parts, "• **Studierichting**: Je koos 'Ratio', maar dit is fout. Ratio betekent numerieke waarden met een echt nulpunt. Studierichtingen zijn categorieën (statistiek, wiskunde, techniek), geen getallen → **Nominaal**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Studierichting**: Verschillende richtingen zonder rangorde. Geen richting is 'beter' dan een andere → **Nominaal**")
+                  }
                 }
               }
               
