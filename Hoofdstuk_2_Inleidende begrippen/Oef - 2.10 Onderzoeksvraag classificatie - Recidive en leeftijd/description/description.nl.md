@@ -12,4 +12,4 @@ Analyseer deze onderzoeksvraag en bepaal:
 **Instructie:** 
 Vervang "???" door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.
 
-**Vergeet niet:** Deze oefening test je begrip van de theorie uit Oef - 2.8. Zorg dat je die goed hebt bestudeerd!
+**Vergeet niet:** Deze oefening test je begrip van de theorie uit Oef - 2.8. Zorg dat je die goed hebt bestudeerd.
