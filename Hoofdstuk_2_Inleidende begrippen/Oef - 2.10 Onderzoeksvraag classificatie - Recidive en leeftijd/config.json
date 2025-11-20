@@ -1,0 +1,19 @@
+{
+    "type": "exercise",
+    "programming_language": "r",
+    "access": "public",
+    "description": {
+        "names": {
+            "nl": "Oef - 2.10 Onderzoeksvraag classificatie - Recidive en leeftijd"
+        }
+    },
+    "evaluation": {
+        "handler": "r"
+    },
+    "boilerplate": "description/boilerplate/boilerplate",
+    "labels": [],
+    "internals": {
+        "token": "R3c1d1v3_4g3_Cl4ss1f1c4t10n_T0k3n_2025_Ex3rc1s3_2_10_Cr1m1n0l0gy",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+    }
+}

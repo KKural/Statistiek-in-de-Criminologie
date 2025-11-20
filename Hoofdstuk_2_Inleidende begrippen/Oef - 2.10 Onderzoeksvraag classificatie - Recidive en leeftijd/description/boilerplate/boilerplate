@@ -1,0 +1,31 @@
+# Vervang ??? door het juiste antwoord
+
+# 1. Wat voor type onderzoeksvraag is dit?
+type_vraag <- "???"
+
+# 2. Wat zijn de bestudeerde variabelen? (gebruik voor meerdere variabelen: "Variabele 1 en Variabele 2")
+bestudeerde_variabele <- "???"
+
+# 3. Wat is het meetniveau van de eerste variabele (kans op recidive)?
+meetniveau_recidive <- "???"
+
+# 4. Is de eerste variabele (kans op recidive) kwantitatief? (ja/nee)
+kwantitatief_recidive <- "???"
+
+# 5. Wat voor type waarden heeft de eerste variabele (kans op recidive)?
+type_waarden_recidive <- "???"
+
+# 6. Geef voorbeelden van waarden voor de eerste variabele (kans op recidive)
+voorbeeld_waarden_recidive <- "???"
+
+# 7. Wat is het meetniveau van de tweede variabele (leeftijd)?
+meetniveau_leeftijd <- "???"
+
+# 8. Is de tweede variabele (leeftijd) kwantitatief? (ja/nee)
+kwantitatief_leeftijd <- "???"
+
+# 9. Wat voor type waarden heeft de tweede variabele (leeftijd)?
+type_waarden_leeftijd <- "???"
+
+# 10. Geef voorbeelden van waarden voor de tweede variabele (leeftijd)
+voorbeeld_waarden_leeftijd <- "???"
