@@ -247,53 +247,55 @@ context({
               if(!results$meetniveau_camera$correct && results$meetniveau_camera$exists) {
                 student_answer <- tolower(as.character(results$meetniveau_camera$value))
                 if(student_answer == "ordinaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Je antwoord 'ordinaal' is fout omdat cameratoezicht (ja/nee) **geen rangorde** heeft. Je kunt niet zeggen dat 'ja' hoger is dan 'nee'. **Herbekijk Oef - 2.1 t/m 2.5** over meetniveaus → **Correct antwoord: nominaal**")
-                } else if(student_answer == "ratio" || student_answer == "interval") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Je antwoord '" + student_answer + "' is fout omdat cameratoezicht **geen getal** is maar een **categorie** (aanwezig/afwezig). Ratio/interval zijn voor numerieke variabelen. **Herbekijk Oef - 2.1 t/m 2.5** → **Correct antwoord: nominaal**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Je koos 'ordinaal', maar dit is fout. Cameratoezicht (ja/nee) heeft geen rangorde → **nominaal**")
+                } else if(student_answer == "ratio") {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Je koos 'ratio', maar dit is fout. Cameratoezicht is geen getal maar een categorie (aanwezig/afwezig) → **nominaal**")
+                } else if(student_answer == "interval") {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Je koos 'interval', maar dit is fout. Cameratoezicht is geen getal maar een categorie (aanwezig/afwezig) → **nominaal**")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Cameratoezicht is een **binaire variabele** (twee categorieën: ja/nee) zonder rangorde of numerieke waarde. **Herbekijk Oef - 2.1 t/m 2.5** over meetniveaus → **Correct antwoord: nominaal**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Cameratoezicht is een binaire variabele (ja/nee) zonder rangorde → **nominaal**")
                 }
               }
               
               if(!results$kwantitatief_camera$correct && results$kwantitatief_camera$exists) {
                 student_answer <- tolower(as.character(results$kwantitatief_camera$value))
                 if(student_answer == "ja") {
-                  feedback_parts <- c(feedback_parts, "• **Kwantitatief cameratoezicht**: Je antwoord 'ja' is fout omdat cameratoezicht uit **categorieën** bestaat (ja/nee), niet uit **getallen** waarmee je kunt rekenen. **Herbekijk Oef - 2.6** over variabeletypes → **Correct antwoord: nee**")
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief cameratoezicht**: Je koos 'ja', maar dit is fout. Cameratoezicht bestaat uit categorieën (ja/nee), niet uit getallen → **nee**")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Kwantitatief cameratoezicht**: Cameratoezicht is **kwalitatief** omdat het categorieën betreft, geen getallen → **Correct antwoord: nee**")
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief cameratoezicht**: Cameratoezicht bestaat uit categorieën, niet uit getallen → **nee**")
                 }
               }
               
               if(!results$meetniveau_geweld$correct && results$meetniveau_geweld$exists) {
                 student_answer <- tolower(as.character(results$meetniveau_geweld$value))
                 if(student_answer == "nominaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Je antwoord 'nominaal' is fout omdat aantal geweldsdelicten **getallen** zijn waarmee je kunt rekenen (0, 1, 2, 3...), niet categorieën. Het heeft een **echt nulpunt** (0 delicten = geen delicten). **Herbekijk Oef - 2.1 t/m 2.5** → **Correct antwoord: ratio**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Je koos 'nominaal', maar dit is fout. Aantal geweldsdelicten zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt (0 delicten) → **ratio**")
                 } else if(student_answer == "ordinaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Je antwoord 'ordinaal' is fout omdat aantallen niet alleen **rangorde** hebben maar ook **gelijke afstanden** tussen waarden (verschil tussen 5 en 10 delicten = verschil tussen 15 en 20) én een **echt nulpunt**. **Herbekijk Oef - 2.1 t/m 2.5** → **Correct antwoord: ratio**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Je koos 'ordinaal', maar dit is fout. Aantallen hebben niet alleen rangorde maar ook gelijke afstanden en een echt nulpunt → **ratio**")
                 } else if(student_answer == "interval") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Je antwoord 'interval' is bijna goed, maar aantallen hebben wél een **echt nulpunt**: 0 delicten betekent **letterlijk geen delicten** (niet willekeurig zoals bij temperatuur). **Herbekijk Oef - 2.1 t/m 2.5** → **Correct antwoord: ratio**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Je koos 'interval', maar dit is fout. Aantallen hebben wel een echt nulpunt: 0 delicten betekent geen delicten → **ratio**")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Aantal delicten zijn **telgetallen** met echt nulpunt → **Correct antwoord: ratio**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Aantal geweldsdelicten heeft gelijke afstanden, een echt nulpunt (0 = geen delicten) en betekenisvolle verhoudingen → **ratio**")
                 }
               }
               
               if(!results$kwantitatief_geweld$correct && results$kwantitatief_geweld$exists) {
                 student_answer <- tolower(as.character(results$kwantitatief_geweld$value))
                 if(student_answer == "nee") {
-                  feedback_parts <- c(feedback_parts, "• **Kwantitatief geweldsdelicten**: Je antwoord 'nee' is fout omdat aantal geweldsdelicten **getallen** zijn waarmee je **wiskundige bewerkingen** kunt doen (optellen, vermenigvuldigen, etc.). **Herbekijk Oef - 2.6** over kwantitatief vs. kwalitatief → **Correct antwoord: ja**")
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief geweldsdelicten**: Je koos 'nee', maar dit is fout. Aantal geweldsdelicten bestaat uit getallen waarmee je kunt rekenen → **ja**")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Kwantitatief geweldsdelicten**: Aantallen zijn altijd kwantitatief → **Correct antwoord: ja**")
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief geweldsdelicten**: Aantal geweldsdelicten bestaat uit getallen waarmee je kunt rekenen → **ja**")
                 }
               }
               
               if(!results$type_waarden_geweld$correct && results$type_waarden_geweld$exists) {
                 student_answer <- tolower(as.character(results$type_waarden_geweld$value))
                 if(grepl("gehele", student_answer) || grepl("integer", student_answer)) {
-                  feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Je antwoord 'gehele getallen' is te breed omdat je **geen negatief aantal** delicten kunt hebben (-5 delicten bestaat niet). **Herbekijk Oef - 2.5** over getalsoorten → **Correct antwoord: natuurlijke getallen**")
+                  feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Je koos 'gehele getallen', maar dit is fout. Je kunt geen negatief aantal delicten hebben → **natuurlijke getallen**")
                 } else if(grepl("rationaal", student_answer) || grepl("decimaal", student_answer)) {
-                  feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Je antwoord suggereert decimalen, maar je kunt geen **2.5 delicten** hebben. Delicten zijn **telbare eenheden** → **Correct antwoord: natuurlijke getallen**")
+                  feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Je antwoord suggereert decimalen, maar je kunt geen 2.5 delicten hebben → **natuurlijke getallen**")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Aantal delicten zijn **telgetallen** die beginnen bij 0: je kunt geen negatief aantal of gebroken aantal delicten hebben → **Correct antwoord: natuurlijke getallen**")
+                  feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Je kunt geen negatief aantal delicten hebben → **natuurlijke getallen**")
                 }
               }
             }
