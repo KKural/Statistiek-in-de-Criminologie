@@ -6,106 +6,183 @@ context({
         "Alle variabelen correct geclassificeerd",
         function(env) {
           # Use the provided environment (env) instead of globalenv()
-          correct_count <- 0
-          total_count <- 5
+          results <- list()
           
-          # Check each variable using the provided environment
-          if(exists("favoriete_keuze", envir = env) && tolower(as.character(get("favoriete_keuze", envir = env))) == "nominaal") correct_count <- correct_count + 1
-          if(exists("leeftijd", envir = env) && tolower(as.character(get("leeftijd", envir = env))) == "ratio") correct_count <- correct_count + 1
-          if(exists("geslacht", envir = env) && tolower(as.character(get("geslacht", envir = env))) == "nominaal") correct_count <- correct_count + 1
-          if(exists("studierichting", envir = env) && tolower(as.character(get("studierichting", envir = env))) == "nominaal") correct_count <- correct_count + 1
-          if(exists("studentnummer", envir = env) && tolower(as.character(get("studentnummer", envir = env))) == "nominaal") correct_count <- correct_count + 1
+          # Check each variable and store detailed results
+          # Favoriete keuze
+          if(exists("favoriete_keuze", envir = env)) {
+            current_val <- tolower(as.character(get("favoriete_keuze", envir = env)))
+            results$favoriete_keuze <- list(
+              exists = TRUE,
+              value = get("favoriete_keuze", envir = env),
+              correct = current_val == "nominaal",
+              expected = "Nominaal"
+            )
+          } else {
+            results$favoriete_keuze <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Nominaal")
+          }
           
-          return(correct_count == total_count)
+          # Leeftijd
+          if(exists("leeftijd", envir = env)) {
+            current_val <- tolower(as.character(get("leeftijd", envir = env)))
+            results$leeftijd <- list(
+              exists = TRUE,
+              value = get("leeftijd", envir = env),
+              correct = current_val == "ratio",
+              expected = "Ratio"
+            )
+          } else {
+            results$leeftijd <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Ratio")
+          }
+          
+          # Geslacht
+          if(exists("geslacht", envir = env)) {
+            current_val <- tolower(as.character(get("geslacht", envir = env)))
+            results$geslacht <- list(
+              exists = TRUE,
+              value = get("geslacht", envir = env),
+              correct = current_val == "nominaal",
+              expected = "Nominaal"
+            )
+          } else {
+            results$geslacht <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Nominaal")
+          }
+          
+          # Studierichting
+          if(exists("studierichting", envir = env)) {
+            current_val <- tolower(as.character(get("studierichting", envir = env)))
+            results$studierichting <- list(
+              exists = TRUE,
+              value = get("studierichting", envir = env),
+              correct = current_val == "nominaal",
+              expected = "Nominaal"
+            )
+          } else {
+            results$studierichting <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Nominaal")
+          }
+          
+          # Studentnummer
+          if(exists("studentnummer", envir = env)) {
+            current_val <- tolower(as.character(get("studentnummer", envir = env)))
+            results$studentnummer <- list(
+              exists = TRUE,
+              value = get("studentnummer", envir = env),
+              correct = current_val == "nominaal",
+              expected = "Nominaal"
+            )
+          } else {
+            results$studentnummer <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Nominaal")
+          }
+          
+          # Store results for use in comparator
+          assign("detailed_results", results, envir = globalenv())
+          
+          # Return overall success
+          all_correct <- all(sapply(results, function(x) x$correct))
+          return(all_correct)
         },
         TRUE,
         comparator = function(generated, expected, ...) {
+          # Get detailed results from global environment
+          results <- get("detailed_results", envir = globalenv())
+          
+          # Create detailed output showing all variables
+          feedback_parts <- c("## **Resultaten per variabele:**\n")
+          
+          # Create a table-like output
+          feedback_parts <- c(feedback_parts, "| Variabele | Jouw antwoord | Verwacht | Status |")  
+          feedback_parts <- c(feedback_parts, "|-----------|---------------|----------|--------|")
+          
+          variable_names <- c(
+            "favoriete_keuze" = "Favoriete keuze",
+            "leeftijd" = "Leeftijd", 
+            "geslacht" = "Geslacht",
+            "studierichting" = "Studierichting",
+            "studentnummer" = "Studentnummer"
+          )
+          
+          for(var_key in names(variable_names)) {
+            var_display <- variable_names[var_key]
+            result <- results[[var_key]]
+            
+            if(!result$exists) {
+              your_answer <- "*Ontbreekt*"
+              status <- "❌"
+            } else if(result$correct) {
+              your_answer <- result$value
+              status <- "✅"
+            } else {
+              your_answer <- result$value
+              status <- "❌"
+            }
+            
+            feedback_parts <- c(feedback_parts, paste0("| ", var_display, " | ", your_answer, " | ", result$expected, " | ", status, " |"))
+          }
+          
           if (generated == expected) {
-            get_reporter()$add_message("✅ **Juist - perfecte classificatie van alle variabelen!**\n\n• **Favoriete keuze voor online onderzoek**: Nominaal ✓ (categorieën zonder ordening)\n\n• **Leeftijd**: Ratio ✓ (getallen met echt nulpunt: 0 jaar betekent geen leeftijd)\n\n• **Geslacht**: Nominaal ✓ (man/vrouw zijn categorieën zonder ordening)\n\n• **Studierichting**: Nominaal ✓ (verschillende richtingen zonder ordening)\n\n• **Studentnummer**: Nominaal ✓ (alleen identificatie, geen rekenkundige betekenis)\n\n**Uitstekend!** Je begrijpt de verschillende meetniveaus.", type = "markdown")
+            feedback_parts <- c(feedback_parts, "\n✅ **Perfecte score! Alle variabelen correct geclassificeerd.**")
+            feedback_parts <- c(feedback_parts, "\n**Uitstekend!** Je begrijpt de verschillende meetniveaus goed.")
           } else {
-            # Provide detailed feedback showing both correct and incorrect variables
-            feedback_parts <- c("❌ **Niet alle variabelen zijn correct geclassificeerd.**\n")
+            # Count correct/incorrect for summary
+            correct_count <- sum(sapply(results, function(x) x$correct))
+            total_count <- length(results)
+            feedback_parts <- c(feedback_parts, paste0("\n❌ **Score: ", correct_count, "/", total_count, " variabelen correct**\n"))
             
-            # Check each variable and show status
-            tryCatch({
-              # Favoriete keuze
-              if(!exists("favoriete_keuze", envir = env)) {
-                feedback_parts <- c(feedback_parts, "❌ **Favoriete keuze**: Variabele ontbreekt! Gebruik: `favoriete_keuze <- \"Nominaal\"`")
-              } else {
-                current_val <- tolower(as.character(get("favoriete_keuze", envir = env)))
-                if(current_val != "nominaal") {
-                  feedback_parts <- c(feedback_parts, paste0("❌ **Favoriete keuze**: Jouw antwoord '", get("favoriete_keuze", envir = env), "' is fout. Correct: 'Nominaal' (Google, Bibliotheek, Wikipedia zijn categorieën zonder ordening)"))
+            # Add helpful tips for incorrect answers
+            incorrect_vars <- sapply(results, function(x) !x$correct)
+            if(any(incorrect_vars)) {
+              feedback_parts <- c(feedback_parts, "**Tips voor de foute antwoorden:**")
+              
+              if(!results$favoriete_keuze$correct) {
+                if(!results$favoriete_keuze$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Gebruik: `favoriete_keuze <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "✅ **Favoriete keuze**: Correct - Nominaal")  
+                  feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Google, Bibliotheek, Wikipedia zijn categorieën zonder ordening → Nominaal")
                 }
               }
               
-              # Leeftijd
-              if(!exists("leeftijd", envir = env)) {
-                feedback_parts <- c(feedback_parts, "❌ **Leeftijd**: Variabele ontbreekt! Gebruik: `leeftijd <- \"Ratio\"`")
-              } else {
-                current_val <- tolower(as.character(get("leeftijd", envir = env)))
-                if(current_val != "ratio") {
-                  feedback_parts <- c(feedback_parts, paste0("❌ **Leeftijd**: Jouw antwoord '", get("leeftijd", envir = env), "' is fout. Correct: 'Ratio' (heeft echt nulpunt: 0 jaar betekent geen leeftijd)"))
+              if(!results$leeftijd$correct) {
+                if(!results$leeftijd$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Leeftijd**: Gebruik: `leeftijd <- \"Ratio\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "✅ **Leeftijd**: Correct - Ratio")
+                  feedback_parts <- c(feedback_parts, "• **Leeftijd**: Heeft echt nulpunt (0 jaar = geen leeftijd) → Ratio")
                 }
               }
               
-              # Geslacht  
-              if(!exists("geslacht", envir = env)) {
-                feedback_parts <- c(feedback_parts, "❌ **Geslacht**: Variabele ontbreekt! Gebruik: `geslacht <- \"Nominaal\"`")
-              } else {
-                current_val <- tolower(as.character(get("geslacht", envir = env)))
-                if(current_val != "nominaal") {
-                  feedback_parts <- c(feedback_parts, paste0("❌ **Geslacht**: Jouw antwoord '", get("geslacht", envir = env), "' is fout. Correct: 'Nominaal' (man/vrouw zijn categorieën zonder ordening)"))
+              if(!results$geslacht$correct) {
+                if(!results$geslacht$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Geslacht**: Gebruik: `geslacht <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "✅ **Geslacht**: Correct - Nominaal")
+                  feedback_parts <- c(feedback_parts, "• **Geslacht**: Man/vrouw zijn categorieën zonder ordening → Nominaal")
                 }
               }
               
-              # Studierichting
-              if(!exists("studierichting", envir = env)) {
-                feedback_parts <- c(feedback_parts, "❌ **Studierichting**: Variabele ontbreekt! Gebruik: `studierichting <- \"Nominaal\"`")
-              } else {
-                current_val <- tolower(as.character(get("studierichting", envir = env)))
-                if(current_val != "nominaal") {
-                  feedback_parts <- c(feedback_parts, paste0("❌ **Studierichting**: Jouw antwoord '", get("studierichting", envir = env), "' is fout. Correct: 'Nominaal' (verschillende richtingen zonder ordening)"))
+              if(!results$studierichting$correct) {
+                if(!results$studierichting$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Studierichting**: Gebruik: `studierichting <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "✅ **Studierichting**: Correct - Nominaal")
+                  feedback_parts <- c(feedback_parts, "• **Studierichting**: Verschillende richtingen zonder ordening → Nominaal")
                 }
               }
               
-              # Studentnummer
-              if(!exists("studentnummer", envir = env)) {
-                feedback_parts <- c(feedback_parts, "❌ **Studentnummer**: Variabele ontbreekt! Gebruik: `studentnummer <- \"Nominaal\"`")
-              } else {
-                current_val <- tolower(as.character(get("studentnummer", envir = env)))
-                if(current_val != "nominaal") {
-                  feedback_parts <- c(feedback_parts, paste0("❌ **Studentnummer**: Jouw antwoord '", get("studentnummer", envir = env), "' is fout. Correct: 'Nominaal' (alleen identificatie, geen rekenkundige betekenis)"))
+              if(!results$studentnummer$correct) {
+                if(!results$studentnummer$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Studentnummer**: Gebruik: `studentnummer <- \"Nominaal\"`")
                 } else {
-                  feedback_parts <- c(feedback_parts, "✅ **Studentnummer**: Correct - Nominaal")
+                  feedback_parts <- c(feedback_parts, "• **Studentnummer**: Alleen identificatie, geen rekenkundige betekenis → Nominaal")
                 }
               }
-              
-            }, error = function(e) {
-              # Fallback feedback - provide general message if environment access fails
-              feedback_parts <- c(feedback_parts, "❌ **Controleer alle variabelen**: Zorg dat alle 5 variabelen correct zijn toegewezen")
-              feedback_parts <- c(feedback_parts, "**Verwachte waarden**:")
-              feedback_parts <- c(feedback_parts, "• `favoriete_keuze <- \"Nominaal\"`")
-              feedback_parts <- c(feedback_parts, "• `leeftijd <- \"Ratio\"`")
-              feedback_parts <- c(feedback_parts, "• `geslacht <- \"Nominaal\"`")
-              feedback_parts <- c(feedback_parts, "• `studierichting <- \"Nominaal\"`")
-              feedback_parts <- c(feedback_parts, "• `studentnummer <- \"Nominaal\"`")
-            })
-            
-            feedback_parts <- c(feedback_parts, "\n**Meetniveaus uitleg**:")
-            feedback_parts <- c(feedback_parts, "• **Nominaal**: Categorieën zonder ordening (bijv. kleuren, geslacht)")
-            feedback_parts <- c(feedback_parts, "• **Ordinaal**: Categorieën met ordening (bijv. schoolcijfers: slecht < goed < uitstekend)")
-            feedback_parts <- c(feedback_parts, "• **Interval**: Getallen met gelijke afstanden, geen echt nulpunt (bijv. temperatuur in °C)")
-            feedback_parts <- c(feedback_parts, "• **Ratio**: Getallen met gelijke afstanden én echt nulpunt (bijv. leeftijd, gewicht)")
-            
-            get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
+            }
+          }
+          
+          # Always add educational content
+          feedback_parts <- c(feedback_parts, "**Meetniveaus uitleg:**")
+          feedback_parts <- c(feedback_parts, "• **Nominaal**: Categorieën zonder ordening (bijv. kleuren, geslacht)")
+          feedback_parts <- c(feedback_parts, "• **Ordinaal**: Categorieën met ordening (bijv. schoolcijfers: slecht < goed < uitstekend)")
+          feedback_parts <- c(feedback_parts, "• **Interval**: Getallen met gelijke afstanden, geen echt nulpunt (bijv. temperatuur in °C)")
+          feedback_parts <- c(feedback_parts, "• **Ratio**: Getallen met gelijke afstanden én echt nulpunt (bijv. leeftijd, gewicht)")
+          
+          get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           }
           
           generated == expected
