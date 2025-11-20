@@ -6,37 +6,59 @@
         Nominaal
         Nominaal
         Nominaal
-      description: |
-        **Correcte output:**
+      description: >
+        CORRECTE OUTPUT:
+
         Nominaal
-        Ratio  
+        Ratio
         Nominaal
         Nominaal
         Nominaal
 
-        **Uitleg per variabele:**
 
-        1. **favoriete_keuze = "Nominaal"**
-           - Categorieën zonder natuurlijke rangorde
-           - Voorbeelden: Google, Bibliotheek, Wikipedia
-           - Geen hiërarchie tussen de opties
+        UITLEG PER VARIABELE:
 
-        2. **leeftijd = "Ratio"** 
-           - Numerieke waarden met gelijke intervallen
-           - Heeft een echt nulpunt (0 jaar = geen leeftijd)
-           - Verhoudingen zijn zinvol (20 jaar is 2x zo oud als 10 jaar)
 
-        3. **geslacht = "Nominaal"**
-           - Categorieën zonder natuurlijke rangorde  
-           - Voorbeelden: man, vrouw
-           - Geen volgorde tussen categorieën
+        1. favoriete_keuze = "Nominaal"
 
-        4. **studierichting = "Nominaal"**
-           - Categorieën zonder natuurlijke rangorde
-           - Verschillende vakgebieden
-           - Geen hiërarchie tussen studierichtingen
+        - Categorieën zonder natuurlijke rangorde
 
-        5. **studentnummer = "Nominaal"**
-           - Labels voor identificatie
-           - Nummers hebben geen rekenkundige betekenis
-           - Gebruikt voor herkenning, niet voor berekeningen
+        - Voorbeelden: Google, Bibliotheek, Wikipedia
+
+        - Geen hiërarchie tussen de opties
+
+
+        2. leeftijd = "Ratio"
+
+        - Numerieke waarden met gelijke intervallen
+
+        - Heeft een echt nulpunt (0 jaar = geen leeftijd)
+
+        - Verhoudingen zijn zinvol (20 jaar is 2x zo oud als 10 jaar)
+
+
+        3. geslacht = "Nominaal"
+
+        - Categorieën zonder natuurlijke rangorde
+
+        - Voorbeelden: man, vrouw
+
+        - Geen volgorde tussen categorieën
+
+
+        4. studierichting = "Nominaal"
+
+        - Categorieën zonder natuurlijke rangorde
+
+        - Verschillende vakgebieden
+
+        - Geen hiërarchie tussen studierichtingen
+
+
+        5. studentnummer = "Nominaal"
+
+        - Labels voor identificatie
+
+        - Nummers hebben geen rekenkundige betekenis
+
+        - Gebruikt voor herkenning, niet voor berekeningen
