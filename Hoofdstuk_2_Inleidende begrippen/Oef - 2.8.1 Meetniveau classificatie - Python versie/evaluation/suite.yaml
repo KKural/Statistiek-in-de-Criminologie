@@ -1,6 +1,13 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - stdout: |
+    - description: |
+        Uitleg van de juiste meetniveaus:
+        1. Favoriete keuze → NOMINAAL: Categorieën zonder natuurlijke volgorde (Google, Bibliotheek, Wikipedia, etc.)
+        2. Leeftijd → RATIO: Getallen met gelijke afstanden én echt nulpunt (0 jaar = geen leeftijd)
+        3. Geslacht → NOMINAAL: Categorieën zonder natuurlijke volgorde (man/vrouw)
+        4. Studierichting → NOMINAAL: Categorieën zonder natuurlijke volgorde (verschillende vakgebieden)
+        5. Studentnummer → NOMINAAL: Labels voor identificatie, niet voor berekeningen (nummers 1-552)
+      stdout: |
         Nominaal
         Ratio
         Nominaal
