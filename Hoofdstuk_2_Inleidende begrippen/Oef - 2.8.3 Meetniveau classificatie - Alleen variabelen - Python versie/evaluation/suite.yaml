@@ -1,17 +1,13 @@
 - tab: "Meetniveau Classificatie"
-  testcases:
-    - description: "favoriete_keuze = Nominaal - Categorieën zonder rangorde"
-      expression: favoriete_keuze
-      return: "Nominaal"
-    - description: "leeftijd = Ratio - Numerieke waarden met echt nulpunt"
-      expression: leeftijd
-      return: "Ratio"
-    - description: "geslacht = Nominaal - Categorieën zonder hiërarchie"
-      expression: geslacht
-      return: "Nominaal"
-    - description: "studierichting = Nominaal - Vakgebieden zonder rangorde"
-      expression: studierichting
-      return: "Nominaal"
-    - description: "studentnummer = Nominaal - Identificatielabels"
-      expression: studentnummer
-      return: "Nominaal"
+  contexts:
+    - testcases:
+        - description: "favoriete_keuze = Nominaal - Categorieën zonder rangorde"
+          statement: "assert favoriete_keuze == 'Nominaal', f'Expected Nominaal, got {favoriete_keuze}'"
+        - description: "leeftijd = Ratio - Numerieke waarden met echt nulpunt"
+          statement: "assert leeftijd == 'Ratio', f'Expected Ratio, got {leeftijd}'"
+        - description: "geslacht = Nominaal - Categorieën zonder hiërarchie"
+          statement: "assert geslacht == 'Nominaal', f'Expected Nominaal, got {geslacht}'"
+        - description: "studierichting = Nominaal - Vakgebieden zonder rangorde"
+          statement: "assert studierichting == 'Nominaal', f'Expected Nominaal, got {studierichting}'"
+        - description: "studentnummer = Nominaal - Identificatielabels"
+          statement: "assert studentnummer == 'Nominaal', f'Expected Nominaal, got {studentnummer}'"
