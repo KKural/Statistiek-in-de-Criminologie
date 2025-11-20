@@ -1,24 +1,9 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - description: "Correcte output met uitleg per variabele"
+    - description: "Uitleg: 1) favoriete_keuze=Nominaal (categorieën zonder rangorde), 2) leeftijd=Ratio (getallen met echt nulpunt), 3) geslacht=Nominaal (categorieën zonder rangorde), 4) studierichting=Nominaal (categorieën zonder rangorde), 5) studentnummer=Nominaal (labels voor identificatie)"
       stdout: |
         Nominaal
         Ratio
         Nominaal
         Nominaal
-        Nominaal
-    - description: "1. favoriete_keuze = Nominaal - categorieën zonder natuurlijke rangorde (Google, Bibliotheek, Wikipedia)"
-      stdout: |
-        Nominaal
-    - description: "2. leeftijd = Ratio - numerieke waarden met echt nulpunt (0 jaar = geen leeftijd)"
-      stdout: |
-        Ratio
-    - description: "3. geslacht = Nominaal - categorieën zonder natuurlijke rangorde (man, vrouw)"
-      stdout: |
-        Nominaal
-    - description: "4. studierichting = Nominaal - categorieën zonder natuurlijke rangorde (verschillende vakgebieden)"
-      stdout: |
-        Nominaal
-    - description: "5. studentnummer = Nominaal - labels voor identificatie, niet voor berekeningen"
-      stdout: |
         Nominaal
