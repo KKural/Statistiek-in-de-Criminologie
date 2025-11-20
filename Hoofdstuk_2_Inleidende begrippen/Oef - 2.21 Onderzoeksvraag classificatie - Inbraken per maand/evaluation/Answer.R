@@ -6,7 +6,7 @@ expected_answers <- list(
                            "aantal inbraken per maand", 
                            "inbraken per maand",
                            "aantal gerapporteerde inbraken per maand"),
-  meetniveau = "ratio",
+  meetniveau = c("ratio", "kwantitatief (ratio)", "kwantitatief ratio"),
   waarden = c("natuurlijke getallen", "0, 1, 2, ...", "gehele getallen", "getallen", "0 of meer")
 )
 
