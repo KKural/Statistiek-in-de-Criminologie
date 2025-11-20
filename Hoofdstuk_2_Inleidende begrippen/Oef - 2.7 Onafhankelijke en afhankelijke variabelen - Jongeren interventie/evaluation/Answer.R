@@ -99,9 +99,9 @@ context({
           
           variable_names <- c(
             "onafhankelijke_variabele" = "Onafhankelijke variabele",
-            "meetniveau_onafhankelijk" = "Meetniveau onafhankelijke variabele",
+            "meetniveau_onafhankelijk_variabele" = "Meetniveau onafhankelijke variabele",
             "afhankelijke_variabele" = "Afhankelijke variabele",
-            "meetniveau_afhankelijk" = "Meetniveau afhankelijke variabele"
+            "meetniveau_afhankelijk_variabele" = "Meetniveau afhankelijke variabele"
           )
           
           counter <- 1
@@ -137,11 +137,11 @@ context({
                 }
               }
               
-              if(!results$meetniveau_onafhankelijk$correct) {
-                if(!results$meetniveau_onafhankelijk$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau onafhankelijke variabele**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `meetniveau_onafhankelijk <- \"nominaal\"` (let op de aanhalingstekens!)")
+              if(!results$meetniveau_onafhankelijk_variabele$correct) {
+                if(!results$meetniveau_onafhankelijk_variabele$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau onafhankelijke variabele**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `meetniveau_onafhankelijk_variabele <- \"nominaal\"` (let op de aanhalingstekens!)")
                 } else {
-                  student_answer <- tolower(as.character(results$meetniveau_onafhankelijk$value))
+                  student_answer <- tolower(as.character(results$meetniveau_onafhankelijk_variabele$value))
                   if(student_answer == "ordinaal") {
                     feedback_parts <- c(feedback_parts, "• **Meetniveau onafhankelijke variabele**: Je koos 'ordinaal', maar dit is fout. Er zijn twee categorieën (interventiewijk vs controlegroep) zonder rangorde → **nominaal**")
                   } else if(student_answer == "interval") {
@@ -162,11 +162,11 @@ context({
                 }
               }
               
-              if(!results$meetniveau_afhankelijk$correct) {
-                if(!results$meetniveau_afhankelijk$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau afhankelijke variabele**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `meetniveau_afhankelijk <- \"ratio\"` (let op de aanhalingstekens!)")
+              if(!results$meetniveau_afhankelijk_variabele$correct) {
+                if(!results$meetniveau_afhankelijk_variabele$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau afhankelijke variabele**: ❌ Variabele niet gevonden. Vergeet je aanhalingstekens? Gebruik: `meetniveau_afhankelijk_variabele <- \"ratio\"` (let op de aanhalingstekens!)")
                 } else {
-                  student_answer <- tolower(as.character(results$meetniveau_afhankelijk$value))
+                  student_answer <- tolower(as.character(results$meetniveau_afhankelijk_variabele$value))
                   if(student_answer == "nominaal") {
                     feedback_parts <- c(feedback_parts, "• **Meetniveau afhankelijke variabele**: Je koos 'nominaal', maar dit is fout. Aantal meldingen zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt (0 meldingen) → **ratio**")
                   } else if(student_answer == "ordinaal") {

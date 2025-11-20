@@ -1,5 +1,3 @@
-# **Onafhankelijke en Afhankelijke Variabelen - Jongeren Interventie**
-
 Lees het onderstaande onderzoeksscenario zorgvuldig door en beantwoord de vragen over de onafhankelijke en afhankelijke variabelen.
 
 ## **Onderzoeksscenario:**
