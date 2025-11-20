@@ -1,9 +1,5 @@
 - tab: "Meetniveau Classificatie"
-  testcases:
-    - description: "**Juist - perfecte classificatie van alle variabelen!**\n\n• **Favoriete keuze voor online onderzoek**: Nominaal ✓ (categorieën zonder ordening)\n• **Leeftijd**: Ratio ✓ (getallen met echt nulpunt: 0 jaar betekent geen leeftijd)\n• **Geslacht**: Nominaal ✓ (man/vrouw zijn categorieën zonder ordening)\n• **Studierichting**: Nominaal ✓ (verschillende richtingen zonder ordening)\n• **Studentnummer**: Nominaal ✓ (alleen identificatie, geen rekenkundige betekenis)\n\n**Uitstekend!** Je begrijpt de verschillende meetniveaus.", type = "markdown")"
-      stdout: |
-        Nominaal
-        Ratio
-        Nominaal
-        Nominaal
-        Nominaal
+  contexts:
+    - testcases:
+      - expression: "evaluate_classification()"
+        return: True
