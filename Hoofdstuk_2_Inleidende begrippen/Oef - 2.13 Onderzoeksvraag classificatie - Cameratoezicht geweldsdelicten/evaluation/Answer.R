@@ -303,16 +303,12 @@ context({
           
           # Always add educational content with references
           feedback_parts <- c(feedback_parts, "**📚 Samenvatting en verwijzingen naar theorie:**")
-          feedback_parts <- c(feedback_parts, "• **Bivariate verklarende**: Onderzoekt of één variabele **invloed heeft** op een andere (zie **Oef - 2.8**)")
-          feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Aanwezigheid cameratoezicht (mogelijke oorzaak) - zie **Oef - 2.7**")
-          feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Aantal geweldsdelicten (de uitkomst die wordt verklaard) - zie **Oef - 2.7**")
-          feedback_parts <- c(feedback_parts, "• **Cameratoezicht**: Binaire nominale variabele (aanwezig/afwezig) - zie **Oef - 2.1-2.5** voor meetniveaus")
-          feedback_parts <- c(feedback_parts, "• **Aantal delicten**: Ratio variabele (natuurlijke getallen met echt nulpunt) - zie **Oef - 2.1-2.5**")
-          feedback_parts <- c(feedback_parts, "• **Kwantitatief vs. Kwalitatief**: Getallen vs. categorieën - zie **Oef - 2.6**")
-          
-          if(generated != expected) {
-            feedback_parts <- c(feedback_parts, "**💡 Tip**: Bekijk eerst **Oef - 2.8** voor onderzoeksvraagtypen en **Oef - 2.1 t/m 2.6** voor variabele-eigenschappen voordat je opnieuw probeert!")
-          }
+          feedback_parts <- c(feedback_parts, "• **Bivariate verklarende**: Onderzoekt of één variabele **invloed heeft** op een andere")
+          feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Aanwezigheid cameratoezicht (mogelijke oorzaak)")
+          feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Aantal geweldsdelicten (de uitkomst die wordt verklaard)")
+          feedback_parts <- c(feedback_parts, "• **Cameratoezicht**: Binaire nominale variabele (aanwezig/afwezig)")
+          feedback_parts <- c(feedback_parts, "• **Aantal delicten**: Ratio variabele (natuurlijke getallen met echt nulpunt)")
+          feedback_parts <- c(feedback_parts, "• **Kwantitatief vs. Kwalitatief**: Getallen vs. categorieën")
           
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
