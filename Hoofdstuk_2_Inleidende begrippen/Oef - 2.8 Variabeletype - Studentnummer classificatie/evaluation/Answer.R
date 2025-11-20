@@ -97,17 +97,19 @@ context({
             "studentnummer" = "Studentnummer"
           )
           
+          counter <- 1
           for(var_key in names(variable_names)) {
             var_display <- variable_names[var_key]
             result <- results[[var_key]]
             
             if(!result$exists) {
-              feedback_parts <- c(feedback_parts, paste0("• **", var_display, "**: *Ontbreekt* ❌"))
+              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: *Ontbreekt* ❌"))
             } else if(result$correct) {
-              feedback_parts <- c(feedback_parts, paste0("• **", var_display, "**: ", result$value, " ✅"))
+              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ✅"))
             } else {
-              feedback_parts <- c(feedback_parts, paste0("• **", var_display, "**: ", result$value, " ❌"))
+              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ❌"))
             }
+            counter <- counter + 1
           }
           
           if (generated == expected) {

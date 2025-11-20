@@ -22,3 +22,11 @@ De namen van de studenten werden niet geregistreerd, maar de studenten werden ge
 **Bepaal het meetniveau van alle variabelen:**
 
 Classificeer elke variabele volgens het juiste meetniveau.
+
+**Instructies:**
+Vervang de "???" met het juiste meetniveau, maar **behoud de aanhalingstekens**!
+
+**Belangrijk:**
+- **Gebruik altijd aanhalingstekens** rond je antwoord
+- **Mogelijke meetniveaus:** "Nominaal", "Ordinaal", "Interval", "Ratio"
+- **Let op:** Hoofdletters maken niet uit, maar de aanhalingstekens zijn verplicht!
