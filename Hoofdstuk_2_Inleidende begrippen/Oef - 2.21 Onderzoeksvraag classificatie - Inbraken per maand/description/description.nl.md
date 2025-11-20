@@ -9,12 +9,3 @@ Analyseer deze onderzoeksvraag en bepaal:
 
 **Instructie:** 
 Vervang "???" door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.
-
-**Voorbeelden van antwoordformaten** (NIET de juiste antwoorden):
-```r
-# Voorbeeld formaat - gebruik dit als sjabloon
-type_vraag <- "bivariate beschrijvende"
-bestudeerde_variabele <- "De relatie tussen leeftijd en criminaliteit"  
-meetniveau <- "ordinaal"
-waarden <- "Categorieën van laag naar hoog"
-```
