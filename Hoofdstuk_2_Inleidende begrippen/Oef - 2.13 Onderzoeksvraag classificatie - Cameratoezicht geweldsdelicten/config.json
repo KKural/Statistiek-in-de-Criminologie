@@ -1,19 +1,19 @@
 {
-    "type": "exercise",
-    "programming_language": "r",
-    "access": "public",
-    "description": {
-        "names": {
-            "nl": "Oef - 2.13 Onderzoeksvraag classificatie - Cameratoezicht geweldsdelicten"
-        }
-    },
-    "evaluation": {
-        "handler": "r"
-    },
-    "boilerplate": "description/boilerplate/boilerplate",
-    "labels": [],
-    "internals": {
-        "token": "C4m3r4_Surv31ll4nc3_V10l3nt_Cr1m3s_Cl4ss1f1c4t10n_Ex3rc1s3_2_13",
-        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 2.13 Onderzoeksvraag classificatie - Cameratoezicht geweldsdelicten"
     }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [],
+  "internals": {
+    "token": "v8M-kD28UqxSCysIbJ-ytdss7AB4NjgkABft_HP9s8HZxYKZqZSXfBxVHWXpv2BM",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

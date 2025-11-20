@@ -1,19 +1,19 @@
 {
-    "type": "exercise",
-    "programming_language": "r",
-    "access": "public",
-    "description": {
-        "names": {
-            "nl": "Oef - 2.11 Onderzoeksvraag classificatie - Onveiligheidsgevoel percentage"
-        }
-    },
-    "evaluation": {
-        "handler": "r"
-    },
-    "boilerplate": "description/boilerplate/boilerplate",
-    "labels": [],
-    "internals": {
-        "token": "Un54f3_F33l1ng5_P3rc3nt4g3_Cl4ss1f1c4t10n_Ex3rc1s3_2_11_Cr1m1n0l0gy",
-        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 2.11 Onderzoeksvraag classificatie - Onveiligheidsgevoel percentage"
     }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [],
+  "internals": {
+    "token": "F-j3cQyH9I_qzGpmWSXKNEIG-HsWIUcE694KTncmaY2zNfS556jFw7I3SagdIV8q",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
