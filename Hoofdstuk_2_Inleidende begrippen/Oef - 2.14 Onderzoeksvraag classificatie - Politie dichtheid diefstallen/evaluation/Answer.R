@@ -214,23 +214,114 @@ context({
             if(any(incorrect_vars)) {
               feedback_parts <- c(feedback_parts, "**📚 Uitleg waarom deze antwoorden fout zijn:**")
               
-              if(!results$type_vraag$correct && results$type_vraag$exists) {
-                student_answer <- tolower(as.character(results$type_vraag$value))
-                if(student_answer == "univariate beschrijvende") {
-                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'univariate beschrijvende', maar er worden twee variabelen onderzocht en hun onderlinge relatie bestudeerd → **bivariate beschrijvende**")
-                } else if(student_answer == "bivariate verklarende") {
-                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate verklarende', maar er wordt geen oorzakelijk verband onderzocht, alleen een relatie beschreven → **bivariate beschrijvende**")
+              if(!results$type_vraag$correct) {
+                if(!results$type_vraag$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: ❌ Variabele niet gevonden. Gebruik: `type_vraag <- \"bivariate beschrijvende\"` (let op de aanhalingstekens!)")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Het woord 'relatie' wijst op beschrijving van samenhang tussen twee variabelen → **bivariate beschrijvende**")
+                  student_answer <- tolower(as.character(results$type_vraag$value))
+                  if(student_answer == "univariate beschrijvende") {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'univariate beschrijvende', maar dit is fout. Er worden twee variabelen onderzocht (politie dichtheid en diefstallen) → **bivariate beschrijvende**")
+                  } else if(student_answer == "bivariate verklarende") {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate verklarende', maar dit is fout. Er wordt geen oorzakelijk verband onderzocht, alleen een relatie beschreven → **bivariate beschrijvende**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Het woord 'relatie' wijst op beschrijving van samenhang tussen twee variabelen → **bivariate beschrijvende**")
+                  }
                 }
               }
               
-              if(!results$meetniveau_politie$correct && results$meetniveau_politie$exists) {
-                feedback_parts <- c(feedback_parts, "• **Meetniveau politie dichtheid**: Aantal per 1000 inwoners zijn ratio getallen met echt nulpunt → **ratio**")
+              if(!results$bestudeerde_variabele$correct) {
+                if(!results$bestudeerde_variabele$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele(n)**: ❌ Variabele niet gevonden. Gebruik: `bestudeerde_variabele <- \"aantal politiemensen per 1000 inwoners en aantal geregistreerde diefstallen\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele(n)**: Er worden twee variabelen bestudeerd: politie dichtheid (per 1000 inwoners) en aantal diefstallen")
+                }
               }
               
-              if(!results$meetniveau_diefstallen$correct && results$meetniveau_diefstallen$exists) {
-                feedback_parts <- c(feedback_parts, "• **Meetniveau diefstallen**: Aantal diefstallen zijn telgetallen met echt nulpunt (0 = geen diefstallen) → **ratio**")
+              if(!results$meetniveau_politie$correct) {
+                if(!results$meetniveau_politie$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau politie dichtheid**: ❌ Variabele niet gevonden. Gebruik: `meetniveau_politie <- \"ratio\"` (let op de aanhalingstekens!)")
+                } else {
+                  student_answer <- tolower(as.character(results$meetniveau_politie$value))
+                  if(student_answer == "nominaal") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau politie dichtheid**: Je koos 'nominaal', maar dit is fout. Aantal per 1000 inwoners zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt → **ratio**")
+                  } else if(student_answer == "ordinaal") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau politie dichtheid**: Je koos 'ordinaal', maar dit is fout. Aantallen hebben niet alleen rangorde maar ook gelijke afstanden en een echt nulpunt → **ratio**")
+                  } else if(student_answer == "interval") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau politie dichtheid**: Je koos 'interval', maar dit is fout. Aantallen hebben wel een echt nulpunt: 0 per 1000 betekent geen politie → **ratio**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau politie dichtheid**: Aantal per 1000 inwoners zijn ratio getallen met echt nulpunt → **ratio**")
+                  }
+                }
+              }
+              
+              if(!results$kwantitatief_politie$correct) {
+                if(!results$kwantitatief_politie$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief politie dichtheid**: ❌ Variabele niet gevonden. Gebruik: `kwantitatief_politie <- \"ja\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief politie dichtheid**: Aantal politie per 1000 inwoners bestaat uit getallen waarmee je kunt rekenen → **ja**")
+                }
+              }
+              
+              if(!results$type_waarden_politie$correct) {
+                if(!results$type_waarden_politie$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden politie dichtheid**: ❌ Variabele niet gevonden. Gebruik: `type_waarden_politie <- \"continue waarden\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden politie dichtheid**: Je kunt 2.3 politieagenten per 1000 inwoners hebben (decimalen mogelijk) → **continue waarden**")
+                }
+              }
+              
+              if(!results$voorbeeld_waarden_politie$correct) {
+                if(!results$voorbeeld_waarden_politie$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden politie dichtheid**: ❌ Variabele niet gevonden. Gebruik: `voorbeeld_waarden_politie <- \"2.0, 2.5, 3.2, 4.1\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden politie dichtheid**: Geef getallen met mogelijke decimalen (bijvoorbeeld: 2.0, 2.5, 3.2, 4.1)")
+                }
+              }
+              
+              if(!results$meetniveau_diefstallen$correct) {
+                if(!results$meetniveau_diefstallen$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau diefstallen**: ❌ Variabele niet gevonden. Gebruik: `meetniveau_diefstallen <- \"ratio\"` (let op de aanhalingstekens!)")
+                } else {
+                  student_answer <- tolower(as.character(results$meetniveau_diefstallen$value))
+                  if(student_answer == "nominaal") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau diefstallen**: Je koos 'nominaal', maar dit is fout. Aantal diefstallen zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt (0 = geen diefstallen) → **ratio**")
+                  } else if(student_answer == "ordinaal") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau diefstallen**: Je koos 'ordinaal', maar dit is fout. Aantallen hebben niet alleen rangorde maar ook gelijke afstanden en een echt nulpunt → **ratio**")
+                  } else if(student_answer == "interval") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau diefstallen**: Je koos 'interval', maar dit is fout. Aantallen hebben wel een echt nulpunt: 0 diefstallen betekent geen diefstallen → **ratio**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau diefstallen**: Aantal diefstallen zijn telgetallen met echt nulpunt (0 = geen diefstallen) → **ratio**")
+                  }
+                }
+              }
+              
+              if(!results$kwantitatief_diefstallen$correct) {
+                if(!results$kwantitatief_diefstallen$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief diefstallen**: ❌ Variabele niet gevonden. Gebruik: `kwantitatief_diefstallen <- \"ja\"` (let op de aanhalingstekens!)")
+                } else {
+                  student_answer <- tolower(as.character(results$kwantitatief_diefstallen$value))
+                  if(student_answer == "nee") {
+                    feedback_parts <- c(feedback_parts, "• **Kwantitatief diefstallen**: Je koos 'nee', maar dit is fout. Aantal diefstallen bestaat uit getallen waarmee je kunt rekenen → **ja**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Kwantitatief diefstallen**: Aantal diefstallen bestaat uit getallen waarmee je kunt rekenen → **ja**")
+                  }
+                }
+              }
+              
+              if(!results$type_waarden_diefstallen$correct) {
+                if(!results$type_waarden_diefstallen$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden diefstallen**: ❌ Variabele niet gevonden. Gebruik: `type_waarden_diefstallen <- \"natuurlijke getallen\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden diefstallen**: Je kunt geen negatief aantal diefstallen hebben → **natuurlijke getallen**")
+                }
+              }
+              
+              if(!results$voorbeeld_waarden_diefstallen$correct) {
+                if(!results$voorbeeld_waarden_diefstallen$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden diefstallen**: ❌ Variabele niet gevonden. Gebruik: `voorbeeld_waarden_diefstallen <- \"0, 12, 45, 89\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden diefstallen**: Geef gehele getallen gescheiden door komma's (bijvoorbeeld: 0, 12, 45, 89)")
+                }
               }
             }
           }
