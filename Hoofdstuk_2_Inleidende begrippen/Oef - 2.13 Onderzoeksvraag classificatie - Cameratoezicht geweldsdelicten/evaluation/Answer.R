@@ -221,11 +221,15 @@ context({
                 } else {
                   student_answer <- tolower(as.character(results$type_vraag$value))
                   if(student_answer == "univariate beschrijvende") {
-                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'univariate beschrijvende', maar er worden twee variabelen onderzocht: cameratoezicht en geweldsdelicten. De woorden 'heeft invloed op' wijzen op een verklarende relatie → **bivariate verklarende**")
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je antwoord 'univariate beschrijvende' is fout omdat er **twee variabelen** worden onderzocht (cameratoezicht + geweldsdelicten). Univariaat = één variabele. **Herbekijk Oef - 2.8** voor de theorie over onderzoeksvraagtypen → **Correct antwoord: bivariate verklarende**")
                   } else if(student_answer == "bivariate beschrijvende") {
-                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate beschrijvende', maar de woorden 'heeft invloed op' wijzen op een oorzakelijke/verklarende relatie, niet alleen beschrijven → **bivariate verklarende**")
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je antwoord 'bivariate beschrijvende' is fout omdat de vraag niet alleen wil **beschrijven** maar zoekt een **oorzakelijk verband**. Het woord 'invloed' wijst op verklaring. **Herbekijk Oef - 2.8** → **Correct antwoord: bivariate verklarende**")
+                  } else if(grepl("univariate", student_answer)) {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je antwoord bevat 'univariate' maar er zijn **twee variabelen**: (1) cameratoezicht, (2) geweldsdelicten. **Herbekijk Oef - 2.8** over uni- vs. bivariate vragen → **Correct antwoord: bivariate verklarende**")
+                  } else if(grepl("beschrijvende", student_answer)) {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je antwoord bevat 'beschrijvende' maar deze vraag zoekt een **causaal verband** (invloed). Het gaat niet om alleen beschrijven. **Herbekijk Oef - 2.8** → **Correct antwoord: bivariate verklarende**")
                   } else {
-                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: De woorden 'heeft invloed op' wijzen op een verklarende relatie tussen twee variabelen → **bivariate verklarende**")
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: De vraag onderzoekt of één variabele **invloed heeft** op een andere (2 variabelen, causaal verband). **Herbekijk Oef - 2.8** voor onderzoeksvraagtypen → **Correct antwoord: bivariate verklarende**")
                   }
                 }
               }
@@ -234,7 +238,8 @@ context({
                 if(!results$bestudeerde_variabele$exists) {
                   feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele(n)**: ❌ Variabele niet gevonden. Gebruik: `bestudeerde_variabele <- \"Aanwezigheid van cameratoezicht en aantal geregistreerde geweldsdelicten\"` (let op de aanhalingstekens!)")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele(n)**: Er worden twee variabelen bestudeerd: aanwezigheid van cameratoezicht (onafhankelijke variabele) en aantal geweldsdelicten (afhankelijke variabele)")
+                  student_answer <- as.character(results$bestudeerde_variabele$value)
+                  feedback_parts <- c(feedback_parts, paste0("• **Bestudeerde variabele(n)**: Je antwoord '", student_answer, "' is niet compleet of niet correct. Er worden **twee variabelen** bestudeerd: (1) **aanwezigheid van cameratoezicht** (onafhankelijke/verklarende variabele) en (2) **aantal geregistreerde geweldsdelicten** (afhankelijke/te verklaren variabele). **Herbekijk Oef - 2.7** over onafhankelijke en afhankelijke variabelen → **Correct antwoord: Aanwezigheid van cameratoezicht en aantal geregistreerde geweldsdelicten**"))
                 }
               }
               
@@ -242,46 +247,69 @@ context({
               if(!results$meetniveau_camera$correct && results$meetniveau_camera$exists) {
                 student_answer <- tolower(as.character(results$meetniveau_camera$value))
                 if(student_answer == "ordinaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Cameratoezicht (ja/nee) heeft geen rangorde → **nominaal**")
-                } else if(student_answer == "ratio") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Cameratoezicht is geen getal maar een categorie (aanwezig/afwezig) → **nominaal**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Je antwoord 'ordinaal' is fout omdat cameratoezicht (ja/nee) **geen rangorde** heeft. Je kunt niet zeggen dat 'ja' hoger is dan 'nee'. **Herbekijk Oef - 2.1 t/m 2.5** over meetniveaus → **Correct antwoord: nominaal**")
+                } else if(student_answer == "ratio" || student_answer == "interval") {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Je antwoord '" + student_answer + "' is fout omdat cameratoezicht **geen getal** is maar een **categorie** (aanwezig/afwezig). Ratio/interval zijn voor numerieke variabelen. **Herbekijk Oef - 2.1 t/m 2.5** → **Correct antwoord: nominaal**")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Cameratoezicht is een binaire variabele (ja/nee) zonder rangorde → **nominaal**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau cameratoezicht**: Cameratoezicht is een **binaire variabele** (twee categorieën: ja/nee) zonder rangorde of numerieke waarde. **Herbekijk Oef - 2.1 t/m 2.5** over meetniveaus → **Correct antwoord: nominaal**")
                 }
               }
               
               if(!results$kwantitatief_camera$correct && results$kwantitatief_camera$exists) {
-                feedback_parts <- c(feedback_parts, "• **Kwantitatief cameratoezicht**: Cameratoezicht bestaat uit categorieën (ja/nee), niet uit getallen → **nee**")
+                student_answer <- tolower(as.character(results$kwantitatief_camera$value))
+                if(student_answer == "ja") {
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief cameratoezicht**: Je antwoord 'ja' is fout omdat cameratoezicht uit **categorieën** bestaat (ja/nee), niet uit **getallen** waarmee je kunt rekenen. **Herbekijk Oef - 2.6** over variabeletypes → **Correct antwoord: nee**")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief cameratoezicht**: Cameratoezicht is **kwalitatief** omdat het categorieën betreft, geen getallen → **Correct antwoord: nee**")
+                }
               }
               
               if(!results$meetniveau_geweld$correct && results$meetniveau_geweld$exists) {
                 student_answer <- tolower(as.character(results$meetniveau_geweld$value))
                 if(student_answer == "nominaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Aantal geweldsdelicten zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt (0 delicten) → **ratio**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Je antwoord 'nominaal' is fout omdat aantal geweldsdelicten **getallen** zijn waarmee je kunt rekenen (0, 1, 2, 3...), niet categorieën. Het heeft een **echt nulpunt** (0 delicten = geen delicten). **Herbekijk Oef - 2.1 t/m 2.5** → **Correct antwoord: ratio**")
                 } else if(student_answer == "ordinaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Aantallen hebben niet alleen rangorde maar ook gelijke afstanden en een echt nulpunt → **ratio**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Je antwoord 'ordinaal' is fout omdat aantallen niet alleen **rangorde** hebben maar ook **gelijke afstanden** tussen waarden (verschil tussen 5 en 10 delicten = verschil tussen 15 en 20) én een **echt nulpunt**. **Herbekijk Oef - 2.1 t/m 2.5** → **Correct antwoord: ratio**")
                 } else if(student_answer == "interval") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Aantallen hebben wel een echt nulpunt: 0 delicten betekent geen delicten → **ratio**")
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Je antwoord 'interval' is bijna goed, maar aantallen hebben wél een **echt nulpunt**: 0 delicten betekent **letterlijk geen delicten** (niet willekeurig zoals bij temperatuur). **Herbekijk Oef - 2.1 t/m 2.5** → **Correct antwoord: ratio**")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau geweldsdelicten**: Aantal delicten zijn **telgetallen** met echt nulpunt → **Correct antwoord: ratio**")
                 }
               }
               
               if(!results$kwantitatief_geweld$correct && results$kwantitatief_geweld$exists) {
-                feedback_parts <- c(feedback_parts, "• **Kwantitatief geweldsdelicten**: Aantal geweldsdelicten bestaat uit getallen waarmee je kunt rekenen → **ja**")
+                student_answer <- tolower(as.character(results$kwantitatief_geweld$value))
+                if(student_answer == "nee") {
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief geweldsdelicten**: Je antwoord 'nee' is fout omdat aantal geweldsdelicten **getallen** zijn waarmee je **wiskundige bewerkingen** kunt doen (optellen, vermenigvuldigen, etc.). **Herbekijk Oef - 2.6** over kwantitatief vs. kwalitatief → **Correct antwoord: ja**")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief geweldsdelicten**: Aantallen zijn altijd kwantitatief → **Correct antwoord: ja**")
+                }
               }
               
               if(!results$type_waarden_geweld$correct && results$type_waarden_geweld$exists) {
-                feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Je kunt geen negatief aantal delicten hebben, dus natuurlijke getallen (0, 1, 2, 3, ...) → **natuurlijke getallen**")
+                student_answer <- tolower(as.character(results$type_waarden_geweld$value))
+                if(grepl("gehele", student_answer) || grepl("integer", student_answer)) {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Je antwoord 'gehele getallen' is te breed omdat je **geen negatief aantal** delicten kunt hebben (-5 delicten bestaat niet). **Herbekijk Oef - 2.5** over getalsoorten → **Correct antwoord: natuurlijke getallen**")
+                } else if(grepl("rationaal", student_answer) || grepl("decimaal", student_answer)) {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Je antwoord suggereert decimalen, maar je kunt geen **2.5 delicten** hebben. Delicten zijn **telbare eenheden** → **Correct antwoord: natuurlijke getallen**")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden geweldsdelicten**: Aantal delicten zijn **telgetallen** die beginnen bij 0: je kunt geen negatief aantal of gebroken aantal delicten hebben → **Correct antwoord: natuurlijke getallen**")
+                }
               }
             }
           }
           
-          # Always add educational content
-          feedback_parts <- c(feedback_parts, "**📚 Uitleg onderzoeksvraag:**")
-          feedback_parts <- c(feedback_parts, "• **Bivariate verklarende**: Onderzoekt of één variabele invloed heeft op een andere")
-          feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Aanwezigheid cameratoezicht (mogelijke oorzaak)")
-          feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Aantal geweldsdelicten (de uitkomst die wordt verklaard)")
-          feedback_parts <- c(feedback_parts, "• **Cameratoezicht**: Binaire nominale variabele (aanwezig/afwezig)")
-          feedback_parts <- c(feedback_parts, "• **Aantal delicten**: Ratio variabele (natuurlijke getallen met echt nulpunt)")
+          # Always add educational content with references
+          feedback_parts <- c(feedback_parts, "**📚 Samenvatting en verwijzingen naar theorie:**")
+          feedback_parts <- c(feedback_parts, "• **Bivariate verklarende**: Onderzoekt of één variabele **invloed heeft** op een andere (zie **Oef - 2.8**)")
+          feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Aanwezigheid cameratoezicht (mogelijke oorzaak) - zie **Oef - 2.7**")
+          feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Aantal geweldsdelicten (de uitkomst die wordt verklaard) - zie **Oef - 2.7**")
+          feedback_parts <- c(feedback_parts, "• **Cameratoezicht**: Binaire nominale variabele (aanwezig/afwezig) - zie **Oef - 2.1-2.5** voor meetniveaus")
+          feedback_parts <- c(feedback_parts, "• **Aantal delicten**: Ratio variabele (natuurlijke getallen met echt nulpunt) - zie **Oef - 2.1-2.5**")
+          feedback_parts <- c(feedback_parts, "• **Kwantitatief vs. Kwalitatief**: Getallen vs. categorieën - zie **Oef - 2.6**")
+          
+          if(generated != expected) {
+            feedback_parts <- c(feedback_parts, "**💡 Tip**: Bekijk eerst **Oef - 2.8** voor onderzoeksvraagtypen en **Oef - 2.1 t/m 2.6** voor variabele-eigenschappen voordat je opnieuw probeert!")
           
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           

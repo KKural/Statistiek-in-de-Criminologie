@@ -1,5 +1,5 @@
 
-> **"Hoe verschilt het percentage recidive tussen mannen en vrouwen in België?"**
+**"Hoe verschilt het percentage recidive tussen mannen en vrouwen in België?"**
 
 **Jouw taak:**
 Analyseer deze onderzoeksvraag en bepaal:
