@@ -1,6 +1,6 @@
 - tab: "Meetniveau Classificatie"
   testcases:
-    - description: "Classificeer elk van de 5 variabelen: (1) favoriete_keuze = Nominaal - Categorieën zonder rangorde zoals Google/Bibliotheek/Wikipedia. (2) leeftijd = Ratio - Numerieke waarden met echt nulpunt, verhoudingen zinvol (20 jaar = 2x 10 jaar). (3) geslacht = Nominaal - Categorieën man/vrouw zonder hiërarchie. (4) studierichting = Nominaal - Vakgebieden zonder rangorde. (5) studentnummer = Nominaal - Identificatielabels voor herkenning."
+    - description: "**Juist - perfecte classificatie van alle variabelen!**\n\n• **Favoriete keuze voor online onderzoek**: Nominaal ✓ (categorieën zonder ordening)\n• **Leeftijd**: Ratio ✓ (getallen met echt nulpunt: 0 jaar betekent geen leeftijd)\n• **Geslacht**: Nominaal ✓ (man/vrouw zijn categorieën zonder ordening)\n• **Studierichting**: Nominaal ✓ (verschillende richtingen zonder ordening)\n• **Studentnummer**: Nominaal ✓ (alleen identificatie, geen rekenkundige betekenis)\n\n**Uitstekend!** Je begrijpt de verschillende meetniveaus.", type = "markdown")"
       stdout: |
         Nominaal
         Ratio

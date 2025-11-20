@@ -28,38 +28,25 @@ context({
             
             # Check each variable for feedback
             tryCatch({
-              if(!exists("favoriete_keuze", envir = globalenv()) || tolower(get("favoriete_keuze", envir = globalenv())) != "nominaal") {
+              if(!exists("favoriete_keuze", envir = env) || tolower(get("favoriete_keuze", envir = env)) != "nominaal") {
                 feedback_parts <- c(feedback_parts, "• **Favoriete keuze**: Moet 'Nominaal' zijn (Google, Bibliotheek, Wikipedia zijn categorieën)")
               }
-              if(!exists("leeftijd", envir = globalenv()) || tolower(get("leeftijd", envir = globalenv())) != "ratio") {
+              if(!exists("leeftijd", envir = env) || tolower(get("leeftijd", envir = env)) != "ratio") {
                 feedback_parts <- c(feedback_parts, "• **Leeftijd**: Moet 'Ratio' zijn (heeft echt nulpunt: 0 jaar)")
               }
-              if(!exists("geslacht", envir = globalenv()) || tolower(get("geslacht", envir = globalenv())) != "nominaal") {
+              if(!exists("geslacht", envir = env) || tolower(get("geslacht", envir = env)) != "nominaal") {
                 feedback_parts <- c(feedback_parts, "• **Geslacht**: Moet 'Nominaal' zijn (man/vrouw zijn categorieën)")
               }
-              if(!exists("studierichting", envir = globalenv()) || tolower(get("studierichting", envir = globalenv())) != "nominaal") {
+              if(!exists("studierichting", envir = env) || tolower(get("studierichting", envir = env)) != "nominaal") {
                 feedback_parts <- c(feedback_parts, "• **Studierichting**: Moet 'Nominaal' zijn (verschillende richtingen)")
               }
-              if(!exists("studentnummer", envir = globalenv()) || tolower(get("studentnummer", envir = globalenv())) != "nominaal") {
+              if(!exists("studentnummer", envir = env) || tolower(get("studentnummer", envir = env)) != "nominaal") {
                 feedback_parts <- c(feedback_parts, "• **Studentnummer**: Moet 'Nominaal' zijn (alleen identificatie)")
               }
             }, error = function(e) {
-              # Fallback feedback without specifying environment
-              if(!exists("favoriete_keuze") || tolower(favoriete_keuze) != "nominaal") {
-                feedback_parts <<- c(feedback_parts, "• **Favoriete keuze**: Moet 'Nominaal' zijn (Google, Bibliotheek, Wikipedia zijn categorieën)")
-              }
-              if(!exists("leeftijd") || tolower(leeftijd) != "ratio") {
-                feedback_parts <<- c(feedback_parts, "• **Leeftijd**: Moet 'Ratio' zijn (heeft echt nulpunt: 0 jaar)")
-              }
-              if(!exists("geslacht") || tolower(geslacht) != "nominaal") {
-                feedback_parts <<- c(feedback_parts, "• **Geslacht**: Moet 'Nominaal' zijn (man/vrouw zijn categorieën)")
-              }
-              if(!exists("studierichting") || tolower(studierichting) != "nominaal") {
-                feedback_parts <<- c(feedback_parts, "• **Studierichting**: Moet 'Nominaal' zijn (verschillende richtingen)")
-              }
-              if(!exists("studentnummer") || tolower(studentnummer) != "nominaal") {
-                feedback_parts <<- c(feedback_parts, "• **Studentnummer**: Moet 'Nominaal' zijn (alleen identificatie)")
-              }
+              # Fallback feedback - provide general message if environment access fails
+              feedback_parts <- c(feedback_parts, "• **Controleer alle variabelen**: Zorg dat alle 5 variabelen correct zijn toegewezen")
+              feedback_parts <- c(feedback_parts, "• **Verwachte waarden**: favoriete_keuze='Nominaal', leeftijd='Ratio', geslacht='Nominaal', studierichting='Nominaal', studentnummer='Nominaal'")
             })
             
             feedback_parts <- c(feedback_parts, "\n**Tip**: Nominaal = categorieën, Ratio = getallen met echt nulpunt")
