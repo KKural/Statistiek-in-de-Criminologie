@@ -221,6 +221,7 @@ context({
           feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Wat de onderzoeker manipuleert/controleert (de 'oorzaak')")
           feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Wat wordt gemeten als uitkomst (het 'effect')")
           feedback_parts <- c(feedback_parts, "• **Meetniveaus**: Nominaal (categorieën), Ordinaal (rangorde), Interval (geen echt nulpunt), Ratio (echt nulpunt)")
+          feedback_parts <- c(feedback_parts, "**[Lees meer over Onafhankelijke en Afhankelijke Variabelen](https://www.youtube.com/watch?v=ylXCI5Aw_wE)**")
           
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           

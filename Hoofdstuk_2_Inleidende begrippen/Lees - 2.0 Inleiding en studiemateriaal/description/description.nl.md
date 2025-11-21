@@ -1,26 +1,10 @@
-# Hoofdstuk 2: Inleidende Begrippen - Studiemateriaal en Bronnen
-
-**Welkom bij Hoofdstuk 2!** 📚
-
 Voordat je begint met de praktische oefeningen, is het belangrijk dat je de theorie goed begrijpt. Deze oefening bevat alle studiematerialen, video's en bronnen die je nodig hebt voor dit hoofdstuk.
 
----
-
-## 🎯 **Leerdoelen van dit hoofdstuk**
-
-Na het bestuderen van dit materiaal kun je:
-1. **Meetniveaus** onderscheiden (nominaal, ordinaal, interval, ratio)
-2. **Variabeletypes** classificeren (kwantitatief vs. kwalitatief)
-3. **Onafhankelijke en afhankelijke variabelen** identificeren
-4. **Onderzoeksvraagtypen** herkennen en classificeren
-5. **Praktische voorbeelden** uit de criminologie correct analyseren
-
----
 
 ## 📹 **Verplichte Video's**
 
 ### 🔹 **Video 1: Meetniveaus Uitleg**
-[![Meetniveaus](https://img.youtube.com/vi/PLACEHOLDER1/0.jpg)](https://www.youtube.com/watch?v=PLACEHOLDER1)
+[![Meetniveaus]((https://www.youtube.com/watch?v=PLACEHOLDER1)
 
 **Duur:** ~15 minuten  
 **Onderwerpen:** Nominaal, ordinaal, interval, ratio niveau met criminologie voorbeelden
