@@ -28,8 +28,7 @@ Voordat je begint met de praktische oefeningen, is het belangrijk dat je de theo
 
 ## 📖 **Verplichte Literatuur**
 
-### 📋 **Hoofdstuk 2 - BASISCURSUS STATISTIEK  IN DE CRIMINOLOGIE Deel I THEORIEBOEK**
-- **Pagina's:** 17-54
+### 📋 **Hoofdstuk 2 - ...) Basiscursus Statistiek  in de Criminologie Deel I Theorieboek** (**Pagina's: 17-54**)
 
 ### 📄 **Aanvullende Artikelen**
 1. **"Levels of Measurement in Criminology and Criminal Justice"** 
