@@ -8,7 +8,7 @@ context({
         1,  # Correct answer
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
-            "1" = "✅ Juist - bij het **nominaal** meetniveau worden gegevens ingedeeld in categorieën zonder een specifieke volgorde. Nationaliteit is een typisch voorbeeld hiervan: de categorieën zijn verschillend, maar er is geen rangorde tussen de nationaliteiten.",
+            "1" = "✅ Juist - bij het **nominaal** meetniveau worden gegevens ingedeeld in categorieën zonder een specifieke volgorde. Nationaliteit is een typisch voorbeeld hiervan: de categorieën zijn verschillend, maar er is geen rangorde tussen de nationaliteiten. [Lees meer](https://www.youtube.com/watch?v=KJPXZIEmvfA)",
             
             "2" = "❌ Fout - **Ordinaal** heeft categorieën met rangorde. Criminologische voorbeelden: ernst van delicten (licht, gemiddeld, zwaar), rang bij politie (agent, brigadier, commissaris). Nationaliteiten kunnen niet gerangschikt worden - 'Belg' is niet 'hoger' of 'lager' dan 'Frans'.",
             
