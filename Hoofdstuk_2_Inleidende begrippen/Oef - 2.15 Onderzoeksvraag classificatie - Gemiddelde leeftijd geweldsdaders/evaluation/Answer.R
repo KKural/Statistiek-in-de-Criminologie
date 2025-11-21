@@ -153,40 +153,78 @@ context({
             if(any(incorrect_vars)) {
               feedback_parts <- c(feedback_parts, "**📚 Uitleg waarom deze antwoorden fout zijn:**")
               
-              if(!results$type_vraag$correct && results$type_vraag$exists) {
-                student_answer <- tolower(as.character(results$type_vraag$value))
-                if(student_answer == "bivariate beschrijvende") {
-                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate beschrijvende', maar er wordt slechts één variabele onderzocht (leeftijd). Er wordt geen relatie tussen twee variabelen bestudeerd → **univariate beschrijvende**")
-                } else if(student_answer == "bivariate verklarende") {
-                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate verklarende', maar er wordt slechts één variabele onderzocht en geen oorzakelijk verband gezocht → **univariate beschrijvende**")
+              if(!results$type_vraag$correct) {
+                if(!results$type_vraag$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: ❌ Variabele niet gevonden. Gebruik: `type_vraag <- \"univariate beschrijvende\"` (let op de aanhalingstekens!)")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Deze vraag onderzoekt slechts één variabele (leeftijd) zonder relatie met andere variabelen → **univariate beschrijvende**")
+                  student_answer <- tolower(as.character(results$type_vraag$value))
+                  if(student_answer == "bivariate beschrijvende") {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate beschrijvende', maar dit is fout. Er wordt slechts één variabele onderzocht (leeftijd) → **univariate beschrijvende**")
+                  } else if(student_answer == "bivariate verklarende") {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate verklarende', maar dit is fout. Er wordt slechts één variabele onderzocht en geen oorzakelijk verband gezocht → **univariate beschrijvende**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Deze vraag onderzoekt slechts één variabele (leeftijd) zonder relatie met andere variabelen → **univariate beschrijvende**")
+                  }
                 }
               }
               
-              if(!results$bestudeerde_variabele$correct && results$bestudeerde_variabele$exists) {
-                feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele**: De variabele die wordt bestudeerd is de leeftijd van daders van geweldmisdrijven")
-              }
-              
-              if(!results$meetniveau$correct && results$meetniveau$exists) {
-                student_answer <- tolower(as.character(results$meetniveau$value))
-                if(student_answer == "nominaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau**: Je koos 'nominaal', maar leeftijd zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt (0 jaar) en betekenisvolle verhoudingen → **ratio**")
-                } else if(student_answer == "ordinaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau**: Je koos 'ordinaal', maar leeftijd heeft niet alleen rangorde maar ook gelijke afstanden en een echt nulpunt → **ratio**")
-                } else if(student_answer == "interval") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau**: Je koos 'interval', maar leeftijd heeft wel een echt nulpunt: 0 jaar betekent geen leeftijd → **ratio**")
+              if(!results$bestudeerde_variabele$correct) {
+                if(!results$bestudeerde_variabele$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele**: ❌ Variabele niet gevonden. Gebruik: `bestudeerde_variabele <- \"leeftijd van daders van geweldmisdrijven\"` (let op de aanhalingstekens!)")
                 } else {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau**: Leeftijd heeft gelijke afstanden, een echt nulpunt (0 jaar) en betekenisvolle verhoudingen → **ratio**")
+                  feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele**: De variabele die wordt bestudeerd is de leeftijd van daders van geweldmisdrijven")
                 }
               }
               
-              if(!results$kwantitatief$correct && results$kwantitatief$exists) {
-                feedback_parts <- c(feedback_parts, "• **Kwantitatief (ja/nee)**: Leeftijd bestaat uit getallen waarmee je kunt rekenen → **ja**")
+              if(!results$meetniveau$correct) {
+                if(!results$meetniveau$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Meetniveau**: ❌ Variabele niet gevonden. Gebruik: `meetniveau <- \"ratio\"` (let op de aanhalingstekens!)")
+                } else {
+                  student_answer <- tolower(as.character(results$meetniveau$value))
+                  if(student_answer == "nominaal") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau**: Je koos 'nominaal', maar dit is fout. Leeftijd zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt (0 jaar) → **ratio**")
+                  } else if(student_answer == "ordinaal") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau**: Je koos 'ordinaal', maar dit is fout. Leeftijd heeft niet alleen rangorde maar ook gelijke afstanden en een echt nulpunt → **ratio**")
+                  } else if(student_answer == "interval") {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau**: Je koos 'interval', maar dit is fout. Leeftijd heeft wel een echt nulpunt: 0 jaar betekent geen leeftijd → **ratio**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Meetniveau**: Leeftijd heeft gelijke afstanden, een echt nulpunt (0 jaar) en betekenisvolle verhoudingen → **ratio**")
+                  }
+                }
               }
               
-              if(!results$type_waarden$correct && results$type_waarden$exists) {
-                feedback_parts <- c(feedback_parts, "• **Type waarden**: Leeftijd kan decimale waarden hebben (zoals 25.3 jaar voor gemiddelde) → **continue waarden**")
+              if(!results$kwantitatief$correct) {
+                if(!results$kwantitatief$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Kwantitatief**: ❌ Variabele niet gevonden. Gebruik: `kwantitatief <- \"ja\"` (let op de aanhalingstekens!)")
+                } else {
+                  student_answer <- tolower(as.character(results$kwantitatief$value))
+                  if(student_answer == "nee") {
+                    feedback_parts <- c(feedback_parts, "• **Kwantitatief**: Je koos 'nee', maar dit is fout. Leeftijd bestaat uit getallen waarmee je kunt rekenen → **ja**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Kwantitatief**: Leeftijd bestaat uit getallen waarmee je kunt rekenen → **ja**")
+                  }
+                }
+              }
+              
+              if(!results$type_waarden$correct) {
+                if(!results$type_waarden$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Type waarden**: ❌ Variabele niet gevonden. Gebruik: `type_waarden <- \"continue waarden\"` (let op de aanhalingstekens!)")
+                } else {
+                  student_answer <- tolower(as.character(results$type_waarden$value))
+                  if(grepl("natuurlijke|gehele", student_answer)) {
+                    feedback_parts <- c(feedback_parts, "• **Type waarden**: Je koos '" + student_answer + "', maar dit is fout. Gemiddelde leeftijd kan decimale waarden hebben (zoals 25.3 jaar) → **continue waarden**")
+                  } else {
+                    feedback_parts <- c(feedback_parts, "• **Type waarden**: Leeftijd kan decimale waarden hebben (zoals 25.3 jaar voor gemiddelde) → **continue waarden**")
+                  }
+                }
+              }
+              
+              if(!results$voorbeeld_waarden$correct) {
+                if(!results$voorbeeld_waarden$exists) {
+                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden**: ❌ Variabele niet gevonden. Gebruik: `voorbeeld_waarden <- \"18, 25, 32, 45\"` (let op de aanhalingstekens!)")
+                } else {
+                  feedback_parts <- c(feedback_parts, "• **Voorbeeld waarden**: Geef leeftijdsgetallen gescheiden door komma's (bijvoorbeeld: 18, 25, 32, 45)")
+                }
               }
             }
           }
