@@ -4,34 +4,23 @@ Voordat je begint met de praktische oefeningen, is het belangrijk dat je de theo
 ## 📹 **Verplichte Video's**
 
 ### 🔹 **Video 1: Meetniveaus Uitleg**
-[![Meetniveaus]((https://www.youtube.com/watch?v=PLACEHOLDER1)
-
-**Duur:** ~15 minuten  
-**Onderwerpen:** Nominaal, ordinaal, interval, ratio niveau met criminologie voorbeelden
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KJPXZIEmvfA" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-### 🔹 **Video 2: Variabeletypes en Kwantitatief vs. Kwalitatief**
-[![Variabeletypes](https://img.youtube.com/vi/PLACEHOLDER2/0.jpg)](https://www.youtube.com/watch?v=PLACEHOLDER2)
-
-**Duur:** ~12 minuten  
-**Onderwerpen:** Onderscheid tussen kwantitatieve en kwalitatieve variabelen
+### 🔹 **Video 2: Variabeletypes, Kwantitatief vs. Kwalitatief, en Univariate/Bivariate**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1uK" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SIH8iejRTYM" frameborder="0" allowfullscreen></iframe>
 
 ---
 
 ### 🔹 **Video 3: Onafhankelijke en Afhankelijke Variabelen**
-[![Variabelen](https://img.youtube.com/vi/PLACEHOLDER3/0.jpg)](https://www.youtube.com/watch?v=PLACEHOLDER3)
-
-**Duur:** ~10 minuten  
-**Onderwerpen:** Identificatie van oorzaak-gevolg relaties in onderzoek
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ylXCI5Aw_wE" frameborder="0" allowfullscreen></iframe>
 
 ---
 
 ### 🔹 **Video 4: Onderzoeksvraagtypen**
-[![Onderzoeksvragen](https://img.youtube.com/vi/PLACEHOLDER4/0.jpg)](https://www.youtube.com/watch?v=PLACEHOLDER4)
-
-**Duur:** ~18 minuten  
-**Onderwerpen:** Univariate/bivariate, beschrijvende/verklarende onderzoeksvragen
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rjEBCOCa2z4" frameborder="0" allowfullscreen></iframe>
 
 ---
 
