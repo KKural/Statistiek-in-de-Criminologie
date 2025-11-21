@@ -1,9 +1,9 @@
 context({
   testcase(
-    " ",
+    "",
     {
       testEqual(
-        "",
+        " ",
         function(env) as.numeric(env$evaluationResult),
         2,  # Correct answer
         comparator = function(generated, expected, ...) {

@@ -1,9 +1,9 @@
 context({
   testcase(
-    "Classificatie van onderzoeksvraag over recidive verschil tussen geslachten",
+    "",
     {
       testEqual(
-        "Alle onderdelen correct geclassificeerd",
+        " ",
         function(env) {
           # Use the provided environment (env) instead of globalenv()
           results <- list()
