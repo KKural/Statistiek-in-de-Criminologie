@@ -3,12 +3,12 @@ Voordat je begint met de praktische oefeningen, is het belangrijk dat je de theo
 
 ## 📹 **Verplichte Video's**
 
-###**Video 1: Meetniveaus Uitleg**
+### **Video 1: Meetniveaus Uitleg**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KJPXZIEmvfA" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-###**Video 2: Variabeletypes, Kwantitatief vs. Kwalitatief, en Univariate/Bivariate**
+### **Video 2: Variabeletypes, Kwantitatief vs. Kwalitatief, en Univariate/Bivariate**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1uK" frameborder="0" allowfullscreen></iframe>
 
 
@@ -16,12 +16,12 @@ Voordat je begint met de praktische oefeningen, is het belangrijk dat je de theo
 
 ---
 
-###**Video 3: Onafhankelijke en Afhankelijke Variabelen**
+### **Video 3: Onafhankelijke en Afhankelijke Variabelen**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ylXCI5Aw_wE" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-###**Video 4: Onderzoeksvraagtypen**
+### **Video 4: Onderzoeksvraagtypen**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rjEBCOCa2z4" frameborder="0" allowfullscreen></iframe>
 
 ---
