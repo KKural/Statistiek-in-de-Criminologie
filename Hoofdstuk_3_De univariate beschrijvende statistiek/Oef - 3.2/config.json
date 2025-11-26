@@ -1,8 +1,23 @@
 {
   "type": "exercise",
   "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.2 Meetniveau - Tevredenheid Reclasseringsbegeleiding"
+    }
+  },
   "evaluation": {
     "handler": "r"
   },
-  "boilerplate": "description/boilerplate/boilerplate"
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "frequentietabel",
+    "absolute frequentie",
+    "beschrijvende statistiek"
+  ],
+  "internals": {
+    "token": "2cMmxz2qmG5w9_vmuaEDKHCpdyuzZAG-xEuan5BryN6KrJvYZBkiA4t_I99d8uUQ",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
