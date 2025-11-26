@@ -342,84 +342,84 @@ context({
           if (results$modus$exists && results$modus$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.1 - MODUS:** Categorie met hoogste frequentie (102) ✅"
+              "**STAP 4.1 - MODUS:** Categorie met hoogste frequentie (102) → **'Noch tevreden, noch ontevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.1 - MODUS:** Expected 'noch tevreden, noch ontevreden' ❌"
+              "**STAP 4.1 - MODUS:** Categorie met hoogste frequentie (102) → **'Noch tevreden, noch ontevreden'** ❌"
             )
           }
           
           if (results$mediaan$exists && results$mediaan$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.2 - MEDIAAN:** 165,5ste waarneming (N/2 = 330/2 = 165) ✅"
+              "**STAP 4.2 - MEDIAAN:** 165,5ste waarneming (N/2 = 330/2 = 165) → **'Noch tevreden, noch ontevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.2 - MEDIAAN:** Expected 'noch tevreden, noch ontevreden' ❌"
+              "**STAP 4.2 - MEDIAAN:** 165,5ste waarneming (N/2 = 330/2 = 165) → **'Noch tevreden, noch ontevreden'** ❌"
             )
           }
           
           if (results$meest_relevante$exists && results$meest_relevante$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.3 - MEEST RELEVANT:** Mediaan geeft meer informatie dan modus ✅"
+              "**STAP 4.3 - MEEST RELEVANT:** Mediaan geeft meer informatie dan modus → **'mediaan'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.3 - MEEST RELEVANT:** Expected 'mediaan' ❌"
+              "**STAP 4.3 - MEEST RELEVANT:** Mediaan geeft meer informatie dan modus → **'mediaan'** ❌"
             )
           }
           
           if (results$q1$exists && results$q1$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.1 - Q1:** 82,5ste waarneming (25% van 330 = 82,5) ✅"
+              "**STAP 5.1 - Q1:** 82,5ste waarneming (25% van 330 = 82,5) → **'Ontevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.1 - Q1:** Expected 'ontevreden' ❌"
+              "**STAP 5.1 - Q1:** 82,5ste waarneming (25% van 330 = 82,5) → **'Ontevreden'** ❌"
             )
           }
           
           if (results$q3$exists && results$q3$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.1 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) ✅"
+              "**STAP 5.1 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) → **'Tevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.1 - Q3:** Expected 'tevreden' ❌"
+              "**STAP 5.1 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) → **'Tevreden'** ❌"
             )
           }
           
           if (results$variatiebreedte$exists && results$variatiebreedte$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.2 - VARIATIEBREEDTE:** Van laagste tot hoogste categorie ✅"
+              "**STAP 5.2 - VARIATIEBREEDTE:** Van laagste tot hoogste categorie → **'Zeer ontevreden tot Zeer tevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.2 - VARIATIEBREEDTE:** Expected 'zeer ontevreden tot zeer tevreden' ❌"
+              "**STAP 5.2 - VARIATIEBREEDTE:** Van laagste tot hoogste categorie → **'Zeer ontevreden tot Zeer tevreden'** ❌"
             )
           }
           
           if (results$ika$exists && results$ika$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.3 - IKA:** Bereik Q1 tot Q3 (middelste 50% van data) ✅"
+              "**STAP 5.3 - IKA:** Bereik Q1 tot Q3 (middelste 50% van data) → **'Ontevreden tot Tevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.3 - IKA:** Expected 'ontevreden tot tevreden' ❌"
+              "**STAP 5.3 - IKA:** Bereik Q1 tot Q3 (middelste 50% van data) → **'Ontevreden tot Tevreden'** ❌"
             )
           }
           
