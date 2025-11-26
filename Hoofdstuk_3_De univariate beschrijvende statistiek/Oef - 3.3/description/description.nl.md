@@ -10,13 +10,12 @@ Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
 
 *Werkuren per week van deelnemers aan een re-integratieprogramma*
 
-<table style="border-collapse: collapse; width: 70%; margin: 16px 0; font-family: Times, serif;">
+<table style="border-collapse: collapse; width: 60%; margin: 16px 0; font-family: Times, serif;">
   <thead>
     <tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
       <th style="padding: 6px;">Werkuren</th>
       <th style="padding: 6px;">Frequentie</th>
       <th style="padding: 6px;">Percent</th>
-      <th style="padding: 6px;">Cumulatief Percent</th>
     </tr>
   </thead>
   <tbody>
@@ -24,11 +23,9 @@ Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
       <td style="padding: 6px;">24</td>
       <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
-      <td style="padding: 6px; text-align:center;">?</td>
     </tr>
     <tr>
       <td style="padding: 6px;">28</td>
-      <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
     </tr>
@@ -36,11 +33,9 @@ Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
       <td style="padding: 6px;">32</td>
       <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
-      <td style="padding: 6px; text-align:center;">?</td>
     </tr>
     <tr>
       <td style="padding: 6px;">34</td>
-      <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
     </tr>
@@ -48,11 +43,9 @@ Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
       <td style="padding: 6px;">35</td>
       <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
-      <td style="padding: 6px; text-align:center;">?</td>
     </tr>
     <tr>
       <td style="padding: 6px;">36</td>
-      <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
     </tr>
@@ -60,19 +53,16 @@ Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
       <td style="padding: 6px;">38</td>
       <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
-      <td style="padding: 6px; text-align:center;">?</td>
     </tr>
     <tr>
       <td style="padding: 6px;">40</td>
-      <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
       <td style="padding: 6px; text-align:center;">?</td>
     </tr>
     <tr style="border-top: 2px solid #000;">
       <td style="padding: 6px; font-style: italic;">Totaal</td>
       <td style="padding: 6px; text-align:center; font-style: italic;">20</td>
-      <td></td>
-      <td></td>
+      <td style="padding: 6px; text-align:center; font-style: italic;">100.0</td>
     </tr>
   </tbody>
 </table>

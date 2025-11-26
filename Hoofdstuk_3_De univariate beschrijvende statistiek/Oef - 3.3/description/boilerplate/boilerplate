@@ -4,60 +4,111 @@
 
 # Data: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36
 
+# STAP 0 – Frequentietabel
+
+# Bereken de frequenties en percentages voor elke waarde
+# 1. Frequentie van 24 uren
+freq_24 <- ???
+
+# 2. Frequentie van 28 uren
+freq_28 <- ???
+
+# 3. Frequentie van 32 uren
+freq_32 <- ???
+
+# 4. Frequentie van 34 uren
+freq_34 <- ???
+
+# 5. Frequentie van 35 uren
+freq_35 <- ???
+
+# 6. Frequentie van 36 uren
+freq_36 <- ???
+
+# 7. Frequentie van 38 uren
+freq_38 <- ???
+
+# 8. Frequentie van 40 uren
+freq_40 <- ???
+
+# 9. Percentage van 24 uren (frequentie / totaal * 100)
+percent_24 <- ???
+
+# 10. Percentage van 28 uren
+percent_28 <- ???
+
+# 11. Percentage van 32 uren
+percent_32 <- ???
+
+# 12. Percentage van 34 uren
+percent_34 <- ???
+
+# 13. Percentage van 35 uren
+percent_35 <- ???
+
+# 14. Percentage van 36 uren
+percent_36 <- ???
+
+# 15. Percentage van 38 uren
+percent_38 <- ???
+
+# 16. Percentage van 40 uren
+percent_40 <- ???
+
 # STAP 1 – Basis beschrijvende statistieken
 
 # a. Bereken de modus, mediaan en het gemiddelde
-# 1. Wat is de modus van de werkuren? (meest voorkomende waarde)
+# 17. Wat is de modus van de werkuren? (meest voorkomende waarde)
 modus <- ???
 
-# 2. Wat is de mediaan van de werkuren? (middelste waarde)
+# 18. Wat is de mediaan van de werkuren? (middelste waarde)
 mediaan <- ???
 
-# 3. Wat is het gemiddelde van de werkuren? (gebruik decimale punt)
+# 19. Wat is het gemiddelde van de werkuren? (gebruik decimale punt)
 gemiddelde <- ???
 
 # b. Bereken de variatiebreedte en de interkwartielafstand
-# 4. Wat is de variatiebreedte (range) van de werkuren? (hoogste - laagste waarde)
+# 20. Wat is de variatiebreedte (range) van de werkuren? (hoogste - laagste waarde)
 variatiebreedte <- ???
 
-# 5. Wat is het eerste kwartiel (Q1) van de werkuren?
+# 21. Wat is het eerste kwartiel (Q1) van de werkuren?
 q1 <- ???
 
-# 6. Wat is het derde kwartiel (Q3) van de werkuren?
+# 22. Wat is het derde kwartiel (Q3) van de werkuren?
 q3 <- ???
 
-# 7. Wat is de interkwartielafstand (IKA) van de werkuren? (Q3 - Q1)
+# 23. Wat is de interkwartielafstand (IKA) van de werkuren? (Q3 - Q1)
 ika <- ???
 
 # c. Welke parameter zou je kiezen?
-# 8. Welke maat van centraliteit is het meest relevant voor interval data?
+# 24. Welke maat van centraliteit is het meest relevant voor interval data?
 # Kies uit: "modus", "mediaan", "gemiddelde"
 meest_relevante_centraliteit <- "???"
 
-# 9. Welke maat van spreiding zou je kiezen?
+# 25. Welke maat van spreiding zou je kiezen?
 # Kies uit: "variatiebreedte", "interkwartielafstand"
 meest_relevante_spreiding <- "???"
 
-# 10. Waarom zijn deze maten het meest geschikt?
+# 26. Waarom zijn deze maten het meest geschikt?
 # Kies uit: "geen uitbijters", "robuust voor uitbijters", "gebruikt alle informatie"
 reden <- "???"
 
 # STAP 2 – Geavanceerde spreidingsberekeningen
-# 11. Bereken afwijkingen van het gemiddelde voor elke waarde: (X - gemiddelde waarde)
+# 27. Bereken afwijkingen van het gemiddelde voor elke waarde: (X - gemiddelde waarde)
 afwijkingen <- c(??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ???)
 
-# 12. Bereken gekwadrateerde afwijkingen: (X - gemiddelde waarde)²
+# 28. Bereken gekwadrateerde afwijkingen: (X - gemiddelde waarde)²
 gekwadrateerde_afwijkingen <- c(??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ???)
 
 # STAP 3 – Variantie en standaardafwijking
-# 13. Bereken de som van gekwadrateerde afwijkingen (Sum of Squares)
+# 29. Bereken de som van gekwadrateerde afwijkingen (Sum of Squares)
 sum_of_squares <- ???
 
-# 14. Bereken de variantie (sum of squares / (n-1))
+# 30. Bereken de variantie (sum of squares / (n-1))
 variantie <- ???
 
-# 15. Bereken de standaardafwijking (wortel van variantie)
+# 31. Bereken de standaardafwijking (wortel van variantie)
 standaardafwijking <- ???
 
-# 16. Bereken de variatiecoëfficiënt (standaardafwijking / gemiddelde)
+# 32. Bereken de variatiecoëfficiënt (standaardafwijking / gemiddelde)
 variatiecoefficient <- ???
