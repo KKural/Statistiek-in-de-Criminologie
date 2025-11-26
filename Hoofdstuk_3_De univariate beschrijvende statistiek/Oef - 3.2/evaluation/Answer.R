@@ -9,71 +9,71 @@ context({
           results <- list()
           
           # Check each variable and store detailed results
-          # Vraag a: Meetniveau
-          if(exists("vraag_a", envir = env)) {
-            current_val <- tolower(trimws(as.character(get("vraag_a", envir = env))))
-            results$vraag_a <- list(
-              exists = TRUE,
-              value = get("vraag_a", envir = env),
-              correct = current_val == "ordinaal",
-              expected = "ordinaal"
-            )
-          } else {
-            results$vraag_a <- list(exists = FALSE, value = NA, correct = FALSE, expected = "ordinaal")
+          # Helper function to safely extract and convert values
+          safe_get <- function(var_name, env) {
+            if(exists(var_name, envir = env)) {
+              val <- get(var_name, envir = env)
+              # Check if it's a function (which shouldn't happen but let's be safe)
+              if(is.function(val)) {
+                return(list(exists = FALSE, value = "FUNCTION_ERROR", str_val = ""))
+              }
+              # Convert to string safely
+              str_val <- tryCatch({
+                tolower(trimws(as.character(val)))
+              }, error = function(e) {
+                ""
+              })
+              return(list(exists = TRUE, value = val, str_val = str_val))
+            } else {
+              return(list(exists = FALSE, value = NA, str_val = ""))
+            }
           }
+          
+          # Vraag a: Meetniveau
+          vraag_a_info <- safe_get("vraag_a", env)
+          results$vraag_a <- list(
+            exists = vraag_a_info$exists,
+            value = vraag_a_info$value,
+            correct = vraag_a_info$exists && vraag_a_info$str_val == "ordinaal",
+            expected = "ordinaal"
+          )
           
           # Mediaan
-          if(exists("mediaan", envir = env)) {
-            current_val <- tolower(trimws(as.character(get("mediaan", envir = env))))
-            results$mediaan <- list(
-              exists = TRUE,
-              value = get("mediaan", envir = env),
-              correct = current_val == "noch tevreden, noch ontevreden",
-              expected = "noch tevreden, noch ontevreden"
-            )
-          } else {
-            results$mediaan <- list(exists = FALSE, value = NA, correct = FALSE, expected = "noch tevreden, noch ontevreden")
-          }
+          mediaan_info <- safe_get("mediaan", env)
+          results$mediaan <- list(
+            exists = mediaan_info$exists,
+            value = mediaan_info$value,
+            correct = mediaan_info$exists && mediaan_info$str_val == "noch tevreden, noch ontevreden",
+            expected = "noch tevreden, noch ontevreden"
+          )
           
           # Q1
-          if(exists("q1", envir = env)) {
-            current_val <- tolower(trimws(as.character(get("q1", envir = env))))
-            results$q1 <- list(
-              exists = TRUE,
-              value = get("q1", envir = env),
-              correct = current_val == "ontevreden",
-              expected = "ontevreden"
-            )
-          } else {
-            results$q1 <- list(exists = FALSE, value = NA, correct = FALSE, expected = "ontevreden")
-          }
+          q1_info <- safe_get("q1", env)
+          results$q1 <- list(
+            exists = q1_info$exists,
+            value = q1_info$value,
+            correct = q1_info$exists && q1_info$str_val == "ontevreden",
+            expected = "ontevreden"
+          )
           
           # Q3
-          if(exists("q3", envir = env)) {
-            current_val <- tolower(trimws(as.character(get("q3", envir = env))))
-            results$q3 <- list(
-              exists = TRUE,
-              value = get("q3", envir = env),
-              correct = current_val == "tevreden",
-              expected = "tevreden"
-            )
-          } else {
-            results$q3 <- list(exists = FALSE, value = NA, correct = FALSE, expected = "tevreden")
-          }
+          q3_info <- safe_get("q3", env)
+          results$q3 <- list(
+            exists = q3_info$exists,
+            value = q3_info$value,
+            correct = q3_info$exists && q3_info$str_val == "tevreden",
+            expected = "tevreden"
+          )
           
           # IKA
-          if(exists("ika", envir = env)) {
-            current_val <- tolower(trimws(as.character(get("ika", envir = env))))
-            ika_correct <- current_val %in% c("ontevreden tot tevreden", "ontevreden naar tevreden", "van ontevreden tot tevreden")
-            results$ika <- list(
-              exists = TRUE,
-              value = get("ika", envir = env),
-              correct = ika_correct,
-              expected = "ontevreden tot tevreden"
-            )
-          } else {
-            results$ika <- list(exists = FALSE, value = NA, correct = FALSE, expected = "ontevreden tot tevreden")
-          }
+          ika_info <- safe_get("ika", env)
+          ika_correct <- ika_info$exists && ika_info$str_val %in% c("ontevreden tot tevreden", "ontevreden naar tevreden", "van ontevreden tot tevreden")
+          results$ika <- list(
+            exists = ika_info$exists,
+            value = ika_info$value,
+            correct = ika_correct,
+            expected = "ontevreden tot tevreden"
+          )
           
           return(results)
         },
