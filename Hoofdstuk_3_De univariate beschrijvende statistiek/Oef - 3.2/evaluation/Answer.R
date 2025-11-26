@@ -300,7 +300,7 @@ context({
                              "• STAP 5: Spreiding (Q1, Q3, variatiebreedte, IKA)")
           
           # show markdown feedback
-          get_reporter()$add_message(paste(feedback_lines, collapse = "\n"),
+          get_reporter()$add_message(paste(feedback_lines, collapse = "\n\n"),
                                      type = "markdown")
           
           # final result
