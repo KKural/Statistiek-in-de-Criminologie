@@ -520,42 +520,155 @@ context({
               }
             }
             
-            # Cumulatieve abs fout
+            # CUMULATIEVE ABSOLUTE FREQUENTIES fout - geef specifieke hulp
             if (!results$cumulatieve_absolute_frequenties$correct &&
                 results$cumulatieve_absolute_frequenties$exists) {
               student_cum <- results$cumulatieve_absolute_frequenties$value
+              
               if (is.numeric(student_cum) && length(student_cum) >= 2) {
                 if (all(student_cum == c(33, 84, 102, 63, 48))) {
                   feedback_lines <- c(
                     feedback_lines,
-                    "• **CUMULATIEF FOUT:** Je gaf absolute frequenties! Cumulatief = opgeteld: 33, 33+84=117, 117+102=219, enz."
+                    "• **CUMULATIEF ABS FOUT:** Je gaf gewoon de absolute frequenties opnieuw!",
+                    "  **HOE TE CORRIGEREN:** Gebruik cumsum(absolute_frequenties)",
+                    "  **STAP VOOR STAP:** 33, dan 33+84=117, dan 117+102=219, dan 219+63=282, dan 282+48=330"
+                  )
+                } else if (length(student_cum) != 5) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **CUMULATIEF ABS FOUT:** Vector heeft verkeerde lengte! Moet 5 elementen hebben.",
+                    "  **HOE TE CORRIGEREN:** cumulatieve_absolute_frequenties <- cumsum(absolute_frequenties)"
                   )
                 } else if (student_cum[2] < student_cum[1]) {
                   feedback_lines <- c(
                     feedback_lines,
-                    "• **CUMULATIEF FOUT:** Verkeerde volgorde! Ordinale data moeten in oorspronkelijke rangorde blijven."
+                    "• **CUMULATIEF ABS FOUT:** Verkeerde volgorde! Cumulatief moet steeds groter worden.",
+                    "  **HOE TE CORRIGEREN:** Gebruik cumsum() op de oorspronkelijke volgorde van absolute_frequenties"
+                  )
+                } else {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **CUMULATIEF ABS FOUT:** Verkeerde berekening!",
+                    "  **CORRECTE FORMULE:** cumulatieve_absolute_frequenties <- cumsum(absolute_frequenties)",
+                    "  **VERWACHT RESULTAAT:** c(33, 117, 219, 282, 330)"
                   )
                 }
+              } else {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **CUMULATIEF ABS FOUT:** Geen geldige numerieke vector!",
+                  "  **HOE TE CORRIGEREN:** cumulatieve_absolute_frequenties <- cumsum(absolute_frequenties)"
+                )
               }
+            } else if (!results$cumulatieve_absolute_frequenties$exists) {
+              feedback_lines <- c(
+                feedback_lines,
+                "• **CUMULATIEF ABS ONTBREEKT:** Variabele 'cumulatieve_absolute_frequenties' niet gevonden!",
+                "  **HOE TE CORRIGEREN:** Voeg toe: cumulatieve_absolute_frequenties <- cumsum(absolute_frequenties)"
+              )
             }
             
-            # Relatieve freq fout
+            # RELATIEVE FREQUENTIES fout - geef specifieke hulp
             if (!results$relatieve_frequenties$correct &&
                 results$relatieve_frequenties$exists) {
               student_rel <- results$relatieve_frequenties$value
+              
               if (is.numeric(student_rel) && length(student_rel) >= 1) {
                 if (any(student_rel > 50)) {
                   feedback_lines <- c(
                     feedback_lines,
-                    "• **RELATIEF FOUT:** Je gebruikte percentages (×100)! Gebruik proporties: 33/330 = 0.1000, niet 10.00."
+                    "• **RELATIEF FREQ FOUT:** Je gebruikte percentages (×100)!",
+                    "  **HOE TE CORRIGEREN:** Gebruik proporties: absolute_frequenties / 330",
+                    "  **VOORBEELD:** 33/330 = 0.1000, NIET 10.00"
                   )
-                } else if (any(student_rel > 1)) {
+                } else if (any(student_rel > 1.5)) {
                   feedback_lines <- c(
                     feedback_lines,
-                    "• **RELATIEF FOUT:** Te grote waarden! Relatieve frequentie = absolute_frequentie / 330."
+                    "• **RELATIEF FREQ FOUT:** Waarden te groot! Relatieve frequenties zijn tussen 0 en 1.",
+                    "  **HOE TE CORRIGEREN:** relatieve_frequenties <- absolute_frequenties / 330"
+                  )
+                } else if (length(student_rel) != 5) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **RELATIEF FREQ FOUT:** Vector heeft verkeerde lengte! Moet 5 elementen hebben.",
+                    "  **HOE TE CORRIGEREN:** relatieve_frequenties <- absolute_frequenties / 330"
+                  )
+                } else if (abs(sum(student_rel) - 1.0) > 0.01) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **RELATIEF FREQ FOUT:** Som van relatieve frequenties moet 1.0000 zijn!",
+                    "  **JOUW SOM:** ", paste(round(sum(student_rel), 4)),
+                    "  **HOE TE CORRIGEREN:** Check of je alle waarden deelt door 330 (totaal N)"
+                  )
+                } else {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **RELATIEF FREQ FOUT:** Verkeerde berekening!",
+                    "  **CORRECTE FORMULE:** relatieve_frequenties <- absolute_frequenties / 330",
+                    "  **VERWACHT:** c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)"
                   )
                 }
+              } else {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **RELATIEF FREQ FOUT:** Geen geldige numerieke vector!",
+                  "  **HOE TE CORRIGEREN:** relatieve_frequenties <- absolute_frequenties / 330"
+                )
               }
+            } else if (!results$relatieve_frequenties$exists) {
+              feedback_lines <- c(
+                feedback_lines,
+                "• **RELATIEF FREQ ONTBREEKT:** Variabele 'relatieve_frequenties' niet gevonden!",
+                "  **HOE TE CORRIGEREN:** Voeg toe: relatieve_frequenties <- absolute_frequenties / 330"
+              )
+            }
+            
+            # CUMULATIEVE RELATIEVE FREQUENTIES fout - geef specifieke hulp
+            if (!results$cumulatieve_relatieve_frequenties$correct &&
+                results$cumulatieve_relatieve_frequenties$exists) {
+              student_cum_rel <- results$cumulatieve_relatieve_frequenties$value
+              
+              if (is.numeric(student_cum_rel) && length(student_cum_rel) >= 1) {
+                if (length(student_cum_rel) != 5) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **CUMULATIEF REL FOUT:** Vector heeft verkeerde lengte! Moet 5 elementen hebben.",
+                    "  **HOE TE CORRIGEREN:** cumulatieve_relatieve_frequenties <- cumsum(relatieve_frequenties)"
+                  )
+                } else if (abs(student_cum_rel[5] - 1.0) > 0.01) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **CUMULATIEF REL FOUT:** Laatste waarde moet 1.0000 zijn!",
+                    "  **JOUW LAATSTE WAARDE:** ", paste(round(student_cum_rel[5], 4)),
+                    "  **HOE TE CORRIGEREN:** Eerst relatieve_frequenties corrigeren, dan cumsum() gebruiken"
+                  )
+                } else if (any(diff(student_cum_rel) < 0)) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **CUMULATIEF REL FOUT:** Waarden moeten steeds groter worden!",
+                    "  **HOE TE CORRIGEREN:** cumulatieve_relatieve_frequenties <- cumsum(relatieve_frequenties)"
+                  )
+                } else {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **CUMULATIEF REL FOUT:** Verkeerde berekening!",
+                    "  **CORRECTE FORMULE:** cumulatieve_relatieve_frequenties <- cumsum(relatieve_frequenties)",
+                    "  **VERWACHT:** c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)"
+                  )
+                }
+              } else {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **CUMULATIEF REL FOUT:** Geen geldige numerieke vector!",
+                  "  **HOE TE CORRIGEREN:** cumulatieve_relatieve_frequenties <- cumsum(relatieve_frequenties)"
+                )
+              }
+            } else if (!results$cumulatieve_relatieve_frequenties$exists) {
+              feedback_lines <- c(
+                feedback_lines,
+                "• **CUMULATIEF REL ONTBREEKT:** Variabele 'cumulatieve_relatieve_frequenties' niet gevonden!",
+                "  **HOE TE CORRIGEREN:** Voeg toe: cumulatieve_relatieve_frequenties <- cumsum(relatieve_frequenties)"
+              )
             }
             
             # Meest relevante maat fout
