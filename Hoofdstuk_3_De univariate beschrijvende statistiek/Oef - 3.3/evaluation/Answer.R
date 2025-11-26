@@ -425,9 +425,9 @@ context({
           total_questions <- length(results)
           
           # ==========================================
-          # STAP 0: FREQUENTIETABEL - FREQUENTIES
+          # STAP 1: FREQUENTIETABEL EN CENTRALITEIT
           # ==========================================
-          feedback_lines <- c(feedback_lines, "## 📊 **STAP 0: FREQUENTIETABEL**", "")
+          feedback_lines <- c(feedback_lines, "## 📊 **STAP 1: FREQUENTIETABEL EN CENTRALITEIT**", "")
           
           if (results$freq_24$exists && results$freq_24$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 24 uren:** 3 personen ✅")
@@ -493,9 +493,6 @@ context({
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 40 uren:** Ontbreekt (verwacht: 3) ❌")
           }
           
-          # ==========================================
-          # STAP 0: FREQUENTIETABEL - PERCENTAGES  
-          # ==========================================
           feedback_lines <- c(feedback_lines, "", "### **Percentages:**", "")
           
           if (results$percent_24$exists && results$percent_24$correct) {
@@ -562,10 +559,7 @@ context({
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 40 uren:** Ontbreekt (verwacht: 15.0%) ❌")
           }
           
-          # ==========================================
-          # STAP 1: BASIS BESCHRIJVENDE STATISTIEKEN
-          # ==========================================
-          feedback_lines <- c(feedback_lines, "", "## 📈 **STAP 1: BASIS STATISTIEKEN**", "")
+          feedback_lines <- c(feedback_lines, "", "### **Centraliteitsmaten:**", "")
           
           if (results$modus$exists && results$modus$correct) {
             feedback_lines <- c(feedback_lines, "**MODUS:** 36 (hoogste frequentie: 7×) ✅")
@@ -590,6 +584,11 @@ context({
           } else {
             feedback_lines <- c(feedback_lines, "**GEMIDDELDE:** Ontbreekt (verwacht: 33.55) ❌")
           }
+          
+          # ==========================================
+          # STAP 2: SPREIDINGSMATEN EN PARAMETER KEUZES
+          # ==========================================
+          feedback_lines <- c(feedback_lines, "", "## 📏 **STAP 2: SPREIDINGSMATEN**", "")
           
           if (results$variatiebreedte$exists && results$variatiebreedte$correct) {
             feedback_lines <- c(feedback_lines, "**VARIATIEBREEDTE:** Hoogste - laagste = 40 - 24 = 16 ✅")
@@ -623,6 +622,8 @@ context({
             feedback_lines <- c(feedback_lines, "**IKA:** Ontbreekt (verwacht: 6) ❌")
           }
           
+          feedback_lines <- c(feedback_lines, "", "### **Parameter keuzes:**", "")
+          
           if (results$meest_relevante_centraliteit$exists && results$meest_relevante_centraliteit$correct) {
             feedback_lines <- c(feedback_lines, "**BESTE CENTRALITEIT:** Gemiddelde (gebruikt alle informatie) ✅")
           } else if (results$meest_relevante_centraliteit$exists) {
@@ -648,9 +649,9 @@ context({
           }
           
           # ==========================================
-          # STAP 2: GEAVANCEERDE SPREIDINGSBEREKENINGEN
+          # STAP 3: GEAVANCEERDE SPREIDINGSBEREKENINGEN
           # ==========================================
-          feedback_lines <- c(feedback_lines, "", "## 🔢 **STAP 2: AFWIJKINGEN**", "")
+          feedback_lines <- c(feedback_lines, "", "## 🔢 **STAP 3: GEAVANCEERDE SPREIDINGSBEREKENINGEN**", "")
           
           if (results$afwijkingen$exists && results$afwijkingen$correct) {
             feedback_lines <- c(feedback_lines, "**AFWIJKINGEN:** Alle 20 waarden - 33.55 ✅")
@@ -667,11 +668,6 @@ context({
           } else {
             feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** Ontbreekt (verwacht: 20 gekwadrateerde waarden) ❌")
           }
-          
-          # ==========================================
-          # STAP 3: VARIANTIE EN STANDAARDAFWIJKING
-          # ==========================================
-          feedback_lines <- c(feedback_lines, "", "## 📊 **STAP 3: VARIANTIE & STANDAARDAFWIJKING**", "")
           
           if (results$sum_of_squares$exists && results$sum_of_squares$correct) {
             feedback_lines <- c(feedback_lines, "**SOM GEKWADRATEERDE AFWIJKINGEN:** Σ(Xi - X̄)² = 528.95 ✅")
@@ -717,11 +713,9 @@ context({
             "",
             "## 🔍 **BELANGRIJKE REGELS VOOR INTERVAL DATA:**",
             "",
-            "• **STAP 0**: Tel exact hoe vaak elke waarde voorkomt",
-            "• **Percentages**: (frequentie ÷ totaal) × 100", 
-            "• **STAP 1**: Gemiddelde is TOEGESTAAN bij interval data (gebruikt alle info)",
-            "• **STAP 2**: Bereken afwijkingen: (X - gemiddelde)",
-            "• **STAP 3**: Variantie = SS/(n-1), Standaardafwijking = √variantie",
+            "• **STAP 1**: Frequenties, percentages + modus, mediaan, gemiddelde",
+            "• **STAP 2**: Spreidingsmaten (variatiebreedte, Q1, Q3, IKA) + parameter keuzes", 
+            "• **STAP 3**: Afwijkingen, gekwadrateerde afwijkingen, variantie, standaardafwijking",
             "",
             "**📊 Data**: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36",
             "**📈 N = 20 personen**, som = 671, gemiddelde = 33.55"

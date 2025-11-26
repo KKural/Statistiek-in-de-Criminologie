@@ -4,9 +4,9 @@
 
 # Data: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36
 
-# STAP 0 – Frequentietabel
+# STAP 1 – Frequentietabel en centraliteit
 
-# Bereken de frequenties en percentages voor elke waarde
+# a. Bereken de frequenties en percentages voor elke waarde
 # 1. Frequentie van 24 uren
 freq_24 <- ???
 
@@ -55,9 +55,7 @@ percent_38 <- ???
 # 16. Percentage van 40 uren
 percent_40 <- ???
 
-# STAP 1 – Basis beschrijvende statistieken
-
-# a. Bereken de modus, mediaan en het gemiddelde
+# b. Bereken de modus, mediaan en het gemiddelde
 # 17. Wat is de modus van de werkuren? (meest voorkomende waarde)
 modus <- ???
 
@@ -67,7 +65,9 @@ mediaan <- ???
 # 19. Wat is het gemiddelde van de werkuren? (gebruik decimale punt)
 gemiddelde <- ???
 
-# b. Bereken de variatiebreedte en de interkwartielafstand
+# STAP 2 – Spreidingsmaten en parameter keuzes
+
+# a. Bereken de variatiebreedte en de interkwartielafstand
 # 20. Wat is de variatiebreedte (range) van de werkuren? (hoogste - laagste waarde)
 variatiebreedte <- ???
 
@@ -80,7 +80,7 @@ q3 <- ???
 # 23. Wat is de interkwartielafstand (IKA) van de werkuren? (Q3 - Q1)
 ika <- ???
 
-# c. Welke parameter zou je kiezen?
+# b. Welke parameter zou je kiezen?
 # 24. Welke maat van centraliteit is het meest relevant voor interval data?
 # Kies uit: "modus", "mediaan", "gemiddelde"
 meest_relevante_centraliteit <- "???"
@@ -93,14 +93,15 @@ meest_relevante_spreiding <- "???"
 # Kies uit: "geen uitbijters", "robuust voor uitbijters", "gebruikt alle informatie"
 reden <- "???"
 
-# STAP 2 – Geavanceerde spreidingsberekeningen
-# 27. Bereken afwijkingen van het gemiddelde voor elke waarde: (X - gemiddelde waarde)
+# STAP 3 – Geavanceerde spreidingsberekeningen
+# a. Bereken afwijkingen van het gemiddelde voor elke waarde: (X - gemiddelde waarde)
+# 27. Afwijkingen van het gemiddelde
 afwijkingen <- c(??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ???)
 
 # 28. Bereken gekwadrateerde afwijkingen: (X - gemiddelde waarde)²
 gekwadrateerde_afwijkingen <- c(??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ???)
 
-# STAP 3 – Variantie en standaardafwijking
+# b. Variantie en standaardafwijking
 # 29. Bereken de som van gekwadrateerde afwijkingen (Sum of Squares)
 sum_of_squares <- ???
 

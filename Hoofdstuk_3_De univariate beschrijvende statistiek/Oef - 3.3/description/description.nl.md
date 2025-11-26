@@ -79,18 +79,17 @@ Analyseer deze gegevens en beantwoord de onderstaande vragen.
 
 ### Te volgen redenering
 
-**Stap 1 – Meetniveau bepalen**
+**Stap 1 – Frequentietabel en centraliteitsmaten**
 
-Bepaal eerst het **meetniveau** van de variabele *werkuren per week*. Dat meetniveau bepaalt welke statistische maten je mag gebruiken. Voor **interval- en ratiovariabelen** mag je alle klassieke maten van centraliteit (modus, mediaan, gemiddelde) en spreiding (variatiebreedte, interkwartielafstand, variantie, standaardafwijking, …) berekenen.
+Begin met het **tellen van frequenties** voor elke waarde en bereken de **percentages**. Bereken vervolgens de belangrijkste **centraliteitsmaten**: modus, mediaan en gemiddelde. Voor **interval- en ratiovariabelen** mag je alle klassieke maten van centraliteit gebruiken.
 
-**Stap 2 – Kies de meest informatieve maten**
+**Stap 2 – Spreidingsmaten en parameter keuzes**
 
-Van alle maten die je **mag** berekenen, kies je de maat die je **meest informatie** geeft over:
+Bereken de **spreidingsmaten**: variatiebreedte, kwartielen (Q1, Q3) en interkwartielafstand (IKA). Bepaal welke maten het **meest informatief** zijn voor interval data en beredeneer waarom.
 
-- het **centrum** van de verdeling (centrale tendens);
-- de **spreiding** rond dat centrum.
+**Stap 3 – Geavanceerde spreidingsberekeningen**
 
-Bijvoorbeeld: het **gemiddelde** gebruikt alle waarden, maar kan gevoelig zijn voor extreme waarden; de **mediaan** is resistenter tegen uitschieters; de **IKA** zegt iets over de centrale 50% van de waarnemingen.
+Voor een volledige analyse bereken je de **afwijkingen** van het gemiddelde, de **gekwadrateerde afwijkingen**, en daaruit de **variantie**, **standaardafwijking** en **variatiecoëfficiënt**.
 
 ---
 
