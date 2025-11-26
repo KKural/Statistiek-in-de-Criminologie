@@ -10,29 +10,71 @@ Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
 
 *Werkuren per week van deelnemers aan een re-integratieprogramma*
 
-<table style="border-collapse: collapse; width: 70%; margin: 20px auto; font-family: Times, serif;">
-<thead>
-<tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 30%;">Werkuren (X)</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 30%;">Frequentie (f)</th>
-</tr>
-</thead>
-<tbody>
-<tr><td style="padding: 4px 8px; text-align: center;">24</td><td style="padding: 4px 8px; text-align: center;">3</td></tr>
-<tr><td style="padding: 4px 8px; text-align: center;">28</td><td style="padding: 4px 8px; text-align: center;">2</td></tr>
-<tr><td style="padding: 4px 8px; text-align: center;">32</td><td style="padding: 4px 8px; text-align: center;">2</td></tr>
-<tr><td style="padding: 4px 8px; text-align: center;">34</td><td style="padding: 4px 8px; text-align: center;">1</td></tr>
-<tr><td style="padding: 4px 8px; text-align: center;">35</td><td style="padding: 4px 8px; text-align: center;">1</td></tr>
-<tr><td style="padding: 4px 8px; text-align: center;">36</td><td style="padding: 4px 8px; text-align: center;">7</td></tr>
-<tr><td style="padding: 4px 8px; text-align: center;">38</td><td style="padding: 4px 8px; text-align: center;">1</td></tr>
-<tr style="border-bottom: 2px solid #000;">
-<td style="padding: 4px 8px; text-align: center;">40</td><td style="padding: 4px 8px; text-align: center;">3</td>
-</tr>
-<tr style="border-bottom: 2px solid #000;">
-<td style="padding: 4px 8px; text-align: center; font-style: italic;">Totaal N</td>
-<td style="padding: 4px 8px; text-align: center; font-style: italic;">20</td>
-</tr>
-</tbody>
+<table style="border-collapse: collapse; width: 70%; margin: 16px 0; font-family: Times, serif;">
+  <thead>
+    <tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
+      <th style="padding: 6px;">Werkuren</th>
+      <th style="padding: 6px;">Frequentie</th>
+      <th style="padding: 6px;">Percent</th>
+      <th style="padding: 6px;">Cumulatief Percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 6px;">24</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px;">28</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px;">32</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px;">34</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px;">35</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px;">36</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px;">38</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+    </tr>
+    <tr>
+      <td style="padding: 6px;">40</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+      <td style="padding: 6px; text-align:center;">?</td>
+    </tr>
+    <tr style="border-top: 2px solid #000;">
+      <td style="padding: 6px; font-style: italic;">Totaal</td>
+      <td style="padding: 6px; text-align:center; font-style: italic;">20</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
 </table>
 
 Analyseer deze gegevens en beantwoord de onderstaande vragen.
