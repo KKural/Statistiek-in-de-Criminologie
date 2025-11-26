@@ -1,19 +1,25 @@
 {
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 3.4"
+      "nl": "Oef - 3.4 Beschrijvende statistiek - Beroemde huwelijken"
     }
   },
-  "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "r"
   },
-  "test_suite": "evaluation",
-  "workdir": "workdir",
-  "access": "public",
+  "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
-    "begrippen"
+    "huwelijksduur",
+    "uitbijters",
+    "centraliteit",
+    "spreiding",
+    "variantie",
+    "standaardafwijking",
+    "frequentietabel",
+    "beschrijvende statistiek"
   ],
   "internals": {
     "token": "gT2wGvTUqSRdmvNSdWs_78ecYub2mjEiU4G8zbcIzDvV2KZVx3QF6mwgYKAi-iKw",
