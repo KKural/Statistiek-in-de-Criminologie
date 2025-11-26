@@ -34,7 +34,7 @@ context({
           # Relatieve frequenties
           if (exists("relatieve_frequenties", envir = env)) {
             current_val <- get("relatieve_frequenties", envir = env)
-            expected_vec <- c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)
+            expected_vec <- c("0,1000", "0,2545", "0,3100", "0,1909", "0,1455")
             ok <- is.numeric(current_val) &&
                   length(current_val) == length(expected_vec) &&
                   all(abs(current_val - expected_vec) < 0.0005)
@@ -54,7 +54,7 @@ context({
           # Cumulatieve relatieve frequenties
           if (exists("cumulatieve_relatieve_frequenties", envir = env)) {
             current_val <- get("cumulatieve_relatieve_frequenties", envir = env)
-            expected_vec <- c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)
+            expected_vec <- c("0,1000", "0,3545", "0,6636", "0,8545", "1,0000")
             ok <- is.numeric(current_val) &&
                   length(current_val) == length(expected_vec) &&
                   all(abs(current_val - expected_vec) < 0.0005)
@@ -228,7 +228,7 @@ context({
               "**FREQUENTIETABEL - CUMULATIEVE REL.:** cumsum(relatieve_frequenties) ✅")
           } else {
             feedback_lines <- c(feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE REL.:** Verwacht c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000) ❌")
+              "**FREQUENTIETABEL - CUMULATIEVE REL.:** Verwacht c(0,1000; 0,3545; 0,6636; 0,8545; 1,0000) ❌")
           }
           
           if(results$meetniveau$exists && results$meetniveau$correct) {

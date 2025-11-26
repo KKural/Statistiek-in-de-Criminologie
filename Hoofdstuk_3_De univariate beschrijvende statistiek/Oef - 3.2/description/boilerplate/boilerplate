@@ -7,14 +7,14 @@
 # 
 # Gegeven tabel (vul de ontbrekende kolommen in):
 #
-# | Antwoord                      | Abs. Freq. | Cum. Abs. | Rel. Freq. | Cum. Rel. |
-# |-------------------------------|------------|-----------|------------|-----------|
-# | Zeer ontevreden               |     33     |    ???    |    ???     |    ???    |
-# | Ontevreden                    |     84     |    ???    |    ???     |    ???    |
-# | Noch tevreden, noch ontevreden|    102     |    ???    |    ???     |    ???    |
-# | Tevreden                      |     63     |    ???    |    ???     |    ???    |
-# | Zeer tevreden                 |     48     |    ???    |    ???     |    ???    |
-# | **TOTAAL**                    |  **330**   |    ---    |  **1.0000**|    ---    |
+# | Antwoord                         | Absolute Frequenties | Cumulatieve Absolute | Relatieve Frequenties | Cumulatieve Relatieve |
+# |----------------------------------|----------------------|---------------------|----------------------|----------------------|
+# | Zeer ontevreden                  |          33          |        ???          |         ???          |         ???          |
+# | Ontevreden                       |          84          |        ???          |         ???          |         ???          |
+# | Noch tevreden, noch ontevreden   |         102          |        ???          |         ???          |         ???          |
+# | Tevreden                         |          63          |        ???          |         ???          |         ???          |
+# | Zeer tevreden                    |          48          |        ???          |         ???          |         ???          |
+# | **TOTAAL**                       |       **330**        |        ---          |      **1,0000**      |         ---          |
 #
 # Bereken en vul in:
 
@@ -29,7 +29,7 @@ absolute_frequenties <- c(33, 84, 102, 63, 48)
 
 # BEREKENINGEN (vervang ??? door juiste formules):
 cumulatieve_absolute_frequenties <- ???  # Tip: cumsum(absolute_frequenties)
-relatieve_frequenties <- ???            # Tip: absolute_frequenties / 330 (4 decimalen!)
+relatieve_frequenties <- ???            # Tip: absolute_frequenties / 330 (4 decimalen met komma!)
 cumulatieve_relatieve_frequenties <- ??? # Tip: cumsum(relatieve_frequenties)
 
 # STAP 1: Bepaal het meetniveau
