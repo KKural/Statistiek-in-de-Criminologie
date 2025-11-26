@@ -429,99 +429,131 @@ context({
           # ----------------------
           if (results$freq_24$exists && results$freq_24$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 24 uren:** 3 personen ✅")
+          } else if (results$freq_24$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**FREQUENTIE 24 uren:** ", results$freq_24$value, " (verwacht: 3) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**FREQUENTIE 24 uren:** Tel hoe vaak 24 voorkomt in data ❌")
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 24 uren:** Ontbreekt (verwacht: 3) ❌")
           }
           
           if (results$freq_28$exists && results$freq_28$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 28 uren:** 2 personen ✅")
+          } else if (results$freq_28$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**FREQUENTIE 28 uren:** ", results$freq_28$value, " (verwacht: 2) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**FREQUENTIE 28 uren:** Tel hoe vaak 28 voorkomt in data ❌")
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 28 uren:** Ontbreekt (verwacht: 2) ❌")
           }
           
           if (results$freq_32$exists && results$freq_32$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 32 uren:** 2 personen ✅")
+          } else if (results$freq_32$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**FREQUENTIE 32 uren:** ", results$freq_32$value, " (verwacht: 2) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**FREQUENTIE 32 uren:** Tel hoe vaak 32 voorkomt in data ❌")
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 32 uren:** Ontbreekt (verwacht: 2) ❌")
           }
           
           if (results$freq_34$exists && results$freq_34$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 34 uren:** 1 persoon ✅")
+          } else if (results$freq_34$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**FREQUENTIE 34 uren:** ", results$freq_34$value, " (verwacht: 1) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**FREQUENTIE 34 uren:** Tel hoe vaak 34 voorkomt in data ❌")
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 34 uren:** Ontbreekt (verwacht: 1) ❌")
           }
           
           if (results$freq_35$exists && results$freq_35$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 35 uren:** 1 persoon ✅")
+          } else if (results$freq_35$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**FREQUENTIE 35 uren:** ", results$freq_35$value, " (verwacht: 1) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**FREQUENTIE 35 uren:** Tel hoe vaak 35 voorkomt in data ❌")
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 35 uren:** Ontbreekt (verwacht: 1) ❌")
           }
           
           if (results$freq_36$exists && results$freq_36$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 36 uren:** 7 personen (MODUS!) ✅")
+          } else if (results$freq_36$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**FREQUENTIE 36 uren:** ", results$freq_36$value, " (verwacht: 7 - MODUS!) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**FREQUENTIE 36 uren:** Tel hoe vaak 36 voorkomt in data (meest frequent!) ❌")
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 36 uren:** Ontbreekt (verwacht: 7 - MODUS!) ❌")
           }
           
           if (results$freq_38$exists && results$freq_38$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 38 uren:** 1 persoon ✅")
+          } else if (results$freq_38$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**FREQUENTIE 38 uren:** ", results$freq_38$value, " (verwacht: 1) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**FREQUENTIE 38 uren:** Tel hoe vaak 38 voorkomt in data ❌")
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 38 uren:** Ontbreekt (verwacht: 1) ❌")
           }
           
           if (results$freq_40$exists && results$freq_40$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 40 uren:** 3 personen ✅")
+          } else if (results$freq_40$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**FREQUENTIE 40 uren:** ", results$freq_40$value, " (verwacht: 3) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**FREQUENTIE 40 uren:** Tel hoe vaak 40 voorkomt in data ❌")
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 40 uren:** Ontbreekt (verwacht: 3) ❌")
           }
           
           # Percentages
           if (results$percent_24$exists && results$percent_24$correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 24 uren:** (3/20) × 100 = 15.0% ✅")
+          } else if (results$percent_24$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**PERCENTAGE 24 uren:** ", results$percent_24$value, "% (verwacht: 15.0%) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**PERCENTAGE 24 uren:** (frequentie ÷ totaal) × 100 = (3/20) × 100 ❌")
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 24 uren:** Ontbreekt (verwacht: 15.0%) ❌")
           }
           
           if (results$percent_28$exists && results$percent_28$correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 28 uren:** (2/20) × 100 = 10.0% ✅")
+          } else if (results$percent_28$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**PERCENTAGE 28 uren:** ", results$percent_28$value, "% (verwacht: 10.0%) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**PERCENTAGE 28 uren:** (frequentie ÷ totaal) × 100 = (2/20) × 100 ❌")
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 28 uren:** Ontbreekt (verwacht: 10.0%) ❌")
           }
           
           if (results$percent_32$exists && results$percent_32$correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 32 uren:** (2/20) × 100 = 10.0% ✅")
+          } else if (results$percent_32$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**PERCENTAGE 32 uren:** ", results$percent_32$value, "% (verwacht: 10.0%) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**PERCENTAGE 32 uren:** (frequentie ÷ totaal) × 100 = (2/20) × 100 ❌")
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 32 uren:** Ontbreekt (verwacht: 10.0%) ❌")
           }
           
           if (results$percent_34$exists && results$percent_34$correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 34 uren:** (1/20) × 100 = 5.0% ✅")
+          } else if (results$percent_34$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**PERCENTAGE 34 uren:** ", results$percent_34$value, "% (verwacht: 5.0%) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**PERCENTAGE 34 uren:** (frequentie ÷ totaal) × 100 = (1/20) × 100 ❌")
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 34 uren:** Ontbreekt (verwacht: 5.0%) ❌")
           }
           
           if (results$percent_35$exists && results$percent_35$correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 35 uren:** (1/20) × 100 = 5.0% ✅")
+          } else if (results$percent_35$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**PERCENTAGE 35 uren:** ", results$percent_35$value, "% (verwacht: 5.0%) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**PERCENTAGE 35 uren:** (frequentie ÷ totaal) × 100 = (1/20) × 100 ❌")
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 35 uren:** Ontbreekt (verwacht: 5.0%) ❌")
           }
           
           if (results$percent_36$exists && results$percent_36$correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 36 uren:** (7/20) × 100 = 35.0% ✅")
+          } else if (results$percent_36$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**PERCENTAGE 36 uren:** ", results$percent_36$value, "% (verwacht: 35.0%) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**PERCENTAGE 36 uren:** (frequentie ÷ totaal) × 100 = (7/20) × 100 ❌")
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 36 uren:** Ontbreekt (verwacht: 35.0%) ❌")
           }
           
           if (results$percent_38$exists && results$percent_38$correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 38 uren:** (1/20) × 100 = 5.0% ✅")
+          } else if (results$percent_38$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**PERCENTAGE 38 uren:** ", results$percent_38$value, "% (verwacht: 5.0%) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**PERCENTAGE 38 uren:** (frequentie ÷ totaal) × 100 = (1/20) × 100 ❌")
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 38 uren:** Ontbreekt (verwacht: 5.0%) ❌")
           }
           
           if (results$percent_40$exists && results$percent_40$correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 40 uren:** (3/20) × 100 = 15.0% ✅")
+          } else if (results$percent_40$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**PERCENTAGE 40 uren:** ", results$percent_40$value, "% (verwacht: 15.0%) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**PERCENTAGE 40 uren:** (frequentie ÷ totaal) × 100 = (3/20) × 100 ❌")
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 40 uren:** Ontbreekt (verwacht: 15.0%) ❌")
           }
           
           # ----------------------
@@ -530,62 +562,82 @@ context({
           
           if (results$modus$exists && results$modus$correct) {
             feedback_lines <- c(feedback_lines, "**MODUS:** 36 (hoogste frequentie: 7×) ✅")
+          } else if (results$modus$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**MODUS:** ", results$modus$value, " (verwacht: 36) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**MODUS:** Waarde met hoogste frequentie = 36 ❌")
+            feedback_lines <- c(feedback_lines, "**MODUS:** Ontbreekt (verwacht: 36) ❌")
           }
           
           if (results$mediaan$exists && results$mediaan$correct) {
             feedback_lines <- c(feedback_lines, "**MEDIAAN:** 36 (middelste waarde van gesorteerde data) ✅")
+          } else if (results$mediaan$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**MEDIAAN:** ", results$mediaan$value, " (verwacht: 36) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**MEDIAAN:** Sorteer data en neem middelste waarde = 36 ❌")
+            feedback_lines <- c(feedback_lines, "**MEDIAAN:** Ontbreekt (verwacht: 36) ❌")
           }
           
           if (results$gemiddelde$exists && results$gemiddelde$correct) {
             feedback_lines <- c(feedback_lines, "**GEMIDDELDE:** (Som alle waarden) ÷ 20 = 671 ÷ 20 = 33.55 ✅")
+          } else if (results$gemiddelde$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**GEMIDDELDE:** ", results$gemiddelde$value, " (verwacht: 33.55) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**GEMIDDELDE:** (Som alle waarden) ÷ 20 = 671 ÷ 20 = 33.55 ❌")
+            feedback_lines <- c(feedback_lines, "**GEMIDDELDE:** Ontbreekt (verwacht: 33.55) ❌")
           }
           
           if (results$variatiebreedte$exists && results$variatiebreedte$correct) {
             feedback_lines <- c(feedback_lines, "**VARIATIEBREEDTE:** Hoogste - laagste = 40 - 24 = 16 ✅")
+          } else if (results$variatiebreedte$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**VARIATIEBREEDTE:** ", results$variatiebreedte$value, " (verwacht: 16) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**VARIATIEBREEDTE:** Hoogste - laagste waarde = 40 - 24 = 16 ❌")
+            feedback_lines <- c(feedback_lines, "**VARIATIEBREEDTE:** Ontbreekt (verwacht: 16) ❌")
           }
           
           if (results$q1$exists && results$q1$correct) {
             feedback_lines <- c(feedback_lines, "**Q1:** 25% positie = 5,25ste waarde → 30 ✅")
+          } else if (results$q1$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**Q1:** ", results$q1$value, " (verwacht: 30) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**Q1:** 25% van gesorteerde data = 30 ❌")
+            feedback_lines <- c(feedback_lines, "**Q1:** Ontbreekt (verwacht: 30) ❌")
           }
           
           if (results$q3$exists && results$q3$correct) {
             feedback_lines <- c(feedback_lines, "**Q3:** 75% positie = 15,75ste waarde → 36 ✅")
+          } else if (results$q3$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**Q3:** ", results$q3$value, " (verwacht: 36) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**Q3:** 75% van gesorteerde data = 36 ❌")
+            feedback_lines <- c(feedback_lines, "**Q3:** Ontbreekt (verwacht: 36) ❌")
           }
           
           if (results$ika$exists && results$ika$correct) {
             feedback_lines <- c(feedback_lines, "**IKA:** Q3 - Q1 = 36 - 30 = 6 ✅")
+          } else if (results$ika$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**IKA:** ", results$ika$value, " (verwacht: 6) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**IKA:** Q3 - Q1 = 36 - 30 = 6 ❌")
+            feedback_lines <- c(feedback_lines, "**IKA:** Ontbreekt (verwacht: 6) ❌")
           }
           
           if (results$meest_relevante_centraliteit$exists && results$meest_relevante_centraliteit$correct) {
             feedback_lines <- c(feedback_lines, "**BESTE CENTRALITEIT:** Gemiddelde (gebruikt alle informatie) ✅")
+          } else if (results$meest_relevante_centraliteit$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**BESTE CENTRALITEIT:** ", results$meest_relevante_centraliteit$value, " (verwacht: gemiddelde) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**BESTE CENTRALITEIT:** Voor interval data: gemiddelde ❌")
+            feedback_lines <- c(feedback_lines, "**BESTE CENTRALITEIT:** Ontbreekt (verwacht: gemiddelde) ❌")
           }
           
           if (results$meest_relevante_spreiding$exists && results$meest_relevante_spreiding$correct) {
             feedback_lines <- c(feedback_lines, "**BESTE SPREIDING:** Interkwartielafstand (robuust) ✅")
+          } else if (results$meest_relevante_spreiding$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**BESTE SPREIDING:** ", results$meest_relevante_spreiding$value, " (verwacht: interkwartielafstand) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**BESTE SPREIDING:** Voor interval data: interkwartielafstand ❌")
+            feedback_lines <- c(feedback_lines, "**BESTE SPREIDING:** Ontbreekt (verwacht: interkwartielafstand) ❌")
           }
           
           if (results$reden$exists && results$reden$correct) {
             feedback_lines <- c(feedback_lines, "**REDEN:** Gebruikt alle informatie (niet alleen rang of uitschieters) ✅")
+          } else if (results$reden$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**REDEN:** ", results$reden$value, " (verwacht: gebruikt alle informatie) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**REDEN:** Gemiddelde gebruikt alle informatie ❌")
+            feedback_lines <- c(feedback_lines, "**REDEN:** Ontbreekt (verwacht: gebruikt alle informatie) ❌")
           }
           
           # ----------------------
@@ -594,38 +646,50 @@ context({
           
           if (results$afwijkingen$exists && results$afwijkingen$correct) {
             feedback_lines <- c(feedback_lines, "**AFWIJKINGEN:** Alle 20 waarden - 33.55 ✅")
+          } else if (results$afwijkingen$exists) {
+            feedback_lines <- c(feedback_lines, "**AFWIJKINGEN:** Verkeerde vector (verwacht: 20 afwijkingen) ❌")
           } else {
-            feedback_lines <- c(feedback_lines, "**AFWIJKINGEN:** Elke waarde - gemiddelde (33.55) ❌")
+            feedback_lines <- c(feedback_lines, "**AFWIJKINGEN:** Ontbreekt (verwacht: 20 afwijkingen) ❌")
           }
           
           if (results$gekwadrateerde_afwijkingen$exists && results$gekwadrateerde_afwijkingen$correct) {
             feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** (Elke afwijking)² ✅")
+          } else if (results$gekwadrateerde_afwijkingen$exists) {
+            feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** Verkeerde vector (verwacht: 20 gekwadrateerde waarden) ❌")
           } else {
-            feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer alle afwijkingen ❌")
+            feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** Ontbreekt (verwacht: 20 gekwadrateerde waarden) ❌")
           }
           
           if (results$sum_of_squares$exists && results$sum_of_squares$correct) {
             feedback_lines <- c(feedback_lines, "**SOM GEKWADRATEERDE AFWIJKINGEN:** Σ(Xi - X̄)² = 528.95 ✅")
+          } else if (results$sum_of_squares$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**SOM GEKWADRATEERDE AFWIJKINGEN:** ", results$sum_of_squares$value, " (verwacht: 528.95) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**SOM GEKWADRATEERDE AFWIJKINGEN:** Tel alle gekwadrateerde afwijkingen op ❌")
+            feedback_lines <- c(feedback_lines, "**SOM GEKWADRATEERDE AFWIJKINGEN:** Ontbreekt (verwacht: 528.95) ❌")
           }
           
           if (results$variantie$exists && results$variantie$correct) {
             feedback_lines <- c(feedback_lines, "**VARIANTIE:** Sum of squares ÷ (n-1) = 528.95 ÷ 19 = 27.8295 ✅")
+          } else if (results$variantie$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**VARIANTIE:** ", results$variantie$value, " (verwacht: 27.8295) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**VARIANTIE:** Sum of squares ÷ (n-1) = 528.95 ÷ 19 ❌")
+            feedback_lines <- c(feedback_lines, "**VARIANTIE:** Ontbreekt (verwacht: 27.8295) ❌")
           }
           
           if (results$standaardafwijking$exists && results$standaardafwijking$correct) {
             feedback_lines <- c(feedback_lines, "**STANDAARDAFWIJKING:** √variantie = √27.8295 = 5.2763 ✅")
+          } else if (results$standaardafwijking$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**STANDAARDAFWIJKING:** ", results$standaardafwijking$value, " (verwacht: 5.2763) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**STANDAARDAFWIJKING:** Wortel van variantie ❌")
+            feedback_lines <- c(feedback_lines, "**STANDAARDAFWIJKING:** Ontbreekt (verwacht: 5.2763) ❌")
           }
           
           if (results$variatiecoefficient$exists && results$variatiecoefficient$correct) {
             feedback_lines <- c(feedback_lines, "**VARIATIECOËFFICIËNT:** SD ÷ gemiddelde = 5.2763 ÷ 33.55 = 0.1573 ✅")
+          } else if (results$variatiecoefficient$exists) {
+            feedback_lines <- c(feedback_lines, paste0("**VARIATIECOËFFICIËNT:** ", results$variatiecoefficient$value, " (verwacht: 0.1573) ❌"))
           } else {
-            feedback_lines <- c(feedback_lines, "**VARIATIECOËFFICIËNT:** Standaardafwijking ÷ gemiddelde ❌")
+            feedback_lines <- c(feedback_lines, "**VARIATIECOËFFICIËNT:** Ontbreekt (verwacht: 0.1573) ❌")
           }
           
           feedback_lines <- c(
