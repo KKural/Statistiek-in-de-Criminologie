@@ -1,0 +1,33 @@
+# Vervang ??? door het juiste antwoord
+
+# De data: Tevredenheidsmeting reclasseringsdiensten (N = 330)
+# Zeer ontevreden: 33, Ontevreden: 84, Noch tevreden, noch ontevreden: 102
+# Tevreden: 63, Zeer tevreden: 48
+
+# a. Wat is het meetniveau van de variabele?
+vraag_a <- ???
+
+# b. Bereken alle relevante maten van centraliteit
+# Tip: Voor ordinale data is de mediaan de meest relevante maat
+# Mediaan = categorie die overeenkomt met de 165,5ste waarneming (N/2 = 330/2 = 165)
+mediaan <- ???
+
+# c. Bereken alle relevante maten van spreiding
+# Voor ordinale data: Q1, Q3, en interkwartielafstand
+
+# Q1 = 25% van respondenten (82,5ste waarneming)
+# Cumulatief: 33 < 82,5 maar 33+84=117 >= 82,5
+q1 <- ???
+
+# Q3 = 75% van respondenten (247,5ste waarneming)  
+# Cumulatief: 219 < 247,5 maar 219+63=282 >= 247,5
+q3 <- ???
+
+# Interkwartielafstand = bereik tussen Q1 en Q3
+# Geef aan welke categorieën tussen Q1 en Q3 liggen
+ika <- ???
+
+# BELANGRIJK: 
+# - Voor meetniveau: gebruik "ordinaal", "nominaal" of "interval"
+# - Voor categorieën: gebruik exact "zeer ontevreden", "ontevreden", "noch tevreden, noch ontevreden", "tevreden", "zeer tevreden"
+# - Voor IKA: beschrijf het bereik, bijvoorbeeld "ontevreden tot tevreden"

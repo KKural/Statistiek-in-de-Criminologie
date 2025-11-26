@@ -1,22 +1,8 @@
 {
-  "description": {
-    "names": {
-      "nl": "Oef - 3.2"
-    }
-  },
-  "programming_language": "R",
+  "type": "exercise",
+  "programming_language": "r",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "r"
   },
-  "test_suite": "evaluation",
-  "workdir": "workdir",
-  "access": "public",
-  "labels": [
-    "begrippen"
-  ],
-  "internals": {
-    "token": "-MDEaIpVhIV9Ku6I5jj7xe2bypE-kRbHHEg8eB-SSQPeW-bQxSmHgxftZ9F2qQDf",
-    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-  }
+  "boilerplate": "description/boilerplate/boilerplate"
 }
