@@ -551,6 +551,18 @@ context({
             # Individual frequency checks with specific error patterns
             freq_errors <- c()
             
+            # Check all frequency variables for common errors
+            if ("freq_2" %in% names(results) && !results$freq_2$correct && results$freq_2$exists) {
+              student_f2 <- as.numeric(results$freq_2$value)
+              if (!is.na(student_f2)) {
+                if (student_f2 == 0) {
+                  freq_errors <- c(freq_errors, "freq_2: 2 dagen bestaat wel in de data (Britney Spears)")
+                } else if (student_f2 > 1) {
+                  freq_errors <- c(freq_errors, "freq_2: 2 is unieke waarde, komt 1x voor")
+                }
+              }
+            }
+            
             if ("freq_150" %in% names(results) && !results$freq_150$correct && results$freq_150$exists) {
               student_f150 <- as.numeric(results$freq_150$value)
               if (!is.na(student_f150)) {
@@ -573,6 +585,29 @@ context({
               }
             }
             
+            # Check other specific frequencies that might cause confusion
+            if ("freq_143" %in% names(results) && !results$freq_143$correct && results$freq_143$exists) {
+              student_f143 <- as.numeric(results$freq_143$value)
+              if (!is.na(student_f143)) {
+                if (student_f143 == 0) {
+                  freq_errors <- c(freq_errors, "freq_143: 143 dagen bestaat (Kim Kardashian)")
+                } else if (student_f143 > 1) {
+                  freq_errors <- c(freq_errors, "freq_143: 143 komt 1x voor, niet vaker")
+                }
+              }
+            }
+            
+            if ("freq_144" %in% names(results) && !results$freq_144$correct && results$freq_144$exists) {
+              student_f144 <- as.numeric(results$freq_144$value)
+              if (!is.na(student_f144)) {
+                if (student_f144 == 0) {
+                  freq_errors <- c(freq_errors, "freq_144: 144 dagen bestaat (Britney Spears & Jason Alexander)")
+                } else if (student_f144 > 1) {
+                  freq_errors <- c(freq_errors, "freq_144: 144 komt 1x voor")
+                }
+              }
+            }
+            
             if (length(freq_errors) > 0) {
               feedback_lines <- c(feedback_lines, "• **FREQUENTIE FOUTEN:**")
               feedback_lines <- c(feedback_lines, paste0("  - ", freq_errors))
@@ -580,6 +615,18 @@ context({
             
             # PERCENTAGE ERRORS - Detailed analysis
             percent_errors <- c()
+            
+            # Check common percentage calculation errors
+            if ("percent_2" %in% names(results) && !results$percent_2$correct && results$percent_2$exists) {
+              student_p2 <- as.numeric(results$percent_2$value)
+              if (!is.na(student_p2)) {
+                if (abs(student_p2 - 1) < 0.1) {
+                  percent_errors <- c(percent_errors, "percent_2: Je gaf frequentie (1) ipv percentage. 1/11 × 100 = 9.1%")
+                } else if (abs(student_p2 - 0.091) < 0.001) {
+                  percent_errors <- c(percent_errors, "percent_2: Je vergat ×100. 1/11 = 0.091 → ×100 = 9.1%")
+                }
+              }
+            }
             
             if ("percent_150" %in% names(results) && !results$percent_150$correct && results$percent_150$exists) {
               student_p150 <- as.numeric(results$percent_150$value)
@@ -601,6 +648,18 @@ context({
                   percent_errors <- c(percent_errors, "percent_1657: Je gaf frequentie (1) ipv percentage. 1/11 × 100 = 9.1%")
                 } else if (student_p1657 == 0) {
                   percent_errors <- c(percent_errors, "percent_1657: Extreme waarde bestaat! Jennifer: 1/11 × 100 = 9.1%")
+                }
+              }
+            }
+            
+            # Check for wrong denominators
+            most_percent_vars <- c("percent_2", "percent_14", "percent_26", "percent_30", "percent_72", "percent_143", "percent_144", "percent_240", "percent_1657")
+            for (var in most_percent_vars) {
+              if (var %in% names(results) && !results[[var]]$correct && results[[var]]$exists) {
+                student_val <- as.numeric(results[[var]]$value)
+                if (!is.na(student_val) && abs(student_val - 10) < 0.1) {
+                  percent_errors <- c(percent_errors, paste0(var, ": Je gebruikte verkeerde noemer. Gebruik 11, niet 10: (1/11) × 100 = 9.1%"))
+                  break # Only show this error once
                 }
               }
             }
