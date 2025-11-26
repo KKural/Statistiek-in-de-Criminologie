@@ -522,49 +522,294 @@ context({
             feedback_lines <- c(feedback_lines, "**VARIANTIE ANALYSE:** Som kwadraten/10, dan √variantie ❌")
           }
           
-          # Error analysis
+          # ----------------------------------------
+          # COMPREHENSIVE ERROR ANALYSIS (COMMON MISTAKES)
+          # ----------------------------------------
+          
           if (correct_count != total_questions) {
-            feedback_lines <- c(feedback_lines, "", "📚 **Veelgemaakte fouten bij extreme waarden:**")
+            feedback_lines <- c(feedback_lines, "", "📚 **Uitleg van veelgemaakte fouten:**")
+            
+            # ======================
+            # STAP 1 - FREQUENCY ERRORS
+            # ======================
+            
+            # Individual frequency checks with specific error patterns
+            freq_errors <- c()
             
             if (!results$freq_150$correct && results$freq_150$exists) {
-              student_freq <- as.numeric(results$freq_150$value)
-              if (!is.na(student_freq) && student_freq == 1) {
-                feedback_lines <- c(feedback_lines, "• **FREQUENTIE FOUT:** 150 komt 2 keer voor in de data!")
+              student_f150 <- as.numeric(results$freq_150$value)
+              if (!is.na(student_f150)) {
+                if (student_f150 == 1) {
+                  freq_errors <- c(freq_errors, "freq_150: Je telde 1, maar 150 komt 2x voor in de data (BELANGRIJK!)")
+                } else if (student_f150 >= 3) {
+                  freq_errors <- c(freq_errors, "freq_150: Te hoog geteld. Tel precies: 150 komt exact 2x voor")
+                }
               }
             }
+            
+            if (!results$freq_1657$correct && results$freq_1657$exists) {
+              student_f1657 <- as.numeric(results$freq_1657$value)
+              if (!is.na(student_f1657)) {
+                if (student_f1657 == 0) {
+                  freq_errors <- c(freq_errors, "freq_1657: Jennifer Aniston (1657 dagen) staat WEL in de data!")
+                } else if (student_f1657 >= 2) {
+                  freq_errors <- c(freq_errors, "freq_1657: Extreme waarde komt maar 1x voor")
+                }
+              }
+            }
+            
+            if (length(freq_errors) > 0) {
+              feedback_lines <- c(feedback_lines, "• **FREQUENTIE FOUTEN:**")
+              feedback_lines <- c(feedback_lines, paste0("  - ", freq_errors))
+            }
+            
+            # PERCENTAGE ERRORS - Detailed analysis
+            percent_errors <- c()
             
             if (!results$percent_150$correct && results$percent_150$exists) {
-              student_perc <- as.numeric(results$percent_150$value)
-              if (!is.na(student_perc) && abs(student_perc - 9.1) < 0.1) {
-                feedback_lines <- c(feedback_lines, "• **PERCENTAGE FOUT:** 150 komt 2x voor: (2/11) × 100 = 18.2%")
+              student_p150 <- as.numeric(results$percent_150$value)
+              if (!is.na(student_p150)) {
+                if (abs(student_p150 - 2) < 0.1) {
+                  percent_errors <- c(percent_errors, "percent_150: Je gaf de frequentie (2) ipv percentage. 2/11 × 100 = 18.2%")
+                } else if (abs(student_p150 - 0.18) < 0.01) {
+                  percent_errors <- c(percent_errors, "percent_150: Je vergat ×100. 2/11 = 0.182 → ×100 = 18.2%")
+                } else if (abs(student_p150 - 9.1) < 0.1) {
+                  percent_errors <- c(percent_errors, "percent_150: 150 komt 2x voor, niet 1x. (2/11) × 100 = 18.2%")
+                }
               }
             }
             
+            if (!results$percent_1657$correct && results$percent_1657$exists) {
+              student_p1657 <- as.numeric(results$percent_1657$value)
+              if (!is.na(student_p1657)) {
+                if (student_p1657 == 0) {
+                  percent_errors <- c(percent_errors, "percent_1657: Jennifer Aniston staat in de data: (1/11) × 100 = 9.1%")
+                } else if (abs(student_p1657 - 0.09) < 0.01) {
+                  percent_errors <- c(percent_errors, "percent_1657: Vergeet niet ×100. 1/11 = 0.091 → ×100 = 9.1%")
+                }
+              }
+            }
+            
+            if (length(percent_errors) > 0) {
+              feedback_lines <- c(feedback_lines, "• **PERCENTAGE FOUTEN:**")
+              feedback_lines <- c(feedback_lines, paste0("  - ", percent_errors))
+            }
+            
+            # MODUS ERRORS - Multiple error types
             if (!results$modus$correct && results$modus$exists) {
-              student_modus <- as.numeric(results$modus$value)
-              if (!is.na(student_modus) && student_modus == 143) {
-                feedback_lines <- c(feedback_lines, "• **MODUS FOUT:** Modus ≠ mediaan. Modus = meest voorkomende waarde = 150")
+              student_modus <- results$modus$value
+              if (is.numeric(student_modus)) {
+                if (student_modus == 2) {
+                  feedback_lines <- c(feedback_lines, "• **MODUS FOUT:** Je gaf de frequentie (2), maar modus is de WAARDE die het meest voorkomt → 150")
+                } else if (student_modus == 143) {
+                  feedback_lines <- c(feedback_lines, "• **MODUS FOUT:** Je gaf de mediaan (143). Modus = meest voorkomende waarde = 150 (komt 2x voor)")
+                } else if (abs(student_modus - 238.91) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **MODUS FOUT:** Je gaf het gemiddelde. Modus = waarde met hoogste frequentie = 150")
+                } else if (student_modus %in% c(2, 14, 26, 30, 72, 143, 144, 240, 1657)) {
+                  feedback_lines <- c(feedback_lines, paste0("• **MODUS FOUT:** ", student_modus, " komt maar 1x voor. 150 komt 2x voor (meest) → modus = 150"))
+                }
               }
             }
             
+            # MEDIAAN ERRORS - Position vs value confusion
             if (!results$mediaan$correct && results$mediaan$exists) {
-              student_med <- as.numeric(results$mediaan$value)
-              if (!is.na(student_med) && abs(student_med - 238.91) < 1) {
-                feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Je gaf het gemiddelde. Mediaan = middelste waarde na sorteren = 143")
+              student_mediaan <- as.numeric(results$mediaan$value)
+              if (!is.na(student_mediaan)) {
+                if (student_mediaan == 6) {
+                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Je gaf de positie (6), maar mediaan is de WAARDE op die positie. Gesorteerd: 6de waarde = 143")
+                } else if (student_mediaan == 150) {
+                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Je gaf de modus (150). Mediaan = middelste waarde na sorteren = 143 dagen")
+                } else if (abs(student_mediaan - 238.91) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Je gaf het gemiddelde (238.91). Mediaan = middelste waarde na sorteren = 143")
+                } else if (student_mediaan %in% c(2, 14, 26, 30, 72, 144, 240, 1657)) {
+                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Sorteer eerst! Gesorteerd: 2,14,26,30,72,143,144,150,150,240,1657 → 6de waarde = 143")
+                }
               }
             }
             
+            # GEMIDDELDE ERRORS - Calculation mistakes with extreme values
+            if (!results$gemiddelde$correct && results$gemiddelde$exists) {
+              student_gem <- as.numeric(results$gemiddelde$value)
+              if (!is.na(student_gem)) {
+                if (abs(student_gem - 143) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Je gaf de mediaan (143). Gemiddelde = som/aantal. Jennifer's extreme waarde (1657) verhoogt het gemiddelde!")
+                } else if (abs(student_gem - 150) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Je gaf de modus (150). Gemiddelde = 2628/11 = 238.91 (hoger door extreme waarde)")
+                } else if (abs(student_gem - 271.45) < 0.1) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE n-1 FOUT:** Je deelde door 10 ipv 11. Gemiddelde = som/n = 2628/11 = 238.91")
+                } else if (student_gem < 200) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE BEREKENING:** Check je som. Inclusief Jennifer (1657): som = 2628, dan 2628/11 = 238.91")
+                } else if (student_gem > 280) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE SOM FOUT:** Som te hoog berekend. Correct: 2+14+26+30+72+143+144+150+150+240+1657 = 2628")
+                }
+              }
+            }
+            
+            # ======================
+            # STAP 3 - SPREIDING ERRORS
+            # ======================
+            
+            # VARIATIEBREEDTE ERRORS - Extreme values impact
+            if (!results$variatiebreedte$correct && results$variatiebreedte$exists) {
+              student_vb <- as.numeric(results$variatiebreedte$value)
+              if (!is.na(student_vb)) {
+                if (student_vb == 1659) {
+                  feedback_lines <- c(feedback_lines, "• **VARIATIEBREEDTE FOUT:** Je deed 1657+2=1659, maar range = max-min = 1657-2 = 1655")
+                } else if (student_vb == 238) {
+                  feedback_lines <- c(feedback_lines, "• **VARIATIEBREEDTE FOUT:** Je gebruikte verkeerde waarden. Range = hoogste(1657) - laagste(2) = 1655")
+                } else if (student_vb < 1000) {
+                  feedback_lines <- c(feedback_lines, "• **VARIATIEBREEDTE FOUT:** Te klein. Jennifer's extreme waarde (1657) - minimum(2) = 1655 dagen")
+                }
+              }
+            }
+            
+            # Q1 ERRORS - Detailed position analysis
             if (!results$q1$correct && results$q1$exists) {
               student_q1 <- as.numeric(results$q1$value)
-              if (!is.na(student_q1) && student_q1 == 30) {
-                feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Onderste helft heeft 5 waarden: 2,14,26,30,72 → mediaan = 26")
+              if (!is.na(student_q1)) {
+                if (student_q1 == 3) {
+                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Je gaf de positie (3), maar Q1 is de WAARDE op die positie = 26")
+                } else if (student_q1 == 14) {
+                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Te laag. Q1 = 25% positie = 3de waarde in gesorteerde data = 26")
+                } else if (student_q1 == 30) {
+                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Te hoog. Q1 = 25% van 11 = 3de waarde = 26 dagen")
+                } else if (student_q1 == 2) {
+                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Dit is de minimum waarde. Q1 = 25% positie = 3de waarde = 26")
+                }
               }
             }
             
+            # Q3 ERRORS  
+            if (!results$q3$correct && results$q3$exists) {
+              student_q3 <- as.numeric(results$q3$value)
+              if (!is.na(student_q3)) {
+                if (student_q3 == 9) {
+                  feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Je gaf de positie (9), maar Q3 is de WAARDE op die positie = 150")
+                } else if (student_q3 == 240 || student_q3 == 1657) {
+                  feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Te hoog. Q3 = 75% positie = 9de waarde = 150 (voor de extreme waarden)")
+                } else if (student_q3 == 143 || student_q3 == 144) {
+                  feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Te laag. Q3 = 75% van gesorteerde data = 9de waarde = 150")
+                }
+              }
+            }
+            
+            # IKA ERRORS
+            if (!results$ika$correct && results$ika$exists) {
+              student_ika <- as.numeric(results$ika$value)
+              if (!is.na(student_ika)) {
+                if (student_ika < 0) {
+                  feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Negatief getal? IKA = Q3 - Q1 = 150 - 26 = 124 (altijd positief)")
+                } else if (student_ika == 1655) {
+                  feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Je berekende de variatiebreedte. IKA = Q3 - Q1 = 150 - 26 = 124")
+                } else if (student_ika == 176) {
+                  feedback_lines <- c(feedback_lines, "• **IKA PLUS FOUT:** Je deed Q3 + Q1. Correct: IKA = Q3 - Q1 = 150 - 26 = 124")
+                } else if (student_ika > 200) {
+                  feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Te groot. IKA = Q3 - Q1 = 150 - 26 = 124 (middelste 50%)")
+                }
+              }
+            }
+            
+            # ======================
+            # STAP 4 - VARIANCE CALCULATION ERRORS
+            # ======================
+            
+            # AFWIJKING SIGN ERRORS - Check specific deviations
+            deviation_sign_errors <- 0
+            if (!results$afwijking_2$correct && results$afwijking_2$exists) {
+              student_afw <- as.numeric(results$afwijking_2$value)
+              if (!is.na(student_afw) && student_afw == 236.91) {
+                deviation_sign_errors <- deviation_sign_errors + 1
+              }
+            }
+            if (!results$afwijking_1657$correct && results$afwijking_1657$exists) {
+              student_afw <- as.numeric(results$afwijking_1657$value)
+              if (!is.na(student_afw) && student_afw == -1418.09) {
+                deviation_sign_errors <- deviation_sign_errors + 1
+              }
+            }
+            
+            if (deviation_sign_errors > 0) {
+              feedback_lines <- c(feedback_lines, "• **AFWIJKING TEKEN FOUT:** Let op tekens! 2-238.91 = -236.91 (negatief), 1657-238.91 = +1418.09 (positief)")
+            }
+            
+            # MEAN ERROR IN DEVIATIONS
+            if (!results$afwijking_150_1$correct && results$afwijking_150_1$exists) {
+              student_afw <- as.numeric(results$afwijking_150_1$value)
+              if (!is.na(student_afw) && abs(student_afw - 7) < 1) {
+                feedback_lines <- c(feedback_lines, "• **AFWIJKING GEMIDDELDE FOUT:** Je gebruikte verkeerd gemiddelde. Gebruik 238.91: 150 - 238.91 = -88.91")
+              } else if (!is.na(student_afw) && abs(student_afw - (-93)) < 1) {
+                feedback_lines <- c(feedback_lines, "• **AFWIJKING GEMIDDELDE FOUT:** Check gemiddelde berekening. Correct: 150 - 238.91 = -88.91")
+              }
+            }
+            
+            # SQUARED DEVIATIONS - Common mistakes with extreme values
+            if (!results$gekw_afwijking_1657$correct && results$gekw_afwijking_1657$exists) {
+              student_gekw <- as.numeric(results$gekw_afwijking_1657$value)
+              if (!is.na(student_gekw)) {
+                if (student_gekw < 0) {
+                  feedback_lines <- c(feedback_lines, "• **GEKWADRATEERDE AFWIJKING TEKEN:** Kwadraat is altijd positief! (1418.09)² = 2,010,979.25")
+                } else if (abs(student_gekw - 1418.09) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **GEKWADRATEERDE AFWIJKING:** Je vergat te kwadrateren. (1418.09)² = 2,010,979.25 (niet 1418.09)")
+                } else if (student_gekw > 2500000) {
+                  feedback_lines <- c(feedback_lines, "• **GEKWADRATEERDE AFWIJKING FOUT:** Te hoog. Check: (1657-238.91)² = (1418.09)² = 2,010,979.25")
+                }
+              }
+            }
+            
+            if (!results$gekw_afwijking_2$correct && results$gekw_afwijking_2$exists) {
+              student_gekw <- as.numeric(results$gekw_afwijking_2$value)
+              if (!is.na(student_gekw)) {
+                if (student_gekw < 0) {
+                  feedback_lines <- c(feedback_lines, "• **GEKWADRATEERDE AFWIJKING TEKEN:** Kwadraat is altijd positief! (-236.91)² = 56,126.35")
+                } else if (abs(student_gekw - 236.91) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **GEKWADRATEERDE AFWIJKING:** Je vergat te kwadrateren. (-236.91)² = 56,126.35")
+                }
+              }
+            }
+            
+            # SUM OF SQUARES ERRORS
+            if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
+              student_ss <- as.numeric(results$sum_of_squares$value)
+              if (!is.na(student_ss)) {
+                if (abs(student_ss - 2628) < 10) {
+                  feedback_lines <- c(feedback_lines, "• **SOM KWADRATEN FOUT:** Je somde originele waarden ipv gekwadrateerde afwijkingen. Som van (afwijking)² = 2,268,540.92")
+                } else if (student_ss < 1000000) {
+                  feedback_lines <- c(feedback_lines, "• **SOM KWADRATEN FOUT:** Te laag. Jennifer's extreme waarde draagt 2,010,979 bij! Totale som = 2,268,540.92")
+                } else if (student_ss > 3000000) {
+                  feedback_lines <- c(feedback_lines, "• **SOM KWADRATEN FOUT:** Te hoog. Controleer je gekwadrateerde afwijkingen. Correcte som = 2,268,540.92")
+                }
+              }
+            }
+            
+            # VARIANCE ERRORS - n vs n-1 with extreme values
             if (!results$variantie$correct && results$variantie$exists) {
               student_var <- as.numeric(results$variantie$value)
-              if (!is.na(student_var) && abs(student_var - 206231) < 100) {
-                feedback_lines <- c(feedback_lines, "• **VARIANTIE n FOUT:** Gebruik n-1=10, niet n=11: 2268540.92/10 = 226854.09")
+              if (!is.na(student_var)) {
+                if (abs(student_var - 206231.9) < 10) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE n-1 FOUT:** Je deelde door n=11, gebruik n-1=10 voor steekproef: 2,268,540.92/10 = 226,854.09")
+                } else if (abs(student_var - 2268540.92) < 100) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE FORMULE FOUT:** Je gaf som van kwadraten. Variantie = som/(n-1) = 2,268,540.92/10 = 226,854.09")
+                } else if (abs(student_var - 238.91) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE FOUT:** Je gaf het gemiddelde. Variantie = som gekwadrateerde afwijkingen/(n-1) = 226,854.09")
+                } else if (student_var < 100000) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE TE LAAG:** Extreme waarde (Jennifer) zorgt voor hoge variantie. Check berekening: 2,268,540.92/10 = 226,854.09")
+                }
+              }
+            }
+            
+            # STANDARD DEVIATION ERRORS
+            if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
+              student_sd <- as.numeric(results$standaardafwijking$value)
+              if (!is.na(student_sd)) {
+                if (abs(student_sd - 226854.09) < 100) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDAFWIJKING WORTEL FOUT:** Je gaf variantie. SD = √variantie = √226,854.09 = 476.29")
+                } else if (abs(student_sd - 2268540.92) < 1000) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDAFWIJKING FOUT:** Je gaf som van kwadraten. SD = √(som/(n-1)) = √226,854.09 = 476.29")
+                } else if (student_sd < 300) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDAFWIJKING TE LAAG:** Extreme waarde zorgt voor hoge spreiding. Correcte SD = 476.29 dagen")
+                } else if (student_sd > 600) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDAFWIJKING TE HOOG:** Check variantie berekening. SD = √226,854.09 = 476.29")
+                }
               }
             }
           }

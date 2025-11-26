@@ -115,9 +115,9 @@ context({
           for (name in names(results)) {
             res <- results[[name]]
             if (!res$exists) {
-              feedback_lines <- c(feedback_lines, paste0("�?� **", name, "** ontbreekt in je code."))
+              feedback_lines <- c(feedback_lines, paste0("- **", name, "** ontbreekt in je code."))
             } else if (!res$correct) {
-              feedback_lines <- c(feedback_lines, paste0("�?� **", name, "** verwacht ", paste(res$expected, collapse = ", "), " maar kreeg ", paste(res$value, collapse = ", "), "."))
+              feedback_lines <- c(feedback_lines, paste0("- **", name, "** verwacht ", paste(res$expected, collapse = ", "), " maar kreeg ", paste(res$value, collapse = ", "), "."))
             }
           }
           
@@ -125,7 +125,7 @@ context({
           if (results$variantie_incidenten$exists && !results$variantie_incidenten$correct) {
             student_var <- as.numeric(results$variantie_incidenten$value)
             if (!is.na(student_var) && abs(student_var - 6.67) < 0.05) {
-              feedback_lines <- c(feedback_lines, "�?� Gebruik **n-1 (8)** in de noemer voor de steekproefvariantie: 60/8 = 7.5.")
+              feedback_lines <- c(feedback_lines, "- Gebruik n-1 (8) in de noemer voor de steekproefvariantie: 60/8 = 7.5.")
             }
           }
           
@@ -134,7 +134,7 @@ context({
             "",
             paste0("**", correct_count, " van ", total_questions, " juist.**"),
             "",
-            "dY'? **Richtlijn:** Voor interval/ratio-variabelen is de **standaarddeviatie** de meest informatieve spreidingsmaat."
+            "- Richtlijn: voor interval/ratio-variabelen is de standaarddeviatie de meest informatieve spreidingsmaat."
           )
           
           get_reporter()$add_message(
