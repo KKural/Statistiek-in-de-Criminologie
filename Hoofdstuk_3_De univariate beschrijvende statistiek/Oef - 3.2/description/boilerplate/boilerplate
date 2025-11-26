@@ -1,21 +1,22 @@
 # Vervang ??? door het juiste antwoord
 # Volg de stap-voor-stap methode uit de theorie
 
-# STAP 0: De gegevens - Frequentietabel invullen
-# Je krijgt alleen de absolute frequenties, bereken de rest!
+# STAP 0: Frequentietabel invullen
+# Gegeven data (zie tabel)
+antwoordcategorien <- c("Zeer ontevreden",
+                       "Ontevreden", 
+                       "Noch tevreden, noch ontevreden",
+                       "Tevreden",
+                       "Zeer tevreden")
 
-antwoord  <- c("Zeer ontevreden",
-               "Ontevreden", 
-               "Noch tevreden, noch ontevreden",
-               "Tevreden",
-               "Zeer tevreden")
+absolute_frequenties <- c(33, 84, 102, 63, 48)
 
-abs_freq  <- c(33, 84, 102, 63, 48)
+# FREQUENTIETABEL - Vul de ontbrekende kolommen in:
+# Tip: gebruik cumsum() voor cumulatieve berekeningen
 
-# TODO: vervang de NA's door je berekeningen
-cum_abs   <- ???  # cumulatieve absolute frequenties (vector van lengte 5)
-rel_freq  <- ???  # relatieve frequenties (vector van lengte 5)  
-cum_rel   <- ???  # cumulatieve relatieve frequenties (vector van lengte 5)
+cumulatieve_absolute_frequenties <- ???  # cumsum(absolute_frequenties)
+relatieve_frequenties <- ???            # absolute_frequenties / 330 (4 decimalen!)
+cumulatieve_relatieve_frequenties <- ??? # cumsum(relatieve_frequenties)
 
 # STAP 1: Bepaal het meetniveau
 # a. Wat is het meetniveau van de variabele?

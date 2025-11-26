@@ -71,9 +71,13 @@ Een reclasseringsdienst wil weten hoe tevreden veroordeelde delictplegers zijn o
 ### **📋 Instructies**
 
 **STAP 1:** Vul eerst de ontbrekende kolommen in de frequentietabel in via R:
-- **Cumulatieve absolute frequenties:** Gebruik `cumsum(abs_freq)`
-- **Relatieve frequenties:** Bereken `abs_freq / 330` 
-- **Cumulatieve relatieve frequenties:** Gebruik `cumsum(rel_freq)`
+- **Cumulatieve absolute frequenties:** Gebruik `cumsum(absolute_frequenties)`
+- **Relatieve frequenties:** Bereken `absolute_frequenties / 330` (gebruik 4 decimalen!)
+- **Cumulatieve relatieve frequenties:** Gebruik `cumsum(relatieve_frequenties)`
+
+**Verwachte resultaten (4 decimalen):**
+- Relatieve frequenties: 0.1000, 0.2545, 0.3100, 0.1909, 0.1455
+- Cumulatieve relatieve frequenties: 0.1000, 0.3545, 0.6636, 0.8545, 1.0000
 
 **STAP 2:** Analyseer vervolgens de data volgens de stap-voor-stap methode voor ordinale data.
 

@@ -12,63 +12,63 @@ context({
           
           # Frequency table calculations
           # Cumulatieve absolute frequenties
-          if (exists("cum_abs", envir = env)) {
-            current_val <- get("cum_abs", envir = env)
+          if (exists("cumulatieve_absolute_frequenties", envir = env)) {
+            current_val <- get("cumulatieve_absolute_frequenties", envir = env)
             expected_vec <- c(33, 117, 219, 282, 330)
             ok <- is.numeric(current_val) &&
                   length(current_val) == length(expected_vec) &&
                   all(current_val == expected_vec)
           
-            results$cum_abs <- list(
+            results$cumulatieve_absolute_frequenties <- list(
               exists  = TRUE,
               value   = current_val,
               correct = ok,
               expected = expected_vec
             )
           } else {
-            results$cum_abs <- list(exists = FALSE, value = NA,
+            results$cumulatieve_absolute_frequenties <- list(exists = FALSE, value = NA,
                                     correct = FALSE,
                                     expected = c(33,117,219,282,330))
           }
           
           # Relatieve frequenties
-          if (exists("rel_freq", envir = env)) {
-            current_val <- get("rel_freq", envir = env)
-            expected_vec <- c(0.10, 0.2545, 0.3091, 0.1909, 0.1455)
+          if (exists("relatieve_frequenties", envir = env)) {
+            current_val <- get("relatieve_frequenties", envir = env)
+            expected_vec <- c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)
             ok <- is.numeric(current_val) &&
                   length(current_val) == length(expected_vec) &&
                   all(abs(current_val - expected_vec) < 0.0005)
           
-            results$rel_freq <- list(
+            results$relatieve_frequenties <- list(
               exists  = TRUE,
               value   = current_val,
               correct = ok,
               expected = expected_vec
             )
           } else {
-            results$rel_freq <- list(exists = FALSE, value = NA,
+            results$relatieve_frequenties <- list(exists = FALSE, value = NA,
                                      correct = FALSE,
-                                     expected = c(0.10,0.2545,0.3091,0.1909,0.1455))
+                                     expected = c(0.1000,0.2545,0.3100,0.1909,0.1455))
           }
           
           # Cumulatieve relatieve frequenties
-          if (exists("cum_rel", envir = env)) {
-            current_val <- get("cum_rel", envir = env)
-            expected_vec <- c(0.10, 0.3545, 0.6636, 0.8545, 1.0000)
+          if (exists("cumulatieve_relatieve_frequenties", envir = env)) {
+            current_val <- get("cumulatieve_relatieve_frequenties", envir = env)
+            expected_vec <- c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)
             ok <- is.numeric(current_val) &&
                   length(current_val) == length(expected_vec) &&
                   all(abs(current_val - expected_vec) < 0.0005)
           
-            results$cum_rel <- list(
+            results$cumulatieve_relatieve_frequenties <- list(
               exists  = TRUE,
               value   = current_val,
               correct = ok,
               expected = expected_vec
             )
           } else {
-            results$cum_rel <- list(exists = FALSE, value = NA,
+            results$cumulatieve_relatieve_frequenties <- list(exists = FALSE, value = NA,
                                     correct = FALSE,
-                                    expected = c(0.10,0.3545,0.6636,0.8545,1.0000))
+                                    expected = c(0.1000,0.3545,0.6636,0.8545,1.0000))
           }
           
           # Meetniveau
@@ -207,28 +207,28 @@ context({
           
           # Generate feedback for each question
           # Frequency table feedback
-          if (results$cum_abs$exists && results$cum_abs$correct) {
+          if (results$cumulatieve_absolute_frequenties$exists && results$cumulatieve_absolute_frequenties$correct) {
             feedback_lines <- c(feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE ABS.:** Gebruik cumsum(abs_freq) ✅")
+              "**FREQUENTIETABEL - CUMULATIEVE ABS.:** cumsum(absolute_frequenties) ✅")
           } else {
             feedback_lines <- c(feedback_lines,
               "**FREQUENTIETABEL - CUMULATIEVE ABS.:** Verwacht c(33, 117, 219, 282, 330) ❌")
           }
           
-          if (results$rel_freq$exists && results$rel_freq$correct) {
+          if (results$relatieve_frequenties$exists && results$relatieve_frequenties$correct) {
             feedback_lines <- c(feedback_lines,
-              "**FREQUENTIETABEL - RELATIEVE FREQ.:** abs_freq / 330 ✅")
+              "**FREQUENTIETABEL - RELATIEVE FREQ.:** absolute_frequenties / 330 ✅")
           } else {
             feedback_lines <- c(feedback_lines,
-              "**FREQUENTIETABEL - RELATIEVE FREQ.:** Controleer abs_freq / totaal N ❌")
+              "**FREQUENTIETABEL - RELATIEVE FREQ.:** Controleer absolute_frequenties / totaal N ❌")
           }
           
-          if (results$cum_rel$exists && results$cum_rel$correct) {
+          if (results$cumulatieve_relatieve_frequenties$exists && results$cumulatieve_relatieve_frequenties$correct) {
             feedback_lines <- c(feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE REL.:** cumsum(rel_freq) ✅")
+              "**FREQUENTIETABEL - CUMULATIEVE REL.:** cumsum(relatieve_frequenties) ✅")
           } else {
             feedback_lines <- c(feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE REL.:** Verwacht c(0.10, 0.3545, 0.6636, 0.8545, 1.00) ❌")
+              "**FREQUENTIETABEL - CUMULATIEVE REL.:** Verwacht c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000) ❌")
           }
           
           if(results$meetniveau$exists && results$meetniveau$correct) {
