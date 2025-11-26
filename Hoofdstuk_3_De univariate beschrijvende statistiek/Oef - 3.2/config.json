@@ -12,12 +12,10 @@
   },
   "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
-    "frequentietabel",
-    "absolute frequentie",
-    "beschrijvende statistiek"
-  ],
-  "internals": {
-    "token": "2cMmxz2qmG5w9_vmuaEDKHCpdyuzZAG-xEuan5BryN6KrJvYZBkiA4t_I99d8uUQ",
-    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-  }
+    "ordinaal meetniveau",
+    "mediaan",
+    "kwartielen",
+    "centraliteit",
+    "spreiding"
+  ]
 }
