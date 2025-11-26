@@ -18,34 +18,53 @@
 # Voorbeeld structuur (niet de juiste waarden!):
 # cumulatieve_absolute_frequenties <- c(a, b, c, d, e)
 
+# 1. Bereken de cumulatieve absolute frequenties voor alle categorieën
 cumulatieve_absolute_frequenties <- c(??? , ??? , ??? , ??? , ???)
 
 # Voorbeeld structuur (proporties tussen 0 en 1):
 # relatieve_frequenties <- c(0.xxxx, 0.xxxx, 0.xxxx, 0.xxxx, 0.xxxx)
 
+# 2. Bereken de relatieve frequenties (proporties) voor alle categorieën
 relatieve_frequenties <- c(??? , ??? , ??? , ??? , ???)
 
 # Voorbeeld structuur (optellen van relatieve frequenties):
 # cumulatieve_relatieve_frequenties <- c(0.xxxx, 0.xxxx, 0.xxxx, 0.xxxx, 1.0000)
 
+# 3. Bereken de cumulatieve relatieve frequenties voor alle categorieën
 cumulatieve_relatieve_frequenties <- c(??? , ??? , ??? , ??? , ???)
+
 # STAP 1 – Meetniveau
 # Kies één van: "nominaal", "ordinaal", "interval"
 
+# 4. Wat is het meetniveau van de variabele "tevredenheid met reclasseringsbegeleiding"?
 meetniveau <- "???"
 
 # STAP 3 – Totaal N
 # Vul hier het totaal aantal respondenten in.
 
+# 5. Wat is het totaal aantal respondenten (N)?
 totaal_n <- ???
 
 # STAP 4 – Maten van centraliteit
+# 6. Wat is de modus van deze verdeling? (gebruik exacte bewoordingen uit de tabel)
 modus <- "???"
+
+# 7. Wat is de mediaan van deze verdeling? (gebruik exacte bewoordingen uit de tabel)
 mediaan <- "???"
+
+# 8. Welke maat van centraliteit is het meest relevant voor ordinale data?
+# Kies uit: "modus", "mediaan", "gemiddelde"
 meest_relevante_centraliteit <- "???"
 
 # STAP 5 – Maten van spreiding
+# 9. Wat is het eerste kwartiel (Q1)? (gebruik exacte bewoordingen uit de tabel)
 q1 <- "???"
+
+# 10. Wat is het derde kwartiel (Q3)? (gebruik exacte bewoordingen uit de tabel)
 q3 <- "???"
+
+# 11. Wat is de variatiebreedte (range) van deze verdeling?
 variatiebreedte <- "???"
+
+# 12. Wat is de interkwartielafstand (IKA)?
 ika <- "???"

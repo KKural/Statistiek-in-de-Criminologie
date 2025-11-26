@@ -62,9 +62,10 @@ Een reclasseringsdienst wil weten hoe tevreden veroordeelde delictplegers zijn o
 </tbody>
 </table>
 
-*Noot.* De steekproef bestond uit veroordeelde delictplegers die begeleid worden door een reclasseringsdienst (*N* = 330).
+**Stap 1:** De eerste vraag die je moet stellen, is welke maten je mag berekenen. Dit is afhankelijk van het meetniveau van de variabele. Zo is het bijvoorbeeld zinloos om de gemiddelde haarkleur (of het gemiddelde van gelijk welke nominale of ordinale variabele) te berekenen. Zoals je in de theorieles en oefensessies leert, mag je voor een nominale variabele enkel de modus berekenen, voor een ordinale variabele de modus en mediaan en kwartielen en voor interval en ratiovariabelen mag je alle maten van centraliteit berekenen.
 
-### **Jouw taak:**
+**Stap 2:** Wanneer je weet welke maten je mag berekenen, ga je na welke maat je het meeste informatie geeft. Waar de modus enkel zegt welke waarde het vaakst voorkomt, zegt de mediaan al meer: je weet wat de middelste waarde is. Het gemiddelde geeft je nog meer info. Op deze manier selecteer je van de maten die je mag berekenen (stap 1) de maat die je het meeste informatie geeft.
+
 
 Analyseer deze gegevens en beantwoord de onderstaande vragen.
 
