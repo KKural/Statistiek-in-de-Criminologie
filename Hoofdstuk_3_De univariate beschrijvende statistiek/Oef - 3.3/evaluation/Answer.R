@@ -542,6 +542,159 @@ context({
             feedback_lines <- c(feedback_lines, "**STAP 3 - VARIANTIE:** Som gekwadrateerde afwijkingen = 528.95, variantie = som/(n-1), SD = √variantie ❌")
           }
           
+          # ----------------------------------------
+          # EXTRA UITLEG BIJ FOUTEN (COMMON MISTAKES)
+          # ----------------------------------------
+          
+          if (correct_count != total_questions) {
+            feedback_lines <- c(feedback_lines, "", "📚 **Uitleg van veelgemaakte fouten:**")
+            
+            # FREQUENCY ERRORS
+            if (!freq_correct) {
+              feedback_lines <- c(
+                feedback_lines,
+                "• **FREQUENTIE FOUT:** Tel elke waarde in de data. 24 komt 3x voor, 36 komt 7x voor, etc."
+              )
+            }
+            
+            # PERCENTAGE ERRORS  
+            if (!percent_correct) {
+              feedback_lines <- c(
+                feedback_lines,
+                "• **PERCENTAGE FOUT:** Gebruik (frequentie/20) × 100. Bijv: 36 komt 7x voor → (7/20) × 100 = 35%"
+              )
+            }
+            
+            # CENTRALITY ERRORS
+            if (!results$modus$correct && results$modus$exists) {
+              student_modus <- as.numeric(results$modus$value)
+              if (!is.na(student_modus) && student_modus != 36) {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **MODUS FOUT:** Modus = meest voorkomende waarde. 36 komt 7x voor (meest frequent) → modus = 36"
+                )
+              }
+            }
+            
+            if (!results$mediaan$correct && results$mediaan$exists) {
+              student_mediaan <- as.numeric(results$mediaan$value)
+              if (!is.na(student_mediaan) && student_mediaan != 36) {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **MEDIAAN FOUT:** Sorteer data eerst! 20 waarden → mediaan = gemiddelde van 10de en 11de waarde = (36+36)/2 = 36"
+                )
+              }
+            }
+            
+            if (!results$gemiddelde$correct && results$gemiddelde$exists) {
+              student_gem <- as.numeric(results$gemiddelde$value)
+              if (!is.na(student_gem)) {
+                feedback_lines <- c(
+                  feedback_lines,
+                  paste0("• **GEMIDDELDE FOUT:** Som alle waarden / aantal waarden = 671/20 = 33.55 (je had: ", student_gem, ")")
+                )
+              }
+            }
+            
+            # QUARTILE ERRORS
+            if (!results$q1$correct && results$q1$exists) {
+              student_q1 <- as.numeric(results$q1$value)
+              if (!is.na(student_q1) && student_q1 != 30) {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **Q1 FOUT:** Q1 = 25% positie = 5.25ste waarde. In gesorteerde data is dit tussen 28 en 32 → Q1 = 30"
+                )
+              }
+            }
+            
+            if (!results$q3$correct && results$q3$exists) {
+              student_q3 <- as.numeric(results$q3$value)
+              if (!is.na(student_q3) && student_q3 != 36) {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **Q3 FOUT:** Q3 = 75% positie = 15.75ste waarde. In gesorteerde data → Q3 = 36"
+                )
+              }
+            }
+            
+            # PARAMETER CHOICE ERRORS
+            if (!results$meest_relevante_centraliteit$correct && results$meest_relevante_centraliteit$exists) {
+              student_cent <- tolower(trimws(as.character(results$meest_relevante_centraliteit$value)))
+              if (student_cent %in% c("modus", "mediaan")) {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **CENTRALITEIT KEUZE FOUT:** Bij intervaldata gebruik je het GEMIDDELDE omdat dit alle informatie gebruikt (niet alleen rangorde)"
+                )
+              }
+            }
+            
+            if (!results$meest_relevante_spreiding$correct && results$meest_relevante_spreiding$exists) {
+              student_spr <- tolower(trimws(as.character(results$meest_relevante_spreiding$value)))
+              if (student_spr == "variatiebreedte") {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **SPREIDING KEUZE FOUT:** Variatiebreedte is gevoelig voor uitbijters. INTERKWARTIELAFSTAND is robuuster"
+                )
+              }
+            }
+            
+            # DEVIATION ERRORS - Check a few key ones
+            if (!results$afwijking_24_1$correct && results$afwijking_24_1$exists) {
+              student_afw <- as.numeric(results$afwijking_24_1$value)
+              if (!is.na(student_afw)) {
+                if (student_afw == 9.55) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **AFWIJKING TEKEN FOUT:** 24 - 33.55 = -9.55 (negatief!). Let op het teken bij afwijkingen"
+                  )
+                } else if (abs(student_afw - (-9.55)) > 0.01) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **AFWIJKING BEREKENING FOUT:** 24 - 33.55 = -9.55 (gebruik decimale punt, niet komma)"
+                  )
+                }
+              }
+            }
+            
+            # VARIANCE CALCULATION ERRORS
+            if (!results$variantie$correct && results$variantie$exists) {
+              student_var <- as.numeric(results$variantie$value)
+              if (!is.na(student_var)) {
+                if (abs(student_var - 26.4475) < 0.01) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **VARIANTIE n FOUT:** Je deelde door n=20, maar gebruik n-1=19 voor steekproefvariantie: 528.95/19 = 27.8295"
+                  )
+                } else if (student_var == 528.95) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **VARIANTIE FOUT:** Je gaf de som van kwadraten, maar variantie = som/(n-1) = 528.95/19 = 27.8295"
+                  )
+                }
+              }
+            }
+            
+            if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
+              student_sd <- as.numeric(results$standaardafwijking$value)
+              if (!is.na(student_sd) && abs(student_sd - 27.8295) < 0.01) {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **STANDAARDAFWIJKING FOUT:** Je gaf de variantie, maar SD = √variantie = √27.8295 = 5.2763"
+                )
+              }
+            }
+            
+            if (!results$variatiecoefficient$correct && results$variatiecoefficient$exists) {
+              student_cv <- as.numeric(results$variatiecoefficient$value)
+              if (!is.na(student_cv) && student_cv > 1) {
+                feedback_lines <- c(
+                  feedback_lines,
+                  "• **VARIATIECOËFFICIËNT FOUT:** CV = SD/gemiddelde = 5.2763/33.55 = 0.1573 (geen percentage!)"
+                )
+              }
+            }
+          }
+          
           feedback_lines <- c(
             feedback_lines,
             "",
