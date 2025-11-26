@@ -424,9 +424,11 @@ context({
           correct_count <- sum(sapply(results, function(x) x$correct))
           total_questions <- length(results)
           
-          # ----------------------
-          # FREQUENTIETABEL FEEDBACK
-          # ----------------------
+          # ==========================================
+          # STAP 0: FREQUENTIETABEL - FREQUENTIES
+          # ==========================================
+          feedback_lines <- c(feedback_lines, "## 📊 **STAP 0: FREQUENTIETABEL**", "")
+          
           if (results$freq_24$exists && results$freq_24$correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 24 uren:** 3 personen ✅")
           } else if (results$freq_24$exists) {
@@ -491,7 +493,11 @@ context({
             feedback_lines <- c(feedback_lines, "**FREQUENTIE 40 uren:** Ontbreekt (verwacht: 3) ❌")
           }
           
-          # Percentages
+          # ==========================================
+          # STAP 0: FREQUENTIETABEL - PERCENTAGES  
+          # ==========================================
+          feedback_lines <- c(feedback_lines, "", "### **Percentages:**", "")
+          
           if (results$percent_24$exists && results$percent_24$correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 24 uren:** (3/20) × 100 = 15.0% ✅")
           } else if (results$percent_24$exists) {
@@ -556,9 +562,10 @@ context({
             feedback_lines <- c(feedback_lines, "**PERCENTAGE 40 uren:** Ontbreekt (verwacht: 15.0%) ❌")
           }
           
-          # ----------------------
-          # CENTRALITY & STATISTICS
-          # ----------------------
+          # ==========================================
+          # STAP 1: BASIS BESCHRIJVENDE STATISTIEKEN
+          # ==========================================
+          feedback_lines <- c(feedback_lines, "", "## 📈 **STAP 1: BASIS STATISTIEKEN**", "")
           
           if (results$modus$exists && results$modus$correct) {
             feedback_lines <- c(feedback_lines, "**MODUS:** 36 (hoogste frequentie: 7×) ✅")
@@ -640,9 +647,10 @@ context({
             feedback_lines <- c(feedback_lines, "**REDEN:** Ontbreekt (verwacht: gebruikt alle informatie) ❌")
           }
           
-          # ----------------------
-          # ADVANCED CALCULATIONS
-          # ----------------------
+          # ==========================================
+          # STAP 2: GEAVANCEERDE SPREIDINGSBEREKENINGEN
+          # ==========================================
+          feedback_lines <- c(feedback_lines, "", "## 🔢 **STAP 2: AFWIJKINGEN**", "")
           
           if (results$afwijkingen$exists && results$afwijkingen$correct) {
             feedback_lines <- c(feedback_lines, "**AFWIJKINGEN:** Alle 20 waarden - 33.55 ✅")
@@ -659,6 +667,11 @@ context({
           } else {
             feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** Ontbreekt (verwacht: 20 gekwadrateerde waarden) ❌")
           }
+          
+          # ==========================================
+          # STAP 3: VARIANTIE EN STANDAARDAFWIJKING
+          # ==========================================
+          feedback_lines <- c(feedback_lines, "", "## 📊 **STAP 3: VARIANTIE & STANDAARDAFWIJKING**", "")
           
           if (results$sum_of_squares$exists && results$sum_of_squares$correct) {
             feedback_lines <- c(feedback_lines, "**SOM GEKWADRATEERDE AFWIJKINGEN:** Σ(Xi - X̄)² = 528.95 ✅")
@@ -692,17 +705,26 @@ context({
             feedback_lines <- c(feedback_lines, "**VARIATIECOËFFICIËNT:** Ontbreekt (verwacht: 0.1573) ❌")
           }
           
+          # ==========================================
+          # SAMENVATTING EN REGELS
+          # ==========================================
           feedback_lines <- c(
             feedback_lines,
             "",
+            "## 🎯 **RESULTAAT**",
+            "",
             paste0("**", correct_count, " van ", total_questions, " juist**"),
             "",
-            "🔍 **BELANGRIJKE REGELS VOOR INTERVAL DATA:**",
-            "• **Frequenties**: Tel exact hoe vaak elke waarde voorkomt",
+            "## 🔍 **BELANGRIJKE REGELS VOOR INTERVAL DATA:**",
+            "",
+            "• **STAP 0**: Tel exact hoe vaak elke waarde voorkomt",
             "• **Percentages**: (frequentie ÷ totaal) × 100", 
-            "• **Gemiddelde is TOEGESTAAN** bij interval data (gebruikt alle info)",
-            "• **Data**: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36",
-            "• **N = 20 personen**, som = 671, gemiddelde = 33.55"
+            "• **STAP 1**: Gemiddelde is TOEGESTAAN bij interval data (gebruikt alle info)",
+            "• **STAP 2**: Bereken afwijkingen: (X - gemiddelde)",
+            "• **STAP 3**: Variantie = SS/(n-1), Standaardafwijking = √variantie",
+            "",
+            "**📊 Data**: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36",
+            "**📈 N = 20 personen**, som = 671, gemiddelde = 33.55"
           )
           
           # Show markdown feedback
