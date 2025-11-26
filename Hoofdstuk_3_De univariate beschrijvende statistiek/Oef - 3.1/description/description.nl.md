@@ -1,7 +1,3 @@
-Analyseer onderstaande frequentietabel zorgvuldig en beantwoord de vragen over de energiedrankjes consumptie van studenten.
-
-## **Frequentietabel - Energiedrankjes consumptie**
-
 Aan studenten uit de faculteit Economie en Bedrijfswetenschappen werd gevraagd hoe vaak ze energiedrankjes consumeren. Onderstaande tabel geeft de frequenties weer:
 
 **Tabel 1**
@@ -11,11 +7,11 @@ Aan studenten uit de faculteit Economie en Bedrijfswetenschappen werd gevraagd h
 <table style="border-collapse: collapse; width: 70%; margin: 20px auto; font-family: Times, serif;">
 <thead>
 <tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
-<th style="padding: 6px 8px; text-align: left; font-weight: normal; width: 20%;">Consumptie<br>Frequentie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: normal; width: 15%;">Absolute<br>Frequentie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: normal; width: 20%;">Cumulatieve<br>Absolute<br>Frequentie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: normal; width: 15%;">Proportie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: normal; width: 20%;">Cumulatieve<br>Proportie</th>
+<th style="padding: 6px 8px; text-align: left; font-weight: bold; width: 20%;">Consumptie<br>Frequentie</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 15%;">Absolute<br>Frequentie</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 20%;">Cumulatieve<br>Absolute<br>Frequentie</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 15%;">Proportie</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 20%;">Cumulatieve<br>Proportie</th>
 </tr>
 </thead>
 <tbody>
@@ -67,8 +63,6 @@ Aan studenten uit de faculteit Economie en Bedrijfswetenschappen werd gevraagd h
 **Berekening proportie:** Een proportie wordt berekend door de absolute frequentie te delen door het totaal aantal observaties. Bijvoorbeeld voor "Nooit": 190/310 = 0,6129.
 
 **Berekening cumulatieve proportie:** Een cumulatieve proportie wordt berekend door alle proporties tot en met die categorie op te tellen. Bijvoorbeeld voor "Zelden": 0,6129 + 0,1129 = 0,7258.
-
-## **Jouw taak:**
 
 Analyseer deze frequentietabel en beantwoord de onderstaande vragen door de juiste waarden in te vullen.
 
