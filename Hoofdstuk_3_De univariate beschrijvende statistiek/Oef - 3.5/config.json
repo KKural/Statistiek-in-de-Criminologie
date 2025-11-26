@@ -4,24 +4,22 @@
       "nl": "Oef - 3.5 Beschrijvende statistiek - Spreidingsmaat politietoezicht"
     }
   },
-  "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "r"
   },
   "boilerplate": "description/boilerplate/boilerplate",
-  "test_suite": "evaluation",
-  "workdir": "workdir",
-  "access": "public",
   "labels": [
-    "spreidingsmaten",
+    "huwelijksduur",
+    "uitbijters",
+    "centraliteit",
+    "spreiding",
     "variantie",
-    "standaarddeviatie",
-    "steekproef",
-    "politietoezicht"
+    "standaardafwijking",
+    "frequentietabel",
+    "beschrijvende statistiek"
   ],
   "internals": {
-    "token": "XzMViBAqTW-PAe6Yhamt49U-PPCrC6jBGEpirB7F3-RYIA5BigCSdzMPj7TE6AwM",
+    "token": "gT2wGvTUqSRdmvNSdWs_78ecYub2mjEiU4G8zbcIzDvV2KZVx3QF6mwgYKAi-iKw",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
