@@ -11,7 +11,7 @@ context({
           # Check each variable and store detailed results
           # Meetniveau
           if(exists("meetniveau", envir = env)) {
-            current_val <- get("meetniveau", envir = env)
+            current_val <- as.character(get("meetniveau", envir = env))
             results$meetniveau <- list(
               exists = TRUE,
               value = current_val,
@@ -24,7 +24,7 @@ context({
           
           # Modus
           if(exists("modus", envir = env)) {
-            current_val <- get("modus", envir = env)
+            current_val <- as.character(get("modus", envir = env))
             results$modus <- list(
               exists = TRUE,
               value = current_val,
@@ -37,7 +37,7 @@ context({
           
           # Mediaan
           if(exists("mediaan", envir = env)) {
-            current_val <- get("mediaan", envir = env)
+            current_val <- as.character(get("mediaan", envir = env))
             results$mediaan <- list(
               exists = TRUE,
               value = current_val,
@@ -50,7 +50,7 @@ context({
           
           # Meest relevante centraliteit
           if(exists("meest_relevante_centraliteit", envir = env)) {
-            current_val <- get("meest_relevante_centraliteit", envir = env)
+            current_val <- as.character(get("meest_relevante_centraliteit", envir = env))
             results$meest_relevante <- list(
               exists = TRUE,
               value = current_val,
@@ -63,7 +63,7 @@ context({
           
           # Q1
           if(exists("q1", envir = env)) {
-            current_val <- get("q1", envir = env)
+            current_val <- as.character(get("q1", envir = env))
             results$q1 <- list(
               exists = TRUE,
               value = current_val,
@@ -76,7 +76,7 @@ context({
           
           # Q3
           if(exists("q3", envir = env)) {
-            current_val <- get("q3", envir = env)
+            current_val <- as.character(get("q3", envir = env))
             results$q3 <- list(
               exists = TRUE,
               value = current_val,
@@ -89,7 +89,7 @@ context({
           
           # Variatiebreedte
           if(exists("variatiebreedte", envir = env)) {
-            current_val <- get("variatiebreedte", envir = env)
+            current_val <- as.character(get("variatiebreedte", envir = env))
             var_val <- tolower(trimws(current_val))
             results$variatiebreedte <- list(
               exists = TRUE,
@@ -116,7 +116,7 @@ context({
           
           # IKA
           if(exists("ika", envir = env)) {
-            current_val <- get("ika", envir = env)
+            current_val <- as.character(get("ika", envir = env))
             ika_val <- tolower(trimws(current_val))
             results$ika <- list(
               exists = TRUE,
@@ -128,13 +128,16 @@ context({
             results$ika <- list(exists = FALSE, value = NA, correct = FALSE, expected = "ontevreden tot tevreden")
           }
           
-          # Return results directly (no globalenv needed)
-          return(results)
+          # Store results for comparator
+          assign("detailed_results", results, envir = globalenv())
+          
+          # Overall success
+          all_correct <- all(sapply(results, function(x) x$correct))
+          return(all_correct)
         },
         TRUE,
         comparator = function(generated, expected, ...) {
-          # Use generated results instead of globalenv
-          results <- generated
+          results <- get("detailed_results", envir = globalenv())
           
           feedback_lines <- c()
           correct_count <- sum(sapply(results, function(x) x$correct))
@@ -204,10 +207,12 @@ context({
                              "STAP 4: Centraliteit (modus, mediaan, meest relevant)",
                              "STAP 5: Spreiding (Q1, Q3, variatiebreedte, IKA)")
           
-          return(list(
-            correct = (correct_count == total_questions),
-            message = paste(feedback_lines, collapse = "\n")
-          ))
+          # show markdown feedback
+          get_reporter()$add_message(paste(feedback_lines, collapse = "\n"),
+                                     type = "markdown")
+          
+          # final result
+          generated == expected
         }
       )
     }
