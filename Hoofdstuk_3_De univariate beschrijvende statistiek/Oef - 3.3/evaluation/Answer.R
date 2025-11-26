@@ -419,82 +419,233 @@ context({
           # Get detailed results from global environment
           results <- get("detailed_results", envir = globalenv())
           
-          # Create detailed output showing all variables
-          feedback_parts <- c("**Resultaten per vraag:**\n")
+          # Create detailed feedback showing all variables
+          feedback_lines <- c()
+          correct_count <- sum(sapply(results, function(x) x$correct))
+          total_questions <- length(results)
           
-          question_names <- c(
-            # Frequency table
-            "freq_24" = "1. Frequentie 24 uren",
-            "freq_28" = "2. Frequentie 28 uren", 
-            "freq_32" = "3. Frequentie 32 uren",
-            "freq_34" = "4. Frequentie 34 uren",
-            "freq_35" = "5. Frequentie 35 uren",
-            "freq_36" = "6. Frequentie 36 uren",
-            "freq_38" = "7. Frequentie 38 uren",
-            "freq_40" = "8. Frequentie 40 uren",
-            "percent_24" = "9. Percentage 24 uren",
-            "percent_28" = "10. Percentage 28 uren",
-            "percent_32" = "11. Percentage 32 uren",
-            "percent_34" = "12. Percentage 34 uren",
-            "percent_35" = "13. Percentage 35 uren",
-            "percent_36" = "14. Percentage 36 uren",
-            "percent_38" = "15. Percentage 38 uren",
-            "percent_40" = "16. Percentage 40 uren",
-            # Basic statistics
-            "modus" = "17. Modus",
-            "mediaan" = "18. Mediaan", 
-            "gemiddelde" = "19. Gemiddelde",
-            "variatiebreedte" = "20. Variatiebreedte",
-            "q1" = "21. Eerste kwartiel (Q1)",
-            "q3" = "22. Derde kwartiel (Q3)",
-            "ika" = "23. Interkwartielafstand",
-            "meest_relevante_centraliteit" = "24. Beste centraliteitsmaat",
-            "meest_relevante_spreiding" = "25. Beste spreidingsmaat",
-            "reden" = "26. Reden voor keuze",
-            "afwijkingen" = "27. Afwijkingen van gemiddelde",
-            "gekwadrateerde_afwijkingen" = "28. Gekwadrateerde afwijkingen",
-            "sum_of_squares" = "29. Som gekwadrateerde afwijkingen",
-            "variantie" = "30. Variantie",
-            "standaardafwijking" = "31. Standaardafwijking",
-            "variatiecoefficient" = "32. Variatiecoëfficiënt"
+          # ----------------------
+          # FREQUENTIETABEL FEEDBACK
+          # ----------------------
+          if (results$freq_24$exists && results$freq_24$correct) {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 24 uren:** 3 personen ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 24 uren:** Tel hoe vaak 24 voorkomt in data ❌")
+          }
+          
+          if (results$freq_28$exists && results$freq_28$correct) {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 28 uren:** 2 personen ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 28 uren:** Tel hoe vaak 28 voorkomt in data ❌")
+          }
+          
+          if (results$freq_32$exists && results$freq_32$correct) {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 32 uren:** 2 personen ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 32 uren:** Tel hoe vaak 32 voorkomt in data ❌")
+          }
+          
+          if (results$freq_34$exists && results$freq_34$correct) {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 34 uren:** 1 persoon ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 34 uren:** Tel hoe vaak 34 voorkomt in data ❌")
+          }
+          
+          if (results$freq_35$exists && results$freq_35$correct) {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 35 uren:** 1 persoon ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 35 uren:** Tel hoe vaak 35 voorkomt in data ❌")
+          }
+          
+          if (results$freq_36$exists && results$freq_36$correct) {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 36 uren:** 7 personen (MODUS!) ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 36 uren:** Tel hoe vaak 36 voorkomt in data (meest frequent!) ❌")
+          }
+          
+          if (results$freq_38$exists && results$freq_38$correct) {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 38 uren:** 1 persoon ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 38 uren:** Tel hoe vaak 38 voorkomt in data ❌")
+          }
+          
+          if (results$freq_40$exists && results$freq_40$correct) {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 40 uren:** 3 personen ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**FREQUENTIE 40 uren:** Tel hoe vaak 40 voorkomt in data ❌")
+          }
+          
+          # Percentages
+          if (results$percent_24$exists && results$percent_24$correct) {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 24 uren:** (3/20) × 100 = 15.0% ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 24 uren:** (frequentie ÷ totaal) × 100 = (3/20) × 100 ❌")
+          }
+          
+          if (results$percent_28$exists && results$percent_28$correct) {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 28 uren:** (2/20) × 100 = 10.0% ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 28 uren:** (frequentie ÷ totaal) × 100 = (2/20) × 100 ❌")
+          }
+          
+          if (results$percent_32$exists && results$percent_32$correct) {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 32 uren:** (2/20) × 100 = 10.0% ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 32 uren:** (frequentie ÷ totaal) × 100 = (2/20) × 100 ❌")
+          }
+          
+          if (results$percent_34$exists && results$percent_34$correct) {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 34 uren:** (1/20) × 100 = 5.0% ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 34 uren:** (frequentie ÷ totaal) × 100 = (1/20) × 100 ❌")
+          }
+          
+          if (results$percent_35$exists && results$percent_35$correct) {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 35 uren:** (1/20) × 100 = 5.0% ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 35 uren:** (frequentie ÷ totaal) × 100 = (1/20) × 100 ❌")
+          }
+          
+          if (results$percent_36$exists && results$percent_36$correct) {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 36 uren:** (7/20) × 100 = 35.0% ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 36 uren:** (frequentie ÷ totaal) × 100 = (7/20) × 100 ❌")
+          }
+          
+          if (results$percent_38$exists && results$percent_38$correct) {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 38 uren:** (1/20) × 100 = 5.0% ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 38 uren:** (frequentie ÷ totaal) × 100 = (1/20) × 100 ❌")
+          }
+          
+          if (results$percent_40$exists && results$percent_40$correct) {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 40 uren:** (3/20) × 100 = 15.0% ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**PERCENTAGE 40 uren:** (frequentie ÷ totaal) × 100 = (3/20) × 100 ❌")
+          }
+          
+          # ----------------------
+          # CENTRALITY & STATISTICS
+          # ----------------------
+          
+          if (results$modus$exists && results$modus$correct) {
+            feedback_lines <- c(feedback_lines, "**MODUS:** 36 (hoogste frequentie: 7×) ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**MODUS:** Waarde met hoogste frequentie = 36 ❌")
+          }
+          
+          if (results$mediaan$exists && results$mediaan$correct) {
+            feedback_lines <- c(feedback_lines, "**MEDIAAN:** 36 (middelste waarde van gesorteerde data) ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**MEDIAAN:** Sorteer data en neem middelste waarde = 36 ❌")
+          }
+          
+          if (results$gemiddelde$exists && results$gemiddelde$correct) {
+            feedback_lines <- c(feedback_lines, "**GEMIDDELDE:** (Som alle waarden) ÷ 20 = 671 ÷ 20 = 33.55 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**GEMIDDELDE:** (Som alle waarden) ÷ 20 = 671 ÷ 20 = 33.55 ❌")
+          }
+          
+          if (results$variatiebreedte$exists && results$variatiebreedte$correct) {
+            feedback_lines <- c(feedback_lines, "**VARIATIEBREEDTE:** Hoogste - laagste = 40 - 24 = 16 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**VARIATIEBREEDTE:** Hoogste - laagste waarde = 40 - 24 = 16 ❌")
+          }
+          
+          if (results$q1$exists && results$q1$correct) {
+            feedback_lines <- c(feedback_lines, "**Q1:** 25% positie = 5,25ste waarde → 30 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**Q1:** 25% van gesorteerde data = 30 ❌")
+          }
+          
+          if (results$q3$exists && results$q3$correct) {
+            feedback_lines <- c(feedback_lines, "**Q3:** 75% positie = 15,75ste waarde → 36 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**Q3:** 75% van gesorteerde data = 36 ❌")
+          }
+          
+          if (results$ika$exists && results$ika$correct) {
+            feedback_lines <- c(feedback_lines, "**IKA:** Q3 - Q1 = 36 - 30 = 6 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**IKA:** Q3 - Q1 = 36 - 30 = 6 ❌")
+          }
+          
+          if (results$meest_relevante_centraliteit$exists && results$meest_relevante_centraliteit$correct) {
+            feedback_lines <- c(feedback_lines, "**BESTE CENTRALITEIT:** Gemiddelde (gebruikt alle informatie) ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**BESTE CENTRALITEIT:** Voor interval data: gemiddelde ❌")
+          }
+          
+          if (results$meest_relevante_spreiding$exists && results$meest_relevante_spreiding$correct) {
+            feedback_lines <- c(feedback_lines, "**BESTE SPREIDING:** Interkwartielafstand (robuust) ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**BESTE SPREIDING:** Voor interval data: interkwartielafstand ❌")
+          }
+          
+          if (results$reden$exists && results$reden$correct) {
+            feedback_lines <- c(feedback_lines, "**REDEN:** Gebruikt alle informatie (niet alleen rang of uitschieters) ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**REDEN:** Gemiddelde gebruikt alle informatie ❌")
+          }
+          
+          # ----------------------
+          # ADVANCED CALCULATIONS
+          # ----------------------
+          
+          if (results$afwijkingen$exists && results$afwijkingen$correct) {
+            feedback_lines <- c(feedback_lines, "**AFWIJKINGEN:** Alle 20 waarden - 33.55 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**AFWIJKINGEN:** Elke waarde - gemiddelde (33.55) ❌")
+          }
+          
+          if (results$gekwadrateerde_afwijkingen$exists && results$gekwadrateerde_afwijkingen$correct) {
+            feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** (Elke afwijking)² ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer alle afwijkingen ❌")
+          }
+          
+          if (results$sum_of_squares$exists && results$sum_of_squares$correct) {
+            feedback_lines <- c(feedback_lines, "**SOM GEKWADRATEERDE AFWIJKINGEN:** Σ(Xi - X̄)² = 528.95 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**SOM GEKWADRATEERDE AFWIJKINGEN:** Tel alle gekwadrateerde afwijkingen op ❌")
+          }
+          
+          if (results$variantie$exists && results$variantie$correct) {
+            feedback_lines <- c(feedback_lines, "**VARIANTIE:** Sum of squares ÷ (n-1) = 528.95 ÷ 19 = 27.8295 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**VARIANTIE:** Sum of squares ÷ (n-1) = 528.95 ÷ 19 ❌")
+          }
+          
+          if (results$standaardafwijking$exists && results$standaardafwijking$correct) {
+            feedback_lines <- c(feedback_lines, "**STANDAARDAFWIJKING:** √variantie = √27.8295 = 5.2763 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**STANDAARDAFWIJKING:** Wortel van variantie ❌")
+          }
+          
+          if (results$variatiecoefficient$exists && results$variatiecoefficient$correct) {
+            feedback_lines <- c(feedback_lines, "**VARIATIECOËFFICIËNT:** SD ÷ gemiddelde = 5.2763 ÷ 33.55 = 0.1573 ✅")
+          } else {
+            feedback_lines <- c(feedback_lines, "**VARIATIECOËFFICIËNT:** Standaardafwijking ÷ gemiddelde ❌")
+          }
+          
+          feedback_lines <- c(
+            feedback_lines,
+            "",
+            paste0("**", correct_count, " van ", total_questions, " juist**"),
+            "",
+            "🔍 **BELANGRIJKE REGELS VOOR INTERVAL DATA:**",
+            "• **Frequenties**: Tel exact hoe vaak elke waarde voorkomt",
+            "• **Percentages**: (frequentie ÷ totaal) × 100", 
+            "• **Gemiddelde is TOEGESTAAN** bij interval data (gebruikt alle info)",
+            "• **Data**: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36",
+            "• **N = 20 personen**, som = 671, gemiddelde = 33.55"
           )
           
-          counter <- 1
-          for(var_key in names(question_names)) {
-            if(var_key %in% names(results)) {
-              var_display <- question_names[var_key]
-              result <- results[[var_key]]
-              
-              if(!result$exists) {
-                feedback_parts <- c(feedback_parts, paste0("**", var_display, "**: *Ontbreekt* ❌"))
-              } else if(result$correct) {
-                feedback_parts <- c(feedback_parts, paste0("**", var_display, "**: ", result$value, " ✅"))
-              } else {
-                if(is.vector(result$expected) && length(result$expected) > 1) {
-                  feedback_parts <- c(feedback_parts, paste0("**", var_display, "**: Verkeerde vector ❌"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("**", var_display, "**: ", result$value, " (verwacht: ", result$expected, ") ❌"))
-                }
-              }
-            }
-            counter <- counter + 1
-          }
-          
-          if (generated == expected) {
-            feedback_parts <- c(feedback_parts, "\n✅ **Alle berekeningen correct!**")
-            feedback_parts <- c(feedback_parts, "\n**Uitstekend!** Je beheerst de volledige werkuren analyse perfect.")
-          } else {
-            incorrect_count <- sum(sapply(results, function(x) !x$correct))
-            feedback_parts <- c(feedback_parts, paste0("\n❌ **", incorrect_count, " fouten gevonden**"))
-            
-            # Add helpful tips
-            feedback_parts <- c(feedback_parts, "\n**📚 Tips:**")
-            feedback_parts <- c(feedback_parts, "• **Frequenties**: Tel hoe vaak elke waarde voorkomt")
-            feedback_parts <- c(feedback_parts, "• **Percentages**: (frequentie ÷ totaal) × 100")
-            feedback_parts <- c(feedback_parts, "• **Data**: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36")
-            feedback_parts <- c(feedback_parts, "• **Modus**: 36 (komt 7× voor), **Mediaan**: 36, **Gemiddelde**: 33.55")
-          }
-          
+          # Show markdown feedback
+          get_reporter()$add_message(
+            paste(feedback_lines, collapse = "\n\n"),
+            type = "markdown"
+          )
           
           # Final result
           generated == expected
