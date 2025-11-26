@@ -683,7 +683,7 @@ context({
           feedback_lines <- c(
             feedback_lines,
             "",
-            paste("**", correct_count, "van", total_questions, "juist**"),
+            paste0("**", correct_count, " van ", total_questions, " juist**"),
             "",
             "**📚 STAP-VOOR-STAP SAMENVATTING:**",
             "• STAP 1: Meetniveau bepalen",
