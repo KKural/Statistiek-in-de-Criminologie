@@ -10,6 +10,7 @@ Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
 
 *Werkuren per week van deelnemers aan een re-integratieprogramma*
 
+<div style="text-align:center;">
 <table style="border-collapse: collapse; width: 60%; margin: 16px 0; font-family: Times, serif;">
   <thead>
     <tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
@@ -66,6 +67,7 @@ Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
     </tr>
   </tbody>
 </table>
+</div>
 
 Analyseer deze gegevens en beantwoord de onderstaande vragen.
 
