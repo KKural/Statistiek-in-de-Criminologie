@@ -2,8 +2,6 @@ Een reclasseringsdienst wil weten hoe tevreden veroordeelde delictplegers zijn o
 
 *"Was u tevreden met de begeleiding door uw reclasseringsambtenaar?"*
 
-## Frequentietabel te Voltooien
-
 **Tabel 1**
 
 *Tevredenheidsverdeling van Veroordeelde Delictplegers over Reclasseringsbegeleiding*
@@ -66,7 +64,7 @@ Een reclasseringsdienst wil weten hoe tevreden veroordeelde delictplegers zijn o
 
 *Noot.* De steekproef bestond uit veroordeelde delictplegers die begeleid worden door een reclasseringsdienst (*N* = 330).
 
-## **Jouw taak:**
+# **Jouw taak:**
 
 Analyseer deze gegevens en beantwoord de onderstaande vragen.
 
