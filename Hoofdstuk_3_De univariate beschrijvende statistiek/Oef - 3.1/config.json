@@ -1,16 +1,16 @@
 {
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
   "description": {
     "names": {
       "nl": "Oef - 3.1 Frequentietabel - Energiedrankjes consumptie"
     }
   },
-  "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "r"
   },
-  "test_suite": "evaluation",
-  "access": "public",
+  "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
     "frequentietabel",
     "absolute frequentie",
