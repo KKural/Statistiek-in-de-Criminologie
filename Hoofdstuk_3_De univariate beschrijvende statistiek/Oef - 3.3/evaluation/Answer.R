@@ -543,154 +543,302 @@ context({
           }
           
           # ----------------------------------------
-          # EXTRA UITLEG BIJ FOUTEN (COMMON MISTAKES)
+          # COMPREHENSIVE ERROR ANALYSIS (COMMON MISTAKES)
           # ----------------------------------------
           
           if (correct_count != total_questions) {
             feedback_lines <- c(feedback_lines, "", "📚 **Uitleg van veelgemaakte fouten:**")
             
-            # FREQUENCY ERRORS
-            if (!freq_correct) {
-              feedback_lines <- c(
-                feedback_lines,
-                "• **FREQUENTIE FOUT:** Tel elke waarde in de data. 24 komt 3x voor, 36 komt 7x voor, etc."
-              )
-            }
+            # ======================
+            # STAP 1 - FREQUENCY ERRORS
+            # ======================
             
-            # PERCENTAGE ERRORS  
-            if (!percent_correct) {
-              feedback_lines <- c(
-                feedback_lines,
-                "• **PERCENTAGE FOUT:** Gebruik (frequentie/20) × 100. Bijv: 36 komt 7x voor → (7/20) × 100 = 35%"
-              )
-            }
+            # Individual frequency checks with specific error patterns
+            freq_errors <- c()
             
-            # CENTRALITY ERRORS
-            if (!results$modus$correct && results$modus$exists) {
-              student_modus <- as.numeric(results$modus$value)
-              if (!is.na(student_modus) && student_modus != 36) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **MODUS FOUT:** Modus = meest voorkomende waarde. 36 komt 7x voor (meest frequent) → modus = 36"
-                )
+            if (!results$freq_24$correct && results$freq_24$exists) {
+              student_f24 <- as.numeric(results$freq_24$value)
+              if (!is.na(student_f24)) {
+                if (student_f24 == 1) {
+                  freq_errors <- c(freq_errors, "freq_24: Je telde 1, maar 24 komt 3x voor in de data")
+                } else if (student_f24 == 4) {
+                  freq_errors <- c(freq_errors, "freq_24: Je telde andere waarden mee. Tel alleen 24: komt 3x voor")
+                }
               }
             }
             
+            if (!results$freq_36$correct && results$freq_36$exists) {
+              student_f36 <- as.numeric(results$freq_36$value)
+              if (!is.na(student_f36)) {
+                if (student_f36 == 1) {
+                  freq_errors <- c(freq_errors, "freq_36: Je telde 1, maar 36 komt 7x voor (meest frequent!)")
+                } else if (student_f36 >= 8) {
+                  freq_errors <- c(freq_errors, "freq_36: Te hoog geteld. Tel precies: 36 komt 7x voor")
+                }
+              }
+            }
+            
+            if (length(freq_errors) > 0) {
+              feedback_lines <- c(feedback_lines, "• **FREQUENTIE FOUTEN:**")
+              feedback_lines <- c(feedback_lines, paste0("  - ", freq_errors))
+            }
+            
+            # PERCENTAGE ERRORS - Detailed analysis
+            percent_errors <- c()
+            
+            if (!results$percent_36$correct && results$percent_36$exists) {
+              student_p36 <- as.numeric(results$percent_36$value)
+              if (!is.na(student_p36)) {
+                if (abs(student_p36 - 7) < 0.1) {
+                  percent_errors <- c(percent_errors, "percent_36: Je gaf de frequentie (7) ipv percentage. 7/20 × 100 = 35%")
+                } else if (abs(student_p36 - 0.35) < 0.01) {
+                  percent_errors <- c(percent_errors, "percent_36: Je vergat ×100. 7/20 = 0.35 → ×100 = 35%")
+                } else if (student_p36 > 50) {
+                  percent_errors <- c(percent_errors, "percent_36: Te hoog. Check: 7 van 20 = (7/20) × 100 = 35%")
+                }
+              }
+            }
+            
+            if (!results$percent_24$correct && results$percent_24$exists) {
+              student_p24 <- as.numeric(results$percent_24$value)
+              if (!is.na(student_p24)) {
+                if (abs(student_p24 - 3) < 0.1) {
+                  percent_errors <- c(percent_errors, "percent_24: Je gaf frequentie (3) ipv percentage. 3/20 × 100 = 15%")
+                } else if (abs(student_p24 - 0.15) < 0.01) {
+                  percent_errors <- c(percent_errors, "percent_24: Vergeet niet ×100. 3/20 = 0.15 → ×100 = 15%")
+                }
+              }
+            }
+            
+            if (length(percent_errors) > 0) {
+              feedback_lines <- c(feedback_lines, "• **PERCENTAGE FOUTEN:**")
+              feedback_lines <- c(feedback_lines, paste0("  - ", percent_errors))
+            }
+            
+            # MODUS ERRORS - Multiple error types
+            if (!results$modus$correct && results$modus$exists) {
+              student_modus <- results$modus$value
+              if (is.numeric(student_modus)) {
+                if (student_modus == 7) {
+                  feedback_lines <- c(feedback_lines, "• **MODUS FOUT:** Je gaf de frequentie (7), maar modus is de WAARDE die het meest voorkomt → 36")
+                } else if (student_modus %in% c(24, 28, 32, 34, 35, 38, 40)) {
+                  feedback_lines <- c(feedback_lines, paste0("• **MODUS FOUT:** ", student_modus, " is niet het meest frequent. 36 komt 7x voor (meest) → modus = 36"))
+                } else if (length(student_modus) > 1) {
+                  feedback_lines <- c(feedback_lines, "• **MODUS FOUT:** Geef één waarde. De waarde die het MEEST voorkomt is 36 (7x)")
+                }
+              }
+            }
+            
+            # MEDIAAN ERRORS - Position vs value confusion
             if (!results$mediaan$correct && results$mediaan$exists) {
               student_mediaan <- as.numeric(results$mediaan$value)
-              if (!is.na(student_mediaan) && student_mediaan != 36) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **MEDIAAN FOUT:** Sorteer data eerst! 20 waarden → mediaan = gemiddelde van 10de en 11de waarde = (36+36)/2 = 36"
-                )
+              if (!is.na(student_mediaan)) {
+                if (student_mediaan == 10.5 || student_mediaan == 10 || student_mediaan == 11) {
+                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Je gaf de positie (10.5), maar mediaan is de WAARDE op die positie. Gesorteerd: 10de en 11de = 36 en 36 → mediaan = 36")
+                } else if (student_mediaan %in% c(24, 28, 32, 34, 35, 38, 40)) {
+                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Sorteer eerst! Data gesorteerd: 24,24,24,28,28,32,32,34,35,36,36,36,36,36,36,36,38,40,40,40 → middelste = 36")
+                } else if (abs(student_mediaan - 33.55) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Je gaf het gemiddelde. Mediaan = middelste waarde na sorteren = 36")
+                }
               }
             }
             
+            # GEMIDDELDE ERRORS - Calculation mistakes  
             if (!results$gemiddelde$correct && results$gemiddelde$exists) {
               student_gem <- as.numeric(results$gemiddelde$value)
               if (!is.na(student_gem)) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  paste0("• **GEMIDDELDE FOUT:** Som alle waarden / aantal waarden = 671/20 = 33.55 (je had: ", student_gem, ")")
-                )
+                if (abs(student_gem - 35.35) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Rekenfout in som. Check: 24×3 + 28×2 + 32×2 + 34×1 + 35×1 + 36×7 + 38×1 + 40×3 = 671, dan 671/20 = 33.55")
+                } else if (abs(student_gem - 33.4) < 0.1) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Afronding te vroeg? Exact: 671/20 = 33.55 (gebruik decimale punt)")
+                } else if (student_gem == 36) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Je gaf de mediaan (36). Gemiddelde = som/aantal = 671/20 = 33.55")
+                } else if (abs(student_gem - 35.32) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Je deelde door 19 ipv 20. Gemiddelde = 671/20 = 33.55")
+                }
               }
             }
             
-            # QUARTILE ERRORS
+            # ======================
+            # STAP 2 - SPREIDING ERRORS
+            # ======================
+            
+            # VARIATIEBREEDTE ERRORS
+            if (!results$variatiebreedte$correct && results$variatiebreedte$exists) {
+              student_vb <- as.numeric(results$variatiebreedte$value)
+              if (!is.na(student_vb)) {
+                if (student_vb == 64) {
+                  feedback_lines <- c(feedback_lines, "• **VARIATIEBREEDTE FOUT:** Je deed 40+24=64, maar range = max-min = 40-24 = 16")
+                } else if (student_vb == 8) {
+                  feedback_lines <- c(feedback_lines, "• **VARIATIEBREEDTE FOUT:** Je gebruikte verkeerde waarden. Range = hoogste(40) - laagste(24) = 16")
+                } else if (student_vb > 20) {
+                  feedback_lines <- c(feedback_lines, "• **VARIATIEBREEDTE FOUT:** Te groot. Range = max - min = 40 - 24 = 16")
+                }
+              }
+            }
+            
+            # Q1 ERRORS - Detailed position analysis
             if (!results$q1$correct && results$q1$exists) {
               student_q1 <- as.numeric(results$q1$value)
-              if (!is.na(student_q1) && student_q1 != 30) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **Q1 FOUT:** Q1 = 25% positie = 5.25ste waarde. In gesorteerde data is dit tussen 28 en 32 → Q1 = 30"
-                )
+              if (!is.na(student_q1)) {
+                if (student_q1 == 5.25) {
+                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Je gaf de positie (5.25), maar Q1 is de WAARDE op die positie = 30")
+                } else if (student_q1 == 28) {
+                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Te laag. Q1 positie = 25% van 20 = 5.25. Tussen 5de (28) en 6de (32) waarde → interpoleer: 30")
+                } else if (student_q1 == 32) {
+                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Te hoog. Q1 = 25% positie tussen 28 en 32 → Q1 = 30")
+                } else if (student_q1 == 24) {
+                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Dit is de minimum waarde. Q1 = 25% positie = tussen 28 en 32 → Q1 = 30")
+                }
               }
             }
             
+            # Q3 ERRORS  
             if (!results$q3$correct && results$q3$exists) {
               student_q3 <- as.numeric(results$q3$value)
-              if (!is.na(student_q3) && student_q3 != 36) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **Q3 FOUT:** Q3 = 75% positie = 15.75ste waarde. In gesorteerde data → Q3 = 36"
-                )
+              if (!is.na(student_q3)) {
+                if (student_q3 == 15.75) {
+                  feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Je gaf de positie (15.75), maar Q3 is de WAARDE op die positie = 36")
+                } else if (student_q3 == 38 || student_q3 == 40) {
+                  feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Te hoog. Q3 = 75% positie = 15.75ste waarde = 36")
+                } else if (student_q3 == 34 || student_q3 == 35) {
+                  feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Te laag. Q3 = 75% van gesorteerde data = 36")
+                }
               }
             }
             
-            # PARAMETER CHOICE ERRORS
+            # IKA ERRORS
+            if (!results$ika$correct && results$ika$exists) {
+              student_ika <- as.numeric(results$ika$value)
+              if (!is.na(student_ika)) {
+                if (student_ika < 0) {
+                  feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Negatief getal? IKA = Q3 - Q1 = 36 - 30 = 6 (altijd positief)")
+                } else if (student_ika == 16) {
+                  feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Je berekende de variatiebreedte. IKA = Q3 - Q1 = 36 - 30 = 6")
+                } else if (student_ika > 10) {
+                  feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Te groot. IKA = Q3 - Q1 = 36 - 30 = 6")
+                }
+              }
+            }
+            
+            # PARAMETER CHOICE ERRORS - Detailed reasoning
             if (!results$meest_relevante_centraliteit$correct && results$meest_relevante_centraliteit$exists) {
               student_cent <- tolower(trimws(as.character(results$meest_relevante_centraliteit$value)))
-              if (student_cent %in% c("modus", "mediaan")) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **CENTRALITEIT KEUZE FOUT:** Bij intervaldata gebruik je het GEMIDDELDE omdat dit alle informatie gebruikt (niet alleen rangorde)"
-                )
+              if (student_cent == "modus") {
+                feedback_lines <- c(feedback_lines, "• **CENTRALITEIT KEUZE:** Modus geeft minste info (alleen meest frequent). Bij intervaldata: gemiddelde gebruikt ALLE waarden")
+              } else if (student_cent == "mediaan") {
+                feedback_lines <- c(feedback_lines, "• **CENTRALITEIT KEUZE:** Mediaan is robuust maar gebruikt niet alle info. Bij intervaldata: gemiddelde is meest informatief")
               }
             }
             
             if (!results$meest_relevante_spreiding$correct && results$meest_relevante_spreiding$exists) {
               student_spr <- tolower(trimws(as.character(results$meest_relevante_spreiding$value)))
               if (student_spr == "variatiebreedte") {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **SPREIDING KEUZE FOUT:** Variatiebreedte is gevoelig voor uitbijters. INTERKWARTIELAFSTAND is robuuster"
-                )
+                feedback_lines <- c(feedback_lines, "• **SPREIDING KEUZE:** Range is gevoelig voor uitbijters. Interkwartielafstand = robuuster (middelste 50%)")
               }
             }
             
-            # DEVIATION ERRORS - Check a few key ones
+            if (!results$reden$correct && results$reden$exists) {
+              student_reden <- tolower(trimws(as.character(results$reden$value)))
+              if (student_reden == "geen uitbijters") {
+                feedback_lines <- c(feedback_lines, "• **REDEN FOUT:** Er kunnen wel uitbijters zijn. Reden: gemiddelde 'gebruikt alle informatie'")
+              } else if (student_reden == "robuust voor uitbijters") {
+                feedback_lines <- c(feedback_lines, "• **REDEN FOUT:** Gemiddelde is juist NIET robuust. Reden: 'gebruikt alle informatie' (iedere waarde telt mee)")
+              }
+            }
+            
+            # ======================
+            # STAP 3 - ADVANCED CALCULATION ERRORS
+            # ======================
+            
+            # AFWIJKING SIGN ERRORS - Check multiple deviations
+            deviation_sign_errors <- 0
             if (!results$afwijking_24_1$correct && results$afwijking_24_1$exists) {
               student_afw <- as.numeric(results$afwijking_24_1$value)
-              if (!is.na(student_afw)) {
-                if (student_afw == 9.55) {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **AFWIJKING TEKEN FOUT:** 24 - 33.55 = -9.55 (negatief!). Let op het teken bij afwijkingen"
-                  )
-                } else if (abs(student_afw - (-9.55)) > 0.01) {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **AFWIJKING BEREKENING FOUT:** 24 - 33.55 = -9.55 (gebruik decimale punt, niet komma)"
-                  )
+              if (!is.na(student_afw) && student_afw == 9.55) {
+                deviation_sign_errors <- deviation_sign_errors + 1
+              }
+            }
+            if (!results$afwijking_40_1$correct && results$afwijking_40_1$exists) {
+              student_afw <- as.numeric(results$afwijking_40_1$value)
+              if (!is.na(student_afw) && student_afw == -6.45) {
+                deviation_sign_errors <- deviation_sign_errors + 1
+              }
+            }
+            
+            if (deviation_sign_errors > 0) {
+              feedback_lines <- c(feedback_lines, "• **AFWIJKING TEKEN FOUT:** Let op tekens! 24-33.55 = -9.55 (negatief), 40-33.55 = +6.45 (positief)")
+            }
+            
+            # MEAN ERROR IN DEVIATIONS
+            if (!results$afwijking_24_1$correct && results$afwijking_24_1$exists) {
+              student_afw <- as.numeric(results$afwijking_24_1$value)
+              if (!is.na(student_afw) && abs(student_afw - (-12)) < 0.1) {
+                feedback_lines <- c(feedback_lines, "• **AFWIJKING GEMIDDELDE FOUT:** Je gebruikte verkeerd gemiddelde. Gebruik 33.55: 24 - 33.55 = -9.55")
+              }
+            }
+            
+            # SQUARED DEVIATIONS - Common mistakes
+            if (!results$gekw_afwijking_24_1$correct && results$gekw_afwijking_24_1$exists) {
+              student_gekw <- as.numeric(results$gekw_afwijking_24_1$value)
+              if (!is.na(student_gekw)) {
+                if (student_gekw == -91.2025) {
+                  feedback_lines <- c(feedback_lines, "• **GEKWADRATEERDE AFWIJKING TEKEN:** Kwadraat is altijd positief! (-9.55)² = 91.2025")
+                } else if (abs(student_gekw - 9.55) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **GEKWADRATEERDE AFWIJKING:** Je vergat te kwadrateren. (-9.55)² = 91.2025 (niet 9.55)")
                 }
               }
             }
             
-            # VARIANCE CALCULATION ERRORS
+            # SUM OF SQUARES ERRORS
+            if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
+              student_ss <- as.numeric(results$sum_of_squares$value)
+              if (!is.na(student_ss)) {
+                if (abs(student_ss - 671) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **SOM KWADRATEN FOUT:** Je somde originele waarden ipv gekwadrateerde afwijkingen. Som van (afwijking)² = 528.95")
+                } else if (student_ss > 600 && student_ss < 650) {
+                  feedback_lines <- c(feedback_lines, "• **SOM KWADRATEN FOUT:** Controleer je gekwadrateerde afwijkingen. Correcte som = 528.95")
+                }
+              }
+            }
+            
+            # VARIANCE ERRORS - n vs n-1
             if (!results$variantie$correct && results$variantie$exists) {
               student_var <- as.numeric(results$variantie$value)
               if (!is.na(student_var)) {
                 if (abs(student_var - 26.4475) < 0.01) {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **VARIANTIE n FOUT:** Je deelde door n=20, maar gebruik n-1=19 voor steekproefvariantie: 528.95/19 = 27.8295"
-                  )
-                } else if (student_var == 528.95) {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **VARIANTIE FOUT:** Je gaf de som van kwadraten, maar variantie = som/(n-1) = 528.95/19 = 27.8295"
-                  )
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE n-1 FOUT:** Je deelde door n=20, gebruik n-1=19 voor steekproef: 528.95/19 = 27.8295")
+                } else if (abs(student_var - 528.95) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE FORMULE FOUT:** Je gaf som van kwadraten. Variantie = som/(n-1) = 528.95/19 = 27.8295")
+                } else if (abs(student_var - 33.55) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE FOUT:** Je gaf het gemiddelde. Variantie = som gekwadrateerde afwijkingen/(n-1) = 27.8295")
                 }
               }
             }
             
+            # STANDARD DEVIATION ERRORS
             if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
               student_sd <- as.numeric(results$standaardafwijking$value)
-              if (!is.na(student_sd) && abs(student_sd - 27.8295) < 0.01) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **STANDAARDAFWIJKING FOUT:** Je gaf de variantie, maar SD = √variantie = √27.8295 = 5.2763"
-                )
+              if (!is.na(student_sd)) {
+                if (abs(student_sd - 27.8295) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDAFWIJKING WORTEL FOUT:** Je gaf variantie. SD = √variantie = √27.8295 = 5.2763")
+                } else if (abs(student_sd - 528.95) < 1) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDAFWIJKING FOUT:** Je gaf som van kwadraten. SD = √(som/(n-1)) = √27.8295 = 5.2763")
+                }
               }
             }
             
+            # COEFFICIENT OF VARIATION ERRORS
             if (!results$variatiecoefficient$correct && results$variatiecoefficient$exists) {
               student_cv <- as.numeric(results$variatiecoefficient$value)
-              if (!is.na(student_cv) && student_cv > 1) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **VARIATIECOËFFICIËNT FOUT:** CV = SD/gemiddelde = 5.2763/33.55 = 0.1573 (geen percentage!)"
-                )
+              if (!is.na(student_cv)) {
+                if (student_cv > 10) {
+                  feedback_lines <- c(feedback_lines, "• **VARIATIECOËFFICIËNT PERCENTAGE:** Je gaf als percentage (15.73%). CV = decimaal: 5.2763/33.55 = 0.1573")
+                } else if (abs(student_cv - 6.36) < 0.1) {
+                  feedback_lines <- c(feedback_lines, "• **VARIATIECOËFFICIËNT OMGEKEERD:** Je deed gemiddelde/SD. Correct: CV = SD/gemiddelde = 5.2763/33.55 = 0.1573")
+                } else if (abs(student_cv - 0.83) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIATIECOËFFICIËNT VARIANTIE FOUT:** Je gebruikte variantie ipv SD. CV = SD/gemiddelde = 5.2763/33.55 = 0.1573")
+                }
               }
             }
           }
