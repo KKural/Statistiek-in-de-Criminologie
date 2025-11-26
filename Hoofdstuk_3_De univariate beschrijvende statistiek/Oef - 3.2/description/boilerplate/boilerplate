@@ -1,33 +1,49 @@
 # Vervang ??? door het juiste antwoord
+# Volg de stap-voor-stap methode uit de theorie
 
-# De data: Tevredenheidsmeting reclasseringsdiensten (N = 330)
-# Zeer ontevreden: 33, Ontevreden: 84, Noch tevreden, noch ontevreden: 102
-# Tevreden: 63, Zeer tevreden: 48
+# STAP 0: De gegevens (N = 330)
+# Zeer ontevreden: 33
+# Ontevreden: 84  
+# Noch tevreden, noch ontevreden: 102
+# Tevreden: 63
+# Zeer tevreden: 48
 
+# STAP 1: Bepaal het meetniveau
 # a. Wat is het meetniveau van de variabele?
-vraag_a <- ???
+meetniveau <- ???
 
-# b. Bereken alle relevante maten van centraliteit
-# Tip: Voor ordinale data is de mediaan de meest relevante maat
-# Mediaan = categorie die overeenkomt met de 165,5ste waarneming (N/2 = 330/2 = 165)
+# STAP 2: Bepaal welke maten je MAG gebruiken (afhankelijk van meetniveau)
+# Voor ordinaal: modus, mediaan, kwartielen, variatiebreedte, IKA
+
+# STAP 3: Maak de frequentietabel
+# Bereken eerst het totaal N (som van alle absolute frequenties)
+totaal_n <- ???
+
+# STAP 4: Bereken maten van centraliteit
+# b1. Wat is de modus? (categorie met hoogste frequentie)
+modus <- ???
+
+# b2. Wat is de mediaan? (165,5ste waarneming)
 mediaan <- ???
 
-# c. Bereken alle relevante maten van spreiding
-# Voor ordinale data: Q1, Q3, en interkwartielafstand
+# b3. Welke maat is het meest relevant voor ordinale data?
+meest_relevante_centraliteit <- ???
 
-# Q1 = 25% van respondenten (82,5ste waarneming)
-# Cumulatief: 33 < 82,5 maar 33+84=117 >= 82,5
+# STAP 5: Bereken maten van spreiding  
+# c1. Wat is Q1? (82,5ste waarneming)
 q1 <- ???
 
-# Q3 = 75% van respondenten (247,5ste waarneming)  
-# Cumulatief: 219 < 247,5 maar 219+63=282 >= 247,5
+# c2. Wat is Q3? (247,5ste waarneming)
 q3 <- ???
 
-# Interkwartielafstand = bereik tussen Q1 en Q3
-# Geef aan welke categorieën tussen Q1 en Q3 liggen
+# c3. Wat is de variatiebreedte? (van laagste tot hoogste categorie)
+variatiebreedte <- ???
+
+# c4. Wat is de interkwartielafstand? (bereik van Q1 tot Q3)
 ika <- ???
 
-# BELANGRIJK: 
-# - Voor meetniveau: gebruik "ordinaal", "nominaal" of "interval"
-# - Voor categorieën: gebruik exact "zeer ontevreden", "ontevreden", "noch tevreden, noch ontevreden", "tevreden", "zeer tevreden"
-# - Voor IKA: beschrijf het bereik, bijvoorbeeld "ontevreden tot tevreden"
+# ANTWOORDINSTRUCTIES:
+# - Meetniveau: "ordinaal", "nominaal" of "interval" 
+# - Categorieën: gebruik exact "zeer ontevreden", "ontevreden", "noch tevreden, noch ontevreden", "tevreden", "zeer tevreden"
+# - Meest relevante: "modus" of "mediaan"
+# - Bereik: "zeer ontevreden tot zeer tevreden" of "ontevreden tot tevreden"
