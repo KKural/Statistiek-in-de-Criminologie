@@ -288,6 +288,99 @@ context({
           if (correct_count == total_questions) {
             feedback_lines <- c(feedback_lines, "", "✅ **Alle stappen correct beantwoord!**")
             feedback_lines <- c(feedback_lines, "**Uitstekend!** Je beheerst ordinale data-analyse perfect.")
+          } else {
+            # Add detailed error explanations for common mistakes
+            feedback_lines <- c(feedback_lines, "", "📚 **Uitleg van veelgemaakte fouten:**")
+            
+            # Check for specific common errors
+            
+            # ERROR A: Wrong centrality measures
+            if (!results$meetniveau$correct && results$meetniveau$exists) {
+              if (tolower(trimws(as.character(results$meetniveau$value))) %in% c("interval", "ratio", "numeriek")) {
+                feedback_lines <- c(feedback_lines, "• **MEETNIVEAU FOUT:** Dit is ordinaal, niet interval! Ordinale data hebben rangorde maar geen gelijke afstanden.")
+              }
+            }
+            
+            # ERROR B: Wrong quartile interpretation  
+            if (!results$q1$correct && results$q1$exists) {
+              student_q1 <- as.character(results$q1$value)
+              if (grepl("^0\\.|^[0-9]+\\.[0-9]|^[0-9]+$", student_q1)) {
+                feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Je gaf een getal, maar Q1 moet een CATEGORIE zijn! Q1 = 82,5ste persoon valt in categorie 'ontevreden'.")
+              } else if (tolower(trimws(student_q1)) == "zeer ontevreden") {
+                feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Check cumulatieve frequenties! 82,5ste persoon: 33 < 82,5 maar 33+84=117 ≥ 82,5 → 'ontevreden'.")
+              }
+            }
+            
+            if (!results$q3$correct && results$q3$exists) {
+              student_q3 <- as.character(results$q3$value)
+              if (grepl("^0\\.|^[0-9]+\\.[0-9]|^[0-9]+$", student_q3)) {
+                feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Je gaf een getal, maar Q3 moet een CATEGORIE zijn! Q3 = 247,5ste persoon valt in categorie 'tevreden'.")
+              } else if (tolower(trimws(student_q3)) == "zeer tevreden") {
+                feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Check cumulatieve frequenties! 247,5ste persoon: 219 < 247,5 maar 219+63=282 ≥ 247,5 → 'tevreden'.")
+              }
+            }
+            
+            # ERROR C: Wrong median interpretation
+            if (!results$mediaan$correct && results$mediaan$exists) {
+              student_median <- as.character(results$mediaan$value)
+              if (grepl("^165|^3$|^0\\.5", student_median)) {
+                feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Je gaf een getal/positie, maar mediaan moet een CATEGORIE zijn! 165,5ste persoon = 'noch tevreden, noch ontevreden'.")
+              } else if (tolower(trimws(student_median)) %in% c("tevreden", "zeer tevreden", "ontevreden", "zeer ontevreden")) {
+                feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Check cumulatieve frequenties! 165,5ste persoon: 117 < 165,5 maar 117+102=219 ≥ 165,5 → 'noch tevreden, noch ontevreden'.")
+              }
+            }
+            
+            # ERROR D: Wrong IKA calculation
+            if (!results$ika$correct && results$ika$exists) {
+              student_ika <- as.character(results$ika$value)
+              if (grepl("^[0-9]|^1$|^2$|^3$", student_ika)) {
+                feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Je probeerde Q3-Q1 = 4-2 = 2? Dat kan niet bij ordinale data! IKA = bereik van categorieŽn 'ontevreden tot tevreden'.")
+              } else if (grepl("zeer.*zeer", tolower(student_ika))) {
+                feedback_lines <- c(feedback_lines, "• **IKA FOUT:** IKA ≠ variatiebreedte! IKA = bereik Q1 tot Q3 (middelste 50%), niet van laagste tot hoogste.")
+              }
+            }
+            
+            # ERROR E: Wrong totaal_n
+            if (!results$totaal_n$correct && results$totaal_n$exists) {
+              student_n <- as.numeric(results$totaal_n$value)
+              if (student_n == 5) {
+                feedback_lines <- c(feedback_lines, "• **TOTAAL N FOUT:** Je telde categorieŽn (5) i.p.v. respondenten! Tel absolute frequenties: 33+84+102+63+48 = 330.")
+              } else if (student_n != 330) {
+                feedback_lines <- c(feedback_lines, "• **TOTAAL N FOUT:** Check je berekening! Som alle absolute frequenties: 33+84+102+63+48 = 330.")
+              }
+            }
+            
+            # ERROR F: Wrong frequency table calculations
+            if (!results$cumulatieve_absolute_frequenties$correct && results$cumulatieve_absolute_frequenties$exists) {
+              student_cum <- results$cumulatieve_absolute_frequenties$value
+              if (is.numeric(student_cum) && length(student_cum) >= 2) {
+                if (all(student_cum == c(33, 84, 102, 63, 48))) {
+                  feedback_lines <- c(feedback_lines, "• **CUMULATIEF FOUT:** Je gaf absolute frequenties! Cumulatief = opgeteld: 33, 33+84=117, 117+102=219, enz.")
+                } else if (student_cum[2] < student_cum[1]) {
+                  feedback_lines <- c(feedback_lines, "• **CUMULATIEF FOUT:** Verkeerde volgorde! Ordinale data moeten in oorspronkelijke rangorde blijven.")
+                }
+              }
+            }
+            
+            if (!results$relatieve_frequenties$correct && results$relatieve_frequenties$exists) {
+              student_rel <- results$relatieve_frequenties$value
+              if (is.numeric(student_rel) && length(student_rel) >= 1) {
+                if (any(student_rel > 50)) {
+                  feedback_lines <- c(feedback_lines, "• **RELATIEF FOUT:** Je gebruikte percentages (×100)! Gebruik proporties: 33/330 = 0.1000, niet 10.00.")
+                } else if (any(student_rel > 1)) {
+                  feedback_lines <- c(feedback_lines, "• **RELATIEF FOUT:** Te grote waarden! Relatieve frequentie = absolute_frequentie / 330.")
+                }
+              }
+            }
+            
+            # ERROR G: Wrong measurement level implications
+            if (!results$meest_relevante$correct && results$meest_relevante$exists) {
+              if (tolower(trimws(as.character(results$meest_relevante$value))) == "modus") {
+                feedback_lines <- c(feedback_lines, "• **MEEST RELEVANT FOUT:** Voor ordinale data geeft de mediaan meer informatie dan modus (toont rangorde).")
+              } else if (tolower(trimws(as.character(results$meest_relevante$value))) %in% c("gemiddelde", "mean")) {
+                feedback_lines <- c(feedback_lines, "• **MEEST RELEVANT FOUT:** Gemiddelde mag niet bij ordinale data! Alleen modus en mediaan zijn toegestaan.")
+              }
+            }
           }
           
           feedback_lines <- c(feedback_lines, "", 
@@ -297,7 +390,14 @@ context({
                              "• STAP 1: Meetniveau bepalen",
                              "• STAP 3: Totaal N berekenen (som alle frequenties)", 
                              "• STAP 4: Centraliteit (modus, mediaan, meest relevant)",
-                             "• STAP 5: Spreiding (Q1, Q3, variatiebreedte, IKA)")
+                             "• STAP 5: Spreiding (Q1, Q3, variatiebreedte, IKA)",
+                             "",
+                             "🔍 **BELANGRIJKE REGELS VOOR ORDINALE DATA:**",
+                             "• **Kwartielen zijn CATEGORIEAŽN**, geen getallen!",
+                             "• **Gebruik cumulatieve frequenties** om kwartielen te vinden",
+                             "• **Gemiddelde is VERBODEN** bij ordinale data",
+                             "• **IKA = bereik categorieŽn**, niet Q3-Q1",
+                             "• **Behoud de oorspronkelijke rangorde** van categorieŽn")
           
           # show markdown feedback
           get_reporter()$add_message(paste(feedback_lines, collapse = "\n\n"),
