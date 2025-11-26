@@ -6,65 +6,18 @@ Een reclasseringsdienst wil weten hoe tevreden veroordeelde delictplegers zijn o
 
 *"Was u tevreden met de begeleiding door uw reclasseringsambtenaar?"*
 
-**Tabel 2** *(Onvolledige frequentietabel - vul de ontbrekende kolommen in via R)*
+## **📊 Frequentietabel te Voltooien**
 
 *Tevredenheidsverdeling van Veroordeelde Delictplegers over Reclasseringsbegeleiding*
 
-<table style="border-collapse: collapse; width: 90%; margin: 20px auto; font-family: Times, serif;">
-<thead>
-<tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
-<th style="padding: 6px 8px; text-align: left; font-weight: bold; width: 30%;">Antwoord</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 17%;">Absolute<br>Frequentie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 17%;">Cumulatieve<br>Abs. Freq.</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 18%;">Relatieve<br>Frequentie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 18%;">Cumulatieve<br>Rel. Freq.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Zeer ontevreden</td>
-<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">33</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Ontevreden</td>
-<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">84</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Noch tevreden, noch ontevreden</td>
-<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">102</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Tevreden</td>
-<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">63</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Zeer tevreden</td>
-<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">48</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-<td style="padding: 4px 8px; text-align: center;">?</td>
-</tr>
-<tr style="border-top: 1px solid #000; border-bottom: 2px solid #000;">
-<td style="padding: 4px 8px; text-align: left; font-weight: bold;">Totaal (N)</td>
-<td style="padding: 4px 8px; text-align: center; font-weight: bold; background-color: #f0f0f0;">330</td>
-<td style="padding: 4px 8px; text-align: center;">-</td>
-<td style="padding: 4px 8px; text-align: center;">1.00</td>
-<td style="padding: 4px 8px; text-align: center;">-</td>
-</tr>
-</tbody>
-</table>
+| Antwoord                         | Abs. Freq. | Cum. Abs. | Rel. Freq. | Cum. Rel. |
+|----------------------------------|:----------:|:---------:|:----------:|:---------:|
+| Zeer ontevreden                  | **33**     | ❓        | ❓         | ❓        |
+| Ontevreden                       | **84**     | ❓        | ❓         | ❓        |
+| Noch tevreden, noch ontevreden   | **102**    | ❓        | ❓         | ❓        |
+| Tevreden                         | **63**     | ❓        | ❓         | ❓        |
+| Zeer tevreden                    | **48**     | ❓        | ❓         | ❓        |
+| **TOTAAL (N)**                   | **330**    | -         | **1.0000** | -         |
 
 *Noot.* De steekproef bestond uit veroordeelde delictplegers die begeleid worden door een reclasseringsdienst (*N* = 330).
 
