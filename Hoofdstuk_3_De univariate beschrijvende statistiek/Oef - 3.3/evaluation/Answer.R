@@ -3,7 +3,7 @@ context({
     "",
     {
       testEqual(
-        " ",
+        "",
         function(env) {
           # Use the provided environment (env) instead of globalenv()
           results <- list()
@@ -495,7 +495,9 @@ context({
             feedback_parts <- c(feedback_parts, "• **Modus**: 36 (komt 7× voor), **Mediaan**: 36, **Gemiddelde**: 33.55")
           }
           
-          return(paste(feedback_parts, collapse = "\n"))
+          
+          # Final result
+          generated == expected
         }
       )
     }
