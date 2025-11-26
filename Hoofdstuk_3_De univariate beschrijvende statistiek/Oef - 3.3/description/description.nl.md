@@ -1,23 +1,73 @@
-In een onderzoek naar de werkuren van veroordeelde delictplegers die deelnemen aan een re-integratieprogramma wordt gevraagd hoeveel uren zij per week werken. De gegevens van een steekproef van 20 deelnemers zijn als volgt:
+In een onderzoek naar de **werkuren van veroordeelde delictplegers** die deelnemen aan een re-integratieprogramma wordt gevraagd hoeveel uren zij per week werken. Van een **steekproef van 20 deelnemers** werd het aantal werkuren per week geregistreerd.
 
-**Data:** 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36
+De individuele waarden zijn:
 
-*Noot.* De steekproef bestond uit 20 veroordeelde delictplegers die deelnemen aan een re-integratieprogramma.
+`24  36  35  28  24  28  24  36  32  36  40  38  36  34  40  36  32  36  40  36`
 
-## **Methodologie voor Interval/Ratio Data-analyse:**
+Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
 
-**Stap 1:** De eerste vraag die je moet stellen, is welke maten je mag berekenen. Dit is afhankelijk van het meetniveau van de variabele. Werkuren zijn een interval/ratio variabele met gelijke afstanden tussen waarden, dus je mag **alle maten van centraliteit** berekenen: modus, mediaan én gemiddelde.
+**Tabel 1**
 
-**Stap 2:** Wanneer je weet welke maten je mag berekenen, ga je na welke maat je het meeste informatie geeft. Voor interval/ratio data geeft het **gemiddelde** meestal de meeste informatie, tenzij er extreme waarden (uitbijters) zijn die het gemiddelde vertekenen.
+*Werkuren per week van deelnemers aan een re-integratieprogramma*
 
-**a.** Bereken de modus, mediaan en het gemiddelde van het aantal werkuren per week voor de deelnemers aan het re-integratieprogramma.
+<table style="border-collapse: collapse; width: 70%; margin: 20px auto; font-family: Times, serif;">
+<thead>
+<tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 30%;">Werkuren (X)</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 30%;">Frequentie (f)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="padding: 4px 8px; text-align: center;">24</td><td style="padding: 4px 8px; text-align: center;">3</td></tr>
+<tr><td style="padding: 4px 8px; text-align: center;">28</td><td style="padding: 4px 8px; text-align: center;">2</td></tr>
+<tr><td style="padding: 4px 8px; text-align: center;">32</td><td style="padding: 4px 8px; text-align: center;">2</td></tr>
+<tr><td style="padding: 4px 8px; text-align: center;">34</td><td style="padding: 4px 8px; text-align: center;">1</td></tr>
+<tr><td style="padding: 4px 8px; text-align: center;">35</td><td style="padding: 4px 8px; text-align: center;">1</td></tr>
+<tr><td style="padding: 4px 8px; text-align: center;">36</td><td style="padding: 4px 8px; text-align: center;">7</td></tr>
+<tr><td style="padding: 4px 8px; text-align: center;">38</td><td style="padding: 4px 8px; text-align: center;">1</td></tr>
+<tr style="border-bottom: 2px solid #000;">
+<td style="padding: 4px 8px; text-align: center;">40</td><td style="padding: 4px 8px; text-align: center;">3</td>
+</tr>
+<tr style="border-bottom: 2px solid #000;">
+<td style="padding: 4px 8px; text-align: center; font-style: italic;">Totaal N</td>
+<td style="padding: 4px 8px; text-align: center; font-style: italic;">20</td>
+</tr>
+</tbody>
+</table>
 
-**b.** Toon stap-voor-stap je berekeningen:
-   - Bereken voor elke waarneming de afwijking van het gemiddelde (X - x̄)
-   - Bereken voor elke waarneming de gekwadrateerde afwijking (X - x̄)²
-   - Bereken de variatiebreedte, interkwartielafstand, variantie, standaardafwijking en variatiecoëfficiënt
+Analyseer deze gegevens en beantwoord de onderstaande vragen.
 
-**c.** Welke parameter van centraliteit en spreiding zou jij kiezen om de werkuren van de deelnemers te beschrijven en waarom?
+**a.** Bereken de **modus**, **mediaan** en het **gemiddelde** van het aantal werkuren per week voor de deelnemers aan het re-integratieprogramma.
 
-**Instructie:** 
-Vervang "???" door het juiste antwoord. Gebruik decimale punten (bijvoorbeeld 33.55) voor berekeningen.
+**b.** Bereken de **variatiebreedte** en de **interkwartielafstand (IKA)** van de werkuren.
+
+**c.** Welke **maat van centraliteit** en welke **maat van spreiding** zou jij kiezen om de werkuren van de deelnemers het best te beschrijven, en **waarom**?
+
+---
+
+### Te volgen redenering
+
+**Stap 1 – Meetniveau bepalen**
+
+Bepaal eerst het **meetniveau** van de variabele *werkuren per week*. Dat meetniveau bepaalt welke statistische maten je mag gebruiken. Voor **interval- en ratiovariabelen** mag je alle klassieke maten van centraliteit (modus, mediaan, gemiddelde) en spreiding (variatiebreedte, interkwartielafstand, variantie, standaardafwijking, …) berekenen.
+
+**Stap 2 – Kies de meest informatieve maten**
+
+Van alle maten die je **mag** berekenen, kies je de maat die je **meest informatie** geeft over:
+
+- het **centrum** van de verdeling (centrale tendens);
+- de **spreiding** rond dat centrum.
+
+Bijvoorbeeld: het **gemiddelde** gebruikt alle waarden, maar kan gevoelig zijn voor extreme waarden; de **mediaan** is resistenter tegen uitschieters; de **IKA** zegt iets over de centrale 50% van de waarnemingen.
+
+---
+
+### Instructie voor de code
+
+In het code-bestand vervang je overal `???` door het juiste antwoord.
+
+- Schrijf numerieke antwoorden met een **decimale punt** (bijv. `33.55`, niet `33,55`).
+- Voor vectoren gebruik je de notatie `c(waarde1, waarde2, ...)`.
+- Voor het meetniveau gebruik je een tekstwaarde, bijvoorbeeld `"ratio"`.
+- Voor tekstcategorieën (bijv. keuzes voor de beste maat) gebruik je kleine letters, zoals `"gemiddelde"`, `"mediaan"`, `"modus"`.
+

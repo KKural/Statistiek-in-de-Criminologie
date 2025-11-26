@@ -4,7 +4,6 @@ context({
     {
       testEqual(
         "Controleer je stap-voor-stap antwoorden voor werkuren statistieken",
-        TRUE,
         function(env) {
           results <- list()
           
