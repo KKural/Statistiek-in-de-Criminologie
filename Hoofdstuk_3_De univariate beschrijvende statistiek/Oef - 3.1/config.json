@@ -1,7 +1,7 @@
 {
   "description": {
     "names": {
-      "nl": "Oef - 3.1"
+      "nl": "Oef - 3.1 Frequentietabel - Energiedrankjes consumptie"
     }
   },
   "programming_language": "R",
@@ -10,10 +10,11 @@
     "memory_limit": 10000000
   },
   "test_suite": "evaluation",
-  "workdir": "workdir",
   "access": "public",
   "labels": [
-    "begrippen"
+    "frequentietabel",
+    "absolute frequentie",
+    "beschrijvende statistiek"
   ],
   "internals": {
     "token": "2cMmxz2qmG5w9_vmuaEDKHCpdyuzZAG-xEuan5BryN6KrJvYZBkiA4t_I99d8uUQ",
