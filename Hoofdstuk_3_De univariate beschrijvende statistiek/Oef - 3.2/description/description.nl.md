@@ -22,37 +22,37 @@ Een reclasseringsdienst wil weten hoe tevreden veroordeelde delictplegers zijn o
 <tr>
 <td style="padding: 4px 8px; text-align: left;">Zeer ontevreden</td>
 <td style="padding: 4px 8px; text-align: center;">33</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
 <tr>
 <td style="padding: 4px 8px; text-align: left;">Ontevreden</td>
 <td style="padding: 4px 8px; text-align: center;">84</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
 <tr>
 <td style="padding: 4px 8px; text-align: left;">Noch tevreden, noch ontevreden</td>
 <td style="padding: 4px 8px; text-align: center;">102</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
 <tr>
 <td style="padding: 4px 8px; text-align: left;">Tevreden</td>
 <td style="padding: 4px 8px; text-align: center;">63</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
 <tr style="border-bottom: 2px solid #000;">
 <td style="padding: 4px 8px; text-align: left;">Zeer tevreden</td>
 <td style="padding: 4px 8px; text-align: center;">48</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
-<td style="padding: 4px 8px; text-align: center;">❓</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
 <tr style="border-bottom: 2px solid #000;">
 <td style="padding: 4px 8px; text-align: left; font-style: italic;">N</td>
