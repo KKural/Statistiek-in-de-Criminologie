@@ -281,7 +281,7 @@ context({
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE ABS.:** Verwacht c(33, 117, 219, 282, 330) ❌"
+              "**FREQUENTIETABEL - CUMULATIEVE ABS.:** De correcte vector is c(33, 117, 219, 282, 330) ❌"
             )
           }
           
@@ -307,7 +307,7 @@ context({
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE REL.:** Verwacht c(0,1000; 0,3545; 0,6636; 0,8545; 1,0000) ❌"
+              "**FREQUENTIETABEL - CUMULATIEVE REL.:** De correcte vector is c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000) ❌"
             )
           }
           
