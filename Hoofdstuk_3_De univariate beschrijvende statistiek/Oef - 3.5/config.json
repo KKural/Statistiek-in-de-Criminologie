@@ -1,4 +1,7 @@
 {
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
   "description": {
     "names": {
       "nl": "Oef - 3.5 Beschrijvende statistiek - Spreidingsmaat politietoezicht"
@@ -8,16 +11,7 @@
     "handler": "r"
   },
   "boilerplate": "description/boilerplate/boilerplate",
-  "labels": [
-    "huwelijksduur",
-    "uitbijters",
-    "centraliteit",
-    "spreiding",
-    "variantie",
-    "standaardafwijking",
-    "frequentietabel",
-    "beschrijvende statistiek"
-  ],
+  "labels": [],
   "internals": {
     "token": "gT2wGvTUqSRdmvNSdWs_78ecYub2mjEiU4G8zbcIzDvV2KZVx3QF6mwgYKAi-iKw",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
