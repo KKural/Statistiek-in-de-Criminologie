@@ -449,7 +449,7 @@ context({
           
           # Check frequency table
           freq_vars <- c("freq_2", "freq_14", "freq_26", "freq_30", "freq_72", "freq_143", "freq_144", "freq_150", "freq_240", "freq_1657")
-          freq_correct <- all(sapply(freq_vars, function(x) results[[x]]$correct))
+          freq_correct <- all(sapply(freq_vars, function(x) x %in% names(results) && results[[x]]$correct))
           
           if (freq_correct) {
             feedback_lines <- c(feedback_lines, "**FREQUENTIES:** Alle waarden juist geteld ✅")
@@ -459,7 +459,7 @@ context({
           
           # Check percentages
           percent_vars <- c("percent_2", "percent_14", "percent_26", "percent_30", "percent_72", "percent_143", "percent_144", "percent_150", "percent_240", "percent_1657")
-          percent_correct <- all(sapply(percent_vars, function(x) results[[x]]$correct))
+          percent_correct <- all(sapply(percent_vars, function(x) x %in% names(results) && results[[x]]$correct))
           
           if (percent_correct) {
             feedback_lines <- c(feedback_lines, "**PERCENTAGES:** (Frequentie/11) × 100 juist berekend ✅")
@@ -468,25 +468,28 @@ context({
           }
           
           # Basic calculations feedback
-          if (results$gemiddelde$correct) {
+          if ("gemiddelde" %in% names(results) && results$gemiddelde$correct) {
             feedback_lines <- c(feedback_lines, "**GEMIDDELDE:** Som = 2628, n = 11 → 2628/11 = 238.91 ✅")
           } else {
             feedback_lines <- c(feedback_lines, "**GEMIDDELDE:** Som alle waarden (2628) / aantal (11) = 238.91 ❌")
           }
           
-          if (results$mediaan$correct) {
+          if ("mediaan" %in% names(results) && results$mediaan$correct) {
             feedback_lines <- c(feedback_lines, "**MEDIAAN:** Gesorteerd: 6de waarde van 11 = 143 dagen ✅")
           } else {
             feedback_lines <- c(feedback_lines, "**MEDIAAN:** Sorteer eerst! 6de waarde = 143 dagen ❌")
           }
           
-          if (results$modus$correct) {
+          if ("modus" %in% names(results) && results$modus$correct) {
             feedback_lines <- c(feedback_lines, "**MODUS:** Meest voorkomende waarde = 150 (komt 2x voor) ✅")
           } else {
             feedback_lines <- c(feedback_lines, "**MODUS:** Welke waarde heeft de hoogste frequentie? 150 komt 2x voor ❌")
           }
           
-          if (results$variatiebreedte$correct && results$q1$correct && results$q3$correct && results$ika$correct) {
+          spread_vars <- c("variatiebreedte", "q1", "q3", "ika")
+          spread_correct <- all(sapply(spread_vars, function(x) x %in% names(results) && results[[x]]$correct))
+          
+          if (spread_correct) {
             feedback_lines <- c(feedback_lines, "**SPREIDING:** Range=1655, Q1=26, Q3=150, IKA=124 ✅")
           } else {
             feedback_lines <- c(feedback_lines, "**SPREIDING:** Range=1657-2=1655, Q1=26, Q3=150, IKA=150-26=124 ❌")
@@ -496,7 +499,7 @@ context({
           deviation_vars <- c("afwijking_240", "afwijking_144", "afwijking_143", "afwijking_72", "afwijking_30",
                              "afwijking_26", "afwijking_2", "afwijking_150_1", "afwijking_14", "afwijking_150_2", "afwijking_1657")
           
-          deviations_correct <- all(sapply(deviation_vars, function(x) results[[x]]$correct))
+          deviations_correct <- all(sapply(deviation_vars, function(x) x %in% names(results) && results[[x]]$correct))
           
           if (deviations_correct) {
             feedback_lines <- c(feedback_lines, "**AFWIJKINGEN:** X - 238.91 voor alle waarden ✅")
@@ -508,7 +511,7 @@ context({
           squared_vars <- c("gekw_afwijking_240", "gekw_afwijking_144", "gekw_afwijking_143", "gekw_afwijking_72", "gekw_afwijking_30",
                            "gekw_afwijking_26", "gekw_afwijking_2", "gekw_afwijking_150_1", "gekw_afwijking_14", "gekw_afwijking_150_2", "gekw_afwijking_1657")
           
-          squared_correct <- all(sapply(squared_vars, function(x) results[[x]]$correct))
+          squared_correct <- all(sapply(squared_vars, function(x) x %in% names(results) && results[[x]]$correct))
           
           if (squared_correct) {
             feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
@@ -516,7 +519,10 @@ context({
             feedback_lines <- c(feedback_lines, "**GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking ❌")
           }
           
-          if (results$sum_of_squares$correct && results$variantie$correct && results$standaardafwijking$correct) {
+          variance_vars <- c("sum_of_squares", "variantie", "standaardafwijking") 
+          variance_correct <- all(sapply(variance_vars, function(x) x %in% names(results) && results[[x]]$correct))
+          
+          if (variance_correct) {
             feedback_lines <- c(feedback_lines, "**VARIANTIE ANALYSE:** SS=2268540.92, Variantie=226854.09, SD=476.29 ✅")
           } else {
             feedback_lines <- c(feedback_lines, "**VARIANTIE ANALYSE:** Som kwadraten/10, dan √variantie ❌")
@@ -536,7 +542,7 @@ context({
             # Individual frequency checks with specific error patterns
             freq_errors <- c()
             
-            if (!results$freq_150$correct && results$freq_150$exists) {
+            if ("freq_150" %in% names(results) && !results$freq_150$correct && results$freq_150$exists) {
               student_f150 <- as.numeric(results$freq_150$value)
               if (!is.na(student_f150)) {
                 if (student_f150 == 1) {
@@ -547,7 +553,7 @@ context({
               }
             }
             
-            if (!results$freq_1657$correct && results$freq_1657$exists) {
+            if ("freq_1657" %in% names(results) && !results$freq_1657$correct && results$freq_1657$exists) {
               student_f1657 <- as.numeric(results$freq_1657$value)
               if (!is.na(student_f1657)) {
                 if (student_f1657 == 0) {
@@ -566,7 +572,7 @@ context({
             # PERCENTAGE ERRORS - Detailed analysis
             percent_errors <- c()
             
-            if (!results$percent_150$correct && results$percent_150$exists) {
+            if ("percent_150" %in% names(results) && !results$percent_150$correct && results$percent_150$exists) {
               student_p150 <- as.numeric(results$percent_150$value)
               if (!is.na(student_p150)) {
                 if (abs(student_p150 - 2) < 0.1) {
@@ -579,7 +585,7 @@ context({
               }
             }
             
-            if (!results$percent_1657$correct && results$percent_1657$exists) {
+            if ("percent_1657" %in% names(results) && !results$percent_1657$correct && results$percent_1657$exists) {
               student_p1657 <- as.numeric(results$percent_1657$value)
               if (!is.na(student_p1657)) {
                 if (student_p1657 == 0) {
@@ -596,7 +602,7 @@ context({
             }
             
             # MODUS ERRORS - Multiple error types
-            if (!results$modus$correct && results$modus$exists) {
+            if ("modus" %in% names(results) && !results$modus$correct && results$modus$exists) {
               student_modus <- results$modus$value
               if (is.numeric(student_modus)) {
                 if (student_modus == 2) {
@@ -612,7 +618,7 @@ context({
             }
             
             # MEDIAAN ERRORS - Position vs value confusion
-            if (!results$mediaan$correct && results$mediaan$exists) {
+            if ("mediaan" %in% names(results) && !results$mediaan$correct && results$mediaan$exists) {
               student_mediaan <- as.numeric(results$mediaan$value)
               if (!is.na(student_mediaan)) {
                 if (student_mediaan == 6) {
@@ -628,7 +634,7 @@ context({
             }
             
             # GEMIDDELDE ERRORS - Calculation mistakes with extreme values
-            if (!results$gemiddelde$correct && results$gemiddelde$exists) {
+            if ("gemiddelde" %in% names(results) && !results$gemiddelde$correct && results$gemiddelde$exists) {
               student_gem <- as.numeric(results$gemiddelde$value)
               if (!is.na(student_gem)) {
                 if (abs(student_gem - 143) < 1) {
@@ -650,7 +656,7 @@ context({
             # ======================
             
             # VARIATIEBREEDTE ERRORS - Extreme values impact
-            if (!results$variatiebreedte$correct && results$variatiebreedte$exists) {
+            if ("variatiebreedte" %in% names(results) && !results$variatiebreedte$correct && results$variatiebreedte$exists) {
               student_vb <- as.numeric(results$variatiebreedte$value)
               if (!is.na(student_vb)) {
                 if (student_vb == 1659) {
@@ -664,7 +670,7 @@ context({
             }
             
             # Q1 ERRORS - Detailed position analysis
-            if (!results$q1$correct && results$q1$exists) {
+            if ("q1" %in% names(results) && !results$q1$correct && results$q1$exists) {
               student_q1 <- as.numeric(results$q1$value)
               if (!is.na(student_q1)) {
                 if (student_q1 == 3) {
@@ -680,7 +686,7 @@ context({
             }
             
             # Q3 ERRORS  
-            if (!results$q3$correct && results$q3$exists) {
+            if ("q3" %in% names(results) && !results$q3$correct && results$q3$exists) {
               student_q3 <- as.numeric(results$q3$value)
               if (!is.na(student_q3)) {
                 if (student_q3 == 9) {
@@ -694,7 +700,7 @@ context({
             }
             
             # IKA ERRORS
-            if (!results$ika$correct && results$ika$exists) {
+            if ("ika" %in% names(results) && !results$ika$correct && results$ika$exists) {
               student_ika <- as.numeric(results$ika$value)
               if (!is.na(student_ika)) {
                 if (student_ika < 0) {
@@ -715,13 +721,13 @@ context({
             
             # AFWIJKING SIGN ERRORS - Check specific deviations
             deviation_sign_errors <- 0
-            if (!results$afwijking_2$correct && results$afwijking_2$exists) {
+            if ("afwijking_2" %in% names(results) && !results$afwijking_2$correct && results$afwijking_2$exists) {
               student_afw <- as.numeric(results$afwijking_2$value)
               if (!is.na(student_afw) && student_afw == 236.91) {
                 deviation_sign_errors <- deviation_sign_errors + 1
               }
             }
-            if (!results$afwijking_1657$correct && results$afwijking_1657$exists) {
+            if ("afwijking_1657" %in% names(results) && !results$afwijking_1657$correct && results$afwijking_1657$exists) {
               student_afw <- as.numeric(results$afwijking_1657$value)
               if (!is.na(student_afw) && student_afw == -1418.09) {
                 deviation_sign_errors <- deviation_sign_errors + 1
@@ -733,7 +739,7 @@ context({
             }
             
             # MEAN ERROR IN DEVIATIONS
-            if (!results$afwijking_150_1$correct && results$afwijking_150_1$exists) {
+            if ("afwijking_150_1" %in% names(results) && !results$afwijking_150_1$correct && results$afwijking_150_1$exists) {
               student_afw <- as.numeric(results$afwijking_150_1$value)
               if (!is.na(student_afw) && abs(student_afw - 7) < 1) {
                 feedback_lines <- c(feedback_lines, "• **AFWIJKING GEMIDDELDE FOUT:** Je gebruikte verkeerd gemiddelde. Gebruik 238.91: 150 - 238.91 = -88.91")
@@ -743,7 +749,7 @@ context({
             }
             
             # SQUARED DEVIATIONS - Common mistakes with extreme values
-            if (!results$gekw_afwijking_1657$correct && results$gekw_afwijking_1657$exists) {
+            if ("gekw_afwijking_1657" %in% names(results) && !results$gekw_afwijking_1657$correct && results$gekw_afwijking_1657$exists) {
               student_gekw <- as.numeric(results$gekw_afwijking_1657$value)
               if (!is.na(student_gekw)) {
                 if (student_gekw < 0) {
@@ -756,7 +762,7 @@ context({
               }
             }
             
-            if (!results$gekw_afwijking_2$correct && results$gekw_afwijking_2$exists) {
+            if ("gekw_afwijking_2" %in% names(results) && !results$gekw_afwijking_2$correct && results$gekw_afwijking_2$exists) {
               student_gekw <- as.numeric(results$gekw_afwijking_2$value)
               if (!is.na(student_gekw)) {
                 if (student_gekw < 0) {
@@ -768,7 +774,7 @@ context({
             }
             
             # SUM OF SQUARES ERRORS
-            if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
+            if ("sum_of_squares" %in% names(results) && !results$sum_of_squares$correct && results$sum_of_squares$exists) {
               student_ss <- as.numeric(results$sum_of_squares$value)
               if (!is.na(student_ss)) {
                 if (abs(student_ss - 2628) < 10) {
@@ -782,7 +788,7 @@ context({
             }
             
             # VARIANCE ERRORS - n vs n-1 with extreme values
-            if (!results$variantie$correct && results$variantie$exists) {
+            if ("variantie" %in% names(results) && !results$variantie$correct && results$variantie$exists) {
               student_var <- as.numeric(results$variantie$value)
               if (!is.na(student_var)) {
                 if (abs(student_var - 206231.9) < 10) {
@@ -798,7 +804,7 @@ context({
             }
             
             # STANDARD DEVIATION ERRORS
-            if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
+            if ("standaardafwijking" %in% names(results) && !results$standaardafwijking$correct && results$standaardafwijking$exists) {
               student_sd <- as.numeric(results$standaardafwijking$value)
               if (!is.na(student_sd)) {
                 if (abs(student_sd - 226854.09) < 100) {

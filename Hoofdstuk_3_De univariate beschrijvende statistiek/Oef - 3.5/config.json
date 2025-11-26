@@ -1,7 +1,7 @@
 {
   "description": {
     "names": {
-      "nl": "Oef - 3.5"
+      "nl": "Oef - 3.5 Beschrijvende statistiek - Spreidingsmaat politietoezicht"
     }
   },
   "programming_language": "R",
@@ -14,8 +14,11 @@
   "workdir": "workdir",
   "access": "public",
   "labels": [
-    "begrippen",
-    "populatie"
+    "spreidingsmaten",
+    "variantie",
+    "standaarddeviatie",
+    "steekproef",
+    "politietoezicht"
   ],
   "internals": {
     "token": "XzMViBAqTW-PAe6Yhamt49U-PPCrC6jBGEpirB7F3-RYIA5BigCSdzMPj7TE6AwM",
