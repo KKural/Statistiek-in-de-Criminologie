@@ -4,14 +4,61 @@ Analyseer onderstaande frequentietabel zorgvuldig en beantwoord de vragen over d
 
 Aan studenten uit de faculteit Economie en Bedrijfswetenschappen werd gevraagd hoe vaak ze energiedrankjes consumeren. Onderstaande tabel geeft de frequenties weer:
 
-| Categorie | Absolute frequentie | Cumulatieve absolute frequentie | Proportie | Cumulatieve proportie |
-|-----------|---------------------|--------------------------------|-----------|----------------------|
-| Nooit | 190 | 190 | 190/310 = 0,6129 | 0,6129 |
-| Zelden | 35 | 225 | 0,1129 | 0,7258 |
-| Af en toe | 20 | 245 | 0,0645 | 0,7903 |
-| Dikwijls | 10 | 255 | 0,0323 | 0,8226 |
-| Zeer vaak | 55 | 310 | 0,1774 | 1 |
-| **N** | **310** | | **1** | |
+<table border="1" style="border-collapse: collapse; width: 100%;">
+<thead>
+<tr style="background-color: #f2f2f2;">
+<th style="border: 1px solid #000; padding: 8px; text-align: left;">Categorie</th>
+<th style="border: 1px solid #000; padding: 8px; text-align: center;">Absolute frequentie</th>
+<th style="border: 1px solid #000; padding: 8px; text-align: center;">Cumulatieve absolute frequentie</th>
+<th style="border: 1px solid #000; padding: 8px; text-align: center;">Proportie</th>
+<th style="border: 1px solid #000; padding: 8px; text-align: center;">Cumulatieve proportie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #000; padding: 8px;">Nooit</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">190</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">190</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">190/310 = 0,6129</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">0,6129</td>
+</tr>
+<tr>
+<td style="border: 1px solid #000; padding: 8px;">Zelden</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">35</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">225</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">0,1129</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">0,7258</td>
+</tr>
+<tr>
+<td style="border: 1px solid #000; padding: 8px;">Af en toe</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">20</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">245</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">0,0645</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">0,7903</td>
+</tr>
+<tr>
+<td style="border: 1px solid #000; padding: 8px;">Dikwijls</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">10</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">255</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">0,0323</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">0,8226</td>
+</tr>
+<tr>
+<td style="border: 1px solid #000; padding: 8px;">Zeer vaak</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">55</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">310</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">0,1774</td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;">1</td>
+</tr>
+<tr style="background-color: #f9f9f9; font-weight: bold;">
+<td style="border: 1px solid #000; padding: 8px;"><strong>N</strong></td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;"><strong>310</strong></td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;"></td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;"><strong>1</strong></td>
+<td style="border: 1px solid #000; padding: 8px; text-align: center;"></td>
+</tr>
+</tbody>
+</table>
 
 ## **Jouw taak:**
 
