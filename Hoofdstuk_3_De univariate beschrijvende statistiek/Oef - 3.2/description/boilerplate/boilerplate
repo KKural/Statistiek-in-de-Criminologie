@@ -1,25 +1,20 @@
-# OEFENING: Ordinale data-analyse stap voor stap
 # Vul de ontbrekende stukken code in door ??? te vervangen.
 # Let op:
 # - Gebruik decimale PUNTEN in R (0.2545), geen komma.
 # - Schrijf je waarden als een vector met c(waarde1, waarde2, ...).
 
-# ---------------------------------------------------------------
 # STAP 0 – Frequentietabel (handmatig berekenen met rekenmachine)
-# ---------------------------------------------------------------
-
-# Gebruik de tabel hieronder als hulp (op papier / in cursus):
+# Gebruik Tabel 1 uit de opgave als hulp voor de berekeningen.
 #
-# Antwoord                         | Absolute Frequenties
-# -------------------------------------------------------
-# Zeer ontevreden                  | 33
-# Ontevreden                       | 84
-# Noch tevreden, noch ontevreden   | 102
-# Tevreden                         | 63
-# Zeer tevreden                    | 48
-# TOTAAL                           | 330
+# Gegeven absolute frequenties:
+# - Zeer ontevreden: 33
+# - Ontevreden: 84  
+# - Noch tevreden, noch ontevreden: 102
+# - Tevreden: 63
+# - Zeer tevreden: 48
+# - Totaal N: 330
 #
-# Vul nu de cumulatieve en relatieve frequenties in als vectoren.
+# Vul nu de ontbrekende kolommen in als vectoren.
 # Voorbeeld structuur (niet de juiste waarden!):
 # cumulatieve_absolute_frequenties <- c(a, b, c, d, e)
 
@@ -34,47 +29,23 @@ relatieve_frequenties <- c(??? , ??? , ??? , ??? , ???)
 # cumulatieve_relatieve_frequenties <- c(0.xxxx, 0.xxxx, 0.xxxx, 0.xxxx, 1.0000)
 
 cumulatieve_relatieve_frequenties <- c(??? , ??? , ??? , ??? , ???)
-
-# ---------------------------------------------------------------
 # STAP 1 – Meetniveau
-# ---------------------------------------------------------------
-
 # Kies één van: "nominaal", "ordinaal", "interval"
 
 meetniveau <- "???"
 
-# ---------------------------------------------------------------
 # STAP 3 – Totaal N
-# ---------------------------------------------------------------
-
 # Vul hier het totaal aantal respondenten in.
 
 totaal_n <- ???
 
-# ---------------------------------------------------------------
 # STAP 4 – Maten van centraliteit
-# ---------------------------------------------------------------
-
 modus <- "???"
 mediaan <- "???"
 meest_relevante_centraliteit <- "???"
 
-# ---------------------------------------------------------------
 # STAP 5 – Maten van spreiding
-# ---------------------------------------------------------------
-
 q1 <- "???"
 q3 <- "???"
 variatiebreedte <- "???"
 ika <- "???"
-
-# ---------------------------------------------------------------
-# ANTWOORDINSTRUCTIES
-# ---------------------------------------------------------------
-# - Gebruik exact deze categorieën:
-#   "zeer ontevreden", "ontevreden",
-#   "noch tevreden, noch ontevreden",
-#   "tevreden", "zeer tevreden"
-# - Meest relevante centraliteit: enkel "modus" of "mediaan"
-# - Variatiebreedte: bv. "laagste categorie tot hoogste categorie"
-# - IKA: bv. "categorie_q1 tot categorie_q3"
