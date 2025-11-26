@@ -319,8 +319,12 @@ context({
             type = "markdown"
           )
           
-          # Return success if all correct
-          correct_answers == total_questions
+          # Define expected and generated for testEqual
+          generated <- correct_answers == total_questions
+          expected <- TRUE
+          
+          # Return result
+          generated == expected
         }
       )
     }
