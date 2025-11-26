@@ -10,8 +10,8 @@ Aan studenten uit de faculteit Economie en Bedrijfswetenschappen werd gevraagd h
 
 <table style="border-collapse: collapse; width: 100%; margin: 20px 0; font-family: Times, serif;">
 <thead>
-<tr style="border-top: 2px solid #000; border-bottom: 1px solid #000;">
-<th style="padding: 8px 12px; text-align: left; font-weight: normal;">Consumptiefrequentie</th>
+<tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
+<th style="padding: 8px 12px; text-align: left; font-weight: normal;">Consumptie Frequentie</th>
 <th style="padding: 8px 12px; text-align: center; font-weight: normal;">Absolute Frequentie</th>
 <th style="padding: 8px 12px; text-align: center; font-weight: normal;">Cumulatieve Absolute Frequentie</th>
 <th style="padding: 8px 12px; text-align: center; font-weight: normal;">Proportie</th>
@@ -47,7 +47,7 @@ Aan studenten uit de faculteit Economie en Bedrijfswetenschappen werd gevraagd h
 <td style="padding: 6px 12px; text-align: center;">0.03</td>
 <td style="padding: 6px 12px; text-align: center;">0.82</td>
 </tr>
-<tr style="border-bottom: 1px solid #000;">
+<tr style="border-bottom: 2px solid #000;">
 <td style="padding: 6px 12px; text-align: left;">Zeer vaak</td>
 <td style="padding: 6px 12px; text-align: center;">55</td>
 <td style="padding: 6px 12px; text-align: center;">310</td>
