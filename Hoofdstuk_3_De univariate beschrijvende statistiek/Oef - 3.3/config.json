@@ -1,22 +1,25 @@
 {
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 3.3"
+      "nl": "Oef - 3.3 Meetniveau - Werkuren Re-integratieprogramma"
     }
   },
-  "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "r"
   },
-  "test_suite": "evaluation",
-  "workdir": "workdir",
-  "access": "public",
+  "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
-    "begrippen"
+    "werkuren",
+    "interval data",
+    "centraliteit",
+    "spreiding",
+    "beschrijvende statistiek"
   ],
   "internals": {
-    "token": "_qArSRjkWzZDr7HNb9u-zS8JuyDhI5hVPyjX2BPWCCGZI5B4ewdQkUaBk-tQ6wrB",
+    "token": "kC8H9nxP4qR7VtW2mF5jGsL3hKpMzNvE6yQ8uA9bXdR1cT7oI4nW6eY3fH5gJ2kL",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

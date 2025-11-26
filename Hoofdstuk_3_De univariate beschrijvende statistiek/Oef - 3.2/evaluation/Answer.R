@@ -1,9 +1,9 @@
 context({
   testcase(
-    "Controle van ordinale data-analyse stappen",
+    "",
     {
       testEqual(
-        "Controleer je stap-voor-stap antwoorden",
+        "",
         function(env) {
           # Use the provided environment (env) instead of globalenv()
           results <- list()

@@ -1,0 +1,63 @@
+# Vul de ontbrekende stukken code in door ??? te vervangen.
+# Let op:
+# - Gebruik decimale PUNTEN in R (33.55), geen komma.
+
+# Data: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36
+
+# STAP 1 – Basis beschrijvende statistieken
+
+# a. Bereken de modus, mediaan en het gemiddelde
+# 1. Wat is de modus van de werkuren? (meest voorkomende waarde)
+modus <- ???
+
+# 2. Wat is de mediaan van de werkuren? (middelste waarde)
+mediaan <- ???
+
+# 3. Wat is het gemiddelde van de werkuren? (gebruik decimale punt)
+gemiddelde <- ???
+
+# b. Bereken de variatiebreedte en de interkwartielafstand
+# 4. Wat is de variatiebreedte (range) van de werkuren? (hoogste - laagste waarde)
+variatiebreedte <- ???
+
+# 5. Wat is het eerste kwartiel (Q1) van de werkuren?
+q1 <- ???
+
+# 6. Wat is het derde kwartiel (Q3) van de werkuren?
+q3 <- ???
+
+# 7. Wat is de interkwartielafstand (IKA) van de werkuren? (Q3 - Q1)
+ika <- ???
+
+# c. Welke parameter zou je kiezen?
+# 8. Welke maat van centraliteit is het meest relevant voor interval data?
+# Kies uit: "modus", "mediaan", "gemiddelde"
+meest_relevante_centraliteit <- "???"
+
+# 9. Welke maat van spreiding zou je kiezen?
+# Kies uit: "variatiebreedte", "interkwartielafstand"
+meest_relevante_spreiding <- "???"
+
+# 10. Waarom zijn deze maten het meest geschikt?
+# Kies uit: "geen uitbijters", "robuust voor uitbijters", "gebruikt alle informatie"
+reden <- "???"
+
+# STAP 2 – Geavanceerde spreidingsberekeningen
+# 11. Bereken afwijkingen van het gemiddelde voor elke waarde: (X - gemiddelde waarde)
+afwijkingen <- c(??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ???)
+
+# 12. Bereken gekwadrateerde afwijkingen: (X - gemiddelde waarde)²
+gekwadrateerde_afwijkingen <- c(??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ??? , ???)
+
+# STAP 3 – Variantie en standaardafwijking
+# 13. Bereken de som van gekwadrateerde afwijkingen (Sum of Squares)
+sum_of_squares <- ???
+
+# 14. Bereken de variantie (sum of squares / (n-1))
+variantie <- ???
+
+# 15. Bereken de standaardafwijking (wortel van variantie)
+standaardafwijking <- ???
+
+# 16. Bereken de variatiecoëfficiënt (standaardafwijking / gemiddelde)
+variatiecoefficient <- ???
