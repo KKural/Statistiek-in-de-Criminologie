@@ -10,30 +10,6 @@ context({
           
           # Check each variable and store detailed results
           
-          # Check if frequentietabel exists
-          if (exists("frequentietabel", envir = env)) {
-            tabel <- get("frequentietabel", envir = env)
-            if (is.data.frame(tabel) && nrow(tabel) == 5) {
-              results$frequentietabel <- list(
-                exists = TRUE,
-                value = "Data frame gevonden",
-                correct = TRUE,
-                expected = "Data frame met 5 rijen"
-              )
-            } else {
-              results$frequentietabel <- list(
-                exists = TRUE, 
-                value = "Foutieve tabel structuur",
-                correct = FALSE,
-                expected = "Data frame met 5 rijen"
-              )
-            }
-          } else {
-            results$frequentietabel <- list(exists = FALSE, value = NA,
-                                          correct = FALSE, 
-                                          expected = "Data frame met 5 rijen")
-          }
-          
           # Frequency table calculations
           # Cumulatieve absolute frequenties
           if (exists("cumulatieve_absolute_frequenties", envir = env)) {
@@ -58,7 +34,7 @@ context({
           # Relatieve frequenties
           if (exists("relatieve_frequenties", envir = env)) {
             current_val <- get("relatieve_frequenties", envir = env)
-            expected_vec <- c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)
+            expected_vec <- c("0,1000", "0,2545", "0,3100", "0,1909", "0,1455")
             ok <- is.numeric(current_val) &&
                   length(current_val) == length(expected_vec) &&
                   all(abs(current_val - expected_vec) < 0.0005)
@@ -231,20 +207,12 @@ context({
           
           # Generate feedback for each question
           # Frequency table feedback
-          if (results$frequentietabel$exists && results$frequentietabel$correct) {
-            feedback_lines <- c(feedback_lines,
-              "**FREQUENTIETABEL STRUCTUUR:** Data frame correct aangemaakt ✅")
-          } else {
-            feedback_lines <- c(feedback_lines,
-              "**FREQUENTIETABEL STRUCTUUR:** Maak data.frame met alle kolommen ❌")
-          }
-          
           if (results$cumulatieve_absolute_frequenties$exists && results$cumulatieve_absolute_frequenties$correct) {
             feedback_lines <- c(feedback_lines,
-              "**CUMULATIEVE ABSOLUTE:** cumsum(absolute_frequenties) ✅")
+              "**FREQUENTIETABEL - CUMULATIEVE ABS.:** cumsum(absolute_frequenties) ✅")
           } else {
             feedback_lines <- c(feedback_lines,
-              "**CUMULATIEVE ABSOLUTE:** Verwacht c(33, 117, 219, 282, 330) ❌")
+              "**FREQUENTIETABEL - CUMULATIEVE ABS.:** Verwacht c(33, 117, 219, 282, 330) ❌")
           }
           
           if (results$relatieve_frequenties$exists && results$relatieve_frequenties$correct) {
@@ -398,22 +366,9 @@ context({
               student_rel <- results$relatieve_frequenties$value
               if (is.numeric(student_rel) && length(student_rel) >= 1) {
                 if (any(student_rel > 50)) {
-                  feedback_lines <- c(feedback_lines, "• **RELATIEF FOUT:** Je gebruikte percentages (×100)! Gebruik proporties: 33/330 = 0,1000, niet 10,00.")
+                  feedback_lines <- c(feedback_lines, "• **RELATIEF FOUT:** Je gebruikte percentages (×100)! Gebruik proporties: 33/330 = 0.1000, niet 10.00.")
                 } else if (any(student_rel > 1)) {
                   feedback_lines <- c(feedback_lines, "• **RELATIEF FOUT:** Te grote waarden! Relatieve frequentie = absolute_frequentie / 330.")
-                } else {
-                  feedback_lines <- c(feedback_lines, "• **RELATIEF FOUT:** Check je berekening! Verwacht: 0,1000; 0,2545; 0,3100; 0,1909; 0,1455")
-                }
-              }
-            }
-            
-            if (!results$cumulatieve_relatieve_frequenties$correct && results$cumulatieve_relatieve_frequenties$exists) {
-              student_cum_rel <- results$cumulatieve_relatieve_frequenties$value
-              if (is.numeric(student_cum_rel) && length(student_cum_rel) >= 1) {
-                if (!is.na(student_cum_rel[length(student_cum_rel)]) && abs(student_cum_rel[length(student_cum_rel)] - 1.0) > 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **CUM. RELATIEF FOUT:** Laatste waarde moet 1,0000 zijn! Check cumsum(relatieve_frequenties).")
-                } else {
-                  feedback_lines <- c(feedback_lines, "• **CUM. RELATIEF FOUT:** Check cumsum()! Verwacht: 0,1000; 0,3545; 0,6636; 0,8545; 1,0000")
                 }
               }
             }
