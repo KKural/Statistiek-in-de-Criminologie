@@ -6,111 +6,76 @@ Een reclasseringsdienst wil weten hoe tevreden veroordeelde delictplegers zijn o
 
 *"Was u tevreden met de begeleiding door uw reclasseringsambtenaar?"*
 
-**Tabel 2**
+**Tabel 2** *(Onvolledige frequentietabel - vul de ontbrekende kolommen in via R)*
 
 *Tevredenheidsverdeling van Veroordeelde Delictplegers over Reclasseringsbegeleiding*
 
-<table style="border-collapse: collapse; width: 70%; margin: 20px auto; font-family: Times, serif;">
+<table style="border-collapse: collapse; width: 90%; margin: 20px auto; font-family: Times, serif;">
 <thead>
 <tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
-<th style="padding: 6px 8px; text-align: left; font-weight: bold; width: 40%;">Antwoord</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 30%;">Absolute<br>Frequentie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 30%;">Cumulatieve<br>Frequentie</th>
+<th style="padding: 6px 8px; text-align: left; font-weight: bold; width: 30%;">Antwoord</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 17%;">Absolute<br>Frequentie</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 17%;">Cumulatieve<br>Abs. Freq.</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 18%;">Relatieve<br>Frequentie</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 18%;">Cumulatieve<br>Rel. Freq.</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="padding: 4px 8px; text-align: left;">Zeer ontevreden</td>
-<td style="padding: 4px 8px; text-align: center;">33</td>
-<td style="padding: 4px 8px; text-align: center;">33</td>
+<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">33</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
 <tr>
 <td style="padding: 4px 8px; text-align: left;">Ontevreden</td>
-<td style="padding: 4px 8px; text-align: center;">84</td>
-<td style="padding: 4px 8px; text-align: center;">117</td>
+<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">84</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
 <tr>
 <td style="padding: 4px 8px; text-align: left;">Noch tevreden, noch ontevreden</td>
-<td style="padding: 4px 8px; text-align: center;">102</td>
-<td style="padding: 4px 8px; text-align: center;">219</td>
+<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">102</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
 <tr>
 <td style="padding: 4px 8px; text-align: left;">Tevreden</td>
-<td style="padding: 4px 8px; text-align: center;">63</td>
-<td style="padding: 4px 8px; text-align: center;">282</td>
+<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">63</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
-<tr style="border-bottom: 2px solid #000;">
+<tr>
 <td style="padding: 4px 8px; text-align: left;">Zeer tevreden</td>
-<td style="padding: 4px 8px; text-align: center;">48</td>
-<td style="padding: 4px 8px; text-align: center;">330</td>
+<td style="padding: 4px 8px; text-align: center; background-color: #f0f0f0;">48</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
+<td style="padding: 4px 8px; text-align: center;">?</td>
 </tr>
-<tr style="border-bottom: 2px solid #000;">
-<td style="padding: 4px 8px; text-align: left; font-style: italic;">N</td>
-<td style="padding: 4px 8px; text-align: center; font-style: italic;">330</td>
-<td style="padding: 4px 8px; text-align: center;"></td>
+<tr style="border-top: 1px solid #000; border-bottom: 2px solid #000;">
+<td style="padding: 4px 8px; text-align: left; font-weight: bold;">Totaal (N)</td>
+<td style="padding: 4px 8px; text-align: center; font-weight: bold; background-color: #f0f0f0;">330</td>
+<td style="padding: 4px 8px; text-align: center;">-</td>
+<td style="padding: 4px 8px; text-align: center;">1.00</td>
+<td style="padding: 4px 8px; text-align: center;">-</td>
 </tr>
 </tbody>
 </table>
 
 *Noot.* De steekproef bestond uit veroordeelde delictplegers die begeleid worden door een reclasseringsdienst (*N* = 330).
 
-<table style="border-collapse: collapse; width: 90%; margin: 20px auto; font-family: Times, serif;">
-<thead>
-<tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
-<th style="padding: 6px 8px; text-align: left; font-weight: bold; width: 25%;">Antwoord</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 20%;">Absolute<br>Frequentie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 20%;">Cumulatieve<br>Absolute<br>Frequentie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 20%;">Relatieve<br>Frequentie</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 20%;">Cumulatieve<br>Relatieve<br>Frequentie</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Zeer ontevreden</td>
-<td style="padding: 4px 8px; text-align: center;">33</td>
-<td style="padding: 4px 8px; text-align: center;">33</td>
-<td style="padding: 4px 8px; text-align: center;">0,1000</td>
-<td style="padding: 4px 8px; text-align: center;">0,1000</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Ontevreden</td>
-<td style="padding: 4px 8px; text-align: center;">84</td>
-<td style="padding: 4px 8px; text-align: center;">117</td>
-<td style="padding: 4px 8px; text-align: center;">0,2545</td>
-<td style="padding: 4px 8px; text-align: center;">0,3545</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Noch tevreden, noch ontevreden</td>
-<td style="padding: 4px 8px; text-align: center;">102</td>
-<td style="padding: 4px 8px; text-align: center;">219</td>
-<td style="padding: 4px 8px; text-align: center;">0,3091</td>
-<td style="padding: 4px 8px; text-align: center;">0,6636</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Tevreden</td>
-<td style="padding: 4px 8px; text-align: center;">63</td>
-<td style="padding: 4px 8px; text-align: center;">282</td>
-<td style="padding: 4px 8px; text-align: center;">0,1909</td>
-<td style="padding: 4px 8px; text-align: center;">0,8545</td>
-</tr>
-<tr style="border-bottom: 2px solid #000;">
-<td style="padding: 4px 8px; text-align: left;">Zeer tevreden</td>
-<td style="padding: 4px 8px; text-align: center;">48</td>
-<td style="padding: 4px 8px; text-align: center;">330</td>
-<td style="padding: 4px 8px; text-align: center;">0,1455</td>
-<td style="padding: 4px 8px; text-align: center;">1,0000</td>
-</tr>
-<tr style="border-bottom: 2px solid #000;">
-<td style="padding: 4px 8px; text-align: left; font-style: italic;">N</td>
-<td style="padding: 4px 8px; text-align: center; font-style: italic;">330</td>
-<td style="padding: 4px 8px; text-align: center;"></td>
-<td style="padding: 4px 8px; text-align: center;"></td>
-<td style="padding: 4px 8px; text-align: center;"></td>
-</tr>
-</tbody>
-</table>
+### **📋 Instructies**
 
-*Noot.* De relatieve frequenties zijn weergegeven met vier decimalen. De steekproef bestond uit veroordeelde delictplegers die begeleid worden door een reclasseringsdienst (*N* = 330).
+**STAP 1:** Vul eerst de ontbrekende kolommen in de frequentietabel in via R:
+- **Cumulatieve absolute frequenties:** Gebruik `cumsum(abs_freq)`
+- **Relatieve frequenties:** Bereken `abs_freq / 330` 
+- **Cumulatieve relatieve frequenties:** Gebruik `cumsum(rel_freq)`
+
+**STAP 2:** Analyseer vervolgens de data volgens de stap-voor-stap methode voor ordinale data.
 
 ## **Hoe weet je welke statistische maat het meest relevant is?**
 
