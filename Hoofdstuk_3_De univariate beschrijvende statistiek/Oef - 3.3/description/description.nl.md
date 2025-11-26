@@ -61,8 +61,8 @@ Deze gegevens kunnen samengevat worden in de volgende frequentietabel.
     </tr>
     <tr style="border-top: 2px solid #000;">
       <td style="padding: 4px 8px; text-align: center; font-style: italic;">Totaal</td>
-      <td style="padding: 4px 8px; text-align: center; font-style: italic;">20</td>
-      <td style="padding: 4px 8px; text-align: center; font-style: italic;">100.0</td>
+      <td style="padding: 4px 8px; text-align: center; font-style: italic;">?</td>
+      <td style="padding: 4px 8px; text-align: center; font-style: italic;">?</td>
     </tr>
   </tbody>
 </table>
@@ -74,8 +74,6 @@ Analyseer deze gegevens en beantwoord de onderstaande vragen.
 **b.** Bereken de **variatiebreedte** en de **interkwartielafstand (IKA)** van de werkuren.
 
 **c.** Welke **maat van centraliteit** en welke **maat van spreiding** zou jij kiezen om de werkuren van de deelnemers het best te beschrijven, en **waarom**?
-
----
 
 ### Te volgen redenering
 
@@ -90,8 +88,6 @@ Bereken de **spreidingsmaten**: variatiebreedte, kwartielen (Q1, Q3) en interkwa
 **Stap 3 – Geavanceerde spreidingsberekeningen**
 
 Voor een volledige analyse bereken je de **afwijkingen** van het gemiddelde, de **gekwadrateerde afwijkingen**, en daaruit de **variantie**, **standaardafwijking** en **variatiecoëfficiënt**.
-
----
 
 ### Instructie voor de code
 

@@ -1,0 +1,70 @@
+# Vul de ontbrekende stukken code in door ??? te vervangen.
+# Let op:
+# - Gebruik decimale PUNTEN in R (238.91), geen komma.
+
+# Data: Huwelijkslengtes in dagen van beroemde koppels
+# 240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657
+
+# STAP 1 – Centraliteitsmaten
+
+# 1. Bereken het gemiddelde van de huwelijkslengtes
+gemiddelde <- ???
+
+# 2. Sorteer de data eerst: 2, 14, 26, 30, 72, 143, 144, 150, 150, 240, 1657
+# Bereken de mediaan (middelste waarde van 11 observaties = 6de waarde)
+mediaan <- ???
+
+# STAP 2 – Spreidingsmaten
+
+# 3. Bereken de variatiebreedte (range): hoogste - laagste waarde
+variatiebreedte <- ???
+
+# 4. Bereken Q1 (eerste kwartiel)
+# Q1 = mediaan van de onderste helft (5 waarden: 2, 14, 26, 30, 72)
+# 3de waarde van deze 5 waarden
+q1 <- ???
+
+# 5. Bereken Q3 (derde kwartiel) 
+# Q3 = mediaan van de bovenste helft (5 waarden: 144, 150, 150, 240, 1657)
+# 3de waarde van deze 5 waarden
+q3 <- ???
+
+# 6. Bereken de interkwartielafstand (IKA = Q3 - Q1)
+ika <- ???
+
+# STAP 3 – Variantie en standaardafwijking
+
+# 7. Bereken de afwijkingen van het gemiddelde voor elke waarde
+afwijking_240 <- ??? # 240 - gemiddelde
+afwijking_144 <- ??? # 144 - gemiddelde  
+afwijking_143 <- ??? # 143 - gemiddelde
+afwijking_72 <- ??? # 72 - gemiddelde
+afwijking_30 <- ??? # 30 - gemiddelde
+afwijking_26 <- ??? # 26 - gemiddelde
+afwijking_2 <- ??? # 2 - gemiddelde
+afwijking_150_1 <- ??? # 150 - gemiddelde (eerste keer)
+afwijking_14 <- ??? # 14 - gemiddelde
+afwijking_150_2 <- ??? # 150 - gemiddelde (tweede keer)
+afwijking_1657 <- ??? # 1657 - gemiddelde
+
+# 8. Bereken de gekwadrateerde afwijkingen
+gekw_afwijking_240 <- ???
+gekw_afwijking_144 <- ???
+gekw_afwijking_143 <- ???
+gekw_afwijking_72 <- ???
+gekw_afwijking_30 <- ???
+gekw_afwijking_26 <- ???
+gekw_afwijking_2 <- ???
+gekw_afwijking_150_1 <- ???
+gekw_afwijking_14 <- ???
+gekw_afwijking_150_2 <- ???
+gekw_afwijking_1657 <- ???
+
+# 9. Bereken de som van gekwadrateerde afwijkingen (Sum of Squares)
+sum_of_squares <- ???
+
+# 10. Bereken de variantie (SS / (n-1), waarbij n=11)
+variantie <- ???
+
+# 11. Bereken de standaardafwijking (wortel van variantie)
+standaardafwijking <- ???
