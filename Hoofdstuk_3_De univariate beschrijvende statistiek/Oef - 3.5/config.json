@@ -9,6 +9,7 @@
     "handler": "R",
     "memory_limit": 10000000
   },
+  "boilerplate": "description/boilerplate/boilerplate",
   "test_suite": "evaluation",
   "workdir": "workdir",
   "access": "public",

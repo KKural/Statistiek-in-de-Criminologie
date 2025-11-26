@@ -1,0 +1,20 @@
+# Vervang ??? door het juiste antwoord
+# - Gebruik een decimale PUNT (bijv. 2.74)
+# - Bereken de variantie als steekproefvariantie (n - 1 in de noemer)
+
+# Data
+incidenten <- c(2, 7, 10, 5, 6, 8, 3, 4, 9)
+patrouille_uren <- c(5, 3, 4, 2, 1, 3, 2, 1, 4)
+
+# Centrummaten
+gemiddelde_incidenten <- ???
+
+# Afwijkingen en spreiding
+afwijkingen <- ???                  # incidenten - gemiddelde_incidenten
+gekwadrateerde_afwijkingen <- ???   # afwijkingen^2
+sum_of_squares <- ???               # som van gekwadrateerde afwijkingen
+variantie_incidenten <- ???         # gebruik n - 1
+standaarddeviatie_incidenten <- ??? # afronden op 2 decimalen
+
+# Kies de correcte maat van spreiding voor de AV (standaarddeviatie)
+gekozen_spreidingsmaat <- ???       # 2.74

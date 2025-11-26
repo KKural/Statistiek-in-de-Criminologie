@@ -1,70 +1,139 @@
-# Vul de ontbrekende stukken code in door ??? te vervangen.
-# Let op:
-# - Gebruik decimale PUNTEN in R (238.91), geen komma.
+# ========================================================================
+# OEFENING 3.4: BESCHRIJVENDE STATISTIEK VAN BEROEMDE HUWELIJKEN
+# ========================================================================
+# 
+# INSTRUCTIES:
+# - Vul de ontbrekende stukken code in door ??? te vervangen
+# - Gebruik decimale PUNTEN in R (238.91), niet komma's
+# - Rond af op 2 decimalen waar nodig
+# - Let op: Jennifer Aniston & Brad Pitt (1657 dagen) is een extreme uitbijter!
+#
+# DATA: Huwelijksduren in dagen van 11 beroemde koppels
+# Ruwe data: 240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657
+# Gesorteerd: 2, 14, 26, 30, 72, 143, 144, 150, 150, 240, 1657
+# ========================================================================
 
-# Data: Huwelijkslengtes in dagen van beroemde koppels
-# 240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657
+# STAP 1: FREQUENTIETABEL
+# ========================================================================
 
-# STAP 1 – Centraliteitsmaten
+# a. Bereken de frequenties en percentages voor elke unieke waarde
+# Gegevens: 240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657
 
-# 1. Bereken het gemiddelde van de huwelijkslengtes
+# 1. Frequenties (hoe vaak komt elke waarde voor?)
+freq_2 <- ???      # Aantal keer dat 2 voorkomt
+freq_14 <- ???     # Aantal keer dat 14 voorkomt  
+freq_26 <- ???     # Aantal keer dat 26 voorkomt
+freq_30 <- ???     # Aantal keer dat 30 voorkomt
+freq_72 <- ???     # Aantal keer dat 72 voorkomt
+freq_143 <- ???    # Aantal keer dat 143 voorkomt
+freq_144 <- ???    # Aantal keer dat 144 voorkomt
+freq_150 <- ???    # Aantal keer dat 150 voorkomt (LET OP: komt 2x voor!)
+freq_240 <- ???    # Aantal keer dat 240 voorkomt
+freq_1657 <- ???   # Aantal keer dat 1657 voorkomt
+
+# 2. Percentages (frequentie / totaal aantal * 100)
+# Totaal aantal observaties = 11
+percent_2 <- ???      # freq_2 / 11 * 100
+percent_14 <- ???     # freq_14 / 11 * 100
+percent_26 <- ???     # freq_26 / 11 * 100
+percent_30 <- ???     # freq_30 / 11 * 100
+percent_72 <- ???     # freq_72 / 11 * 100
+percent_143 <- ???    # freq_143 / 11 * 100
+percent_144 <- ???    # freq_144 / 11 * 100
+percent_150 <- ???    # freq_150 / 11 * 100 (Dit zal hoger zijn!)
+percent_240 <- ???    # freq_240 / 11 * 100
+percent_1657 <- ???   # freq_1657 / 11 * 100
+
+# STAP 2: CENTRALITEITSMATEN
+# ========================================================================
+
+# 3. Bereken het gemiddelde van alle huwelijksduren
+# Formule: (240 + 144 + 143 + 72 + 30 + 26 + 2 + 150 + 14 + 150 + 1657) / 11
 gemiddelde <- ???
 
-# 2. Sorteer de data eerst: 2, 14, 26, 30, 72, 143, 144, 150, 150, 240, 1657
-# Bereken de mediaan (middelste waarde van 11 observaties = 6de waarde)
+# 4. Bereken de mediaan 
+# Bij 11 waarnemingen: mediaan = 6de waarde in gesorteerde lijst
+# Gesorteerd: 2, 14, 26, 30, 72, [143], 144, 150, 150, 240, 1657
 mediaan <- ???
 
-# STAP 2 – Spreidingsmaten
+# 5. Bereken de modus (meest voorkomende waarde)
+# Welke waarde komt het vaakst voor? (Hint: kijk naar de frequenties!)
+modus <- ???
 
-# 3. Bereken de variatiebreedte (range): hoogste - laagste waarde
+# STAP 3: SPREIDINGSMATEN  
+# ========================================================================
+
+# 6. Bereken de variatiebreedte (range)
+# Formule: hoogste waarde - laagste waarde
 variatiebreedte <- ???
 
-# 4. Bereken Q1 (eerste kwartiel)
-# Q1 = mediaan van de onderste helft (5 waarden: 2, 14, 26, 30, 72)
-# 3de waarde van deze 5 waarden
+# 7. Bereken Q1 (eerste kwartiel)
+# Q1 = mediaan van onderste helft (ZONDER mediaan): 2, 14, 26, 30, 72
+# Bij 5 waarnemingen: Q1 = 3de waarde = 26
 q1 <- ???
 
-# 5. Bereken Q3 (derde kwartiel) 
-# Q3 = mediaan van de bovenste helft (5 waarden: 144, 150, 150, 240, 1657)
-# 3de waarde van deze 5 waarden
+# 8. Bereken Q3 (derde kwartiel)
+# Q3 = mediaan van bovenste helft (ZONDER mediaan): 144, 150, 150, 240, 1657  
+# Bij 5 waarnemingen: Q3 = 3de waarde = 150
 q3 <- ???
 
-# 6. Bereken de interkwartielafstand (IKA = Q3 - Q1)
+# 9. Bereken de interkwartielafstand (IKA)
+# Formule: IKA = Q3 - Q1
 ika <- ???
 
-# STAP 3 – Variantie en standaardafwijking
+# STAP 4: VARIANTIE-ANALYSE (STAP VOOR STAP)
+# ========================================================================
 
-# 7. Bereken de afwijkingen van het gemiddelde voor elke waarde
-afwijking_240 <- ??? # 240 - gemiddelde
-afwijking_144 <- ??? # 144 - gemiddelde  
-afwijking_143 <- ??? # 143 - gemiddelde
-afwijking_72 <- ??? # 72 - gemiddelde
-afwijking_30 <- ??? # 30 - gemiddelde
-afwijking_26 <- ??? # 26 - gemiddelde
-afwijking_2 <- ??? # 2 - gemiddelde
-afwijking_150_1 <- ??? # 150 - gemiddelde (eerste keer)
-afwijking_14 <- ??? # 14 - gemiddelde
-afwijking_150_2 <- ??? # 150 - gemiddelde (tweede keer)
-afwijking_1657 <- ??? # 1657 - gemiddelde
+# 10. Bereken ALLE afwijkingen van het gemiddelde
+# DIT IS KOLOM 2 VAN DE TABEL: "Error = Score min gemiddelde"
+# Formule: afwijking = waarde - gemiddelde (238.91)
+# Resultaat: positieve en negatieve waarden die aangeven of boven/onder gemiddelde
 
-# 8. Bereken de gekwadrateerde afwijkingen
-gekw_afwijking_240 <- ???
-gekw_afwijking_144 <- ???
-gekw_afwijking_143 <- ???
-gekw_afwijking_72 <- ???
-gekw_afwijking_30 <- ???
-gekw_afwijking_26 <- ???
-gekw_afwijking_2 <- ???
-gekw_afwijking_150_1 <- ???
-gekw_afwijking_14 <- ???
-gekw_afwijking_150_2 <- ???
-gekw_afwijking_1657 <- ???
+afwijking_240 <- ???   # 240 - gemiddelde
+afwijking_144 <- ???   # 144 - gemiddelde  
+afwijking_143 <- ???   # 143 - gemiddelde
+afwijking_72 <- ???    # 72 - gemiddelde
+afwijking_30 <- ???    # 30 - gemiddelde
+afwijking_26 <- ???    # 26 - gemiddelde
+afwijking_2 <- ???     # 2 - gemiddelde
+afwijking_150_1 <- ??? # 150 - gemiddelde (eerste 150-waarde)
+afwijking_14 <- ???    # 14 - gemiddelde
+afwijking_150_2 <- ??? # 150 - gemiddelde (tweede 150-waarde)
+afwijking_1657 <- ???  # 1657 - gemiddelde (EXTREME UITBIJTER!)
 
-# 9. Bereken de som van gekwadrateerde afwijkingen (Sum of Squares)
+# 11. Bereken ALLE gekwadrateerde afwijkingen  
+# DIT IS KOLOM 3 VAN DE TABEL: "Error squared"
+# Formule: gekwadrateerde_afwijking = (afwijking)²
+# Resultaat: alle waarden worden positief, uitbijters krijgen veel meer gewicht!
+
+gekw_afwijking_240 <- ???   # (afwijking_240)²
+gekw_afwijking_144 <- ???   # (afwijking_144)²
+gekw_afwijking_143 <- ???   # (afwijking_143)²
+gekw_afwijking_72 <- ???    # (afwijking_72)²
+gekw_afwijking_30 <- ???    # (afwijking_30)²
+gekw_afwijking_26 <- ???    # (afwijking_26)²
+gekw_afwijking_2 <- ???     # (afwijking_2)²
+gekw_afwijking_150_1 <- ??? # (afwijking_150_1)²
+gekw_afwijking_14 <- ???    # (afwijking_14)²
+gekw_afwijking_150_2 <- ??? # (afwijking_150_2)²
+gekw_afwijking_1657 <- ???  # (afwijking_1657)² - EXTREEM HOOG!
+
+# 12. Bereken de som van alle gekwadrateerde afwijkingen (Sum of Squares)
+# Tel alle 11 gekwadrateerde afwijkingen bij elkaar op
 sum_of_squares <- ???
 
-# 10. Bereken de variantie (SS / (n-1), waarbij n=11)
+# 13. Bereken de steekproefvariantie
+# BELANGRIJK: Gebruik n-1 = 10 voor steekproeven (niet n = 11)!
+# Formule: variantie = Sum of Squares / (n-1)
 variantie <- ???
 
-# 11. Bereken de standaardafwijking (wortel van variantie)
+# 14. Bereken de standaardafwijking
+# Formule: standaardafwijking = √variantie
 standaardafwijking <- ???
+
+# ========================================================================
+# REFLECTIEVRAGEN (niet verplicht, maar denk erover na):
+# - Hoe beïnvloedt de uitbijter (1657) het gemiddelde vs de mediaan?
+# - Waarom is de standaardafwijking zo hoog?
+# - Welke centrummaat is robuuster bij extreme waarden?
+# ========================================================================

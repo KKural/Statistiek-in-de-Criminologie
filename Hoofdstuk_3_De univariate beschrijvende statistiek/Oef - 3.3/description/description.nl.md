@@ -94,7 +94,5 @@ Voor een volledige analyse bereken je de **afwijkingen** van het gemiddelde, de 
 In het code-bestand vervang je overal `???` door het juiste antwoord.
 
 - Schrijf numerieke antwoorden met een **decimale punt** (bijv. `33.55`, niet `33,55`).
-- Voor vectoren gebruik je de notatie `c(waarde1, waarde2, ...)`.
-- Voor het meetniveau gebruik je een tekstwaarde, bijvoorbeeld `"ratio"`.
 - Voor tekstcategorieën (bijv. keuzes voor de beste maat) gebruik je kleine letters, zoals `"gemiddelde"`, `"mediaan"`, `"modus"`.
 
