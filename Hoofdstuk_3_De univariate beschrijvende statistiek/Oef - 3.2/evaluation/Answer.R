@@ -398,6 +398,7 @@ context({
               paste0("**Resultaat: ", correct_count, " van ", total_questions, " correct**"),
               "",
               "📚 **Overige fouten:**"
+            )
             
             # Helper function for all variables
             make_label_with_explanation <- function(var_name, expected_val) {
