@@ -390,14 +390,15 @@ context({
           if (generated == expected) {
             feedback_parts <- c(
               feedback_parts,
-              "✅ **Resultaat: Alle antwoorden correct! (" , correct_count, " van ", total_questions, ")**"
+              "",
+              paste0("✅ **Resultaat: Alle antwoorden correct! (", correct_count, " van ", total_questions, ")**")
             )
           } else {
             feedback_parts <- c(
               feedback_parts,
-              paste0("**Resultaat: ", correct_count, " van ", total_questions, " correct**"),
               "",
-              "📚 **Overige fouten:**"
+              paste0("**Resultaat: ", correct_count, " van ", total_questions, " correct**")
+            )
             )
             
             # Helper function for all variables
@@ -517,6 +518,11 @@ context({
             
             wrong_keys <- names(results)[sapply(results, function(x) !x$correct)]
             wrong_keys_other <- wrong_keys[!(wrong_keys %in% freq_related)]
+            
+            # Only show "Overige fouten" header if there are other errors
+            if (length(wrong_keys_other) > 0) {
+              feedback_parts <- c(feedback_parts, "", "📚 **Overige fouten:**")
+            }
             
             for (key in wrong_keys_other) {
               student_val  <- results[[key]]$value
