@@ -741,6 +741,7 @@ context({
                                "afwijking_36_5", "afwijking_32_2", "afwijking_36_6", "afwijking_40_3", "afwijking_36_7")
             
             data_values <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
+            data_positions <- c("1e", "2e", "3e", "4e", "5e", "6e", "7e", "8e", "9e", "10e", "11e", "12e", "13e", "14e", "15e", "16e", "17e", "18e", "19e", "20e")
             
             for (i in seq_along(afwijking_vars)) {
               var_name <- afwijking_vars[i]
@@ -748,8 +749,9 @@ context({
                 student_val <- as.numeric(results[[var_name]]$value)
                 expected_val <- results[[var_name]]$expected
                 x_val <- data_values[i]
+                pos <- data_positions[i]
                 feedback_parts <- c(feedback_parts, 
-                  paste0("• **", var_name, ":** Je gaf ", student_val, ", maar correct is **", expected_val, "** → ", x_val, " - 33.55 = ", expected_val))
+                  paste0("• **Afwijking ", pos, " waarde (X = ", x_val, "):** Je gaf ", student_val, ", maar correct is **", expected_val, "** → ", x_val, " - 33.55 = ", expected_val))
               }
             }
             
