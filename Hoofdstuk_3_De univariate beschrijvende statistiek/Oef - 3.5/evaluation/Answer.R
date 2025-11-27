@@ -595,6 +595,22 @@ context({
             }
           }
           
+          # Add correct answers summary if not all correct (like in exercises 3.3 and 3.4)
+          if (correct_count < total_questions) {
+            feedback_lines <- c(
+              feedback_lines,
+              "",
+              "📋 **CORRECTE ANTWOORDEN:**",
+              sprintf("• **1.1 GEMIDDELDE:** %g", expected_mean),
+              sprintf("• **2.1 AFWIJKINGEN:** c(%s)", paste(expected_deviations, collapse = ", ")),
+              sprintf("• **2.2 GEKWADRATEERDE AFWIJKINGEN:** c(%s)", paste(expected_squared, collapse = ", ")),
+              sprintf("• **2.3 SOM GEKWADRATEERDE AFWIJKINGEN:** %g", expected_ss),
+              sprintf("• **3.1 VARIANTIE:** %g", expected_variance),
+              sprintf("• **3.2 STANDAARDDEVIATIE:** %.2f", expected_sd),
+              "• **4.1 KEUZE SPREIDINGSMAAT:** \"standaarddeviatie\""
+            )
+          }
+
           feedback_lines <- c(
             feedback_lines,
             "",

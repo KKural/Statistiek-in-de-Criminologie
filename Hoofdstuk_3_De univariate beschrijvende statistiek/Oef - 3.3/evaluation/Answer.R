@@ -472,39 +472,39 @@ context({
                                     function(x) results[[x]]$correct))
           
           if (freq_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - FREQUENTIES:** Correct geteld! ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 1.1 - FREQUENTIES:** Correct geteld! ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - FREQUENTIES:** Data: 24(3x), 28(2x), 32(2x), 34(1x), 35(1x), 36(7x), 38(1x), 40(3x) ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 1.1 - FREQUENTIES:** Data: 24(3x), 28(2x), 32(2x), 34(1x), 35(1x), 36(7x), 38(1x), 40(3x) ❌")
           }
           
           percent_correct <- all(sapply(paste0("percent_", c(24, 28, 32, 34, 35, 36, 38, 40)), 
                                        function(x) results[[x]]$correct))
           
           if (percent_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - PERCENTAGES:** (frequentie/20) * 100 ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 1.2 - PERCENTAGES:** (frequentie/20) * 100 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - PERCENTAGES:** Gebruik formule (frequentie/20) * 100 ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 1.2 - PERCENTAGES:** Gebruik formule (frequentie/20) * 100 ❌")
           }
           
           if (results$modus$correct && results$mediaan$correct && results$gemiddelde$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - CENTRALITEIT:** Modus=36 (meest frequent), Mediaan=36 (middelste), Gemiddelde=33.55 ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 1.3 - CENTRALITEIT:** Modus=36 (meest frequent), Mediaan=36 (middelste), Gemiddelde=33.55 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - CENTRALITEIT:** Modus=36, Mediaan=36, Gemiddelde=33.55 ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 1.3 - CENTRALITEIT:** Modus=36, Mediaan=36, Gemiddelde=33.55 ❌")
           }
           
           # ----------------------
           # STAP 2 FEEDBACK
           # ----------------------
           if (results$variatiebreedte$correct && results$q1$correct && results$q3$correct && results$ika$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - SPREIDING:** Range=16, Q1=30, Q3=36, IKA=6 ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 2.1 - SPREIDING:** Range=16, Q1=30, Q3=36, IKA=6 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - SPREIDING:** Variatiebreedte=40-24=16, Q1=30, Q3=36, IKA=36-30=6 ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 2.1 - SPREIDING:** Variatiebreedte=40-24=16, Q1=30, Q3=36, IKA=36-30=6 ❌")
           }
           
           if (results$meest_relevante_centraliteit$correct && results$meest_relevante_spreiding$correct && results$reden$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - KEUZES:** Intervaldata → gemiddelde en standaardafwijking gebruiken alle informatie ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 2.2 - KEUZES:** Intervaldata → gemiddelde en standaardafwijking gebruiken alle informatie ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - KEUZES:** Bij intervaldata: gemiddelde, interkwartielafstand, 'gebruikt alle informatie' ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 2.2 - KEUZES:** Bij intervaldata: gemiddelde, interkwartielafstand, 'gebruikt alle informatie' ❌")
           }
           
           # ----------------------
@@ -518,9 +518,9 @@ context({
           afwijkingen_correct <- all(sapply(afwijking_vars, function(x) results[[x]]$correct))
           
           if (afwijkingen_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - AFWIJKINGEN:** X - 33.55 voor elke waarde ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 3.1 - AFWIJKINGEN:** X - 33.55 voor elke waarde ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - AFWIJKINGEN:** Bereken X - 33.55 voor elke datawaarde ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 3.1 - AFWIJKINGEN:** Bereken X - 33.55 voor elke datawaarde ❌")
           }
           
           gekw_vars <- c("gekw_afwijking_24_1", "gekw_afwijking_36_1", "gekw_afwijking_35", "gekw_afwijking_28_1", "gekw_afwijking_24_2",
@@ -531,15 +531,15 @@ context({
           gekw_correct <- all(sapply(gekw_vars, function(x) results[[x]]$correct))
           
           if (gekw_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking ❌")
           }
           
           if (results$sum_of_squares$correct && results$variantie$correct && results$standaardafwijking$correct && results$variatiecoefficient$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - VARIANTIE:** Som=528.95, Variantie=528.95/19=27.8295, SD=5.2763, CV=0.1573 ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 3.3 - VARIANTIE:** Som=528.95, Variantie=528.95/19=27.8295, SD=5.2763, CV=0.1573 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - VARIANTIE:** Som gekwadrateerde afwijkingen = 528.95, variantie = som/(n-1), SD = √variantie ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 3.3 - VARIANTIE:** Som gekwadrateerde afwijkingen = 528.95, variantie = som/(n-1), SD = √variantie ❌")
           }
           
           # ----------------------------------------
