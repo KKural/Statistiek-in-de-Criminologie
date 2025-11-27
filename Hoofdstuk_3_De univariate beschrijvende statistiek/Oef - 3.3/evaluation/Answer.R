@@ -337,42 +337,39 @@ context({
           # -----------------------------
           
           # Individual afwijkingen
-          afwijking_vars <- c("afwijking_24_1", "afwijking_36_1", "afwijking_35", "afwijking_28_1", "afwijking_24_2",
-                    "afwijking_28_2", "afwijking_24_3", "afwijking_36_2", "afwijking_32_1", "afwijking_36_3",
-                    "afwijking_40_1", "afwijking_38", "afwijking_36_4", "afwijking_34", "afwijking_40_2",
-                    "afwijking_36_5", "afwijking_32_2", "afwijking_36_6", "afwijking_40_3", "afwijking_36_7")
+          afwijking_vars <- c(
+            "afwijking_24_1", "afwijking_36_1", "afwijking_35", "afwijking_28_1", "afwijking_24_2",
+            "afwijking_28_2", "afwijking_24_3", "afwijking_36_2", "afwijking_32_1", "afwijking_36_3",
+            "afwijking_40_1", "afwijking_38", "afwijking_36_4", "afwijking_34", "afwijking_40_2",
+            "afwijking_36_5", "afwijking_32_2", "afwijking_36_6", "afwijking_40_3", "afwijking_36_7"
+          )
 
-          afwijkingen_correct <- all(sapply(afwijking_vars, function(x) results[[x]]$correct))
+          expected_afwijkingen <- c(
+            -9.55,  2.45,  1.45, -5.55, -9.55,
+            -5.55, -9.55,  2.45, -1.55,  2.45,
+             6.45,  4.45,  2.45,  0.45,  6.45,
+             2.45, -1.55,  2.45,  6.45,  2.45
+          )
 
-          if (afwijkingen_correct) {
-            feedback_parts <- c(
-              feedback_parts,
-              "**STAP 3.1 - AFWIJKINGEN:** X - 33.55 voor elke waarde ✅"
-            )
-          } else {
-            feedback_parts <- c(
-              feedback_parts,
-              "**STAP 3.1 - AFWIJKINGEN:** Bereken X - 33.55 voor elke datawaarde ❌"
-            )
+          for (i in seq_along(afwijking_vars)) {
+            var_name     <- afwijking_vars[i]
+            expected_val <- expected_afwijkingen[i]
             
-            # Toon precies welke afwijkingen fout zijn
-            wrong_afw <- afwijking_vars[
-              sapply(afwijking_vars, function(v) results[[v]]$exists && !results[[v]]$correct)
-            ]
-            
-            if (length(wrong_afw) > 0) {
-              feedback_parts <- c(feedback_parts, "  • **Foute afwijkingen (X - 33.55):**")
-              
-              for (v in wrong_afw) {
-                res <- results[[v]]
-                student_val  <- suppressWarnings(as.numeric(res$value))
-                expected_val <- res$expected
-                
-                feedback_parts <- c(
-                  feedback_parts,
-                  paste0("    - ", v, ": je gaf ", student_val, ", moet zijn ", round(expected_val, 2))
-                )
-              }
+            if (exists(var_name, envir = env)) {
+              current_val <- as.numeric(get(var_name, envir = env))
+              results[[var_name]] <- list(
+                exists   = TRUE,
+                value    = current_val,
+                correct  = abs(current_val - expected_val) < 0.005,
+                expected = expected_val
+              )
+            } else {
+              results[[var_name]] <- list(
+                exists   = FALSE,
+                value    = NA,
+                correct  = FALSE,
+                expected = expected_val
+              )
             }
           }
           
@@ -558,13 +555,34 @@ context({
                              "afwijking_36_5", "afwijking_32_2", "afwijking_36_6", "afwijking_40_3", "afwijking_36_7")
           
           afwijkingen_correct <- all(sapply(afwijking_vars, function(x) {
-            x %in% names(results) && results[[x]]$correct
+            x %in% names(results) && isTRUE(results[[x]]$correct)
           }))
           
           if (afwijkingen_correct) {
             feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** X - 33.55 voor elke waarde ✅")
           } else {
             feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** Bereken X - 33.55 voor elke datawaarde ❌")
+            
+            wrong_afw <- afwijking_vars[
+              sapply(afwijking_vars, function(v) {
+                v %in% names(results) && isTRUE(results[[v]]$exists) && !isTRUE(results[[v]]$correct)
+              })
+            ]
+            
+            if (length(wrong_afw) > 0) {
+              feedback_parts <- c(feedback_parts, "  • **Foute afwijkingen (X - 33.55):**")
+              
+              for (v in wrong_afw) {
+                res          <- results[[v]]
+                student_val  <- suppressWarnings(as.numeric(res$value))
+                expected_val <- res$expected
+                
+                feedback_parts <- c(
+                  feedback_parts,
+                  paste0("    - ", v, ": je gaf ", student_val, ", moet zijn ", round(expected_val, 2))
+                )
+              }
+            }
           }
           
           gekw_vars <- c("gekw_afwijking_24_1", "gekw_afwijking_36_1", "gekw_afwijking_35", "gekw_afwijking_28_1", "gekw_afwijking_24_2",
@@ -998,7 +1016,9 @@ context({
           }
 
           # Fallback summary for any remaining incorrect answers
-          incorrect_vars <- names(results)[sapply(results, function(x) !x$correct)]
+          incorrect_vars <- names(results)[sapply(results, function(rec) {
+            isTRUE(rec$exists) && !isTRUE(rec$correct)
+          })]
           if (length(incorrect_vars) > 0) {
             feedback_parts <- c(feedback_parts, "- Overzicht fouten (jouw antwoord -> verwacht):")
             for (var_name in incorrect_vars) {
