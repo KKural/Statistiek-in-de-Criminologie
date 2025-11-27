@@ -568,8 +568,7 @@ context({
                   "`, maar tevredenheid in categorieën heeft alleen rangorde (zeer ontevreden … zeer tevreden). ",
                   "Juiste antwoord is **ordinaal**."
                 )
-                )
-              }
+              )
             }
           }
           
