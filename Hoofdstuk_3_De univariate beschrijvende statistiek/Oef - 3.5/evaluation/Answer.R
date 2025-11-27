@@ -329,19 +329,6 @@ context({
                 }
               }
             }
-            
-            feedback_parts <- c(
-              feedback_parts,
-              "",
-              "📋 **CORRECTE ANTWOORDEN:**",
-              "• **1.1 Gemiddelde:** 6",
-              "• **2.1 Afwijkingen:** c(-4, 1, 4, -1, 0, 2, -3, -2, 3)",
-              "• **2.2 Gekwadrateerde afwijkingen:** c(16, 1, 16, 1, 0, 4, 9, 4, 9)",
-              "• **2.3 Som gekwadrateerde afwijkingen:** 60",
-              "• **3.1 Variantie:** 7.5",
-              "• **3.2 Standaarddeviatie:** 2.74",
-              "• **4.1 Gekozen spreidingsmaat:** \"standaarddeviatie\""
-            )
           }
 
           feedback_parts <- c(

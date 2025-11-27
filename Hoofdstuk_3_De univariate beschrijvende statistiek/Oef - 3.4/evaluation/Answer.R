@@ -933,25 +933,6 @@ context({
               }
             }
           }
-          
-          # Add correct answers overview if there were errors
-          if (correct_count != total_questions) {
-            feedback_parts <- c(
-              feedback_parts,
-              "",
-              "📋 **CORRECTE ANTWOORDEN - OVERZICHT:**",
-              "• **Gemiddelde:** 238.91 dagen",
-              "• **Mediaan:** 143 dagen (6de waarde van gesorteerde reeks)",
-              "• **Modus:** 150 dagen (komt 2x voor)",
-              "• **Variatiebreedte:** 1655 dagen (1657-2)",
-              "• **Q1:** 26 dagen (3de waarde)",
-              "• **Q3:** 150 dagen (9de waarde)", 
-              "• **IKA:** 124 dagen (150-26)",
-              "• **Som gekwadrateerde afwijkingen:** 2,268,540.92",
-              "• **Variantie:** 226,854.09 (gebruik n-1=10)",
-              "• **Standaardafwijking:** 476.29 dagen"
-            )
-          }
 
           feedback_parts <- c(
             feedback_parts,
