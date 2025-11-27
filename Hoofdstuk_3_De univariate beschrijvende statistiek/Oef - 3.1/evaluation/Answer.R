@@ -39,7 +39,7 @@ context({
           # VRAAG 1
           # =========================
           if (exists("vraag1", envir = env)) {
-            raw_val    <- get("vraag1", envir = env)
+            raw_val     <- get("vraag1", envir = env)
             current_val <- safe_as_numeric(raw_val, env)
             
             results$vraag1 <- list(
@@ -61,7 +61,7 @@ context({
           # VRAAG 2
           # =========================
           if (exists("vraag2", envir = env)) {
-            raw_val    <- get("vraag2", envir = env)
+            raw_val     <- get("vraag2", envir = env)
             current_val <- safe_as_numeric(raw_val, env)
             
             results$vraag2 <- list(
@@ -83,7 +83,7 @@ context({
           # VRAAG 3
           # =========================
           if (exists("vraag3", envir = env)) {
-            raw_val    <- get("vraag3", envir = env)
+            raw_val     <- get("vraag3", envir = env)
             current_val <- safe_as_numeric(raw_val, env)
             
             results$vraag3 <- list(
@@ -105,7 +105,7 @@ context({
           # VRAAG 4
           # =========================
           if (exists("vraag4", envir = env)) {
-            raw_val    <- get("vraag4", envir = env)
+            raw_val     <- get("vraag4", envir = env)
             current_val <- safe_as_numeric(raw_val, env)
             
             results$vraag4 <- list(
@@ -127,7 +127,7 @@ context({
           # VRAAG 5
           # =========================
           if (exists("vraag5", envir = env)) {
-            raw_val    <- get("vraag5", envir = env)
+            raw_val     <- get("vraag5", envir = env)
             current_val <- safe_as_numeric(raw_val, env)
             
             results$vraag5 <- list(
@@ -149,7 +149,7 @@ context({
           # VRAAG 6
           # =========================
           if (exists("vraag6", envir = env)) {
-            raw_val    <- get("vraag6", envir = env)
+            raw_val     <- get("vraag6", envir = env)
             current_val <- safe_as_numeric(raw_val, env)
             
             results$vraag6 <- list(
@@ -167,7 +167,7 @@ context({
             )
           }
           
-          # Store results for use in comparator (same pattern)
+          # Store results for use in comparator
           assign("detailed_results", results, envir = globalenv())
           
           # Return overall success
@@ -191,9 +191,9 @@ context({
             "vraag6" = "6. Hoeveel drinken hoogstens 'af en toe'?"
           )
           
-          for(var_key in names(question_names)) {
+          for (var_key in names(question_names)) {
             var_display <- question_names[var_key]
-            result <- results[[var_key]]
+            result      <- results[[var_key]]
             
             if (!result$exists) {
               feedback_parts <- c(
@@ -225,184 +225,326 @@ context({
             if (any(incorrect_vars)) {
               feedback_parts <- c(
                 feedback_parts,
-                "\n**📚 Uitleg waarom deze antwoorden fout zijn:**"
+                "\n**📚 Uitleg waarom deze antwoorden fout zijn (met jouw antwoord én het juiste antwoord):**"
               )
               
-              # ---- Vraag 1 ----
+              # ======================
+              # VRAAG 1
+              # ======================
               if (!results$vraag1$correct) {
                 if (!results$vraag1$exists) {
                   feedback_parts <- c(
                     feedback_parts,
-                    "• **Vraag 1**: ❌ Variabele `vraag1` niet gevonden. Vervang `???` door: `vraag1 <- 10`"
+                    "• **Vraag 1**: ❌ Variabele `vraag1` niet gevonden. Vervang `???` door: `vraag1 <- 10` (juiste antwoord: **10**)."
                   )
                 } else {
                   student_answer <- suppressWarnings(as.numeric(results$vraag1$value))
                   if (!is.na(student_answer) && student_answer == 55) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 1**: Je antwoordde 55, maar dat is de frequentie van 'zeer vaak'. Zoek in de kolom *Absolute frequentie* bij rij **'dikwijls'** → **10**."
+                      paste0(
+                        "• **Vraag 1**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Dat is de frequentie van *'zeer vaak'*. De vraag gaat over *'dikwijls'*. ",
+                        "In de kolom *Absolute frequentie* bij de rij **'dikwijls'** staat **10**. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **10**."
+                      )
                     )
                   } else if (!is.na(student_answer) && student_answer == 255) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 1**: Je antwoordde 255, maar dat is de *cumulatieve* frequentie tot 'dikwijls'. De absolute frequentie van **alleen** 'dikwijls' is → **10**."
+                      paste0(
+                        "• **Vraag 1**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Dat is de *cumulatieve frequentie* tot en met 'dikwijls'. ",
+                        "De vraag vraagt alleen naar de frequentie van 'dikwijls' zelf: **10**. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **10**."
+                      )
                     )
                   } else if (!is.na(student_answer) &&
                              (abs(student_answer - 0.0323) < 0.0001 ||
                               abs(student_answer - 3.23)   < 0.01)) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 1**: Je gaf een proportie of percentage, maar de vraag vraagt naar het **aantal studenten** (absolute frequentie) → **10**."
+                      paste0(
+                        "• **Vraag 1**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Dat is een proportie/percentage, terwijl de vraag naar het **aantal studenten** vraagt. ",
+                        "De absolute frequentie bij 'dikwijls' is **10**. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **10**."
+                      )
                     )
                   } else {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 1**: Kijk in de rij 'dikwijls' onder *Absolute frequentie*: daar staat **10** studenten."
+                      paste0(
+                        "• **Vraag 1**: Je gaf **", results$vraag1$value, "**, maar dit is fout. ",
+                        "Kijk in de rij 'dikwijls' onder *Absolute frequentie*: daar staat **10** studenten. ",
+                        "Dus: jij gaf **", results$vraag1$value, "**, het juiste antwoord is **10**."
+                      )
                     )
                   }
                 }
               }
               
-              # ---- Vraag 2 ----
+              # ======================
+              # VRAAG 2
+              # ======================
               if (!results$vraag2$correct) {
                 if (!results$vraag2$exists) {
                   feedback_parts <- c(
                     feedback_parts,
-                    "• **Vraag 2**: ❌ Variabele `vraag2` niet gevonden. Vervang `???` door: `vraag2 <- 3.23`"
+                    "• **Vraag 2**: ❌ Variabele `vraag2` niet gevonden. Vervang `???` door: `vraag2 <- 3.23` (juiste antwoord: **3.23**%)."
                   )
                 } else {
                   student_answer <- suppressWarnings(as.numeric(results$vraag2$value))
                   if (!is.na(student_answer) && abs(student_answer - 0.0323) < 0.001) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 2**: Je gaf de **proportie** (0.0323), maar de vraag vraagt naar het **percentage**. Vermenigvuldig met 100 → **3.23%**."
+                      paste0(
+                        "• **Vraag 2**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Dit is de **proportie** (0.0323). De vraag vraagt naar het **percentage**. ",
+                        "Vermenigvuldig met 100: 0.0323 × 100 = **3.23**%. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **3.23**."
+                      )
                     )
                   } else if (!is.na(student_answer) && student_answer == 10) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 2**: Je gaf de absolute frequentie (10), maar de vraag vraagt naar het **percentage**: 10/310 × 100 → **3.23%**."
+                      paste0(
+                        "• **Vraag 2**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Dat is het aantal studenten (absolute frequentie). ",
+                        "Het percentage is: 10/310 × 100 = **3.23**%. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **3.23**."
+                      )
+                    )
+                  } else if (!is.na(student_answer) && abs(student_answer - 20.97) < 0.1) {
+                    feedback_parts <- c(
+                      feedback_parts,
+                      paste0(
+                        "• **Vraag 2**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Dit is eerder het percentage voor 'minstens dikwijls'. ",
+                        "Voor alleen 'dikwijls' is het percentage: 10/310 × 100 = **3.23**%. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **3.23**."
+                      )
                     )
                   } else {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 2**: Bereken: (aantal 'dikwijls' / totaal) × 100 = 10/310 × 100 ≈ **3.23%**."
+                      paste0(
+                        "• **Vraag 2**: Je gaf **", results$vraag2$value, "**, maar dit is fout. ",
+                        "Bereken: (aantal 'dikwijls' / totaal) × 100 = 10/310 × 100 ≈ **3.23**%. ",
+                        "Dus: jij gaf **", results$vraag2$value, "**, het juiste antwoord is **3.23**."
+                      )
                     )
                   }
                 }
               }
               
-              # ---- Vraag 3 ----
+              # ======================
+              # VRAAG 3
+              # ======================
               if (!results$vraag3$correct) {
                 if (!results$vraag3$exists) {
                   feedback_parts <- c(
                     feedback_parts,
-                    "• **Vraag 3**: ❌ Variabele `vraag3` niet gevonden. Vervang `???` door: `vraag3 <- 72.58`"
+                    "• **Vraag 3**: ❌ Variabele `vraag3` niet gevonden. Vervang `???` door: `vraag3 <- 72.58` (juiste antwoord: **72.58**%)."
                   )
                 } else {
                   student_answer <- suppressWarnings(as.numeric(results$vraag3$value))
                   if (!is.na(student_answer) && abs(student_answer - 61.29) < 0.1) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 3**: Je gaf alleen 'nooit' (61.29%), maar de vraag vraagt **'zelden of nooit'**: 61.29% + 11.29% → **72.58%**."
+                      paste0(
+                        "• **Vraag 3**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Je nam alleen 'nooit' (61.29%). De vraag is 'zelden OF nooit'. ",
+                        "Tel beide percentages op: 61.29% + 11.29% = **72.58**%. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **72.58**."
+                      )
                     )
                   } else if (!is.na(student_answer) && abs(student_answer - 11.29) < 0.1) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 3**: Je gaf alleen 'zelden' (11.29%), maar de vraag vraagt **'zelden of nooit'**: 11.29% + 61.29% → **72.58%**."
+                      paste0(
+                        "• **Vraag 3**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Je nam alleen 'zelden' (11.29%). De vraag is 'zelden OF nooit'. ",
+                        "Tel beide percentages op: 11.29% + 61.29% = **72.58**%. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **72.58**."
+                      )
+                    )
+                  } else if (!is.na(student_answer) && abs(student_answer - 0.7258) < 0.001) {
+                    feedback_parts <- c(
+                      feedback_parts,
+                      paste0(
+                        "• **Vraag 3**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Dat is de proportie (0.7258). De vraag vraagt naar het **percentage**. ",
+                        "0.7258 × 100 = **72.58**%. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **72.58**."
+                      )
                     )
                   } else {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 3**: Tel de percentages van 'zelden' en 'nooit' op: 11.29% + 61.29% = **72.58%**."
+                      paste0(
+                        "• **Vraag 3**: Je gaf **", results$vraag3$value, "**, maar dit is fout. ",
+                        "Tel de percentages van 'zelden' en 'nooit' op: 11.29% + 61.29% = **72.58**%. ",
+                        "Dus: jij gaf **", results$vraag3$value, "**, het juiste antwoord is **72.58**."
+                      )
                     )
                   }
                 }
               }
               
-              # ---- Vraag 4 ----
+              # ======================
+              # VRAAG 4
+              # ======================
               if (!results$vraag4$correct) {
                 if (!results$vraag4$exists) {
                   feedback_parts <- c(
                     feedback_parts,
-                    "• **Vraag 4**: ❌ Variabele `vraag4` niet gevonden. Vervang `???` door: `vraag4 <- 0.2097`"
+                    "• **Vraag 4**: ❌ Variabele `vraag4` niet gevonden. Vervang `???` door: `vraag4 <- 0.2097` (juiste antwoord: **0.2097**)."
                   )
                 } else {
                   student_answer <- suppressWarnings(as.numeric(results$vraag4$value))
                   if (!is.na(student_answer) && abs(student_answer - 0.0323) < 0.001) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 4**: Je nam alleen 'dikwijls' (0.0323), maar 'minstens dikwijls' = 'dikwijls' + 'zeer vaak': 0.0323 + 0.1774 → **0.2097**."
+                      paste0(
+                        "• **Vraag 4**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Je nam alleen de proportie voor 'dikwijls' (0.0323). ",
+                        "'Minstens dikwijls' = 'dikwijls' + 'zeer vaak': 0.0323 + 0.1774 = **0.2097**. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **0.2097**."
+                      )
+                    )
+                  } else if (!is.na(student_answer) && abs(student_answer - 0.1774) < 0.001) {
+                    feedback_parts <- c(
+                      feedback_parts,
+                      paste0(
+                        "• **Vraag 4**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Je nam alleen de proportie voor 'zeer vaak' (0.1774). ",
+                        "'Minstens dikwijls' = 'dikwijls' + 'zeer vaak': 0.0323 + 0.1774 = **0.2097**. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **0.2097**."
+                      )
                     )
                   } else if (!is.na(student_answer) && abs(student_answer - 20.97) < 0.1) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 4**: Je gaf het **percentage** (20.97%), maar de vraag vraagt naar de **proportie** (tussen 0 en 1) → **0.2097**."
+                      paste0(
+                        "• **Vraag 4**: Je gaf **", student_answer, "**, maar dit is fout. ",
+                        "Je gaf het **percentage** (20.97%). De vraag vraagt naar de **proportie** (tussen 0 en 1). ",
+                        "De proportie is 20.97/100 = **0.2097**. ",
+                        "Dus: jij gaf **", student_answer, "**, het juiste antwoord is **0.2097**."
+                      )
                     )
                   } else {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 4**: 'Minstens dikwijls' = proportie 'dikwijls' + 'zeer vaak': 0.0323 + 0.1774 = **0.2097**."
+                      paste0(
+                        "• **Vraag 4**: Je gaf **", results$vraag4$value, "**, maar dit is fout. ",
+                        "'Minstens dikwijls' = proportie('dikwijls') + proportie('zeer vaak'): 0.0323 + 0.1774 = **0.2097**. ",
+                        "Dus: jij gaf **", results$vraag4$value, "**, het juiste antwoord is **0.2097**."
+                      )
                     )
                   }
                 }
               }
               
-              # ---- Vraag 5 ----
+              # ======================
+              # VRAAG 5
+              # ======================
               if (!results$vraag5$correct) {
                 if (!results$vraag5$exists) {
                   feedback_parts <- c(
                     feedback_parts,
-                    "• **Vraag 5**: ❌ Variabele `vraag5` niet gevonden. Vervang `???` door: `vraag5 <- 2`"
+                    "• **Vraag 5**: ❌ Variabele `vraag5` niet gevonden. Vervang `???` door: `vraag5 <- 2` (juiste antwoord: **2**)."
                   )
                 } else {
                   student_answer <- suppressWarnings(as.numeric(results$vraag5$value))
                   if (!is.na(student_answer) && student_answer == 1) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 5**: Optie 1 is fout. Als 50 extra studenten 'zeer vaak' antwoorden, stijgt N van 310 naar 360. **Alle proporties veranderen** omdat je door een ander totaal deelt → **optie 2**."
+                      paste0(
+                        "• **Vraag 5**: Je gaf **1**, maar dit is fout. ",
+                        "Als 50 extra studenten 'zeer vaak' antwoorden, verandert N van 310 naar 360. ",
+                        "Alle proporties veranderen omdat je door een ander totaal deelt. ",
+                        "Het juiste antwoord is **2**: alle proporties veranderen. "
+                      )
                     )
                   } else if (!is.na(student_answer) && student_answer == 3) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 5**: Optie 3 is fout. De proporties kunnen niet gelijk blijven als N verandert van 310 naar 360. → **optie 2**."
+                      paste0(
+                        "• **Vraag 5**: Je gaf **3**, maar dit is fout. ",
+                        "Proporties kunnen niet hetzelfde blijven als N verandert van 310 naar 360. ",
+                        "Het juiste antwoord is **2**: alle proporties veranderen. "
+                      )
                     )
                   } else if (!is.na(student_answer) && student_answer == 4) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 5**: Optie 4 is fout. Als N verandert, veranderen de proporties automatisch (andere noemer). → **optie 2**."
+                      paste0(
+                        "• **Vraag 5**: Je gaf **4**, maar dit is fout. ",
+                        "Omdat N verandert, veranderen automatisch alle proporties. ",
+                        "Het juiste antwoord is **2**: alle proporties veranderen. "
+                      )
                     )
                   } else {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 5**: Het juiste antwoord is **2**: alle proporties veranderen, ook die van 'zeer vaak'."
+                      paste0(
+                        "• **Vraag 5**: Je gaf **", results$vraag5$value, "**, maar dit is fout. ",
+                        "Het juiste antwoord is **2**: alle proporties veranderen als er 50 extra 'zeer vaak'-respondenten bijkomen. "
+                      )
                     )
                   }
                 }
               }
               
-              # ---- Vraag 6 ----
+              # ======================
+              # VRAAG 6
+              # ======================
               if (!results$vraag6$correct) {
                 if (!results$vraag6$exists) {
                   feedback_parts <- c(
                     feedback_parts,
-                    "• **Vraag 6**: ❌ Variabele `vraag6` niet gevonden. Vervang `???` door: `vraag6 <- 245`"
+                    "• **Vraag 6**: ❌ Variabele `vraag6` niet gevonden. Vervang `???` door: `vraag6 <- 245` (juiste antwoord: **245**)."
                   )
                 } else {
                   student_answer <- suppressWarnings(as.numeric(results$vraag6$value))
                   if (!is.na(student_answer) && student_answer == 20) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 6**: Je nam alleen 'af en toe' (20), maar 'hoogstens af en toe' = 'nooit' + 'zelden' + 'af en toe': 190 + 35 + 20 = **245**."
+                      paste0(
+                        "• **Vraag 6**: Je gaf **20**, maar dit is fout. ",
+                        "Dat is alleen de frequentie van 'af en toe'. ",
+                        "'Hoogstens af en toe' = 'nooit' + 'zelden' + 'af en toe': 190 + 35 + 20 = **245**. ",
+                        "Dus: jij gaf **20**, het juiste antwoord is **245**."
+                      )
                     )
                   } else if (!is.na(student_answer) && student_answer == 225) {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 6**: Je telde 'nooit' + 'zelden' (225), maar 'hoogstens af en toe' moet ook 'af en toe' erbij: 225 + 20 = **245**."
+                      paste0(
+                        "• **Vraag 6**: Je gaf **225**, maar dit is fout. ",
+                        "Dat is 'nooit' + 'zelden'. Je moet ook 'af en toe' erbij tellen: 225 + 20 = **245**. ",
+                        "Dus: jij gaf **225**, het juiste antwoord is **245**."
+                      )
+                    )
+                  } else if (!is.na(student_answer) && student_answer == 310) {
+                    feedback_parts <- c(
+                      feedback_parts,
+                      paste0(
+                        "• **Vraag 6**: Je gaf **310**, maar dit is fout. ",
+                        "310 is het **totale aantal** studenten, niet 'hoogstens af en toe'. ",
+                        "Voor 'hoogstens af en toe' tel je: 190 + 35 + 20 = **245**. ",
+                        "Dus: jij gaf **310**, het juiste antwoord is **245**."
+                      )
                     )
                   } else {
                     feedback_parts <- c(
                       feedback_parts,
-                      "• **Vraag 6**: 'Hoogstens af en toe' = cumulatieve frequentie tot en met 'af en toe': 190 + 35 + 20 = **245** studenten."
+                      paste0(
+                        "• **Vraag 6**: Je gaf **", results$vraag6$value, "**, maar dit is fout. ",
+                        "'Hoogstens af en toe' = cumulatieve frequentie t.e.m. 'af en toe': 190 + 35 + 20 = **245** studenten. ",
+                        "Dus: jij gaf **", results$vraag6$value, "**, het juiste antwoord is **245**."
+                      )
                     )
                   }
                 }
@@ -410,7 +552,7 @@ context({
             }
           }
           
-          # Extra uitleg (als in je andere systeem)
+          # Extra uitleg
           feedback_parts <- c(
             feedback_parts,
             "",
