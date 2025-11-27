@@ -458,7 +458,7 @@ context({
           # ----------------------------------------
           
           if (correct_count != total_questions) {
-            feedback_lines <- c(feedback_lines, "", "📚 **Uitleg van veelgemaakte fouten:**")
+            feedback_lines <- c(feedback_lines, "", "📚 **Uitleg van gemaakte fouten:**")
             
             # MEETNIVEAU fout
             if (!results$meetniveau$correct && results$meetniveau$exists) {
@@ -540,6 +540,56 @@ context({
               }
             }
             
+            # FREQUENTIETABEL FOUTEN - Individual variable feedback  
+            # CUMULATIEVE ABSOLUTE FREQUENTIES
+            cum_abs_vars <- c("cumulatieve_absolute_frequenties_zeer_ontevreden", "cumulatieve_absolute_frequenties_ontevreden", 
+                             "cumulatieve_absolute_frequenties_noch_tevreden_noch_ontevreden", "cumulatieve_absolute_frequenties_tevreden", 
+                             "cumulatieve_absolute_frequenties_zeer_tevreden")
+            cum_abs_labels <- c("Zeer ontevreden (33)", "Ontevreden (33+84=117)", "Noch tevreden, noch ontevreden (33+84+102=219)", 
+                               "Tevreden (33+84+102+63=282)", "Zeer tevreden (33+84+102+63+48=330)")
+            
+            for (i in seq_along(cum_abs_vars)) {
+              var_name <- cum_abs_vars[i]
+              if (exists(var_name, results) && !results[[var_name]]$correct) {
+                if (!results[[var_name]]$exists) {
+                  feedback_lines <- c(feedback_lines, paste0("• **", cum_abs_labels[i], ":** Variabele ontbreekt"))
+                } else {
+                  student_val <- results[[var_name]]$value
+                  expected_val <- results[[var_name]]$expected
+                  if (var_name == "cumulatieve_absolute_frequenties_ontevreden" && student_val == 84) {
+                    feedback_lines <- c(feedback_lines, paste0("• **", cum_abs_labels[i], ":** Je gaf 84, maar dit is de absolute frequentie. Cumulatief = 33+84 = **117**"))
+                  } else {
+                    feedback_lines <- c(feedback_lines, paste0("• **", cum_abs_labels[i], ":** Je gaf ", student_val, ", maar het juiste antwoord is **", expected_val, "**"))
+                  }
+                }
+              }
+            }
+            
+            # RELATIEVE FREQUENTIES  
+            rel_freq_vars <- c("relatieve_frequenties_zeer_ontevreden", "relatieve_frequenties_ontevreden", 
+                              "relatieve_frequenties_noch_tevreden_noch_ontevreden", "relatieve_frequenties_tevreden", 
+                              "relatieve_frequenties_zeer_tevreden")
+            rel_freq_labels <- c("Zeer ontevreden (33/330=0.1000)", "Ontevreden (84/330=0.2545)", "Noch tevreden, noch ontevreden (102/330=0.3100)", 
+                                "Tevreden (63/330=0.1909)", "Zeer tevreden (48/330=0.1455)")
+            
+            for (i in seq_along(rel_freq_vars)) {
+              var_name <- rel_freq_vars[i]
+              if (exists(var_name, results) && !results[[var_name]]$correct) {
+                if (!results[[var_name]]$exists) {
+                  feedback_lines <- c(feedback_lines, paste0("• **", rel_freq_labels[i], ":** Variabele ontbreekt"))
+                } else {
+                  student_val <- results[[var_name]]$value
+                  expected_val <- results[[var_name]]$expected
+                  # Check for percentage instead of proportion
+                  if (abs(student_val - expected_val * 100) < 0.1) {
+                    feedback_lines <- c(feedback_lines, paste0("• **", rel_freq_labels[i], ":** Je gaf ", student_val, ", maar dit is het percentage. Proportie = **", expected_val, "**"))
+                  } else {
+                    feedback_lines <- c(feedback_lines, paste0("• **", rel_freq_labels[i], ":** Je gaf ", round(student_val, 4), ", maar het juiste antwoord is **", expected_val, "**"))
+                  }
+                }
+              }
+            }
+            
             # Totaal N fout – **updated to your preferred style**
             if (!results$totaal_n$correct && results$totaal_n$exists) {
               student_n <- suppressWarnings(as.numeric(results$totaal_n$value))
@@ -563,93 +613,7 @@ context({
               }
             }
             
-            # Individual variable feedback with specific error messages
-            
-            # CUMULATIEVE ABSOLUTE FREQUENTIES - Individual feedback
-            cum_abs_labels <- list(
-              "cumulatieve_absolute_frequenties_zeer_ontevreden" = "Zeer ontevreden (33)",
-              "cumulatieve_absolute_frequenties_ontevreden" = "Ontevreden (33+84=117)", 
-              "cumulatieve_absolute_frequenties_noch_tevreden_noch_ontevreden" = "Noch tevreden, noch ontevreden (33+84+102=219)",
-              "cumulatieve_absolute_frequenties_tevreden" = "Tevreden (33+84+102+63=282)",
-              "cumulatieve_absolute_frequenties_zeer_tevreden" = "Zeer tevreden (33+84+102+63+48=330)"
-            )
-            
-            for (var_name in names(cum_abs_labels)) {
-              if (exists(var_name, results) && !results[[var_name]]$correct) {
-                if (!results[[var_name]]$exists) {
-                  feedback_lines <- c(feedback_lines, 
-                    paste0("• **", cum_abs_labels[[var_name]], ":** Variabele ontbreekt ❌"))
-                } else {
-                  student_val <- results[[var_name]]$value
-                  expected_val <- results[[var_name]]$expected
-                  
-                  # Specific wrong answer patterns
-                  if (var_name == "cumulatieve_absolute_frequenties_zeer_ontevreden" && student_val == 0) {
-                    feedback_lines <- c(feedback_lines,
-                      paste0("• **", cum_abs_labels[[var_name]], ":** Je gaf 0, maar cumulatief begint met de eerste categorie. Het juiste antwoord is **33** ❌"))
-                  } else if (var_name == "cumulatieve_absolute_frequenties_ontevreden" && student_val == 84) {
-                    feedback_lines <- c(feedback_lines,
-                      paste0("• **", cum_abs_labels[[var_name]], ":** Je gaf 84, maar dit is de absolute frequentie. Cumulatief = 33+84 = **117** ❌"))
-                  } else {
-                    feedback_lines <- c(feedback_lines,
-                      paste0("• **", cum_abs_labels[[var_name]], ":** Je gaf ", student_val, ", maar het juiste antwoord is **", expected_val, "** ❌"))
-                  }
-                }
-              }
-            }
-            
-            # RELATIEVE FREQUENTIES - Individual feedback  
-            rel_freq_labels <- list(
-              "relatieve_frequenties_zeer_ontevreden" = "Zeer ontevreden (33/330=0.1000)",
-              "relatieve_frequenties_ontevreden" = "Ontevreden (84/330=0.2545)",
-              "relatieve_frequenties_noch_tevreden_noch_ontevreden" = "Noch tevreden, noch ontevreden (102/330=0.3100)",
-              "relatieve_frequenties_tevreden" = "Tevreden (63/330=0.1909)",
-              "relatieve_frequenties_zeer_tevreden" = "Zeer tevreden (48/330=0.1455)"
-            )
-            
-            for (var_name in names(rel_freq_labels)) {
-              if (exists(var_name, results) && !results[[var_name]]$correct) {
-                if (!results[[var_name]]$exists) {
-                  feedback_lines <- c(feedback_lines,
-                    paste0("• **", rel_freq_labels[[var_name]], ":** Variabele ontbreekt ❌"))
-                } else {
-                  student_val <- results[[var_name]]$value
-                  expected_val <- results[[var_name]]$expected
-                  
-                  # Check for percentage instead of proportion
-                  if (abs(student_val - expected_val * 100) < 0.1) {
-                    feedback_lines <- c(feedback_lines,
-                      paste0("• **", rel_freq_labels[[var_name]], ":** Je gaf ", student_val, ", maar dit is het percentage. Proportie = **", expected_val, "** ❌"))
-                  } else {
-                    feedback_lines <- c(feedback_lines,
-                      paste0("• **", rel_freq_labels[[var_name]], ":** Je gaf ", round(student_val, 4), ", maar het juiste antwoord is **", expected_val, "** ❌"))
-                  }
-                }
-              }
-            }
-            
-            # CUMULATIEVE RELATIEVE FREQUENTIES - Individual feedback
-            cum_rel_labels <- list(
-              "cumulatieve_relatieve_frequenties_zeer_ontevreden" = "Zeer ontevreden (0.1000)",
-              "cumulatieve_relatieve_frequenties_ontevreden" = "Ontevreden (0.1000+0.2545=0.3545)",
-              "cumulatieve_relatieve_frequenties_noch_tevreden_noch_ontevreden" = "Noch tevreden, noch ontevreden (0.3545+0.3100=0.6636)",
-              "cumulatieve_relatieve_frequenties_tevreden" = "Tevreden (0.6636+0.1909=0.8545)", 
-              "cumulatieve_relatieve_frequenties_zeer_tevreden" = "Zeer tevreden (0.8545+0.1455=1.0000)"
-            )
-            
-            for (var_name in names(cum_rel_labels)) {
-              if (exists(var_name, results) && !results[[var_name]]$correct) {
-                if (!results[[var_name]]$exists) {
-                  feedback_lines <- c(feedback_lines,
-                    paste0("• **", cum_rel_labels[[var_name]], ":** Variabele ontbreekt ❌"))
-                } else {
-                  student_val <- results[[var_name]]$value
-                  expected_val <- results[[var_name]]$expected
-                  feedback_lines <- c(feedback_lines,
-                    paste0("• **", cum_rel_labels[[var_name]], ":** Je gaf ", round(student_val, 4), ", maar het juiste antwoord is **", expected_val, "** ❌"))
-                }
-              }
-            }
+
             
             # Meest relevante maat fout
             if (!results$meest_relevante$correct &&
