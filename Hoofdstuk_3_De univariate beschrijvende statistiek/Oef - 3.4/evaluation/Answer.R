@@ -490,18 +490,6 @@ context({
             feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** Gemiddelde=238.91, Mediaan=143, Modus=150 ✅")
           } else {
             feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** ❌")
-            if ("gemiddelde" %in% names(results) && !results$gemiddelde$correct && results$gemiddelde$exists) {
-              student_answer <- as.numeric(results$gemiddelde$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar correct is **238.91**"))
-            }
-            if ("mediaan" %in% names(results) && !results$mediaan$correct && results$mediaan$exists) {
-              student_answer <- as.numeric(results$mediaan$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Mediaan: Je gaf ", student_answer, ", maar correct is **143** (6de waarde van 11)"))
-            }
-            if ("modus" %in% names(results) && !results$modus$correct && results$modus$exists) {
-              student_answer <- as.character(results$modus$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Modus: Je gaf ", student_answer, ", maar correct is **150** (komt 2x voor)"))
-            }
           }
           
           # ----------------------
@@ -513,22 +501,6 @@ context({
             feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** Range=1655, Q1=26, Q3=150, IKA=124 ✅")
           } else {
             feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** ❌")
-            if ("variatiebreedte" %in% names(results) && !results$variatiebreedte$correct && results$variatiebreedte$exists) {
-              student_answer <- as.numeric(results$variatiebreedte$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Range: Je gaf ", student_answer, ", maar correct is 1657-2 = **1655**"))
-            }
-            if ("q1" %in% names(results) && !results$q1$correct && results$q1$exists) {
-              student_answer <- as.numeric(results$q1$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Q1: Je gaf ", student_answer, ", maar correct is **26**"))
-            }
-            if ("q3" %in% names(results) && !results$q3$correct && results$q3$exists) {
-              student_answer <- as.numeric(results$q3$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Q3: Je gaf ", student_answer, ", maar correct is **150**"))
-            }
-            if ("ika" %in% names(results) && !results$ika$correct && results$ika$exists) {
-              student_answer <- as.numeric(results$ika$value)
-              feedback_parts <- c(feedback_parts, paste0("  • IKA: Je gaf ", student_answer, ", maar correct is 150-26 = **124**"))
-            }
           }
           
           # ----------------------
@@ -560,20 +532,55 @@ context({
             feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** Som=2,268,540.92, Variantie=226,854.09, SD=476.29 ✅")
           } else {
             feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** ❌")
+          }
+          }
+          
+          # Add explanation for wrong answers like in 3.5
+          if (correct_count != total_questions) {
+            feedback_parts <- c(feedback_parts, "\n**📚 Uitleg waarom deze antwoorden fout zijn:**")
+            
+            # Show wrong student answers with explanations
+            if ("gemiddelde" %in% names(results) && !results$gemiddelde$correct && results$gemiddelde$exists) {
+              student_answer <- as.numeric(results$gemiddelde$value)
+              feedback_parts <- c(feedback_parts, paste0("• **Gemiddelde**: Je gaf ", student_answer, ", maar correct is **238.91**"))
+            }
+            if ("mediaan" %in% names(results) && !results$mediaan$correct && results$mediaan$exists) {
+              student_answer <- as.numeric(results$mediaan$value)
+              feedback_parts <- c(feedback_parts, paste0("• **Mediaan**: Je gaf ", student_answer, ", maar correct is **143** (6de waarde van 11)"))
+            }
+            if ("modus" %in% names(results) && !results$modus$correct && results$modus$exists) {
+              student_answer <- as.character(results$modus$value)
+              feedback_parts <- c(feedback_parts, paste0("• **Modus**: Je gaf ", student_answer, ", maar correct is **150** (komt 2x voor)"))
+            }
+            if ("variatiebreedte" %in% names(results) && !results$variatiebreedte$correct && results$variatiebreedte$exists) {
+              student_answer <- as.numeric(results$variatiebreedte$value)
+              feedback_parts <- c(feedback_parts, paste0("• **Range**: Je gaf ", student_answer, ", maar correct is 1657-2 = **1655**"))
+            }
+            if ("q1" %in% names(results) && !results$q1$correct && results$q1$exists) {
+              student_answer <- as.numeric(results$q1$value)
+              feedback_parts <- c(feedback_parts, paste0("• **Q1**: Je gaf ", student_answer, ", maar correct is **26**"))
+            }
+            if ("q3" %in% names(results) && !results$q3$correct && results$q3$exists) {
+              student_answer <- as.numeric(results$q3$value)
+              feedback_parts <- c(feedback_parts, paste0("• **Q3**: Je gaf ", student_answer, ", maar correct is **150**"))
+            }
+            if ("ika" %in% names(results) && !results$ika$correct && results$ika$exists) {
+              student_answer <- as.numeric(results$ika$value)
+              feedback_parts <- c(feedback_parts, paste0("• **IKA**: Je gaf ", student_answer, ", maar correct is 150-26 = **124**"))
+            }
             if ("sum_of_squares" %in% names(results) && !results$sum_of_squares$correct && results$sum_of_squares$exists) {
               student_answer <- as.numeric(results$sum_of_squares$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", format(student_answer, big.mark=","), ", maar correct is **2,268,540.92**"))
+              feedback_parts <- c(feedback_parts, paste0("• **Som gekwadrateerde afwijkingen**: Je gaf ", format(student_answer, big.mark=","), ", maar correct is **2,268,540.92**"))
             }
             if ("variantie" %in% names(results) && !results$variantie$correct && results$variantie$exists) {
               student_answer <- as.numeric(results$variantie$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Variantie: Je gaf ", format(student_answer, big.mark=","), ", maar correct is som/(n-1) = **226,854.09**"))
+              feedback_parts <- c(feedback_parts, paste0("• **Variantie**: Je gaf ", format(student_answer, big.mark=","), ", maar correct is som/(n-1) = **226,854.09**"))
             }
             if ("standaardafwijking" %in% names(results) && !results$standaardafwijking$correct && results$standaardafwijking$exists) {
               student_answer <- as.numeric(results$standaardafwijking$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar correct is √variantie = **476.29**"))
+              feedback_parts <- c(feedback_parts, paste0("• **Standaardafwijking**: Je gaf ", student_answer, ", maar correct is √variantie = **476.29**"))
             }
           }
-          
           
           feedback_parts <- c(
             feedback_parts,
