@@ -601,12 +601,12 @@ context({
               feedback_lines,
               "",
               "📋 **CORRECTE ANTWOORDEN:**",
-              sprintf("• **1.1 GEMIDDELDE:** %g", expected_mean),
-              sprintf("• **2.1 AFWIJKINGEN:** c(%s)", paste(expected_deviations, collapse = ", ")),
-              sprintf("• **2.2 GEKWADRATEERDE AFWIJKINGEN:** c(%s)", paste(expected_squared, collapse = ", ")),
-              sprintf("• **2.3 SOM GEKWADRATEERDE AFWIJKINGEN:** %g", expected_ss),
-              sprintf("• **3.1 VARIANTIE:** %g", expected_variance),
-              sprintf("• **3.2 STANDAARDDEVIATIE:** %.2f", expected_sd),
+              "• **1.1 GEMIDDELDE:** 6",
+              "• **2.1 AFWIJKINGEN:** c(-4, 1, 4, -1, 0, 2, -3, -2, 3)",
+              "• **2.2 GEKWADRATEERDE AFWIJKINGEN:** c(16, 1, 16, 1, 0, 4, 9, 4, 9)",
+              "• **2.3 SOM GEKWADRATEERDE AFWIJKINGEN:** 60",
+              "• **3.1 VARIANTIE:** 7.5",
+              "• **3.2 STANDAARDDEVIATIE:** 2.74",
               "• **4.1 KEUZE SPREIDINGSMAAT:** \"standaarddeviatie\""
             )
           }
@@ -631,8 +631,9 @@ context({
             type = "markdown"
           )
           
-          # Final result
-          generated == expected
+          # Final result - return TRUE if all answers are correct
+          all_correct <- all(sapply(results, function(x) x$correct && x$exists))
+          return(all_correct)
         }
       )
     }
