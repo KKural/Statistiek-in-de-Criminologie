@@ -416,6 +416,8 @@ context({
           
           if (generated != expected) {
             feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "📚 **Uitleg van gemaakte fouten:**")
+            feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "**STAP 2 - OVERIGE VRAGEN:**")
             
             # Helper function for all variables
