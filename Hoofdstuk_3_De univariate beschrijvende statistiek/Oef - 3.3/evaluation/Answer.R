@@ -631,7 +631,7 @@ context({
             feedback_parts <- c(
               feedback_parts,
               "",
-              "📚 **Uitleg van veelgemaakte fouten:**"
+              "📚 **Uitleg van gemaakte fouten:**"
             )
 
             # helper: maak leesbare labels met uitleg

@@ -293,20 +293,141 @@ context({
               "📚 **Uitleg van gemaakte fouten:**"
             )
             
-            # Specifieke uitleg voor meetniveau
-            if (!results$meetniveau$correct && results$meetniveau$exists) {
-              gegeven <- tolower(trimws(as.character(results$meetniveau$value)))
+            # Helper function for all variables
+            make_label_with_explanation <- function(var_name, expected_val) {
+              # Cumulatieve absolute frequenties
+              if (grepl("^cumulatieve_absolute_frequenties_", var_name)) {
+                category <- sub("^cumulatieve_absolute_frequenties_", "", var_name)
+                cat_display <- switch(category,
+                  "zeer_ontevreden" = "zeer ontevreden",
+                  "ontevreden" = "ontevreden",
+                  "noch_tevreden_noch_ontevreden" = "noch tevreden, noch ontevreden",
+                  "tevreden" = "tevreden",
+                  "zeer_tevreden" = "zeer tevreden",
+                  category
+                )
+                return(paste0("**Cumulatieve absolute frequentie (", cat_display, ")**"))
+              }
+              
+              # Relatieve frequenties
+              if (grepl("^relatieve_frequenties_", var_name)) {
+                category <- sub("^relatieve_frequenties_", "", var_name)
+                cat_display <- switch(category,
+                  "zeer_ontevreden" = "zeer ontevreden",
+                  "ontevreden" = "ontevreden",
+                  "noch_tevreden_noch_ontevreden" = "noch tevreden, noch ontevreden",
+                  "tevreden" = "tevreden",
+                  "zeer_tevreden" = "zeer tevreden",
+                  category
+                )
+                freq_val <- switch(category,
+                  "zeer_ontevreden" = 33,
+                  "ontevreden" = 84,
+                  "noch_tevreden_noch_ontevreden" = 102,
+                  "tevreden" = 63,
+                  "zeer_tevreden" = 48,
+                  "?"
+                )
+                return(paste0("**Relatieve frequentie (", cat_display, ")** (bereken: ", freq_val, "/330)"))
+              }
+              
+              # Cumulatieve relatieve frequenties
+              if (grepl("^cumulatieve_relatieve_frequenties_", var_name)) {
+                category <- sub("^cumulatieve_relatieve_frequenties_", "", var_name)
+                cat_display <- switch(category,
+                  "zeer_ontevreden" = "zeer ontevreden",
+                  "ontevreden" = "ontevreden",
+                  "noch_tevreden_noch_ontevreden" = "noch tevreden, noch ontevreden",
+                  "tevreden" = "tevreden",
+                  "zeer_tevreden" = "zeer tevreden",
+                  category
+                )
+                return(paste0("**Cumulatieve relatieve frequentie (", cat_display, ")**"))
+              }
+              
+              # Meetniveau
+              if (var_name == "meetniveau") {
+                return("**Meetniveau** (tevredenheid heeft alleen rangorde: zeer ontevreden ... zeer tevreden)")
+              }
+              
+              # Totaal N
+              if (var_name == "totaal_n") {
+                return("**Totaal aantal respondenten (N)**")
+              }
+              
+              # Modus
+              if (var_name == "modus") {
+                return("**Modus** (categorie die het vaakst voorkomt: noch tevreden, noch ontevreden)")
+              }
+              
+              # Mediaan
+              if (var_name == "mediaan") {
+                return("**Mediaan** (middelste categorie bij rangorde: noch tevreden, noch ontevreden)")
+              }
+              
+              # Meest relevante centraliteitsmaat
+              if (var_name == "meest_relevante_centraliteit") {
+                return("**Meest relevante centraliteitsmaat** (voor ordinale data: mediaan)")
+              }
+              
+              # Q1 and Q3
+              if (var_name == "q1") {
+                return("**Q1 (eerste kwartiel)** (25e percentiel categorie)")
+              }
+              if (var_name == "q3") {
+                return("**Q3 (derde kwartiel)** (75e percentiel categorie)")
+              }
+              
+              # Variatiebreedte
+              if (var_name == "variatiebreedte") {
+                return("**Variatiebreedte** (bereik: van zeer ontevreden tot zeer tevreden)")
+              }
+              
+              # IKA
+              if (var_name == "ika") {
+                return("**IKA (interkwartielafstand)** (bereik middelste 50%: van Q1 tot Q3)")
+              }
+              
+              return(paste0("**", var_name, "**"))
+            }
+            
+            # Alle foute maar ingevulde variabelen
+            wrong_keys <- names(results)[sapply(results, function(x) x$exists && !x$correct)]
+            
+            for (key in wrong_keys) {
+              student_val  <- results[[key]]$value
+              expected_val <- results[[key]]$expected
+              
+              if (is.numeric(student_val)) {
+                student_str   <- format(as.numeric(student_val), digits = 6, big.mark = ",")
+                expected_str  <- format(as.numeric(expected_val), digits = 6, big.mark = ",")
+              } else {
+                student_str  <- as.character(student_val)
+                expected_str <- as.character(expected_val)
+              }
+              
               feedback_parts <- c(
                 feedback_parts,
                 paste0(
-                  "• **MEETNIVEAU FOUT:** Je gaf `", gegeven,
-                  "`, maar tevredenheid in categorieën heeft alleen rangorde (zeer ontevreden … zeer tevreden). ",
-                  "Juiste antwoord is **\"ordinaal\"**."
+                  "• ", make_label_with_explanation(key, expected_val),
+                  ": je gaf ", student_str,
+                  ", maar juiste antwoord is **", expected_str, "**."
                 )
               )
             }
             
-            # Eventueel nog extra specifieke feedback (modus/mediaan/IKA/…) toevoegen
+            # Specifieke uitleg voor meetniveau als niet in wrong_keys
+            if (!("meetniveau" %in% wrong_keys) && !results$meetniveau$correct && results$meetniveau$exists) {
+              gegeven <- tolower(trimws(as.character(results$meetniveau$value)))
+              feedback_parts <- c(
+                feedback_parts,
+                paste0(
+                  "• **Meetniveau**: Je gaf `", gegeven,
+                  "`, maar tevredenheid in categorieën heeft alleen rangorde (zeer ontevreden … zeer tevreden). ",
+                  "Juiste antwoord is **ordinaal**."
+                )
+              )
+            }
           }
           
           get_reporter()$add_message(
