@@ -574,12 +574,33 @@ context({
             }
           }
           
-          # ----------------------------------------
-          # COMPREHENSIVE ERROR ANALYSIS (COMMON MISTAKES)
-          # ----------------------------------------
           
-          if (correct_count != total_questions) {
-            feedback_parts <- c(feedback_parts, "", "📚 **Uitleg van veelgemaakte fouten:**")
+          feedback_parts <- c(
+            feedback_parts,
+            "",
+            paste0("**", correct_count, " van ", total_questions, " juist**"),
+            "",
+            "🔍 **BELANGRIJKE REGELS VOOR EXTREME WAARDEN:**",
+            "• **Mediaan is robuuster** dan gemiddelde bij uitbijters",
+            "• **Jennifer Aniston (1657 dagen)** is duidelijke uitbijter", 
+            "• **IKA minder gevoelig** voor extreme waarden dan range",
+            "• **Standaardafwijking hoog** door extreme spreiding",
+            "• **Bij steekproef: variantie = SS/(n-1)**"
+          )
+          
+          # Show markdown feedback
+          get_reporter()$add_message(
+            paste(feedback_parts, collapse = "\n\n"),
+            type = "markdown"
+          )
+          
+          # Final result
+          generated == expected
+        }
+      )
+    }
+  )
+})
             
             # ======================
             # STAP 1 - FREQUENCY ERRORS
