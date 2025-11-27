@@ -1346,43 +1346,6 @@ context({
               }
             }
           }
-                }
-              }
-              if ("freq_1657" %in% names(results) && !results$freq_1657$correct && results$freq_1657$exists) {
-                student_f1657 <- as.numeric(results$freq_1657$value)
-                if (student_f1657 == 0) {
-                  feedback_parts <- c(feedback_parts, paste0("• **FREQ_1657 FOUT:** Je gaf ", student_f1657, ", maar 1657 (Jennifer Aniston) komt wel voor in de data! Correct antwoord is **1**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **FREQ_1657 FOUT:** Je gaf ", student_f1657, ", maar correct antwoord is **1** (extreme uitbijter)"))
-                }
-              }
-              # General frequency error message
-              if (sum(wrong_freqs) > 2) {
-                feedback_parts <- c(feedback_parts, "• **FREQUENTIES FOUT:** Tel precies: 2(1x), 14(1x), 26(1x), 30(1x), 72(1x), 143(1x), 144(1x), **150(2x)**, 240(1x), 1657(1x)")
-              }
-            }
-            
-            # Percentage errors - specific analysis like in 3.2
-            percent_vars <- c("percent_2", "percent_14", "percent_26", "percent_30", "percent_72", "percent_143", "percent_144", "percent_150", "percent_240", "percent_1657")
-            wrong_percents <- sapply(percent_vars, function(x) x %in% names(results) && !results[[x]]$correct)
-            if (any(wrong_percents)) {
-              # Check for specific common errors
-              if ("percent_150" %in% names(results) && !results$percent_150$correct && results$percent_150$exists) {
-                student_p150 <- as.numeric(results$percent_150$value)
-                if (abs(student_p150 - 9.1) < 0.1) {
-                  feedback_parts <- c(feedback_parts, paste0("• **PERCENT_150 FOUT:** Je gaf ", student_p150, "%, maar je gebruikte frequentie 1 in plaats van 2. Correct: (2/11) × 100 = **18.2%**"))
-                } else if (abs(student_p150 - 0.182) < 0.01) {
-                  feedback_parts <- c(feedback_parts, paste0("• **PERCENT_150 FOUT:** Je gaf ", student_p150, ", maar je vergat ×100. Dit is de proportie. Correct antwoord is **18.2%**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **PERCENT_150 FOUT:** Je gaf ", student_p150, "%, maar correct antwoord is **18.2%** (2/11 × 100)"))
-                }
-              }
-              # General percentage error message
-              if (sum(wrong_percents) > 1) {
-                feedback_parts <- c(feedback_parts, "• **PERCENTAGES FOUT:** Gebruik formule (frequentie/n) × 100. Bijvoorbeeld voor 150: (2/11) × 100 = 18.2%")
-              }
-            }
-          }
           
           feedback_parts <- c(
             feedback_parts,
