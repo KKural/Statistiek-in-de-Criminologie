@@ -875,57 +875,22 @@ context({
             if (afw_var %in% names(results)) {
               if (!results[[afw_var]]$correct) {
                 all_afwijkingen_correct <- FALSE
-                if (results[[afw_var]]$exists) {
-                  student_val <- as.numeric(results[[afw_var]]$value)
-                  expected_val <- afwijking_context[[afw_var]]$expected
-                  description <- afwijking_context[[afw_var]]$description
-                  calculation <- afwijking_context[[afw_var]]$calculation
-                  position <- afwijking_context[[afw_var]]$position
-                  
-                  # Specific error messages for common mistakes with detailed explanations
-                  if (afw_var == "afwijking_2" && abs(student_val - 236.91) < 0.1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar je vergat het minteken! Afwijkingen kunnen negatief zijn. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
-                  } else if (afw_var == "afwijking_1657" && abs(student_val - 1657) < 1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar dit is de oorspronkelijke X-waarde. Voor afwijking bereken je X - gemiddelde. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
-                  } else if (abs(student_val - 238.91) < 1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar dit is het gemiddelde zelf! Voor afwijking bereken je X - gemiddelde. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
-                  } else if (abs(student_val - (-expected_val)) < 0.1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar je rekende gemiddelde - X in plaats van X - gemiddelde. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
-                  } else {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ". Bereken: X - gemiddelde = ", calculation, ". **Correct: ", expected_val, "**"))
-                  }
-                } else {
-                  all_afwijkingen_correct <- FALSE
-                  description <- afwijking_context[[afw_var]]$description
-                  calculation <- afwijking_context[[afw_var]]$calculation
-                  expected_val <- afwijking_context[[afw_var]]$expected
-                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
-                }
               }
             } else {
               all_afwijkingen_correct <- FALSE
-              description <- afwijking_context[[afw_var]]$description
-              calculation <- afwijking_context[[afw_var]]$calculation
-              expected_val <- afwijking_context[[afw_var]]$expected
-              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
             }
           }
           
           if (all_afwijkingen_correct) {
-            feedback_parts <- c(feedback_parts, "")
+            # Remove individual messages and show overall success
+            start_idx <- which(feedback_parts == "**STAP 3.1 - AFWIJKINGEN:**")
+            feedback_parts <- feedback_parts[1:(start_idx-1)]
             feedback_parts <- c(feedback_parts, "**✅ STAP 3.1 - AFWIJKINGEN:** Alle afwijkingen correct berekend!")
-            feedback_parts <- c(feedback_parts, "")
-            feedback_parts <- c(feedback_parts, "📊 **Afwijkingen formule:** X - μ (waar μ = 238.91)")
-            feedback_parts <- c(feedback_parts, "• **Positieve afwijkingen:** Waarden boven gemiddelde (240 en 1657)")
-            feedback_parts <- c(feedback_parts, "• **Negatieve afwijkingen:** Waarden onder gemiddelde (alle andere)")
-            feedback_parts <- c(feedback_parts, "• **Som van afwijkingen:** Altijd 0 (eigenschap van gemiddelde)")
-            feedback_parts <- c(feedback_parts, "• **Extreme afwijking:** Jennifer & Brad (1418.09) beïnvloedt variabiliteit sterk")
           } else {
-            # Find the header and replace it
-            header_index <- which(feedback_parts == "**STAP 3.1 - AFWIJKINGEN:**")
-            if (length(header_index) > 0) {
-              feedback_parts[header_index] <- "**❌ STAP 3.1 - AFWIJKINGEN:** Fouten gevonden"
-            }
+            # Remove individual messages and show summary error
+            start_idx <- which(feedback_parts == "**STAP 3.1 - AFWIJKINGEN:**")
+            feedback_parts <- feedback_parts[1:(start_idx-1)]
+            feedback_parts <- c(feedback_parts, "**❌ STAP 3.1 - AFWIJKINGEN:** Fouten gevonden")
           }
           
           # Check each gekwadrateerde afwijking individually with detailed step-by-step explanations
@@ -953,59 +918,22 @@ context({
             if (gekw_var %in% names(results)) {
               if (!results[[gekw_var]]$correct) {
                 all_gekw_correct <- FALSE
-                if (results[[gekw_var]]$exists) {
-                  student_val <- as.numeric(results[[gekw_var]]$value)
-                  expected_val <- gekw_context[[gekw_var]]$expected
-                  description <- gekw_context[[gekw_var]]$description
-                  calculation <- gekw_context[[gekw_var]]$calculation
-                  deviation <- gekw_context[[gekw_var]]$deviation
-                  
-                  # Specific error messages for common mistakes with detailed explanations
-                  if (gekw_var == "gekw_afwijking_2" && abs(student_val - 4) < 0.1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf 4 (dus 2²), maar je moet eerst de afwijking berekenen! Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
-                  } else if (gekw_var == "gekw_afwijking_1657" && abs(student_val - 2743649) < 1000) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", format(student_val, big.mark=","), " (dus 1657²), maar je moet eerst de afwijking berekenen! Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
-                  } else if ((gekw_var == "gekw_afwijking_150_1" || gekw_var == "gekw_afwijking_150_2") && abs(student_val - 22500) < 100) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", format(student_val, big.mark=","), " (dus 150²), maar je moet eerst de afwijking berekenen! Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
-                  } else if (student_val < 0) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar gekwadrateerde waarden zijn altijd positief! Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
-                  } else if (abs(student_val - abs(deviation)) < 0.1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar dit is de absolute afwijking. Voor gekwadrateerd moet je kwadrateren: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
-                  } else {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", format(student_val, big.mark=","), ". Bereken: afwijking² = ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
-                  }
-                } else {
-                  all_gekw_correct <- FALSE
-                  description <- gekw_context[[gekw_var]]$description
-                  calculation <- gekw_context[[gekw_var]]$calculation
-                  expected_val <- gekw_context[[gekw_var]]$expected
-                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
-                }
               }
             } else {
               all_gekw_correct <- FALSE
-              description <- gekw_context[[gekw_var]]$description
-              calculation <- gekw_context[[gekw_var]]$calculation
-              expected_val <- gekw_context[[gekw_var]]$expected
-              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
             }
           }
           
           if (all_gekw_correct) {
-            feedback_parts <- c(feedback_parts, "")
+            # Remove individual messages and show overall success
+            start_idx <- which(feedback_parts == "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:**")
+            feedback_parts <- feedback_parts[1:(start_idx-1)]
             feedback_parts <- c(feedback_parts, "**✅ STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Alle gekwadrateerde afwijkingen correct berekend!")
-            feedback_parts <- c(feedback_parts, "")
-            feedback_parts <- c(feedback_parts, "📊 **Gekwadrateerde afwijkingen formule:** (X - μ)²")
-            feedback_parts <- c(feedback_parts, "• **Altijd positief:** Negatieve afwijkingen worden positief door kwadrateren")
-            feedback_parts <- c(feedback_parts, "• **Extreme waarde impact:** Jennifer & Brad (2,010,979.20) domineert totale variabiliteit")
-            feedback_parts <- c(feedback_parts, "• **Berekening:** Eerst afwijking (X - 238.91), dan kwadrateren")
-            feedback_parts <- c(feedback_parts, "• **Som alle gekwadrateerde afwijkingen:** 2,268,540.92 (basis voor variantie)")
           } else {
-            # Find the header and replace it
-            header_index <- which(feedback_parts == "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:**")
-            if (length(header_index) > 0) {
-              feedback_parts[header_index] <- "**❌ STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Fouten gevonden"
-            }
+            # Remove individual messages and show summary error
+            start_idx <- which(feedback_parts == "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:**")
+            feedback_parts <- feedback_parts[1:(start_idx-1)]
+            feedback_parts <- c(feedback_parts, "**❌ STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Fouten gevonden")
           }
           
           # Check each variance calculation individually
