@@ -558,7 +558,9 @@ context({
                              "afwijking_40_1", "afwijking_38", "afwijking_36_4", "afwijking_34", "afwijking_40_2",
                              "afwijking_36_5", "afwijking_32_2", "afwijking_36_6", "afwijking_40_3", "afwijking_36_7")
           
-          afwijkingen_correct <- all(sapply(afwijking_vars, function(x) results[[x]]$correct))
+          afwijkingen_correct <- all(sapply(afwijking_vars, function(x) {
+            x %in% names(results) && results[[x]]$correct
+          }))
           
           if (afwijkingen_correct) {
             feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** X - 33.55 voor elke waarde ✅")
@@ -571,7 +573,9 @@ context({
                         "gekw_afwijking_40_1", "gekw_afwijking_38", "gekw_afwijking_36_4", "gekw_afwijking_34", "gekw_afwijking_40_2",
                         "gekw_afwijking_36_5", "gekw_afwijking_32_2", "gekw_afwijking_36_6", "gekw_afwijking_40_3", "gekw_afwijking_36_7")
                           
-          gekw_correct <- all(sapply(gekw_vars, function(x) results[[x]]$correct))
+          gekw_correct <- all(sapply(gekw_vars, function(x) {
+            x %in% names(results) && results[[x]]$correct
+          }))
 
           if (gekw_correct) {
             feedback_parts <- c(
@@ -627,21 +631,27 @@ context({
             
             # 🔎 Extra: lijst ALLE foute gekwadrateerde afwijkingen
             wrong_gekw <- gekw_vars[
-              sapply(gekw_vars, function(v) results[[v]]$exists && !results[[v]]$correct)
+              sapply(gekw_vars, function(v) {
+                v %in% names(results) && results[[v]]$exists && !results[[v]]$correct
+              })
             ]
             
             if (length(wrong_gekw) > 0) {
               feedback_parts <- c(feedback_parts, "  • **Foute gekwadrateerde afwijkingen:**")
               
               for (v in wrong_gekw) {
-                res <- results[[v]]
-                student_val  <- suppressWarnings(as.numeric(res$value))
-                expected_val <- res$expected
-                
-                feedback_parts <- c(
-                  feedback_parts,
-                  paste0("    - ", v, ": je gaf ", student_val, ", moet zijn ", round(expected_val, 4))
-                )
+                if (v %in% names(results)) {
+                  res <- results[[v]]
+                  student_val  <- suppressWarnings(as.numeric(res$value))
+                  expected_val <- res$expected
+                  
+                  if (!is.na(student_val) && !is.na(expected_val)) {
+                    feedback_parts <- c(
+                      feedback_parts,
+                      paste0("    - ", v, ": je gaf ", student_val, ", moet zijn ", round(expected_val, 4))
+                    )
+                  }
+                }
               }
             }
           }
