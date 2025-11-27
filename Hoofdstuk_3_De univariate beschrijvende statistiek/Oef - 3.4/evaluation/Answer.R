@@ -1100,7 +1100,7 @@ context({
                 paste0(
                   "• ", make_label_with_explanation(key, expected_val),
                   ": je gaf ", student_str,
-                  ", maar **juiste antwoord is ", expected_str, "**."
+                  ", maar juiste antwoord is **", expected_str, "**."
                 )
               )
             }
