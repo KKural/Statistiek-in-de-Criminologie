@@ -289,11 +289,18 @@ context({
                            "cumulatieve_absolute_frequenties_tevreden",
                            "cumulatieve_absolute_frequenties_zeer_tevreden")
           
+          # Absolute frequencies for calculation chain
+          abs_freqs <- c(33, 84, 102, 63, 48)
+          cumsum_expected <- c(33, 33+84, 33+84+102, 33+84+102+63, 330)
+          
           cum_abs_all_correct <- TRUE
-          for (var in cum_abs_vars) {
+          cum_abs_errors <- list()
+          
+          for (idx in seq_along(cum_abs_vars)) {
+            var <- cum_abs_vars[idx]
             if (var %in% names(results) && !results[[var]]$correct) {
               cum_abs_all_correct <- FALSE
-              student_val <- if (results[[var]]$exists) as.numeric(results[[var]]$value) else "Ontbreekt"
+              student_val <- if (results[[var]]$exists) as.numeric(results[[var]]$value) else NA
               expected_val <- results[[var]]$expected
               cat_name <- sub("^cumulatieve_absolute_frequenties_", "", var)
               cat_display <- switch(cat_name,
@@ -305,18 +312,58 @@ context({
                 cat_name
               )
               
-              if (results[[var]]$exists) {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Je gaf ", student_val, ", maar juiste antwoord is **", expected_val, "**"))
+              # Build calculation chain for context
+              if (idx == 1) {
+                calc_chain <- "33"
+              } else if (idx == 2) {
+                calc_chain <- "33 + 84"
+              } else if (idx == 3) {
+                calc_chain <- "33 + 84 + 102"
+              } else if (idx == 4) {
+                calc_chain <- "33 + 84 + 102 + 63"
               } else {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
+                calc_chain <- "33 + 84 + 102 + 63 + 48"
+              }
+              
+              if (!is.na(student_val)) {
+                diff <- abs(student_val - expected_val)
+                error_insight <- if (diff == abs_freqs[idx]) {
+                  " (je gebruikte alleen de absolute frequentie, niet cumulatief!)"
+                } else if (idx > 1 && diff == sum(abs_freqs[1:(idx-1)])) {
+                  " (je vergat een categorie!)"
+                } else {
+                  ""
+                }
+                cum_abs_errors[[length(cum_abs_errors)+1]] <- list(
+                  category = cat_display,
+                  student = student_val,
+                  expected = expected_val,
+                  calculation = calc_chain,
+                  insight = error_insight
+                )
+              } else {
+                cum_abs_errors[[length(cum_abs_errors)+1]] <- list(
+                  category = cat_display,
+                  student = "Ontbreekt",
+                  expected = expected_val,
+                  calculation = calc_chain,
+                  insight = ""
+                )
               }
             }
           }
+          
           if (cum_abs_all_correct) {
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES:** Allemaal correct!")
-            feedback_parts <- c(feedback_parts, "• Waarden: 33, 117, 219, 282, 330")
+            feedback_parts <- c(feedback_parts, "• Berekening: 33 → 33+84=117 → 33+84+102=219 → 219+63=282 → 282+48=330")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES:** Fouten gevonden")
+            for (error in cum_abs_errors) {
+              feedback_parts <- c(feedback_parts, 
+                paste0("  • **", error$category, ":** Je gaf ", error$student, 
+                       ", maar juiste antwoord is **", error$expected, 
+                       "** (berekening: ", error$calculation, ")", error$insight))
+            }
           }
           feedback_parts <- c(feedback_parts, "")
           
@@ -330,12 +377,18 @@ context({
                             "relatieve_frequenties_tevreden",
                             "relatieve_frequenties_zeer_tevreden")
           
+          abs_freqs_rf <- c(33, 84, 102, 63, 48)
+          rel_freq_expected <- c(0.1000, 0.2545, 0.3091, 0.1909, 0.1455)
+          
           rel_freq_all_correct <- TRUE
-          for (var in rel_freq_vars) {
+          rel_freq_errors <- list()
+          
+          for (idx in seq_along(rel_freq_vars)) {
+            var <- rel_freq_vars[idx]
             if (var %in% names(results) && !results[[var]]$correct) {
               rel_freq_all_correct <- FALSE
-              student_val <- if (results[[var]]$exists) format(as.numeric(results[[var]]$value), digits=4) else "Ontbreekt"
-              expected_val <- format(as.numeric(results[[var]]$expected), digits=4)
+              student_val <- if (results[[var]]$exists) as.numeric(results[[var]]$value) else NA
+              expected_val <- results[[var]]$expected
               cat_name <- sub("^relatieve_frequenties_", "", var)
               cat_display <- switch(cat_name,
                 "zeer_ontevreden" = "zeer ontevreden",
@@ -346,18 +399,49 @@ context({
                 cat_name
               )
               
-              if (results[[var]]$exists) {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Je gaf ", student_val, ", maar juiste antwoord is **", expected_val, "**"))
+              # Build calculation for context
+              calc_formula <- paste0(abs_freqs_rf[idx], " ÷ 330")
+              
+              if (!is.na(student_val)) {
+                # Check for common errors
+                error_insight <- ""
+                if (abs(student_val - abs_freqs_rf[idx]) < 0.01) {
+                  error_insight <- " (je gebruikte alleen de absolute frequentie, niet gedeeld door N!)"
+                } else if (abs(student_val - (student_val * 100)) < 0.01 && student_val < 1) {
+                  error_insight <- " (check je decimale precision)"
+                }
+                
+                rel_freq_errors[[length(rel_freq_errors)+1]] <- list(
+                  category = cat_display,
+                  student = format(student_val, digits=4),
+                  expected = format(expected_val, digits=4),
+                  calculation = calc_formula,
+                  insight = error_insight
+                )
               } else {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
+                rel_freq_errors[[length(rel_freq_errors)+1]] <- list(
+                  category = cat_display,
+                  student = "Ontbreekt",
+                  expected = format(expected_val, digits=4),
+                  calculation = calc_formula,
+                  insight = ""
+                )
               }
             }
           }
+          
           if (rel_freq_all_correct) {
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.2 - RELATIEVE FREQUENTIES:** Allemaal correct!")
-            feedback_parts <- c(feedback_parts, "• Waarden: 0.1000, 0.2545, 0.3091, 0.1909, 0.1455")
+            feedback_parts <- c(feedback_parts, "• Formule: absolute frequentie ÷ 330 (totaal aantal)")
+            feedback_parts <- c(feedback_parts, "• Controle: alle waarden samen = 0.1 + 0.2545 + 0.3091 + 0.1909 + 0.1455 = 1.0000 ✓")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 1.2 - RELATIEVE FREQUENTIES:** Fouten gevonden")
+            for (error in rel_freq_errors) {
+              feedback_parts <- c(feedback_parts,
+                paste0("  • **", error$category, ":** Je gaf ", error$student,
+                       ", maar juiste antwoord is **", error$expected,
+                       "** (berekening: ", error$calculation, " = ", error$expected, ")", error$insight))
+            }
           }
           feedback_parts <- c(feedback_parts, "")
           
@@ -371,12 +455,18 @@ context({
                            "cumulatieve_relatieve_frequenties_tevreden",
                            "cumulatieve_relatieve_frequenties_zeer_tevreden")
           
+          cum_rel_expected_vals <- c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)
+          rel_freq_for_cum <- c(0.1000, 0.2545, 0.3091, 0.1909, 0.1455)
+          
           cum_rel_all_correct <- TRUE
-          for (var in cum_rel_vars) {
+          cum_rel_errors <- list()
+          
+          for (idx in seq_along(cum_rel_vars)) {
+            var <- cum_rel_vars[idx]
             if (var %in% names(results) && !results[[var]]$correct) {
               cum_rel_all_correct <- FALSE
-              student_val <- if (results[[var]]$exists) format(as.numeric(results[[var]]$value), digits=4) else "Ontbreekt"
-              expected_val <- format(as.numeric(results[[var]]$expected), digits=4)
+              student_val <- if (results[[var]]$exists) as.numeric(results[[var]]$value) else NA
+              expected_val <- results[[var]]$expected
               cat_name <- sub("^cumulatieve_relatieve_frequenties_", "", var)
               cat_display <- switch(cat_name,
                 "zeer_ontevreden" = "zeer ontevreden",
@@ -387,18 +477,58 @@ context({
                 cat_name
               )
               
-              if (results[[var]]$exists) {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Je gaf ", student_val, ", maar juiste antwoord is **", expected_val, "**"))
+              # Build cumulative calculation
+              if (idx == 1) {
+                calc_chain <- "0.1000"
+              } else if (idx == 2) {
+                calc_chain <- "0.1000 + 0.2545"
+              } else if (idx == 3) {
+                calc_chain <- "0.1000 + 0.2545 + 0.3091"
+              } else if (idx == 4) {
+                calc_chain <- "0.1000 + 0.2545 + 0.3091 + 0.1909"
               } else {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
+                calc_chain <- "0.1000 + 0.2545 + 0.3091 + 0.1909 + 0.1455"
+              }
+              
+              if (!is.na(student_val)) {
+                error_insight <- ""
+                if (abs(student_val - rel_freq_for_cum[idx]) < 0.001) {
+                  error_insight <- " (je gebruikte de gewone relatieve frequentie, niet cumulatief!)"
+                } else if (idx == length(cum_rel_vars) && abs(student_val - 1.0) > 0.01) {
+                  error_insight <- " (laatste categorie moet ALTIJD 1.0000 zijn!)"
+                }
+                
+                cum_rel_errors[[length(cum_rel_errors)+1]] <- list(
+                  category = cat_display,
+                  student = format(student_val, digits=4),
+                  expected = format(expected_val, digits=4),
+                  calculation = calc_chain,
+                  insight = error_insight
+                )
+              } else {
+                cum_rel_errors[[length(cum_rel_errors)+1]] <- list(
+                  category = cat_display,
+                  student = "Ontbreekt",
+                  expected = format(expected_val, digits=4),
+                  calculation = calc_chain,
+                  insight = ""
+                )
               }
             }
           }
+          
           if (cum_rel_all_correct) {
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:** Allemaal correct!")
-            feedback_parts <- c(feedback_parts, "• Waarden: 0.1000, 0.3545, 0.6636, 0.8545, 1.0000")
+            feedback_parts <- c(feedback_parts, "• Berekening: 0.1 → 0.1+0.2545=0.3545 → +0.3091=0.6636 → +0.1909=0.8545 → +0.1455=1.0000")
+            feedback_parts <- c(feedback_parts, "• Controle: laatste waarde moet ALTIJD 1.0000 zijn ✓")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:** Fouten gevonden")
+            for (error in cum_rel_errors) {
+              feedback_parts <- c(feedback_parts,
+                paste0("  • **", error$category, ":** Je gaf ", error$student,
+                       ", maar juiste antwoord is **", error$expected,
+                       "** (berekening: ", error$calculation, " = ", error$expected, ")", error$insight))
+            }
           }
           
           if (generated != expected) {
@@ -407,75 +537,83 @@ context({
             feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "**STAP 2 - OVERIGE VRAGEN:**")
             
-            # Helper function for all variables
-            make_label_with_explanation <- function(var_name, expected_val) {
-              # Meetniveau
+            # Helper function with detailed error context and pedagogical insights
+            make_label_with_explanation <- function(var_name, student_val, expected_val) {
+              # Meetniveau - Why ordinaal?
               if (var_name == "meetniveau") {
-                return("**Meetniveau** (tevredenheid heeft alleen rangorde: zeer ontevreden ... zeer tevreden)")
+                if (tolower(trimws(student_val)) == "nominaal") {
+                  return("**Meetniveau:** ❌ 'nominaal' - FOUT! Tevredenheid heeft een RANGORDE (zeer ontevreden < ontevreden < ...). Dit is ordinaal!")
+                } else if (tolower(trimws(student_val)) == "interval") {
+                  return("**Meetniveau:** ❌ 'interval' - FOUT! We kunnen geen gelijke afstanden aannemen tussen categorieën. Dit is ordinaal.")
+                } else {
+                  return("**Meetniveau:** ❌ Juiste antwoord is 'ordinaal' (tevredenheid heeft rangorde)")
+                }
               }
               
               # Totaal N
               if (var_name == "totaal_n") {
-                return("**Totaal aantal respondenten (N)**")
+                return("**Totaal N:** Som van alle frequenties: 33+84+102+63+48 = 330")
               }
               
-              # Modus
+              # Modus - which has highest frequency?
               if (var_name == "modus") {
-                return("**Modus** (categorie die het vaakst voorkomt: noch tevreden, noch ontevreden)")
+                return("**Modus:** ❌ Het vaakst voorkomende: 'noch tevreden, noch ontevreden' (102 keer - hoogste frequentie)")
               }
               
-              # Mediaan
+              # Mediaan - position 50%
               if (var_name == "mediaan") {
-                return("**Mediaan** (middelste categorie bij rangorde: noch tevreden, noch ontevreden)")
+                return("**Mediaan:** ❌ Middelste categorie: N/2 = 330/2 = 165. Dit ligt in 'noch tevreden, noch ontevreden' (cum freq: 219)")
               }
               
-              # Meest relevante centraliteitsmaat
+              # Centraliteitsmaat - why mediaan for ordinal?
               if (var_name == "meest_relevante_centraliteit") {
-                return("**Meest relevante centraliteitsmaat** (voor ordinale data: mediaan)")
+                if (tolower(trimws(student_val)) == "modus") {
+                  return("**Meest relevante:** ❌ Modus geeft minder informatie. Voor ordinale data: mediaan is beter (geeft middelste waarde)")
+                } else if (tolower(trimws(student_val)) == "gemiddelde") {
+                  return("**Meest relevante:** ❌ Gemiddelde is NIET geschikt voor ordinale data! Mediaan is correct.")
+                } else {
+                  return("**Meest relevante:** ❌ Juiste antwoord: 'mediaan' (best voor ordinale data)")
+                }
               }
               
-              # Q1 and Q3
+              # Q1 - 25th percentile
               if (var_name == "q1") {
-                return("**Q1 (eerste kwartiel)** (25e percentiel categorie)")
+                return("**Q1 (eerste kwartiel):** ❌ Position = N/4 = 330/4 = 82.5 ≈ 83. Ligt in 'ontevreden' (cum freq: 117)")
               }
+              
+              # Q3 - 75th percentile
               if (var_name == "q3") {
-                return("**Q3 (derde kwartiel)** (75e percentiel categorie)")
+                return("**Q3 (derde kwartiel):** ❌ Position = 3×N/4 = 3×330/4 = 247.5 ≈ 248. Ligt in 'tevreden' (cum freq: 282)")
               }
               
-              # Variatiebreedte
+              # Variatiebreedte - range
               if (var_name == "variatiebreedte") {
-                return("**Variatiebreedte** (bereik: van zeer ontevreden tot zeer tevreden)")
+                return("**Variatiebreedte:** ❌ Bereik van laagste tot hoogste: 'zeer ontevreden tot zeer tevreden' (of: '5 categorieën')")
               }
               
-              # IKA
+              # IKA - interquartile range
               if (var_name == "ika") {
-                return("**IKA (interkwartielafstand)** (bereik middelste 50%: van Q1 tot Q3)")
+                if (tolower(trimws(student_val)) == "2" || tolower(trimws(student_val)) == "2 categorieën") {
+                  return("**IKA:** ❌ Position Q3 - Position Q1 = 248 - 83 = 165 positions. Maar categorisch: Q3-Q1 bereik = 'ontevreden tot tevreden' (3 categorieën: ontevreden, noch tevreden noch ontevreden, tevreden)")
+                } else {
+                  return("**IKA:** ❌ Bereik middelste 50%: Q1='ontevreden', Q3='tevreden', dus antwoord = 'ontevreden tot tevreden'")
+                }
               }
               
               return(paste0("**", var_name, "**"))
             }
             
-            # Only show filled-in but wrong answers (like 3.3 does)
+            # Only show filled-in but wrong answers
             wrong_keys <- names(results)[sapply(results, function(x) x$exists && !x$correct)]
             
             for (key in wrong_keys) {
               student_val  <- results[[key]]$value
               expected_val <- results[[key]]$expected
               
-              if (is.numeric(student_val)) {
-                student_str   <- format(as.numeric(student_val), digits = 6, big.mark = ",")
-                expected_str  <- format(as.numeric(expected_val), digits = 6, big.mark = ",")
-              } else {
-                student_str  <- as.character(student_val)
-                expected_str <- as.character(expected_val)
-              }
-              
               feedback_parts <- c(
                 feedback_parts,
                 paste0(
-                  "• ", make_label_with_explanation(key, expected_val),
-                  ": je gaf ", student_str,
-                  ", maar juiste antwoord is **", expected_str, "**."
+                  "• ", make_label_with_explanation(key, student_val, expected_val)
                 )
               )
             }
@@ -487,11 +625,34 @@ context({
             paste0("**", correct_count, " van ", total_questions, " juist**"),
             "",
             "📊 **BELANGRIJKE REGELS VOOR ORDINALE DATA:**",
-            "• **Meetniveau:** ordinaal (heeft rangorde, geen gelijke afstanden)",
-            "• **Modus & Mediaan:** beide geschikt voor ordinale data",
-            "• **Gemiddelde:** NIET geschikt voor ordinale data",
-            "• **Q1 & Q3:** bepaal via cumulatieve percentages",
-            "• **IKA:** bereik van Q1 tot Q3 (middelste 50% van data)"
+            "",
+            "**1. MEETNIVEAU:**",
+            "   • Ordinaal = waarden hebben RANGORDE (volgorde)",
+            "   • Voorbeeld: zeer ontevreden < ontevreden < noch < tevreden < zeer tevreden",
+            "",
+            "**2. MATEN VAN CENTRALITEIT:**",
+            "   • ✅ MODUS: Voorkomen categorie (altijd geschikt)",
+            "   • ✅ MEDIAAN: Middelste waarde (geschikt voor ordinaal)",
+            "   • ❌ GEMIDDELDE: NIET geschikt (kan niet met rangorde)",
+            "",
+            "**3. KWARTIELEN (Q1, Q3):**",
+            "   • Q1 (25e percentiel): Position = N/4 = 82.5 → afgerond 83",
+            "   • Q3 (75e percentiel): Position = 3N/4 = 247.5 → afgerond 248",
+            "   • Kijk welke categorie die positie bereikt via cumulatieve frequenties",
+            "",
+            "**4. INTERKWARTIELAFSTAND (IKA):**",
+            "   • Bereik van Q1 tot Q3 (middelste 50% van data)",
+            "   • Voor ordinaal: categorie-bereik (bijv. 'ontevreden tot tevreden')",
+            "",
+            "**5. VARIANTIE & SPREIDING:**",
+            "   • Variatiebreedte: van laagste tot hoogste categorie aanwezig",
+            "   • IKA: van Q1 tot Q3 (stabiel middelste gedeelte)",
+            "",
+            "💡 **CONTROLE-TIPS:**",
+            "   • Cumulatieve frequenties ALTIJD oplopend!",
+            "   • Laatste cumulatief = N (330)",
+            "   • Relatieve frequenties: som = 1.0000",
+            "   • Cumulatieve relatieve: eindwaarde ALTIJD 1.0000"
           )
           
           # Show markdown feedback
