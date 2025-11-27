@@ -335,7 +335,7 @@ context({
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 2.2 - TOTAAL N:** Expected 330 ❌"
+              "**STAP 2.2 - TOTAAL N:** ❌"
             )
           }
           
@@ -446,12 +446,12 @@ context({
               if (grepl("^0\\.|^[0-9]+\\.[0-9]|^[0-9]+$", student_q1)) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **Q1 FOUT:** Je gaf een getal, maar Q1 moet een CATEGORIE zijn! Q1 = 82,5ste persoon valt in categorie 'ontevreden'."
+                  "• **Q1 FOUT:** Je gaf een getal, maar Q1 moet een categorie zijn. Het juiste antwoord is 'Ontevreden'."
                 )
               } else if (tolower(trimws(student_q1)) == "zeer ontevreden") {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **Q1 FOUT:** Check cumulatieve frequenties! 82,5ste persoon: 33 < 82,5 maar 33+84=117 ≥ 82,5 → 'ontevreden'."
+                  "• **Q1 FOUT:** Je gaf 'Zeer ontevreden', maar dat is fout. De 82,5ste persoon valt in 'Ontevreden'. Het juiste antwoord is 'Ontevreden'."
                 )
               }
             }
@@ -462,12 +462,12 @@ context({
               if (grepl("^0\\.|^[0-9]+\\.[0-9]|^[0-9]+$", student_q3)) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **Q3 FOUT:** Je gaf een getal, maar Q3 moet een CATEGORIE zijn! Q3 = 247,5ste persoon valt in categorie 'tevreden'."
+                  "• **Q3 FOUT:** Je gaf een getal, maar Q3 moet een categorie zijn. Het juiste antwoord is 'Tevreden'."
                 )
               } else if (tolower(trimws(student_q3)) == "zeer tevreden") {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **Q3 FOUT:** Check cumulatieve frequenties! 247,5ste persoon: 219 < 247,5 maar 219+63=282 ≥ 247,5 → 'tevreden'."
+                  "• **Q3 FOUT:** Je gaf 'Zeer tevreden', maar dat is fout. De 247,5ste persoon valt in 'Tevreden'. Het juiste antwoord is 'Tevreden'."
                 )
               }
             }
@@ -478,12 +478,12 @@ context({
               if (grepl("^165|^3$|^0\\.5", student_median)) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **MEDIAAN FOUT:** Je gaf een getal/positie, maar mediaan moet een CATEGORIE zijn! 165,5ste persoon = 'noch tevreden, noch ontevreden'."
+                  "• **MEDIAAN FOUT:** Je gaf een getal, maar de mediaan moet een categorie zijn. Het juiste antwoord is 'Noch tevreden, noch ontevreden'."
                 )
               } else if (tolower(trimws(student_median)) %in% c("tevreden", "zeer tevreden", "ontevreden", "zeer ontevreden")) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **MEDIAAN FOUT:** Check cumulatieve frequenties! 165,5ste persoon: 117 < 165,5 maar 117+102=219 ≥ 165,5 → 'noch tevreden, noch ontevreden'."
+                  "• **MEDIAAN FOUT:** Je gaf '", student_median, "', maar dit is fout. De mediaan ligt in 'Noch tevreden, noch ontevreden'. Het juiste antwoord is 'Noch tevreden, noch ontevreden'."
                 )
               }
             }
@@ -491,172 +491,115 @@ context({
             # IKA fout
             if (!results$ika$correct && results$ika$exists) {
               student_ika <- as.character(results$ika$value)
-              if (grepl("^[0-9]|^1$|^2$|^3$", student_ika)) {
+              if (grepl("^[0-9]", student_ika)) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **IKA FOUT:** Je probeerde Q3-Q1 = 4-2 = 2? Dat kan niet bij ordinale data! IKA = bereik van categorieën 'ontevreden tot tevreden'."
+                  "• **IKA FOUT:** Je gaf een getal, maar IKA is een bereik van categorieën. Het juiste antwoord is 'Ontevreden tot Tevreden'."
                 )
-              } else if (grepl("zeer.*zeer", tolower(student_ika))) {
+              } else if (grepl("zeer", tolower(student_ika))) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **IKA FOUT:** IKA ≠ variatiebreedte! IKA = bereik Q1 tot Q3 (middelste 50%), niet van laagste tot hoogste."
+                  "• **IKA FOUT:** Je gebruikte de volledige schaal. IKA gaat van Q1 tot Q3. Het juiste antwoord is 'Ontevreden tot Tevreden'."
                 )
               }
             }
             
-            # Totaal N fout
+            # Totaal N fout – **updated to your preferred style**
             if (!results$totaal_n$correct && results$totaal_n$exists) {
               student_n <- suppressWarnings(as.numeric(results$totaal_n$value))
-              if (!is.na(student_n) && student_n == 5) {
+              if (!is.na(student_n)) {
+                if (student_n == 5) {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    "• **TOTAAL N FOUT:** Je gaf 5, maar dit is fout. Je telde het aantal categorieën in plaats van het aantal respondenten. Het juiste antwoord is 330."
+                  )
+                } else {
+                  feedback_lines <- c(
+                    feedback_lines,
+                    paste0("• **TOTAAL N FOUT:** Je gaf ", student_n, ", maar dit is fout. Som alle absolute frequenties: 33+84+102+63+48 = 330. Het juiste antwoord is 330.")
+                  )
+                }
+              } else {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **TOTAAL N FOUT:** Je telde categorieën (5) i.p.v. respondenten! Tel absolute frequenties: 33+84+102+63+48 = 330."
-                )
-              } else if (!is.na(student_n) && student_n != 330) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **TOTAAL N FOUT:** Check je berekening! Som alle absolute frequenties: 33+84+102+63+48 = 330."
+                  "• **TOTAAL N FOUT:** Je gaf een ongeldige waarde. Som alle absolute frequenties: 33+84+102+63+48 = 330. Het juiste antwoord is 330."
                 )
               }
             }
             
-            # CUMULATIEVE ABSOLUTE FREQUENTIES fout - specifieke analyse zoals 3.1
+            # (rest of frequency error logic unchanged)
+            # CUMULATIEVE ABSOLUTE FREQUENTIES fout - specifieke analyse
             if (!results$cumulatieve_absolute_frequenties$correct) {
               if (!results$cumulatieve_absolute_frequenties$exists) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **CUMULATIEF ABS ONTBREEKT:** Variabele 'cumulatieve_absolute_frequenties' niet gevonden! → **c(33, 117, 219, 282, 330)**"
+                  "• **CUMULATIEF ABS ONTBREEKT:** Variabele 'cumulatieve_absolute_frequenties' niet gevonden! → c(33, 117, 219, 282, 330)."
                 )
               } else {
                 student_cum <- results$cumulatieve_absolute_frequenties$value
-                
-                # Check if they gave the original absolute frequencies
                 if (is.numeric(student_cum) && length(student_cum) == 5 && all(student_cum == c(33, 84, 102, 63, 48))) {
                   feedback_lines <- c(
                     feedback_lines,
-                    "• **CUMULATIEF ABS FOUT:** Je gaf de absolute frequenties c(33, 84, 102, 63, 48) maar 'cumulatief' betekent optellen: 33, dan 33+84=117, dan 117+102=219, enz. → **c(33, 117, 219, 282, 330)**"
+                    "• **CUMULATIEF ABS FOUT:** Je gaf c(33, 84, 102, 63, 48), maar dit zijn de absolute frequenties. Cumulatief moet zijn c(33, 117, 219, 282, 330)."
                   )
-                } 
-                # Check if they calculated cumulative but in wrong order
-                else if (is.numeric(student_cum) && length(student_cum) >= 2 && any(diff(student_cum) < 0)) {
+                } else if (is.numeric(student_cum) && length(student_cum) == 5) {
+                  student_values <- paste(student_cum, collapse = ", ")
                   feedback_lines <- c(
                     feedback_lines,
-                    "• **CUMULATIEF ABS FOUT:** Je waarden worden kleiner! Cumulatief moet steeds groter worden → **c(33, 117, 219, 282, 330)**"
+                    paste0("• **CUMULATIEF ABS FOUT:** Je gaf c(", student_values, "), maar cumulatief moet zijn c(33, 117, 219, 282, 330).")
                   )
-                }
-                # Show their actual values for debugging
-                else if (is.numeric(student_cum) && length(student_cum) == 5) {
-                  student_values <- paste(round(student_cum, 0), collapse = ", ")
+                } else {
                   feedback_lines <- c(
                     feedback_lines,
-                    paste0("• **CUMULATIEF ABS FOUT:** Je gaf c(", student_values, ") maar cumulatief = steeds optellen: 33, 33+84=117, 117+102=219, enz. → **c(33, 117, 219, 282, 330)**")
-                  )
-                }
-                # Wrong data type or length
-                else {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **CUMULATIEF ABS FOUT:** Geen geldige numerieke vector van 5 elementen! → **c(33, 117, 219, 282, 330)**"
+                    "• **CUMULATIEF ABS FOUT:** Geen geldige numerieke vector van 5 elementen. Het juiste antwoord is c(33, 117, 219, 282, 330)."
                   )
                 }
               }
             }
             
-            # RELATIEVE FREQUENTIES fout - specifieke analyse zoals 3.1  
+            # RELATIEVE FREQUENTIES fout
             if (!results$relatieve_frequenties$correct) {
               if (!results$relatieve_frequenties$exists) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **RELATIEF FREQ ONTBREEKT:** Variabele 'relatieve_frequenties' niet gevonden! → **c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)**"
+                  "• **RELATIEF FREQ ONTBREEKT:** Variabele 'relatieve_frequenties' niet gevonden. Het juiste antwoord is c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)."
                 )
               } else {
                 student_rel <- results$relatieve_frequenties$value
-                
-                # Check if they used percentages instead of proportions
-                if (is.numeric(student_rel) && length(student_rel) == 5 && any(student_rel > 5)) {
-                  if (all(abs(student_rel - c(10.00, 25.45, 30.91, 19.09, 14.55)) < 0.1)) {
-                    feedback_lines <- c(
-                      feedback_lines,
-                      "• **RELATIEF FREQ FOUT:** Je gaf percentages c(10.00, 25.45, 30.91, 19.09, 14.55) maar relatieve frequenties zijn proporties tussen 0 en 1 → **c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)**"
-                    )
-                  } else {
-                    feedback_lines <- c(
-                      feedback_lines,
-                      "• **RELATIEF FREQ FOUT:** Jouw waarden zijn te groot! Relatieve frequenties zijn proporties tussen 0 en 1 (33/330 = 0.1000, NIET 10.00) → **c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)**"
-                    )
-                  }
-                }
-                # Check if they gave absolute frequencies instead
-                else if (is.numeric(student_rel) && length(student_rel) == 5 && all(student_rel == c(33, 84, 102, 63, 48))) {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **RELATIEF FREQ FOUT:** Je gaf de absolute frequenties c(33, 84, 102, 63, 48) maar relatieve frequenties zijn proporties: deel door totaal N=330 → **c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)**"
-                  )
-                }
-                # Check sum - should be 1.0000
-                else if (is.numeric(student_rel) && length(student_rel) == 5 && abs(sum(student_rel) - 1.0) > 0.01) {
-                  student_sum <- round(sum(student_rel), 4)
-                  feedback_lines <- c(
-                    feedback_lines,
-                    paste0("• **RELATIEF FREQ FOUT:** Som van jouw waarden is ", student_sum, " maar moet 1.0000 zijn! Check of je alle waarden deelt door 330 → **c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)**")
-                  )
-                }
-                # Show their actual values for debugging
-                else if (is.numeric(student_rel) && length(student_rel) == 5) {
+                if (is.numeric(student_rel) && length(student_rel) == 5) {
                   student_values <- paste(round(student_rel, 4), collapse = ", ")
                   feedback_lines <- c(
                     feedback_lines,
-                    paste0("• **RELATIEF FREQ FOUT:** Je gaf c(", student_values, ") maar deel elke absolute frequentie door totaal N=330 → **c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)**")
+                    paste0("• **RELATIEF FREQ FOUT:** Je gaf c(", student_values, "), maar je moet elke absolute frequentie delen door 330. Het juiste antwoord is c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455).")
                   )
-                }
-                # Wrong data type or length
-                else {
+                } else {
                   feedback_lines <- c(
                     feedback_lines,
-                    "• **RELATIEF FREQ FOUT:** Geen geldige numerieke vector van 5 elementen! → **c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)**"
+                    "• **RELATIEF FREQ FOUT:** Geen geldige numerieke vector van 5 elementen. Het juiste antwoord is c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)."
                   )
                 }
               }
             }
             
-            # CUMULATIEVE RELATIEVE FREQUENTIES fout - geef specifieke hulp
+            # CUMULATIEVE RELATIEVE FREQUENTIES fout
             if (!results$cumulatieve_relatieve_frequenties$correct) {
               if (!results$cumulatieve_relatieve_frequenties$exists) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **CUMULATIEF REL ONTBREEKT:** Variabele 'cumulatieve_relatieve_frequenties' niet gevonden! → **c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)**"
+                  "• **CUMULATIEF REL ONTBREEKT:** Variabele 'cumulatieve_relatieve_frequenties' niet gevonden. Het juiste antwoord is c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)."
                 )
               } else {
                 student_cum_rel <- results$cumulatieve_relatieve_frequenties$value
-                
-                if (is.numeric(student_cum_rel) && length(student_cum_rel) >= 1) {
-                  if (length(student_cum_rel) != 5) {
-                    feedback_lines <- c(
-                      feedback_lines,
-                      "• **CUMULATIEF REL FOUT:** Vector heeft verkeerde lengte! Moet 5 elementen hebben → **c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)**"
-                    )
-                  } else if (abs(student_cum_rel[5] - 1.0) > 0.01) {
-                    last_value <- round(student_cum_rel[5], 4)
-                    feedback_lines <- c(
-                      feedback_lines,
-                      paste0("• **CUMULATIEF REL FOUT:** Laatste waarde is ", last_value, " maar moet 1.0000 zijn! Eerst relatieve_frequenties corrigeren → **c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)**")
-                    )
-                  } else if (any(diff(student_cum_rel) < 0)) {
-                    feedback_lines <- c(
-                      feedback_lines,
-                      "• **CUMULATIEF REL FOUT:** Waarden moeten steeds groter worden! → **c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)**"
-                    )
-                  } else {
-                    student_values <- paste(round(student_cum_rel, 4), collapse = ", ")
-                    feedback_lines <- c(
-                      feedback_lines,
-                      paste0("• **CUMULATIEF REL FOUT:** Je gaf c(", student_values, ") maar tel steeds op: 0.1000, 0.1000+0.2545=0.3545, enz. → **c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)**")
-                    )
-                  }
+                if (is.numeric(student_cum_rel) && length(student_cum_rel) == 5) {
+                  student_values <- paste(round(student_cum_rel, 4), collapse = ", ")
+                  feedback_lines <- c(
+                    feedback_lines,
+                    paste0("• **CUMULATIEF REL FOUT:** Je gaf c(", student_values, "), maar cumulatieve proporties moeten c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000) zijn.")
+                  )
                 } else {
                   feedback_lines <- c(
                     feedback_lines,
-                    "• **CUMULATIEF REL FOUT:** Geen geldige numerieke vector! → **c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)**"
+                    "• **CUMULATIEF REL FOUT:** Geen geldige numerieke vector van 5 elementen. Het juiste antwoord is c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)."
                   )
                 }
               }
@@ -669,12 +612,12 @@ context({
               if (mr == "modus") {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **MEEST RELEVANT FOUT:** Voor ordinale data geeft de mediaan meer informatie dan modus (toont rangorde)."
+                  "• **MEEST RELEVANT FOUT:** Je gaf 'modus', maar dit is fout. Voor ordinale data is de mediaan de meest informatieve maat. Het juiste antwoord is 'mediaan'."
                 )
               } else if (mr %in% c("gemiddelde", "mean")) {
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **MEEST RELEVANT FOUT:** Gemiddelde mag niet bij ordinale data! Alleen modus en mediaan zijn toegestaan."
+                  "• **MEEST RELEVANT FOUT:** Je gaf 'gemiddelde', maar dit is fout. Gemiddelde mag niet bij ordinale data. Het juiste antwoord is 'mediaan'."
                 )
               }
             }
@@ -686,20 +629,18 @@ context({
             paste0("**", correct_count, " van ", total_questions, " juist**"),
             "",
             "🔍 **BELANGRIJKE REGELS VOOR ORDINALE DATA:**",
-            "• **Kwartielen zijn CATEGORIEËN**, geen getallen!",
-            "• **Gebruik cumulatieve frequenties** om kwartielen te vinden",
-            "• **Gemiddelde is VERBODEN** bij ordinale data",
-            "• **IKA = bereik categorieën**, niet Q3-Q1",
-            "• **Behoud de oorspronkelijke rangorde** van categorieën"
+            "• Kwartielen zijn categorieën, geen getallen.",
+            "• Gebruik cumulatieve frequenties om kwartielen te vinden.",
+            "• Gemiddelde is verboden bij ordinale data.",
+            "• IKA = bereik van categorieën (Q1 tot Q3).",
+            "• Behoud altijd de rangorde van de categorieën."
           )
           
-          # Show markdown feedback
           get_reporter()$add_message(
             paste(feedback_lines, collapse = "\n\n"),
             type = "markdown"
           )
           
-          # Final result
           generated == expected
         }
       )
