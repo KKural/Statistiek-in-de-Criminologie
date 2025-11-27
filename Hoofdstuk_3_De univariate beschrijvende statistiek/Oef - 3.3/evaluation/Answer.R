@@ -600,53 +600,10 @@ context({
               "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅"
             )
           } else {
-            # Basisboodschap
             feedback_parts <- c(
               feedback_parts,
               "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking (X - 33.55)² ❌"
             )
-            
-            # Bestaande specifieke fouten (zoals je al had)
-            gekw_errors <- c()
-            
-            if ("gekw_afwijking_24_1" %in% names(results) &&
-                !results$gekw_afwijking_24_1$correct && results$gekw_afwijking_24_1$exists) {
-              student_gekw24 <- as.numeric(results$gekw_afwijking_24_1$value)
-              if (abs(student_gekw24 - 576) < 0.1) {
-                gekw_errors <- c(gekw_errors, "X=24: Je gaf 576 (24²), maar moet zijn (24-33.55)² = **91.20**")
-              } else {
-                gekw_errors <- c(gekw_errors, paste0("X=24: Je gaf ", format(student_gekw24, big.mark=","), ", moet zijn **91.20**"))
-              }
-            }
-            
-            if ("gekw_afwijking_40_1" %in% names(results) &&
-                !results$gekw_afwijking_40_1$correct && results$gekw_afwijking_40_1$exists) {
-              student_gekw40 <- as.numeric(results$gekw_afwijking_40_1$value)
-              if (abs(student_gekw40 - 1600) < 1) {
-                gekw_errors <- c(gekw_errors, "X=40: Je gaf 1600 (40²), moet zijn (40-33.55)² = **41.60**")
-              } else {
-                gekw_errors <- c(gekw_errors, paste0("X=40: Je gaf ", format(student_gekw40, big.mark=","), ", moet zijn **41.60**"))
-              }
-            }
-            
-            if ("gekw_afwijking_36_1" %in% names(results) &&
-                !results$gekw_afwijking_36_1$correct && results$gekw_afwijking_36_1$exists) {
-              student_gekw36 <- as.numeric(results$gekw_afwijking_36_1$value)
-              if (abs(student_gekw36 - 1296) < 1) {
-                gekw_errors <- c(gekw_errors, "X=36: Je gaf 1296 (36²), moet zijn (36-33.55)² = **6.00**")
-              } else {
-                gekw_errors <- c(gekw_errors, paste0("X=36: Je gaf ", format(student_gekw36, big.mark=","), ", moet zijn **6.00**"))
-              }
-            }
-            
-            if (length(gekw_errors) > 0) {
-              feedback_parts <- c(
-                feedback_parts,
-                paste0("  • **Veelvoorkomende fouten:** ", paste(gekw_errors, collapse = " | "))
-              )
-            }
-            
-
           }
 
           
@@ -991,118 +948,7 @@ context({
             }
           }
 
-          # Fallback summary for any remaining incorrect answers
-          incorrect_vars <- names(results)[sapply(results, function(x) !x$correct)]
-          
-          if (length(incorrect_vars) > 0) {
-            
-            # helper: maak leesbare labels met uitleg hoe het berekend wordt
-            make_label_with_explanation <- function(var_name, expected_val) {
-              # gekwadrateerde afwijkingen → X-waarde eruit halen
-              if (grepl("^gekw_afwijking_", var_name)) {
-                rest <- sub("^gekw_afwijking_", "", var_name)   # bv. "32_1"
-                xval <- as.numeric(sub("_.*$", "", rest))       # "32" → 32
-                afwijking <- xval - 33.55
-                return(paste0("Voor de gekwadrateerde afwijking bij X = ", xval, 
-                             " (bereken: (", xval, " - 33.55)² = (", round(afwijking, 2), ")² = ", expected_val, ")"))
-              }
-              
-              # afwijkingen
-              if (grepl("^afwijking_", var_name)) {
-                rest <- sub("^afwijking_", "", var_name)
-                xval <- as.numeric(sub("_.*$", "", rest))
-                return(paste0("Voor de afwijking bij X = ", xval,
-                             " (bereken: ", xval, " - 33.55 = ", expected_val, ")"))
-              }
-              
-              # frequenties
-              if (grepl("^freq_", var_name)) {
-                xval <- sub("^freq_", "", var_name)
-                return(paste0("Voor de frequentie van waarde ", xval,
-                             " (tel hoe vaak ", xval, " voorkomt in de dataset)"))
-              }
-              
-              # percentages
-              if (grepl("^percent_", var_name)) {
-                xval <- sub("^percent_", "", var_name)
-                freq_var <- paste0("freq_", xval)
-                if (freq_var %in% names(results)) {
-                  freq_val <- results[[freq_var]]$expected
-                  return(paste0("Voor het percentage van waarde ", xval,
-                               " (bereken: (", freq_val, "/20) × 100 = ", expected_val, "%)"))
-                } else {
-                  return(paste0("Voor het percentage van waarde ", xval,
-                               " (bereken: (frequentie/20) × 100)"))
-                }
-              }
-              
-              # standaard-maten met berekening uitleg
-              if (var_name == "gemiddelde") {
-                return("Voor het gemiddelde (bereken: som van alle waarden ÷ aantal = 671/20 = 33.55)")
-              }
-              if (var_name == "mediaan") {
-                return("Voor de mediaan (sorteer data, neem middelste waarde: 10de en 11de van 20 → beide zijn 36)")
-              }
-              if (var_name == "modus") {
-                return("Voor de modus (waarde die het meest voorkomt: 36 komt 7x voor)")
-              }
-              if (var_name == "variatiebreedte") {
-                return("Voor de variatiebreedte (bereken: maximum - minimum = 40 - 24 = 16)")
-              }
-              if (var_name == "q1") {
-                return("Voor Q1 (25% positie = 5.25, interpolatie tussen 5de (28) en 6de (32) waarde = 30)")
-              }
-              if (var_name == "q3") {
-                return("Voor Q3 (75% positie = 15.75ste waarde, alle waarden vanaf positie 15.75 zijn 36)")
-              }
-              if (var_name == "ika") {
-                return("Voor de interkwartielafstand (bereken: Q3 - Q1 = 36 - 30 = 6)")
-              }
-              if (var_name == "sum_of_squares") {
-                return("Voor de som van de gekwadrateerde afwijkingen (som alle (X-33.55)² waarden = 528.95)")
-              }
-              if (var_name == "variantie") {
-                return("Voor de variantie (bereken: som gekwadrateerde afwijkingen/(n-1) = 528.95/19 = 27.8295)")
-              }
-              if (var_name == "standaardafwijking") {
-                return("Voor de standaardafwijking (bereken: √variantie = √27.8295 = 5.2763)")
-              }
-              if (var_name == "variatiecoefficient") {
-                return("Voor de variatiecoëfficiënt (bereken: standaardafwijking/gemiddelde = 5.2763/33.55 = 0.1573)")
-              }
-              
-              # default: mocht er iets nieuw bijkomen
-              return("Voor dit antwoord")
-            }
-            
-            feedback_parts <- c(feedback_parts, "- Overzicht fouten (jouw antwoord → juiste antwoord):")
-            
-            for (var_name in incorrect_vars) {
-              res <- results[[var_name]]
-              expected_str <- toString(res$expected)
-              
-              # wat als de variabele niet bestaat?
-              if (!res$exists) {
-                feedback_parts <- c(
-                  feedback_parts,
-                  paste0("  - ", make_label_with_explanation(var_name, res$expected),
-                         ": deze waarde werd niet gevonden.")
-                )
-                next
-              }
-              
-              student_str <- toString(res$value)
-              if (student_str == "NA") student_str <- "Ontbreekt"
-              
-              feedback_parts <- c(
-                feedback_parts,
-                paste0(
-                  "  - ", make_label_with_explanation(var_name, res$expected),
-                  ": je gaf ", student_str, "."
-                )
-              )
-            }
-          }
+
 
 
           feedback_parts <- c(
