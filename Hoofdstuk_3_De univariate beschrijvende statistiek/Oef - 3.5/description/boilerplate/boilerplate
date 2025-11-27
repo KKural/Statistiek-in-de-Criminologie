@@ -14,8 +14,7 @@ patrouille_uren <- c(5, 3, 4, 2, 1, 3, 2, 1, 4)  # onafhankelijke variabele
 
 # Bereken het gemiddelde van de afhankelijke variabele (incidenten)
 # Tip: som van alle waarden / aantal waarden
-# 2 + 7 + 10 + 5 + 6 + 8 + 3 + 4 + 9 = 54
-# 54 / 9 = 6
+# Formule: (waarde1 + waarde2 + ... + waarden) / aantal waarden
 gemiddelde_incidenten <- ???
 
 # =====================================
@@ -24,17 +23,17 @@ gemiddelde_incidenten <- ???
 
 # Bereken de afwijking van elke waarde ten opzichte van het gemiddelde
 # Formule: X - gemiddelde
-# Bijv: 2 - 6 = -4, 7 - 6 = 1, enz.
+# Elke waarde minus het gemiddelde (kan positief of negatief zijn)
 afwijkingen <- ???                  # incidenten - gemiddelde_incidenten
 
 # Kwadrateer elke afwijking (om negatieve waarden positief te maken)
 # Formule: (afwijking)²
-# Bijv: (-4)² = 16, (1)² = 1, enz.
+# Alle resultaten worden positief na kwadrateren
 gekwadrateerde_afwijkingen <- ???   # afwijkingen^2
 
 # Som alle gekwadrateerde afwijkingen op
 # Dit geeft de 'Sum of Squares' (SS)
-# 16 + 1 + 16 + 1 + 0 + 4 + 9 + 4 + 9 = 60
+# Tel alle gekwadrateerde afwijkingen bij elkaar op
 sum_of_squares <- ???               # som van gekwadrateerde_afwijkingen
 
 # =====================================
@@ -43,13 +42,13 @@ sum_of_squares <- ???               # som van gekwadrateerde_afwijkingen
 
 # Bereken de steekproefvariantie
 # Formule: s² = SS / (n-1)
-# Let op: gebruik n-1 (= 8) voor steekproefvariantie, niet n (= 9)
-# 60 / 8 = 7.5
+# Let op: gebruik n-1 voor steekproefvariantie, niet n
+# Deel de Sum of Squares door (aantal waarden - 1)
 variantie_incidenten <- ???         # sum_of_squares / (length(incidenten) - 1)
 
 # Bereken de standaarddeviatie 
 # Formule: s = √(variantie)
-# √7.5 ≈ 2.74 (afgerond op 2 decimalen)
+# Neem de wortel van de variantie (afgerond op 2 decimalen)
 # Tip: gebruik round(sqrt(variantie_incidenten), 2)
 standaarddeviatie_incidenten <- ??? 
 
@@ -63,5 +62,5 @@ standaarddeviatie_incidenten <- ???
 # - Het uitgedrukt wordt in dezelfde eenheid als de originele data
 # - Het gevoelig is voor alle variaties in de dataset
 #
-# Antwoord: 2.74 (de standaarddeviatie)
+# Kies de meest geschikte spreidingsmaat voor interval data
 gekozen_spreidingsmaat <- ???       # standaarddeviatie_incidenten
