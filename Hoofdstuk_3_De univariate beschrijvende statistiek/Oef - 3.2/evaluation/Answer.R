@@ -416,21 +416,6 @@ context({
                     ", maar juiste antwoord is **", expected_str, "**."
                   )
                 )
-              } else {
-                # Ontbrekend
-                if (is.numeric(expected_val)) {
-                  expected_str <- format(as.numeric(expected_val), digits = 6, big.mark = ",")
-                } else {
-                  expected_str <- as.character(expected_val)
-                }
-                
-                feedback_parts <- c(
-                  feedback_parts,
-                  paste0(
-                    "• ", make_label_with_explanation(key, expected_val),
-                    ": **Ontbreekt ❌** (juiste antwoord is **", expected_str, "**)"
-                  )
-                )
               }
             }
             
