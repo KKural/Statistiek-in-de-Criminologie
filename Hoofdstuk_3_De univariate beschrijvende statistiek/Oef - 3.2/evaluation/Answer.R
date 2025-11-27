@@ -391,7 +391,7 @@ context({
               return(paste0("**", var_name, "**"))
             }
             
-            # Alle foute variabelen (zowel ingevuld als ontbrekend)
+            # Alle foute variabelen
             wrong_keys <- names(results)[sapply(results, function(x) !x$correct)]
             
             for (key in wrong_keys) {
@@ -414,6 +414,21 @@ context({
                     "• ", make_label_with_explanation(key, expected_val),
                     ": je gaf ", student_str,
                     ", maar juiste antwoord is **", expected_str, "**."
+                  )
+                )
+              } else {
+                # Ontbrekend
+                if (is.numeric(expected_val)) {
+                  expected_str <- format(as.numeric(expected_val), digits = 6, big.mark = ",")
+                } else {
+                  expected_str <- as.character(expected_val)
+                }
+                
+                feedback_parts <- c(
+                  feedback_parts,
+                  paste0(
+                    "• ", make_label_with_explanation(key, expected_val),
+                    ": **Ontbreekt ❌** (juiste antwoord is **", expected_str, "**)"
                   )
                 )
               }
