@@ -608,25 +608,16 @@ context({
 
           
           if (results$sum_of_squares$correct && results$variantie$correct && results$standaardafwijking$correct && results$variatiecoefficient$correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** Som=528.95, Variantie=528.95/19=27.8295, SD=5.2763, CV=0.1573 ✅")
+            feedback_parts <- c(
+              feedback_parts,
+              "**STAP 3.3 - VARIANTIE:** Som=528.95, Variantie=528.95/19=27.8295, SD=5.2763, CV=0.1573 ✅"
+            )
           } else {
-            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** ❌")
-            if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
-              student_answer <- as.numeric(results$sum_of_squares$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", student_answer, ", maar correct is **528.95**"))
-            }
-            if (!results$variantie$correct && results$variantie$exists) {
-              student_answer <- as.numeric(results$variantie$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Variantie: Je gaf ", student_answer, ", maar correct is som/(n-1) = **27.83**"))
-            }
-            if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
-              student_answer <- as.numeric(results$standaardafwijking$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar correct is √variantie = **5.28**"))
-            }
-            if (!results$variatiecoefficient$correct && results$variatiecoefficient$exists) {
-              student_answer <- as.numeric(results$variatiecoefficient$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Variatiecoëfficiënt: Je gaf ", student_answer, ", maar correct is SD/gemiddelde = **0.16**"))
-            }
+            # Alleen een korte statusregel, geen details
+            feedback_parts <- c(
+              feedback_parts,
+              "**STAP 3.3 - VARIANTIE:** ❌"
+            )
           }
           
           # ----------------------------------------
