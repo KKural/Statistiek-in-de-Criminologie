@@ -626,118 +626,109 @@ context({
           # STAP 2 FEEDBACK - SPREIDING EN PARAMETER KEUZES
           # ----------------------
           feedback_parts <- c(feedback_parts, "")
-          feedback_parts <- c(feedback_parts, "**STAP 2 - SPREIDING EN PARAMETER KEUZES:**")
           
           stap2_all_correct <- TRUE
+          stap2_errors <- c()
           
           # Variatiebreedte
           if (!results$variatiebreedte$correct) {
             stap2_all_correct <- FALSE
             student_val <- if (results$variatiebreedte$exists) results$variatiebreedte$value else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Variatiebreedte:** je gaf ", student_val, ", juiste antwoord is **16** (40 - 24)"))
+            stap2_errors <- c(stap2_errors, paste0("  • **Variatiebreedte:** je gaf ", student_val, ", juiste antwoord is **16** (40 - 24)"))
           }
           
           # Q1
           if (!results$q1$correct) {
             stap2_all_correct <- FALSE
             student_val <- if (results$q1$exists) results$q1$value else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Q1:** je gaf ", student_val, ", juiste antwoord is **30**"))
+            stap2_errors <- c(stap2_errors, paste0("  • **Q1:** je gaf ", student_val, ", juiste antwoord is **30**"))
           }
           
           # Q3
           if (!results$q3$correct) {
             stap2_all_correct <- FALSE
             student_val <- if (results$q3$exists) results$q3$value else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Q3:** je gaf ", student_val, ", juiste antwoord is **36**"))
+            stap2_errors <- c(stap2_errors, paste0("  • **Q3:** je gaf ", student_val, ", juiste antwoord is **36**"))
           }
           
           # IKA
           if (!results$ika$correct) {
             stap2_all_correct <- FALSE
             student_val <- if (results$ika$exists) results$ika$value else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **IKA:** je gaf ", student_val, ", juiste antwoord is **6** (36 - 30)"))
+            stap2_errors <- c(stap2_errors, paste0("  • **IKA:** je gaf ", student_val, ", juiste antwoord is **6** (36 - 30)"))
           }
           
           # Meest relevante centraliteit
           if (!results$meest_relevante_centraliteit$correct) {
             stap2_all_correct <- FALSE
             student_val <- if (results$meest_relevante_centraliteit$exists) results$meest_relevante_centraliteit$value else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Meest relevante centraliteit:** je gaf \"", student_val, "\", juiste antwoord is **\"gemiddelde\"**"))
+            stap2_errors <- c(stap2_errors, paste0("  • **Meest relevante centraliteit:** je gaf \"", student_val, "\", juiste antwoord is **\"gemiddelde\"**"))
           }
           
           # Meest relevante spreiding
           if (!results$meest_relevante_spreiding$correct) {
             stap2_all_correct <- FALSE
             student_val <- if (results$meest_relevante_spreiding$exists) results$meest_relevante_spreiding$value else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Meest relevante spreiding:** je gaf \"", student_val, "\", juiste antwoord is **\"interkwartielafstand\"**"))
+            stap2_errors <- c(stap2_errors, paste0("  • **Meest relevante spreiding:** je gaf \"", student_val, "\", juiste antwoord is **\"interkwartielafstand\"**"))
           }
           
           # Reden
           if (!results$reden$correct) {
             stap2_all_correct <- FALSE
             student_val <- if (results$reden$exists) results$reden$value else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Reden:** je gaf \"", student_val, "\", juiste antwoord is **\"gebruikt alle informatie\"**"))
+            stap2_errors <- c(stap2_errors, paste0("  • **Reden:** je gaf \"", student_val, "\", juiste antwoord is **\"gebruikt alle informatie\"**"))
           }
           
           if (stap2_all_correct) {
-            header_index <- which(feedback_parts == "**STAP 2 - SPREIDING EN PARAMETER KEUZES:**")
-            if (length(header_index) > 0) {
-              feedback_parts[header_index] <- "**✅ STAP 2 - SPREIDING EN PARAMETER KEUZES:** Allemaal correct!"
-            }
+            feedback_parts <- c(feedback_parts, "**✅ STAP 2 - SPREIDING EN PARAMETER KEUZES:** Allemaal correct!")
           } else {
-            header_index <- which(feedback_parts == "**STAP 2 - SPREIDING EN PARAMETER KEUZES:**")
-            if (length(header_index) > 0) {
-              feedback_parts[header_index] <- "**❌ STAP 2 - SPREIDING EN PARAMETER KEUZES:** Fouten gevonden"
-            }
+            feedback_parts <- c(feedback_parts, "**❌ STAP 2 - SPREIDING EN PARAMETER KEUZES:** Fouten gevonden")
+            feedback_parts <- c(feedback_parts, stap2_errors)
           }
+          feedback_parts <- c(feedback_parts, "")
           
           # --------------------------------
           # STAP 3 FEEDBACK - AFWIJKINGEN EN VARIANTIE
           # --------------------------------
-          feedback_parts <- c(feedback_parts, "")
-          feedback_parts <- c(feedback_parts, "**STAP 3 - AFWIJKINGEN EN VARIANTIE:**")
           
           stap3_all_correct <- TRUE
+          stap3_errors <- c()
           
           # Check sum_of_squares
           if (!results$sum_of_squares$correct) {
             stap3_all_correct <- FALSE
             student_val <- if (results$sum_of_squares$exists) round(results$sum_of_squares$value, 2) else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Sum of squares:** je gaf ", student_val, ", juiste antwoord is **528.95**"))
+            stap3_errors <- c(stap3_errors, paste0("  • **Sum of squares:** je gaf ", student_val, ", juiste antwoord is **528.95**"))
           }
           
           # Check variantie
           if (!results$variantie$correct) {
             stap3_all_correct <- FALSE
             student_val <- if (results$variantie$exists) round(results$variantie$value, 4) else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Variantie:** je gaf ", student_val, ", juiste antwoord is **27.8295** (528.95 ÷ 20)"))
+            stap3_errors <- c(stap3_errors, paste0("  • **Variantie:** je gaf ", student_val, ", juiste antwoord is **27.8295** (528.95 ÷ 20)"))
           }
           
           # Check standaardafwijking
           if (!results$standaardafwijking$correct) {
             stap3_all_correct <- FALSE
             student_val <- if (results$standaardafwijking$exists) round(results$standaardafwijking$value, 4) else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Standaardafwijking:** je gaf ", student_val, ", juiste antwoord is **5.2763** (√27.8295)"))
+            stap3_errors <- c(stap3_errors, paste0("  • **Standaardafwijking:** je gaf ", student_val, ", juiste antwoord is **5.2763** (√27.8295)"))
           }
           
           # Check variatiecoefficient
           if (!results$variatiecoefficient$correct) {
             stap3_all_correct <- FALSE
             student_val <- if (results$variatiecoefficient$exists) round(results$variatiecoefficient$value, 4) else "Ontbreekt"
-            feedback_parts <- c(feedback_parts, paste0("  • **Variatiecoëfficiënt:** je gaf ", student_val, ", juiste antwoord is **0.1573** (5.2763 ÷ 33.55)"))
+            stap3_errors <- c(stap3_errors, paste0("  • **Variatiecoëfficiënt:** je gaf ", student_val, ", juiste antwoord is **0.1573** (5.2763 ÷ 33.55)"))
           }
           
           if (stap3_all_correct) {
-            header_index <- which(feedback_parts == "**STAP 3 - AFWIJKINGEN EN VARIANTIE:**")
-            if (length(header_index) > 0) {
-              feedback_parts[header_index] <- "**✅ STAP 3 - AFWIJKINGEN EN VARIANTIE:** Alle berekeningen correct!"
-            }
+            feedback_parts <- c(feedback_parts, "**✅ STAP 3 - AFWIJKINGEN EN VARIANTIE:** Alle berekeningen correct!")
           } else {
-            header_index <- which(feedback_parts == "**STAP 3 - AFWIJKINGEN EN VARIANTIE:**")
-            if (length(header_index) > 0) {
-              feedback_parts[header_index] <- "**❌ STAP 3 - AFWIJKINGEN EN VARIANTIE:** Fouten gevonden"
-            }
+            feedback_parts <- c(feedback_parts, "**❌ STAP 3 - AFWIJKINGEN EN VARIANTIE:** Fouten gevonden")
+            feedback_parts <- c(feedback_parts, stap3_errors)
           }
+          feedback_parts <- c(feedback_parts, "")
           
           # ----------------------------------------
           # EXTRA UITLEG BIJ FOUTEN
