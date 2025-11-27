@@ -476,209 +476,162 @@ context({
           correct_count <- sum(sapply(results, function(x) x$correct))
           total_questions <- length(results)
           
-          if (generated == expected) {
-            feedback_parts <- c(feedback_parts, "✅ **Alle antwoorden correct! Goed gedaan.**")
-          } else {
-            feedback_parts <- c(feedback_parts, paste0("**Resultaat: ", correct_count, " van ", total_questions, " correct**"))
+          # ----------------------
+          # STAP 1 FEEDBACK - FREQUENTIETABEL EN CENTRALITEIT
+          # ----------------------
+          
+          # Check each frequency individually with detailed explanations
+          feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:**")
+          all_freq_correct <- TRUE
+          freq_vars <- c("freq_24", "freq_28", "freq_32", "freq_34", "freq_35", "freq_36", "freq_38", "freq_40")
+          
+          # Data context for human-readable descriptions  
+          data_context <- list(
+            freq_24 = list(expected = 3, description = "Frequentie waarde 24", context = "komt 3x voor in dataset"),
+            freq_28 = list(expected = 2, description = "Frequentie waarde 28", context = "komt 2x voor in dataset"),
+            freq_32 = list(expected = 2, description = "Frequentie waarde 32", context = "komt 2x voor in dataset"),
+            freq_34 = list(expected = 1, description = "Frequentie waarde 34", context = "komt 1x voor in dataset"),
+            freq_35 = list(expected = 1, description = "Frequentie waarde 35", context = "komt 1x voor in dataset"),
+            freq_36 = list(expected = 7, description = "Frequentie waarde 36", context = "komt 7x voor - meest frequent"),
+            freq_38 = list(expected = 1, description = "Frequentie waarde 38", context = "komt 1x voor in dataset"),
+            freq_40 = list(expected = 3, description = "Frequentie waarde 40", context = "komt 3x voor in dataset")
+          )
+          
+          for (freq_var in freq_vars) {
+            if (freq_var %in% names(results)) {
+              if (!results[[freq_var]]$correct) {
+                all_freq_correct <- FALSE
+                student_val <- if (results[[freq_var]]$exists) as.numeric(results[[freq_var]]$value) else "Ontbreekt"
+                expected_val <- data_context[[freq_var]]$expected
+                description <- data_context[[freq_var]]$description
+                context <- data_context[[freq_var]]$context
+                
+                if (results[[freq_var]]$exists) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar ", context, ". Juiste antwoord is **", expected_val, "**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
+                }
+              }
+            } else {
+              all_freq_correct <- FALSE
+              description <- data_context[[freq_var]]$description
+              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
+            }
           }
           
-          # Main feedback removed - detailed feedback only in "Uitleg van veelgemaakte fouten"
+          if (all_freq_correct) {
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "**✅ STAP 1.1 - FREQUENTIES:** Alle frequenties correct geteld!")
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "📊 **Frequentietabel overzicht:**")
+            feedback_parts <- c(feedback_parts, "• Data: 24(3x), 28(2x), 32(2x), 34(1x), 35(1x), 36(7x), 38(1x), 40(3x)")
+            feedback_parts <- c(feedback_parts, "• Modus: 36 komt het vaakst voor (7x)")
+            feedback_parts <- c(feedback_parts, "• Totaal aantal observaties: **20**")
+          } else {
+            feedback_parts[1] <- "**❌ STAP 1.1 - FREQUENTIES:** Fouten gevonden"
+          }
           
-          # ----------------------------------------
-          # COMPREHENSIVE ERROR ANALYSIS (COMMON MISTAKES)
-          # ----------------------------------------
+          # Check each percentage individually with detailed calculation explanations  
+          feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:**")
+          all_percent_correct <- TRUE
+          percent_vars <- c("percent_24", "percent_28", "percent_32", "percent_34", "percent_35", "percent_36", "percent_38", "percent_40")
           
-          if (correct_count != total_questions) {
-            feedback_parts <- c(feedback_parts, "", "📚 **Uitleg van veelgemaakte fouten:**")
-            
-            # =============================
-            # ALLE FOUTE ANTWOORDEN MET BEREKENING
-            # =============================
-            
-            # FREQUENTIES - Met berekening
-            freq_vars <- c("freq_24", "freq_28", "freq_32", "freq_34", "freq_35", "freq_36", "freq_38", "freq_40")
-            freq_names <- c("24", "28", "32", "34", "35", "36", "38", "40")
-            freq_explanations <- c(
-              "Tel hoe vaak 24 voorkomt in dataset: 24, 24, 24 = 3x",
-              "Tel hoe vaak 28 voorkomt in dataset: 28, 28 = 2x", 
-              "Tel hoe vaak 32 voorkomt in dataset: 32, 32 = 2x",
-              "Tel hoe vaak 34 voorkomt in dataset: 34 = 1x",
-              "Tel hoe vaak 35 voorkomt in dataset: 35 = 1x",
-              "Tel hoe vaak 36 voorkomt in dataset: 36, 36, 36, 36, 36, 36, 36 = 7x (meest frequent)",
-              "Tel hoe vaak 38 voorkomt in dataset: 38 = 1x",
-              "Tel hoe vaak 40 voorkomt in dataset: 40, 40, 40 = 3x"
-            )
-            
-            for (i in seq_along(freq_vars)) {
-              var_name <- freq_vars[i]
-              if (!results[[var_name]]$correct && results[[var_name]]$exists) {
-                student_val <- as.numeric(results[[var_name]]$value)
-                expected_val <- results[[var_name]]$expected
-                feedback_parts <- c(feedback_parts, 
-                  paste0("• **", var_name, ":** Je gaf ", student_val, ", maar correct is **", expected_val, "** → ", freq_explanations[i]))
+          # Expected percentages with calculation explanations
+          percent_context <- list(
+            percent_24 = list(expected = 15.0, freq = 3, description = "Percentage waarde 24", calculation = "(3/20) × 100 = 15.0%"),
+            percent_28 = list(expected = 10.0, freq = 2, description = "Percentage waarde 28", calculation = "(2/20) × 100 = 10.0%"),
+            percent_32 = list(expected = 10.0, freq = 2, description = "Percentage waarde 32", calculation = "(2/20) × 100 = 10.0%"),
+            percent_34 = list(expected = 5.0, freq = 1, description = "Percentage waarde 34", calculation = "(1/20) × 100 = 5.0%"),
+            percent_35 = list(expected = 5.0, freq = 1, description = "Percentage waarde 35", calculation = "(1/20) × 100 = 5.0%"),
+            percent_36 = list(expected = 35.0, freq = 7, description = "Percentage waarde 36", calculation = "(7/20) × 100 = 35.0%"),
+            percent_38 = list(expected = 5.0, freq = 1, description = "Percentage waarde 38", calculation = "(1/20) × 100 = 5.0%"),
+            percent_40 = list(expected = 15.0, freq = 3, description = "Percentage waarde 40", calculation = "(3/20) × 100 = 15.0%")
+          )
+          
+          for (percent_var in percent_vars) {
+            if (percent_var %in% names(results)) {
+              if (!results[[percent_var]]$correct) {
+                all_percent_correct <- FALSE
+                student_val <- if (results[[percent_var]]$exists) as.numeric(results[[percent_var]]$value) else "Ontbreekt"
+                expected_val <- percent_context[[percent_var]]$expected
+                description <- percent_context[[percent_var]]$description
+                calculation <- percent_context[[percent_var]]$calculation
+                
+                if (results[[percent_var]]$exists) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
+                }
               }
+            } else {
+              all_percent_correct <- FALSE
+              description <- percent_context[[percent_var]]$description
+              expected_val <- percent_context[[percent_var]]$expected
+              calculation <- percent_context[[percent_var]]$calculation
+              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
             }
-            
-            # PERCENTAGES - Met berekening  
-            percent_vars <- c("percent_24", "percent_28", "percent_32", "percent_34", "percent_35", "percent_36", "percent_38", "percent_40")
-            percent_names <- c("24", "28", "32", "34", "35", "36", "38", "40")
-            percent_freqs <- c(3, 2, 2, 1, 1, 7, 1, 3)
-            
-            for (i in seq_along(percent_vars)) {
-              var_name <- percent_vars[i]
-              if (!results[[var_name]]$correct && results[[var_name]]$exists) {
-                student_val <- as.numeric(results[[var_name]]$value)
-                expected_val <- results[[var_name]]$expected
-                freq <- percent_freqs[i]
-                feedback_parts <- c(feedback_parts, 
-                  paste0("• **", var_name, ":** Je gaf ", student_val, ", maar correct is **", expected_val, "%** → (", freq, "/20) × 100 = ", expected_val, "%"))
-              }
+          }
+          
+          if (all_percent_correct) {
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "**✅ STAP 1.2 - PERCENTAGES:** Alle percentages correct berekend!")
+            feedback_parts <- c(feedback_parts, "")  
+            feedback_parts <- c(feedback_parts, "📊 **Percentage berekening formule:** (frequentie ÷ 20) × 100")
+          } else {
+            # Find the header and replace it
+            header_index <- which(feedback_parts == "**STAP 1.2 - PERCENTAGES:**")
+            if (length(header_index) > 0) {
+              feedback_parts[header_index] <- "**❌ STAP 1.2 - PERCENTAGES:** Fouten gevonden"
             }
+          }
+          
+          # STAP 1.3 - CENTRALITEIT
+          feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:**")
+          centraliteit_correct <- results$modus$correct && results$mediaan$correct && results$gemiddelde$correct
+          
+          if (!centraliteit_correct) {
+            feedback_parts[length(feedback_parts)] <- "**❌ STAP 1.3 - CENTRALITEIT:** Fouten gevonden"
             
-            # CENTRALITEITSMATEN - Met berekening
             if (!results$modus$correct && results$modus$exists) {
               student_val <- results$modus$value
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **modus:** Je gaf ", student_val, ", maar correct is **36** → Modus = waarde die het meest voorkomt. 36 komt 7x voor (hoogste frequentie)"))
+              feedback_parts <- c(feedback_parts, paste0("  • **Modus:** Je gaf ", student_val, ", maar correct is **36** (komt 7x voor - hoogste frequentie)"))
             }
             
             if (!results$mediaan$correct && results$mediaan$exists) {
               student_val <- results$mediaan$value
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **mediaan:** Je gaf ", student_val, ", maar correct is **36** → Mediaan = middelste waarde. Data gesorteerd (20 waarden): positie (20+1)/2 = 10.5, dus gemiddelde van 10de en 11de waarde = (36+36)/2 = 36"))
+              feedback_parts <- c(feedback_parts, paste0("  • **Mediaan:** Je gaf ", student_val, ", maar correct is **36** (middelste waarde van 20 observaties)"))
             }
             
             if (!results$gemiddelde$correct && results$gemiddelde$exists) {
               student_val <- as.numeric(results$gemiddelde$value)
               if (abs(student_val - 12) < 0.01) {
-                feedback_parts <- c(feedback_parts, 
-                  "• **gemiddelde:** Je gaf 12, maar dit is fout. Je gebruikte een verkeerde berekeningsmethode. Het juiste antwoord is **33.55** → Som = (24×3 + 28×2 + 32×2 + 34×1 + 35×1 + 36×7 + 38×1 + 40×3) = 671. Gemiddelde = 671/20 = 33.55")
+                feedback_parts <- c(feedback_parts, "  • **Gemiddelde:** Je gaf 12, maar dit is fout. Je gebruikte waarschijnlijk een verkeerde berekeningsmethode. Som alle waarden (671) en deel door aantal observaties (20): 671/20 = **33.55**")
               } else {
-                feedback_parts <- c(feedback_parts, 
-                  paste0("• **gemiddelde:** Je gaf ", student_val, ", maar correct is **33.55** → Som = (24×3 + 28×2 + 32×2 + 34×1 + 35×1 + 36×7 + 38×1 + 40×3) = 671. Gemiddelde = 671/20 = 33.55"))
+                feedback_parts <- c(feedback_parts, paste0("  • **Gemiddelde:** Je gaf ", student_val, ", maar correct is **33.55** (som = 671, gemiddelde = 671/20)"))
               }
             }
-            
-            # SPREIDINGSMATEN - Met berekening
-            if (!results$variatiebreedte$correct && results$variatiebreedte$exists) {
-              student_val <- as.numeric(results$variatiebreedte$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **variatiebreedte:** Je gaf ", student_val, ", maar correct is **16** → Range = Maximum - Minimum = 40 - 24 = 16"))
-            }
-            
-            if (!results$q1$correct && results$q1$exists) {
-              student_val <- as.numeric(results$q1$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **q1:** Je gaf ", student_val, ", maar correct is **30** → Q1 positie = 0.25 × (20+1) = 5.25. Tussen 5de waarde (28) en 6de waarde (32): 28 + 0.25×(32-28) = 30"))
-            }
-            
-            if (!results$q3$correct && results$q3$exists) {
-              student_val <- as.numeric(results$q3$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **q3:** Je gaf ", student_val, ", maar correct is **36** → Q3 positie = 0.75 × (20+1) = 15.75. Op 15de en 16de positie staat 36: Q3 = 36"))
-            }
-            
-            if (!results$ika$correct && results$ika$exists) {
-              student_val <- as.numeric(results$ika$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **ika:** Je gaf ", student_val, ", maar correct is **6** → IKA = Q3 - Q1 = 36 - 30 = 6"))
-            }
-            
-            # PARAMETER KEUZES - Met uitleg
-            if (!results$meest_relevante_centraliteit$correct && results$meest_relevante_centraliteit$exists) {
-              student_val <- as.character(results$meest_relevante_centraliteit$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **meest_relevante_centraliteit:** Je gaf '", student_val, "', maar correct is **'gemiddelde'** → Bij intervaldata gebruikt gemiddelde alle informatie van dataset"))
-            }
-            
-            if (!results$meest_relevante_spreiding$correct && results$meest_relevante_spreiding$exists) {
-              student_val <- as.character(results$meest_relevante_spreiding$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **meest_relevante_spreiding:** Je gaf '", student_val, "', maar correct is **'interkwartielafstand'** → IKA is robuust voor uitbijters, past bij gemiddelde"))
-            }
-            
-            if (!results$reden$correct && results$reden$exists) {
-              student_val <- as.character(results$reden$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **reden:** Je gaf '", student_val, "', maar correct is **'gebruikt alle informatie'** → Gemiddelde neemt alle datawaarden mee in berekening"))
-            }
-            
-            # AFWIJKINGEN - Met berekening
-            afwijking_vars <- c("afwijking_24_1", "afwijking_36_1", "afwijking_35", "afwijking_28_1", "afwijking_24_2",
-                               "afwijking_28_2", "afwijking_24_3", "afwijking_36_2", "afwijking_32_1", "afwijking_36_3",
-                               "afwijking_40_1", "afwijking_38", "afwijking_36_4", "afwijking_34", "afwijking_40_2",
-                               "afwijking_36_5", "afwijking_32_2", "afwijking_36_6", "afwijking_40_3", "afwijking_36_7")
-            
-            data_values <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-            data_positions <- c("1e", "2e", "3e", "4e", "5e", "6e", "7e", "8e", "9e", "10e", "11e", "12e", "13e", "14e", "15e", "16e", "17e", "18e", "19e", "20e")
-            
-            for (i in seq_along(afwijking_vars)) {
-              var_name <- afwijking_vars[i]
-              if (var_name %in% names(results) && !results[[var_name]]$correct && results[[var_name]]$exists) {
-                student_val <- as.numeric(results[[var_name]]$value)
-                expected_val <- results[[var_name]]$expected
-                x_val <- data_values[i]
-                pos <- data_positions[i]
-                feedback_parts <- c(feedback_parts, 
-                  paste0("• **Afwijking ", pos, " waarde (X = ", x_val, "):** Je gaf ", student_val, ", maar correct is **", expected_val, "** → ", x_val, " - 33.55 = ", expected_val))
-              }
-            }
-            
-            # GEKWADRATEERDE AFWIJKINGEN - Met berekening
-            gekw_vars <- c("gekw_afwijking_24_1", "gekw_afwijking_36_1", "gekw_afwijking_35", "gekw_afwijking_28_1", "gekw_afwijking_24_2",
-                          "gekw_afwijking_28_2", "gekw_afwijking_24_3", "gekw_afwijking_36_2", "gekw_afwijking_32_1", "gekw_afwijking_36_3",
-                          "gekw_afwijking_40_1", "gekw_afwijking_38", "gekw_afwijking_36_4", "gekw_afwijking_34", "gekw_afwijking_40_2",
-                          "gekw_afwijking_36_5", "gekw_afwijking_32_2", "gekw_afwijking_36_6", "gekw_afwijking_40_3", "gekw_afwijking_36_7")
-            
-            expected_afwijkingen_for_gekw <- c(-9.55, 2.45, 1.45, -5.55, -9.55, -5.55, -9.55, 2.45, -1.55, 2.45,
-                                              6.45, 4.45, 2.45, 0.45, 6.45, 2.45, -1.55, 2.45, 6.45, 2.45)
-            gekw_data_values <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-            gekw_data_positions <- c("1e", "2e", "3e", "4e", "5e", "6e", "7e", "8e", "9e", "10e", "11e", "12e", "13e", "14e", "15e", "16e", "17e", "18e", "19e", "20e")
-            
-            for (i in seq_along(gekw_vars)) {
-              var_name <- gekw_vars[i]
-              if (var_name %in% names(results) && !results[[var_name]]$correct && results[[var_name]]$exists) {
-                student_val <- as.numeric(results[[var_name]]$value)
-                expected_val <- results[[var_name]]$expected
-                afwijking_val <- expected_afwijkingen_for_gekw[i]
-                x_val <- gekw_data_values[i]
-                pos <- gekw_data_positions[i]
-                feedback_parts <- c(feedback_parts, 
-                  paste0("• **Gekwadrateerde afwijking ", pos, " waarde (X = ", x_val, "):** Je gaf ", student_val, ", maar correct is **", expected_val, "** → (", afwijking_val, ")² = ", expected_val))
-              }
-            }
-            
-            # FINALE BEREKENINGEN - Met berekening
-            if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
-              student_val <- as.numeric(results$sum_of_squares$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **sum_of_squares:** Je gaf ", student_val, ", maar correct is **528.95** → Som van alle gekwadrateerde afwijkingen = 91.2025 + 6.0025 + ... + 6.0025 = 528.95"))
-            }
-            
-            if (!results$variantie$correct && results$variantie$exists) {
-              student_val <- as.numeric(results$variantie$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **variantie:** Je gaf ", student_val, ", maar correct is **27.8295** → Variantie = som_gekwadrateerde_afwijkingen / (n-1) = 528.95 / 19 = 27.8295"))
-            }
-            
-            if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
-              student_val <- as.numeric(results$standaardafwijking$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **standaardafwijking:** Je gaf ", student_val, ", maar correct is **5.2763** → SD = √variantie = √27.8295 = 5.2763"))
-            }
-            
-            if (!results$variatiecoefficient$correct && results$variatiecoefficient$exists) {
-              student_val <- as.numeric(results$variatiecoefficient$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **variatiecoefficient:** Je gaf ", student_val, ", maar correct is **0.1573** → CV = standaardafwijking / gemiddelde = 5.2763 / 33.55 = 0.1573"))
-            }
-            
-
+          } else {
+            feedback_parts[length(feedback_parts)] <- "**✅ STAP 1.3 - CENTRALITEIT:** Alle centraliteitsmaten correct berekend!"
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "📊 **Centraliteitsmaten overzicht:**")
+            feedback_parts <- c(feedback_parts, "• Modus = 36 (meest voorkomende waarde)")
+            feedback_parts <- c(feedback_parts, "• Mediaan = 36 (middelste waarde)")  
+            feedback_parts <- c(feedback_parts, "• Gemiddelde = 33.55 (som/aantal = 671/20)")
           }
-
-
-
-
+          
+          if (correct_count != total_questions) {
+            feedback_parts <- c(feedback_parts, "", "📚 **Uitleg van gemaakte fouten:**")
+            
+            # Add key error patterns from "Uitleg van gemaakte fouten" section
+            wrong_answers <- names(results)[sapply(results, function(x) !x$correct && x$exists)]
+            
+            for (var in wrong_answers) {
+              if (var == "gemiddelde" && abs(as.numeric(results[[var]]$value) - 12) < 0.01) {
+                feedback_parts <- c(feedback_parts, "• Voor gemiddelde gaf je 12: dit is fout. Bereken som van alle waarden (671) gedeeld door aantal (20) = 33.55")
+              }
+            }
+          }
+          
           feedback_parts <- c(
             feedback_parts,
             "",
