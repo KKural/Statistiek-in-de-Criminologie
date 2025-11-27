@@ -763,6 +763,8 @@ context({
             
             expected_afwijkingen_for_gekw <- c(-9.55, 2.45, 1.45, -5.55, -9.55, -5.55, -9.55, 2.45, -1.55, 2.45,
                                               6.45, 4.45, 2.45, 0.45, 6.45, 2.45, -1.55, 2.45, 6.45, 2.45)
+            gekw_data_values <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
+            gekw_data_positions <- c("1e", "2e", "3e", "4e", "5e", "6e", "7e", "8e", "9e", "10e", "11e", "12e", "13e", "14e", "15e", "16e", "17e", "18e", "19e", "20e")
             
             for (i in seq_along(gekw_vars)) {
               var_name <- gekw_vars[i]
@@ -770,8 +772,10 @@ context({
                 student_val <- as.numeric(results[[var_name]]$value)
                 expected_val <- results[[var_name]]$expected
                 afwijking_val <- expected_afwijkingen_for_gekw[i]
+                x_val <- gekw_data_values[i]
+                pos <- gekw_data_positions[i]
                 feedback_parts <- c(feedback_parts, 
-                  paste0("• **", var_name, ":** Je gaf ", student_val, ", maar correct is **", expected_val, "** → (", afwijking_val, ")² = ", expected_val))
+                  paste0("• **Gekwadrateerde afwijking ", pos, " waarde (X = ", x_val, "):** Je gaf ", student_val, ", maar correct is **", expected_val, "** → (", afwijking_val, ")² = ", expected_val))
               }
             }
             
