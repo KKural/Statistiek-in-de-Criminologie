@@ -456,22 +456,28 @@ context({
               }
             }
             
-            # Q3 fout
-            if (!results$q3$correct && results$q3$exists) {
-              student_q3 <- as.character(results$q3$value)
-              if (grepl("^0\\.|^[0-9]+\\.[0-9]|^[0-9]+$", student_q3)) {
+                       # Q3 fout
+            if (!results$q3$correct) {
+              if (!results$q3$exists) {
+                # Leeg gelaten
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **Q3 FOUT:** Je gaf een getal, maar Q3 moet een categorie zijn. Het juiste antwoord is 'Tevreden'."
+                  "• **Q3 FOUT:** Je gaf niets in. Q3 hoort de categorie te zijn waarin de 247,5ste waarneming valt. Het juiste antwoord is **'Tevreden'**."
                 )
-              } else if (tolower(trimws(student_q3)) == "zeer tevreden") {
+              } else {
+                student_q3_raw <- as.character(results$q3$value)
+                student_q3 <- tolower(trimws(student_q3_raw))
+                
                 feedback_lines <- c(
                   feedback_lines,
-                  "• **Q3 FOUT:** Je gaf 'Zeer tevreden', maar dat is fout. De 247,5ste persoon valt in 'Tevreden'. Het juiste antwoord is 'Tevreden'."
+                  paste0(
+                    "• **Q3 FOUT:** Je gaf ", student_q3_raw,
+                    ", maar dit is fout. Q3 is de categorie waarin de 247,5ste waarneming valt (75% van 330 = 247,5). ",
+                    "Die waarneming ligt in de categorie **'Tevreden'**. Het juiste antwoord is **'Tevreden'**."
+                  )
                 )
               }
-            }
-            
+            }          
             # Mediaan fout
             if (!results$mediaan$correct && results$mediaan$exists) {
               student_median <- as.character(results$mediaan$value)
