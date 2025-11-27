@@ -940,6 +940,26 @@ context({
             }
           }
 
+          # Fallback summary for any remaining incorrect answers
+          incorrect_vars <- names(results)[sapply(results, function(x) !x$correct)]
+          if (length(incorrect_vars) > 0) {
+            feedback_parts <- c(feedback_parts, "- Overzicht fouten (jouw antwoord -> verwacht):")
+            for (var_name in incorrect_vars) {
+              res <- results[[var_name]]
+              expected_str <- toString(res$expected)
+              if (!res$exists) {
+                feedback_parts <- c(feedback_parts, paste0("  - ", var_name, ": niet gevonden. Verwacht: ", expected_str))
+                next
+              }
+              student_str <- toString(res$value)
+              if (student_str == "NA") {
+                student_str <- "Ontbreekt"
+              }
+              feedback_parts <- c(feedback_parts, paste0("  - ", var_name, ": ", student_str, " -> ", expected_str))
+            }
+          }
+
+
           feedback_parts <- c(
             feedback_parts,
             "",
