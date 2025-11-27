@@ -461,6 +461,119 @@ context({
           correct_count <- sum(sapply(results, function(x) x$correct))
           total_questions <- length(results)
           
+          # ----------------------
+          # STAP 1 FEEDBACK
+          # ----------------------
+          
+          # Check frequencies first
+          freq_vars <- c("freq_2", "freq_14", "freq_26", "freq_30", "freq_72", "freq_143", "freq_144", "freq_150", "freq_240", "freq_1657")
+          freq_correct <- all(sapply(freq_vars[freq_vars %in% names(results)], function(x) results[[x]]$correct))
+          
+          if (freq_correct) {
+            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Correct geteld! ✅")
+          } else {
+            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Data: 2(1x), 14(1x), 26(1x), 30(1x), 72(1x), 143(1x), 144(1x), 150(2x), 240(1x), 1657(1x) ❌")
+          }
+          
+          # Check percentages
+          percent_vars <- c("percent_2", "percent_14", "percent_26", "percent_30", "percent_72", "percent_143", "percent_144", "percent_150", "percent_240", "percent_1657")
+          percent_correct <- all(sapply(percent_vars[percent_vars %in% names(results)], function(x) results[[x]]$correct))
+          
+          if (percent_correct) {
+            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** (frequentie/11) * 100 ✅")
+          } else {
+            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** Gebruik formule (frequentie/11) * 100 ❌")
+          }
+          
+          # Check central tendency measures
+          if ("gemiddelde" %in% names(results) && results$gemiddelde$correct && "mediaan" %in% names(results) && results$mediaan$correct && "modus" %in% names(results) && results$modus$correct) {
+            feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** Gemiddelde=238.91, Mediaan=143, Modus=150 ✅")
+          } else {
+            feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** ❌")
+            if ("gemiddelde" %in% names(results) && !results$gemiddelde$correct && results$gemiddelde$exists) {
+              student_answer <- as.numeric(results$gemiddelde$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar correct is **238.91**"))
+            }
+            if ("mediaan" %in% names(results) && !results$mediaan$correct && results$mediaan$exists) {
+              student_answer <- as.numeric(results$mediaan$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Mediaan: Je gaf ", student_answer, ", maar correct is **143** (6de waarde van 11)"))
+            }
+            if ("modus" %in% names(results) && !results$modus$correct && results$modus$exists) {
+              student_answer <- as.character(results$modus$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Modus: Je gaf ", student_answer, ", maar correct is **150** (komt 2x voor)"))
+            }
+          }
+          
+          # ----------------------
+          # STAP 2 FEEDBACK
+          # ----------------------
+          
+          # Check spread measures
+          if ("variatiebreedte" %in% names(results) && results$variatiebreedte$correct && "q1" %in% names(results) && results$q1$correct && "q3" %in% names(results) && results$q3$correct && "ika" %in% names(results) && results$ika$correct) {
+            feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** Range=1655, Q1=26, Q3=150, IKA=124 ✅")
+          } else {
+            feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** ❌")
+            if ("variatiebreedte" %in% names(results) && !results$variatiebreedte$correct && results$variatiebreedte$exists) {
+              student_answer <- as.numeric(results$variatiebreedte$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Range: Je gaf ", student_answer, ", maar correct is 1657-2 = **1655**"))
+            }
+            if ("q1" %in% names(results) && !results$q1$correct && results$q1$exists) {
+              student_answer <- as.numeric(results$q1$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Q1: Je gaf ", student_answer, ", maar correct is **26**"))
+            }
+            if ("q3" %in% names(results) && !results$q3$correct && results$q3$exists) {
+              student_answer <- as.numeric(results$q3$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Q3: Je gaf ", student_answer, ", maar correct is **150**"))
+            }
+            if ("ika" %in% names(results) && !results$ika$correct && results$ika$exists) {
+              student_answer <- as.numeric(results$ika$value)
+              feedback_parts <- c(feedback_parts, paste0("  • IKA: Je gaf ", student_answer, ", maar correct is 150-26 = **124**"))
+            }
+          }
+          
+          # ----------------------
+          # STAP 3 FEEDBACK
+          # ----------------------
+          
+          # Check afwijkingen
+          afwijking_vars <- c("afwijking_2", "afwijking_14", "afwijking_26", "afwijking_30", "afwijking_72", "afwijking_143", "afwijking_144", "afwijking_150_1", "afwijking_150_2", "afwijking_240", "afwijking_1657")
+          afwijkingen_correct <- all(sapply(afwijking_vars[afwijking_vars %in% names(results)], function(x) results[[x]]$correct))
+          
+          if (afwijkingen_correct) {
+            feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** X - 238.91 voor elke waarde ✅")
+          } else {
+            feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** Bereken X - 238.91 voor elke datawaarde ❌")
+          }
+          
+          # Check gekwadrateerde afwijkingen
+          gekw_vars <- c("gekw_afwijking_2", "gekw_afwijking_14", "gekw_afwijking_26", "gekw_afwijking_30", "gekw_afwijking_72", "gekw_afwijking_143", "gekw_afwijking_144", "gekw_afwijking_150_1", "gekw_afwijking_150_2", "gekw_afwijking_240", "gekw_afwijking_1657")
+          gekw_correct <- all(sapply(gekw_vars[gekw_vars %in% names(results)], function(x) results[[x]]$correct))
+          
+          if (gekw_correct) {
+            feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
+          } else {
+            feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking ❌")
+          }
+          
+          # Check variance calculations
+          if ("sum_of_squares" %in% names(results) && results$sum_of_squares$correct && "variantie" %in% names(results) && results$variantie$correct && "standaardafwijking" %in% names(results) && results$standaardafwijking$correct) {
+            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** Som=2,268,540.92, Variantie=226,854.09, SD=476.29 ✅")
+          } else {
+            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** ❌")
+            if ("sum_of_squares" %in% names(results) && !results$sum_of_squares$correct && results$sum_of_squares$exists) {
+              student_answer <- as.numeric(results$sum_of_squares$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", format(student_answer, big.mark=","), ", maar correct is **2,268,540.92**"))
+            }
+            if ("variantie" %in% names(results) && !results$variantie$correct && results$variantie$exists) {
+              student_answer <- as.numeric(results$variantie$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Variantie: Je gaf ", format(student_answer, big.mark=","), ", maar correct is som/(n-1) = **226,854.09**"))
+            }
+            if ("standaardafwijking" %in% names(results) && !results$standaardafwijking$correct && results$standaardafwijking$exists) {
+              student_answer <- as.numeric(results$standaardafwijking$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar correct is √variantie = **476.29**"))
+            }
+          }
+          
           # ----------------------------------------
           # COMPREHENSIVE ERROR ANALYSIS (COMMON MISTAKES)
           # ----------------------------------------
