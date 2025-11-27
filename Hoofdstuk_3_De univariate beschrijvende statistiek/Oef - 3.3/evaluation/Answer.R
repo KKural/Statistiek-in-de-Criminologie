@@ -992,49 +992,82 @@ context({
           }
 
           # Fallback summary for any remaining incorrect answers
-          incorrect_vars <- names(results)[sapply(results, function(rec) {
-            isTRUE(rec$exists) && !isTRUE(rec$correct)
-          })]
-
+          incorrect_vars <- names(results)[sapply(results, function(x) !x$correct)]
+          
           if (length(incorrect_vars) > 0) {
-            feedback_parts <- c(
-              feedback_parts,
-              "",
-              "• Overzicht fouten (jouw antwoord → juiste antwoord):"
-            )
+            
+            # helper: maak leesbare labels zonder code-namen
+            make_label <- function(var_name) {
+              # gekwadrateerde afwijkingen → X-waarde eruit halen
+              if (grepl("^gekw_afwijking_", var_name)) {
+                rest <- sub("^gekw_afwijking_", "", var_name)   # bv. "32_1"
+                xval <- sub("_.*$", "", rest)                   # "32"
+                return(paste0("Voor de gekwadrateerde afwijking bij X = ", xval))
+              }
+              
+              # afwijkingen
+              if (grepl("^afwijking_", var_name)) {
+                rest <- sub("^afwijking_", "", var_name)
+                xval <- sub("_.*$", "", rest)
+                return(paste0("Voor de afwijking bij X = ", xval))
+              }
+              
+              # frequenties
+              if (grepl("^freq_", var_name)) {
+                xval <- sub("^freq_", "", var_name)
+                return(paste0("Voor de frequentie van waarde ", xval))
+              }
+              
+              # percentages
+              if (grepl("^percent_", var_name)) {
+                xval <- sub("^percent_", "", var_name)
+                return(paste0("Voor het percentage van waarde ", xval))
+              }
+              
+              # standaard-maten
+              if (var_name == "gemiddelde")          return("Voor het gemiddelde")
+              if (var_name == "mediaan")             return("Voor de mediaan")
+              if (var_name == "modus")               return("Voor de modus")
+              if (var_name == "variatiebreedte")     return("Voor de variatiebreedte (range)")
+              if (var_name == "q1")                  return("Voor Q1")
+              if (var_name == "q3")                  return("Voor Q3")
+              if (var_name == "ika")                 return("Voor de interkwartielafstand")
+              if (var_name == "sum_of_squares")      return("Voor de som van de gekwadrateerde afwijkingen")
+              if (var_name == "variantie")           return("Voor de variantie")
+              if (var_name == "standaardafwijking")  return("Voor de standaardafwijking")
+              if (var_name == "variatiecoefficient") return("Voor de variatiecoëfficiënt")
+              
+              # default: mocht er iets nieuw bijkomen
+              return("Voor dit antwoord")
+            }
+            
+            feedback_parts <- c(feedback_parts, "- Overzicht fouten (jouw antwoord → juiste antwoord):")
             
             for (var_name in incorrect_vars) {
               res <- results[[var_name]]
               expected_str <- toString(res$expected)
-              student_str  <- toString(res$value)
-              if (student_str == "NA") student_str <- "ontbreekt"
               
-              # 1) Afwijkingen (X - gemiddelde)
-              if (grepl("^afwijking_", var_name)) {
+              # wat als de variabele niet bestaat?
+              if (!res$exists) {
                 feedback_parts <- c(
                   feedback_parts,
-                  paste0("  - Je gaf ", student_str,
-                         " voor een afwijking (X - gemiddelde), maar het juiste antwoord is ",
-                         expected_str, ".")
+                  paste0("  - ", make_label(var_name),
+                         ": deze waarde werd niet gevonden. Verwacht antwoord: ", expected_str)
                 )
-                
-              # 2) Gekwadrateerde afwijkingen ( (X - gemiddelde)² )
-              } else if (grepl("^gekw_afwijking_", var_name)) {
-                feedback_parts <- c(
-                  feedback_parts,
-                  paste0("  - Je gaf ", student_str,
-                         " voor een gekwadrateerde afwijking, maar het juiste antwoord is ",
-                         expected_str, ".")
-                )
-                
-              # 3) Alle andere (modus, mediaan, q1, …) mogen de naam behouden
-              } else {
-                feedback_parts <- c(
-                  feedback_parts,
-                  paste0("  - ", var_name, ": je gaf ", student_str,
-                         ", maar het juiste antwoord is ", expected_str, ".")
-                )
+                next
               }
+              
+              student_str <- toString(res$value)
+              if (student_str == "NA") student_str <- "Ontbreekt"
+              
+              feedback_parts <- c(
+                feedback_parts,
+                paste0(
+                  "  - ", make_label(var_name),
+                  ": je gaf ", student_str,
+                  ", maar het juiste antwoord is ", expected_str, "."
+                )
+              )
             }
           }
 
