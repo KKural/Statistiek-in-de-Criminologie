@@ -24,17 +24,17 @@ gemiddelde_incidenten <- ???
 # Bereken de afwijking van elke waarde ten opzichte van het gemiddelde
 # Formule: X - gemiddelde
 # Elke waarde minus het gemiddelde (kan positief of negatief zijn)
-afwijkingen <- ???                  # incidenten - gemiddelde_incidenten
+afwijkingen <- ???
 
 # Kwadrateer elke afwijking (om negatieve waarden positief te maken)
 # Formule: (afwijking)²
 # Alle resultaten worden positief na kwadrateren
-gekwadrateerde_afwijkingen <- ???   # afwijkingen^2
+gekwadrateerde_afwijkingen <- ???
 
 # Som alle gekwadrateerde afwijkingen op
 # Dit geeft de 'Sum of Squares' (SS)
 # Tel alle gekwadrateerde afwijkingen bij elkaar op
-sum_of_squares <- ???               # som van gekwadrateerde_afwijkingen
+sum_of_squares <- ???
 
 # =====================================
 # STAP 3: VARIANTIE EN STANDAARDDEVIATIE  
@@ -44,12 +44,11 @@ sum_of_squares <- ???               # som van gekwadrateerde_afwijkingen
 # Formule: s² = SS / (n-1)
 # Let op: gebruik n-1 voor steekproefvariantie, niet n
 # Deel de Sum of Squares door (aantal waarden - 1)
-variantie_incidenten <- ???         # sum_of_squares / (length(incidenten) - 1)
+variantie_incidenten <- ???
 
 # Bereken de standaarddeviatie 
 # Formule: s = √(variantie)
 # Neem de wortel van de variantie (afgerond op 2 decimalen)
-# Tip: gebruik round(sqrt(variantie_incidenten), 2)
 standaarddeviatie_incidenten <- ??? 
 
 # =====================================
@@ -63,4 +62,4 @@ standaarddeviatie_incidenten <- ???
 # - Het gevoelig is voor alle variaties in de dataset
 #
 # Kies de meest geschikte spreidingsmaat voor interval data
-gekozen_spreidingsmaat <- ???       # standaarddeviatie_incidenten
+gekozen_spreidingsmaat <- ???

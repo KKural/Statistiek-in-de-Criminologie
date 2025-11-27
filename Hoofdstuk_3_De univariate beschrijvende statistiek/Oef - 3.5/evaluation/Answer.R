@@ -37,11 +37,23 @@ context({
           # -----------------------------
           
           if (exists("afwijkingen", envir = env)) {
-            current_val <- as.numeric(get("afwijkingen", envir = env))
+            current_val <- get("afwijkingen", envir = env)
+            # Handle both vector input and single values
+            if (is.numeric(current_val)) {
+              current_val <- as.numeric(current_val)
+            } else {
+              # Try to evaluate if it's an expression
+              tryCatch({
+                current_val <- as.numeric(eval(current_val, envir = env))
+              }, error = function(e) {
+                current_val <- NA
+              })
+            }
+            
             results$afwijkingen <- list(
               exists = TRUE,
               value = current_val,
-              correct = length(current_val) == length(expected_deviations) && all(abs(current_val - expected_deviations) < 0.01),
+              correct = !any(is.na(current_val)) && length(current_val) == length(expected_deviations) && all(abs(current_val - expected_deviations) < 0.01),
               expected = expected_deviations
             )
           } else {
@@ -76,11 +88,23 @@ context({
           # -----------------------------
           
           if (exists("gekwadrateerde_afwijkingen", envir = env)) {
-            current_val <- as.numeric(get("gekwadrateerde_afwijkingen", envir = env))
+            current_val <- get("gekwadrateerde_afwijkingen", envir = env)
+            # Handle both vector input and single values
+            if (is.numeric(current_val)) {
+              current_val <- as.numeric(current_val)
+            } else {
+              # Try to evaluate if it's an expression
+              tryCatch({
+                current_val <- as.numeric(eval(current_val, envir = env))
+              }, error = function(e) {
+                current_val <- NA
+              })
+            }
+            
             results$gekwadrateerde_afwijkingen <- list(
               exists = TRUE,
               value = current_val,
-              correct = length(current_val) == length(expected_squared) && all(abs(current_val - expected_squared) < 0.01),
+              correct = !any(is.na(current_val)) && length(current_val) == length(expected_squared) && all(abs(current_val - expected_squared) < 0.01),
               expected = expected_squared
             )
           } else {
@@ -114,11 +138,23 @@ context({
           # -----------------------------
           
           if (exists("sum_of_squares", envir = env)) {
-            current_val <- as.numeric(get("sum_of_squares", envir = env))
+            current_val <- get("sum_of_squares", envir = env)
+            # Handle both numeric input and expressions
+            if (is.numeric(current_val)) {
+              current_val <- as.numeric(current_val)
+            } else {
+              # Try to evaluate if it's an expression
+              tryCatch({
+                current_val <- as.numeric(eval(current_val, envir = env))
+              }, error = function(e) {
+                current_val <- NA
+              })
+            }
+            
             results$sum_of_squares <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - expected_ss) < 0.01,
+              correct = !is.na(current_val) && abs(current_val - expected_ss) < 0.01,
               expected = expected_ss
             )
           } else {
@@ -130,11 +166,23 @@ context({
           # -----------------------------
           
           if (exists("variantie_incidenten", envir = env)) {
-            current_val <- as.numeric(get("variantie_incidenten", envir = env))
+            current_val <- get("variantie_incidenten", envir = env)
+            # Handle both numeric input and expressions
+            if (is.numeric(current_val)) {
+              current_val <- as.numeric(current_val)
+            } else {
+              # Try to evaluate if it's an expression
+              tryCatch({
+                current_val <- as.numeric(eval(current_val, envir = env))
+              }, error = function(e) {
+                current_val <- NA
+              })
+            }
+            
             results$variantie_incidenten <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - expected_variance) < 0.01,
+              correct = !is.na(current_val) && abs(current_val - expected_variance) < 0.01,
               expected = expected_variance
             )
           } else {
@@ -146,11 +194,23 @@ context({
           # -----------------------------
           
           if (exists("standaarddeviatie_incidenten", envir = env)) {
-            current_val <- as.numeric(get("standaarddeviatie_incidenten", envir = env))
+            current_val <- get("standaarddeviatie_incidenten", envir = env)
+            # Handle both numeric input and expressions
+            if (is.numeric(current_val)) {
+              current_val <- as.numeric(current_val)
+            } else {
+              # Try to evaluate if it's an expression
+              tryCatch({
+                current_val <- as.numeric(eval(current_val, envir = env))
+              }, error = function(e) {
+                current_val <- NA
+              })
+            }
+            
             results$standaarddeviatie_incidenten <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - expected_sd) < 0.01 || abs(current_val - 2.83) < 0.01,
+              correct = !is.na(current_val) && (abs(current_val - expected_sd) < 0.01 || abs(current_val - 2.83) < 0.01),
               expected = expected_sd
             )
           } else {
@@ -162,15 +222,27 @@ context({
           # -----------------------------
           
           if (exists("gekozen_spreidingsmaat", envir = env)) {
-            current_val <- as.numeric(get("gekozen_spreidingsmaat", envir = env))
+            current_val <- get("gekozen_spreidingsmaat", envir = env)
+            # Handle both string input and potential expressions
+            if (is.character(current_val) || is.factor(current_val)) {
+              current_val <- as.character(current_val)
+            } else {
+              # Try to evaluate if it's an expression
+              tryCatch({
+                current_val <- as.character(eval(current_val, envir = env))
+              }, error = function(e) {
+                current_val <- as.character(current_val)
+              })
+            }
+            
             results$gekozen_spreidingsmaat <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - expected_sd) < 0.01 || abs(current_val - 2.83) < 0.01,
-              expected = expected_sd
+              correct = tolower(current_val) %in% c("standaarddeviatie", "standard_deviation", "sd", "standaardafwijking"),
+              expected = "standaarddeviatie"
             )
           } else {
-            results$gekozen_spreidingsmaat <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_sd)
+            results$gekozen_spreidingsmaat <- list(exists = FALSE, value = NA, correct = FALSE, expected = "standaarddeviatie")
           }
           
           # Store results for comparator
@@ -476,17 +548,13 @@ context({
             # ======================
             
             if (!results$gekozen_spreidingsmaat$correct && results$gekozen_spreidingsmaat$exists) {
-              student_choice <- as.numeric(results$gekozen_spreidingsmaat$value)
-              if (!is.na(student_choice)) {
-                if (abs(student_choice - 8) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **SPREIDINGSMAAT KEUZE FOUT:** Je koos variantie (8). Voor interpretatie is standaarddeviatie beter (2.83)")
-                } else if (abs(student_choice - 2.74) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **SPREIDINGSMAAT OUDE WAARDE:** Je gebruikte oude standaarddeviatie (2.74). Correct = 2.83")
-                } else if (abs(student_choice - 2.8) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **SPREIDINGSMAAT AFRONDING:** Bijna juist! Precieze waarde = 2.83")
-                } else {
-                  feedback_lines <- c(feedback_lines, "• **SPREIDINGSMAAT FOUT:** Voor interval data is standaarddeviatie (2.83) de meest informatieve maat")
-                }
+              student_choice <- tolower(as.character(results$gekozen_spreidingsmaat$value))
+              if (student_choice %in% c("variantie", "variance")) {
+                feedback_lines <- c(feedback_lines, "• **SPREIDINGSMAAT KEUZE FOUT:** Je koos variantie. Voor interpretatie is standaarddeviatie beter")
+              } else if (student_choice %in% c("bereik", "range")) {
+                feedback_lines <- c(feedback_lines, "• **SPREIDINGSMAAT KEUZE FOUT:** Bereik is gevoelig voor uitschieters. Standaarddeviatie is betrouwbaarder")
+              } else {
+                feedback_lines <- c(feedback_lines, "• **SPREIDINGSMAAT FOUT:** Voor interval data is 'standaarddeviatie' de meest informatieve maat")
               }
             }
             
