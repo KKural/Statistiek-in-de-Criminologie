@@ -472,7 +472,28 @@ context({
           if (freq_correct) {
             feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Correct geteld! ✅")
           } else {
-            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Data: 2(1x), 14(1x), 26(1x), 30(1x), 72(1x), 143(1x), 144(1x), 150(2x), 240(1x), 1657(1x) ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** ❌")
+            # Individual frequency errors
+            if (!results$freq_2$correct && results$freq_2$exists) {
+              student_f2 <- as.numeric(results$freq_2$value)
+              feedback_parts <- c(feedback_parts, paste0("  • freq_2: Je gaf ", student_f2, ", maar correct is **1**"))
+            }
+            if (!results$freq_150$correct && results$freq_150$exists) {
+              student_f150 <- as.numeric(results$freq_150$value)
+              if (student_f150 == 1) {
+                feedback_parts <- c(feedback_parts, paste0("  • freq_150: Je gaf ", student_f150, ", maar 150 komt 2x voor! Correct: **2**"))
+              } else {
+                feedback_parts <- c(feedback_parts, paste0("  • freq_150: Je gaf ", student_f150, ", maar correct is **2**"))
+              }
+            }
+            if (!results$freq_1657$correct && results$freq_1657$exists) {
+              student_f1657 <- as.numeric(results$freq_1657$value)
+              if (student_f1657 == 0) {
+                feedback_parts <- c(feedback_parts, paste0("  • freq_1657: Je gaf ", student_f1657, ", maar Jennifer Aniston (1657) staat wel in data! Correct: **1**"))
+              } else {
+                feedback_parts <- c(feedback_parts, paste0("  • freq_1657: Je gaf ", student_f1657, ", maar correct is **1**"))
+              }
+            }
           }
           
           # Check percentages
@@ -482,7 +503,26 @@ context({
           if (percent_correct) {
             feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** (frequentie/11) * 100 ✅")
           } else {
-            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** Gebruik formule (frequentie/11) * 100 ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** ❌")
+            # Individual percentage errors
+            if (!results$percent_150$correct && results$percent_150$exists) {
+              student_p150 <- as.numeric(results$percent_150$value)
+              if (abs(student_p150 - 9.1) < 0.1) {
+                feedback_parts <- c(feedback_parts, paste0("  • percent_150: Je gaf ", student_p150, "%, maar je gebruikte freq=1 ipv freq=2. Correct: **18.2%**"))
+              } else if (abs(student_p150 - 0.18) < 0.01) {
+                feedback_parts <- c(feedback_parts, paste0("  • percent_150: Je gaf ", student_p150, ", maar vergat ×100. Correct: **18.2%**"))
+              } else {
+                feedback_parts <- c(feedback_parts, paste0("  • percent_150: Je gaf ", student_p150, "%, maar correct is **18.2%**"))
+              }
+            }
+            if (!results$percent_1657$correct && results$percent_1657$exists) {
+              student_p1657 <- as.numeric(results$percent_1657$value)
+              if (abs(student_p1657 - 0) < 0.1) {
+                feedback_parts <- c(feedback_parts, paste0("  • percent_1657: Je gaf ", student_p1657, "%, maar 1657 komt wel voor. Correct: **9.1%**"))
+              } else {
+                feedback_parts <- c(feedback_parts, paste0("  • percent_1657: Je gaf ", student_p1657, "%, maar correct is **9.1%**"))
+              }
+            }
           }
           
           # Check central tendency measures with detailed feedback
