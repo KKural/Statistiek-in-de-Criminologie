@@ -12,76 +12,94 @@ context({
           # FREQUENTIETABEL: BEREKENINGEN
           # -----------------------------
           
-          # Cumulatieve absolute frequenties
-          if (exists("cumulatieve_absolute_frequenties", envir = env)) {
-            current_val <- get("cumulatieve_absolute_frequenties", envir = env)
-            expected_vec <- c(33, 117, 219, 282, 330)
-            
-            ok <- is.numeric(current_val) &&
-              length(current_val) == length(expected_vec) &&
-              all(current_val == expected_vec)
-            
-            results$cumulatieve_absolute_frequenties <- list(
-              exists  = TRUE,
-              value   = current_val,
-              correct = ok,
-              expected = expected_vec
-            )
-          } else {
-            results$cumulatieve_absolute_frequenties <- list(
-              exists   = FALSE,
-              value    = NA,
-              correct  = FALSE,
-              expected = c(33, 117, 219, 282, 330)
-            )
+          # Individual cumulatieve absolute frequenties
+          cum_abs_vars <- list(
+            "cumulatieve_absolute_frequenties_zeer_ontevreden" = 33,
+            "cumulatieve_absolute_frequenties_ontevreden" = 117,
+            "cumulatieve_absolute_frequenties_noch_tevreden_noch_ontevreden" = 219,
+            "cumulatieve_absolute_frequenties_tevreden" = 282,
+            "cumulatieve_absolute_frequenties_zeer_tevreden" = 330
+          )
+          
+          for (var_name in names(cum_abs_vars)) {
+            if (exists(var_name, envir = env)) {
+              current_val <- as.numeric(get(var_name, envir = env))
+              expected_val <- cum_abs_vars[[var_name]]
+              
+              results[[var_name]] <- list(
+                exists  = TRUE,
+                value   = current_val,
+                correct = abs(current_val - expected_val) < 0.5,
+                expected = expected_val
+              )
+            } else {
+              results[[var_name]] <- list(
+                exists   = FALSE,
+                value    = NA,
+                correct  = FALSE,
+                expected = cum_abs_vars[[var_name]]
+              )
+            }
           }
           
-          # Relatieve frequenties (proporties, met decimale punt in R)
-          if (exists("relatieve_frequenties", envir = env)) {
-            current_val <- as.numeric(get("relatieve_frequenties", envir = env))
-            expected_vec <- c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)
-            
-            ok <- is.numeric(current_val) &&
-              length(current_val) == length(expected_vec) &&
-              all(abs(current_val - expected_vec) < 0.0005)
-            
-            results$relatieve_frequenties <- list(
-              exists  = TRUE,
-              value   = current_val,
-              correct = ok,
-              expected = expected_vec
-            )
-          } else {
-            results$relatieve_frequenties <- list(
-              exists   = FALSE,
-              value    = NA,
-              correct  = FALSE,
-              expected = c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)
-            )
+          # Individual relatieve frequenties
+          rel_freq_vars <- list(
+            "relatieve_frequenties_zeer_ontevreden" = 0.1000,
+            "relatieve_frequenties_ontevreden" = 0.2545,
+            "relatieve_frequenties_noch_tevreden_noch_ontevreden" = 0.3100,
+            "relatieve_frequenties_tevreden" = 0.1909,
+            "relatieve_frequenties_zeer_tevreden" = 0.1455
+          )
+          
+          for (var_name in names(rel_freq_vars)) {
+            if (exists(var_name, envir = env)) {
+              current_val <- as.numeric(get(var_name, envir = env))
+              expected_val <- rel_freq_vars[[var_name]]
+              
+              results[[var_name]] <- list(
+                exists  = TRUE,
+                value   = current_val,
+                correct = abs(current_val - expected_val) < 0.0005,
+                expected = expected_val
+              )
+            } else {
+              results[[var_name]] <- list(
+                exists   = FALSE,
+                value    = NA,
+                correct  = FALSE,
+                expected = rel_freq_vars[[var_name]]
+              )
+            }
           }
           
-          # Cumulatieve relatieve frequenties (ook met decimale punt in R)
-          if (exists("cumulatieve_relatieve_frequenties", envir = env)) {
-            current_val <- as.numeric(get("cumulatieve_relatieve_frequenties", envir = env))
-            expected_vec <- c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)
-            
-            ok <- is.numeric(current_val) &&
-              length(current_val) == length(expected_vec) &&
-              all(abs(current_val - expected_vec) < 0.0005)
-            
-            results$cumulatieve_relatieve_frequenties <- list(
-              exists  = TRUE,
-              value   = current_val,
-              correct = ok,
-              expected = expected_vec
-            )
-          } else {
-            results$cumulatieve_relatieve_frequenties <- list(
-              exists   = FALSE,
-              value    = NA,
-              correct  = FALSE,
-              expected = c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)
-            )
+          # Individual cumulatieve relatieve frequenties
+          cum_rel_vars <- list(
+            "cumulatieve_relatieve_frequenties_zeer_ontevreden" = 0.1000,
+            "cumulatieve_relatieve_frequenties_ontevreden" = 0.3545,
+            "cumulatieve_relatieve_frequenties_noch_tevreden_noch_ontevreden" = 0.6636,
+            "cumulatieve_relatieve_frequenties_tevreden" = 0.8545,
+            "cumulatieve_relatieve_frequenties_zeer_tevreden" = 1.0000
+          )
+          
+          for (var_name in names(cum_rel_vars)) {
+            if (exists(var_name, envir = env)) {
+              current_val <- as.numeric(get(var_name, envir = env))
+              expected_val <- cum_rel_vars[[var_name]]
+              
+              results[[var_name]] <- list(
+                exists  = TRUE,
+                value   = current_val,
+                correct = abs(current_val - expected_val) < 0.0005,
+                expected = expected_val
+              )
+            } else {
+              results[[var_name]] <- list(
+                exists   = FALSE,
+                value    = NA,
+                correct  = FALSE,
+                expected = cum_rel_vars[[var_name]]
+              )
+            }
           }
           
           # ---------------
@@ -545,80 +563,90 @@ context({
               }
             }
             
-            # (rest of frequency error logic unchanged)
-            # CUMULATIEVE ABSOLUTE FREQUENTIES fout - specifieke analyse
-            if (!results$cumulatieve_absolute_frequenties$correct) {
-              if (!results$cumulatieve_absolute_frequenties$exists) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **CUMULATIEF ABS ONTBREEKT:** Variabele 'cumulatieve_absolute_frequenties' niet gevonden! → c(33, 117, 219, 282, 330)."
-                )
-              } else {
-                student_cum <- results$cumulatieve_absolute_frequenties$value
-                if (is.numeric(student_cum) && length(student_cum) == 5 && all(student_cum == c(33, 84, 102, 63, 48))) {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **CUMULATIEF ABS FOUT:** Je gaf c(33, 84, 102, 63, 48), maar dit zijn de absolute frequenties. Cumulatief moet zijn c(33, 117, 219, 282, 330)."
-                  )
-                } else if (is.numeric(student_cum) && length(student_cum) == 5) {
-                  student_values <- paste(student_cum, collapse = ", ")
-                  feedback_lines <- c(
-                    feedback_lines,
-                    paste0("• **CUMULATIEF ABS FOUT:** Je gaf c(", student_values, "), maar cumulatief moet zijn c(33, 117, 219, 282, 330).")
-                  )
+            # Individual variable feedback with specific error messages
+            
+            # CUMULATIEVE ABSOLUTE FREQUENTIES - Individual feedback
+            cum_abs_labels <- list(
+              "cumulatieve_absolute_frequenties_zeer_ontevreden" = "Zeer ontevreden (33)",
+              "cumulatieve_absolute_frequenties_ontevreden" = "Ontevreden (33+84=117)", 
+              "cumulatieve_absolute_frequenties_noch_tevreden_noch_ontevreden" = "Noch tevreden, noch ontevreden (33+84+102=219)",
+              "cumulatieve_absolute_frequenties_tevreden" = "Tevreden (33+84+102+63=282)",
+              "cumulatieve_absolute_frequenties_zeer_tevreden" = "Zeer tevreden (33+84+102+63+48=330)"
+            )
+            
+            for (var_name in names(cum_abs_labels)) {
+              if (exists(var_name, results) && !results[[var_name]]$correct) {
+                if (!results[[var_name]]$exists) {
+                  feedback_lines <- c(feedback_lines, 
+                    paste0("• **", cum_abs_labels[[var_name]], ":** Variabele ontbreekt ❌"))
                 } else {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **CUMULATIEF ABS FOUT:** Geen geldige numerieke vector van 5 elementen. Het juiste antwoord is c(33, 117, 219, 282, 330)."
-                  )
+                  student_val <- results[[var_name]]$value
+                  expected_val <- results[[var_name]]$expected
+                  
+                  # Specific wrong answer patterns
+                  if (var_name == "cumulatieve_absolute_frequenties_zeer_ontevreden" && student_val == 0) {
+                    feedback_lines <- c(feedback_lines,
+                      paste0("• **", cum_abs_labels[[var_name]], ":** Je gaf 0, maar cumulatief begint met de eerste categorie. Het juiste antwoord is **33** ❌"))
+                  } else if (var_name == "cumulatieve_absolute_frequenties_ontevreden" && student_val == 84) {
+                    feedback_lines <- c(feedback_lines,
+                      paste0("• **", cum_abs_labels[[var_name]], ":** Je gaf 84, maar dit is de absolute frequentie. Cumulatief = 33+84 = **117** ❌"))
+                  } else {
+                    feedback_lines <- c(feedback_lines,
+                      paste0("• **", cum_abs_labels[[var_name]], ":** Je gaf ", student_val, ", maar het juiste antwoord is **", expected_val, "** ❌"))
+                  }
                 }
               }
             }
             
-            # RELATIEVE FREQUENTIES fout
-            if (!results$relatieve_frequenties$correct) {
-              if (!results$relatieve_frequenties$exists) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **RELATIEF FREQ ONTBREEKT:** Variabele 'relatieve_frequenties' niet gevonden. Het juiste antwoord is c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)."
-                )
-              } else {
-                student_rel <- results$relatieve_frequenties$value
-                if (is.numeric(student_rel) && length(student_rel) == 5) {
-                  student_values <- paste(round(student_rel, 4), collapse = ", ")
-                  feedback_lines <- c(
-                    feedback_lines,
-                    paste0("• **RELATIEF FREQ FOUT:** Je gaf c(", student_values, "), maar je moet elke absolute frequentie delen door 330. Het juiste antwoord is c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455).")
-                  )
+            # RELATIEVE FREQUENTIES - Individual feedback  
+            rel_freq_labels <- list(
+              "relatieve_frequenties_zeer_ontevreden" = "Zeer ontevreden (33/330=0.1000)",
+              "relatieve_frequenties_ontevreden" = "Ontevreden (84/330=0.2545)",
+              "relatieve_frequenties_noch_tevreden_noch_ontevreden" = "Noch tevreden, noch ontevreden (102/330=0.3100)",
+              "relatieve_frequenties_tevreden" = "Tevreden (63/330=0.1909)",
+              "relatieve_frequenties_zeer_tevreden" = "Zeer tevreden (48/330=0.1455)"
+            )
+            
+            for (var_name in names(rel_freq_labels)) {
+              if (exists(var_name, results) && !results[[var_name]]$correct) {
+                if (!results[[var_name]]$exists) {
+                  feedback_lines <- c(feedback_lines,
+                    paste0("• **", rel_freq_labels[[var_name]], ":** Variabele ontbreekt ❌"))
                 } else {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **RELATIEF FREQ FOUT:** Geen geldige numerieke vector van 5 elementen. Het juiste antwoord is c(0.1000, 0.2545, 0.3100, 0.1909, 0.1455)."
-                  )
+                  student_val <- results[[var_name]]$value
+                  expected_val <- results[[var_name]]$expected
+                  
+                  # Check for percentage instead of proportion
+                  if (abs(student_val - expected_val * 100) < 0.1) {
+                    feedback_lines <- c(feedback_lines,
+                      paste0("• **", rel_freq_labels[[var_name]], ":** Je gaf ", student_val, ", maar dit is het percentage. Proportie = **", expected_val, "** ❌"))
+                  } else {
+                    feedback_lines <- c(feedback_lines,
+                      paste0("• **", rel_freq_labels[[var_name]], ":** Je gaf ", round(student_val, 4), ", maar het juiste antwoord is **", expected_val, "** ❌"))
+                  }
                 }
               }
             }
             
-            # CUMULATIEVE RELATIEVE FREQUENTIES fout
-            if (!results$cumulatieve_relatieve_frequenties$correct) {
-              if (!results$cumulatieve_relatieve_frequenties$exists) {
-                feedback_lines <- c(
-                  feedback_lines,
-                  "• **CUMULATIEF REL ONTBREEKT:** Variabele 'cumulatieve_relatieve_frequenties' niet gevonden. Het juiste antwoord is c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)."
-                )
-              } else {
-                student_cum_rel <- results$cumulatieve_relatieve_frequenties$value
-                if (is.numeric(student_cum_rel) && length(student_cum_rel) == 5) {
-                  student_values <- paste(round(student_cum_rel, 4), collapse = ", ")
-                  feedback_lines <- c(
-                    feedback_lines,
-                    paste0("• **CUMULATIEF REL FOUT:** Je gaf c(", student_values, "), maar cumulatieve proporties moeten c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000) zijn.")
-                  )
+            # CUMULATIEVE RELATIEVE FREQUENTIES - Individual feedback
+            cum_rel_labels <- list(
+              "cumulatieve_relatieve_frequenties_zeer_ontevreden" = "Zeer ontevreden (0.1000)",
+              "cumulatieve_relatieve_frequenties_ontevreden" = "Ontevreden (0.1000+0.2545=0.3545)",
+              "cumulatieve_relatieve_frequenties_noch_tevreden_noch_ontevreden" = "Noch tevreden, noch ontevreden (0.3545+0.3100=0.6636)",
+              "cumulatieve_relatieve_frequenties_tevreden" = "Tevreden (0.6636+0.1909=0.8545)", 
+              "cumulatieve_relatieve_frequenties_zeer_tevreden" = "Zeer tevreden (0.8545+0.1455=1.0000)"
+            )
+            
+            for (var_name in names(cum_rel_labels)) {
+              if (exists(var_name, results) && !results[[var_name]]$correct) {
+                if (!results[[var_name]]$exists) {
+                  feedback_lines <- c(feedback_lines,
+                    paste0("• **", cum_rel_labels[[var_name]], ":** Variabele ontbreekt ❌"))
                 } else {
-                  feedback_lines <- c(
-                    feedback_lines,
-                    "• **CUMULATIEF REL FOUT:** Geen geldige numerieke vector van 5 elementen. Het juiste antwoord is c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)."
-                  )
+                  student_val <- results[[var_name]]$value
+                  expected_val <- results[[var_name]]$expected
+                  feedback_lines <- c(feedback_lines,
+                    paste0("• **", cum_rel_labels[[var_name]], ":** Je gaf ", round(student_val, 4), ", maar het juiste antwoord is **", expected_val, "** ❌"))
                 }
               }
             }
