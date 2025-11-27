@@ -8,13 +8,14 @@ context({
           # Use the provided environment (env) instead of globalenv()
           results <- list()
           
-          # Expected values - correcting the sum of squares calculation
-          expected_mean <- 6
-          expected_deviations <- c(-4, 1, 4, -1, 0, 2, -3, -2, 3)
-          expected_squared <- c(16, 1, 16, 1, 0, 4, 9, 4, 9)
-          expected_ss <- 64  # Corrected: 16+1+16+1+0+4+9+4+9 = 64
-          expected_variance <- 8  # Corrected: 64/8 = 8
-          expected_sd <- sqrt(8)  # sqrt(8) = 2.828427... (allow both 2.83 and 2.828...)
+          # Expected values - Exercise 5: Police patrol incidents
+          # Data: 2, 7, 10, 5, 6, 8, 3, 4, 9
+          expected_mean <- 6  # (2+7+10+5+6+8+3+4+9)/9 = 54/9 = 6
+          expected_deviations <- c(-4, 1, 4, -1, 0, 2, -3, -2, 3)  # Each value - 6
+          expected_squared <- c(16, 1, 16, 1, 0, 4, 9, 4, 9)  # Square each deviation
+          expected_ss <- 60  # Sum of squares: 16+1+16+1+0+4+9+4+9 = 60
+          expected_variance <- 7.5  # Sample variance: 60/(9-1) = 60/8 = 7.5
+          expected_sd <- sqrt(7.5)  # sqrt(7.5) = 2.7386... ≈ 2.74
           
           # -----------------------------
           # STEP 1: MEAN CALCULATION
@@ -210,7 +211,7 @@ context({
             results$standaarddeviatie_incidenten <- list(
               exists = TRUE,
               value = current_val,
-              correct = !is.na(current_val) && (abs(current_val - expected_sd) < 0.01 || abs(current_val - 2.83) < 0.01),
+              correct = !is.na(current_val) && (abs(current_val - expected_sd) < 0.01 || abs(current_val - 2.74) < 0.01),
               expected = expected_sd
             )
           } else {
@@ -283,27 +284,27 @@ context({
           }
           
           if (results$sum_of_squares$correct) {
-            feedback_lines <- c(feedback_lines, "**2.3 SOM:** 16+1+16+1+0+4+9+4+9 = 64 ✅")
+            feedback_lines <- c(feedback_lines, "**2.3 SOM:** 16+1+16+1+0+4+9+4+9 = 60 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**2.3 SOM:** Som alle gekwadrateerde afwijkingen = 64 ❌")
+            feedback_lines <- c(feedback_lines, "**2.3 SOM:** Som alle gekwadrateerde afwijkingen = 60 ❌")
           }
           
           if (results$variantie_incidenten$correct) {
-            feedback_lines <- c(feedback_lines, "**3.1 VARIANTIE:** SS/(n-1) = 64/8 = 8 ✅")
+            feedback_lines <- c(feedback_lines, "**3.1 VARIANTIE:** SS/(n-1) = 60/8 = 7.5 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**3.1 VARIANTIE:** 64 / (9-1) = 64/8 = 8 ❌")
+            feedback_lines <- c(feedback_lines, "**3.1 VARIANTIE:** 60 / (9-1) = 60/8 = 7.5 ❌")
           }
           
           if (results$standaarddeviatie_incidenten$correct) {
-            feedback_lines <- c(feedback_lines, "**3.2 STANDAARDDEVIATIE:** √8 = 2.83 ✅")
+            feedback_lines <- c(feedback_lines, "**3.2 STANDAARDDEVIATIE:** √7.5 = 2.74 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**3.2 STANDAARDDEVIATIE:** √variantie = √8 = 2.83 ❌")
+            feedback_lines <- c(feedback_lines, "**3.2 STANDAARDDEVIATIE:** √variantie = √7.5 = 2.74 ❌")
           }
           
           if (results$gekozen_spreidingsmaat$correct) {
-            feedback_lines <- c(feedback_lines, "**4.1 KEUZE MAAT:** Standaarddeviatie (2.83) voor interval data ✅")
+            feedback_lines <- c(feedback_lines, "**4.1 KEUZE MAAT:** Standaarddeviatie (2.74) voor interval data ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**4.1 KEUZE MAAT:** Voor interval data kies standaarddeviatie (2.83) ❌")
+            feedback_lines <- c(feedback_lines, "**4.1 KEUZE MAAT:** Voor interval data kies standaarddeviatie (2.74) ❌")
           }
           
           # ----------------------
@@ -536,9 +537,9 @@ context({
                 } else if (student_sd < 2 || student_sd > 4) {
                   feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE BEREKENING:** √8 ≈ 2.83")
                 } else if (abs(student_sd - 2.74) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE OUDE WAARDE:** Je gebruikte √7.5=2.74. Correct: √8 = 2.83")
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE CORRECT:** √7.5 = 2.74 is juist!")
                 } else if (abs(student_sd - 2.8) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE PRECISIE:** √8 = 2.828... ≈ 2.83 (2 decimalen)")
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE AFRONDING:** 2.8 is dicht bij correct antwoord 2.74")
                 }
               }
             }
@@ -604,7 +605,7 @@ context({
             "• **Steekproefvariantie:** gebruik n-1 in noemer (niet n)",
             "• **Afwijkingen kunnen negatief zijn** (X - μ), maar kwadraten altijd positief",
             "• **Standaarddeviatie = √variantie** (zelfde eenheid als originele data)",
-            "• **Som van gekwadrateerde afwijkingen = 64** (16+1+16+1+0+4+9+4+9)",
+            "• **Som van gekwadrateerde afwijkingen = 60** (16+1+16+1+0+4+9+4+9)",
             "• **Voor criminologisch onderzoek:** standaarddeviatie geeft spreiding in aantal incidenten"
           )
           
