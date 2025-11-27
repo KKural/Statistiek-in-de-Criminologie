@@ -375,7 +375,6 @@ context({
               }
             }
           }
-          }
           
           # Individual gekwadrateerde afwijkingen
           gekw_vars <- c("gekw_afwijking_24_1", "gekw_afwijking_36_1", "gekw_afwijking_35", "gekw_afwijking_28_1", "gekw_afwijking_24_2",
