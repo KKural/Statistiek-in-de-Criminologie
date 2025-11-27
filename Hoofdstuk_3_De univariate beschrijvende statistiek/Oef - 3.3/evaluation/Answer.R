@@ -5,927 +5,394 @@ context({
       testEqual(
         "",
         function(env) {
-          # Use the provided environment (env) instead of globalenv()
+          # ---------------------------------------
+          # Helper functions for safe extraction
+          # ---------------------------------------
+          get_numeric <- function(name, env) {
+            if (!exists(name, envir = env)) return(list(exists = FALSE, value = NA))
+            val <- get(name, envir = env)
+            if (is.numeric(val)) {
+              return(list(exists = TRUE, value = as.numeric(val)))
+            }
+            out <- tryCatch(as.numeric(eval(val, envir = env)), error = function(e) NA)
+            list(exists = TRUE, value = out)
+          }
+          
+          get_string <- function(name, env) {
+            if (!exists(name, envir = env)) return(list(exists = FALSE, value = NA))
+            val <- get(name, envir = env)
+            if (is.character(val) || is.factor(val)) {
+              return(list(exists = TRUE, value = as.character(val)))
+            }
+            out <- tryCatch(as.character(eval(val, envir = env)), error = function(e) as.character(val))
+            list(exists = TRUE, value = out)
+          }
+          
+          get_vector_numeric <- function(name, env) {
+            if (!exists(name, envir = env)) return(list(exists = FALSE, value = NA))
+            val <- get(name, envir = env)
+            if (is.numeric(val)) {
+              return(list(exists = TRUE, value = as.numeric(val)))
+            }
+            out <- tryCatch(as.numeric(eval(val, envir = env)), error = function(e) NA)
+            list(exists = TRUE, value = out)
+          }
+          
           results <- list()
           
-          # -----------------------------
-          # STAP 1: FREQUENTIETABEL EN CENTRALITEIT
-          # -----------------------------
+          # ---------------------------------------
+          # DATA & EXPECTED VALUES (Oefening 3)
+          # ---------------------------------------
+          waarden <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
+                       40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
           
+          n <- length(waarden)                      # 20
+          expected_mean    <- mean(waarden)         # 33.55
+          expected_median  <- median(waarden)       # 36
+          # modus: waarde met hoogste frequentie
+          tbl <- table(waarden)
+          expected_mode    <- as.numeric(names(tbl)[which.max(tbl)])
+          
+          # kwartielen & IKA handmatig volgens jouw oplossing
+          expected_q1  <- 30
+          expected_q3  <- 36
+          expected_ika <- expected_q3 - expected_q1   # 6
+          
+          # frequenties & percentages
+          freq <- table(waarden)
+          get_freq <- function(x) as.numeric(freq[as.character(x)])
+          get_pct  <- function(x) get_freq(x) / n * 100
+          
+          expected_freqs <- c(
+            "freq_24" = get_freq(24),
+            "freq_28" = get_freq(28),
+            "freq_32" = get_freq(32),
+            "freq_34" = get_freq(34),
+            "freq_35" = get_freq(35),
+            "freq_36" = get_freq(36),
+            "freq_38" = get_freq(38),
+            "freq_40" = get_freq(40)
+          )
+          
+          expected_pcts <- c(
+            "percent_24" = get_pct(24),
+            "percent_28" = get_pct(28),
+            "percent_32" = get_pct(32),
+            "percent_34" = get_pct(34),
+            "percent_35" = get_pct(35),
+            "percent_36" = get_pct(36),
+            "percent_38" = get_pct(38),
+            "percent_40" = get_pct(40)
+          )
+          
+          # afwijkingen en gekwadrateerde afwijkingen (vector!)
+          expected_deviations <- waarden - expected_mean
+          expected_squared    <- expected_deviations^2
+          expected_ss         <- sum(expected_squared)
+          expected_variance   <- expected_ss / (n - 1)
+          expected_sd         <- sqrt(expected_variance)
+          expected_cv         <- expected_sd / expected_mean
+          
+          # ---------------------------------------
+          # STAP 1: FREQUENTIES & CENTRALITEIT
+          # ---------------------------------------
           # Frequenties
-          if (exists("freq_24", envir = env)) {
-            current_val <- get("freq_24", envir = env)
-            results$freq_24 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 3,
-              expected = 3
+          for (nm in names(expected_freqs)) {
+            tmp <- get_numeric(nm, env)
+            results[[nm]] <- list(
+              exists  = tmp$exists,
+              value   = tmp$value,
+              correct = tmp$exists && !is.na(tmp$value) &&
+                        abs(tmp$value - expected_freqs[[nm]]) < 1e-6,
+              expected = expected_freqs[[nm]]
             )
-          } else {
-            results$freq_24 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 3)
-          }
-          
-          if (exists("freq_28", envir = env)) {
-            current_val <- get("freq_28", envir = env)
-            results$freq_28 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 2,
-              expected = 2
-            )
-          } else {
-            results$freq_28 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 2)
-          }
-          
-          if (exists("freq_32", envir = env)) {
-            current_val <- get("freq_32", envir = env)
-            results$freq_32 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 2,
-              expected = 2
-            )
-          } else {
-            results$freq_32 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 2)
-          }
-          
-          if (exists("freq_34", envir = env)) {
-            current_val <- get("freq_34", envir = env)
-            results$freq_34 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 1,
-              expected = 1
-            )
-          } else {
-            results$freq_34 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 1)
-          }
-          
-          if (exists("freq_35", envir = env)) {
-            current_val <- get("freq_35", envir = env)
-            results$freq_35 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 1,
-              expected = 1
-            )
-          } else {
-            results$freq_35 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 1)
-          }
-          
-          if (exists("freq_36", envir = env)) {
-            current_val <- get("freq_36", envir = env)
-            results$freq_36 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 7,
-              expected = 7
-            )
-          } else {
-            results$freq_36 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 7)
-          }
-          
-          if (exists("freq_38", envir = env)) {
-            current_val <- get("freq_38", envir = env)
-            results$freq_38 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 1,
-              expected = 1
-            )
-          } else {
-            results$freq_38 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 1)
-          }
-          
-          if (exists("freq_40", envir = env)) {
-            current_val <- get("freq_40", envir = env)
-            results$freq_40 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 3,
-              expected = 3
-            )
-          } else {
-            results$freq_40 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 3)
           }
           
           # Percentages
-          if (exists("percent_24", envir = env)) {
-            current_val <- get("percent_24", envir = env)
-            results$percent_24 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 15,
-              expected = 15
+          for (nm in names(expected_pcts)) {
+            tmp <- get_numeric(nm, env)
+            results[[nm]] <- list(
+              exists  = tmp$exists,
+              value   = tmp$value,
+              correct = tmp$exists && !is.na(tmp$value) &&
+                        abs(tmp$value - expected_pcts[[nm]]) < 0.01,  # bv. 15, 10, 35, ...
+              expected = expected_pcts[[nm]]
             )
-          } else {
-            results$percent_24 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 15)
           }
           
-          if (exists("percent_28", envir = env)) {
-            current_val <- get("percent_28", envir = env)
-            results$percent_28 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 10,
-              expected = 10
-            )
-          } else {
-            results$percent_28 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 10)
-          }
+          # Modus, mediaan, gemiddelde
+          tmp <- get_numeric("modus", env)
+          results$modus <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_mode) < 0.01,
+            expected = expected_mode
+          )
           
-          if (exists("percent_32", envir = env)) {
-            current_val <- get("percent_32", envir = env)
-            results$percent_32 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 10,
-              expected = 10
-            )
-          } else {
-            results$percent_32 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 10)
-          }
+          tmp <- get_numeric("mediaan", env)
+          results$mediaan <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_median) < 0.01,
+            expected = expected_median
+          )
           
-          if (exists("percent_34", envir = env)) {
-            current_val <- get("percent_34", envir = env)
-            results$percent_34 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 5,
-              expected = 5
-            )
-          } else {
-            results$percent_34 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 5)
-          }
+          tmp <- get_numeric("gemiddelde", env)
+          results$gemiddelde <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_mean) < 0.01,
+            expected = expected_mean
+          )
           
-          if (exists("percent_35", envir = env)) {
-            current_val <- get("percent_35", envir = env)
-            results$percent_35 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 5,
-              expected = 5
-            )
-          } else {
-            results$percent_35 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 5)
-          }
+          # ---------------------------------------
+          # STAP 2: SPREIDING & KEUZES
+          # ---------------------------------------
+          tmp <- get_numeric("variatiebreedte", env)
+          results$variatiebreedte <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - (max(waarden) - min(waarden))) < 0.01,
+            expected = max(waarden) - min(waarden)
+          )
           
-          if (exists("percent_36", envir = env)) {
-            current_val <- get("percent_36", envir = env)
-            results$percent_36 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 35,
-              expected = 35
-            )
-          } else {
-            results$percent_36 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 35)
-          }
+          tmp <- get_numeric("q1", env)
+          results$q1 <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_q1) < 0.01,
+            expected = expected_q1
+          )
           
-          if (exists("percent_38", envir = env)) {
-            current_val <- get("percent_38", envir = env)
-            results$percent_38 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 5,
-              expected = 5
-            )
-          } else {
-            results$percent_38 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 5)
-          }
+          tmp <- get_numeric("q3", env)
+          results$q3 <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_q3) < 0.01,
+            expected = expected_q3
+          )
           
-          if (exists("percent_40", envir = env)) {
-            current_val <- get("percent_40", envir = env)
-            results$percent_40 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 15,
-              expected = 15
-            )
-          } else {
-            results$percent_40 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 15)
-          }
+          tmp <- get_numeric("ika", env)
+          results$ika <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_ika) < 0.01,
+            expected = expected_ika
+          )
           
-          # Centraliteitsmaten
-          if (exists("modus", envir = env)) {
-            current_val <- get("modus", envir = env)
-            results$modus <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 36,
-              expected = 36
-            )
-          } else {
-            results$modus <- list(exists = FALSE, value = NA, correct = FALSE, expected = 36)
-          }
+          # Keuze van centrale maat / spreidingsmaat / reden
+          tmp <- get_string("meest_relevante_centraliteit", env)
+          results$meest_relevante_centraliteit <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      tolower(trimws(tmp$value)) == "gemiddelde",
+            expected = "gemiddelde"
+          )
           
-          if (exists("mediaan", envir = env)) {
-            current_val <- get("mediaan", envir = env)
-            results$mediaan <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 36,
-              expected = 36
-            )
-          } else {
-            results$mediaan <- list(exists = FALSE, value = NA, correct = FALSE, expected = 36)
-          }
+          tmp <- get_string("meest_relevante_spreiding", env)
+          results$meest_relevante_spreiding <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      tolower(trimws(tmp$value)) == "interkwartielafstand",
+            expected = "interkwartielafstand"
+          )
           
-          if (exists("gemiddelde", envir = env)) {
-            current_val <- as.numeric(get("gemiddelde", envir = env))
-            results$gemiddelde <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = abs(current_val - 33.55) < 0.005,
-              expected = 33.55
-            )
-          } else {
-            results$gemiddelde <- list(exists = FALSE, value = NA, correct = FALSE, expected = 33.55)
-          }
+          tmp <- get_string("reden", env)
+          results$reden <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      tolower(trimws(tmp$value)) == "gebruikt alle informatie",
+            expected = "gebruikt alle informatie"
+          )
           
-          # -----------------------------
-          # STAP 2: SPREIDINGSMATEN EN PARAMETER KEUZES
-          # -----------------------------
+          # ---------------------------------------
+          # STAP 3: AFWIJKINGEN & VARIANTIE
+          # ---------------------------------------
+          # Vector met afwijkingen
+          tmp <- get_vector_numeric("afwijkingen", env)
+          results$afwijkingen <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists &&
+                      !any(is.na(tmp$value)) &&
+                      length(tmp$value) == length(expected_deviations) &&
+                      all(abs(tmp$value - expected_deviations) < 0.01),
+            expected = expected_deviations
+          )
           
-          if (exists("variatiebreedte", envir = env)) {
-            current_val <- get("variatiebreedte", envir = env)
-            results$variatiebreedte <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 16,
-              expected = 16
-            )
-          } else {
-            results$variatiebreedte <- list(exists = FALSE, value = NA, correct = FALSE, expected = 16)
-          }
+          # Vector met gekwadrateerde afwijkingen
+          tmp <- get_vector_numeric("gekwadrateerde_afwijkingen", env)
+          results$gekwadrateerde_afwijkingen <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists &&
+                      !any(is.na(tmp$value)) &&
+                      length(tmp$value) == length(expected_squared) &&
+                      all(abs(tmp$value - expected_squared) < 0.01),
+            expected = expected_squared
+          )
           
-          if (exists("q1", envir = env)) {
-            current_val <- get("q1", envir = env)
-            results$q1 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 30,
-              expected = 30
-            )
-          } else {
-            results$q1 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 30)
-          }
+          # Som van kwadraten
+          tmp <- get_numeric("sum_of_squares", env)
+          results$sum_of_squares <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_ss) < 0.01,
+            expected = expected_ss
+          )
           
-          if (exists("q3", envir = env)) {
-            current_val <- get("q3", envir = env)
-            results$q3 <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 36,
-              expected = 36
-            )
-          } else {
-            results$q3 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 36)
-          }
+          # Variantie (steekproef)
+          tmp <- get_numeric("variantie", env)
+          results$variantie <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_variance) < 0.01,
+            expected = expected_variance
+          )
           
-          if (exists("ika", envir = env)) {
-            current_val <- get("ika", envir = env)
-            results$ika <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = as.numeric(current_val) == 6,
-              expected = 6
-            )
-          } else {
-            results$ika <- list(exists = FALSE, value = NA, correct = FALSE, expected = 6)
-          }
+          # Standaardafwijking
+          tmp <- get_numeric("standaardafwijking", env)
+          results$standaardafwijking <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_sd) < 0.01,
+            expected = expected_sd
+          )
           
-          # Parameter keuzes
-          if (exists("meest_relevante_centraliteit", envir = env)) {
-            current_val <- as.character(get("meest_relevante_centraliteit", envir = env))
-            results$meest_relevante_centraliteit <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = tolower(trimws(current_val)) == "gemiddelde",
-              expected = "gemiddelde"
-            )
-          } else {
-            results$meest_relevante_centraliteit <- list(exists = FALSE, value = NA, correct = FALSE, expected = "gemiddelde")
-          }
+          # Variatiecoëfficiënt
+          tmp <- get_numeric("variatiecoefficient", env)
+          results$variatiecoefficient <- list(
+            exists  = tmp$exists,
+            value   = tmp$value,
+            correct = tmp$exists && !is.na(tmp$value) &&
+                      abs(tmp$value - expected_cv) < 0.001,
+            expected = expected_cv
+          )
           
-          if (exists("meest_relevante_spreiding", envir = env)) {
-            current_val <- as.character(get("meest_relevante_spreiding", envir = env))
-            results$meest_relevante_spreiding <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = tolower(trimws(current_val)) == "interkwartielafstand",
-              expected = "interkwartielafstand"
-            )
-          } else {
-            results$meest_relevante_spreiding <- list(exists = FALSE, value = NA, correct = FALSE, expected = "interkwartielafstand")
-          }
-          
-          if (exists("reden", envir = env)) {
-            current_val <- as.character(get("reden", envir = env))
-            results$reden <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = tolower(trimws(current_val)) == "gebruikt alle informatie",
-              expected = "gebruikt alle informatie"
-            )
-          } else {
-            results$reden <- list(exists = FALSE, value = NA, correct = FALSE, expected = "gebruikt alle informatie")
-          }
-          
-          # -----------------------------
-          # STAP 3: GEAVANCEERDE SPREIDINGSBEREKENINGEN
-          # -----------------------------
-          
-          # Individual afwijkingen
-          afwijking_vars <- c("afwijking_24_1", "afwijking_36_1", "afwijking_35", "afwijking_28_1", "afwijking_24_2",
-                             "afwijking_28_2", "afwijking_24_3", "afwijking_36_2", "afwijking_32_1", "afwijking_36_3",
-                             "afwijking_40_1", "afwijking_38", "afwijking_36_4", "afwijking_34", "afwijking_40_2",
-                             "afwijking_36_5", "afwijking_32_2", "afwijking_36_6", "afwijking_40_3", "afwijking_36_7")
-          
-          expected_afwijkingen <- c(-9.55, 2.45, 1.45, -5.55, -9.55, -5.55, -9.55, 2.45, -1.55, 2.45,
-                                   6.45, 4.45, 2.45, 0.45, 6.45, 2.45, -1.55, 2.45, 6.45, 2.45)
-          
-          for (i in 1:length(afwijking_vars)) {
-            var_name <- afwijking_vars[i]
-            expected_val <- expected_afwijkingen[i]
-            
-            if (exists(var_name, envir = env)) {
-              current_val <- as.numeric(get(var_name, envir = env))
-              results[[var_name]] <- list(
-                exists = TRUE,
-                value = current_val,
-                correct = abs(current_val - expected_val) < 0.005,
-                expected = expected_val
-              )
-            } else {
-              results[[var_name]] <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_val)
-            }
-          }
-          
-          # Individual gekwadrateerde afwijkingen
-          gekw_vars <- c("gekw_afwijking_24_1", "gekw_afwijking_36_1", "gekw_afwijking_35", "gekw_afwijking_28_1", "gekw_afwijking_24_2",
-                        "gekw_afwijking_28_2", "gekw_afwijking_24_3", "gekw_afwijking_36_2", "gekw_afwijking_32_1", "gekw_afwijking_36_3",
-                        "gekw_afwijking_40_1", "gekw_afwijking_38", "gekw_afwijking_36_4", "gekw_afwijking_34", "gekw_afwijking_40_2",
-                        "gekw_afwijking_36_5", "gekw_afwijking_32_2", "gekw_afwijking_36_6", "gekw_afwijking_40_3", "gekw_afwijking_36_7")
-          
-          expected_gekw <- c(91.2025, 6.0025, 2.1025, 30.8025, 91.2025, 30.8025, 91.2025, 6.0025, 2.4025, 6.0025,
-                            41.6025, 19.8025, 6.0025, 0.2025, 41.6025, 6.0025, 2.4025, 6.0025, 41.6025, 6.0025)
-          
-          for (i in 1:length(gekw_vars)) {
-            var_name <- gekw_vars[i]
-            expected_val <- expected_gekw[i]
-            
-            if (exists(var_name, envir = env)) {
-              current_val <- as.numeric(get(var_name, envir = env))
-              results[[var_name]] <- list(
-                exists = TRUE,
-                value = current_val,
-                correct = abs(current_val - expected_val) < 0.005,
-                expected = expected_val
-              )
-            } else {
-              results[[var_name]] <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_val)
-            }
-          }
-          
-          # Final calculations
-          if (exists("sum_of_squares", envir = env)) {
-            current_val <- as.numeric(get("sum_of_squares", envir = env))
-            results$sum_of_squares <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = abs(current_val - 528.95) < 0.005,
-              expected = 528.95
-            )
-          } else {
-            results$sum_of_squares <- list(exists = FALSE, value = NA, correct = FALSE, expected = 528.95)
-          }
-          
-          if (exists("variantie", envir = env)) {
-            current_val <- as.numeric(get("variantie", envir = env))
-            results$variantie <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = abs(current_val - 27.8295) < 0.005,
-              expected = 27.8295
-            )
-          } else {
-            results$variantie <- list(exists = FALSE, value = NA, correct = FALSE, expected = 27.8295)
-          }
-          
-          if (exists("standaardafwijking", envir = env)) {
-            current_val <- as.numeric(get("standaardafwijking", envir = env))
-            results$standaardafwijking <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = abs(current_val - 5.2763) < 0.005,
-              expected = 5.2763
-            )
-          } else {
-            results$standaardafwijking <- list(exists = FALSE, value = NA, correct = FALSE, expected = 5.2763)
-          }
-          
-          if (exists("variatiecoefficient", envir = env)) {
-            current_val <- as.numeric(get("variatiecoefficient", envir = env))
-            results$variatiecoefficient <- list(
-              exists = TRUE,
-              value = current_val,
-              correct = abs(current_val - 0.1573) < 0.005,
-              expected = 0.1573
-            )
-          } else {
-            results$variatiecoefficient <- list(exists = FALSE, value = NA, correct = FALSE, expected = 0.1573)
-          }
-          
-          # Create vectors for validation if all individual variables exist
-          all_afwijkingen_exist <- all(sapply(afwijking_vars, function(var) exists(var, envir = env)))
-          if (all_afwijkingen_exist) {
-            afwijkingen <- sapply(afwijking_vars, function(var) as.numeric(get(var, envir = env)))
-            assign("afwijkingen", afwijkingen, envir = env)
-          }
-          
-          all_gekw_exist <- all(sapply(gekw_vars, function(var) exists(var, envir = env)))
-          if (all_gekw_exist) {
-            gekwadrateerde_afwijkingen <- sapply(gekw_vars, function(var) as.numeric(get(var, envir = env)))
-            assign("gekwadrateerde_afwijkingen", gekwadrateerde_afwijkingen, envir = env)
-          }
-          
-          # Store results for comparator
+          # Bewaar alles voor comparator
           assign("detailed_results", results, envir = globalenv())
           
-          # Overall success
+          # Overall resultaat
           all_correct <- all(sapply(results, function(x) x$correct))
-          return(all_correct)
+          all_correct
         },
         TRUE,
         comparator = function(generated, expected, ...) {
           results <- get("detailed_results", envir = globalenv())
           
-          feedback_parts <- c()
-          correct_count <- sum(sapply(results, function(x) x$correct))
-          total_questions <- length(results)
+          feedback_parts <- c("**Resultaten per onderdeel:**\n")
           
-          # ----------------------
-          # STAP 1 FEEDBACK
-          # ----------------------
-          freq_correct <- all(sapply(paste0("freq_", c(24, 28, 32, 34, 35, 36, 38, 40)), 
-                                    function(x) results[[x]]$correct))
+          nice_names <- c(
+            "freq_24" = "1.1 Frequentie 24",
+            "freq_28" = "1.1 Frequentie 28",
+            "freq_32" = "1.1 Frequentie 32",
+            "freq_34" = "1.1 Frequentie 34",
+            "freq_35" = "1.1 Frequentie 35",
+            "freq_36" = "1.1 Frequentie 36",
+            "freq_38" = "1.1 Frequentie 38",
+            "freq_40" = "1.1 Frequentie 40",
+            "percent_24" = "1.2 Percentage 24",
+            "percent_28" = "1.2 Percentage 28",
+            "percent_32" = "1.2 Percentage 32",
+            "percent_34" = "1.2 Percentage 34",
+            "percent_35" = "1.2 Percentage 35",
+            "percent_36" = "1.2 Percentage 36",
+            "percent_38" = "1.2 Percentage 38",
+            "percent_40" = "1.2 Percentage 40",
+            "modus"        = "1.3 Modus",
+            "mediaan"      = "1.3 Mediaan",
+            "gemiddelde"   = "1.3 Gemiddelde",
+            "variatiebreedte" = "2.1 Variatiebreedte",
+            "q1"              = "2.1 Eerste kwartiel (Q1)",
+            "q3"              = "2.1 Derde kwartiel (Q3)",
+            "ika"             = "2.1 Interkwartielafstand",
+            "meest_relevante_centraliteit" = "2.2 Keuze centrale maat",
+            "meest_relevante_spreiding"    = "2.2 Keuze spreidingsmaat",
+            "reden"                         = "2.2 Reden",
+            "afwijkingen"                  = "3.1 Afwijkingen (vector)",
+            "gekwadrateerde_afwijkingen"   = "3.2 Gekwadrateerde afwijkingen (vector)",
+            "sum_of_squares"               = "3.3 Som gekwadrateerde afwijkingen",
+            "variantie"                    = "3.3 Variantie",
+            "standaardafwijking"           = "3.3 Standaardafwijking",
+            "variatiecoefficient"          = "3.3 Variatiecoëfficiënt"
+          )
           
-          if (freq_correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Correct geteld! ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Data: 24(3x), 28(2x), 32(2x), 34(1x), 35(1x), 36(7x), 38(1x), 40(3x) ❌")
-          }
-          
-          percent_correct <- all(sapply(paste0("percent_", c(24, 28, 32, 34, 35, 36, 38, 40)), 
-                                       function(x) results[[x]]$correct))
-          
-          if (percent_correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** (frequentie/20) * 100 ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** Gebruik formule (frequentie/20) * 100 ❌")
-          }
-          
-          if (results$modus$correct && results$mediaan$correct && results$gemiddelde$correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** Modus=36 (meest frequent), Mediaan=36 (middelste), Gemiddelde=33.55 ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** ❌")
-            if (!results$gemiddelde$correct && results$gemiddelde$exists) {
-              student_answer <- as.numeric(results$gemiddelde$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar correct is **33.55**"))
-            }
-            if (!results$mediaan$correct && results$mediaan$exists) {
-              student_answer <- as.numeric(results$mediaan$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Mediaan: Je gaf ", student_answer, ", maar correct is **36** (11de waarde van 20)"))
-            }
-            if (!results$modus$correct && results$modus$exists) {
-              student_answer <- as.character(results$modus$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Modus: Je gaf ", student_answer, ", maar correct is **36** (komt 7x voor)"))
-            }
-          }
-          
-          # ----------------------
-          # STAP 2 FEEDBACK
-          # ----------------------
-          if (results$variatiebreedte$correct && results$q1$correct && results$q3$correct && results$ika$correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** Range=16, Q1=30, Q3=36, IKA=6 ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** ❌")
-            if (!results$variatiebreedte$correct && results$variatiebreedte$exists) {
-              student_answer <- as.numeric(results$variatiebreedte$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Range: Je gaf ", student_answer, ", maar correct is 40-24 = **16**"))
-            }
-            if (!results$q1$correct && results$q1$exists) {
-              student_answer <- as.numeric(results$q1$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Q1: Je gaf ", student_answer, ", maar correct is **30**"))
-            }
-            if (!results$q3$correct && results$q3$exists) {
-              student_answer <- as.numeric(results$q3$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Q3: Je gaf ", student_answer, ", maar correct is **36**"))
-            }
-            if (!results$ika$correct && results$ika$exists) {
-              student_answer <- as.numeric(results$ika$value)
-              feedback_parts <- c(feedback_parts, paste0("  • IKA: Je gaf ", student_answer, ", maar correct is 36-30 = **6**"))
-            }
-          }
-          
-          if (results$meest_relevante_centraliteit$correct && results$meest_relevante_spreiding$correct && results$reden$correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 2.2 - KEUZES:** Intervaldata → gemiddelde en standaardafwijking gebruiken alle informatie ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 2.2 - KEUZES:** Bij intervaldata: gemiddelde, interkwartielafstand, 'gebruikt alle informatie' ❌")
-          }
-          
-          # ----------------------
-          # STAP 3 FEEDBACK
-          # ----------------------
-          afwijking_vars <- c("afwijking_24_1", "afwijking_36_1", "afwijking_35", "afwijking_28_1", "afwijking_24_2",
-                             "afwijking_28_2", "afwijking_24_3", "afwijking_36_2", "afwijking_32_1", "afwijking_36_3",
-                             "afwijking_40_1", "afwijking_38", "afwijking_36_4", "afwijking_34", "afwijking_40_2",
-                             "afwijking_36_5", "afwijking_32_2", "afwijking_36_6", "afwijking_40_3", "afwijking_36_7")
-          
-          afwijkingen_correct <- all(sapply(afwijking_vars, function(x) results[[x]]$correct))
-          
-          if (afwijkingen_correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** X - 33.55 voor elke waarde ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** Bereken X - 33.55 voor elke datawaarde ❌")
-          }
-          
-          gekw_vars <- c("gekw_afwijking_24_1", "gekw_afwijking_36_1", "gekw_afwijking_35", "gekw_afwijking_28_1", "gekw_afwijking_24_2",
-                        "gekw_afwijking_28_2", "gekw_afwijking_24_3", "gekw_afwijking_36_2", "gekw_afwijking_32_1", "gekw_afwijking_36_3",
-                        "gekw_afwijking_40_1", "gekw_afwijking_38", "gekw_afwijking_36_4", "gekw_afwijking_34", "gekw_afwijking_40_2",
-                        "gekw_afwijking_36_5", "gekw_afwijking_32_2", "gekw_afwijking_36_6", "gekw_afwijking_40_3", "gekw_afwijking_36_7")
-          
-          gekw_correct <- all(sapply(gekw_vars, function(x) results[[x]]$correct))
-          
-          if (gekw_correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking ❌")
-          }
-          
-          if (results$sum_of_squares$correct && results$variantie$correct && results$standaardafwijking$correct && results$variatiecoefficient$correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** Som=528.95, Variantie=528.95/19=27.8295, SD=5.2763, CV=0.1573 ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** ❌")
-            if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
-              student_answer <- as.numeric(results$sum_of_squares$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", student_answer, ", maar correct is **528.95**"))
-            }
-            if (!results$variantie$correct && results$variantie$exists) {
-              student_answer <- as.numeric(results$variantie$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Variantie: Je gaf ", student_answer, ", maar correct is som/(n-1) = **27.83**"))
-            }
-            if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
-              student_answer <- as.numeric(results$standaardafwijking$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar correct is √variantie = **5.28**"))
-            }
-            if (!results$variatiecoefficient$correct && results$variatiecoefficient$exists) {
-              student_answer <- as.numeric(results$variatiecoefficient$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Variatiecoëfficiënt: Je gaf ", student_answer, ", maar correct is SD/gemiddelde = **0.16**"))
-            }
-          }
-          
-          # ----------------------------------------
-          # COMPREHENSIVE ERROR ANALYSIS (COMMON MISTAKES)
-          # ----------------------------------------
-          
-          if (correct_count != total_questions) {
-            feedback_parts <- c(feedback_parts, "", "📚 **Uitleg van veelgemaakte fouten:**")
-            
-            # ======================
-            # STAP 1 - FREQUENCY ERRORS
-            # ======================
-            
-            # Individual frequency checks with specific error patterns
-            freq_errors <- c()
-            
-            if (!results$freq_24$correct && results$freq_24$exists) {
-              student_f24 <- as.numeric(results$freq_24$value)
-              if (!is.na(student_f24)) {
-                if (student_f24 == 1) {
-                  freq_errors <- c(freq_errors, paste0("freq_24: Je gaf ", student_f24, ", maar 24 komt 3x voor in de data. Correct: **3**"))
-                } else if (student_f24 == 4) {
-                  freq_errors <- c(freq_errors, paste0("freq_24: Je gaf ", student_f24, ", maar je telde andere waarden mee. Tel alleen 24. Correct: **3**"))
-                } else {
-                  freq_errors <- c(freq_errors, paste0("freq_24: Je gaf ", student_f24, ", maar correct antwoord is **3**"))
-                }
-              }
-            }
-            
-            if (!results$freq_36$correct && results$freq_36$exists) {
-              student_f36 <- as.numeric(results$freq_36$value)
-              if (!is.na(student_f36)) {
-                if (student_f36 == 1) {
-                  freq_errors <- c(freq_errors, paste0("freq_36: Je gaf ", student_f36, ", maar 36 komt 7x voor (meest frequent!). Correct: **7**"))
-                } else if (student_f36 >= 8) {
-                  freq_errors <- c(freq_errors, paste0("freq_36: Je gaf ", student_f36, ", maar dit is te hoog. Tel precies: 36 komt 7x voor. Correct: **7**"))
-                } else {
-                  freq_errors <- c(freq_errors, paste0("freq_36: Je gaf ", student_f36, ", maar correct antwoord is **7**"))
-                }
-              }
-            }
-            
-            if (length(freq_errors) > 0) {
-              feedback_parts <- c(feedback_parts, "• **FREQUENTIE FOUTEN:**")
-              feedback_parts <- c(feedback_parts, paste0("  - ", freq_errors))
-            }
-            
-            # PERCENTAGE ERRORS - Detailed analysis
-            percent_errors <- c()
-            
-            if (!results$percent_36$correct && results$percent_36$exists) {
-              student_p36 <- as.numeric(results$percent_36$value)
-              if (!is.na(student_p36)) {
-                if (abs(student_p36 - 7) < 0.1) {
-                  percent_errors <- c(percent_errors, paste0("percent_36: Je gaf ", student_p36, ", maar je gaf de frequentie ipv percentage. Correct: 7/20 × 100 = **35%**"))
-                } else if (abs(student_p36 - 0.35) < 0.01) {
-                  percent_errors <- c(percent_errors, paste0("percent_36: Je gaf ", student_p36, ", maar je vergat ×100. Correct: 7/20 = 0.35 → ×100 = **35%**"))
-                } else if (student_p36 > 50) {
-                  percent_errors <- c(percent_errors, paste0("percent_36: Je gaf ", student_p36, ", maar dit is te hoog. Check: 7 van 20 = (7/20) × 100 = **35%**"))
-                } else {
-                  percent_errors <- c(percent_errors, paste0("percent_36: Je gaf ", student_p36, ", maar correct antwoord is **35%**"))
-                }
-              }
-            }
-            
-            if (!results$percent_24$correct && results$percent_24$exists) {
-              student_p24 <- as.numeric(results$percent_24$value)
-              if (!is.na(student_p24)) {
-                if (abs(student_p24 - 3) < 0.1) {
-                  percent_errors <- c(percent_errors, "percent_24: Je gaf frequentie (3) ipv percentage. 3/20 × 100 = 15%")
-                } else if (abs(student_p24 - 0.15) < 0.01) {
-                  percent_errors <- c(percent_errors, "percent_24: Vergeet niet ×100. 3/20 = 0.15 → ×100 = 15%")
-                }
-              }
-            }
-            
-            if (length(percent_errors) > 0) {
-              feedback_parts <- c(feedback_parts, "• **PERCENTAGE FOUTEN:**")
-              feedback_parts <- c(feedback_parts, paste0("  - ", percent_errors))
-            }
-            
-            # MODUS ERRORS - Multiple error types
-            if (!results$modus$correct && results$modus$exists) {
-              student_modus <- results$modus$value
-              if (is.numeric(student_modus)) {
-                if (student_modus == 7) {
-                  feedback_parts <- c(feedback_parts, "• **MODUS FOUT:** Je gaf de frequentie (7), maar modus is de WAARDE die het meest voorkomt → 36")
-                } else if (student_modus %in% c(24, 28, 32, 34, 35, 38, 40)) {
-                  feedback_parts <- c(feedback_parts, paste0("• **MODUS FOUT:** ", student_modus, " is niet het meest frequent. 36 komt 7x voor (meest) → modus = 36"))
-                } else if (length(student_modus) > 1) {
-                  feedback_parts <- c(feedback_parts, "• **MODUS FOUT:** Geef één waarde. De waarde die het MEEST voorkomt is 36 (7x)")
-                }
-              }
-            }
-            
-            # MEDIAAN ERRORS - Position vs value confusion
-            if (!results$mediaan$correct && results$mediaan$exists) {
-              student_mediaan <- as.numeric(results$mediaan$value)
-              if (!is.na(student_mediaan)) {
-                if (student_mediaan == 10.5 || student_mediaan == 10 || student_mediaan == 11) {
-                  feedback_parts <- c(feedback_parts, "• **MEDIAAN FOUT:** Je gaf de positie (10.5), maar mediaan is de WAARDE op die positie. Gesorteerd: 10de en 11de = 36 en 36 → mediaan = 36")
-                } else if (student_mediaan %in% c(24, 28, 32, 34, 35, 38, 40)) {
-                  feedback_parts <- c(feedback_parts, "• **MEDIAAN FOUT:** Sorteer eerst! Data gesorteerd: 24,24,24,28,28,32,32,34,35,36,36,36,36,36,36,36,38,40,40,40 → middelste = 36")
-                } else if (abs(student_mediaan - 33.55) < 0.01) {
-                  feedback_parts <- c(feedback_parts, "• **MEDIAAN FOUT:** Je gaf het gemiddelde. Mediaan = middelste waarde na sorteren = 36")
-                }
-              }
-            }
-            
-            # GEMIDDELDE ERRORS - Calculation mistakes  
-            if (!results$gemiddelde$correct && results$gemiddelde$exists) {
-              student_gem <- as.numeric(results$gemiddelde$value)
-              if (!is.na(student_gem)) {
-                if (abs(student_gem - 35.35) < 0.01) {
-                  feedback_parts <- c(feedback_parts, "• **GEMIDDELDE FOUT:** Rekenfout in som. Check: 24×3 + 28×2 + 32×2 + 34×1 + 35×1 + 36×7 + 38×1 + 40×3 = 671, dan 671/20 = 33.55")
-                } else if (abs(student_gem - 33.4) < 0.1) {
-                  feedback_parts <- c(feedback_parts, "• **GEMIDDELDE FOUT:** Afronding te vroeg? Exact: 671/20 = 33.55 (gebruik decimale punt)")
-                } else if (student_gem == 36) {
-                  feedback_parts <- c(feedback_parts, "• **GEMIDDELDE FOUT:** Je gaf de mediaan (36). Gemiddelde = som/aantal = 671/20 = 33.55")
-                } else if (abs(student_gem - 35.32) < 0.01) {
-                  feedback_parts <- c(feedback_parts, "• **GEMIDDELDE FOUT:** Je deelde door 19 ipv 20. Gemiddelde = 671/20 = 33.55")
-                }
-              }
-            }
-            
-            # ======================
-            # STAP 2 - SPREIDING ERRORS
-            # ======================
-            
-            # VARIATIEBREEDTE ERRORS
-            if (!results$variatiebreedte$correct && results$variatiebreedte$exists) {
-              student_vb <- as.numeric(results$variatiebreedte$value)
-              if (!is.na(student_vb)) {
-                if (student_vb == 64) {
-                  feedback_parts <- c(feedback_parts, "• **VARIATIEBREEDTE FOUT:** Je deed 40+24=64, maar range = max-min = 40-24 = 16")
-                } else if (student_vb == 8) {
-                  feedback_parts <- c(feedback_parts, "• **VARIATIEBREEDTE FOUT:** Je gebruikte verkeerde waarden. Range = hoogste(40) - laagste(24) = 16")
-                } else if (student_vb > 20) {
-                  feedback_parts <- c(feedback_parts, "• **VARIATIEBREEDTE FOUT:** Te groot. Range = max - min = 40 - 24 = 16")
-                }
-              }
-            }
-            
-            # Q1 ERRORS - Detailed position analysis
-            if (!results$q1$correct && results$q1$exists) {
-              student_q1 <- as.numeric(results$q1$value)
-              if (!is.na(student_q1)) {
-                if (student_q1 == 5.25) {
-                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar je gaf de positie. Q1 is de WAARDE op die positie = **30**"))
-                } else if (student_q1 == 28) {
-                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar dit is te laag. Q1 positie = 25% van 20 = 5.25. Tussen 5de (28) en 6de (32) waarde → interpoleer: **30**"))
-                } else if (student_q1 == 32) {
-                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar dit is te hoog. Q1 = 25% positie tussen 28 en 32 → **30**"))
-                } else if (student_q1 == 24) {
-                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar dit is de minimum waarde. Q1 = 25% positie = tussen 28 en 32 → **30**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar correct antwoord is **30**"))
-                }
-              }
-            }
-            
-            # Q3 ERRORS  
-            if (!results$q3$correct && results$q3$exists) {
-              student_q3 <- as.numeric(results$q3$value)
-              if (!is.na(student_q3)) {
-                if (student_q3 == 15.75) {
-                  feedback_parts <- c(feedback_parts, paste0("• **Q3:** Je gaf ", student_q3, ", maar je gaf de positie. Q3 is de WAARDE op die positie = **36**"))
-                } else if (student_q3 == 38 || student_q3 == 40) {
-                  feedback_parts <- c(feedback_parts, paste0("• **Q3:** Je gaf ", student_q3, ", maar dit is te hoog. Q3 = 75% positie = 15.75ste waarde = **36**"))
-                } else if (student_q3 == 34 || student_q3 == 35) {
-                  feedback_parts <- c(feedback_parts, paste0("• **Q3:** Je gaf ", student_q3, ", maar dit is te laag. Q3 = 75% van gesorteerde data = **36**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **Q3:** Je gaf ", student_q3, ", maar correct antwoord is **36**"))
-                }
-              }
-            }
-            
-            # IKA ERRORS
-            if (!results$ika$correct && results$ika$exists) {
-              student_ika <- as.numeric(results$ika$value)
-              if (!is.na(student_ika)) {
-                if (student_ika < 0) {
-                  feedback_parts <- c(feedback_parts, paste0("• **IKA:** Je gaf ", student_ika, ", maar dit is negatief. IKA = Q3 - Q1 = 36 - 30 = **6** (altijd positief)"))
-                } else if (student_ika == 16) {
-                  feedback_parts <- c(feedback_parts, paste0("• **IKA:** Je gaf ", student_ika, ", maar je berekende de variatiebreedte. IKA = Q3 - Q1 = 36 - 30 = **6**"))
-                } else if (student_ika > 10) {
-                  feedback_parts <- c(feedback_parts, paste0("• **IKA:** Je gaf ", student_ika, ", maar dit is te groot. IKA = Q3 - Q1 = 36 - 30 = **6**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **IKA:** Je gaf ", student_ika, ", maar correct antwoord is **6**"))
-                }
-              }
-            }
-            
-            # PARAMETER CHOICE ERRORS - Detailed reasoning
-            if (!results$meest_relevante_centraliteit$correct && results$meest_relevante_centraliteit$exists) {
-              student_cent <- tolower(trimws(as.character(results$meest_relevante_centraliteit$value)))
-              if (student_cent == "modus") {
-                feedback_parts <- c(feedback_parts, paste0("• **CENTRALITEIT KEUZE:** Je koos '", results$meest_relevante_centraliteit$value, "', maar modus geeft minste info (alleen meest frequent). Bij intervaldata: **gemiddelde** gebruikt ALLE waarden"))
-              } else if (student_cent == "mediaan") {
-                feedback_parts <- c(feedback_parts, paste0("• **CENTRALITEIT KEUZE:** Je koos '", results$meest_relevante_centraliteit$value, "', maar mediaan is robuust maar gebruikt niet alle info. Bij intervaldata: **gemiddelde** is meest informatief"))
+          counter <- 1
+          for (nm in names(nice_names)) {
+            res <- results[[nm]]
+            label <- nice_names[[nm]]
+            if (!res$exists) {
+              feedback_parts <- c(feedback_parts,
+                                  paste0(counter, ". **", label, "**: *Ontbreekt* ❌"))
+            } else if (res$correct) {
+              if (nm %in% c("afwijkingen", "gekwadrateerde_afwijkingen")) {
+                feedback_parts <- c(feedback_parts,
+                                    paste0(counter, ". **", label, "**: c(",
+                                           paste(round(res$value, 2), collapse = ", "),
+                                           ") ✅"))
               } else {
-                feedback_parts <- c(feedback_parts, paste0("• **CENTRALITEIT KEUZE:** Je koos '", results$meest_relevante_centraliteit$value, "', maar correct antwoord is **gemiddelde**"))
+                feedback_parts <- c(feedback_parts,
+                                    paste0(counter, ". **", label, "**: ",
+                                           paste(round(res$value, 4), collapse = ", "),
+                                           " ✅"))
+              }
+            } else {
+              if (nm %in% c("afwijkingen", "gekwadrateerde_afwijkingen")) {
+                feedback_parts <- c(feedback_parts,
+                                    paste0(counter, ". **", label, "**: c(",
+                                           paste(round(res$value, 2), collapse = ", "),
+                                           ") ❌"))
+              } else {
+                feedback_parts <- c(feedback_parts,
+                                    paste0(counter, ". **", label, "**: ",
+                                           paste(round(res$value, 4), collapse = ", "),
+                                           " ❌"))
               }
             }
-            
-            if (!results$meest_relevante_spreiding$correct && results$meest_relevante_spreiding$exists) {
-              student_spr <- tolower(trimws(as.character(results$meest_relevante_spreiding$value)))
-              if (student_spr == "variatiebreedte") {
-                feedback_parts <- c(feedback_parts, "• **SPREIDING KEUZE:** Range is gevoelig voor uitbijters. Interkwartielafstand = robuuster (middelste 50%)")
-              }
-            }
-            
-            if (!results$reden$correct && results$reden$exists) {
-              student_reden <- tolower(trimws(as.character(results$reden$value)))
-              if (student_reden == "geen uitbijters") {
-                feedback_parts <- c(feedback_parts, "• **REDEN FOUT:** Er kunnen wel uitbijters zijn. Reden: gemiddelde 'gebruikt alle informatie'")
-              } else if (student_reden == "robuust voor uitbijters") {
-                feedback_parts <- c(feedback_parts, "• **REDEN FOUT:** Gemiddelde is juist NIET robuust. Reden: 'gebruikt alle informatie' (iedere waarde telt mee)")
-              }
-            }
-            
-            # ======================
-            # STAP 3 - ADVANCED CALCULATION ERRORS
-            # ======================
-            
-            # AFWIJKING SIGN ERRORS - Check multiple deviations
-            deviation_sign_errors <- 0
-            if (!results$afwijking_24_1$correct && results$afwijking_24_1$exists) {
-              student_afw <- as.numeric(results$afwijking_24_1$value)
-              if (!is.na(student_afw) && student_afw == 9.55) {
-                deviation_sign_errors <- deviation_sign_errors + 1
-              }
-            }
-            if (!results$afwijking_40_1$correct && results$afwijking_40_1$exists) {
-              student_afw <- as.numeric(results$afwijking_40_1$value)
-              if (!is.na(student_afw) && student_afw == -6.45) {
-                deviation_sign_errors <- deviation_sign_errors + 1
-              }
-            }
-            
-            if (deviation_sign_errors > 0) {
-              feedback_parts <- c(feedback_parts, "• **AFWIJKING TEKEN FOUT:** Let op tekens! 24-33.55 = -9.55 (negatief), 40-33.55 = +6.45 (positief)")
-            }
-            
-            # MEAN ERROR IN DEVIATIONS
-            if (!results$afwijking_24_1$correct && results$afwijking_24_1$exists) {
-              student_afw <- as.numeric(results$afwijking_24_1$value)
-              if (!is.na(student_afw) && abs(student_afw - (-12)) < 0.1) {
-                feedback_parts <- c(feedback_parts, "• **AFWIJKING GEMIDDELDE FOUT:** Je gebruikte verkeerd gemiddelde. Gebruik 33.55: 24 - 33.55 = -9.55")
-              }
-            }
-            
-            # SQUARED DEVIATIONS - Common mistakes
-            if (!results$gekw_afwijking_24_1$correct && results$gekw_afwijking_24_1$exists) {
-              student_gekw <- as.numeric(results$gekw_afwijking_24_1$value)
-              if (!is.na(student_gekw)) {
-                if (student_gekw == -91.2025) {
-                  feedback_parts <- c(feedback_parts, "• **GEKWADRATEERDE AFWIJKING TEKEN:** Kwadraat is altijd positief! (-9.55)² = 91.2025")
-                } else if (abs(student_gekw - 9.55) < 0.01) {
-                  feedback_parts <- c(feedback_parts, "• **GEKWADRATEERDE AFWIJKING:** Je vergat te kwadrateren. (-9.55)² = 91.2025 (niet 9.55)")
-                }
-              }
-            }
-            
-            # SUM OF SQUARES ERRORS
-            if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
-              student_ss <- as.numeric(results$sum_of_squares$value)
-              if (!is.na(student_ss)) {
-                if (abs(student_ss - 671) < 1) {
-                  feedback_parts <- c(feedback_parts, "• **SOM KWADRATEN FOUT:** Je somde originele waarden ipv gekwadrateerde afwijkingen. Som van (afwijking)² = 528.95")
-                } else if (student_ss > 600 && student_ss < 650) {
-                  feedback_parts <- c(feedback_parts, "• **SOM KWADRATEN FOUT:** Controleer je gekwadrateerde afwijkingen. Correcte som = 528.95")
-                }
-              }
-            }
-            
-            # VARIANCE ERRORS - n vs n-1
-            if (!results$variantie$correct && results$variantie$exists) {
-              student_var <- as.numeric(results$variantie$value)
-              if (!is.na(student_var)) {
-                if (abs(student_var - 26.4475) < 0.01) {
-                  feedback_parts <- c(feedback_parts, paste0("• **VARIANTIE:** Je gaf ", student_var, ", maar je deelde door n=20. Gebruik n-1=19 voor steekproef: **27.83**"))
-                } else if (abs(student_var - 528.95) < 1) {
-                  feedback_parts <- c(feedback_parts, paste0("• **VARIANTIE:** Je gaf ", student_var, ", maar dit is som van kwadraten. Variantie = som/(n-1) = **27.83**"))
-                } else if (abs(student_var - 33.55) < 0.01) {
-                  feedback_parts <- c(feedback_parts, paste0("• **VARIANTIE:** Je gaf ", student_var, ", maar dit is het gemiddelde. Variantie = som gekwadrateerde afwijkingen/(n-1) = **27.83**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **VARIANTIE:** Je gaf ", student_var, ", maar correct antwoord is **27.83**"))
-                }
-              }
-            }
-            
-            # STANDARD DEVIATION ERRORS
-            if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
-              student_sd <- as.numeric(results$standaardafwijking$value)
-              if (!is.na(student_sd)) {
-                if (abs(student_sd - 27.8295) < 0.01) {
-                  feedback_parts <- c(feedback_parts, paste0("• **STANDAARDAFWIJKING:** Je gaf ", student_sd, ", maar je vergat de wortel. SD = √variantie = √27.83 = **5.28**"))
-                } else if (abs(student_sd - 528.95) < 1) {
-                  feedback_parts <- c(feedback_parts, paste0("• **STANDAARDAFWIJKING:** Je gaf ", student_sd, ", maar dit is som van kwadraten. SD = √(som/(n-1)) = **5.28**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **STANDAARDAFWIJKING:** Je gaf ", student_sd, ", maar correct antwoord is **5.28**"))
-                }
-              }
-            }
-            
-            # COEFFICIENT OF VARIATION ERRORS
-            if (!results$variatiecoefficient$correct && results$variatiecoefficient$exists) {
-              student_cv <- as.numeric(results$variatiecoefficient$value)
-              if (!is.na(student_cv)) {
-                if (student_cv > 10) {
-                  feedback_parts <- c(feedback_parts, "• **VARIATIECOËFFICIËNT PERCENTAGE:** Je gaf als percentage (15.73%). CV = decimaal: 5.2763/33.55 = 0.1573")
-                } else if (abs(student_cv - 6.36) < 0.1) {
-                  feedback_parts <- c(feedback_parts, "• **VARIATIECOËFFICIËNT OMGEKEERD:** Je deed gemiddelde/SD. Correct: CV = SD/gemiddelde = 5.2763/33.55 = 0.1573")
-                } else if (abs(student_cv - 0.83) < 0.01) {
-                  feedback_parts <- c(feedback_parts, "• **VARIATIECOËFFICIËNT VARIANTIE FOUT:** Je gebruikte variantie ipv SD. CV = SD/gemiddelde = 5.2763/33.55 = 0.1573")
-                }
-              }
-            }
+            counter <- counter + 1
           }
-
+          
+          correct_count <- sum(sapply(results, function(x) x$correct))
+          total_count   <- length(results)
+          
           feedback_parts <- c(
             feedback_parts,
             "",
-            paste0("**", correct_count, " van ", total_questions, " juist**"),
+            paste0("**", correct_count, " van ", total_count, " onderdelen juist.**"),
             "",
-            "🔍 **BELANGRIJKE REGELS VOOR INTERVALDATA:**",
-            "• **Alle centraliteitsmaten** zijn toegestaan (modus, mediaan, gemiddelde)",
-            "• **Gemiddelde is meest informatief** bij intervaldata",
-            "• **Afwijkingen kunnen negatief zijn** (X - μ)",
-            "• **Variantie = som gekwadrateerde afwijkingen / (n-1)**",
-            "• **Standaardafwijking = √variantie**",
-            "• **Variatiecoëfficiënt = SD/gemiddelde** (voor vergelijking tussen datasets)"
+            "🔍 **Belangrijke regels (intervaldata & spreiding):**",
+            "• Frequentie → tel hoe vaak elke waarde voorkomt.",
+            "• Percentage = (frequentie / n) × 100.",
+            "• Modus = meest voorkomende waarde (hier: 36).",
+            "• Mediaan = middelste waarde (na sorteren).",
+            "• Variatiebreedte = max − min.",
+            "• IKA = Q3 − Q1 (hier: 36 − 30 = 6).",
+            "• Afwijkingen = X − gemiddelde (mogen negatief zijn).",
+            "• Variantie (steekproef) = som(gekwadrateerde afwijkingen)/(n − 1).",
+            "• Standaardafwijking = √variantie.",
+            "• Variatiecoëfficiënt = SD/gemiddelde.",
+            "• Bij intervaldata is **gemiddelde** + **interkwartielafstand** een goede keuze;",
+            "  het gemiddelde **gebruikt alle informatie** (alle waarden tellen mee)."
           )
           
-          # Show markdown feedback
           get_reporter()$add_message(
             paste(feedback_parts, collapse = "\n\n"),
             type = "markdown"
           )
           
-          # Final result
           generated == expected
         }
       )
