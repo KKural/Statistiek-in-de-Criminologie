@@ -904,31 +904,6 @@ context({
               }
             }
           }
-          
-          # Add correct answers overview if there were errors
-          if (correct_count != total_questions) {
-            feedback_parts <- c(
-              feedback_parts,
-              "",
-              "📋 **CORRECTE ANTWOORDEN - OVERZICHT:**",
-              "• **Frequenties:** 24(3x), 28(2x), 32(2x), 34(1x), 35(1x), 36(7x), 38(1x), 40(3x)",
-              "• **Percentages:** 24=15%, 28=10%, 32=10%, 34=5%, 35=5%, 36=35%, 38=5%, 40=15%",
-              "• **Gemiddelde:** 33.55 (som=671, 671/20=33.55)",
-              "• **Mediaan:** 36 (middelste van 20 waarden = 10.5de positie)",
-              "• **Modus:** 36 (komt 7x voor, meest frequent)",
-              "• **Variatiebreedte:** 16 (40-24=16)",
-              "• **Q1:** 30 (25% positie = 5.25, tussen 28 en 32)",
-              "• **Q3:** 36 (75% positie = 15.75, 36 op die positie)",
-              "• **IKA:** 6 (Q3-Q1 = 36-30=6)",
-              "• **Som gekwadrateerde afwijkingen:** 528.95",
-              "• **Variantie:** 27.83 (528.95/(20-1) = 528.95/19)",
-              "• **Standaardafwijking:** 5.28 (√27.83)",
-              "• **Variatiecoëfficiënt:** 0.16 (5.28/33.55)",
-              "• **Meest relevante centraliteit:** gemiddelde",
-              "• **Meest relevante spreiding:** interkwartielafstand",
-              "• **Reden:** gebruikt alle informatie"
-            )
-          }
 
           feedback_parts <- c(
             feedback_parts,
