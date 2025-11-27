@@ -996,46 +996,80 @@ context({
           
           if (length(incorrect_vars) > 0) {
             
-            # helper: maak leesbare labels zonder code-namen
-            make_label <- function(var_name) {
+            # helper: maak leesbare labels met uitleg hoe het berekend wordt
+            make_label_with_explanation <- function(var_name, expected_val) {
               # gekwadrateerde afwijkingen → X-waarde eruit halen
               if (grepl("^gekw_afwijking_", var_name)) {
                 rest <- sub("^gekw_afwijking_", "", var_name)   # bv. "32_1"
-                xval <- sub("_.*$", "", rest)                   # "32"
-                return(paste0("Voor de gekwadrateerde afwijking bij X = ", xval))
+                xval <- as.numeric(sub("_.*$", "", rest))       # "32" → 32
+                afwijking <- xval - 33.55
+                return(paste0("Voor de gekwadrateerde afwijking bij X = ", xval, 
+                             " (bereken: (", xval, " - 33.55)² = (", round(afwijking, 2), ")² = ", expected_val, ")"))
               }
               
               # afwijkingen
               if (grepl("^afwijking_", var_name)) {
                 rest <- sub("^afwijking_", "", var_name)
-                xval <- sub("_.*$", "", rest)
-                return(paste0("Voor de afwijking bij X = ", xval))
+                xval <- as.numeric(sub("_.*$", "", rest))
+                return(paste0("Voor de afwijking bij X = ", xval,
+                             " (bereken: ", xval, " - 33.55 = ", expected_val, ")"))
               }
               
               # frequenties
               if (grepl("^freq_", var_name)) {
                 xval <- sub("^freq_", "", var_name)
-                return(paste0("Voor de frequentie van waarde ", xval))
+                return(paste0("Voor de frequentie van waarde ", xval,
+                             " (tel hoe vaak ", xval, " voorkomt in de dataset)"))
               }
               
               # percentages
               if (grepl("^percent_", var_name)) {
                 xval <- sub("^percent_", "", var_name)
-                return(paste0("Voor het percentage van waarde ", xval))
+                freq_var <- paste0("freq_", xval)
+                if (freq_var %in% names(results)) {
+                  freq_val <- results[[freq_var]]$expected
+                  return(paste0("Voor het percentage van waarde ", xval,
+                               " (bereken: (", freq_val, "/20) × 100 = ", expected_val, "%)"))
+                } else {
+                  return(paste0("Voor het percentage van waarde ", xval,
+                               " (bereken: (frequentie/20) × 100)"))
+                }
               }
               
-              # standaard-maten
-              if (var_name == "gemiddelde")          return("Voor het gemiddelde")
-              if (var_name == "mediaan")             return("Voor de mediaan")
-              if (var_name == "modus")               return("Voor de modus")
-              if (var_name == "variatiebreedte")     return("Voor de variatiebreedte (range)")
-              if (var_name == "q1")                  return("Voor Q1")
-              if (var_name == "q3")                  return("Voor Q3")
-              if (var_name == "ika")                 return("Voor de interkwartielafstand")
-              if (var_name == "sum_of_squares")      return("Voor de som van de gekwadrateerde afwijkingen")
-              if (var_name == "variantie")           return("Voor de variantie")
-              if (var_name == "standaardafwijking")  return("Voor de standaardafwijking")
-              if (var_name == "variatiecoefficient") return("Voor de variatiecoëfficiënt")
+              # standaard-maten met berekening uitleg
+              if (var_name == "gemiddelde") {
+                return("Voor het gemiddelde (bereken: som van alle waarden ÷ aantal = 671/20 = 33.55)")
+              }
+              if (var_name == "mediaan") {
+                return("Voor de mediaan (sorteer data, neem middelste waarde: 10de en 11de van 20 → beide zijn 36)")
+              }
+              if (var_name == "modus") {
+                return("Voor de modus (waarde die het meest voorkomt: 36 komt 7x voor)")
+              }
+              if (var_name == "variatiebreedte") {
+                return("Voor de variatiebreedte (bereken: maximum - minimum = 40 - 24 = 16)")
+              }
+              if (var_name == "q1") {
+                return("Voor Q1 (25% positie = 5.25, interpolatie tussen 5de (28) en 6de (32) waarde = 30)")
+              }
+              if (var_name == "q3") {
+                return("Voor Q3 (75% positie = 15.75ste waarde, alle waarden vanaf positie 15.75 zijn 36)")
+              }
+              if (var_name == "ika") {
+                return("Voor de interkwartielafstand (bereken: Q3 - Q1 = 36 - 30 = 6)")
+              }
+              if (var_name == "sum_of_squares") {
+                return("Voor de som van de gekwadrateerde afwijkingen (som alle (X-33.55)² waarden = 528.95)")
+              }
+              if (var_name == "variantie") {
+                return("Voor de variantie (bereken: som gekwadrateerde afwijkingen/(n-1) = 528.95/19 = 27.8295)")
+              }
+              if (var_name == "standaardafwijking") {
+                return("Voor de standaardafwijking (bereken: √variantie = √27.8295 = 5.2763)")
+              }
+              if (var_name == "variatiecoefficient") {
+                return("Voor de variatiecoëfficiënt (bereken: standaardafwijking/gemiddelde = 5.2763/33.55 = 0.1573)")
+              }
               
               # default: mocht er iets nieuw bijkomen
               return("Voor dit antwoord")
@@ -1051,8 +1085,8 @@ context({
               if (!res$exists) {
                 feedback_parts <- c(
                   feedback_parts,
-                  paste0("  - ", make_label(var_name),
-                         ": deze waarde werd niet gevonden. Verwacht antwoord: ", expected_str)
+                  paste0("  - ", make_label_with_explanation(var_name, res$expected),
+                         ": deze waarde werd niet gevonden.")
                 )
                 next
               }
@@ -1063,9 +1097,8 @@ context({
               feedback_parts <- c(
                 feedback_parts,
                 paste0(
-                  "  - ", make_label(var_name),
-                  ": je gaf ", student_str,
-                  ", maar het juiste antwoord is ", expected_str, "."
+                  "  - ", make_label_with_explanation(var_name, res$expected),
+                  ": je gaf ", student_str, "."
                 )
               )
             }
