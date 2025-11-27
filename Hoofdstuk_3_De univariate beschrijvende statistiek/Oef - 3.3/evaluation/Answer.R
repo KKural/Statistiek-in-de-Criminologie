@@ -476,48 +476,13 @@ context({
           correct_count <- sum(sapply(results, function(x) x$correct))
           total_questions <- length(results)
           
-          # ----------------------
-          # STAP 1 FEEDBACK
-          # ----------------------
-          freq_correct <- all(sapply(paste0("freq_", c(24, 28, 32, 34, 35, 36, 38, 40)), 
-                                    function(x) results[[x]]$correct))
-          
-          if (freq_correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Correct geteld! ✅")
+          if (generated == expected) {
+            feedback_parts <- c(feedback_parts, "✅ **Alle antwoorden correct! Goed gedaan.**")
           } else {
-            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Data: 24(3x), 28(2x), 32(2x), 34(1x), 35(1x), 36(7x), 38(1x), 40(3x) ❌")
+            feedback_parts <- c(feedback_parts, paste0("**Resultaat: ", correct_count, " van ", total_questions, " correct**"))
           }
           
-          percent_correct <- all(sapply(paste0("percent_", c(24, 28, 32, 34, 35, 36, 38, 40)), 
-                                       function(x) results[[x]]$correct))
-          
-          if (percent_correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** (frequentie/20) * 100 ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** Gebruik formule (frequentie/20) * 100 ❌")
-          }
-          
-          if (results$modus$correct && results$mediaan$correct && results$gemiddelde$correct) {
-            feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** Modus=36 (meest frequent), Mediaan=36 (middelste), Gemiddelde=33.55 ✅")
-          } else {
-            feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** ❌")
-            if (!results$gemiddelde$correct && results$gemiddelde$exists) {
-              student_answer <- as.numeric(results$gemiddelde$value)
-              if (abs(student_answer - 12) < 0.01) {
-                feedback_parts <- c(feedback_parts, "  • Gemiddelde: Je gaf 12, maar dit is fout. Je gebruikte waarschijnlijk een verkeerde berekeningsmethode. Som alle waarden (671) en deel door aantal observaties (20): 671/20 = **33.55**")
-              } else {
-                feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar correct is **33.55**"))
-              }
-            }
-            if (!results$mediaan$correct && results$mediaan$exists) {
-              student_answer <- as.numeric(results$mediaan$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Mediaan: Je gaf ", student_answer, ", maar correct is **36** (11de waarde van 20)"))
-            }
-            if (!results$modus$correct && results$modus$exists) {
-              student_answer <- as.character(results$modus$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Modus: Je gaf ", student_answer, ", maar correct is **36** (komt 7x voor)"))
-            }
-          }
+          # Main feedback removed - only show in Uitleg van veelgemaakte fouten section
           
           # ----------------------
           # STAP 2 FEEDBACK
