@@ -486,10 +486,10 @@ context({
             if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
               student_ss <- as.numeric(results$sum_of_squares$value)
               if (!is.na(student_ss)) {
-                if (abs(student_ss - 60) < 1) {
-                  feedback_lines <- c(feedback_lines, "• **SOM GEKWADRATEERD FOUT:** Check berekening: 16+1+16+1+0+4+9+4+9 = 64, niet 60")
-                } else if (student_ss < 50 || student_ss > 80) {
-                  feedback_lines <- c(feedback_lines, "• **SOM GEKWADRATEERD BEREKENING:** Som alle gekwadrateerde afwijkingen = 64")
+                if (abs(student_ss - 60) > 1) {
+                  feedback_lines <- c(feedback_lines, "• **SOM GEKWADRATEERD FOUT:** Check berekening: 16+1+16+1+0+4+9+4+9 = 60")
+                } else if (student_ss < 50 || student_ss > 70) {
+                  feedback_lines <- c(feedback_lines, "• **SOM GEKWADRATEERD BEREKENING:** Som alle gekwadrateerde afwijkingen = 60")
                 }
               }
             }
@@ -501,20 +501,18 @@ context({
             if (!results$variantie_incidenten$correct && results$variantie_incidenten$exists) {
               student_var <- as.numeric(results$variantie_incidenten$value)
               if (!is.na(student_var)) {
-                if (abs(student_var - 7.11) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **VARIANTIE n FOUT:** Je deelde door n=9 ipv n-1=8. Steekproefvariantie = 64/8 = 8")
-                } else if (abs(student_var - 64) < 0.01) {
+                if (abs(student_var - 6.67) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE n FOUT:** Je deelde door n=9 ipv n-1=8. Steekproefvariantie = 60/8 = 7.5")
+                } else if (abs(student_var - 60) < 0.01) {
                   feedback_lines <- c(feedback_lines, "• **VARIANTIE GEEN DELING:** Je vergat te delen door n-1. Variantie = som gekwadrateerde afwijkingen / (n-1)")
-                } else if (abs(student_var - 6.4) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **VARIANTIE DELING FOUT:** Je deelde door 10. Correct: 64/8 = 8")
-                } else if (abs(student_var - 32) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **VARIANTIE HALVE SOM:** Je gebruikte halve som. Som gekwadrateerde afwijkingen = 64, niet 32")
-                } else if (student_var < 6 || student_var > 10) {
-                  feedback_lines <- c(feedback_lines, "• **VARIANTIE BEREKENING:** Som gekwadrateerde afwijkingen = 64, variantie = 64/8 = 8")
-                } else if (abs(student_var - 5.33) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **VARIANTIE SOM FOUT:** Check som gekwadrateerde afwijkingen: 16+1+16+1+0+4+9+4+9 = 64")
-                } else if (abs(student_var - 7.5) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **VARIANTIE OUDE WAARDE:** Je gebruikte oude waarde (60/8=7.5). Correcte som = 64, dus 64/8 = 8")
+                } else if (abs(student_var - 6.0) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE DELING FOUT:** Je deelde door 10. Correct: 60/8 = 7.5")
+                } else if (abs(student_var - 30) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE HALVE SOM:** Je gebruikte halve som. Som gekwadrateerde afwijkingen = 60, niet 30")
+                } else if (student_var < 6 || student_var > 9) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE BEREKENING:** Som gekwadrateerde afwijkingen = 60, variantie = 60/8 = 7.5")
+                } else if (abs(student_var - 5.45) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE SOM FOUT:** Check som gekwadrateerde afwijkingen: 16+1+16+1+0+4+9+4+9 = 60")
                 }
               }
             }
@@ -522,22 +520,20 @@ context({
             if (!results$standaarddeviatie_incidenten$correct && results$standaarddeviatie_incidenten$exists) {
               student_sd <- as.numeric(results$standaarddeviatie_incidenten$value)
               if (!is.na(student_sd)) {
-                if (abs(student_sd - 8) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE WORTEL:** Standaarddeviatie = √variantie = √8 = 2.83")
-                } else if (abs(student_sd - 64) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE BASIS:** Gebruik eerst variantie = 64/8 = 8, dan √8 = 2.83")
-                } else if (abs(student_sd - 2.67) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE n FOUT:** Je gebruikte n ipv n-1. √(64/8) = √8 = 2.83")
-                } else if (abs(student_sd - 2.53) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE DELING:** Je deelde door 10. √(64/8) = 2.83")
-                } else if (abs(student_sd - 5.66) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE HALVE:** Je gebruikte √32. Correct: √(64/8) = √8 = 2.83")
-                } else if (abs(student_sd - 2.3) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE SOM:** Check som gekwadrateerde afwijkingen = 64, dan √(64/8) = 2.83")
+                if (abs(student_sd - 7.5) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE WORTEL:** Standaarddeviatie = √variantie = √7.5 = 2.74")
+                } else if (abs(student_sd - 60) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE BASIS:** Gebruik eerst variantie = 60/8 = 7.5, dan √7.5 = 2.74")
+                } else if (abs(student_sd - 2.58) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE n FOUT:** Je gebruikte n ipv n-1. √(60/8) = √7.5 = 2.74")
+                } else if (abs(student_sd - 2.45) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE DELING:** Je deelde door 10. √(60/8) = 2.74")
+                } else if (abs(student_sd - 5.48) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE HALVE:** Je gebruikte √30. Correct: √(60/8) = √7.5 = 2.74")
+                } else if (abs(student_sd - 2.33) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE SOM:** Check som gekwadrateerde afwijkingen = 60, dan √(60/8) = 2.74")
                 } else if (student_sd < 2 || student_sd > 4) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE BEREKENING:** √8 ≈ 2.83")
-                } else if (abs(student_sd - 2.74) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE CORRECT:** √7.5 = 2.74 is juist!")
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE BEREKENING:** √7.5 ≈ 2.74")
                 } else if (abs(student_sd - 2.8) < 0.01) {
                   feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE AFRONDING:** 2.8 is dicht bij correct antwoord 2.74")
                 }
@@ -569,7 +565,7 @@ context({
             # Check for consistent n vs n-1 confusion
             if (results$variantie_incidenten$exists && !results$variantie_incidenten$correct) {
               student_var <- as.numeric(results$variantie_incidenten$value)
-              if (!is.na(student_var) && abs(student_var - 7.11) < 0.01) {
+              if (!is.na(student_var) && abs(student_var - 6.67) < 0.01) {
                 systematic_errors <- c(systematic_errors, "n_vs_n1")
               }
             }
@@ -631,9 +627,8 @@ context({
             type = "markdown"
           )
           
-          # Final result - return TRUE if all answers are correct
-          all_correct <- all(sapply(results, function(x) x$correct && x$exists))
-          return(all_correct)
+          # Final result
+          generated == expected
         }
       )
     }

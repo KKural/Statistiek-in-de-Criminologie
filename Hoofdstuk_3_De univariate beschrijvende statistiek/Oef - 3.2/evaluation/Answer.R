@@ -276,12 +276,12 @@ context({
               results$cumulatieve_absolute_frequenties$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE ABS.:** cumsum(absolute_frequenties) ✅"
+              "**1.1 FREQUENTIETABEL - CUMULATIEVE ABS.:** cumsum(absolute_frequenties) ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE ABS.:** De correcte vector is c(33, 117, 219, 282, 330) ❌"
+              "**1.1 FREQUENTIETABEL - CUMULATIEVE ABS.:** De correcte vector is c(33, 117, 219, 282, 330) ❌"
             )
           }
           
@@ -289,12 +289,12 @@ context({
               results$relatieve_frequenties$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**FREQUENTIETABEL - RELATIEVE FREQ.:** absolute_frequenties / 330 ✅"
+              "**1.2 FREQUENTIETABEL - RELATIEVE FREQ.:** absolute_frequenties / 330 ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**FREQUENTIETABEL - RELATIEVE FREQ.:** Controleer absolute_frequenties / totaal N ❌"
+              "**1.2 FREQUENTIETABEL - RELATIEVE FREQ.:** Controleer absolute_frequenties / totaal N ❌"
             )
           }
           
@@ -302,12 +302,12 @@ context({
               results$cumulatieve_relatieve_frequenties$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE REL.:** cumsum(relatieve_frequenties) ✅"
+              "**1.3 FREQUENTIETABEL - CUMULATIEVE REL.:** cumsum(relatieve_frequenties) ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**FREQUENTIETABEL - CUMULATIEVE REL.:** De correcte vector is c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000) ❌"
+              "**1.3 FREQUENTIETABEL - CUMULATIEVE REL.:** De correcte vector is c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000) ❌"
             )
           }
           
@@ -318,108 +318,108 @@ context({
           if (results$meetniveau$exists && results$meetniveau$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 1 - MEETNIVEAU:** Ordinaal (rangorde maar geen gelijke afstanden) ✅"
+              "**STAP 2.1 - MEETNIVEAU:** Ordinaal (rangorde maar geen gelijke afstanden) ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 1 - MEETNIVEAU:** Expected 'ordinaal' ❌"
+              "**STAP 2.1 - MEETNIVEAU:** Expected 'ordinaal' ❌"
             )
           }
           
           if (results$totaal_n$exists && results$totaal_n$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 3 - TOTAAL N:** 33+84+102+63+48 = 330 ✅"
+              "**STAP 2.2 - TOTAAL N:** 33+84+102+63+48 = 330 ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 3 - TOTAAL N:** Expected 330 ❌"
+              "**STAP 2.2 - TOTAAL N:** Expected 330 ❌"
             )
           }
           
           if (results$modus$exists && results$modus$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.1 - MODUS:** Categorie met hoogste frequentie (102) → **'Noch tevreden, noch ontevreden'** ✅"
+              "**STAP 3.1 - MODUS:** Categorie met hoogste frequentie (102) → **'Noch tevreden, noch ontevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.1 - MODUS:** Categorie met hoogste frequentie (102) → **'Noch tevreden, noch ontevreden'** ❌"
+              "**STAP 3.1 - MODUS:** Categorie met hoogste frequentie (102) → **'Noch tevreden, noch ontevreden'** ❌"
             )
           }
           
           if (results$mediaan$exists && results$mediaan$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.2 - MEDIAAN:** 165,5ste waarneming (N/2 = 330/2 = 165) → **'Noch tevreden, noch ontevreden'** ✅"
+              "**STAP 3.2 - MEDIAAN:** 165,5ste waarneming (N/2 = 330/2 = 165) → **'Noch tevreden, noch ontevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.2 - MEDIAAN:** 165,5ste waarneming (N/2 = 330/2 = 165) → **'Noch tevreden, noch ontevreden'** ❌"
+              "**STAP 3.2 - MEDIAAN:** 165,5ste waarneming (N/2 = 330/2 = 165) → **'Noch tevreden, noch ontevreden'** ❌"
             )
           }
           
           if (results$meest_relevante$exists && results$meest_relevante$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.3 - MEEST RELEVANT:** Mediaan geeft meer informatie dan modus → **'mediaan'** ✅"
+              "**STAP 3.3 - MEEST RELEVANT:** Mediaan geeft meer informatie dan modus → **'mediaan'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.3 - MEEST RELEVANT:** Mediaan geeft meer informatie dan modus → **'mediaan'** ❌"
+              "**STAP 3.3 - MEEST RELEVANT:** Mediaan geeft meer informatie dan modus → **'mediaan'** ❌"
             )
           }
           
           if (results$q1$exists && results$q1$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.1 - Q1:** 82,5ste waarneming (25% van 330 = 82,5) → **'Ontevreden'** ✅"
+              "**STAP 4.1 - Q1:** 82,5ste waarneming (25% van 330 = 82,5) → **'Ontevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.1 - Q1:** 82,5ste waarneming (25% van 330 = 82,5) → **'Ontevreden'** ❌"
+              "**STAP 4.1 - Q1:** 82,5ste waarneming (25% van 330 = 82,5) → **'Ontevreden'** ❌"
             )
           }
           
           if (results$q3$exists && results$q3$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.1 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) → **'Tevreden'** ✅"
+              "**STAP 4.2 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) → **'Tevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.1 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) → **'Tevreden'** ❌"
+              "**STAP 4.2 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) → **'Tevreden'** ❌"
             )
           }
           
           if (results$variatiebreedte$exists && results$variatiebreedte$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.2 - VARIATIEBREEDTE:** Van laagste tot hoogste categorie → **'Zeer ontevreden tot Zeer tevreden'** ✅"
+              "**STAP 4.3 - VARIATIEBREEDTE:** Van laagste tot hoogste categorie → **'Zeer ontevreden tot Zeer tevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.2 - VARIATIEBREEDTE:** Van laagste tot hoogste categorie → **'Zeer ontevreden tot Zeer tevreden'** ❌"
+              "**STAP 4.3 - VARIATIEBREEDTE:** Van laagste tot hoogste categorie → **'Zeer ontevreden tot Zeer tevreden'** ❌"
             )
           }
           
           if (results$ika$exists && results$ika$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.3 - IKA:** Bereik Q1 tot Q3 (middelste 50% van data) → **'Ontevreden tot Tevreden'** ✅"
+              "**STAP 4.4 - IKA:** Bereik Q1 tot Q3 (middelste 50% van data) → **'Ontevreden tot Tevreden'** ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 5.3 - IKA:** Bereik Q1 tot Q3 (middelste 50% van data) → **'Ontevreden tot Tevreden'** ❌"
+              "**STAP 4.4 - IKA:** Bereik Q1 tot Q3 (middelste 50% van data) → **'Ontevreden tot Tevreden'** ❌"
             )
           }
           

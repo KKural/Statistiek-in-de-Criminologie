@@ -1,5 +1,3 @@
-# Oefening 3.5: Spreidingsmaat bij politietoezicht
-
 Een criminoloog onderzoekt of het **aantal uren patrouilleren per dag** door politieagenten een effect heeft op het **aantal geregistreerde incidenten per wijk**. Hij verzamelde onderstaande gegevens voor 9 wijken (AV = incidenten, OV = patrouille-uren).
 
 <table style="border-collapse: collapse; width: 60%; margin: 20px auto; font-family: Times, serif;">
@@ -22,18 +20,8 @@ Een criminoloog onderzoekt of het **aantal uren patrouilleren per dag** door pol
   </tbody>
 </table>
 
-## Opdracht
 
 Bereken de **meest relevante maat van spreiding** voor de afhankelijke variabele (AV) *aantal geregistreerde incidenten*. Vul de ontbrekende waarden in de R-code aan.
-
-### Te beantwoorden (meerkeuze)
-Welke spreidingsmaat past bij de AV?
-- 7,5
-- 2,74
-- 2,8
-- 7,85
-
-**Juist antwoord:** standaarddeviatie = 2,74.
 
 ### Te volgen stappen
 1. **Gemiddelde** van de incidenten berekenen.
@@ -42,7 +30,5 @@ Welke spreidingsmaat past bij de AV?
 4. **Steekproefvariantie**: `SS / (n - 1)`.
 5. **Standaarddeviatie**: wortel uit de variantie. Dit is de gekozen spreidingsmaat voor interval/ratio-gegevens.
 
-### R-code om aan te vullen
+### Instructie voor de code
 Vervang `???` door het juiste antwoord. Gebruik een **decimale punt** en rond de standaarddeviatie af op **twee decimalen**.
-
-**Tip:** Controleer of je de **steekproefvariantie** gebruikt (noemer = n-1).
