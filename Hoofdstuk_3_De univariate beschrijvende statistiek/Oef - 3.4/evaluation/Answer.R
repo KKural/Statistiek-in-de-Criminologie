@@ -462,7 +462,7 @@ context({
           total_questions <- length(results)
           
           # ----------------------
-          # STAP 1 FEEDBACK
+          # STAP 1 FEEDBACK - FREQUENTIETABEL EN CENTRALITEIT
           # ----------------------
           
           # Check frequencies first
@@ -485,26 +485,54 @@ context({
             feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** Gebruik formule (frequentie/11) * 100 ❌")
           }
           
-          # Check central tendency measures
+          # Check central tendency measures with detailed feedback
           if ("gemiddelde" %in% names(results) && results$gemiddelde$correct && "mediaan" %in% names(results) && results$mediaan$correct && "modus" %in% names(results) && results$modus$correct) {
             feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** Gemiddelde=238.91, Mediaan=143, Modus=150 ✅")
           } else {
             feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** ❌")
+            if (!results$gemiddelde$correct && results$gemiddelde$exists) {
+              student_answer <- as.numeric(results$gemiddelde$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar correct is **238.91**"))
+            }
+            if (!results$mediaan$correct && results$mediaan$exists) {
+              student_answer <- as.numeric(results$mediaan$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Mediaan: Je gaf ", student_answer, ", maar correct is **143** (6de waarde van 11)"))
+            }
+            if (!results$modus$correct && results$modus$exists) {
+              student_answer <- as.character(results$modus$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Modus: Je gaf ", student_answer, ", maar correct is **150** (komt 2x voor)"))
+            }
           }
           
           # ----------------------
-          # STAP 2 FEEDBACK
+          # STAP 2 FEEDBACK - SPREIDINGSMATEN
           # ----------------------
           
-          # Check spread measures
+          # Check spread measures with detailed feedback
           if ("variatiebreedte" %in% names(results) && results$variatiebreedte$correct && "q1" %in% names(results) && results$q1$correct && "q3" %in% names(results) && results$q3$correct && "ika" %in% names(results) && results$ika$correct) {
             feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** Range=1655, Q1=26, Q3=150, IKA=124 ✅")
           } else {
             feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** ❌")
+            if (!results$variatiebreedte$correct && results$variatiebreedte$exists) {
+              student_answer <- as.numeric(results$variatiebreedte$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Range: Je gaf ", student_answer, ", maar correct is 1657-2 = **1655**"))
+            }
+            if (!results$q1$correct && results$q1$exists) {
+              student_answer <- as.numeric(results$q1$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Q1: Je gaf ", student_answer, ", maar correct is **26**"))
+            }
+            if (!results$q3$correct && results$q3$exists) {
+              student_answer <- as.numeric(results$q3$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Q3: Je gaf ", student_answer, ", maar correct is **150**"))
+            }
+            if (!results$ika$correct && results$ika$exists) {
+              student_answer <- as.numeric(results$ika$value)
+              feedback_parts <- c(feedback_parts, paste0("  • IKA: Je gaf ", student_answer, ", maar correct is 150-26 = **124**"))
+            }
           }
           
           # ----------------------
-          # STAP 3 FEEDBACK
+          # STAP 3 FEEDBACK - GEAVANCEERDE BEREKENINGEN
           # ----------------------
           
           # Check afwijkingen
@@ -517,14 +545,14 @@ context({
             feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** Bereken X - 238.91 voor elke datawaarde ❌")
           }
           
-          # Check gekwadrateerde afwijkingen
+          # Check gekwadrateerde afwijkingen with specific error detection
           gekw_vars <- c("gekw_afwijking_2", "gekw_afwijking_14", "gekw_afwijking_26", "gekw_afwijking_30", "gekw_afwijking_72", "gekw_afwijking_143", "gekw_afwijking_144", "gekw_afwijking_150_1", "gekw_afwijking_150_2", "gekw_afwijking_240", "gekw_afwijking_1657")
           gekw_correct <- all(sapply(gekw_vars[gekw_vars %in% names(results)], function(x) results[[x]]$correct))
           
           if (gekw_correct) {
             feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
           } else {
-            # Show detailed error explanations in step message like 3.2
+            # Show detailed error explanations in step message like 3.3
             gekw_errors <- c()
             
             # Check specific errors for key values
@@ -562,11 +590,23 @@ context({
             }
           }
           
-          # Check variance calculations
+          # Check variance calculations with detailed feedback
           if ("sum_of_squares" %in% names(results) && results$sum_of_squares$correct && "variantie" %in% names(results) && results$variantie$correct && "standaardafwijking" %in% names(results) && results$standaardafwijking$correct) {
             feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** Som=2,268,540.92, Variantie=226,854.09, SD=476.29 ✅")
           } else {
             feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** ❌")
+            if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
+              student_answer <- as.numeric(results$sum_of_squares$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", format(student_answer, big.mark=","), ", maar correct is **2,268,540.92**"))
+            }
+            if (!results$variantie$correct && results$variantie$exists) {
+              student_answer <- as.numeric(results$variantie$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Variantie: Je gaf ", format(student_answer, big.mark=","), ", maar correct is som/(n-1) = **226,854.09**"))
+            }
+            if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
+              student_answer <- as.numeric(results$standaardafwijking$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar correct is √variantie = **476.29**"))
+            }
           }
           
           # ----------------------------------------
@@ -878,11 +918,12 @@ context({
             paste0("**", correct_count, " van ", total_questions, " juist**"),
             "",
             "🔍 **BELANGRIJKE REGELS VOOR EXTREME WAARDEN:**",
-            "• **Mediaan is robuuster** dan gemiddelde bij uitbijters",
-            "• **Jennifer Aniston (1657 dagen)** is duidelijke uitbijter", 
-            "• **IKA minder gevoelig** voor extreme waarden dan range",
-            "• **Standaardafwijking hoog** door extreme spreiding",
-            "• **Bij steekproef: variantie = SS/(n-1)**"
+            "• **Extreme uitbijter impact:** Jennifer Aniston (1657 dagen) beïnvloedt gemiddelde sterk",
+            "• **Mediaan is robuuster** dan gemiddelde bij uitbijters (143 vs 238.91)",
+            "• **Afwijkingen kunnen negatief zijn** (X - μ), maar kwadraten altijd positief",
+            "• **IKA minder gevoelig** voor extreme waarden dan range (124 vs 1655)", 
+            "• **Bij steekproef: variantie = SS/(n-1)** → 2,268,540.92/10 = 226,854.09",
+            "• **Standaardafwijking = √variantie** → √226,854.09 = 476.29 dagen"
           )
           
           # Show markdown feedback

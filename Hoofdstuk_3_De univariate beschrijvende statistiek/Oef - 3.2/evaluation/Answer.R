@@ -276,12 +276,12 @@ context({
               results$cumulatieve_absolute_frequenties$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**1.1 FREQUENTIETABEL - CUMULATIEVE ABS.:** cumsum(absolute_frequenties) ✅"
+              "**STAP 1.1 FREQUENTIETABEL - CUMULATIEVE ABS.:** cumsum(absolute_frequenties) ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**1.1 FREQUENTIETABEL - CUMULATIEVE ABS.:** De correcte vector is c(33, 117, 219, 282, 330) ❌"
+              "**STAP 1.1 FREQUENTIETABEL - CUMULATIEVE ABS.:** De correcte vector is c(33, 117, 219, 282, 330) ❌"
             )
           }
           
@@ -289,12 +289,12 @@ context({
               results$relatieve_frequenties$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**1.2 FREQUENTIETABEL - RELATIEVE FREQ.:** absolute_frequenties / 330 ✅"
+              "**STAP 1.2 FREQUENTIETABEL - RELATIEVE FREQ.:** absolute_frequenties / 330 ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**1.2 FREQUENTIETABEL - RELATIEVE FREQ.:** Controleer absolute_frequenties / totaal N ❌"
+              "**STAP 1.2 FREQUENTIETABEL - RELATIEVE FREQ.:** Controleer absolute_frequenties / totaal N ❌"
             )
           }
           
@@ -302,12 +302,12 @@ context({
               results$cumulatieve_relatieve_frequenties$correct) {
             feedback_lines <- c(
               feedback_lines,
-              "**1.3 FREQUENTIETABEL - CUMULATIEVE REL.:** cumsum(relatieve_frequenties) ✅"
+              "**STAP 1.3 FREQUENTIETABEL - CUMULATIEVE REL.:** cumsum(relatieve_frequenties) ✅"
             )
           } else {
             feedback_lines <- c(
               feedback_lines,
-              "**1.3 FREQUENTIETABEL - CUMULATIEVE REL.:** De correcte vector is c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000) ❌"
+              "**STAP 1.3 FREQUENTIETABEL - CUMULATIEVE REL.:** De correcte vector is c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000) ❌"
             )
           }
           
