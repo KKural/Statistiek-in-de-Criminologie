@@ -322,7 +322,6 @@ context({
             feedback_parts <- c(feedback_parts, "• Waarden: 33, 117, 219, 282, 330")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES:** Fouten gevonden")
-            feedback_parts <- c(feedback_parts, cum_abs_errors)
           }
           feedback_parts <- c(feedback_parts, "")
           
@@ -367,7 +366,6 @@ context({
             feedback_parts <- c(feedback_parts, "• Waarden: 0.1000, 0.2545, 0.3091, 0.1909, 0.1455")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 1.2 - RELATIEVE FREQUENTIES:** Fouten gevonden")
-            feedback_parts <- c(feedback_parts, rel_freq_errors)
           }
           feedback_parts <- c(feedback_parts, "")
           
@@ -412,7 +410,6 @@ context({
             feedback_parts <- c(feedback_parts, "• Waarden: 0.1000, 0.3545, 0.6636, 0.8545, 1.0000")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:** Fouten gevonden")
-            feedback_parts <- c(feedback_parts, cum_rel_errors)
           }
           feedback_parts <- c(feedback_parts, "")
           
@@ -489,7 +486,6 @@ context({
             feedback_parts <- c(feedback_parts, "**✅ STAP 2 - OVERIGE VRAGEN:** Allemaal correct!")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 2 - OVERIGE VRAGEN:** Fouten gevonden")
-            feedback_parts <- c(feedback_parts, stap2_errors)
           }
           feedback_parts <- c(feedback_parts, "")
           

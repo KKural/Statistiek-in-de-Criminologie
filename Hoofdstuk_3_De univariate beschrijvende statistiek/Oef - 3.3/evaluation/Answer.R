@@ -526,7 +526,6 @@ context({
             feedback_parts <- c(feedback_parts, "• Totaal aantal observaties: **20**")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 1.1 - FREQUENTIES:** Fouten gevonden")
-            feedback_parts <- c(feedback_parts, freq_errors)
           }
           feedback_parts <- c(feedback_parts, "")
           
@@ -581,7 +580,6 @@ context({
             feedback_parts <- c(feedback_parts, "📊 **Percentage berekening formule:** (frequentie ÷ 20) × 100")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 1.2 - PERCENTAGES:** Fouten gevonden")
-            feedback_parts <- c(feedback_parts, percent_errors)
           }
           feedback_parts <- c(feedback_parts, "")
           
@@ -612,7 +610,6 @@ context({
               }
             }
             feedback_parts <- c(feedback_parts, "**❌ STAP 1.3 - CENTRALITEIT:** Fouten gevonden")
-            feedback_parts <- c(feedback_parts, central_errors)
           } else {
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.3 - CENTRALITEIT:** Alle centraliteitsmaten correct berekend!")
             feedback_parts <- c(feedback_parts, "")
@@ -683,7 +680,6 @@ context({
             feedback_parts <- c(feedback_parts, "**✅ STAP 2 - SPREIDING EN PARAMETER KEUZES:** Allemaal correct!")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 2 - SPREIDING EN PARAMETER KEUZES:** Fouten gevonden")
-            feedback_parts <- c(feedback_parts, stap2_errors)
           }
           feedback_parts <- c(feedback_parts, "")
           
@@ -726,7 +722,6 @@ context({
             feedback_parts <- c(feedback_parts, "**✅ STAP 3 - AFWIJKINGEN EN VARIANTIE:** Alle berekeningen correct!")
           } else {
             feedback_parts <- c(feedback_parts, "**❌ STAP 3 - AFWIJKINGEN EN VARIANTIE:** Fouten gevonden")
-            feedback_parts <- c(feedback_parts, stap3_errors)
           }
           feedback_parts <- c(feedback_parts, "")
           
