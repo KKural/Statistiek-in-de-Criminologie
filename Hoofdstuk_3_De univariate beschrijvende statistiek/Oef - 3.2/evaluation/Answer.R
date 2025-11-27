@@ -280,6 +280,12 @@ context({
           correct_count <- sum(sapply(results, function(x) x$correct))
           total_questions <- length(results)
           
+          # Show summary of errors if any
+          if (correct_count != total_questions) {
+            feedback_parts <- c(feedback_parts, "⚠️ **SAMENVATTING: Enkele antwoorden zijn onjuist. Zie hieronder welke stappen fouten bevatten:**")
+            feedback_parts <- c(feedback_parts, "")
+          }
+          
           # ----------------------
           # STAP 1.1 FEEDBACK - CUMULATIEVE ABSOLUTE FREQUENTIES
           # ----------------------
@@ -291,8 +297,6 @@ context({
           
           expected_cum_abs <- c(33, 117, 219, 282, 330)
           cat_names_display <- c("zeer ontevreden", "ontevreden", "noch tevreden, noch ontevreden", "tevreden", "zeer tevreden")
-          
-          cum_abs_all_correct <- TRUE
           cum_abs_errors <- c()
           
           for (i in seq_along(cum_abs_vars)) {

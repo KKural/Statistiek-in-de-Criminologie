@@ -476,8 +476,15 @@ context({
           correct_count <- sum(sapply(results, function(x) x$correct))
           total_questions <- length(results)
           
+          # Show summary of errors if any
+          if (correct_count != total_questions) {
+            feedback_parts <- c(feedback_parts, "⚠️ **SAMENVATTING: Enkele antwoorden zijn onjuist. Zie hieronder welke stappen fouten bevatten:**")
+            feedback_parts <- c(feedback_parts, "")
+          }
+          
           # ----------------------
           # STAP 1.1 FEEDBACK - FREQUENTIES
+          # ----------------------
           # ----------------------
           
           all_freq_correct <- TRUE
