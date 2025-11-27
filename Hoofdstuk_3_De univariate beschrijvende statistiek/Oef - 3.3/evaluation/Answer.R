@@ -480,8 +480,8 @@ context({
           # STAP 1.1 FEEDBACK - FREQUENTIES
           # ----------------------
           
-          feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:**")
           all_freq_correct <- TRUE
+          freq_errors <- c()
           freq_vars <- c("freq_24", "freq_28", "freq_32", "freq_34", "freq_35", "freq_36", "freq_38", "freq_40")
           
           data_context <- list(
@@ -505,20 +505,19 @@ context({
                 context <- data_context[[freq_var]]$context
                 
                 if (results[[freq_var]]$exists) {
-                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar ", context, ". Juiste antwoord is **", expected_val, "**"))
+                  freq_errors <- c(freq_errors, paste0("  • **", description, ":** Je gaf ", student_val, ", maar ", context, ". Juiste antwoord is **", expected_val, "**"))
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
+                  freq_errors <- c(freq_errors, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
                 }
               }
             } else {
               all_freq_correct <- FALSE
               description <- data_context[[freq_var]]$description
-              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
+              freq_errors <- c(freq_errors, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
             }
           }
           
           if (all_freq_correct) {
-            feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.1 - FREQUENTIES:** Alle frequenties correct geteld!")
             feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "📊 **Frequentietabel overzicht:**")
@@ -526,15 +525,17 @@ context({
             feedback_parts <- c(feedback_parts, "• Modus: 36 komt het vaakst voor (7x)")
             feedback_parts <- c(feedback_parts, "• Totaal aantal observaties: **20**")
           } else {
-            feedback_parts[1] <- "**❌ STAP 1.1 - FREQUENTIES:** Fouten gevonden"
+            feedback_parts <- c(feedback_parts, "**❌ STAP 1.1 - FREQUENTIES:** Fouten gevonden")
+            feedback_parts <- c(feedback_parts, freq_errors)
           }
+          feedback_parts <- c(feedback_parts, "")
           
           # ----------------------
           # STAP 1.2 FEEDBACK - PERCENTAGES
           # ----------------------
           
-          feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:**")
           all_percent_correct <- TRUE
+          percent_errors <- c()
           percent_vars <- c("percent_24", "percent_28", "percent_32", "percent_34", "percent_35", "percent_36", "percent_38", "percent_40")
           
           percent_context <- list(
@@ -560,9 +561,9 @@ context({
                 
                 if (results[[percent_var]]$exists) {
                   student_val_num <- as.numeric(student_val)
-                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
+                  percent_errors <- c(percent_errors, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
+                  percent_errors <- c(percent_errors, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
                 }
               }
             } else {
@@ -570,52 +571,50 @@ context({
               description <- percent_context[[percent_var]]$description
               expected_val <- percent_context[[percent_var]]$expected
               calculation <- percent_context[[percent_var]]$calculation
-              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
+              percent_errors <- c(percent_errors, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
             }
           }
           
           if (all_percent_correct) {
-            feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.2 - PERCENTAGES:** Alle percentages correct berekend!")
             feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "📊 **Percentage berekening formule:** (frequentie ÷ 20) × 100")
           } else {
-            header_index <- which(feedback_parts == "**STAP 1.2 - PERCENTAGES:**")
-            if (length(header_index) > 0) {
-              feedback_parts[header_index] <- "**❌ STAP 1.2 - PERCENTAGES:** Fouten gevonden"
-            }
+            feedback_parts <- c(feedback_parts, "**❌ STAP 1.2 - PERCENTAGES:** Fouten gevonden")
+            feedback_parts <- c(feedback_parts, percent_errors)
           }
+          feedback_parts <- c(feedback_parts, "")
           
           # ----------------------
           # STAP 1.3 FEEDBACK - CENTRALITEIT
           # ----------------------
           
-          feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:**")
           all_central_correct <- results$modus$correct && results$mediaan$correct && results$gemiddelde$correct
+          central_errors <- c()
           
           if (!all_central_correct) {
-            feedback_parts[length(feedback_parts)] <- "**❌ STAP 1.3 - CENTRALITEIT:** Fouten gevonden"
-            
             if (!results$modus$correct && results$modus$exists) {
               student_val <- results$modus$value
-              feedback_parts <- c(feedback_parts, paste0("  • **Modus:** Je gaf ", student_val, ", maar correct is **36** (komt 7x voor - hoogste frequentie)"))
+              central_errors <- c(central_errors, paste0("  • **Modus:** Je gaf ", student_val, ", maar correct is **36** (komt 7x voor - hoogste frequentie)"))
             }
             
             if (!results$mediaan$correct && results$mediaan$exists) {
               student_val <- results$mediaan$value
-              feedback_parts <- c(feedback_parts, paste0("  • **Mediaan:** Je gaf ", student_val, ", maar correct is **36** (middelste waarde = 11de van 20 gesorteerde waarden)"))
+              central_errors <- c(central_errors, paste0("  • **Mediaan:** Je gaf ", student_val, ", maar correct is **36** (middelste waarde = 11de van 20 gesorteerde waarden)"))
             }
             
             if (!results$gemiddelde$correct && results$gemiddelde$exists) {
               student_val <- as.numeric(results$gemiddelde$value)
               if (abs(student_val - 12) < 0.01) {
-                feedback_parts <- c(feedback_parts, "  • **Gemiddelde:** Je gaf 12, maar dit is fout. Je gebruikte waarschijnlijk een verkeerde berekeningsmethode. Som alle waarden (671) en deel door aantal observaties (20): 671/20 = **33.55**")
+                central_errors <- c(central_errors, "  • **Gemiddelde:** Je gaf 12, maar dit is fout. Je gebruikte waarschijnlijk een verkeerde berekeningsmethode. Som alle waarden (671) en deel door aantal observaties (20): 671/20 = **33.55**")
               } else {
-                feedback_parts <- c(feedback_parts, paste0("  • **Gemiddelde:** Je gaf ", student_val, ", maar correct is **33.55** (som = 671, aantal = 20, 671/20 = 33.55)"))
+                central_errors <- c(central_errors, paste0("  • **Gemiddelde:** Je gaf ", student_val, ", maar correct is **33.55** (som = 671, aantal = 20, 671/20 = 33.55)"))
               }
             }
+            feedback_parts <- c(feedback_parts, "**❌ STAP 1.3 - CENTRALITEIT:** Fouten gevonden")
+            feedback_parts <- c(feedback_parts, central_errors)
           } else {
-            feedback_parts[length(feedback_parts)] <- "**✅ STAP 1.3 - CENTRALITEIT:** Alle centraliteitsmaten correct berekend!"
+            feedback_parts <- c(feedback_parts, "**✅ STAP 1.3 - CENTRALITEIT:** Alle centraliteitsmaten correct berekend!")
             feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "📊 **Centraliteitsmaten samenvatting:**")
             feedback_parts <- c(feedback_parts, "• **Modus:** 36 (komt 7x voor)")
