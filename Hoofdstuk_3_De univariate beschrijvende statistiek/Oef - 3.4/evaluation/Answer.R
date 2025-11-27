@@ -534,50 +534,172 @@ context({
             feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** ❌")
           }
           
-          # Add explanation for wrong answers like in 3.5
+          # Add comprehensive explanation for wrong answers like in 3.5
           if (correct_count != total_questions) {
             feedback_parts <- c(feedback_parts, "\n**📚 Uitleg waarom deze antwoorden fout zijn:**")
             
-            # Show wrong student answers with explanations
-            if ("gemiddelde" %in% names(results) && !results$gemiddelde$correct && results$gemiddelde$exists) {
-              student_answer <- as.numeric(results$gemiddelde$value)
-              feedback_parts <- c(feedback_parts, paste0("• **Gemiddelde**: Je gaf ", student_answer, ", maar correct is **238.91**"))
+            # Show wrong student answers with detailed explanations
+            if ("gemiddelde" %in% names(results) && !results$gemiddelde$correct) {
+              if (!results$gemiddelde$exists) {
+                feedback_parts <- c(feedback_parts, "• **Gemiddelde**: ❌ Variabele niet gevonden. Som alle waarden en deel door n=11: (2+14+26+30+72+143+144+150+150+240+1657)/11 = **238.91**")
+              } else {
+                student_answer <- as.numeric(results$gemiddelde$value)
+                if (abs(student_answer - 216.27) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Gemiddelde**: Je gaf ", student_answer, ", maar dit is fout. Je gebruikte waarschijnlijk 10 in plaats van 11 als n. Correct: 2628/11 = **238.91**"))
+                } else if (abs(student_answer - 143) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Gemiddelde**: Je gaf ", student_answer, ", maar dit is de mediaan, niet het gemiddelde. Som alle waarden: 2628/11 = **238.91**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Gemiddelde**: Je gaf ", student_answer, ", maar correct is **238.91**. Som: 2+14+26+30+72+143+144+150+150+240+1657 = 2628, dan 2628/11 = 238.91"))
+                }
+              }
             }
-            if ("mediaan" %in% names(results) && !results$mediaan$correct && results$mediaan$exists) {
-              student_answer <- as.numeric(results$mediaan$value)
-              feedback_parts <- c(feedback_parts, paste0("• **Mediaan**: Je gaf ", student_answer, ", maar correct is **143** (6de waarde van 11)"))
+            
+            if ("mediaan" %in% names(results) && !results$mediaan$correct) {
+              if (!results$mediaan$exists) {
+                feedback_parts <- c(feedback_parts, "• **Mediaan**: ❌ Variabele niet gevonden. Bij n=11 is mediaan de 6de waarde in gesorteerde lijst: **143**")
+              } else {
+                student_answer <- as.numeric(results$mediaan$value)
+                if (abs(student_answer - 238.91) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Mediaan**: Je gaf ", student_answer, ", maar dit is het gemiddelde, niet de mediaan. Sorteer data en neem middelste (6de) waarde: **143**"))
+                } else if (abs(student_answer - 72) < 0.5 || abs(student_answer - 144) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Mediaan**: Je gaf ", student_answer, ", maar bij n=11 is mediaan positie (11+1)/2 = 6. De 6de waarde is **143**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Mediaan**: Je gaf ", student_answer, ", maar correct is **143** (6de waarde van gesorteerde data: 2,14,26,30,72,**143**,144,150,150,240,1657)"))
+                }
+              }
             }
-            if ("modus" %in% names(results) && !results$modus$correct && results$modus$exists) {
-              student_answer <- as.character(results$modus$value)
-              feedback_parts <- c(feedback_parts, paste0("• **Modus**: Je gaf ", student_answer, ", maar correct is **150** (komt 2x voor)"))
+            
+            if ("modus" %in% names(results) && !results$modus$correct) {
+              if (!results$modus$exists) {
+                feedback_parts <- c(feedback_parts, "• **Modus**: ❌ Variabele niet gevonden. Zoek waarde die meest voorkomt: **150** (komt 2x voor)")
+              } else {
+                student_answer <- as.character(results$modus$value)
+                if (student_answer == "143") {
+                  feedback_parts <- c(feedback_parts, paste0("• **Modus**: Je gaf ", student_answer, ", maar dit komt maar 1x voor. **150** komt 2x voor en is dus de modus"))
+                } else if (student_answer == "geen" || student_answer == "NA") {
+                  feedback_parts <- c(feedback_parts, paste0("• **Modus**: Je zei er is geen modus, maar **150** komt 2x voor terwijl alle andere waarden 1x voorkomen"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Modus**: Je gaf ", student_answer, ", maar correct is **150** (komt 2x voor in de dataset)"))
+                }
+              }
             }
-            if ("variatiebreedte" %in% names(results) && !results$variatiebreedte$correct && results$variatiebreedte$exists) {
-              student_answer <- as.numeric(results$variatiebreedte$value)
-              feedback_parts <- c(feedback_parts, paste0("• **Range**: Je gaf ", student_answer, ", maar correct is 1657-2 = **1655**"))
+            
+            if ("variatiebreedte" %in% names(results) && !results$variatiebreedte$correct) {
+              if (!results$variatiebreedte$exists) {
+                feedback_parts <- c(feedback_parts, "• **Range**: ❌ Variabele niet gevonden. Range = maximum - minimum: 1657 - 2 = **1655**")
+              } else {
+                student_answer <- as.numeric(results$variatiebreedte$value)
+                if (abs(student_answer - 1659) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Range**: Je gaf ", student_answer, ", maar dit is fout. Je gebruikte 1657 + 2. Correct: maximum (1657) - minimum (2) = **1655**"))
+                } else if (abs(student_answer - 238) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Range**: Je gaf ", student_answer, ", maar dit lijkt op 240-2. Je vergat de extreme waarde 1657. Correct: 1657 - 2 = **1655**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Range**: Je gaf ", student_answer, ", maar correct is 1657 - 2 = **1655**"))
+                }
+              }
             }
-            if ("q1" %in% names(results) && !results$q1$correct && results$q1$exists) {
-              student_answer <- as.numeric(results$q1$value)
-              feedback_parts <- c(feedback_parts, paste0("• **Q1**: Je gaf ", student_answer, ", maar correct is **26**"))
+            
+            if ("q1" %in% names(results) && !results$q1$correct) {
+              if (!results$q1$exists) {
+                feedback_parts <- c(feedback_parts, "• **Q1**: ❌ Variabele niet gevonden. Bij n=11 is Q1 de 3de waarde in gesorteerde lijst: **26**")
+              } else {
+                student_answer <- as.numeric(results$q1$value)
+                if (abs(student_answer - 14) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Q1**: Je gaf ", student_answer, " (2de waarde), maar Q1 is 25% punt = (11+1)/4 = 3de positie: **26**"))
+                } else if (abs(student_answer - 30) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Q1**: Je gaf ", student_answer, " (4de waarde), maar Q1 is 25% punt = positie 3: **26**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Q1**: Je gaf ", student_answer, ", maar correct is **26** (3de waarde van gesorteerde data)"))
+                }
+              }
             }
-            if ("q3" %in% names(results) && !results$q3$correct && results$q3$exists) {
-              student_answer <- as.numeric(results$q3$value)
-              feedback_parts <- c(feedback_parts, paste0("• **Q3**: Je gaf ", student_answer, ", maar correct is **150**"))
+            
+            if ("q3" %in% names(results) && !results$q3$correct) {
+              if (!results$q3$exists) {
+                feedback_parts <- c(feedback_parts, "• **Q3**: ❌ Variabele niet gevonden. Bij n=11 is Q3 de 9de waarde in gesorteerde lijst: **150**")
+              } else {
+                student_answer <- as.numeric(results$q3$value)
+                if (abs(student_answer - 144) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Q3**: Je gaf ", student_answer, " (7de waarde), maar Q3 is 75% punt = 3*(11+1)/4 = 9de positie: **150**"))
+                } else if (abs(student_answer - 240) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Q3**: Je gaf ", student_answer, " (10de waarde), maar Q3 is positie 9: **150**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Q3**: Je gaf ", student_answer, ", maar correct is **150** (9de waarde van gesorteerde data)"))
+                }
+              }
             }
-            if ("ika" %in% names(results) && !results$ika$correct && results$ika$exists) {
-              student_answer <- as.numeric(results$ika$value)
-              feedback_parts <- c(feedback_parts, paste0("• **IKA**: Je gaf ", student_answer, ", maar correct is 150-26 = **124**"))
+            
+            if ("ika" %in% names(results) && !results$ika$correct) {
+              if (!results$ika$exists) {
+                feedback_parts <- c(feedback_parts, "• **IKA**: ❌ Variabele niet gevonden. IKA = Q3 - Q1: 150 - 26 = **124**")
+              } else {
+                student_answer <- as.numeric(results$ika$value)
+                if (abs(student_answer - 126) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **IKA**: Je gaf ", student_answer, ", maar dit is 150-24. Check je Q1 en Q3: IKA = 150 - 26 = **124**"))
+                } else if (abs(student_answer - 176) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("• **IKA**: Je gaf ", student_answer, ", maar dit is Q3 + Q1. IKA = Q3 - Q1 = 150 - 26 = **124**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **IKA**: Je gaf ", student_answer, ", maar correct is Q3 - Q1 = 150 - 26 = **124**"))
+                }
+              }
             }
-            if ("sum_of_squares" %in% names(results) && !results$sum_of_squares$correct && results$sum_of_squares$exists) {
-              student_answer <- as.numeric(results$sum_of_squares$value)
-              feedback_parts <- c(feedback_parts, paste0("• **Som gekwadrateerde afwijkingen**: Je gaf ", format(student_answer, big.mark=","), ", maar correct is **2,268,540.92**"))
+            
+            if ("sum_of_squares" %in% names(results) && !results$sum_of_squares$correct) {
+              if (!results$sum_of_squares$exists) {
+                feedback_parts <- c(feedback_parts, "• **Som gekwadrateerde afwijkingen**: ❌ Variabele niet gevonden. Som alle (Xi - X̄)²: **2,268,540.92**")
+              } else {
+                student_answer <- as.numeric(results$sum_of_squares$value)
+                if (abs(student_answer - 206230.84) < 100) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Som gekwadrateerde afwijkingen**: Je gaf ", format(student_answer, big.mark=","), ", maar je deelde al door n-1. We willen alleen de som: **2,268,540.92**"))
+                } else if (abs(student_answer - 0) < 0.1) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Som gekwadrateerde afwijkingen**: Je gaf ", student_answer, ", maar dit klopt niet. Som alle (Xi-238.91)²: **2,268,540.92**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Som gekwadrateerde afwijkingen**: Je gaf ", format(student_answer, big.mark=","), ", maar correct is **2,268,540.92**"))
+                }
+              }
             }
-            if ("variantie" %in% names(results) && !results$variantie$correct && results$variantie$exists) {
-              student_answer <- as.numeric(results$variantie$value)
-              feedback_parts <- c(feedback_parts, paste0("• **Variantie**: Je gaf ", format(student_answer, big.mark=","), ", maar correct is som/(n-1) = **226,854.09**"))
+            
+            if ("variantie" %in% names(results) && !results$variantie$correct) {
+              if (!results$variantie$exists) {
+                feedback_parts <- c(feedback_parts, "• **Variantie**: ❌ Variabele niet gevonden. Voor steekproef: Som/(n-1) = 2,268,540.92/10 = **226,854.09**")
+              } else {
+                student_answer <- as.numeric(results$variantie$value)
+                if (abs(student_answer - 206230.84) < 100) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Variantie**: Je gaf ", format(student_answer, big.mark=","), ", maar je deelde door n (11). Voor steekproef deel door n-1: 2,268,540.92/10 = **226,854.09**"))
+                } else if (abs(student_answer - 2268540.92) < 100) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Variantie**: Je gaf ", format(student_answer, big.mark=","), ", maar dit is de som zelf. Deel door n-1: 2,268,540.92/10 = **226,854.09**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Variantie**: Je gaf ", format(student_answer, big.mark=","), ", maar correct is som/(n-1) = **226,854.09**"))
+                }
+              }
             }
-            if ("standaardafwijking" %in% names(results) && !results$standaardafwijking$correct && results$standaardafwijking$exists) {
-              student_answer <- as.numeric(results$standaardafwijking$value)
-              feedback_parts <- c(feedback_parts, paste0("• **Standaardafwijking**: Je gaf ", student_answer, ", maar correct is √variantie = **476.29**"))
+            
+            if ("standaardafwijking" %in% names(results) && !results$standaardafwijking$correct) {
+              if (!results$standaardafwijking$exists) {
+                feedback_parts <- c(feedback_parts, "• **Standaardafwijking**: ❌ Variabele niet gevonden. Standaardafwijking = √variantie = √226,854.09 = **476.29**")
+              } else {
+                student_answer <- as.numeric(results$standaardafwijking$value)
+                if (abs(student_answer - 226854.09) < 100) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Standaardafwijking**: Je gaf ", format(student_answer, big.mark=","), ", maar dit is de variantie. Trek de wortel: √226,854.09 = **476.29**"))
+                } else if (abs(student_answer - 454.12) < 1) {
+                  feedback_parts <- c(feedback_parts, paste0("• **Standaardafwijking**: Je gaf ", student_answer, ", maar je gebruikte n in plaats van n-1. Correct: √(som/(n-1)) = **476.29**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Standaardafwijking**: Je gaf ", student_answer, ", maar correct is √variantie = √226,854.09 = **476.29**"))
+                }
+              }
+            }
+            
+            # Add explanations for frequency and percentage errors
+            freq_vars <- c("freq_2", "freq_14", "freq_26", "freq_30", "freq_72", "freq_143", "freq_144", "freq_150", "freq_240", "freq_1657")
+            wrong_freqs <- sapply(freq_vars, function(x) x %in% names(results) && !results[[x]]$correct)
+            if (any(wrong_freqs)) {
+              feedback_parts <- c(feedback_parts, "• **Frequenties fout**: Tel elke waarde in dataset: 2(1x), 14(1x), 26(1x), 30(1x), 72(1x), 143(1x), 144(1x), **150(2x)**, 240(1x), 1657(1x)")
+            }
+            
+            percent_vars <- c("percent_2", "percent_14", "percent_26", "percent_30", "percent_72", "percent_143", "percent_144", "percent_150", "percent_240", "percent_1657")
+            wrong_percents <- sapply(percent_vars, function(x) x %in% names(results) && !results[[x]]$correct)
+            if (any(wrong_percents)) {
+              feedback_parts <- c(feedback_parts, "• **Percentages fout**: Gebruik formule (frequentie/totaal_n) × 100. Bijvoorbeeld voor 150: (2/11) × 100 = 18.2%")
             }
           }
           
