@@ -533,7 +533,6 @@ context({
           } else {
             feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** ❌")
           }
-          }
           
           # Add explanation for wrong answers like in 3.5
           if (correct_count != total_questions) {
