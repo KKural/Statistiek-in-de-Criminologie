@@ -520,6 +520,143 @@ context({
             }
           }
           
+          # ----------------------
+          # GEDETAILLEERDE UITLEG BIJ FOUTEN
+          # ----------------------
+          if (correct_count != total_questions) {
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "📚 **GEDETAILLEERDE UITLEG VAN FOUTEN:**")
+            feedback_parts <- c(feedback_parts, "")
+            
+            # Helper function for detailed explanations
+            make_explanation <- function(var_name, expected_val, student_val) {
+              # Cumulatieve absolute frequenties
+              if (grepl("^cumulatieve_absolute_frequenties_", var_name)) {
+                cat_name <- sub("^cumulatieve_absolute_frequenties_", "", var_name)
+                cat_display <- switch(cat_name,
+                  "zeer_ontevreden" = "zeer ontevreden",
+                  "ontevreden" = "ontevreden",
+                  "noch_tevreden_noch_ontevreden" = "noch tevreden, noch ontevreden",
+                  "tevreden" = "tevreden",
+                  "zeer_tevreden" = "zeer tevreden",
+                  cat_name
+                )
+                
+                # Show calculation based on which cumulative
+                if (cat_name == "zeer_ontevreden") {
+                  return(paste0("**Cumulatieve absolute frequentie - ", cat_display, ":** Tel alle frequenties van begin tot en met deze categorie op: 33 = **33**"))
+                } else if (cat_name == "ontevreden") {
+                  return(paste0("**Cumulatieve absolute frequentie - ", cat_display, ":** 33 + 84 = **117**"))
+                } else if (cat_name == "noch_tevreden_noch_ontevreden") {
+                  return(paste0("**Cumulatieve absolute frequentie - ", cat_display, ":** 33 + 84 + 102 = **219**"))
+                } else if (cat_name == "tevreden") {
+                  return(paste0("**Cumulatieve absolute frequentie - ", cat_display, ":** 33 + 84 + 102 + 63 = **282**"))
+                } else if (cat_name == "zeer_tevreden") {
+                  return(paste0("**Cumulatieve absolute frequentie - ", cat_display, ":** 33 + 84 + 102 + 63 + 48 = **330** (totaal)"))
+                }
+              }
+              
+              # Relatieve frequenties
+              if (grepl("^relatieve_frequenties_", var_name)) {
+                cat_name <- sub("^relatieve_frequenties_", "", var_name)
+                cat_display <- switch(cat_name,
+                  "zeer_ontevreden" = "zeer ontevreden (freq: 33)",
+                  "ontevreden" = "ontevreden (freq: 84)",
+                  "noch_tevreden_noch_ontevreden" = "noch tevreden, noch ontevreden (freq: 102)",
+                  "tevreden" = "tevreden (freq: 63)",
+                  "zeer_tevreden" = "zeer tevreden (freq: 48)",
+                  cat_name
+                )
+                return(paste0("**Relatieve frequentie - ", cat_display, ":** frequentie ÷ totaal (330) = **", format(expected_val, digits=4), "**"))
+              }
+              
+              # Cumulatieve relatieve frequenties
+              if (grepl("^cumulatieve_relatieve_frequenties_", var_name)) {
+                cat_name <- sub("^cumulatieve_relatieve_frequenties_", "", var_name)
+                cat_display <- switch(cat_name,
+                  "zeer_ontevreden" = "zeer ontevreden",
+                  "ontevreden" = "ontevreden",
+                  "noch_tevreden_noch_ontevreden" = "noch tevreden, noch ontevreden",
+                  "tevreden" = "tevreden",
+                  "zeer_tevreden" = "zeer tevreden",
+                  cat_name
+                )
+                return(paste0("**Cumulatieve relatieve frequentie - ", cat_display, ":** som van relatieve frequenties tot en met deze categorie = **", format(expected_val, digits=4), "**"))
+              }
+              
+              # Meetniveau
+              if (var_name == "meetniveau") {
+                return("**Meetniveau:** Tevredenheid heeft een natuurlijke volgorde (zeer ontevreden < ontevreden < noch < tevreden < zeer tevreden), dus het is **ordinaal**")
+              }
+              
+              # Totaal N
+              if (var_name == "totaal_n") {
+                return("**Totaal N:** Tel alle frequenties bij elkaar: 33 + 84 + 102 + 63 + 48 = **330**")
+              }
+              
+              # Modus
+              if (var_name == "modus") {
+                return("**Modus:** De meest voorkomende waarde. Frequenties: zeer ontevreden(33), ontevreden(84), noch(102), tevreden(63), zeer tevreden(48). Hoogste frequentie is 102, dus **noch tevreden, noch ontevreden**")
+              }
+              
+              # Mediaan
+              if (var_name == "mediaan") {
+                return("**Mediaan:** De middelste waarde. Bij N=330 ligt de mediaan bij positie (330+1)/2 = 165.5. Kijk in cumulatieve frequenties: 117 < 165.5 < 219, dus het ligt in categorie **noch tevreden, noch ontevreden**")
+              }
+              
+              # Meest relevante centraliteit
+              if (var_name == "meest_relevante_centraliteit") {
+                return("**Meest relevante centraliteitsmaat:** Voor ordinale data zijn gemiddelde niet geschikt (geen gelijke afstanden). Gebruik **mediaan** (of modus). Mediaan is beter dan modus omdat het alle waarden betrekt via cumulatieve frequenties")
+              }
+              
+              # Q1
+              if (var_name == "q1") {
+                return("**Q1 (eerste kwartiel):** 25e percentiel. Positie: (330+1)/4 = 82.75. Kijk in cumulatieve frequenties: 33 < 82.75 < 117, dus Q1 = **ontevreden**")
+              }
+              
+              # Q3
+              if (var_name == "q3") {
+                return("**Q3 (derde kwartiel):** 75e percentiel. Positie: 3×(330+1)/4 = 247.75. Kijk in cumulatieve frequenties: 219 < 247.75 < 282, dus Q3 = **tevreden**")
+              }
+              
+              # Variatiebreedte
+              if (var_name == "variatiebreedte") {
+                return("**Variatiebreedte:** Het bereik van laagste tot hoogste categorie = **zeer ontevreden tot zeer tevreden** (alle 5 categorieën)")
+              }
+              
+              # IKA
+              if (var_name == "ika") {
+                return("**IKA (interkwartielafstand):** Het bereik van Q1 tot Q3 = **ontevreden tot tevreden** (middelste 50% van de data)")
+              }
+              
+              return(paste0("**", var_name, "**"))
+            }
+            
+            # Toon alleen foute variabelen met uitleg
+            wrong_vars <- names(results)[sapply(results, function(x) x$exists && !x$correct)]
+            
+            if (length(wrong_vars) > 0) {
+              for (var in wrong_vars) {
+                student_val <- results[[var]]$value
+                expected_val <- results[[var]]$expected
+                
+                explanation <- make_explanation(var, expected_val, student_val)
+                if (is.numeric(student_val)) {
+                  student_str <- format(as.numeric(student_val), digits = 4)
+                } else {
+                  student_str <- as.character(student_val)
+                }
+                if (is.numeric(expected_val)) {
+                  expected_str <- format(as.numeric(expected_val), digits = 4)
+                } else {
+                  expected_str <- as.character(expected_val)
+                }
+                
+                feedback_parts <- c(feedback_parts, paste0("• ", explanation, " (je gaf: ", student_str, ")"))
+              }
+            }
+          }
+          
           feedback_parts <- c(
             feedback_parts,
             "",
