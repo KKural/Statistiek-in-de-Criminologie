@@ -16,6 +16,15 @@ context({
           expected_variance <- 7.5
           expected_sd <- 2.74
           
+          # Individual expected values for each step
+          individual_deviations <- c("afwijking_2", "afwijking_7", "afwijking_10", "afwijking_5", "afwijking_6", 
+                                   "afwijking_8", "afwijking_3", "afwijking_4", "afwijking_9")
+          individual_expected_dev <- c(-4, 1, 4, -1, 0, 2, -3, -2, 3)
+          
+          individual_squared <- c("gekw_afwijking_2", "gekw_afwijking_7", "gekw_afwijking_10", "gekw_afwijking_5", "gekw_afwijking_6",
+                                "gekw_afwijking_8", "gekw_afwijking_3", "gekw_afwijking_4", "gekw_afwijking_9")
+          individual_expected_sq <- c(16, 1, 16, 1, 0, 4, 9, 4, 9)
+          
           # -----------------------------
           # STEP 1: MEAN CALCULATION
           # -----------------------------
@@ -114,6 +123,46 @@ context({
             results$gekozen_spreidingsmaat <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_sd)
           }
           
+          # -----------------------------
+          # INDIVIDUAL STEP VALIDATION
+          # -----------------------------
+          
+          # Individual deviations
+          for (i in 1:length(individual_deviations)) {
+            var_name <- individual_deviations[i]
+            expected_val <- individual_expected_dev[i]
+            
+            if (exists(var_name, envir = env)) {
+              current_val <- as.numeric(get(var_name, envir = env))
+              results[[var_name]] <- list(
+                exists = TRUE,
+                value = current_val,
+                correct = abs(current_val - expected_val) < 0.01,
+                expected = expected_val
+              )
+            } else {
+              results[[var_name]] <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_val)
+            }
+          }
+          
+          # Individual squared deviations
+          for (i in 1:length(individual_squared)) {
+            var_name <- individual_squared[i]
+            expected_val <- individual_expected_sq[i]
+            
+            if (exists(var_name, envir = env)) {
+              current_val <- as.numeric(get(var_name, envir = env))
+              results[[var_name]] <- list(
+                exists = TRUE,
+                value = current_val,
+                correct = abs(current_val - expected_val) < 0.01,
+                expected = expected_val
+              )
+            } else {
+              results[[var_name]] <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_val)
+            }
+          }
+          
           # Store results for comparator
           assign("detailed_results", results, envir = globalenv())
           
@@ -191,8 +240,99 @@ context({
                   feedback_lines <- c(feedback_lines, "• **GEMIDDELDE BEREKENING:** Data: 2,7,10,5,6,8,3,4,9. Som = 54, gemiddelde = 54/9 = 6")
                 } else if (abs(student_mean - 6.67) < 0.01) {
                   feedback_lines <- c(feedback_lines, "• **GEMIDDELDE AFRONDINGSFOUT:** Gebruik exacte waarde: 54/9 = 6.000")
+                } else if (abs(student_mean - 6.5) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE MEDIAAN FOUT:** Je berekende de mediaan. Gemiddelde = som alle waarden / aantal = 54/9 = 6")
                 }
               }
+            }
+            
+            # ======================
+            # INDIVIDUAL DEVIATION ERRORS
+            # ======================
+            
+            # Check specific individual deviations for common mistakes
+            individual_dev_errors <- c()
+            
+            if ("afwijking_2" %in% names(results) && !results$afwijking_2$correct && results$afwijking_2$exists) {
+              student_dev2 <- as.numeric(results$afwijking_2$value)
+              if (!is.na(student_dev2)) {
+                if (student_dev2 == 4) {
+                  individual_dev_errors <- c(individual_dev_errors, "afwijking_2: Verkeerd teken! 2-6 = -4 (negatief)")
+                } else if (abs(student_dev2 - (-3.6)) < 0.1) {
+                  individual_dev_errors <- c(individual_dev_errors, "afwijking_2: Verkeerd gemiddelde gebruikt. 2-6 = -4")
+                }
+              }
+            }
+            
+            if ("afwijking_10" %in% names(results) && !results$afwijking_10$correct && results$afwijking_10$exists) {
+              student_dev10 <- as.numeric(results$afwijking_10$value)
+              if (!is.na(student_dev10)) {
+                if (student_dev10 == -4) {
+                  individual_dev_errors <- c(individual_dev_errors, "afwijking_10: Verkeerd teken! 10-6 = +4 (positief)")
+                } else if (abs(student_dev10 - 3.6) < 0.1) {
+                  individual_dev_errors <- c(individual_dev_errors, "afwijking_10: Verkeerd gemiddelde gebruikt. 10-6 = 4")
+                }
+              }
+            }
+            
+            if ("afwijking_6" %in% names(results) && !results$afwijking_6$correct && results$afwijking_6$exists) {
+              student_dev6 <- as.numeric(results$afwijking_6$value)
+              if (!is.na(student_dev6)) {
+                if (abs(student_dev6) > 0.01) {
+                  individual_dev_errors <- c(individual_dev_errors, "afwijking_6: 6-6 = 0 (gemiddelde heeft afwijking nul)")
+                }
+              }
+            }
+            
+            if (length(individual_dev_errors) > 0) {
+              feedback_lines <- c(feedback_lines, "• **INDIVIDUELE AFWIJKING FOUTEN:**")
+              feedback_lines <- c(feedback_lines, paste0("  - ", individual_dev_errors))
+            }
+            
+            # ======================
+            # INDIVIDUAL SQUARED DEVIATION ERRORS  
+            # ======================
+            
+            individual_sq_errors <- c()
+            
+            if ("gekw_afwijking_2" %in% names(results) && !results$gekw_afwijking_2$correct && results$gekw_afwijking_2$exists) {
+              student_sq2 <- as.numeric(results$gekw_afwijking_2$value)
+              if (!is.na(student_sq2)) {
+                if (student_sq2 == 4) {
+                  individual_sq_errors <- c(individual_sq_errors, "gekw_afwijking_2: Je vergat te kwadrateren. (-4)² = 16")
+                } else if (student_sq2 == -16) {
+                  individual_sq_errors <- c(individual_sq_errors, "gekw_afwijking_2: Kwadraat is altijd positief! (-4)² = 16")
+                } else if (student_sq2 == 4) {
+                  individual_sq_errors <- c(individual_sq_errors, "gekw_afwijking_2: Gebruik originele data, niet waarde. (2-6)² = (-4)² = 16")
+                }
+              }
+            }
+            
+            if ("gekw_afwijking_6" %in% names(results) && !results$gekw_afwijking_6$correct && results$gekw_afwijking_6$exists) {
+              student_sq6 <- as.numeric(results$gekw_afwijking_6$value)
+              if (!is.na(student_sq6)) {
+                if (student_sq6 == 36) {
+                  individual_sq_errors <- c(individual_sq_errors, "gekw_afwijking_6: Je kwadrateerde originele waarde. (6-6)² = 0² = 0")
+                } else if (abs(student_sq6) > 0.01) {
+                  individual_sq_errors <- c(individual_sq_errors, "gekw_afwijking_6: Gemiddelde heeft afwijking 0, dus 0² = 0")
+                }
+              }
+            }
+            
+            if ("gekw_afwijking_10" %in% names(results) && !results$gekw_afwijking_10$correct && results$gekw_afwijking_10$exists) {
+              student_sq10 <- as.numeric(results$gekw_afwijking_10$value)
+              if (!is.na(student_sq10)) {
+                if (student_sq10 == 100) {
+                  individual_sq_errors <- c(individual_sq_errors, "gekw_afwijking_10: Je kwadrateerde originele waarde. (10-6)² = 4² = 16")
+                } else if (student_sq10 == 4) {
+                  individual_sq_errors <- c(individual_sq_errors, "gekw_afwijking_10: Je vergat te kwadrateren. 4² = 16")
+                }
+              }
+            }
+            
+            if (length(individual_sq_errors) > 0) {
+              feedback_lines <- c(feedback_lines, "• **INDIVIDUELE GEKWADRATEERDE AFWIJKING FOUTEN:**")
+              feedback_lines <- c(feedback_lines, paste0("  - ", individual_sq_errors))
             }
             
             # ======================
@@ -309,6 +449,91 @@ context({
                   feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE TE HOOG:** Check variantie berekening. SD = √7.5 = 2.74")
                 }
               }
+            }
+            
+            # ======================
+            # VARIANCE & STANDARD DEVIATION ERRORS
+            # ======================
+            
+            if (!results$variantie_incidenten$correct && results$variantie_incidenten$exists) {
+              student_var <- as.numeric(results$variantie_incidenten$value)
+              if (!is.na(student_var)) {
+                if (abs(student_var - 7.11) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE n FOUT:** Je deelde door n=9 ipv n-1=8. Steekproefvariantie = 64/8 = 8")
+                } else if (abs(student_var - 64) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE GEEN DELING:** Je vergat te delen door n-1. Variantie = som gekwadrateerde afwijkingen / (n-1)")
+                } else if (abs(student_var - 6.4) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE DELING FOUT:** Je deelde door 10. Correct: 64/8 = 8")
+                } else if (abs(student_var - 32) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE HALVE SOM:** Je gebruikte halve som. Som gekwadrateerde afwijkingen = 64, niet 32")
+                } else if (student_var < 6 || student_var > 10) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE BEREKENING:** Som gekwadrateerde afwijkingen = 64, variantie = 64/8 = 8")
+                } else if (abs(student_var - 5.33) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE SOM FOUT:** Check som gekwadrateerde afwijkingen: 16+1+16+1+0+4+9+4+9 = 64")
+                } else if (abs(student_var - 7.5) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **VARIANTIE AFRONDING:** Gebruik exacte waarde: 64/8 = 8.000")
+                }
+              }
+            }
+            
+            if (!results$standaarddeviatie_incidenten$correct && results$standaarddeviatie_incidenten$exists) {
+              student_sd <- as.numeric(results$standaarddeviatie_incidenten$value)
+              if (!is.na(student_sd)) {
+                if (abs(student_sd - 8) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE WORTEL:** Standaarddeviatie = √variantie = √8 = 2.828")
+                } else if (abs(student_sd - 64) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE BASIS:** Gebruik eerst variantie = 64/8 = 8, dan √8 = 2.828")
+                } else if (abs(student_sd - 2.67) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE n FOUT:** Je gebruikte n ipv n-1. √(64/8) = √8 = 2.828")
+                } else if (abs(student_sd - 2.53) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE DELING:** Je deelde door 10. √(64/8) = 2.828")
+                } else if (abs(student_sd - 5.66) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE HALVE:** Je gebruikte √32. Correct: √(64/8) = √8 = 2.828")
+                } else if (abs(student_sd - 2.3) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE SOM:** Check som gekwadrateerde afwijkingen = 64, dan √(64/8) = 2.828")
+                } else if (student_sd < 2 || student_sd > 4) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE BEREKENING:** √8 ≈ 2.828")
+                } else if (abs(student_sd - 2.74) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE AFRONDING:** Gebruik meer decimalen: √8 = 2.828")
+                } else if (abs(student_sd - 2.8) < 0.01) {
+                  feedback_lines <- c(feedback_lines, "• **STANDAARDDEVIATIE PRECISIE:** √8 = 2.828 (3 decimalen)")
+                }
+              }
+            }
+            
+            # ======================
+            # COMPREHENSIVE PATTERN DETECTION
+            # ======================
+            
+            # Detect systematic calculation errors across multiple variables
+            systematic_errors <- c()
+            
+            # Check for consistent n vs n-1 confusion
+            if (results$variantie_incidenten$exists && !results$variantie_incidenten$correct) {
+              student_var <- as.numeric(results$variantie_incidenten$value)
+              if (!is.na(student_var) && abs(student_var - 7.11) < 0.01) {
+                systematic_errors <- c(systematic_errors, "n_vs_n1")
+              }
+            }
+            
+            # Check for consistent sign errors in deviations
+            if ("afwijking_2" %in% names(results) && "afwijking_10" %in% names(results)) {
+              if (results$afwijking_2$exists && results$afwijking_10$exists) {
+                dev2 <- as.numeric(results$afwijking_2$value)
+                dev10 <- as.numeric(results$afwijking_10$value)
+                if (!is.na(dev2) && !is.na(dev10) && dev2 > 0 && dev10 < 0) {
+                  systematic_errors <- c(systematic_errors, "sign_pattern")
+                }
+              }
+            }
+            
+            # Provide systematic feedback if patterns detected
+            if ("n_vs_n1" %in% systematic_errors) {
+              feedback_lines <- c(feedback_lines, "• **SYSTEMATISCHE n FOUT:** Let op verschil: gemiddelde gebruikt n, variantie gebruikt n-1 voor steekproeven")
+            }
+            
+            if ("sign_pattern" %in% systematic_errors) {
+              feedback_lines <- c(feedback_lines, "• **SYSTEMATISCHE TEKEN FOUT:** Afwijkingen behouden richting: kleiner dan gemiddelde = negatief, groter = positief")
             }
             
             # ======================
