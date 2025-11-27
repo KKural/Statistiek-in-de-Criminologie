@@ -3,7 +3,7 @@ context({
     "",
     {
       testEqual(
-        "",
+        " ",
         function(env) {
           # Use the provided environment (env) instead of globalenv()
           results <- list()
@@ -17,10 +17,7 @@ context({
           expected_variance <- 7.5  # Sample variance: 60/(9-1) = 60/8 = 7.5
           expected_sd <- sqrt(7.5)  # sqrt(7.5) = 2.7386... ≈ 2.74
           
-          # -----------------------------
-          # STEP 1: MEAN CALCULATION
-          # -----------------------------
-          
+          # STEP 1.1: GEMIDDELDE
           if (exists("gemiddelde_incidenten", envir = env)) {
             current_val <- as.numeric(get("gemiddelde_incidenten", envir = env))
             results$gemiddelde_incidenten <- list(
@@ -33,17 +30,12 @@ context({
             results$gemiddelde_incidenten <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_mean)
           }
           
-          # -----------------------------
-          # STEP 2: DEVIATIONS
-          # -----------------------------
-          
+          # STEP 2.1: AFWIJKINGEN
           if (exists("afwijkingen", envir = env)) {
             current_val <- get("afwijkingen", envir = env)
-            # Handle both vector input and single values
             if (is.numeric(current_val)) {
               current_val <- as.numeric(current_val)
             } else {
-              # Try to evaluate if it's an expression
               tryCatch({
                 current_val <- as.numeric(eval(current_val, envir = env))
               }, error = function(e) {
@@ -61,40 +53,12 @@ context({
             results$afwijkingen <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_deviations)
           }
           
-          # Individual deviations
-          incidenten <- c(2, 7, 10, 5, 6, 8, 3, 4, 9)
-          individual_deviations <- c("afwijking_2", "afwijking_7", "afwijking_10", "afwijking_5", "afwijking_6", 
-                                   "afwijking_8", "afwijking_3", "afwijking_4", "afwijking_9")
-          individual_expected_dev <- c(-4, 1, 4, -1, 0, 2, -3, -2, 3)
-          
-          for (i in 1:length(individual_deviations)) {
-            var_name <- individual_deviations[i]
-            expected_val <- individual_expected_dev[i]
-            
-            if (exists(var_name, envir = env)) {
-              current_val <- as.numeric(get(var_name, envir = env))
-              results[[var_name]] <- list(
-                exists = TRUE,
-                value = current_val,
-                correct = abs(current_val - expected_val) < 0.01,
-                expected = expected_val
-              )
-            } else {
-              results[[var_name]] <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_val)
-            }
-          }
-          
-          # -----------------------------
-          # STEP 3: SQUARED DEVIATIONS
-          # -----------------------------
-          
+          # STEP 2.2: GEKWADRATEERDE AFWIJKINGEN
           if (exists("gekwadrateerde_afwijkingen", envir = env)) {
             current_val <- get("gekwadrateerde_afwijkingen", envir = env)
-            # Handle both vector input and single values
             if (is.numeric(current_val)) {
               current_val <- as.numeric(current_val)
             } else {
-              # Try to evaluate if it's an expression
               tryCatch({
                 current_val <- as.numeric(eval(current_val, envir = env))
               }, error = function(e) {
@@ -112,39 +76,12 @@ context({
             results$gekwadrateerde_afwijkingen <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_squared)
           }
           
-          # Individual squared deviations
-          individual_squared <- c("gekw_afwijking_2", "gekw_afwijking_7", "gekw_afwijking_10", "gekw_afwijking_5", "gekw_afwijking_6",
-                                "gekw_afwijking_8", "gekw_afwijking_3", "gekw_afwijking_4", "gekw_afwijking_9")
-          individual_expected_sq <- c(16, 1, 16, 1, 0, 4, 9, 4, 9)
-          
-          for (i in 1:length(individual_squared)) {
-            var_name <- individual_squared[i]
-            expected_val <- individual_expected_sq[i]
-            
-            if (exists(var_name, envir = env)) {
-              current_val <- as.numeric(get(var_name, envir = env))
-              results[[var_name]] <- list(
-                exists = TRUE,
-                value = current_val,
-                correct = abs(current_val - expected_val) < 0.01,
-                expected = expected_val
-              )
-            } else {
-              results[[var_name]] <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_val)
-            }
-          }
-          
-          # -----------------------------
-          # STEP 4: SUM OF SQUARES
-          # -----------------------------
-          
+          # STEP 2.3: SOM VAN GEKWADRATEERDE AFWIJKINGEN
           if (exists("sum_of_squares", envir = env)) {
             current_val <- get("sum_of_squares", envir = env)
-            # Handle both numeric input and expressions
             if (is.numeric(current_val)) {
               current_val <- as.numeric(current_val)
             } else {
-              # Try to evaluate if it's an expression
               tryCatch({
                 current_val <- as.numeric(eval(current_val, envir = env))
               }, error = function(e) {
@@ -162,17 +99,12 @@ context({
             results$sum_of_squares <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_ss)
           }
           
-          # -----------------------------
-          # STEP 5: VARIANCE
-          # -----------------------------
-          
+          # STEP 3.1: VARIANTIE
           if (exists("variantie_incidenten", envir = env)) {
             current_val <- get("variantie_incidenten", envir = env)
-            # Handle both numeric input and expressions
             if (is.numeric(current_val)) {
               current_val <- as.numeric(current_val)
             } else {
-              # Try to evaluate if it's an expression
               tryCatch({
                 current_val <- as.numeric(eval(current_val, envir = env))
               }, error = function(e) {
@@ -190,17 +122,12 @@ context({
             results$variantie_incidenten <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_variance)
           }
           
-          # -----------------------------
-          # STEP 6: STANDARD DEVIATION
-          # -----------------------------
-          
+          # STEP 3.2: STANDAARDDEVIATIE
           if (exists("standaarddeviatie_incidenten", envir = env)) {
             current_val <- get("standaarddeviatie_incidenten", envir = env)
-            # Handle both numeric input and expressions
             if (is.numeric(current_val)) {
               current_val <- as.numeric(current_val)
             } else {
-              # Try to evaluate if it's an expression
               tryCatch({
                 current_val <- as.numeric(eval(current_val, envir = env))
               }, error = function(e) {
@@ -218,17 +145,12 @@ context({
             results$standaarddeviatie_incidenten <- list(exists = FALSE, value = NA, correct = FALSE, expected = expected_sd)
           }
           
-          # -----------------------------
-          # STEP 7: CHOICE OF SPREAD MEASURE
-          # -----------------------------
-          
+          # STEP 4.1: GEKOZEN SPREIDINGSMAAT
           if (exists("gekozen_spreidingsmaat", envir = env)) {
             current_val <- get("gekozen_spreidingsmaat", envir = env)
-            # Handle both string input and potential expressions
             if (is.character(current_val) || is.factor(current_val)) {
               current_val <- as.character(current_val)
             } else {
-              # Try to evaluate if it's an expression
               tryCatch({
                 current_val <- as.character(eval(current_val, envir = env))
               }, error = function(e) {
@@ -255,85 +177,198 @@ context({
         },
         TRUE,
         comparator = function(generated, expected, ...) {
+          # Get detailed results from global environment
           results <- get("detailed_results", envir = globalenv())
           
-          feedback_lines <- c()
-          correct_count <- sum(sapply(results, function(x) x$correct))
-          total_questions <- length(results)
+          # Create detailed output showing all variables
+          feedback_parts <- c("**Resultaten per onderdeel:**\n")
           
-          # ----------------------
-          # STEP-BY-STEP FEEDBACK
-          # ----------------------
+          variable_names <- c(
+            "gemiddelde_incidenten" = "1.1 Gemiddelde",
+            "afwijkingen" = "2.1 Afwijkingen", 
+            "gekwadrateerde_afwijkingen" = "2.2 Gekwadrateerde afwijkingen",
+            "sum_of_squares" = "2.3 Som gekwadrateerde afwijkingen",
+            "variantie_incidenten" = "3.1 Variantie",
+            "standaarddeviatie_incidenten" = "3.2 Standaarddeviatie",
+            "gekozen_spreidingsmaat" = "4.1 Gekozen spreidingsmaat"
+          )
           
-          if (results$gemiddelde_incidenten$correct) {
-            feedback_lines <- c(feedback_lines, "**1.1 GEMIDDELDE:** Som=54, n=9 → 54/9 = 6 ✅")
-          } else {
-            feedback_lines <- c(feedback_lines, "**1.1 GEMIDDELDE:** Som alle incidenten (54) / aantal (9) = 6 ❌")
-          }
-          
-          if (results$afwijkingen$correct) {
-            feedback_lines <- c(feedback_lines, "**2.1 AFWIJKINGEN:** X - 6 voor elke waarde ✅")
-          } else {
-            feedback_lines <- c(feedback_lines, "**2.1 AFWIJKINGEN:** Bereken incident - 6 voor elke waarde ❌")
-          }
-          
-          if (results$gekwadrateerde_afwijkingen$correct) {
-            feedback_lines <- c(feedback_lines, "**2.2 KWADRATEN:** (afwijking)² voor elke waarde ✅")
-          } else {
-            feedback_lines <- c(feedback_lines, "**2.2 KWADRATEN:** Kwadrateer elke afwijking: (-4)²=16, (1)²=1, enz. ❌")
-          }
-          
-          if (results$sum_of_squares$correct) {
-            feedback_lines <- c(feedback_lines, "**2.3 SOM:** 16+1+16+1+0+4+9+4+9 = 60 ✅")
-          } else {
-            feedback_lines <- c(feedback_lines, "**2.3 SOM:** Som alle gekwadrateerde afwijkingen = 60 ❌")
-          }
-          
-          if (results$variantie_incidenten$correct) {
-            feedback_lines <- c(feedback_lines, "**3.1 VARIANTIE:** SS/(n-1) = 60/8 = 7.5 ✅")
-          } else {
-            feedback_lines <- c(feedback_lines, "**3.1 VARIANTIE:** 60 / (9-1) = 60/8 = 7.5 ❌")
-          }
-          
-          if (results$standaarddeviatie_incidenten$correct) {
-            feedback_lines <- c(feedback_lines, "**3.2 STANDAARDDEVIATIE:** √7.5 = 2.74 ✅")
-          } else {
-            feedback_lines <- c(feedback_lines, "**3.2 STANDAARDDEVIATIE:** √variantie = √7.5 = 2.74 ❌")
-          }
-          
-          if (results$gekozen_spreidingsmaat$correct) {
-            feedback_lines <- c(feedback_lines, "**4.1 KEUZE MAAT:** Standaarddeviatie (2.74) voor interval data ✅")
-          } else {
-            feedback_lines <- c(feedback_lines, "**4.1 KEUZE MAAT:** Voor interval data kies standaarddeviatie (2.74) ❌")
-          }
-          
-          # ----------------------
-          # DETAILED ERROR ANALYSIS
-          # ----------------------
-          
-          if (correct_count < total_questions) {
-            feedback_lines <- c(feedback_lines, "", "🔍 **GEDETAILLEERDE FOUTANALYSE:**")
+          counter <- 1
+          for(var_key in names(variable_names)) {
+            var_display <- variable_names[var_key]
+            result <- results[[var_key]]
             
-            # ======================
-            # MEAN CALCULATION ERRORS
-            # ======================
+            if(!result$exists) {
+              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: *Ontbreekt* ❌"))
+            } else if(result$correct) {
+              if(var_key %in% c("afwijkingen", "gekwadrateerde_afwijkingen")) {
+                feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: c(", paste(result$value, collapse=", "), ") ✅"))
+              } else {
+                feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ✅"))
+              }
+            } else {
+              if(var_key %in% c("afwijkingen", "gekwadrateerde_afwijkingen")) {
+                if(length(result$value) > 1) {
+                  feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: c(", paste(result$value, collapse=", "), ") ❌"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ❌"))
+                }
+              } else {
+                feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ❌"))
+              }
+            }
+            counter <- counter + 1
+          }
+          
+          if (generated == expected) {
+            feedback_parts <- c(feedback_parts, "\n✅ **Alle onderdelen correct berekend.**")
+            feedback_parts <- c(feedback_parts, "\n**Uitstekend!** Je beheerst de berekening van spreidingsmaten.")
+          } else {
             
-            if (!results$gemiddelde_incidenten$correct && results$gemiddelde_incidenten$exists) {
-              student_mean <- as.numeric(results$gemiddelde_incidenten$value)
-              if (!is.na(student_mean)) {
-                if (abs(student_mean - 5.4) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE n-1 FOUT:** Je deelde door 10 ipv 9. Gemiddelde = som/n = 54/9 = 6")
-                } else if (abs(student_mean - 6.75) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE SOM FOUT:** Check je som. Correct: 2+7+10+5+6+8+3+4+9 = 54, dan 54/9 = 6")
-                } else if (student_mean < 5 || student_mean > 8) {
-                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE BEREKENING:** Data: 2,7,10,5,6,8,3,4,9. Som = 54, gemiddelde = 54/9 = 6")
-                } else if (abs(student_mean - 6.67) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE AFRONDINGSFOUT:** Gebruik exacte waarde: 54/9 = 6.000")
-                } else if (abs(student_mean - 6.5) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE MEDIAAN FOUT:** Je berekende de mediaan. Gemiddelde = som alle waarden / aantal = 54/9 = 6")
+            # Add helpful tips for incorrect answers
+            incorrect_vars <- sapply(results, function(x) !x$correct)
+            if(any(incorrect_vars)) {
+              feedback_parts <- c(feedback_parts, "\n**📚 Uitleg waarom deze antwoorden fout zijn:**")
+              
+              if(!results$gemiddelde_incidenten$correct) {
+                if(!results$gemiddelde_incidenten$exists) {
+                  feedback_parts <- c(feedback_parts, "• **1.1 Gemiddelde**: ❌ Variabele niet gevonden. Gebruik: `gemiddelde_incidenten <- 6`")
+                } else {
+                  student_answer <- as.numeric(results$gemiddelde_incidenten$value)
+                  if(abs(student_answer - 5.4) < 0.01) {
+                    feedback_parts <- c(feedback_parts, paste0("• **1.1 Gemiddelde**: Je gaf ", student_answer, ", maar dit is fout. Je deelde door 10 in plaats van 9. Som alle waarden (54) en deel door aantal waarden (9): 54/9 = **6**"))
+                  } else if(abs(student_answer - 6.75) < 0.01) {
+                    feedback_parts <- c(feedback_parts, paste0("• **1.1 Gemiddelde**: Je gaf ", student_answer, ", maar dit is fout. Check je som: 2+7+10+5+6+8+3+4+9 = 54, dan 54/9 = **6**"))
+                  } else {
+                    feedback_parts <- c(feedback_parts, paste0("• **1.1 Gemiddelde**: Je gaf ", student_answer, ", maar dit is fout. Som alle waarden: 2+7+10+5+6+8+3+4+9 = 54, gemiddelde = 54/9 = **6**"))
+                  }
+                }
+              }
+              
+              if(!results$afwijkingen$correct) {
+                if(!results$afwijkingen$exists) {
+                  feedback_parts <- c(feedback_parts, "• **2.1 Afwijkingen**: ❌ Variabele niet gevonden. Gebruik: `afwijkingen <- c(-4, 1, 4, -1, 0, 2, -3, -2, 3)`")
+                } else {
+                  student_answer <- results$afwijkingen$value
+                  if(length(student_answer) == 1) {
+                    feedback_parts <- c(feedback_parts, paste0("• **2.1 Afwijkingen**: Je gaf ", student_answer, ", maar dit is fout. Je moet voor elke waarde de afwijking berekenen: c(2-6, 7-6, 10-6, 5-6, 6-6, 8-6, 3-6, 4-6, 9-6) = **c(-4, 1, 4, -1, 0, 2, -3, -2, 3)**"))
+                  } else if(all(student_answer >= 0) && sum(abs(student_answer - abs(c(-4, 1, 4, -1, 0, 2, -3, -2, 3)))) < 1) {
+                    feedback_parts <- c(feedback_parts, paste0("• **2.1 Afwijkingen**: Je gaf c(", paste(student_answer, collapse=", "), "), maar dit is fout. Je nam absolute waarden. Afwijkingen kunnen negatief zijn: 2-6 = -4, niet 4. Correct: **c(-4, 1, 4, -1, 0, 2, -3, -2, 3)**"))
+                  } else {
+                    feedback_parts <- c(feedback_parts, paste0("• **2.1 Afwijkingen**: Je gaf c(", paste(student_answer, collapse=", "), "), maar dit is fout. Bereken elke waarde minus het gemiddelde (6): **c(-4, 1, 4, -1, 0, 2, -3, -2, 3)**"))
+                  }
+                }
+              }
+              
+              if(!results$gekwadrateerde_afwijkingen$correct) {
+                if(!results$gekwadrateerde_afwijkingen$exists) {
+                  feedback_parts <- c(feedback_parts, "• **2.2 Gekwadrateerde afwijkingen**: ❌ Variabele niet gevonden. Gebruik: `gekwadrateerde_afwijkingen <- c(16, 1, 16, 1, 0, 4, 9, 4, 9)`")
+                } else {
+                  student_answer <- results$gekwadrateerde_afwijkingen$value
+                  if(length(student_answer) == 1) {
+                    feedback_parts <- c(feedback_parts, paste0("• **2.2 Gekwadrateerde afwijkingen**: Je gaf ", student_answer, ", maar dit is fout. Je moet elke afwijking kwadrateren: c((-4)², 1², 4², (-1)², 0², 2², (-3)², (-2)², 3²) = **c(16, 1, 16, 1, 0, 4, 9, 4, 9)**"))
+                  } else if(all(abs(student_answer - c(2,7,10,5,6,8,3,4,9)^2) < 0.01)) {
+                    feedback_parts <- c(feedback_parts, paste0("• **2.2 Gekwadrateerde afwijkingen**: Je gaf c(", paste(student_answer, collapse=", "), "), maar dit is fout. Je kwadrateerde de originele waarden in plaats van de afwijkingen. Kwadrateer de afwijkingen: **c(16, 1, 16, 1, 0, 4, 9, 4, 9)**"))
+                  } else {
+                    feedback_parts <- c(feedback_parts, paste0("• **2.2 Gekwadrateerde afwijkingen**: Je gaf c(", paste(student_answer, collapse=", "), "), maar dit is fout. Kwadrateer elke afwijking: (-4)²=16, 1²=1, etc. Correct: **c(16, 1, 16, 1, 0, 4, 9, 4, 9)**"))
+                  }
+                }
+              }
+              
+              if(!results$sum_of_squares$correct) {
+                if(!results$sum_of_squares$exists) {
+                  feedback_parts <- c(feedback_parts, "• **2.3 Som gekwadrateerde afwijkingen**: ❌ Variabele niet gevonden. Gebruik: `sum_of_squares <- 60`")
+                } else {
+                  student_answer <- as.numeric(results$sum_of_squares$value)
+                  feedback_parts <- c(feedback_parts, paste0("• **2.3 Som gekwadrateerde afwijkingen**: Je gaf ", student_answer, ", maar dit is fout. Som alle gekwadrateerde afwijkingen: 16+1+16+1+0+4+9+4+9 = **60**"))
+                }
+              }
+              
+              if(!results$variantie_incidenten$correct) {
+                if(!results$variantie_incidenten$exists) {
+                  feedback_parts <- c(feedback_parts, "• **3.1 Variantie**: ❌ Variabele niet gevonden. Gebruik: `variantie_incidenten <- 7.5`")
+                } else {
+                  student_answer <- as.numeric(results$variantie_incidenten$value)
+                  if(abs(student_answer - 6.67) < 0.01) {
+                    feedback_parts <- c(feedback_parts, paste0("• **3.1 Variantie**: Je gaf ", student_answer, ", maar dit is fout. Je deelde door n (9) in plaats van n-1 (8). Voor steekproefvariantie: 60/(9-1) = 60/8 = **7.5**"))
+                  } else if(abs(student_answer - 60) < 0.01) {
+                    feedback_parts <- c(feedback_parts, paste0("• **3.1 Variantie**: Je gaf ", student_answer, ", maar dit is fout. Je vergat te delen door n-1. Variantie = som gekwadrateerde afwijkingen / (n-1) = 60/8 = **7.5**"))
+                  } else {
+                    feedback_parts <- c(feedback_parts, paste0("• **3.1 Variantie**: Je gaf ", student_answer, ", maar dit is fout. Bereken: som gekwadrateerde afwijkingen (60) / (n-1) waarbij n=9: 60/8 = **7.5**"))
+                  }
+                }
+              }
+              
+              if(!results$standaarddeviatie_incidenten$correct) {
+                if(!results$standaarddeviatie_incidenten$exists) {
+                  feedback_parts <- c(feedback_parts, "• **3.2 Standaarddeviatie**: ❌ Variabele niet gevonden. Gebruik: `standaarddeviatie_incidenten <- 2.74`")
+                } else {
+                  student_answer <- as.numeric(results$standaarddeviatie_incidenten$value)
+                  if(abs(student_answer - 7.5) < 0.01) {
+                    feedback_parts <- c(feedback_parts, paste0("• **3.2 Standaarddeviatie**: Je gaf ", student_answer, ", maar dit is fout. Je vergat de wortel te trekken. Standaarddeviatie = √variantie = √7.5 = **2.74**"))
+                  } else if(abs(student_answer - 2.58) < 0.01) {
+                    feedback_parts <- c(feedback_parts, paste0("• **3.2 Standaarddeviatie**: Je gaf ", student_answer, ", maar dit is fout. Je gebruikte n in plaats van n-1 bij de variantie. Correct: √(60/8) = √7.5 = **2.74**"))
+                  } else {
+                    feedback_parts <- c(feedback_parts, paste0("• **3.2 Standaarddeviatie**: Je gaf ", student_answer, ", maar dit is fout. Standaarddeviatie = √variantie = √7.5 = **2.74**"))
+                  }
+                }
+              }
+              
+              if(!results$gekozen_spreidingsmaat$correct) {
+                if(!results$gekozen_spreidingsmaat$exists) {
+                  feedback_parts <- c(feedback_parts, "• **4.1 Gekozen spreidingsmaat**: ❌ Variabele niet gevonden. Gebruik aanhalingstekens: `gekozen_spreidingsmaat <- \"standaarddeviatie\"`")
+                } else {
+                  student_answer <- tolower(as.character(results$gekozen_spreidingsmaat$value))
+                  if(student_answer %in% c("variantie", "variance")) {
+                    feedback_parts <- c(feedback_parts, paste0("• **4.1 Gekozen spreidingsmaat**: Je koos '", results$gekozen_spreidingsmaat$value, "', maar dit is fout. Voor interpretatie is standaarddeviatie beter omdat het dezelfde eenheid heeft als de originele data. Correct: **\"standaarddeviatie\"**"))
+                  } else if(student_answer %in% c("bereik", "range")) {
+                    feedback_parts <- c(feedback_parts, paste0("• **4.1 Gekozen spreidingsmaat**: Je koos '", results$gekozen_spreidingsmaat$value, "', maar dit is fout. Bereik is gevoelig voor uitschieters. Voor interval data is standaarddeviatie het meest informatief. Correct: **\"standaarddeviatie\"**"))
+                  } else {
+                    feedback_parts <- c(feedback_parts, paste0("• **4.1 Gekozen spreidingsmaat**: Je koos '", results$gekozen_spreidingsmaat$value, "', maar dit is fout. Voor interval/ratio data is standaarddeviatie de meest informatieve maat. Correct: **\"standaarddeviatie\"**"))
+                  }
                 }
               }
             }
+            
+            feedback_parts <- c(
+              feedback_parts,
+              "",
+              "📋 **CORRECTE ANTWOORDEN:**",
+              "• **1.1 Gemiddelde:** 6",
+              "• **2.1 Afwijkingen:** c(-4, 1, 4, -1, 0, 2, -3, -2, 3)",
+              "• **2.2 Gekwadrateerde afwijkingen:** c(16, 1, 16, 1, 0, 4, 9, 4, 9)",
+              "• **2.3 Som gekwadrateerde afwijkingen:** 60",
+              "• **3.1 Variantie:** 7.5",
+              "• **3.2 Standaarddeviatie:** 2.74",
+              "• **4.1 Gekozen spreidingsmaat:** \"standaarddeviatie\""
+            )
+          }
+
+          feedback_parts <- c(
+            feedback_parts,
+            "",
+            "🔍 **BELANGRIJKE REGELS VOOR SPREIDINGSMATEN:**",
+            "• **Voor interval/ratio data:** standaarddeviatie is meest informatief",
+            "• **Steekproefvariantie:** gebruik n-1 in noemer (niet n)",
+            "• **Afwijkingen kunnen negatief zijn** (X - μ), maar kwadraten altijd positief",
+            "• **Standaarddeviatie = √variantie** (zelfde eenheid als originele data)",
+            "• **Som van gekwadrateerde afwijkingen = 60** (16+1+16+1+0+4+9+4+9)",
+            "• **Voor criminologisch onderzoek:** standaarddeviatie geeft spreiding in aantal incidenten"
+          )
+          
+          # Show markdown feedback
+          get_reporter()$add_message(
+            paste(feedback_parts, collapse = "\n\n"),
+            type = "markdown"
+          )
+          
+          # Final result
+          generated == expected
+        }
+      )
+    }
+  )
+})
             
             # ======================
             # INDIVIDUAL DEVIATION ERRORS
