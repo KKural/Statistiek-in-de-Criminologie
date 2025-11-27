@@ -468,37 +468,37 @@ context({
           freq_correct <- all(sapply(freq_vars, function(x) x %in% names(results) && results[[x]]$correct))
           
           if (freq_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - FREQUENTIES:** Alle waarden juist geteld ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 1.1 - FREQUENTIES:** Alle waarden juist geteld ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - FREQUENTIES:** Tel hoe vaak elke waarde voorkomt. 150 komt 2x voor! ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 1.1 - FREQUENTIES:** Tel hoe vaak elke waarde voorkomt. 150 komt 2x voor! ❌")
           }
           
           percent_vars <- c("percent_2", "percent_14", "percent_26", "percent_30", "percent_72", "percent_143", "percent_144", "percent_150", "percent_240", "percent_1657")
           percent_correct <- all(sapply(percent_vars, function(x) x %in% names(results) && results[[x]]$correct))
           
           if (percent_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - PERCENTAGES:** (Frequentie/11) × 100 juist berekend ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 1.2 - PERCENTAGES:** (Frequentie/11) × 100 juist berekend ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - PERCENTAGES:** Formule: (freq/11) × 100. Meeste = 9.1%, 150 = 18.2% ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 1.2 - PERCENTAGES:** Formule: (freq/11) × 100. Meeste = 9.1%, 150 = 18.2% ❌")
           }
           
           # Basic calculations feedback
           if ("gemiddelde" %in% names(results) && results$gemiddelde$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - GEMIDDELDE:** Som = 2628, n = 11 → 2628/11 = 238.91 ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 2.1 - GEMIDDELDE:** Som = 2628, n = 11 → 2628/11 = 238.91 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - GEMIDDELDE:** Som alle waarden (2628) / aantal (11) = 238.91 ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 2.1 - GEMIDDELDE:** Som alle waarden (2628) / aantal (11) = 238.91 ❌")
           }
           
           if ("mediaan" %in% names(results) && results$mediaan$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - MEDIAAN:** Gesorteerd: 6de waarde van 11 = 143 dagen ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 2.2 - MEDIAAN:** Gesorteerd: 6de waarde van 11 = 143 dagen ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - MEDIAAN:** Sorteer eerst! 6de waarde = 143 dagen ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 2.2 - MEDIAAN:** Sorteer eerst! 6de waarde = 143 dagen ❌")
           }
           
           if ("modus" %in% names(results) && results$modus$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - MODUS:** Meest voorkomende waarde = 150 (komt 2x voor) ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 2.3 - MODUS:** Meest voorkomende waarde = 150 (komt 2x voor) ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - MODUS:** Welke waarde heeft de hoogste frequentie? 150 komt 2x voor ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 2.3 - MODUS:** Welke waarde heeft de hoogste frequentie? 150 komt 2x voor ❌")
           }
           
           spread_vars <- c("variatiebreedte", "q1", "q3", "ika")
@@ -516,9 +516,9 @@ context({
           deviation_correct <- all(sapply(deviation_vars, function(x) x %in% names(results) && results[[x]]$correct))
           
           if (deviation_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 4 - AFWIJKINGEN:** X - 238.91 voor elke waarde ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 4.1 - AFWIJKINGEN:** X - 238.91 voor elke waarde ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 4 - AFWIJKINGEN:** Bereken X - 238.91 voor elke huwelijksduur ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 4.1 - AFWIJKINGEN:** Bereken X - 238.91 voor elke huwelijksduur ❌")
           }
           
           gekw_vars <- c("gekw_afwijking_240", "gekw_afwijking_144", "gekw_afwijking_143", "gekw_afwijking_72", "gekw_afwijking_30",
@@ -526,15 +526,15 @@ context({
           gekw_correct <- all(sapply(gekw_vars, function(x) x %in% names(results) && results[[x]]$correct))
           
           if (gekw_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 4 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 4.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
           } else {
             feedback_lines <- c(feedback_lines, "**STAP 4 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking ❌")
           }
           
           if ("sum_of_squares" %in% names(results) && results$sum_of_squares$correct && "variantie" %in% names(results) && results$variantie$correct && "standaardafwijking" %in% names(results) && results$standaardafwijking$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 4 - VARIANTIE:** Som=2,268,540.92, Variantie=226,854.09, SD=476.29 ✅")
+            feedback_lines <- c(feedback_lines, "**STAP 4.3 - VARIANTIE:** Som=2,268,540.92, Variantie=226,854.09, SD=476.29 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 4 - VARIANTIE:** Som gekwadrateerde afwijkingen = 2,268,540.92, variantie = som/(n-1), SD = √variantie ❌")
+            feedback_lines <- c(feedback_lines, "**STAP 4.3 - VARIANTIE:** Som gekwadrateerde afwijkingen = 2,268,540.92, variantie = som/(n-1), SD = √variantie ❌")
           }
           
           # ----------------------------------------

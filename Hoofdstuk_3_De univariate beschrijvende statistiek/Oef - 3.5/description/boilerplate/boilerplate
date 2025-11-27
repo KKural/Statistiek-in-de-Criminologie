@@ -1,65 +1,38 @@
+# ===================================================================
+# EXERCISE 3.5: POLICE PATROL INCIDENTS - STUDENT TEMPLATE
+# ===================================================================
+# Dataset: Aantal incidenten per politiepatrouille per dag
+# Data: 4, 1, 9, 5, 6, 8, 7, 3, 2
+
 # INSTRUCTIES:
 # - Vervang ??? door het juiste antwoord
-# - Gebruik een decimale PUNT (bijv. 2.74, niet 2,74)
-# - Bereken de variantie als steekproefvariantie (n - 1 in de noemer)
-# - Voor interval/ratio data is standaarddeviatie de meest informatieve maat
+# - Gebruik een decimale PUNT (bijv. 2.58, niet 2,58)
+# - Voor interval data is standaarddeviatie de meest informatieve maat
 
-# =====================================
-# STAP 1: DATA EN GEMIDDELDE
-# =====================================
-
-# Data: aantal geregistreerde incidenten (afhankelijke variabele)
-incidenten <- c(2, 7, 10, 5, 6, 8, 3, 4, 9)
-patrouille_uren <- c(5, 3, 4, 2, 1, 3, 2, 1, 4)  # onafhankelijke variabele
-
-# Bereken het gemiddelde van de afhankelijke variabele (incidenten)
-# Tip: som van alle waarden / aantal waarden
-# Formule: (waarde1 + waarde2 + ... + waarden) / aantal waarden
+# STEP 1.1: GEMIDDELDE
+# Calculate the mean of the incident data
 gemiddelde_incidenten <- ???
 
-# =====================================
-# STAP 2: AFWIJKINGEN BEREKENEN
-# =====================================
+# STEP 2.1: AFWIJKINGEN
+# Calculate deviations from the mean for each data point
+afwijkingen <- c(???, ???, ???, ???, ???, ???, ???, ???, ???)
 
-# Bereken de afwijking van elke waarde ten opzichte van het gemiddelde
-# Formule: X - gemiddelde
-# Elke waarde minus het gemiddelde (kan positief of negatief zijn)
-afwijkingen <- ???
+# STEP 2.2: GEKWADRATEERDE AFWIJKINGEN
+# Calculate squared deviations for each data point
+gekwadrateerde_afwijkingen <- c(???, ???, ???, ???, ???, ???, ???, ???, ???)
 
-# Kwadrateer elke afwijking (om negatieve waarden positief te maken)
-# Formule: (afwijking)²
-# Alle resultaten worden positief na kwadrateren
-gekwadrateerde_afwijkingen <- ???
-
-# Som alle gekwadrateerde afwijkingen op
-# Dit geeft de 'Sum of Squares' (SS)
-# Tel alle gekwadrateerde afwijkingen bij elkaar op
+# STEP 2.3: SOM VAN GEKWADRATEERDE AFWIJKINGEN
+# Calculate the sum of all squared deviations
 sum_of_squares <- ???
 
-# =====================================
-# STAP 3: VARIANTIE EN STANDAARDDEVIATIE  
-# =====================================
-
-# Bereken de steekproefvariantie
-# Formule: s² = SS / (n-1)
-# Let op: gebruik n-1 voor steekproefvariantie, niet n
-# Deel de Sum of Squares door (aantal waarden - 1)
+# STEP 3.1: VARIANTIE
+# Calculate the variance (sum of squares divided by N)
 variantie_incidenten <- ???
 
-# Bereken de standaarddeviatie 
-# Formule: s = √(variantie)
-# Neem de wortel van de variantie (afgerond op 2 decimalen)
+# STEP 3.2: STANDAARDDEVIATIE
+# Calculate the standard deviation (square root of variance)
 standaarddeviatie_incidenten <- ??? 
 
-# =====================================
-# STAP 4: KEUZE SPREIDINGSMAAT
-# =====================================
-
-# Voor interval/ratio data (zoals aantal incidenten) is de standaarddeviatie
-# de meest informatieve spreidingsmaat omdat:
-# - Het alle waarden gebruikt in de berekening
-# - Het uitgedrukt wordt in dezelfde eenheid als de originele data
-# - Het gevoelig is voor alle variaties in de dataset
-#
-# Kies de meest geschikte spreidingsmaat voor interval data
-gekozen_spreidingsmaat <- ???
+# STEP 4.1: KEUZE VAN SPREIDINGSMAAT
+# Choose the most appropriate measure of spread for interpretation
+gekozen_spreidingsmaat <- "???"
