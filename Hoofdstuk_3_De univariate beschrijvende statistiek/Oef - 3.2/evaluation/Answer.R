@@ -283,215 +283,219 @@ context({
           # ----------------------
           # STAP 1.1 FEEDBACK - CUMULATIEVE ABSOLUTE FREQUENTIES
           # ----------------------
+          feedback_parts <- c(feedback_parts, "**STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES:**")
           cum_abs_vars <- c("cumulatieve_absolute_frequenties_zeer_ontevreden", 
                            "cumulatieve_absolute_frequenties_ontevreden",
                            "cumulatieve_absolute_frequenties_noch_tevreden_noch_ontevreden",
                            "cumulatieve_absolute_frequenties_tevreden",
                            "cumulatieve_absolute_frequenties_zeer_tevreden")
           
+          expected_cum_abs <- c(33, 117, 219, 282, 330)
+          cat_names_display <- c("zeer ontevreden", "ontevreden", "noch tevreden, noch ontevreden", "tevreden", "zeer tevreden")
+          
           cum_abs_all_correct <- TRUE
-          for (var in cum_abs_vars) {
-            if (var %in% names(results) && !results[[var]]$correct) {
-              cum_abs_all_correct <- FALSE
-              student_val <- if (results[[var]]$exists) as.numeric(results[[var]]$value) else "Ontbreekt"
-              expected_val <- results[[var]]$expected
-              cat_name <- sub("^cumulatieve_absolute_frequenties_", "", var)
-              cat_display <- switch(cat_name,
-                "zeer_ontevreden" = "zeer ontevreden",
-                "ontevreden" = "ontevreden",
-                "noch_tevreden_noch_ontevreden" = "noch tevreden, noch ontevreden",
-                "tevreden" = "tevreden",
-                "zeer_tevreden" = "zeer tevreden",
-                cat_name
-              )
-              
-              if (results[[var]]$exists) {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Je gaf ", student_val, ", maar juiste antwoord is **", expected_val, "**"))
-              } else {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
+          for (i in seq_along(cum_abs_vars)) {
+            var <- cum_abs_vars[i]
+            expected_val <- expected_cum_abs[i]
+            cat_display <- cat_names_display[i]
+            
+            if (var %in% names(results)) {
+              if (!results[[var]]$correct) {
+                cum_abs_all_correct <- FALSE
+                student_val <- if (results[[var]]$exists) as.numeric(results[[var]]$value) else "Ontbreekt"
+                
+                if (results[[var]]$exists) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** je gaf ", student_val, ", juiste antwoord is **", expected_val, "**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
+                }
               }
+            } else {
+              cum_abs_all_correct <- FALSE
+              feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
             }
           }
+          
           if (cum_abs_all_correct) {
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES:** Allemaal correct!")
             feedback_parts <- c(feedback_parts, "• Waarden: 33, 117, 219, 282, 330")
           } else {
-            feedback_parts <- c(feedback_parts, "**❌ STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES:** Fouten gevonden")
+            header_index <- which(feedback_parts == "**STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES:**")
+            if (length(header_index) > 0) {
+              feedback_parts[header_index] <- "**❌ STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES:** Fouten gevonden"
+            }
           }
           feedback_parts <- c(feedback_parts, "")
           
           # ----------------------
           # STAP 1.2 FEEDBACK - RELATIEVE FREQUENTIES
           # ----------------------
-          feedback_parts <- c(feedback_parts, "")
+          feedback_parts <- c(feedback_parts, "**STAP 1.2 - RELATIEVE FREQUENTIES:**")
           rel_freq_vars <- c("relatieve_frequenties_zeer_ontevreden",
                             "relatieve_frequenties_ontevreden",
                             "relatieve_frequenties_noch_tevreden_noch_ontevreden",
                             "relatieve_frequenties_tevreden",
                             "relatieve_frequenties_zeer_tevreden")
           
+          expected_rel_freq <- c(0.1000, 0.2545, 0.3091, 0.1909, 0.1455)
+          
           rel_freq_all_correct <- TRUE
-          for (var in rel_freq_vars) {
-            if (var %in% names(results) && !results[[var]]$correct) {
-              rel_freq_all_correct <- FALSE
-              student_val <- if (results[[var]]$exists) format(as.numeric(results[[var]]$value), digits=4) else "Ontbreekt"
-              expected_val <- format(as.numeric(results[[var]]$expected), digits=4)
-              cat_name <- sub("^relatieve_frequenties_", "", var)
-              cat_display <- switch(cat_name,
-                "zeer_ontevreden" = "zeer ontevreden",
-                "ontevreden" = "ontevreden",
-                "noch_tevreden_noch_ontevreden" = "noch tevreden, noch ontevreden",
-                "tevreden" = "tevreden",
-                "zeer_tevreden" = "zeer tevreden",
-                cat_name
-              )
-              
-              if (results[[var]]$exists) {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Je gaf ", student_val, ", maar juiste antwoord is **", expected_val, "**"))
-              } else {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
+          for (i in seq_along(rel_freq_vars)) {
+            var <- rel_freq_vars[i]
+            expected_val <- expected_rel_freq[i]
+            cat_display <- cat_names_display[i]
+            
+            if (var %in% names(results)) {
+              if (!results[[var]]$correct) {
+                rel_freq_all_correct <- FALSE
+                student_val <- if (results[[var]]$exists) format(as.numeric(results[[var]]$value), digits=4) else "Ontbreekt"
+                
+                if (results[[var]]$exists) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** je gaf ", student_val, ", juiste antwoord is **", format(expected_val, digits=4), "**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
+                }
               }
+            } else {
+              rel_freq_all_correct <- FALSE
+              feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
             }
           }
+          
           if (rel_freq_all_correct) {
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.2 - RELATIEVE FREQUENTIES:** Allemaal correct!")
             feedback_parts <- c(feedback_parts, "• Waarden: 0.1000, 0.2545, 0.3091, 0.1909, 0.1455")
           } else {
-            feedback_parts <- c(feedback_parts, "**❌ STAP 1.2 - RELATIEVE FREQUENTIES:** Fouten gevonden")
+            header_index <- which(feedback_parts == "**STAP 1.2 - RELATIEVE FREQUENTIES:**")
+            if (length(header_index) > 0) {
+              feedback_parts[header_index] <- "**❌ STAP 1.2 - RELATIEVE FREQUENTIES:** Fouten gevonden"
+            }
           }
           feedback_parts <- c(feedback_parts, "")
           
           # ----------------------
           # STAP 1.3 FEEDBACK - CUMULATIEVE RELATIEVE FREQUENTIES
           # ----------------------
-          feedback_parts <- c(feedback_parts, "")
+          feedback_parts <- c(feedback_parts, "**STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:**")
           cum_rel_vars <- c("cumulatieve_relatieve_frequenties_zeer_ontevreden",
                            "cumulatieve_relatieve_frequenties_ontevreden",
                            "cumulatieve_relatieve_frequenties_noch_tevreden_noch_ontevreden",
                            "cumulatieve_relatieve_frequenties_tevreden",
                            "cumulatieve_relatieve_frequenties_zeer_tevreden")
           
+          expected_cum_rel <- c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)
+          
           cum_rel_all_correct <- TRUE
-          for (var in cum_rel_vars) {
-            if (var %in% names(results) && !results[[var]]$correct) {
-              cum_rel_all_correct <- FALSE
-              student_val <- if (results[[var]]$exists) format(as.numeric(results[[var]]$value), digits=4) else "Ontbreekt"
-              expected_val <- format(as.numeric(results[[var]]$expected), digits=4)
-              cat_name <- sub("^cumulatieve_relatieve_frequenties_", "", var)
-              cat_display <- switch(cat_name,
-                "zeer_ontevreden" = "zeer ontevreden",
-                "ontevreden" = "ontevreden",
-                "noch_tevreden_noch_ontevreden" = "noch tevreden, noch ontevreden",
-                "tevreden" = "tevreden",
-                "zeer_tevreden" = "zeer tevreden",
-                cat_name
-              )
-              
-              if (results[[var]]$exists) {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Je gaf ", student_val, ", maar juiste antwoord is **", expected_val, "**"))
-              } else {
-                feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
+          for (i in seq_along(cum_rel_vars)) {
+            var <- cum_rel_vars[i]
+            expected_val <- expected_cum_rel[i]
+            cat_display <- cat_names_display[i]
+            
+            if (var %in% names(results)) {
+              if (!results[[var]]$correct) {
+                cum_rel_all_correct <- FALSE
+                student_val <- if (results[[var]]$exists) format(as.numeric(results[[var]]$value), digits=4) else "Ontbreekt"
+                
+                if (results[[var]]$exists) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** je gaf ", student_val, ", juiste antwoord is **", format(expected_val, digits=4), "**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
+                }
               }
+            } else {
+              cum_rel_all_correct <- FALSE
+              feedback_parts <- c(feedback_parts, paste0("  • **", cat_display, ":** Variabele ontbreekt ❌"))
             }
           }
+          
           if (cum_rel_all_correct) {
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:** Allemaal correct!")
             feedback_parts <- c(feedback_parts, "• Waarden: 0.1000, 0.3545, 0.6636, 0.8545, 1.0000")
           } else {
-            feedback_parts <- c(feedback_parts, "**❌ STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:** Fouten gevonden")
+            header_index <- which(feedback_parts == "**STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:**")
+            if (length(header_index) > 0) {
+              feedback_parts[header_index] <- "**❌ STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:** Fouten gevonden"
+            }
           }
           
+          # ----------------------
+          # STAP 2 - OVERIGE VRAGEN
+          # ----------------------
           if (generated != expected) {
-            feedback_parts <- c(feedback_parts, "")
-            feedback_parts <- c(feedback_parts, "📚 **Uitleg van gemaakte fouten:**")
             feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "**STAP 2 - OVERIGE VRAGEN:**")
             
-            # Helper function for all variables
-            make_label_with_explanation <- function(var_name, expected_val) {
-              # Meetniveau
-              if (var_name == "meetniveau") {
-                return("**Meetniveau** (tevredenheid heeft alleen rangorde: zeer ontevreden ... zeer tevreden)")
-              }
-              
-              # Totaal N
-              if (var_name == "totaal_n") {
-                return("**Totaal aantal respondenten (N)**")
-              }
-              
-              # Modus
-              if (var_name == "modus") {
-                return("**Modus** (categorie die het vaakst voorkomt: noch tevreden, noch ontevreden)")
-              }
-              
-              # Mediaan
-              if (var_name == "mediaan") {
-                return("**Mediaan** (middelste categorie bij rangorde: noch tevreden, noch ontevreden)")
-              }
-              
-              # Meest relevante centraliteitsmaat
-              if (var_name == "meest_relevante_centraliteit") {
-                return("**Meest relevante centraliteitsmaat** (voor ordinale data: mediaan)")
-              }
-              
-              # Q1 and Q3
-              if (var_name == "q1") {
-                return("**Q1 (eerste kwartiel)** (25e percentiel categorie)")
-              }
-              if (var_name == "q3") {
-                return("**Q3 (derde kwartiel)** (75e percentiel categorie)")
-              }
-              
-              # Variatiebreedte
-              if (var_name == "variatiebreedte") {
-                return("**Variatiebreedte** (bereik: van zeer ontevreden tot zeer tevreden)")
-              }
-              
-              # IKA
-              if (var_name == "ika") {
-                return("**IKA (interkwartielafstand)** (bereik middelste 50%: van Q1 tot Q3)")
-              }
-              
-              return(paste0("**", var_name, "**"))
+            # Meetniveau
+            feedback_parts <- c(feedback_parts, "")
+            if (!results$meetniveau$correct) {
+              student_val <- if (results$meetniveau$exists) results$meetniveau$value else "Ontbreekt"
+              feedback_parts <- c(feedback_parts, paste0("• **Meetniveau:** je gaf \"", student_val, "\", juiste antwoord is **\"ordinaal\"**"))
             }
             
-            # Only show filled-in but wrong answers (like 3.3 does)
-            wrong_keys <- names(results)[sapply(results, function(x) x$exists && !x$correct)]
-            
-            for (key in wrong_keys) {
-              student_val  <- results[[key]]$value
-              expected_val <- results[[key]]$expected
-              
-              if (is.numeric(student_val)) {
-                student_str   <- format(as.numeric(student_val), digits = 6, big.mark = ",")
-                expected_str  <- format(as.numeric(expected_val), digits = 6, big.mark = ",")
-              } else {
-                student_str  <- as.character(student_val)
-                expected_str <- as.character(expected_val)
-              }
-              
-              feedback_parts <- c(
-                feedback_parts,
-                paste0(
-                  "• ", make_label_with_explanation(key, expected_val),
-                  ": je gaf ", student_str,
-                  ", maar juiste antwoord is **", expected_str, "**."
-                )
-              )
+            # Totaal N
+            if (!results$totaal_n$correct) {
+              student_val <- if (results$totaal_n$exists) results$totaal_n$value else "Ontbreekt"
+              feedback_parts <- c(feedback_parts, paste0("• **Totaal N:** je gaf ", student_val, ", juiste antwoord is **330**"))
             }
+            
+            # Modus
+            if (!results$modus$correct) {
+              student_val <- if (results$modus$exists) results$modus$value else "Ontbreekt"
+              feedback_parts <- c(feedback_parts, paste0("• **Modus:** je gaf \"", student_val, "\", juiste antwoord is **\"noch tevreden, noch ontevreden\"**"))
+            }
+            
+            # Mediaan
+            if (!results$mediaan$correct) {
+              student_val <- if (results$mediaan$exists) results$mediaan$value else "Ontbreekt"
+              feedback_parts <- c(feedback_parts, paste0("• **Mediaan:** je gaf \"", student_val, "\", juiste antwoord is **\"noch tevreden, noch ontevreden\"**"))
+            }
+            
+            # Meest relevante centraliteit
+            if (!results$meest_relevante_centraliteit$correct) {
+              student_val <- if (results$meest_relevante_centraliteit$exists) results$meest_relevante_centraliteit$value else "Ontbreekt"
+              feedback_parts <- c(feedback_parts, paste0("• **Meest relevante centraliteitsmaat:** je gaf \"", student_val, "\", juiste antwoord is **\"mediaan\"**"))
+            }
+            
+            # Q1
+            if (!results$q1$correct) {
+              student_val <- if (results$q1$exists) results$q1$value else "Ontbreekt"
+              feedback_parts <- c(feedback_parts, paste0("• **Q1 (eerste kwartiel):** je gaf \"", student_val, "\", juiste antwoord is **\"ontevreden\"**"))
+            }
+            
+            # Q3
+            if (!results$q3$correct) {
+              student_val <- if (results$q3$exists) results$q3$value else "Ontbreekt"
+              feedback_parts <- c(feedback_parts, paste0("• **Q3 (derde kwartiel):** je gaf \"", student_val, "\", juiste antwoord is **\"tevreden\"**"))
+            }
+            
+            # Variatiebreedte
+            if (!results$variatiebreedte$correct) {
+              student_val <- if (results$variatiebreedte$exists) results$variatiebreedte$value else "Ontbreekt"
+              feedback_parts <- c(feedback_parts, paste0("• **Variatiebreedte:** je gaf \"", student_val, "\", juiste antwoord is **\"zeer ontevreden tot zeer tevreden\"**"))
+            }
+            
+            # IKA
+            if (!results$ika$correct) {
+              student_val <- if (results$ika$exists) results$ika$value else "Ontbreekt"
+              feedback_parts <- c(feedback_parts, paste0("• **IKA (interkwartielafstand):** je gaf \"", student_val, "\", juiste antwoord is **\"ontevreden tot tevreden\"**"))
+            }
+            
+            feedback_parts <- c(
+              feedback_parts,
+              "",
+              "📊 **BELANGRIJKE REGELS VOOR ORDINALE DATA:**",
+              "• **Meetniveau:** ordinaal (heeft rangorde, geen gelijke afstanden)",
+              "• **Modus & Mediaan:** beide geschikt voor ordinale data",
+              "• **Gemiddelde:** NIET geschikt voor ordinale data",
+              "• **Q1 & Q3:** bepaal via cumulatieve percentages",
+              "• **IKA:** bereik van Q1 tot Q3 (middelste 50% van data)"
+            )
           }
           
           feedback_parts <- c(
             feedback_parts,
             "",
-            paste0("**", correct_count, " van ", total_questions, " juist**"),
-            "",
-            "📊 **BELANGRIJKE REGELS VOOR ORDINALE DATA:**",
-            "• **Meetniveau:** ordinaal (heeft rangorde, geen gelijke afstanden)",
-            "• **Modus & Mediaan:** beide geschikt voor ordinale data",
-            "• **Gemiddelde:** NIET geschikt voor ordinale data",
-            "• **Q1 & Q3:** bepaal via cumulatieve percentages",
-            "• **IKA:** bereik van Q1 tot Q3 (middelste 50% van data)"
+            paste0("**", correct_count, " van ", total_questions, " juist**")
           )
           
           # Show markdown feedback

@@ -9,26 +9,36 @@
 # - Zeer tevreden: 48
 # - Totaal N: 330
 
-# 1. Bereken de cumulatieve absolute frequenties voor elke categorie
+# =============================================
+# STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES
+# =============================================
 cumulatieve_absolute_frequenties_zeer_ontevreden <- ???
 cumulatieve_absolute_frequenties_ontevreden <- ???
 cumulatieve_absolute_frequenties_noch_tevreden_noch_ontevreden <- ???
 cumulatieve_absolute_frequenties_tevreden <- ???
 cumulatieve_absolute_frequenties_zeer_tevreden <- ???
 
-# 2. Bereken de relatieve frequenties (proporties) voor elke categorie
+# =============================================
+# STAP 1.2 - RELATIEVE FREQUENTIES
+# =============================================
 relatieve_frequenties_zeer_ontevreden <- ???
 relatieve_frequenties_ontevreden <- ???
 relatieve_frequenties_noch_tevreden_noch_ontevreden <- ???
 relatieve_frequenties_tevreden <- ???
 relatieve_frequenties_zeer_tevreden <- ???
 
-# 3. Bereken de cumulatieve relatieve frequenties voor elke categorie
+# =============================================
+# STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES
+# =============================================
 cumulatieve_relatieve_frequenties_zeer_ontevreden <- ???
 cumulatieve_relatieve_frequenties_ontevreden <- ???
 cumulatieve_relatieve_frequenties_noch_tevreden_noch_ontevreden <- ???
 cumulatieve_relatieve_frequenties_tevreden <- ???
 cumulatieve_relatieve_frequenties_zeer_tevreden <- ???
+
+# =============================================
+# STAP 2 - OVERIGE VRAGEN
+# =============================================
 
 # 4. Wat is het meetniveau van de variabele "tevredenheid met reclasseringsbegeleiding"?
 # Kies uit: "nominaal", "ordinaal", "interval"
@@ -43,11 +53,18 @@ modus <- "???"
 # 7. Wat is de mediaan van deze verdeling? (gebruik exacte bewoordingen uit de tabel)
 mediaan <- "???"
 
+# =============================================
+# STAP 3 - MATEN VAN CENTRALITEIT
+# =============================================
+
 # 8. Welke maat van centraliteit is het meest relevant voor ordinale data?
 # Kies uit: "modus", "mediaan", "gemiddelde"
 meest_relevante_centraliteit <- "???"
 
-# STAP 5 – Maten van spreiding
+# =============================================
+# STAP 4 - MATEN VAN SPREIDING
+# =============================================
+
 # 9. Wat is het eerste kwartiel (Q1)? (gebruik exacte bewoordingen uit de tabel)
 q1 <- "???"
 
