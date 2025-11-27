@@ -525,7 +525,7 @@ context({
           # ----------------------
           if (correct_count != total_questions) {
             feedback_parts <- c(feedback_parts, "")
-            feedback_parts <- c(feedback_parts, "📚 **GEDETAILLEERDE UITLEG VAN FOUTEN:**")
+            feedback_parts <- c(feedback_parts, "📚 **Uitleg van gemaakte fouten:**")
             feedback_parts <- c(feedback_parts, "")
             
             # Helper function for detailed explanations
