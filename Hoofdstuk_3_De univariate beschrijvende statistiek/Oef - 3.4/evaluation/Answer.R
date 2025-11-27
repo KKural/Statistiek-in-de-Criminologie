@@ -554,7 +554,7 @@ context({
                 context <- data_context[[freq_var]]$context
                 
                 if (results[[freq_var]]$exists) {
-                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar ", context, ". **Juiste antwoord is ", expected_val, "**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar ", context, ". **Juiste antwoord is ", **expected_val, "**"))
                 } else {
                   feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
                 }
@@ -615,7 +615,7 @@ context({
                     if (abs(student_val_num - 9.1) < 0.1) {
                       feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%, maar je gebruikte frequentie = 1 terwijl 150 twee keer voorkomt. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
                     } else if (abs(student_val_num - 0.18) < 0.01) {
-                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, " maar vergat te vermenigvuldigen met 100. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
+                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, " maar vergat te vermenigvuldigen met 100. Bereken: ", calculation, ". **Juiste antwoord is ", **expected_val, "%**"))
                     } else {
                       feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
                     }
