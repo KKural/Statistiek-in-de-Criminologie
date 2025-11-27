@@ -57,7 +57,7 @@ De individuele waarden zijn:
 <td style="padding: 4px 8px; text-align: center;">150</td>
 </tr>
 <tr>
-<td style="padding: 4px 8px; text-align: left;"><strong>Jennifer Aniston & Brad Pitt</strong></td>
+<td style="padding: 4px 8px; text-align: left;"><strong>Jennifer Aniston & Brad Pitt></td>
 <td style="padding: 4px 8px; text-align: center;"><strong>1657</strong></td>
 </tr>
 </tbody>
