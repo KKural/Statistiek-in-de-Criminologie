@@ -642,7 +642,7 @@ context({
                 afwijking <- xval - 33.55
                 return(
                   paste0(
-                    "Voor de gekwadrateerde afwijking bij X = ", xval,
+                    "**Gekwadrateerde afwijking (X = ", xval, ")**",
                     " (bereken: (", xval, " - 33.55)² = (", round(afwijking, 2),
                     ")² = ", round(expected_val, 2), ")"
                   )
@@ -654,37 +654,37 @@ context({
                 xval <- as.numeric(sub("_.*$", "", rest))
                 return(
                   paste0(
-                    "Voor de afwijking bij X = ", xval,
+                    "**Afwijking (X = ", xval, ")**",
                     " (bereken: ", xval, " - 33.55 = ", round(expected_val, 2), ")"
                   )
                 )
               }
 
               if (var_name == "standaardafwijking") {
-                return("Voor de standaardafwijking (bereken: √variantie = √27.8295 = 5.2763)")
+                return("**Standaardafwijking** (bereken: √variantie = √27.8295 = 5.2763)")
               }
 
               if (var_name == "variatiecoefficient") {
-                return("Voor de variatiecoëfficiënt (bereken: SD/gemiddelde = 5.2763/33.55 = 0.1573)")
+                return("**Variatiecoëfficiënt** (bereken: SD/gemiddelde = 5.2763/33.55 = 0.1573)")
               }
 
               if (var_name == "gemiddelde") {
-                return("Voor het gemiddelde (bereken: som van alle waarden ÷ aantal = 671/20 = 33.55)")
+                return("**Gemiddelde/Mean** (bereken: som van alle waarden ÷ aantal = 671/20 = 33.55)")
               }
               if (var_name == "mediaan") {
-                return("Voor de mediaan (sorteer data, neem 11de waarde van 20 = 36)")
+                return("**Mediaan** (sorteer data, neem 11de waarde van 20 = 36)")
               }
               if (var_name == "modus") {
-                return("Voor de modus (waarde die het meest voorkomt: 36 komt 7x voor)")
+                return("**Modus** (waarde die het meest voorkomt: 36 komt 7x voor)")
               }
               if (var_name == "sum_of_squares") {
-                return("Voor de som van de gekwadrateerde afwijkingen (som alle (X-33.55)² = 528.95)")
+                return("**Som van gekwadrateerde afwijkingen** (som alle (X-33.55)² = 528.95)")
               }
               if (var_name == "variantie") {
-                return("Voor de variantie (som/(n-1) = 528.95/19 = 27.8295)")
+                return("**Variantie** (som/(n-1) = 528.95/19 = 27.8295)")
               }
 
-              return("Voor dit antwoord")
+              return("**Dit antwoord**")
             }
 
             # alle foute maar ingevulde variabelen

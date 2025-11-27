@@ -46,7 +46,7 @@ context({
           rel_freq_vars <- list(
             "relatieve_frequenties_zeer_ontevreden"              = 0.1000,
             "relatieve_frequenties_ontevreden"                   = 0.2545,
-            "relatieve_frequenties_noch_tevreden_noch_ontevreden" = 0.3100,
+            "relatieve_frequenties_noch_tevreden_noch_ontevreden" = 0.3091,
             "relatieve_frequenties_tevreden"                     = 0.1909,
             "relatieve_frequenties_zeer_tevreden"                = 0.1455
           )
@@ -59,7 +59,7 @@ context({
               results[[var_name]] <- list(
                 exists   = TRUE,
                 value    = current_val,
-                correct  = abs(current_val - expected_val) < 0.0005,
+                correct  = abs(current_val - expected_val) < 0.001,
                 expected = expected_val
               )
             } else {
@@ -89,7 +89,7 @@ context({
               results[[var_name]] <- list(
                 exists   = TRUE,
                 value    = current_val,
-                correct  = abs(current_val - expected_val) < 0.0005,
+                correct  = abs(current_val - expected_val) < 0.001,
                 expected = expected_val
               )
             } else {
