@@ -988,19 +988,19 @@ context({
               if (results$standaardafwijking$exists) {
                 student_answer <- as.numeric(results$standaardafwijking$value)
                 if (abs(student_answer - 226854.09) < 100) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", format(student_answer, big.mark=","), ", maar je vergat de wortel. SD = √variantie = **476.29**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", format(student_answer, big.mark=","), ", maar je vergat de wortel. **Juiste antwoord is 476.29** (√variantie)"))
                 } else if (abs(student_answer - 454.12) < 1) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar je gebruikte n=11 ipv n-1=10. Correct: **476.29**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar je gebruikte n=11 ipv n-1=10. **Juiste antwoord is 476.29**"))
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar correct is √variantie = **476.29**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar **juiste antwoord is 476.29** (√variantie)"))
                 }
               } else {
-                feedback_parts <- c(feedback_parts, "  • Standaardafwijking: Ontbreekt ❌")
+                feedback_parts <- c(feedback_parts, "  • Standaardafwijking: Ontbreekt ❌. **Juiste antwoord is 476.29** (√variantie)")
               }
             }
           } else {
             all_variance_correct <- FALSE
-            feedback_parts <- c(feedback_parts, "  • Standaardafwijking: Ontbreekt ❌")
+            feedback_parts <- c(feedback_parts, "  • Standaardafwijking: Ontbreekt ❌. **Juiste antwoord is 476.29** (√variantie)")
           }
           
           if (all_variance_correct) {
@@ -1098,16 +1098,19 @@ context({
               expected_val <- results[[key]]$expected
 
               if (is.numeric(student_val)) {
-                student_str <- format(as.numeric(student_val), digits = 6, big.mark = ",")
+                student_str   <- format(as.numeric(student_val), digits = 6, big.mark = ",")
+                expected_str  <- format(as.numeric(expected_val), digits = 6, big.mark = ",")
               } else {
-                student_str <- as.character(student_val)
+                student_str  <- as.character(student_val)
+                expected_str <- as.character(expected_val)
               }
 
               feedback_parts <- c(
                 feedback_parts,
                 paste0(
                   "• ", make_label_with_explanation(key, expected_val),
-                  ": je gaf ", student_str, "."
+                  ": je gaf ", student_str,
+                  ", maar **juiste antwoord is ", expected_str, "**."
                 )
               )
             }
