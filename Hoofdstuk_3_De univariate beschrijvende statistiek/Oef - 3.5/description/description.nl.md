@@ -1,6 +1,6 @@
 # Oefening 3.5: Spreidingsmaat bij politietoezicht
 
-Een criminoloog onderzoekt of het **aantal uren patrouilleren per dag** door politieagenten een effect heeft op het **aantal geregistreerde incidenten per wijk**. Hij verzamelde onderstaande gegevens.
+Een criminoloog onderzoekt of het **aantal uren patrouilleren per dag** door politieagenten een effect heeft op het **aantal geregistreerde incidenten per wijk**. Hij verzamelde onderstaande gegevens voor 9 wijken (AV = incidenten, OV = patrouille-uren).
 
 <table style="border-collapse: collapse; width: 60%; margin: 20px auto; font-family: Times, serif;">
   <thead>
@@ -24,47 +24,25 @@ Een criminoloog onderzoekt of het **aantal uren patrouilleren per dag** door pol
 
 ## Opdracht
 
-Bereken de **meest relevante maat van spreiding** voor de afhankelijke variabele (AV) *aantal geregistreerde incidenten* en vul de ontbrekende waarden in de R-code aan.
+Bereken de **meest relevante maat van spreiding** voor de afhankelijke variabele (AV) *aantal geregistreerde incidenten*. Vul de ontbrekende waarden in de R-code aan.
 
-**Verwachte werkwijze (stap voor stap):**
-
-1. **Data invoeren en gemiddelde berekenen** voor de AV.
-2. **Afwijkingen van het gemiddelde** bepalen, kwadrateren en optellen (*sum of squares*).
-3. **Steekproefvariantie** berekenen met `n - 1` in de noemer.
-4. **Standaarddeviatie** nemen als vierkantswortel van de variantie.
-5. **Keuze van spreidingsmaat** motiveren: voor interval/ratio-gegevens is de standaarddeviatie doorgaans de meest informatieve maat.
-
-**Meerkeuze (kies de correcte spreidingsmaat voor de AV):**
-
-- 7,5  
-- 2,74  
-- 2,8  
+### Te beantwoorden (meerkeuze)
+Welke spreidingsmaat past bij de AV?
+- 7,5
+- 2,74
+- 2,8
 - 7,85
 
-## In te vullen code
+**Juist antwoord:** standaarddeviatie = 2,74.
 
-Vervang `???` door de juiste waarden of functies.
+### Te volgen stappen
+1. **Gemiddelde** van de incidenten berekenen.
+2. **Afwijkingen**: elke waarde minus het gemiddelde.
+3. **Kwadraten**: afwijkingen kwadrateren en optellen (*sum of squares*).
+4. **Steekproefvariantie**: `SS / (n - 1)`.
+5. **Standaarddeviatie**: wortel uit de variantie. Dit is de gekozen spreidingsmaat voor interval/ratio-gegevens.
 
-```r
-# Data
-incidenten <- c(2, 7, 10, 5, 6, 8, 3, 4, 9)
-patrouille_uren <- c(5, 3, 4, 2, 1, 3, 2, 1, 4)
+### R-code om aan te vullen
+Vervang `???` door het juiste antwoord. Gebruik een **decimale punt** en rond de standaarddeviatie af op **twee decimalen**.
 
-# Centrummaten
-gemiddelde_incidenten <- ???
-
-# Afwijkingen en spreiding
-afwijkingen <- ???
-gekwadrateerde_afwijkingen <- ???
-sum_of_squares <- ???
-variantie_incidenten <- ???
-standaarddeviatie_incidenten <- ???
-
-# Kies de juiste maat van spreiding voor de AV (gebruik decimale punt)
-gekozen_spreidingsmaat <- ???
-```
-
-**Instructies:**
-- Gebruik een **decimale punt** (bijv. `2.74`, niet `2,74`).
-- Rond `standaarddeviatie_incidenten` af op **twee decimalen**.
-- Controleer of je `variantie_incidenten` als **steekproefvariantie** berekent.
+**Tip:** Controleer of je de **steekproefvariantie** gebruikt (noemer = n-1).

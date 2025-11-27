@@ -14,7 +14,7 @@ context({
           expected_squared <- c(16, 1, 16, 1, 0, 4, 9, 4, 9)
           expected_ss <- 64  # Corrected: 16+1+16+1+0+4+9+4+9 = 64
           expected_variance <- 8  # Corrected: 64/8 = 8
-          expected_sd <- 2.83  # Corrected: sqrt(8) ≈ 2.83
+          expected_sd <- sqrt(8)  # sqrt(8) = 2.828427... (allow both 2.83 and 2.828...)
           
           # -----------------------------
           # STEP 1: MEAN CALCULATION
@@ -150,7 +150,7 @@ context({
             results$standaarddeviatie_incidenten <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - expected_sd) < 0.01,
+              correct = abs(current_val - expected_sd) < 0.01 || abs(current_val - 2.83) < 0.01,
               expected = expected_sd
             )
           } else {
@@ -166,7 +166,7 @@ context({
             results$gekozen_spreidingsmaat <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - expected_sd) < 0.01,
+              correct = abs(current_val - expected_sd) < 0.01 || abs(current_val - 2.83) < 0.01,
               expected = expected_sd
             )
           } else {
@@ -193,45 +193,45 @@ context({
           # ----------------------
           
           if (results$gemiddelde_incidenten$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - GEMIDDELDE:** Som=54, n=9 → 54/9 = 6 ✅")
+            feedback_lines <- c(feedback_lines, "**1.1 GEMIDDELDE:** Som=54, n=9 → 54/9 = 6 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 1 - GEMIDDELDE:** Som alle incidenten (54) / aantal (9) = 6 ❌")
+            feedback_lines <- c(feedback_lines, "**1.1 GEMIDDELDE:** Som alle incidenten (54) / aantal (9) = 6 ❌")
           }
           
           if (results$afwijkingen$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - AFWIJKINGEN:** X - 6 voor elke waarde ✅")
+            feedback_lines <- c(feedback_lines, "**2.1 AFWIJKINGEN:** X - 6 voor elke waarde ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - AFWIJKINGEN:** Bereken incident - 6 voor elke waarde ❌")
+            feedback_lines <- c(feedback_lines, "**2.1 AFWIJKINGEN:** Bereken incident - 6 voor elke waarde ❌")
           }
           
           if (results$gekwadrateerde_afwijkingen$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - KWADRATEN:** (afwijking)² voor elke waarde ✅")
+            feedback_lines <- c(feedback_lines, "**2.2 KWADRATEN:** (afwijking)² voor elke waarde ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - KWADRATEN:** Kwadrateer elke afwijking: (-4)²=16, (1)²=1, enz. ❌")
+            feedback_lines <- c(feedback_lines, "**2.2 KWADRATEN:** Kwadrateer elke afwijking: (-4)²=16, (1)²=1, enz. ❌")
           }
           
           if (results$sum_of_squares$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - SOM:** 16+1+16+1+0+4+9+4+9 = 64 ✅")
+            feedback_lines <- c(feedback_lines, "**2.3 SOM:** 16+1+16+1+0+4+9+4+9 = 64 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2 - SOM:** Som alle gekwadrateerde afwijkingen = 64 ❌")
+            feedback_lines <- c(feedback_lines, "**2.3 SOM:** Som alle gekwadrateerde afwijkingen = 64 ❌")
           }
           
           if (results$variantie_incidenten$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - VARIANTIE:** SS/(n-1) = 64/8 = 8 ✅")
+            feedback_lines <- c(feedback_lines, "**3.1 VARIANTIE:** SS/(n-1) = 64/8 = 8 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - VARIANTIE:** 64 / (9-1) = 64/8 = 8 ❌")
+            feedback_lines <- c(feedback_lines, "**3.1 VARIANTIE:** 64 / (9-1) = 64/8 = 8 ❌")
           }
           
           if (results$standaarddeviatie_incidenten$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - STANDAARDDEVIATIE:** √8 = 2.83 ✅")
+            feedback_lines <- c(feedback_lines, "**3.2 STANDAARDDEVIATIE:** √8 = 2.83 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 3 - STANDAARDDEVIATIE:** √variantie = √8 = 2.83 ❌")
+            feedback_lines <- c(feedback_lines, "**3.2 STANDAARDDEVIATIE:** √variantie = √8 = 2.83 ❌")
           }
           
           if (results$gekozen_spreidingsmaat$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 4 - KEUZE MAAT:** Standaarddeviatie (2.83) voor interval data ✅")
+            feedback_lines <- c(feedback_lines, "**4.1 KEUZE MAAT:** Standaarddeviatie (2.83) voor interval data ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 4 - KEUZE MAAT:** Voor interval data kies standaarddeviatie (2.83) ❌")
+            feedback_lines <- c(feedback_lines, "**4.1 KEUZE MAAT:** Voor interval data kies standaarddeviatie (2.83) ❌")
           }
           
           # ----------------------
