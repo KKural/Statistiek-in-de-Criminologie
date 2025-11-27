@@ -4,22 +4,64 @@ De individuele waarden zijn:
 
 `240  144  143  72  30  26  2  150  14  150  1657`
 
-**Tabel 1**  
+**Tabel 1**
+
 *Celebrity Huwelijksduur Dataset*
 
-| Celebrity Paar | Huwelijksduur (dagen) |
-|---|---|
-| Elizabeth Taylor & Larry Fortensky | 240 |
-| Britney Spears & Jason Alexander | 144 |
-| Kim Kardashian & Kris Humphries | 143 |
-| Carmen Electra & Dennis Rodman | 72 |
-| Renée Zellweger & Kenny Chesney | 30 |
-| Jennifer Lopez & Cris Judd | 26 |
-| Britney Spears & Kevin Federline | 2 |
-| Drew Barrymore & Jeremy Thomas | 150 |
-| Mario Lopez & Ali Landry | 14 |
-| Nicolas Cage & Lisa Marie Presley | 150 |
-| Jennifer Aniston & Brad Pitt | 1657 |
+<table style="border-collapse: collapse; width: 75%; margin: 20px auto; font-family: Times, serif;">
+<thead>
+<tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
+<th style="padding: 6px 8px; text-align: left; font-weight: bold; width: 60%;">Celebrity Paar</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 40%;">Huwelijksduur<br>(dagen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Elizabeth Taylor & Larry Fortensky</td>
+<td style="padding: 4px 8px; text-align: center;">240</td>
+</tr>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Britney Spears & Jason Alexander</td>
+<td style="padding: 4px 8px; text-align: center;">144</td>
+</tr>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Kim Kardashian & Kris Humphries</td>
+<td style="padding: 4px 8px; text-align: center;">143</td>
+</tr>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Carmen Electra & Dennis Rodman</td>
+<td style="padding: 4px 8px; text-align: center;">72</td>
+</tr>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Renée Zellweger & Kenny Chesney</td>
+<td style="padding: 4px 8px; text-align: center;">30</td>
+</tr>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Jennifer Lopez & Cris Judd</td>
+<td style="padding: 4px 8px; text-align: center;">26</td>
+</tr>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Britney Spears & Kevin Federline</td>
+<td style="padding: 4px 8px; text-align: center;">2</td>
+</tr>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Drew Barrymore & Jeremy Thomas</td>
+<td style="padding: 4px 8px; text-align: center;">150</td>
+</tr>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Mario Lopez & Ali Landry</td>
+<td style="padding: 4px 8px; text-align: center;">14</td>
+</tr>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">Nicolas Cage & Lisa Marie Presley</td>
+<td style="padding: 4px 8px; text-align: center;">150</td>
+</tr>
+<tr style="border-bottom: 2px solid #000; background-color: #fff2cc;">
+<td style="padding: 4px 8px; text-align: left;"><strong>Jennifer Aniston & Brad Pitt</strong></td>
+<td style="padding: 4px 8px; text-align: center;"><strong>1657</strong></td>
+</tr>
+</tbody>
+</table>
 
 *Noot.* Dataset bevat n=11 celebrity huwelijken met duur in dagen. Jennifer Aniston & Brad Pitt (1657 dagen) vormt extreme uitbijter.
 
