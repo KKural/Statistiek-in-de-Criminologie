@@ -317,6 +317,7 @@ context({
           }
           
           if (cum_abs_all_correct) {
+            feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES:** Allemaal correct!")
             feedback_parts <- c(feedback_parts, "• Waarden: 33, 117, 219, 282, 330")
           } else {
@@ -363,6 +364,7 @@ context({
           }
           
           if (rel_freq_all_correct) {
+            feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.2 - RELATIEVE FREQUENTIES:** Allemaal correct!")
             feedback_parts <- c(feedback_parts, "• Waarden: 0.1000, 0.2545, 0.3091, 0.1909, 0.1455")
           } else {
@@ -409,6 +411,7 @@ context({
           }
           
           if (cum_rel_all_correct) {
+            feedback_parts <- c(feedback_parts, "")
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:** Allemaal correct!")
             feedback_parts <- c(feedback_parts, "• Waarden: 0.1000, 0.3545, 0.6636, 0.8545, 1.0000")
           } else {
@@ -417,85 +420,117 @@ context({
               feedback_parts[header_index] <- "**❌ STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES:** Fouten gevonden"
             }
           }
+          feedback_parts <- c(feedback_parts, "")
           
           # ----------------------
           # STAP 2 - OVERIGE VRAGEN
           # ----------------------
-          if (generated != expected) {
+          feedback_parts <- c(feedback_parts, "**STAP 2 - OVERIGE VRAGEN:**")
+          
+          stap2_all_correct <- TRUE
+          
+          # Meetniveau
+          if (results$meetniveau$correct) {
+            # Success case - don't show anything, continue to next
+          } else {
+            stap2_all_correct <- FALSE
+            student_val <- if (results$meetniveau$exists) results$meetniveau$value else "Ontbreekt"
+            feedback_parts <- c(feedback_parts, paste0("  • **Meetniveau:** je gaf \"", student_val, "\", juiste antwoord is **\"ordinaal\"**"))
+          }
+          
+          # Totaal N
+          if (results$totaal_n$correct) {
+            # Success case
+          } else {
+            stap2_all_correct <- FALSE
+            student_val <- if (results$totaal_n$exists) results$totaal_n$value else "Ontbreekt"
+            feedback_parts <- c(feedback_parts, paste0("  • **Totaal N:** je gaf ", student_val, ", juiste antwoord is **330**"))
+          }
+          
+          # Modus
+          if (results$modus$correct) {
+            # Success case
+          } else {
+            stap2_all_correct <- FALSE
+            student_val <- if (results$modus$exists) results$modus$value else "Ontbreekt"
+            feedback_parts <- c(feedback_parts, paste0("  • **Modus:** je gaf \"", student_val, "\", juiste antwoord is **\"noch tevreden, noch ontevreden\"**"))
+          }
+          
+          # Mediaan
+          if (results$mediaan$correct) {
+            # Success case
+          } else {
+            stap2_all_correct <- FALSE
+            student_val <- if (results$mediaan$exists) results$mediaan$value else "Ontbreekt"
+            feedback_parts <- c(feedback_parts, paste0("  • **Mediaan:** je gaf \"", student_val, "\", juiste antwoord is **\"noch tevreden, noch ontevreden\"**"))
+          }
+          
+          # Meest relevante centraliteit
+          if (results$meest_relevante_centraliteit$correct) {
+            # Success case
+          } else {
+            stap2_all_correct <- FALSE
+            student_val <- if (results$meest_relevante_centraliteit$exists) results$meest_relevante_centraliteit$value else "Ontbreekt"
+            feedback_parts <- c(feedback_parts, paste0("  • **Meest relevante centraliteitsmaat:** je gaf \"", student_val, "\", juiste antwoord is **\"mediaan\"**"))
+          }
+          
+          # Q1
+          if (results$q1$correct) {
+            # Success case
+          } else {
+            stap2_all_correct <- FALSE
+            student_val <- if (results$q1$exists) results$q1$value else "Ontbreekt"
+            feedback_parts <- c(feedback_parts, paste0("  • **Q1 (eerste kwartiel):** je gaf \"", student_val, "\", juiste antwoord is **\"ontevreden\"**"))
+          }
+          
+          # Q3
+          if (results$q3$correct) {
+            # Success case
+          } else {
+            stap2_all_correct <- FALSE
+            student_val <- if (results$q3$exists) results$q3$value else "Ontbreekt"
+            feedback_parts <- c(feedback_parts, paste0("  • **Q3 (derde kwartiel):** je gaf \"", student_val, "\", juiste antwoord is **\"tevreden\"**"))
+          }
+          
+          # Variatiebreedte
+          if (results$variatiebreedte$correct) {
+            # Success case
+          } else {
+            stap2_all_correct <- FALSE
+            student_val <- if (results$variatiebreedte$exists) results$variatiebreedte$value else "Ontbreekt"
+            feedback_parts <- c(feedback_parts, paste0("  • **Variatiebreedte:** je gaf \"", student_val, "\", juiste antwoord is **\"zeer ontevreden tot zeer tevreden\"**"))
+          }
+          
+          # IKA
+          if (results$ika$correct) {
+            # Success case
+          } else {
+            stap2_all_correct <- FALSE
+            student_val <- if (results$ika$exists) results$ika$value else "Ontbreekt"
+            feedback_parts <- c(feedback_parts, paste0("  • **IKA (interkwartielafstand):** je gaf \"", student_val, "\", juiste antwoord is **\"ontevreden tot tevreden\"**"))
+          }
+          
+          if (stap2_all_correct) {
             feedback_parts <- c(feedback_parts, "")
-            feedback_parts <- c(feedback_parts, "**STAP 2 - OVERIGE VRAGEN:**")
-            
-            # Meetniveau
-            feedback_parts <- c(feedback_parts, "")
-            if (!results$meetniveau$correct) {
-              student_val <- if (results$meetniveau$exists) results$meetniveau$value else "Ontbreekt"
-              feedback_parts <- c(feedback_parts, paste0("• **Meetniveau:** je gaf \"", student_val, "\", juiste antwoord is **\"ordinaal\"**"))
+            feedback_parts <- c(feedback_parts, "**✅ STAP 2 - OVERIGE VRAGEN:** Allemaal correct!")
+          } else {
+            header_index <- which(feedback_parts == "**STAP 2 - OVERIGE VRAGEN:**")
+            if (length(header_index) > 0) {
+              feedback_parts[header_index] <- "**❌ STAP 2 - OVERIGE VRAGEN:** Fouten gevonden"
             }
-            
-            # Totaal N
-            if (!results$totaal_n$correct) {
-              student_val <- if (results$totaal_n$exists) results$totaal_n$value else "Ontbreekt"
-              feedback_parts <- c(feedback_parts, paste0("• **Totaal N:** je gaf ", student_val, ", juiste antwoord is **330**"))
-            }
-            
-            # Modus
-            if (!results$modus$correct) {
-              student_val <- if (results$modus$exists) results$modus$value else "Ontbreekt"
-              feedback_parts <- c(feedback_parts, paste0("• **Modus:** je gaf \"", student_val, "\", juiste antwoord is **\"noch tevreden, noch ontevreden\"**"))
-            }
-            
-            # Mediaan
-            if (!results$mediaan$correct) {
-              student_val <- if (results$mediaan$exists) results$mediaan$value else "Ontbreekt"
-              feedback_parts <- c(feedback_parts, paste0("• **Mediaan:** je gaf \"", student_val, "\", juiste antwoord is **\"noch tevreden, noch ontevreden\"**"))
-            }
-            
-            # Meest relevante centraliteit
-            if (!results$meest_relevante_centraliteit$correct) {
-              student_val <- if (results$meest_relevante_centraliteit$exists) results$meest_relevante_centraliteit$value else "Ontbreekt"
-              feedback_parts <- c(feedback_parts, paste0("• **Meest relevante centraliteitsmaat:** je gaf \"", student_val, "\", juiste antwoord is **\"mediaan\"**"))
-            }
-            
-            # Q1
-            if (!results$q1$correct) {
-              student_val <- if (results$q1$exists) results$q1$value else "Ontbreekt"
-              feedback_parts <- c(feedback_parts, paste0("• **Q1 (eerste kwartiel):** je gaf \"", student_val, "\", juiste antwoord is **\"ontevreden\"**"))
-            }
-            
-            # Q3
-            if (!results$q3$correct) {
-              student_val <- if (results$q3$exists) results$q3$value else "Ontbreekt"
-              feedback_parts <- c(feedback_parts, paste0("• **Q3 (derde kwartiel):** je gaf \"", student_val, "\", juiste antwoord is **\"tevreden\"**"))
-            }
-            
-            # Variatiebreedte
-            if (!results$variatiebreedte$correct) {
-              student_val <- if (results$variatiebreedte$exists) results$variatiebreedte$value else "Ontbreekt"
-              feedback_parts <- c(feedback_parts, paste0("• **Variatiebreedte:** je gaf \"", student_val, "\", juiste antwoord is **\"zeer ontevreden tot zeer tevreden\"**"))
-            }
-            
-            # IKA
-            if (!results$ika$correct) {
-              student_val <- if (results$ika$exists) results$ika$value else "Ontbreekt"
-              feedback_parts <- c(feedback_parts, paste0("• **IKA (interkwartielafstand):** je gaf \"", student_val, "\", juiste antwoord is **\"ontevreden tot tevreden\"**"))
-            }
-            
-            feedback_parts <- c(
-              feedback_parts,
-              "",
-              "📊 **BELANGRIJKE REGELS VOOR ORDINALE DATA:**",
-              "• **Meetniveau:** ordinaal (heeft rangorde, geen gelijke afstanden)",
-              "• **Modus & Mediaan:** beide geschikt voor ordinale data",
-              "• **Gemiddelde:** NIET geschikt voor ordinale data",
-              "• **Q1 & Q3:** bepaal via cumulatieve percentages",
-              "• **IKA:** bereik van Q1 tot Q3 (middelste 50% van data)"
-            )
           }
           
           feedback_parts <- c(
             feedback_parts,
             "",
-            paste0("**", correct_count, " van ", total_questions, " juist**")
+            paste0("**", correct_count, " van ", total_questions, " juist**"),
+            "",
+            "📊 **BELANGRIJKE REGELS VOOR ORDINALE DATA:**",
+            "• **Meetniveau:** ordinaal (heeft rangorde, geen gelijke afstanden)",
+            "• **Modus & Mediaan:** beide geschikt voor ordinale data",
+            "• **Gemiddelde:** NIET geschikt voor ordinale data",
+            "• **Q1 & Q3:** bepaal via cumulatieve percentages",
+            "• **IKA:** bereik van Q1 tot Q3 (middelste 50% van data)"
           )
           
           # Show markdown feedback
