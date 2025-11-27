@@ -524,7 +524,42 @@ context({
           if (gekw_correct) {
             feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
           } else {
-            feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking ❌")
+            # Show detailed error explanations in step message like 3.2
+            gekw_errors <- c()
+            
+            # Check specific errors for key values
+            if ("gekw_afwijking_2" %in% names(results) && !results$gekw_afwijking_2$correct && results$gekw_afwijking_2$exists) {
+              student_gekw2 <- as.numeric(results$gekw_afwijking_2$value)
+              if (abs(student_gekw2 - 4) < 0.1) {
+                gekw_errors <- c(gekw_errors, "X=2: Je gaf 4 (2²), maar moet zijn (2-238.91)² = **56,126.35**")
+              } else {
+                gekw_errors <- c(gekw_errors, paste0("X=2: Je gaf ", format(student_gekw2, big.mark=","), ", moet zijn **56,126.35**"))
+              }
+            }
+            
+            if ("gekw_afwijking_1657" %in% names(results) && !results$gekw_afwijking_1657$correct && results$gekw_afwijking_1657$exists) {
+              student_gekw1657 <- as.numeric(results$gekw_afwijking_1657$value)
+              if (abs(student_gekw1657 - 2743649) < 1000) {
+                gekw_errors <- c(gekw_errors, "X=1657: Je gaf 1657², moet zijn (1657-238.91)² = **2,010,979.20**")
+              } else {
+                gekw_errors <- c(gekw_errors, paste0("X=1657: Je gaf ", format(student_gekw1657, big.mark=","), ", moet zijn **2,010,979.20**"))
+              }
+            }
+            
+            if ("gekw_afwijking_150_1" %in% names(results) && !results$gekw_afwijking_150_1$correct && results$gekw_afwijking_150_1$exists) {
+              student_gekw150 <- as.numeric(results$gekw_afwijking_150_1$value)
+              if (abs(student_gekw150 - 22500) < 100) {
+                gekw_errors <- c(gekw_errors, "X=150: Je gaf 150², moet zijn (150-238.91)² = **7,905.01**")
+              } else {
+                gekw_errors <- c(gekw_errors, paste0("X=150: Je gaf ", format(student_gekw150, big.mark=","), ", moet zijn **7,905.01**"))
+              }
+            }
+            
+            if (length(gekw_errors) > 0) {
+              feedback_parts <- c(feedback_parts, paste0("**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer (X - gemiddelde)². ", paste(gekw_errors, collapse=" | "), " ❌"))
+            } else {
+              feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking (X - 238.91)² ❌")
+            }
           }
           
           # Check variance calculations
@@ -753,49 +788,7 @@ context({
               }
             }
             
-            # Gekwadrateerde afwijkingen fout - detailed analysis like in 3.2
-            gekw_vars <- c("gekw_afwijking_2", "gekw_afwijking_14", "gekw_afwijking_26", "gekw_afwijking_30", "gekw_afwijking_72", "gekw_afwijking_143", "gekw_afwijking_144", "gekw_afwijking_150_1", "gekw_afwijking_150_2", "gekw_afwijking_240", "gekw_afwijking_1657")
-            wrong_gekw <- sapply(gekw_vars, function(x) x %in% names(results) && !results[[x]]$correct)
-            if (any(wrong_gekw)) {
-              # Check for specific common errors in squared deviations
-              if ("gekw_afwijking_2" %in% names(results) && !results$gekw_afwijking_2$correct && results$gekw_afwijking_2$exists) {
-                student_gekw2 <- as.numeric(results$gekw_afwijking_2$value)
-                if (abs(student_gekw2 - 4) < 0.1) {
-                  feedback_parts <- c(feedback_parts, paste0("• **GEKW_AFWIJKING_2 FOUT:** Je gaf ", student_gekw2, ", maar je kwadrateerde de originele waarde (2²=4). Je moet de afwijking kwadrateren: (2-238.91)² = **56,126.35**"))
-                } else if (abs(student_gekw2 - 236.91) < 0.1) {
-                  feedback_parts <- c(feedback_parts, paste0("• **GEKW_AFWIJKING_2 FOUT:** Je gaf ", student_gekw2, ", maar dit is de absolute afwijking. Je moet kwadrateren: (-236.91)² = **56,126.35**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **GEKW_AFWIJKING_2 FOUT:** Je gaf ", format(student_gekw2, big.mark=","), ", maar correct antwoord is **56,126.35** (afwijking -236.91 gekwadrateerd)"))
-                }
-              }
-              
-              if ("gekw_afwijking_1657" %in% names(results) && !results$gekw_afwijking_1657$correct && results$gekw_afwijking_1657$exists) {
-                student_gekw1657 <- as.numeric(results$gekw_afwijking_1657$value)
-                if (abs(student_gekw1657 - 2743649) < 1000) {
-                  feedback_parts <- c(feedback_parts, paste0("• **GEKW_AFWIJKING_1657 FOUT:** Je gaf ", format(student_gekw1657, big.mark=","), ", maar je kwadrateerde de originele waarde (1657²). Je moet de afwijking kwadrateren: (1657-238.91)² = **2,010,979.20**"))
-                } else if (abs(student_gekw1657 - 1418.09) < 0.1) {
-                  feedback_parts <- c(feedback_parts, paste0("• **GEKW_AFWIJKING_1657 FOUT:** Je gaf ", student_gekw1657, ", maar dit is de afwijking zelf. Je moet kwadrateren: (1418.09)² = **2,010,979.20**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **GEKW_AFWIJKING_1657 FOUT:** Je gaf ", format(student_gekw1657, big.mark=","), ", maar correct antwoord is **2,010,979.20** (afwijking 1418.09 gekwadrateerd)"))
-                }
-              }
-              
-              if ("gekw_afwijking_150_1" %in% names(results) && !results$gekw_afwijking_150_1$correct && results$gekw_afwijking_150_1$exists) {
-                student_gekw150 <- as.numeric(results$gekw_afwijking_150_1$value)
-                if (abs(student_gekw150 - 22500) < 100) {
-                  feedback_parts <- c(feedback_parts, paste0("• **GEKW_AFWIJKING_150 FOUT:** Je gaf ", format(student_gekw150, big.mark=","), ", maar je kwadrateerde de originele waarde (150²). Je moet de afwijking kwadrateren: (150-238.91)² = **7,905.01**"))
-                } else if (abs(student_gekw150 - 88.91) < 0.1) {
-                  feedback_parts <- c(feedback_parts, paste0("• **GEKW_AFWIJKING_150 FOUT:** Je gaf ", student_gekw150, ", maar dit is de absolute afwijking. Je moet kwadrateren: (-88.91)² = **7,905.01**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("• **GEKW_AFWIJKING_150 FOUT:** Je gaf ", format(student_gekw150, big.mark=","), ", maar correct antwoord is **7,905.01** (afwijking -88.91 gekwadrateerd)"))
-                }
-              }
-              
-              # General squared deviations error message
-              if (sum(wrong_gekw) > 3) {
-                feedback_parts <- c(feedback_parts, "• **GEKWADRATEERDE AFWIJKINGEN FOUT:** Kwadrateer elke afwijking (X - 238.91)². Voorbeeld: voor X=2 → (2-238.91)² = (-236.91)² = 56,126.35")
-              }
-            }
+            # Gekwadrateerde afwijkingen feedback is now handled in step message above
             
             # Afwijkingen fout - detailed analysis like in 3.2  
             afwijking_vars <- c("afwijking_2", "afwijking_14", "afwijking_26", "afwijking_30", "afwijking_72", "afwijking_143", "afwijking_144", "afwijking_150_1", "afwijking_150_2", "afwijking_240", "afwijking_1657")

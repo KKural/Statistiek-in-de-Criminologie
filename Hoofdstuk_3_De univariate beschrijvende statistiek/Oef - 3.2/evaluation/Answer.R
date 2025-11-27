@@ -386,19 +386,31 @@ context({
               "**STAP 4.1 - Q1:** 82,5ste waarneming (25% van 330 = 82,5) → **'Ontevreden'** ❌"
             )
           }
-          
+                             
           if (results$q3$exists && results$q3$correct) {
+            # Alles juist → toon correcte categorie met ✅
             feedback_lines <- c(
               feedback_lines,
               "**STAP 4.2 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) → **'Tevreden'** ✅"
             )
-          } else {
+          } else if (!results$q3$exists) {
+            # Niets ingevuld
             feedback_lines <- c(
               feedback_lines,
-              "**STAP 4.2 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) → **'Tevreden'** ❌"
+              "**STAP 4.2 - Q3:** Je gaf niets in. Het juiste antwoord is **'Tevreden'** ❌"
+            )
+          } else {
+            # Wel iets ingevuld maar fout → toon het antwoord van de student
+            student_q3_raw <- as.character(results$q3$value)
+            feedback_lines <- c(
+              feedback_lines,
+              paste0(
+                "**STAP 4.2 - Q3:** 247,5ste waarneming (75% van 330 = 247,5) → ",
+                "je antwoord: **'", student_q3_raw, "'** ❌ (juiste categorie: **'Tevreden'**)"
+              )
             )
           }
-          
+
           if (results$variatiebreedte$exists && results$variatiebreedte$correct) {
             feedback_lines <- c(
               feedback_lines,
