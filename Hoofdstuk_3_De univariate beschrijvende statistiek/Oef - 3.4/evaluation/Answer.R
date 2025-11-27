@@ -554,7 +554,7 @@ context({
                 context <- data_context[[freq_var]]$context
                 
                 if (results[[freq_var]]$exists) {
-                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar ", context, ". **Correct: ", expected_val, "**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar ", context, ". **Juiste antwoord is ", expected_val, "**"))
                 } else {
                   feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
                 }
@@ -613,19 +613,19 @@ context({
                   # Specific error diagnosis
                   if (percent_var == "percent_150") {
                     if (abs(student_val_num - 9.1) < 0.1) {
-                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%, maar je gebruikte frequentie = 1 terwijl 150 twee keer voorkomt. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%, maar je gebruikte frequentie = 1 terwijl 150 twee keer voorkomt. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
                     } else if (abs(student_val_num - 0.18) < 0.01) {
-                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, " maar vergat te vermenigvuldigen met 100. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, " maar vergat te vermenigvuldigen met 100. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
                     } else {
-                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
                     }
                   } else if (percent_var == "percent_1657" && abs(student_val_num - 0) < 0.1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%, maar 1657 komt wel 1x voor in de dataset. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%, maar 1657 komt wel 1x voor in de dataset. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
                   } else {
-                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
                   }
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
                 }
               }
             } else {
@@ -633,7 +633,7 @@ context({
               description <- percent_context[[percent_var]]$description
               expected_val <- percent_context[[percent_var]]$expected
               calculation <- percent_context[[percent_var]]$calculation
-              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Juiste antwoord is ", expected_val, "%**"))
             }
           }
           
@@ -690,11 +690,11 @@ context({
                 if (abs(student_answer - 238.91) < 0.5) {
                   feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ", maar dit is het gemiddelde! Voor de mediaan sorteer je de data en neem je de middelste waarde. Bij n=11 is dat positie (11+1)÷2 = 6de waarde = **143**"))
                 } else if (abs(student_answer - 144) < 0.5) {
-                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ", maar dit is de 7de waarde in de gesorteerde reeks. De mediaan is de 6de waarde bij n=11. Gesorteerd: 2,14,26,30,72,**143**,144,150,150,240,1657. **Correct: 143**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ", maar dit is de 7de waarde in de gesorteerde reeks. De mediaan is de 6de waarde bij n=11. Gesorteerd: 2,14,26,30,72,**143**,144,150,150,240,1657. **Juiste antwoord is 143**"))
                 } else if (abs(student_answer - 150) < 0.5) {
-                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ", maar dit is de modus! Voor de mediaan neem je de middelste waarde van de gesorteerde reeks. Bij n=11 is dat positie 6: **143**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ", maar dit is de modus! Voor de mediaan neem je de middelste waarde van de gesorteerde reeks. Bij n=11 is dat positie 6. **Juiste antwoord is 143**"))
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ". Sorteer de data oplopend en neem de 6de waarde (van 11): 2,14,26,30,72,**143**,144,150,150,240,1657. **Correct: 143**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ". Sorteer de data oplopend en neem de 6de waarde (van 11): 2,14,26,30,72,**143**,144,150,150,240,1657. **Juiste antwoord is 143**"))
                 }
               } else {
                 feedback_parts <- c(feedback_parts, "  • **Mediaan (middelste waarde):** Variabele ontbreekt ❌. Sorteer de data en neem de 6de waarde: **143**")
@@ -984,23 +984,13 @@ context({
           
           if ("standaardafwijking" %in% names(results)) {
             if (!results$standaardafwijking$correct) {
+              # Alleen aangeven dat STAP 3.3 fout is.
               all_variance_correct <- FALSE
-              if (results$standaardafwijking$exists) {
-                student_answer <- as.numeric(results$standaardafwijking$value)
-                if (abs(student_answer - 226854.09) < 100) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", format(student_answer, big.mark=","), ", maar je vergat de wortel. **Juiste antwoord is 476.29** (√variantie)"))
-                } else if (abs(student_answer - 454.12) < 1) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar je gebruikte n=11 ipv n-1=10. **Juiste antwoord is 476.29**"))
-                } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar **juiste antwoord is 476.29** (√variantie)"))
-                }
-              } else {
-                feedback_parts <- c(feedback_parts, "  • Standaardafwijking: Ontbreekt ❌. **Juiste antwoord is 476.29** (√variantie)")
-              }
+              # Geen extra bullet hier – uitleg komt in "Uitleg van veelgemaakte fouten".
             }
           } else {
             all_variance_correct <- FALSE
-            feedback_parts <- c(feedback_parts, "  • Standaardafwijking: Ontbreekt ❌. **Juiste antwoord is 476.29** (√variantie)")
+            feedback_parts <- c(feedback_parts, "  • Standaardafwijking: Ontbreekt ❌")
           }
           
           if (all_variance_correct) {
