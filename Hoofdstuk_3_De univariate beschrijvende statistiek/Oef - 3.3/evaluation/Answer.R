@@ -636,6 +636,45 @@ context({
 
             # helper: maak leesbare labels met uitleg
             make_label_with_explanation <- function(var_name, expected_val) {
+              # Frequencies
+              if (grepl("^freq_", var_name)) {
+                xval <- as.numeric(sub("^freq_", "", var_name))
+                return(paste0("**Frequentie (X = ", xval, ")**"))
+              }
+              
+              # Percentages
+              if (grepl("^percent_", var_name)) {
+                xval <- as.numeric(sub("^percent_", "", var_name))
+                return(paste0("**Percentage (X = ", xval, ")**"))
+              }
+              
+              # Quartiles and spread
+              if (var_name == "variatiebreedte") {
+                return("**Variatiebreedte** (bereik: max - min = 40 - 24 = 16)")
+              }
+              if (var_name == "q1") {
+                return("**Q1 (eerste kwartiel)** (5e waarde in gesorteerde data = 30)")
+              }
+              if (var_name == "q3") {
+                return("**Q3 (derde kwartiel)** (15e waarde in gesorteerde data = 36)")
+              }
+              if (var_name == "ika") {
+                return("**IKA (interkwartielafstand)** (Q3 - Q1 = 36 - 30 = 6)")
+              }
+              
+              # Deviations
+              if (grepl("^afwijking_", var_name)) {
+                rest <- sub("^afwijking_", "", var_name)
+                xval <- as.numeric(sub("_.*$", "", rest))
+                return(
+                  paste0(
+                    "**Afwijking (X = ", xval, ")**",
+                    " (bereken: ", xval, " - 33.55 = ", round(expected_val, 2), ")"
+                  )
+                )
+              }
+              
+              # Squared deviations
               if (grepl("^gekw_afwijking_", var_name)) {
                 rest <- sub("^gekw_afwijking_", "", var_name)
                 xval <- as.numeric(sub("_.*$", "", rest))
@@ -645,17 +684,6 @@ context({
                     "**Gekwadrateerde afwijking (X = ", xval, ")**",
                     " (bereken: (", xval, " - 33.55)² = (", round(afwijking, 2),
                     ")² = ", round(expected_val, 2), ")"
-                  )
-                )
-              }
-
-              if (grepl("^afwijking_", var_name)) {
-                rest <- sub("^afwijking_", "", var_name)
-                xval <- as.numeric(sub("_.*$", "", rest))
-                return(
-                  paste0(
-                    "**Afwijking (X = ", xval, ")**",
-                    " (bereken: ", xval, " - 33.55 = ", round(expected_val, 2), ")"
                   )
                 )
               }
@@ -683,8 +711,19 @@ context({
               if (var_name == "variantie") {
                 return("**Variantie** (som/(n-1) = 528.95/19 = 27.8295)")
               }
+              
+              # Parameter choices
+              if (var_name == "meest_relevante_centraliteit") {
+                return("**Meest relevante centraliteitsmaat** (voor intervaldata: gemiddelde)")
+              }
+              if (var_name == "meest_relevante_spreiding") {
+                return("**Meest relevante spreidingsmaat** (standaardafwijking of IKA)")
+              }
+              if (var_name == "reden") {
+                return("**Reden voor keuze** (waarom deze maten kiezen)")
+              }
 
-              return("**Dit antwoord**")
+              return(paste0("**", var_name, "**"))
             }
 
             # alle foute maar ingevulde variabelen
