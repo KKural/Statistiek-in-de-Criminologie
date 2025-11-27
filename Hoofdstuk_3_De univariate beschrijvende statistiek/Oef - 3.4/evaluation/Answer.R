@@ -938,7 +938,118 @@ context({
           # ----------------------------------------
           
           if (correct_count != total_questions) {
-            feedback_parts <- c(feedback_parts, "", "📚 **Uitleg van veelgemaakte fouten:**")
+            # Titel + kort overzicht (jouw antwoord → juiste antwoord)
+            feedback_parts <- c(
+              feedback_parts,
+              "",
+              "📚 **Uitleg van veelgemaakte fouten:**",
+              "",
+              "• Overzicht fouten (jouw antwoord → juiste antwoord):"
+            )
+            
+            # helper: maak leesbare labels met uitleg hoe het berekend wordt
+            make_label_with_explanation <- function(var_name, expected_val) {
+              # gekwadrateerde afwijkingen → X-waarde eruit halen
+              if (grepl("^gekw_afwijking_", var_name)) {
+                rest <- sub("^gekw_afwijking_", "", var_name)   # bv. "2" or "150_1"
+                xval <- as.numeric(sub("_.*$", "", rest))       # "2" → 2, "150_1" → 150
+                afwijking <- xval - 238.91
+                return(paste0("Voor de gekwadrateerde afwijking bij X = ", xval, 
+                             " (bereken: (", xval, " - 238.91)² = (", round(afwijking, 2), ")² = ", format(expected_val, big.mark=","), ")"))
+              }
+              
+              # afwijkingen
+              if (grepl("^afwijking_", var_name)) {
+                rest <- sub("^afwijking_", "", var_name)
+                xval <- as.numeric(sub("_.*$", "", rest))
+                return(paste0("Voor de afwijking bij X = ", xval,
+                             " (bereken: ", xval, " - 238.91 = ", expected_val, ")"))
+              }
+              
+              # frequenties
+              if (grepl("^freq_", var_name)) {
+                xval <- sub("^freq_", "", var_name)
+                return(paste0("Voor de frequentie van waarde ", xval,
+                             " (tel hoe vaak ", xval, " voorkomt in de dataset)"))
+              }
+              
+              # percentages
+              if (grepl("^percent_", var_name)) {
+                xval <- sub("^percent_", "", var_name)
+                freq_var <- paste0("freq_", xval)
+                if (freq_var %in% names(results)) {
+                  freq_val <- results[[freq_var]]$expected
+                  return(paste0("Voor het percentage van waarde ", xval,
+                               " (bereken: (", freq_val, "/11) × 100 = ", expected_val, "%)"))
+                } else {
+                  return(paste0("Voor het percentage van waarde ", xval,
+                               " (bereken: (frequentie/11) × 100)"))
+                }
+              }
+              
+              # standaard-maten met berekening uitleg
+              if (var_name == "gemiddelde") {
+                return("Voor het gemiddelde (bereken: som van alle waarden ÷ aantal = 2628/11 = 238.91)")
+              }
+              if (var_name == "mediaan") {
+                return("Voor de mediaan (sorteer data, neem middelste waarde: 6de van 11 → 143)")
+              }
+              if (var_name == "modus") {
+                return("Voor de modus (waarde die het meest voorkomt: 150 komt 2x voor)")
+              }
+              if (var_name == "variatiebreedte") {
+                return("Voor de variatiebreedte (bereken: maximum - minimum = 1657 - 2 = 1655)")
+              }
+              if (var_name == "q1") {
+                return("Voor Q1 (25% positie = 3de waarde in gesorteerde data = 26)")
+              }
+              if (var_name == "q3") {
+                return("Voor Q3 (75% positie = 9de waarde in gesorteerde data = 150)")
+              }
+              if (var_name == "ika") {
+                return("Voor de interkwartielafstand (bereken: Q3 - Q1 = 150 - 26 = 124)")
+              }
+              if (var_name == "sum_of_squares") {
+                return("Voor de som van de gekwadrateerde afwijkingen (som alle (X-238.91)² waarden = 2,268,540.92)")
+              }
+              if (var_name == "variantie") {
+                return("Voor de variantie (bereken: som gekwadrateerde afwijkingen/(n-1) = 2,268,540.92/10 = 226,854.09)")
+              }
+              if (var_name == "standaardafwijking") {
+                return("Voor de standaardafwijking (bereken: √variantie = √226,854.09 = 476.29)")
+              }
+              
+              # default: mocht er iets nieuw bijkomen
+              return("Voor dit antwoord")
+            }
+            
+            # Automatisch lijstje met alle foute maar bestaande variabelen
+            wrong_keys <- names(results)[sapply(results, function(x) x$exists && !x$correct)]
+            
+            for (key in wrong_keys) {
+              student_val  <- results[[key]]$value
+              expected_val <- results[[key]]$expected
+              
+              # Netjes formatteren (ook grote getallen)
+              if (is.numeric(student_val)) {
+                student_str <- format(as.numeric(student_val), digits = 6, big.mark = ",")
+              } else {
+                student_str <- as.character(student_val)
+              }
+              
+              if (is.numeric(expected_val)) {
+                expected_str <- format(as.numeric(expected_val), digits = 6, big.mark = ",")
+              } else {
+                expected_str <- as.character(expected_val)
+              }
+              
+              feedback_parts <- c(
+                feedback_parts,
+                paste0("  • ", make_label_with_explanation(key, expected_val), ": je gaf ", student_str, ".")
+              )
+            }
+            
+            # --- vanaf hier mag je je bestaande, meer didactische uitleg laten staan ---
             
             # GEMIDDELDE fout
             if (!results$gemiddelde$correct) {
@@ -1198,6 +1309,43 @@ context({
                   feedback_parts <- c(feedback_parts, paste0("• **FREQ_150 FOUT:** Je gaf ", student_f150, ", maar 150 komt 2x voor in de dataset (dubbel!). Correct antwoord is **2**"))
                 } else {
                   feedback_parts <- c(feedback_parts, paste0("• **FREQ_150 FOUT:** Je gaf ", student_f150, ", maar correct antwoord is **2** (150 komt 2x voor)"))
+                }
+              }
+              if ("freq_1657" %in% names(results) && !results$freq_1657$correct && results$freq_1657$exists) {
+                student_f1657 <- as.numeric(results$freq_1657$value)
+                if (student_f1657 == 0) {
+                  feedback_parts <- c(feedback_parts, paste0("• **FREQ_1657 FOUT:** Je gaf ", student_f1657, ", maar 1657 (Jennifer Aniston) komt wel voor in de data! Correct antwoord is **1**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **FREQ_1657 FOUT:** Je gaf ", student_f1657, ", maar correct antwoord is **1** (extreme uitbijter)"))
+                }
+              }
+              # General frequency error message
+              if (sum(wrong_freqs) > 2) {
+                feedback_parts <- c(feedback_parts, "• **FREQUENTIES FOUT:** Tel precies: 2(1x), 14(1x), 26(1x), 30(1x), 72(1x), 143(1x), 144(1x), **150(2x)**, 240(1x), 1657(1x)")
+              }
+            }
+            
+            # Percentage errors - specific analysis like in 3.2
+            percent_vars <- c("percent_2", "percent_14", "percent_26", "percent_30", "percent_72", "percent_143", "percent_144", "percent_150", "percent_240", "percent_1657")
+            wrong_percents <- sapply(percent_vars, function(x) x %in% names(results) && !results[[x]]$correct)
+            if (any(wrong_percents)) {
+              # Check for specific common errors
+              if ("percent_150" %in% names(results) && !results$percent_150$correct && results$percent_150$exists) {
+                student_p150 <- as.numeric(results$percent_150$value)
+                if (abs(student_p150 - 9.1) < 0.1) {
+                  feedback_parts <- c(feedback_parts, paste0("• **PERCENT_150 FOUT:** Je gaf ", student_p150, "%, maar je gebruikte frequentie 1 in plaats van 2. Correct: (2/11) × 100 = **18.2%**"))
+                } else if (abs(student_p150 - 0.182) < 0.01) {
+                  feedback_parts <- c(feedback_parts, paste0("• **PERCENT_150 FOUT:** Je gaf ", student_p150, ", maar je vergat ×100. Dit is de proportie. Correct antwoord is **18.2%**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **PERCENT_150 FOUT:** Je gaf ", student_p150, "%, maar correct antwoord is **18.2%** (2/11 × 100)"))
+                }
+              }
+              # General percentage error message
+              if (sum(wrong_percents) > 1) {
+                feedback_parts <- c(feedback_parts, "• **PERCENTAGES FOUT:** Gebruik formule (frequentie/n) × 100. Bijvoorbeeld voor 150: (2/11) × 100 = 18.2%")
+              }
+            }
+          }
                 }
               }
               if ("freq_1657" %in% names(results) && !results$freq_1657$correct && results$freq_1657$exists) {
