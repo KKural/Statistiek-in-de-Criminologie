@@ -525,75 +525,139 @@ context({
           # STAP 1 FEEDBACK - FREQUENTIETABEL EN CENTRALITEIT
           # ----------------------
           
-          # Check each frequency individually
+          # Check each frequency individually with detailed explanations
           feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:**")
           all_freq_correct <- TRUE
           freq_vars <- c("freq_2", "freq_14", "freq_26", "freq_30", "freq_72", "freq_143", "freq_144", "freq_150", "freq_240", "freq_1657")
+          
+          # Data context for human-readable descriptions  
+          data_context <- list(
+            freq_2 = list(expected = 1, description = "Frequentie waarde 2 (Britney & Kevin)", context = "komt 1x voor in dataset"),
+            freq_14 = list(expected = 1, description = "Frequentie waarde 14 (Mario & Ali)", context = "komt 1x voor in dataset"),
+            freq_26 = list(expected = 1, description = "Frequentie waarde 26 (Jennifer & Cris)", context = "komt 1x voor in dataset"),
+            freq_30 = list(expected = 1, description = "Frequentie waarde 30 (Renée & Kenny)", context = "komt 1x voor in dataset"),
+            freq_72 = list(expected = 1, description = "Frequentie waarde 72 (Carmen & Dennis)", context = "komt 1x voor in dataset"),
+            freq_143 = list(expected = 1, description = "Frequentie waarde 143 (Kim & Kris)", context = "komt 1x voor in dataset"),
+            freq_144 = list(expected = 1, description = "Frequentie waarde 144 (Britney & Jason)", context = "komt 1x voor in dataset"),
+            freq_150 = list(expected = 2, description = "Frequentie waarde 150 (Drew & Nicolas)", context = "komt 2x voor: Drew Barrymore & Jeremy Thomas EN Nicolas Cage & Lisa Marie Presley"),
+            freq_240 = list(expected = 1, description = "Frequentie waarde 240 (Elizabeth & Larry)", context = "komt 1x voor in dataset"),
+            freq_1657 = list(expected = 1, description = "Frequentie waarde 1657 (Jennifer & Brad)", context = "komt 1x voor - extreme uitbijter die statistieken beïnvloedt")
+          )
           
           for (freq_var in freq_vars) {
             if (freq_var %in% names(results)) {
               if (!results[[freq_var]]$correct) {
                 all_freq_correct <- FALSE
-                student_val <- as.numeric(results[[freq_var]]$value)
-                expected_val <- results[[freq_var]]$expected
+                student_val <- if (results[[freq_var]]$exists) as.numeric(results[[freq_var]]$value) else "Ontbreekt"
+                expected_val <- data_context[[freq_var]]$expected
+                description <- data_context[[freq_var]]$description
+                context <- data_context[[freq_var]]$context
                 
-                if (freq_var == "freq_150" && student_val == 1) {
-                  feedback_parts <- c(feedback_parts, paste0("  • ", freq_var, ": Je gaf ", student_val, ", maar 150 komt 2x voor! Correct: **", expected_val, "**"))
-                } else if (freq_var == "freq_1657" && student_val == 0) {
-                  feedback_parts <- c(feedback_parts, paste0("  • ", freq_var, ": Je gaf ", student_val, ", maar Jennifer Aniston (1657) staat wel in data! Correct: **", expected_val, "**"))
+                if (results[[freq_var]]$exists) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar ", context, ". **Correct: ", expected_val, "**"))
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • ", freq_var, ": Je gaf ", student_val, ", maar correct is **", expected_val, "**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
                 }
               }
             } else {
               all_freq_correct <- FALSE
-              feedback_parts <- c(feedback_parts, paste0("  • ", freq_var, ": Ontbreekt ❌"))
+              description <- data_context[[freq_var]]$description
+              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌"))
             }
           }
           
           if (all_freq_correct) {
-            feedback_parts[length(feedback_parts)] <- "**STAP 1.1 - FREQUENTIES:** Alle frequenties correct geteld! ✅"
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "**✅ STAP 1.1 - FREQUENTIES:** Alle frequenties correct geteld!")
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "📊 **Frequentietabel overzicht:**")
+            feedback_parts <- c(feedback_parts, "• Waarden die 1x voorkomen: 2, 14, 26, 30, 72, 143, 144, 240, 1657")  
+            feedback_parts <- c(feedback_parts, "• Waarde die 2x voorkomt: **150** (Drew & Jeremy + Nicolas & Lisa)")
+            feedback_parts <- c(feedback_parts, "• Totaal aantal celebrity huwelijken: **11**")
           } else {
-            feedback_parts[1] <- "**STAP 1.1 - FREQUENTIES:** ❌"
+            feedback_parts[1] <- "**❌ STAP 1.1 - FREQUENTIES:** Fouten gevonden"
           }
           
-          # Check each percentage individually  
+          # Check each percentage individually with detailed calculation explanations  
           feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:**")
           all_percent_correct <- TRUE
           percent_vars <- c("percent_2", "percent_14", "percent_26", "percent_30", "percent_72", "percent_143", "percent_144", "percent_150", "percent_240", "percent_1657")
+          
+          # Expected percentages with calculation explanations
+          percent_context <- list(
+            percent_2 = list(expected = 9.1, freq = 1, description = "Percentage waarde 2", calculation = "(1/11) × 100 = 9.1%"),
+            percent_14 = list(expected = 9.1, freq = 1, description = "Percentage waarde 14", calculation = "(1/11) × 100 = 9.1%"),
+            percent_26 = list(expected = 9.1, freq = 1, description = "Percentage waarde 26", calculation = "(1/11) × 100 = 9.1%"),
+            percent_30 = list(expected = 9.1, freq = 1, description = "Percentage waarde 30", calculation = "(1/11) × 100 = 9.1%"),
+            percent_72 = list(expected = 9.1, freq = 1, description = "Percentage waarde 72", calculation = "(1/11) × 100 = 9.1%"),
+            percent_143 = list(expected = 9.1, freq = 1, description = "Percentage waarde 143", calculation = "(1/11) × 100 = 9.1%"),
+            percent_144 = list(expected = 9.1, freq = 1, description = "Percentage waarde 144", calculation = "(1/11) × 100 = 9.1%"),
+            percent_150 = list(expected = 18.2, freq = 2, description = "Percentage waarde 150", calculation = "(2/11) × 100 = 18.2%"),
+            percent_240 = list(expected = 9.1, freq = 1, description = "Percentage waarde 240", calculation = "(1/11) × 100 = 9.1%"),
+            percent_1657 = list(expected = 9.1, freq = 1, description = "Percentage waarde 1657", calculation = "(1/11) × 100 = 9.1%")
+          )
           
           for (percent_var in percent_vars) {
             if (percent_var %in% names(results)) {
               if (!results[[percent_var]]$correct) {
                 all_percent_correct <- FALSE
-                student_val <- as.numeric(results[[percent_var]]$value)
-                expected_val <- results[[percent_var]]$expected
+                student_val <- if (results[[percent_var]]$exists) as.numeric(results[[percent_var]]$value) else "Ontbreekt"
+                expected_val <- percent_context[[percent_var]]$expected
+                description <- percent_context[[percent_var]]$description
+                calculation <- percent_context[[percent_var]]$calculation
+                freq_val <- percent_context[[percent_var]]$freq
                 
-                if (percent_var == "percent_150" && abs(student_val - 9.1) < 0.1) {
-                  feedback_parts <- c(feedback_parts, paste0("  • ", percent_var, ": Je gaf ", student_val, "%, maar je gebruikte freq=1 ipv freq=2. Correct: **", expected_val, "%**"))
-                } else if (percent_var == "percent_150" && abs(student_val - 0.18) < 0.01) {
-                  feedback_parts <- c(feedback_parts, paste0("  • ", percent_var, ": Je gaf ", student_val, ", maar vergat ×100. Correct: **", expected_val, "%**"))
-                } else if (percent_var == "percent_1657" && abs(student_val - 0) < 0.1) {
-                  feedback_parts <- c(feedback_parts, paste0("  • ", percent_var, ": Je gaf ", student_val, "%, maar 1657 komt wel voor. Correct: **", expected_val, "%**"))
+                if (results[[percent_var]]$exists) {
+                  student_val_num <- as.numeric(student_val)
+                  
+                  # Specific error diagnosis
+                  if (percent_var == "percent_150") {
+                    if (abs(student_val_num - 9.1) < 0.1) {
+                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%, maar je gebruikte frequentie = 1 terwijl 150 twee keer voorkomt. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                    } else if (abs(student_val_num - 0.18) < 0.01) {
+                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, " maar vergat te vermenigvuldigen met 100. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                    } else {
+                      feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                    }
+                  } else if (percent_var == "percent_1657" && abs(student_val_num - 0) < 0.1) {
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%, maar 1657 komt wel 1x voor in de dataset. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                  } else {
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
+                  }
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • ", percent_var, ": Je gaf ", student_val, "%, maar correct is **", expected_val, "%**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
                 }
               }
             } else {
               all_percent_correct <- FALSE
-              feedback_parts <- c(feedback_parts, paste0("  • ", percent_var, ": Ontbreekt ❌"))
+              description <- percent_context[[percent_var]]$description
+              expected_val <- percent_context[[percent_var]]$expected
+              calculation <- percent_context[[percent_var]]$calculation
+              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", expected_val, "%**"))
             }
           }
           
           if (all_percent_correct) {
-            feedback_parts[length(feedback_parts)] <- "**STAP 1.2 - PERCENTAGES:** Alle percentages correct berekend! ✅"
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "**✅ STAP 1.2 - PERCENTAGES:** Alle percentages correct berekend!")
+            feedback_parts <- c(feedback_parts, "")  
+            feedback_parts <- c(feedback_parts, "📊 **Percentage berekening formule:** (frequentie ÷ totaal) × 100")
+            feedback_parts <- c(feedback_parts, "• Waarden met frequentie 1: elk 9.1% van totaal (1/11 × 100)")
+            feedback_parts <- c(feedback_parts, "• Waarde 150 met frequentie 2: 18.2% van totaal (2/11 × 100)")
           } else {
-            feedback_parts[length(feedback_parts) - length(percent_vars)] <- "**STAP 1.2 - PERCENTAGES:** ❌"
+            # Find the header and replace it
+            header_index <- which(feedback_parts == "**STAP 1.2 - PERCENTAGES:**")
+            if (length(header_index) > 0) {
+              feedback_parts[header_index] <- "**❌ STAP 1.2 - PERCENTAGES:** Fouten gevonden"
+            }
           }
           
-          # Check each centrality measure individually
+          # Check each centrality measure individually with detailed explanations
           feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:**")
           all_central_correct <- TRUE
+          
+          # Dataset: 2, 14, 26, 30, 72, 143, 144, 150, 150, 240, 1657 (gesorteerd)
+          # Som: 240+144+143+72+30+26+2+150+14+150+1657 = 2628
           
           if ("gemiddelde" %in% names(results)) {
             if (!results$gemiddelde$correct) {
@@ -601,19 +665,21 @@ context({
               if (results$gemiddelde$exists) {
                 student_answer <- as.numeric(results$gemiddelde$value)
                 if (abs(student_answer - 216.27) < 0.5) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar je gebruikte n=10 ipv n=11. Correct: **238.91**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Gemiddelde (rekenkundig):** Je gaf ", student_answer, ", maar je gebruikte n=10 in plaats van n=11. Bereken: som ÷ aantal = 2628 ÷ 11 = **238.91**"))
                 } else if (abs(student_answer - 143) < 0.5) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar dit is de mediaan! Correct: **238.91**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Gemiddelde (rekenkundig):** Je gaf ", student_answer, ", maar dit is de mediaan! Het gemiddelde bereken je door alle waarden op te tellen en te delen door het aantal. Bereken: 2628 ÷ 11 = **238.91**"))
+                } else if (abs(student_answer - 150) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **Gemiddelde (rekenkundig):** Je gaf ", student_answer, ", maar dit is de modus! Het gemiddelde bereken je door alle waarden op te tellen en te delen door het aantal. Bereken: 2628 ÷ 11 = **238.91**"))
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar correct is **238.91**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Gemiddelde (rekenkundig):** Je gaf ", student_answer, ". Bereken: (240+144+143+72+30+26+2+150+14+150+1657) ÷ 11 = 2628 ÷ 11 = **238.91**"))
                 }
               } else {
-                feedback_parts <- c(feedback_parts, "  • Gemiddelde: Ontbreekt ❌")
+                feedback_parts <- c(feedback_parts, "  • **Gemiddelde (rekenkundig):** Variabele ontbreekt ❌. Bereken: som van alle waarden ÷ aantal = 2628 ÷ 11 = **238.91**")
               }
             }
           } else {
             all_central_correct <- FALSE
-            feedback_parts <- c(feedback_parts, "  • Gemiddelde: Ontbreekt ❌")
+            feedback_parts <- c(feedback_parts, "  • **Gemiddelde (rekenkundig):** Variabele ontbreekt ❌. Bereken: som van alle waarden ÷ aantal = 2628 ÷ 11 = **238.91**")
           }
           
           if ("mediaan" %in% names(results)) {
@@ -622,19 +688,21 @@ context({
               if (results$mediaan$exists) {
                 student_answer <- as.numeric(results$mediaan$value)
                 if (abs(student_answer - 238.91) < 0.5) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Mediaan: Je gaf ", student_answer, ", maar dit is het gemiddelde! Correct: **143**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ", maar dit is het gemiddelde! Voor de mediaan sorteer je de data en neem je de middelste waarde. Bij n=11 is dat positie (11+1)÷2 = 6de waarde = **143**"))
                 } else if (abs(student_answer - 144) < 0.5) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Mediaan: Je gaf ", student_answer, ", maar dit is 7de waarde. Mediaan is 6de waarde: **143**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ", maar dit is de 7de waarde in de gesorteerde reeks. De mediaan is de 6de waarde bij n=11. Gesorteerd: 2,14,26,30,72,**143**,144,150,150,240,1657. **Correct: 143**"))
+                } else if (abs(student_answer - 150) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ", maar dit is de modus! Voor de mediaan neem je de middelste waarde van de gesorteerde reeks. Bij n=11 is dat positie 6: **143**"))
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • Mediaan: Je gaf ", student_answer, ", maar correct is **143** (6de waarde van 11)"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Mediaan (middelste waarde):** Je gaf ", student_answer, ". Sorteer de data oplopend en neem de 6de waarde (van 11): 2,14,26,30,72,**143**,144,150,150,240,1657. **Correct: 143**"))
                 }
               } else {
-                feedback_parts <- c(feedback_parts, "  • Mediaan: Ontbreekt ❌")
+                feedback_parts <- c(feedback_parts, "  • **Mediaan (middelste waarde):** Variabele ontbreekt ❌. Sorteer de data en neem de 6de waarde: **143**")
               }
             }
           } else {
             all_central_correct <- FALSE
-            feedback_parts <- c(feedback_parts, "  • Mediaan: Ontbreekt ❌")
+            feedback_parts <- c(feedback_parts, "  • **Mediaan (middelste waarde):** Variabele ontbreekt ❌. Sorteer de data en neem de 6de waarde: **143**")
           }
           
           if ("modus" %in% names(results)) {
@@ -643,25 +711,38 @@ context({
               if (results$modus$exists) {
                 student_answer <- as.character(results$modus$value)
                 if (student_answer == "143") {
-                  feedback_parts <- c(feedback_parts, paste0("  • Modus: Je gaf ", student_answer, ", maar dit komt 1x voor. **150** komt 2x voor!"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Modus (meest voorkomende waarde):** Je gaf ", student_answer, ", maar deze waarde komt slechts 1x voor. De modus is de waarde die het meest voorkomt. In de dataset komt **150** twee keer voor (Drew & Jeremy + Nicolas & Lisa), alle andere waarden komen 1x voor. **Correct: 150**"))
+                } else if (student_answer == "238.91" || abs(suppressWarnings(as.numeric(student_answer)) - 238.91) < 0.5) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **Modus (meest voorkomende waarde):** Je gaf ", student_answer, ", maar dit is het gemiddelde! De modus is de waarde die het vaakst voorkomt. **150** komt 2x voor, alle andere waarden komen 1x voor. **Correct: 150**"))
+                } else if (tolower(student_answer) %in% c("geen", "na", "none")) {
+                  feedback_parts <- c(feedback_parts, paste0("  • **Modus (meest voorkomende waarde):** Je zei er is geen modus, maar **150** komt 2x voor (Drew Barrymore & Jeremy Thomas + Nicolas Cage & Lisa Marie Presley) terwijl alle andere waarden slechts 1x voorkomen. **Correct: 150**"))
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • Modus: Je gaf ", student_answer, ", maar correct is **150** (komt 2x voor)"))
+                  feedback_parts <- c(feedback_parts, paste0("  • **Modus (meest voorkomende waarde):** Je gaf ", student_answer, ". De modus is de waarde die het vaakst voorkomt. Tel de frequenties: **150** komt 2x voor, alle andere waarden komen 1x voor. **Correct: 150**"))
                 }
               } else {
-                feedback_parts <- c(feedback_parts, "  • Modus: Ontbreekt ❌")
+                feedback_parts <- c(feedback_parts, "  • **Modus (meest voorkomende waarde):** Variabele ontbreekt ❌. De waarde die het vaakst voorkomt is **150** (2x)")
               }
             }
           } else {
             all_central_correct <- FALSE
-            feedback_parts <- c(feedback_parts, "  • Modus: Ontbreekt ❌")
+            feedback_parts <- c(feedback_parts, "  • **Modus (meest voorkomende waarde):** Variabele ontbreekt ❌. De waarde die het vaakst voorkomt is **150** (2x)")
           }
           
           if (all_central_correct) {
-            feedback_parts[length(feedback_parts) - 2] <- "**STAP 1.3 - CENTRALITEIT:** Gemiddelde=238.91, Mediaan=143, Modus=150 ✅"
-            # Remove individual success messages since overall is correct
-            feedback_parts <- feedback_parts[!grepl("^\\s*•", feedback_parts)]
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "**✅ STAP 1.3 - CENTRALITEIT:** Alle centraaliteitsmaten correct berekend!")
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "📊 **Centraliteitsmaten samenvatting:**")
+            feedback_parts <- c(feedback_parts, "• **Gemiddelde:** 238.91 (som ÷ aantal = 2628 ÷ 11)")
+            feedback_parts <- c(feedback_parts, "• **Mediaan:** 143 (middelste waarde van gesorteerde reeks)")  
+            feedback_parts <- c(feedback_parts, "• **Modus:** 150 (komt 2x voor, andere waarden 1x)")
+            feedback_parts <- c(feedback_parts, "• **Impact uitbijter:** Jennifer Aniston (1657) trekt gemiddelde omhoog, maar mediaan blijft robuust")
           } else {
-            feedback_parts[1] <- "**STAP 1.3 - CENTRALITEIT:** ❌"
+            # Find the header and replace it
+            header_index <- which(feedback_parts == "**STAP 1.3 - CENTRALITEIT:**")
+            if (length(header_index) > 0) {
+              feedback_parts[header_index] <- "**❌ STAP 1.3 - CENTRALITEIT:** Fouten gevonden"
+            }
           }
           
           # ----------------------
@@ -769,10 +850,26 @@ context({
           # STAP 3 FEEDBACK - GEAVANCEERDE BEREKENINGEN
           # ----------------------
           
-          # Check each afwijking individually
+          # Check each afwijking individually with detailed step-by-step explanations
           feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:**")
           all_afwijkingen_correct <- TRUE
-          afwijking_vars <- c("afwijking_240", "afwijking_144", "afwijking_143", "afwijking_72", "afwijking_30", "afwijking_26", "afwijking_2", "afwijking_150_1", "afwijking_14", "afwijking_150_2", "afwijking_1657")
+          
+          # Human-readable descriptions for each deviation with couple names and positions
+          afwijking_context <- list(
+            afwijking_240 = list(expected = 1.09, description = "Afwijking Elizabeth & Larry (X = 240)", calculation = "240 - 238.91 = 1.09", position = "1e waarde"),
+            afwijking_144 = list(expected = -94.91, description = "Afwijking Britney & Jason (X = 144)", calculation = "144 - 238.91 = -94.91", position = "2e waarde"),
+            afwijking_143 = list(expected = -95.91, description = "Afwijking Kim & Kris (X = 143)", calculation = "143 - 238.91 = -95.91", position = "3e waarde"),
+            afwijking_72 = list(expected = -166.91, description = "Afwijking Carmen & Dennis (X = 72)", calculation = "72 - 238.91 = -166.91", position = "4e waarde"),
+            afwijking_30 = list(expected = -208.91, description = "Afwijking Renée & Kenny (X = 30)", calculation = "30 - 238.91 = -208.91", position = "5e waarde"),
+            afwijking_26 = list(expected = -212.91, description = "Afwijking Jennifer & Cris (X = 26)", calculation = "26 - 238.91 = -212.91", position = "6e waarde"),
+            afwijking_2 = list(expected = -236.91, description = "Afwijking Britney & Kevin (X = 2)", calculation = "2 - 238.91 = -236.91", position = "7e waarde"),
+            afwijking_150_1 = list(expected = -88.91, description = "Afwijking Drew & Jeremy (X = 150, 1e)", calculation = "150 - 238.91 = -88.91", position = "8e waarde"),
+            afwijking_14 = list(expected = -224.91, description = "Afwijking Mario & Ali (X = 14)", calculation = "14 - 238.91 = -224.91", position = "9e waarde"),
+            afwijking_150_2 = list(expected = -88.91, description = "Afwijking Nicolas & Lisa (X = 150, 2e)", calculation = "150 - 238.91 = -88.91", position = "10e waarde"),
+            afwijking_1657 = list(expected = 1418.09, description = "Afwijking Jennifer & Brad (X = 1657)", calculation = "1657 - 238.91 = 1418.09", position = "11e waarde (extreme uitbijter)")
+          )
+          
+          afwijking_vars <- names(afwijking_context)
           
           for (afw_var in afwijking_vars) {
             if (afw_var %in% names(results)) {
@@ -780,41 +877,77 @@ context({
                 all_afwijkingen_correct <- FALSE
                 if (results[[afw_var]]$exists) {
                   student_val <- as.numeric(results[[afw_var]]$value)
-                  expected_val <- results[[afw_var]]$expected
+                  expected_val <- afwijking_context[[afw_var]]$expected
+                  description <- afwijking_context[[afw_var]]$description
+                  calculation <- afwijking_context[[afw_var]]$calculation
+                  position <- afwijking_context[[afw_var]]$position
                   
-                  # Specific error messages for common mistakes
+                  # Specific error messages for common mistakes with detailed explanations
                   if (afw_var == "afwijking_2" && abs(student_val - 236.91) < 0.1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", afw_var, ": Je gaf ", student_val, ", maar je vergat het minteken. Correct: **", expected_val, "**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar je vergat het minteken! Afwijkingen kunnen negatief zijn. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
                   } else if (afw_var == "afwijking_1657" && abs(student_val - 1657) < 1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", afw_var, ": Je gaf ", student_val, ", maar dit is de originele waarde. 1657-238.91 = **", expected_val, "**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar dit is de oorspronkelijke X-waarde. Voor afwijking bereken je X - gemiddelde. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
                   } else if (abs(student_val - 238.91) < 1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", afw_var, ": Je gaf ", student_val, ", maar dit is het gemiddelde. Correct: **", expected_val, "**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar dit is het gemiddelde zelf! Voor afwijking bereken je X - gemiddelde. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
+                  } else if (abs(student_val - (-expected_val)) < 0.1) {
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar je rekende gemiddelde - X in plaats van X - gemiddelde. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
                   } else {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", afw_var, ": Je gaf ", student_val, ", maar correct is **", expected_val, "**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ". Bereken: X - gemiddelde = ", calculation, ". **Correct: ", expected_val, "**"))
                   }
                 } else {
                   all_afwijkingen_correct <- FALSE
-                  feedback_parts <- c(feedback_parts, paste0("  • ", afw_var, ": Ontbreekt ❌"))
+                  description <- afwijking_context[[afw_var]]$description
+                  calculation <- afwijking_context[[afw_var]]$calculation
+                  expected_val <- afwijking_context[[afw_var]]$expected
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
                 }
               }
             } else {
               all_afwijkingen_correct <- FALSE
-              feedback_parts <- c(feedback_parts, paste0("  • ", afw_var, ": Ontbreekt ❌"))
+              description <- afwijking_context[[afw_var]]$description
+              calculation <- afwijking_context[[afw_var]]$calculation
+              expected_val <- afwijking_context[[afw_var]]$expected
+              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", expected_val, "**"))
             }
           }
           
           if (all_afwijkingen_correct) {
-            feedback_parts[length(feedback_parts) - length(afwijking_vars)] <- "**STAP 3.1 - AFWIJKINGEN:** X - 238.91 voor elke waarde ✅"
-            # Remove individual success messages
-            feedback_parts <- feedback_parts[!grepl(paste0("^\\s*•\\s*(", paste(afwijking_vars, collapse="|"), ")"), feedback_parts)]
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "**✅ STAP 3.1 - AFWIJKINGEN:** Alle afwijkingen correct berekend!")
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "📊 **Afwijkingen formule:** X - μ (waar μ = 238.91)")
+            feedback_parts <- c(feedback_parts, "• **Positieve afwijkingen:** Waarden boven gemiddelde (240 en 1657)")
+            feedback_parts <- c(feedback_parts, "• **Negatieve afwijkingen:** Waarden onder gemiddelde (alle andere)")
+            feedback_parts <- c(feedback_parts, "• **Som van afwijkingen:** Altijd 0 (eigenschap van gemiddelde)")
+            feedback_parts <- c(feedback_parts, "• **Extreme afwijking:** Jennifer & Brad (1418.09) beïnvloedt variabiliteit sterk")
           } else {
-            feedback_parts[1] <- "**STAP 3.1 - AFWIJKINGEN:** ❌"
+            # Find the header and replace it
+            header_index <- which(feedback_parts == "**STAP 3.1 - AFWIJKINGEN:**")
+            if (length(header_index) > 0) {
+              feedback_parts[header_index] <- "**❌ STAP 3.1 - AFWIJKINGEN:** Fouten gevonden"
+            }
           }
           
-          # Check each gekwadrateerde afwijking individually
+          # Check each gekwadrateerde afwijking individually with detailed step-by-step explanations
           feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:**")
           all_gekw_correct <- TRUE
-          gekw_vars <- c("gekw_afwijking_240", "gekw_afwijking_144", "gekw_afwijking_143", "gekw_afwijking_72", "gekw_afwijking_30", "gekw_afwijking_26", "gekw_afwijking_2", "gekw_afwijking_150_1", "gekw_afwijking_14", "gekw_afwijking_150_2", "gekw_afwijking_1657")
+          
+          # Human-readable descriptions for each squared deviation with detailed calculations
+          gekw_context <- list(
+            gekw_afwijking_240 = list(expected = 1.1881, description = "Gekwadrateerde afwijking Elizabeth & Larry (X = 240)", calculation = "(240 - 238.91)² = (1.09)² = 1.19", deviation = 1.09),
+            gekw_afwijking_144 = list(expected = 9007.9081, description = "Gekwadrateerde afwijking Britney & Jason (X = 144)", calculation = "(144 - 238.91)² = (-94.91)² = 9,007.91", deviation = -94.91),
+            gekw_afwijking_143 = list(expected = 9198.7281, description = "Gekwadrateerde afwijking Kim & Kris (X = 143)", calculation = "(143 - 238.91)² = (-95.91)² = 9,198.73", deviation = -95.91),
+            gekw_afwijking_72 = list(expected = 27859.1481, description = "Gekwadrateerde afwijking Carmen & Dennis (X = 72)", calculation = "(72 - 238.91)² = (-166.91)² = 27,859.15", deviation = -166.91),
+            gekw_afwijking_30 = list(expected = 43643.5881, description = "Gekwadrateerde afwijking Renée & Kenny (X = 30)", calculation = "(30 - 238.91)² = (-208.91)² = 43,643.59", deviation = -208.91),
+            gekw_afwijking_26 = list(expected = 45331.0681, description = "Gekwadrateerde afwijking Jennifer & Cris (X = 26)", calculation = "(26 - 238.91)² = (-212.91)² = 45,331.07", deviation = -212.91),
+            gekw_afwijking_2 = list(expected = 56126.3481, description = "Gekwadrateerde afwijking Britney & Kevin (X = 2)", calculation = "(2 - 238.91)² = (-236.91)² = 56,126.35", deviation = -236.91),
+            gekw_afwijking_150_1 = list(expected = 7905.0081, description = "Gekwadrateerde afwijking Drew & Jeremy (X = 150, 1e)", calculation = "(150 - 238.91)² = (-88.91)² = 7,905.01", deviation = -88.91),
+            gekw_afwijking_14 = list(expected = 50584.5081, description = "Gekwadrateerde afwijking Mario & Ali (X = 14)", calculation = "(14 - 238.91)² = (-224.91)² = 50,584.51", deviation = -224.91),
+            gekw_afwijking_150_2 = list(expected = 7905.0081, description = "Gekwadrateerde afwijking Nicolas & Lisa (X = 150, 2e)", calculation = "(150 - 238.91)² = (-88.91)² = 7,905.01", deviation = -88.91),
+            gekw_afwijking_1657 = list(expected = 2010979.1981, description = "Gekwadrateerde afwijking Jennifer & Brad (X = 1657)", calculation = "(1657 - 238.91)² = (1418.09)² = 2,010,979.20", deviation = 1418.09)
+          )
+          
+          gekw_vars <- names(gekw_context)
           
           for (gekw_var in gekw_vars) {
             if (gekw_var %in% names(results)) {
@@ -822,39 +955,57 @@ context({
                 all_gekw_correct <- FALSE
                 if (results[[gekw_var]]$exists) {
                   student_val <- as.numeric(results[[gekw_var]]$value)
-                  expected_val <- results[[gekw_var]]$expected
+                  expected_val <- gekw_context[[gekw_var]]$expected
+                  description <- gekw_context[[gekw_var]]$description
+                  calculation <- gekw_context[[gekw_var]]$calculation
+                  deviation <- gekw_context[[gekw_var]]$deviation
                   
-                  # Specific error messages for common mistakes
+                  # Specific error messages for common mistakes with detailed explanations
                   if (gekw_var == "gekw_afwijking_2" && abs(student_val - 4) < 0.1) {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", gekw_var, ": Je gaf 4 (2²), maar moet zijn (2-238.91)² = **", format(expected_val, big.mark=","), "**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf 4 (dus 2²), maar je moet eerst de afwijking berekenen! Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
                   } else if (gekw_var == "gekw_afwijking_1657" && abs(student_val - 2743649) < 1000) {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", gekw_var, ": Je gaf 1657², moet zijn (1657-238.91)² = **", format(expected_val, big.mark=","), "**"))
-                  } else if (gekw_var == "gekw_afwijking_150_1" && abs(student_val - 22500) < 100) {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", gekw_var, ": Je gaf 150², moet zijn (150-238.91)² = **", format(expected_val, big.mark=","), "**"))
-                  } else if (gekw_var == "gekw_afwijking_150_2" && abs(student_val - 22500) < 100) {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", gekw_var, ": Je gaf 150², moet zijn (150-238.91)² = **", format(expected_val, big.mark=","), "**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", format(student_val, big.mark=","), " (dus 1657²), maar je moet eerst de afwijking berekenen! Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
+                  } else if ((gekw_var == "gekw_afwijking_150_1" || gekw_var == "gekw_afwijking_150_2") && abs(student_val - 22500) < 100) {
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", format(student_val, big.mark=","), " (dus 150²), maar je moet eerst de afwijking berekenen! Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
                   } else if (student_val < 0) {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", gekw_var, ": Je gaf ", student_val, ", maar kwadraten zijn altijd positief! Correct: **", format(expected_val, big.mark=","), "**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar gekwadrateerde waarden zijn altijd positief! Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
+                  } else if (abs(student_val - abs(deviation)) < 0.1) {
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, ", maar dit is de absolute afwijking. Voor gekwadrateerd moet je kwadrateren: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
                   } else {
-                    feedback_parts <- c(feedback_parts, paste0("  • ", gekw_var, ": Je gaf ", format(student_val, big.mark=","), ", maar correct is **", format(expected_val, big.mark=","), "**"))
+                    feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", format(student_val, big.mark=","), ". Bereken: afwijking² = ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
                   }
                 } else {
                   all_gekw_correct <- FALSE
-                  feedback_parts <- c(feedback_parts, paste0("  • ", gekw_var, ": Ontbreekt ❌"))
+                  description <- gekw_context[[gekw_var]]$description
+                  calculation <- gekw_context[[gekw_var]]$calculation
+                  expected_val <- gekw_context[[gekw_var]]$expected
+                  feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
                 }
               }
             } else {
               all_gekw_correct <- FALSE
-              feedback_parts <- c(feedback_parts, paste0("  • ", gekw_var, ": Ontbreekt ❌"))
+              description <- gekw_context[[gekw_var]]$description
+              calculation <- gekw_context[[gekw_var]]$calculation
+              expected_val <- gekw_context[[gekw_var]]$expected
+              feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Variabele ontbreekt ❌. Bereken: ", calculation, ". **Correct: ", format(expected_val, big.mark=","), "**"))
             }
           }
           
           if (all_gekw_correct) {
-            feedback_parts[length(feedback_parts) - length(gekw_vars)] <- "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅"
-            # Remove individual success messages
-            feedback_parts <- feedback_parts[!grepl(paste0("^\\s*•\\s*(", paste(gekw_vars, collapse="|"), ")"), feedback_parts)]
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "**✅ STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Alle gekwadrateerde afwijkingen correct berekend!")
+            feedback_parts <- c(feedback_parts, "")
+            feedback_parts <- c(feedback_parts, "📊 **Gekwadrateerde afwijkingen formule:** (X - μ)²")
+            feedback_parts <- c(feedback_parts, "• **Altijd positief:** Negatieve afwijkingen worden positief door kwadrateren")
+            feedback_parts <- c(feedback_parts, "• **Extreme waarde impact:** Jennifer & Brad (2,010,979.20) domineert totale variabiliteit")
+            feedback_parts <- c(feedback_parts, "• **Berekening:** Eerst afwijking (X - 238.91), dan kwadrateren")
+            feedback_parts <- c(feedback_parts, "• **Som alle gekwadrateerde afwijkingen:** 2,268,540.92 (basis voor variantie)")
           } else {
-            feedback_parts[1] <- "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** ❌"
+            # Find the header and replace it
+            header_index <- which(feedback_parts == "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:**")
+            if (length(header_index) > 0) {
+              feedback_parts[header_index] <- "**❌ STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Fouten gevonden"
+            }
           }
           
           # Check each variance calculation individually
