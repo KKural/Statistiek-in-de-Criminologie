@@ -461,7 +461,7 @@ context({
         comparator = function(generated, expected, ...) {
           results <- get("detailed_results", envir = globalenv())
           
-          feedback_lines <- c()
+          feedback_parts <- c()
           correct_count <- sum(sapply(results, function(x) x$correct))
           total_questions <- length(results)
           
@@ -472,39 +472,67 @@ context({
                                     function(x) results[[x]]$correct))
           
           if (freq_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 1.1 - FREQUENTIES:** Correct geteld! ✅")
+            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Correct geteld! ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 1.1 - FREQUENTIES:** Data: 24(3x), 28(2x), 32(2x), 34(1x), 35(1x), 36(7x), 38(1x), 40(3x) ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 1.1 - FREQUENTIES:** Data: 24(3x), 28(2x), 32(2x), 34(1x), 35(1x), 36(7x), 38(1x), 40(3x) ❌")
           }
           
           percent_correct <- all(sapply(paste0("percent_", c(24, 28, 32, 34, 35, 36, 38, 40)), 
                                        function(x) results[[x]]$correct))
           
           if (percent_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 1.2 - PERCENTAGES:** (frequentie/20) * 100 ✅")
+            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** (frequentie/20) * 100 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 1.2 - PERCENTAGES:** Gebruik formule (frequentie/20) * 100 ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 1.2 - PERCENTAGES:** Gebruik formule (frequentie/20) * 100 ❌")
           }
           
           if (results$modus$correct && results$mediaan$correct && results$gemiddelde$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 1.3 - CENTRALITEIT:** Modus=36 (meest frequent), Mediaan=36 (middelste), Gemiddelde=33.55 ✅")
+            feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** Modus=36 (meest frequent), Mediaan=36 (middelste), Gemiddelde=33.55 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 1.3 - CENTRALITEIT:** Modus=36, Mediaan=36, Gemiddelde=33.55 ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** ❌")
+            if (!results$gemiddelde$correct && results$gemiddelde$exists) {
+              student_answer <- as.numeric(results$gemiddelde$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar correct is **33.55**"))
+            }
+            if (!results$mediaan$correct && results$mediaan$exists) {
+              student_answer <- as.numeric(results$mediaan$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Mediaan: Je gaf ", student_answer, ", maar correct is **36** (11de waarde van 20)"))
+            }
+            if (!results$modus$correct && results$modus$exists) {
+              student_answer <- as.character(results$modus$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Modus: Je gaf ", student_answer, ", maar correct is **36** (komt 7x voor)"))
+            }
           }
           
           # ----------------------
           # STAP 2 FEEDBACK
           # ----------------------
           if (results$variatiebreedte$correct && results$q1$correct && results$q3$correct && results$ika$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2.1 - SPREIDING:** Range=16, Q1=30, Q3=36, IKA=6 ✅")
+            feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** Range=16, Q1=30, Q3=36, IKA=6 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2.1 - SPREIDING:** Variatiebreedte=40-24=16, Q1=30, Q3=36, IKA=36-30=6 ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 2.1 - SPREIDING:** ❌")
+            if (!results$variatiebreedte$correct && results$variatiebreedte$exists) {
+              student_answer <- as.numeric(results$variatiebreedte$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Range: Je gaf ", student_answer, ", maar correct is 40-24 = **16**"))
+            }
+            if (!results$q1$correct && results$q1$exists) {
+              student_answer <- as.numeric(results$q1$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Q1: Je gaf ", student_answer, ", maar correct is **30**"))
+            }
+            if (!results$q3$correct && results$q3$exists) {
+              student_answer <- as.numeric(results$q3$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Q3: Je gaf ", student_answer, ", maar correct is **36**"))
+            }
+            if (!results$ika$correct && results$ika$exists) {
+              student_answer <- as.numeric(results$ika$value)
+              feedback_parts <- c(feedback_parts, paste0("  • IKA: Je gaf ", student_answer, ", maar correct is 36-30 = **6**"))
+            }
           }
           
           if (results$meest_relevante_centraliteit$correct && results$meest_relevante_spreiding$correct && results$reden$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 2.2 - KEUZES:** Intervaldata → gemiddelde en standaardafwijking gebruiken alle informatie ✅")
+            feedback_parts <- c(feedback_parts, "**STAP 2.2 - KEUZES:** Intervaldata → gemiddelde en standaardafwijking gebruiken alle informatie ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 2.2 - KEUZES:** Bij intervaldata: gemiddelde, interkwartielafstand, 'gebruikt alle informatie' ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 2.2 - KEUZES:** Bij intervaldata: gemiddelde, interkwartielafstand, 'gebruikt alle informatie' ❌")
           }
           
           # ----------------------
@@ -518,9 +546,9 @@ context({
           afwijkingen_correct <- all(sapply(afwijking_vars, function(x) results[[x]]$correct))
           
           if (afwijkingen_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 3.1 - AFWIJKINGEN:** X - 33.55 voor elke waarde ✅")
+            feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** X - 33.55 voor elke waarde ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 3.1 - AFWIJKINGEN:** Bereken X - 33.55 voor elke datawaarde ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 3.1 - AFWIJKINGEN:** Bereken X - 33.55 voor elke datawaarde ❌")
           }
           
           gekw_vars <- c("gekw_afwijking_24_1", "gekw_afwijking_36_1", "gekw_afwijking_35", "gekw_afwijking_28_1", "gekw_afwijking_24_2",
@@ -531,15 +559,31 @@ context({
           gekw_correct <- all(sapply(gekw_vars, function(x) results[[x]]$correct))
           
           if (gekw_correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
+            feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** (afwijking)² ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 3.2 - GEKWADRATEERDE AFWIJKINGEN:** Kwadrateer elke afwijking ❌")
           }
           
           if (results$sum_of_squares$correct && results$variantie$correct && results$standaardafwijking$correct && results$variatiecoefficient$correct) {
-            feedback_lines <- c(feedback_lines, "**STAP 3.3 - VARIANTIE:** Som=528.95, Variantie=528.95/19=27.8295, SD=5.2763, CV=0.1573 ✅")
+            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** Som=528.95, Variantie=528.95/19=27.8295, SD=5.2763, CV=0.1573 ✅")
           } else {
-            feedback_lines <- c(feedback_lines, "**STAP 3.3 - VARIANTIE:** Som gekwadrateerde afwijkingen = 528.95, variantie = som/(n-1), SD = √variantie ❌")
+            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** ❌")
+            if (!results$sum_of_squares$correct && results$sum_of_squares$exists) {
+              student_answer <- as.numeric(results$sum_of_squares$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", student_answer, ", maar correct is **528.95**"))
+            }
+            if (!results$variantie$correct && results$variantie$exists) {
+              student_answer <- as.numeric(results$variantie$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Variantie: Je gaf ", student_answer, ", maar correct is som/(n-1) = **27.83**"))
+            }
+            if (!results$standaardafwijking$correct && results$standaardafwijking$exists) {
+              student_answer <- as.numeric(results$standaardafwijking$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Standaardafwijking: Je gaf ", student_answer, ", maar correct is √variantie = **5.28**"))
+            }
+            if (!results$variatiecoefficient$correct && results$variatiecoefficient$exists) {
+              student_answer <- as.numeric(results$variatiecoefficient$value)
+              feedback_parts <- c(feedback_parts, paste0("  • Variatiecoëfficiënt: Je gaf ", student_answer, ", maar correct is SD/gemiddelde = **0.16**"))
+            }
           }
           
           # ----------------------------------------
@@ -547,7 +591,7 @@ context({
           # ----------------------------------------
           
           if (correct_count != total_questions) {
-            feedback_lines <- c(feedback_lines, "", "📚 **Uitleg van veelgemaakte fouten:**")
+            feedback_parts <- c(feedback_parts, "", "📚 **Uitleg van veelgemaakte fouten:**")
             
             # ======================
             # STAP 1 - FREQUENCY ERRORS
@@ -560,9 +604,11 @@ context({
               student_f24 <- as.numeric(results$freq_24$value)
               if (!is.na(student_f24)) {
                 if (student_f24 == 1) {
-                  freq_errors <- c(freq_errors, "freq_24: Je telde 1, maar 24 komt 3x voor in de data")
+                  freq_errors <- c(freq_errors, paste0("freq_24: Je gaf ", student_f24, ", maar 24 komt 3x voor in de data. Correct: **3**"))
                 } else if (student_f24 == 4) {
-                  freq_errors <- c(freq_errors, "freq_24: Je telde andere waarden mee. Tel alleen 24: komt 3x voor")
+                  freq_errors <- c(freq_errors, paste0("freq_24: Je gaf ", student_f24, ", maar je telde andere waarden mee. Tel alleen 24. Correct: **3**"))
+                } else {
+                  freq_errors <- c(freq_errors, paste0("freq_24: Je gaf ", student_f24, ", maar correct antwoord is **3**"))
                 }
               }
             }
@@ -571,16 +617,18 @@ context({
               student_f36 <- as.numeric(results$freq_36$value)
               if (!is.na(student_f36)) {
                 if (student_f36 == 1) {
-                  freq_errors <- c(freq_errors, "freq_36: Je telde 1, maar 36 komt 7x voor (meest frequent!)")
+                  freq_errors <- c(freq_errors, paste0("freq_36: Je gaf ", student_f36, ", maar 36 komt 7x voor (meest frequent!). Correct: **7**"))
                 } else if (student_f36 >= 8) {
-                  freq_errors <- c(freq_errors, "freq_36: Te hoog geteld. Tel precies: 36 komt 7x voor")
+                  freq_errors <- c(freq_errors, paste0("freq_36: Je gaf ", student_f36, ", maar dit is te hoog. Tel precies: 36 komt 7x voor. Correct: **7**"))
+                } else {
+                  freq_errors <- c(freq_errors, paste0("freq_36: Je gaf ", student_f36, ", maar correct antwoord is **7**"))
                 }
               }
             }
             
             if (length(freq_errors) > 0) {
-              feedback_lines <- c(feedback_lines, "• **FREQUENTIE FOUTEN:**")
-              feedback_lines <- c(feedback_lines, paste0("  - ", freq_errors))
+              feedback_parts <- c(feedback_parts, "• **FREQUENTIE FOUTEN:**")
+              feedback_parts <- c(feedback_parts, paste0("  - ", freq_errors))
             }
             
             # PERCENTAGE ERRORS - Detailed analysis
@@ -590,11 +638,13 @@ context({
               student_p36 <- as.numeric(results$percent_36$value)
               if (!is.na(student_p36)) {
                 if (abs(student_p36 - 7) < 0.1) {
-                  percent_errors <- c(percent_errors, "percent_36: Je gaf de frequentie (7) ipv percentage. 7/20 × 100 = 35%")
+                  percent_errors <- c(percent_errors, paste0("percent_36: Je gaf ", student_p36, ", maar je gaf de frequentie ipv percentage. Correct: 7/20 × 100 = **35%**"))
                 } else if (abs(student_p36 - 0.35) < 0.01) {
-                  percent_errors <- c(percent_errors, "percent_36: Je vergat ×100. 7/20 = 0.35 → ×100 = 35%")
+                  percent_errors <- c(percent_errors, paste0("percent_36: Je gaf ", student_p36, ", maar je vergat ×100. Correct: 7/20 = 0.35 → ×100 = **35%**"))
                 } else if (student_p36 > 50) {
-                  percent_errors <- c(percent_errors, "percent_36: Te hoog. Check: 7 van 20 = (7/20) × 100 = 35%")
+                  percent_errors <- c(percent_errors, paste0("percent_36: Je gaf ", student_p36, ", maar dit is te hoog. Check: 7 van 20 = (7/20) × 100 = **35%**"))
+                } else {
+                  percent_errors <- c(percent_errors, paste0("percent_36: Je gaf ", student_p36, ", maar correct antwoord is **35%**"))
                 }
               }
             }
@@ -611,8 +661,8 @@ context({
             }
             
             if (length(percent_errors) > 0) {
-              feedback_lines <- c(feedback_lines, "• **PERCENTAGE FOUTEN:**")
-              feedback_lines <- c(feedback_lines, paste0("  - ", percent_errors))
+              feedback_parts <- c(feedback_parts, "• **PERCENTAGE FOUTEN:**")
+              feedback_parts <- c(feedback_parts, paste0("  - ", percent_errors))
             }
             
             # MODUS ERRORS - Multiple error types
@@ -620,11 +670,11 @@ context({
               student_modus <- results$modus$value
               if (is.numeric(student_modus)) {
                 if (student_modus == 7) {
-                  feedback_lines <- c(feedback_lines, "• **MODUS FOUT:** Je gaf de frequentie (7), maar modus is de WAARDE die het meest voorkomt → 36")
+                  feedback_parts <- c(feedback_parts, "• **MODUS FOUT:** Je gaf de frequentie (7), maar modus is de WAARDE die het meest voorkomt → 36")
                 } else if (student_modus %in% c(24, 28, 32, 34, 35, 38, 40)) {
-                  feedback_lines <- c(feedback_lines, paste0("• **MODUS FOUT:** ", student_modus, " is niet het meest frequent. 36 komt 7x voor (meest) → modus = 36"))
+                  feedback_parts <- c(feedback_parts, paste0("• **MODUS FOUT:** ", student_modus, " is niet het meest frequent. 36 komt 7x voor (meest) → modus = 36"))
                 } else if (length(student_modus) > 1) {
-                  feedback_lines <- c(feedback_lines, "• **MODUS FOUT:** Geef één waarde. De waarde die het MEEST voorkomt is 36 (7x)")
+                  feedback_parts <- c(feedback_parts, "• **MODUS FOUT:** Geef één waarde. De waarde die het MEEST voorkomt is 36 (7x)")
                 }
               }
             }
@@ -634,11 +684,11 @@ context({
               student_mediaan <- as.numeric(results$mediaan$value)
               if (!is.na(student_mediaan)) {
                 if (student_mediaan == 10.5 || student_mediaan == 10 || student_mediaan == 11) {
-                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Je gaf de positie (10.5), maar mediaan is de WAARDE op die positie. Gesorteerd: 10de en 11de = 36 en 36 → mediaan = 36")
+                  feedback_parts <- c(feedback_parts, "• **MEDIAAN FOUT:** Je gaf de positie (10.5), maar mediaan is de WAARDE op die positie. Gesorteerd: 10de en 11de = 36 en 36 → mediaan = 36")
                 } else if (student_mediaan %in% c(24, 28, 32, 34, 35, 38, 40)) {
-                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Sorteer eerst! Data gesorteerd: 24,24,24,28,28,32,32,34,35,36,36,36,36,36,36,36,38,40,40,40 → middelste = 36")
+                  feedback_parts <- c(feedback_parts, "• **MEDIAAN FOUT:** Sorteer eerst! Data gesorteerd: 24,24,24,28,28,32,32,34,35,36,36,36,36,36,36,36,38,40,40,40 → middelste = 36")
                 } else if (abs(student_mediaan - 33.55) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **MEDIAAN FOUT:** Je gaf het gemiddelde. Mediaan = middelste waarde na sorteren = 36")
+                  feedback_parts <- c(feedback_parts, "• **MEDIAAN FOUT:** Je gaf het gemiddelde. Mediaan = middelste waarde na sorteren = 36")
                 }
               }
             }
@@ -648,13 +698,13 @@ context({
               student_gem <- as.numeric(results$gemiddelde$value)
               if (!is.na(student_gem)) {
                 if (abs(student_gem - 35.35) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Rekenfout in som. Check: 24×3 + 28×2 + 32×2 + 34×1 + 35×1 + 36×7 + 38×1 + 40×3 = 671, dan 671/20 = 33.55")
+                  feedback_parts <- c(feedback_parts, "• **GEMIDDELDE FOUT:** Rekenfout in som. Check: 24×3 + 28×2 + 32×2 + 34×1 + 35×1 + 36×7 + 38×1 + 40×3 = 671, dan 671/20 = 33.55")
                 } else if (abs(student_gem - 33.4) < 0.1) {
-                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Afronding te vroeg? Exact: 671/20 = 33.55 (gebruik decimale punt)")
+                  feedback_parts <- c(feedback_parts, "• **GEMIDDELDE FOUT:** Afronding te vroeg? Exact: 671/20 = 33.55 (gebruik decimale punt)")
                 } else if (student_gem == 36) {
-                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Je gaf de mediaan (36). Gemiddelde = som/aantal = 671/20 = 33.55")
+                  feedback_parts <- c(feedback_parts, "• **GEMIDDELDE FOUT:** Je gaf de mediaan (36). Gemiddelde = som/aantal = 671/20 = 33.55")
                 } else if (abs(student_gem - 35.32) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **GEMIDDELDE FOUT:** Je deelde door 19 ipv 20. Gemiddelde = 671/20 = 33.55")
+                  feedback_parts <- c(feedback_parts, "• **GEMIDDELDE FOUT:** Je deelde door 19 ipv 20. Gemiddelde = 671/20 = 33.55")
                 }
               }
             }
@@ -668,11 +718,11 @@ context({
               student_vb <- as.numeric(results$variatiebreedte$value)
               if (!is.na(student_vb)) {
                 if (student_vb == 64) {
-                  feedback_lines <- c(feedback_lines, "• **VARIATIEBREEDTE FOUT:** Je deed 40+24=64, maar range = max-min = 40-24 = 16")
+                  feedback_parts <- c(feedback_parts, "• **VARIATIEBREEDTE FOUT:** Je deed 40+24=64, maar range = max-min = 40-24 = 16")
                 } else if (student_vb == 8) {
-                  feedback_lines <- c(feedback_lines, "• **VARIATIEBREEDTE FOUT:** Je gebruikte verkeerde waarden. Range = hoogste(40) - laagste(24) = 16")
+                  feedback_parts <- c(feedback_parts, "• **VARIATIEBREEDTE FOUT:** Je gebruikte verkeerde waarden. Range = hoogste(40) - laagste(24) = 16")
                 } else if (student_vb > 20) {
-                  feedback_lines <- c(feedback_lines, "• **VARIATIEBREEDTE FOUT:** Te groot. Range = max - min = 40 - 24 = 16")
+                  feedback_parts <- c(feedback_parts, "• **VARIATIEBREEDTE FOUT:** Te groot. Range = max - min = 40 - 24 = 16")
                 }
               }
             }
@@ -682,13 +732,15 @@ context({
               student_q1 <- as.numeric(results$q1$value)
               if (!is.na(student_q1)) {
                 if (student_q1 == 5.25) {
-                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Je gaf de positie (5.25), maar Q1 is de WAARDE op die positie = 30")
+                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar je gaf de positie. Q1 is de WAARDE op die positie = **30**"))
                 } else if (student_q1 == 28) {
-                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Te laag. Q1 positie = 25% van 20 = 5.25. Tussen 5de (28) en 6de (32) waarde → interpoleer: 30")
+                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar dit is te laag. Q1 positie = 25% van 20 = 5.25. Tussen 5de (28) en 6de (32) waarde → interpoleer: **30**"))
                 } else if (student_q1 == 32) {
-                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Te hoog. Q1 = 25% positie tussen 28 en 32 → Q1 = 30")
+                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar dit is te hoog. Q1 = 25% positie tussen 28 en 32 → **30**"))
                 } else if (student_q1 == 24) {
-                  feedback_lines <- c(feedback_lines, "• **Q1 FOUT:** Dit is de minimum waarde. Q1 = 25% positie = tussen 28 en 32 → Q1 = 30")
+                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar dit is de minimum waarde. Q1 = 25% positie = tussen 28 en 32 → **30**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Q1:** Je gaf ", student_q1, ", maar correct antwoord is **30**"))
                 }
               }
             }
@@ -698,11 +750,13 @@ context({
               student_q3 <- as.numeric(results$q3$value)
               if (!is.na(student_q3)) {
                 if (student_q3 == 15.75) {
-                  feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Je gaf de positie (15.75), maar Q3 is de WAARDE op die positie = 36")
+                  feedback_parts <- c(feedback_parts, paste0("• **Q3:** Je gaf ", student_q3, ", maar je gaf de positie. Q3 is de WAARDE op die positie = **36**"))
                 } else if (student_q3 == 38 || student_q3 == 40) {
-                  feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Te hoog. Q3 = 75% positie = 15.75ste waarde = 36")
+                  feedback_parts <- c(feedback_parts, paste0("• **Q3:** Je gaf ", student_q3, ", maar dit is te hoog. Q3 = 75% positie = 15.75ste waarde = **36**"))
                 } else if (student_q3 == 34 || student_q3 == 35) {
-                  feedback_lines <- c(feedback_lines, "• **Q3 FOUT:** Te laag. Q3 = 75% van gesorteerde data = 36")
+                  feedback_parts <- c(feedback_parts, paste0("• **Q3:** Je gaf ", student_q3, ", maar dit is te laag. Q3 = 75% van gesorteerde data = **36**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **Q3:** Je gaf ", student_q3, ", maar correct antwoord is **36**"))
                 }
               }
             }
@@ -712,11 +766,13 @@ context({
               student_ika <- as.numeric(results$ika$value)
               if (!is.na(student_ika)) {
                 if (student_ika < 0) {
-                  feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Negatief getal? IKA = Q3 - Q1 = 36 - 30 = 6 (altijd positief)")
+                  feedback_parts <- c(feedback_parts, paste0("• **IKA:** Je gaf ", student_ika, ", maar dit is negatief. IKA = Q3 - Q1 = 36 - 30 = **6** (altijd positief)"))
                 } else if (student_ika == 16) {
-                  feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Je berekende de variatiebreedte. IKA = Q3 - Q1 = 36 - 30 = 6")
+                  feedback_parts <- c(feedback_parts, paste0("• **IKA:** Je gaf ", student_ika, ", maar je berekende de variatiebreedte. IKA = Q3 - Q1 = 36 - 30 = **6**"))
                 } else if (student_ika > 10) {
-                  feedback_lines <- c(feedback_lines, "• **IKA FOUT:** Te groot. IKA = Q3 - Q1 = 36 - 30 = 6")
+                  feedback_parts <- c(feedback_parts, paste0("• **IKA:** Je gaf ", student_ika, ", maar dit is te groot. IKA = Q3 - Q1 = 36 - 30 = **6**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **IKA:** Je gaf ", student_ika, ", maar correct antwoord is **6**"))
                 }
               }
             }
@@ -725,25 +781,27 @@ context({
             if (!results$meest_relevante_centraliteit$correct && results$meest_relevante_centraliteit$exists) {
               student_cent <- tolower(trimws(as.character(results$meest_relevante_centraliteit$value)))
               if (student_cent == "modus") {
-                feedback_lines <- c(feedback_lines, "• **CENTRALITEIT KEUZE:** Modus geeft minste info (alleen meest frequent). Bij intervaldata: gemiddelde gebruikt ALLE waarden")
+                feedback_parts <- c(feedback_parts, paste0("• **CENTRALITEIT KEUZE:** Je koos '", results$meest_relevante_centraliteit$value, "', maar modus geeft minste info (alleen meest frequent). Bij intervaldata: **gemiddelde** gebruikt ALLE waarden"))
               } else if (student_cent == "mediaan") {
-                feedback_lines <- c(feedback_lines, "• **CENTRALITEIT KEUZE:** Mediaan is robuust maar gebruikt niet alle info. Bij intervaldata: gemiddelde is meest informatief")
+                feedback_parts <- c(feedback_parts, paste0("• **CENTRALITEIT KEUZE:** Je koos '", results$meest_relevante_centraliteit$value, "', maar mediaan is robuust maar gebruikt niet alle info. Bij intervaldata: **gemiddelde** is meest informatief"))
+              } else {
+                feedback_parts <- c(feedback_parts, paste0("• **CENTRALITEIT KEUZE:** Je koos '", results$meest_relevante_centraliteit$value, "', maar correct antwoord is **gemiddelde**"))
               }
             }
             
             if (!results$meest_relevante_spreiding$correct && results$meest_relevante_spreiding$exists) {
               student_spr <- tolower(trimws(as.character(results$meest_relevante_spreiding$value)))
               if (student_spr == "variatiebreedte") {
-                feedback_lines <- c(feedback_lines, "• **SPREIDING KEUZE:** Range is gevoelig voor uitbijters. Interkwartielafstand = robuuster (middelste 50%)")
+                feedback_parts <- c(feedback_parts, "• **SPREIDING KEUZE:** Range is gevoelig voor uitbijters. Interkwartielafstand = robuuster (middelste 50%)")
               }
             }
             
             if (!results$reden$correct && results$reden$exists) {
               student_reden <- tolower(trimws(as.character(results$reden$value)))
               if (student_reden == "geen uitbijters") {
-                feedback_lines <- c(feedback_lines, "• **REDEN FOUT:** Er kunnen wel uitbijters zijn. Reden: gemiddelde 'gebruikt alle informatie'")
+                feedback_parts <- c(feedback_parts, "• **REDEN FOUT:** Er kunnen wel uitbijters zijn. Reden: gemiddelde 'gebruikt alle informatie'")
               } else if (student_reden == "robuust voor uitbijters") {
-                feedback_lines <- c(feedback_lines, "• **REDEN FOUT:** Gemiddelde is juist NIET robuust. Reden: 'gebruikt alle informatie' (iedere waarde telt mee)")
+                feedback_parts <- c(feedback_parts, "• **REDEN FOUT:** Gemiddelde is juist NIET robuust. Reden: 'gebruikt alle informatie' (iedere waarde telt mee)")
               }
             }
             
@@ -767,14 +825,14 @@ context({
             }
             
             if (deviation_sign_errors > 0) {
-              feedback_lines <- c(feedback_lines, "• **AFWIJKING TEKEN FOUT:** Let op tekens! 24-33.55 = -9.55 (negatief), 40-33.55 = +6.45 (positief)")
+              feedback_parts <- c(feedback_parts, "• **AFWIJKING TEKEN FOUT:** Let op tekens! 24-33.55 = -9.55 (negatief), 40-33.55 = +6.45 (positief)")
             }
             
             # MEAN ERROR IN DEVIATIONS
             if (!results$afwijking_24_1$correct && results$afwijking_24_1$exists) {
               student_afw <- as.numeric(results$afwijking_24_1$value)
               if (!is.na(student_afw) && abs(student_afw - (-12)) < 0.1) {
-                feedback_lines <- c(feedback_lines, "• **AFWIJKING GEMIDDELDE FOUT:** Je gebruikte verkeerd gemiddelde. Gebruik 33.55: 24 - 33.55 = -9.55")
+                feedback_parts <- c(feedback_parts, "• **AFWIJKING GEMIDDELDE FOUT:** Je gebruikte verkeerd gemiddelde. Gebruik 33.55: 24 - 33.55 = -9.55")
               }
             }
             
@@ -783,9 +841,9 @@ context({
               student_gekw <- as.numeric(results$gekw_afwijking_24_1$value)
               if (!is.na(student_gekw)) {
                 if (student_gekw == -91.2025) {
-                  feedback_lines <- c(feedback_lines, "• **GEKWADRATEERDE AFWIJKING TEKEN:** Kwadraat is altijd positief! (-9.55)² = 91.2025")
+                  feedback_parts <- c(feedback_parts, "• **GEKWADRATEERDE AFWIJKING TEKEN:** Kwadraat is altijd positief! (-9.55)² = 91.2025")
                 } else if (abs(student_gekw - 9.55) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **GEKWADRATEERDE AFWIJKING:** Je vergat te kwadrateren. (-9.55)² = 91.2025 (niet 9.55)")
+                  feedback_parts <- c(feedback_parts, "• **GEKWADRATEERDE AFWIJKING:** Je vergat te kwadrateren. (-9.55)² = 91.2025 (niet 9.55)")
                 }
               }
             }
@@ -795,9 +853,9 @@ context({
               student_ss <- as.numeric(results$sum_of_squares$value)
               if (!is.na(student_ss)) {
                 if (abs(student_ss - 671) < 1) {
-                  feedback_lines <- c(feedback_lines, "• **SOM KWADRATEN FOUT:** Je somde originele waarden ipv gekwadrateerde afwijkingen. Som van (afwijking)² = 528.95")
+                  feedback_parts <- c(feedback_parts, "• **SOM KWADRATEN FOUT:** Je somde originele waarden ipv gekwadrateerde afwijkingen. Som van (afwijking)² = 528.95")
                 } else if (student_ss > 600 && student_ss < 650) {
-                  feedback_lines <- c(feedback_lines, "• **SOM KWADRATEN FOUT:** Controleer je gekwadrateerde afwijkingen. Correcte som = 528.95")
+                  feedback_parts <- c(feedback_parts, "• **SOM KWADRATEN FOUT:** Controleer je gekwadrateerde afwijkingen. Correcte som = 528.95")
                 }
               }
             }
@@ -807,11 +865,13 @@ context({
               student_var <- as.numeric(results$variantie$value)
               if (!is.na(student_var)) {
                 if (abs(student_var - 26.4475) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **VARIANTIE n-1 FOUT:** Je deelde door n=20, gebruik n-1=19 voor steekproef: 528.95/19 = 27.8295")
+                  feedback_parts <- c(feedback_parts, paste0("• **VARIANTIE:** Je gaf ", student_var, ", maar je deelde door n=20. Gebruik n-1=19 voor steekproef: **27.83**"))
                 } else if (abs(student_var - 528.95) < 1) {
-                  feedback_lines <- c(feedback_lines, "• **VARIANTIE FORMULE FOUT:** Je gaf som van kwadraten. Variantie = som/(n-1) = 528.95/19 = 27.8295")
+                  feedback_parts <- c(feedback_parts, paste0("• **VARIANTIE:** Je gaf ", student_var, ", maar dit is som van kwadraten. Variantie = som/(n-1) = **27.83**"))
                 } else if (abs(student_var - 33.55) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **VARIANTIE FOUT:** Je gaf het gemiddelde. Variantie = som gekwadrateerde afwijkingen/(n-1) = 27.8295")
+                  feedback_parts <- c(feedback_parts, paste0("• **VARIANTIE:** Je gaf ", student_var, ", maar dit is het gemiddelde. Variantie = som gekwadrateerde afwijkingen/(n-1) = **27.83**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **VARIANTIE:** Je gaf ", student_var, ", maar correct antwoord is **27.83**"))
                 }
               }
             }
@@ -821,9 +881,11 @@ context({
               student_sd <- as.numeric(results$standaardafwijking$value)
               if (!is.na(student_sd)) {
                 if (abs(student_sd - 27.8295) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDAFWIJKING WORTEL FOUT:** Je gaf variantie. SD = √variantie = √27.8295 = 5.2763")
+                  feedback_parts <- c(feedback_parts, paste0("• **STANDAARDAFWIJKING:** Je gaf ", student_sd, ", maar je vergat de wortel. SD = √variantie = √27.83 = **5.28**"))
                 } else if (abs(student_sd - 528.95) < 1) {
-                  feedback_lines <- c(feedback_lines, "• **STANDAARDAFWIJKING FOUT:** Je gaf som van kwadraten. SD = √(som/(n-1)) = √27.8295 = 5.2763")
+                  feedback_parts <- c(feedback_parts, paste0("• **STANDAARDAFWIJKING:** Je gaf ", student_sd, ", maar dit is som van kwadraten. SD = √(som/(n-1)) = **5.28**"))
+                } else {
+                  feedback_parts <- c(feedback_parts, paste0("• **STANDAARDAFWIJKING:** Je gaf ", student_sd, ", maar correct antwoord is **5.28**"))
                 }
               }
             }
@@ -833,18 +895,43 @@ context({
               student_cv <- as.numeric(results$variatiecoefficient$value)
               if (!is.na(student_cv)) {
                 if (student_cv > 10) {
-                  feedback_lines <- c(feedback_lines, "• **VARIATIECOËFFICIËNT PERCENTAGE:** Je gaf als percentage (15.73%). CV = decimaal: 5.2763/33.55 = 0.1573")
+                  feedback_parts <- c(feedback_parts, "• **VARIATIECOËFFICIËNT PERCENTAGE:** Je gaf als percentage (15.73%). CV = decimaal: 5.2763/33.55 = 0.1573")
                 } else if (abs(student_cv - 6.36) < 0.1) {
-                  feedback_lines <- c(feedback_lines, "• **VARIATIECOËFFICIËNT OMGEKEERD:** Je deed gemiddelde/SD. Correct: CV = SD/gemiddelde = 5.2763/33.55 = 0.1573")
+                  feedback_parts <- c(feedback_parts, "• **VARIATIECOËFFICIËNT OMGEKEERD:** Je deed gemiddelde/SD. Correct: CV = SD/gemiddelde = 5.2763/33.55 = 0.1573")
                 } else if (abs(student_cv - 0.83) < 0.01) {
-                  feedback_lines <- c(feedback_lines, "• **VARIATIECOËFFICIËNT VARIANTIE FOUT:** Je gebruikte variantie ipv SD. CV = SD/gemiddelde = 5.2763/33.55 = 0.1573")
+                  feedback_parts <- c(feedback_parts, "• **VARIATIECOËFFICIËNT VARIANTIE FOUT:** Je gebruikte variantie ipv SD. CV = SD/gemiddelde = 5.2763/33.55 = 0.1573")
                 }
               }
             }
           }
           
-          feedback_lines <- c(
-            feedback_lines,
+          # Add correct answers overview if there were errors
+          if (correct_count != total_questions) {
+            feedback_parts <- c(
+              feedback_parts,
+              "",
+              "📋 **CORRECTE ANTWOORDEN - OVERZICHT:**",
+              "• **Frequenties:** 24(3x), 28(2x), 32(2x), 34(1x), 35(1x), 36(7x), 38(1x), 40(3x)",
+              "• **Percentages:** 24=15%, 28=10%, 32=10%, 34=5%, 35=5%, 36=35%, 38=5%, 40=15%",
+              "• **Gemiddelde:** 33.55 (som=671, 671/20=33.55)",
+              "• **Mediaan:** 36 (middelste van 20 waarden = 10.5de positie)",
+              "• **Modus:** 36 (komt 7x voor, meest frequent)",
+              "• **Variatiebreedte:** 16 (40-24=16)",
+              "• **Q1:** 30 (25% positie = 5.25, tussen 28 en 32)",
+              "• **Q3:** 36 (75% positie = 15.75, 36 op die positie)",
+              "• **IKA:** 6 (Q3-Q1 = 36-30=6)",
+              "• **Som gekwadrateerde afwijkingen:** 528.95",
+              "• **Variantie:** 27.83 (528.95/(20-1) = 528.95/19)",
+              "• **Standaardafwijking:** 5.28 (√27.83)",
+              "• **Variatiecoëfficiënt:** 0.16 (5.28/33.55)",
+              "• **Meest relevante centraliteit:** gemiddelde",
+              "• **Meest relevante spreiding:** interkwartielafstand",
+              "• **Reden:** gebruikt alle informatie"
+            )
+          }
+
+          feedback_parts <- c(
+            feedback_parts,
             "",
             paste0("**", correct_count, " van ", total_questions, " juist**"),
             "",
@@ -859,7 +946,7 @@ context({
           
           # Show markdown feedback
           get_reporter()$add_message(
-            paste(feedback_lines, collapse = "\n\n"),
+            paste(feedback_parts, collapse = "\n\n"),
             type = "markdown"
           )
           
