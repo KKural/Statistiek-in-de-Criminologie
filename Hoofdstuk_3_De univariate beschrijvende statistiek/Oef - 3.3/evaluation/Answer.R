@@ -503,7 +503,11 @@ context({
             feedback_parts <- c(feedback_parts, "**STAP 1.3 - CENTRALITEIT:** ❌")
             if (!results$gemiddelde$correct && results$gemiddelde$exists) {
               student_answer <- as.numeric(results$gemiddelde$value)
-              feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar correct is **33.55**"))
+              if (abs(student_answer - 12) < 0.01) {
+                feedback_parts <- c(feedback_parts, "  • Gemiddelde: Je gaf 12, maar dit is fout. Je gebruikte waarschijnlijk een verkeerde berekeningsmethode. Som alle waarden (671) en deel door aantal observaties (20): 671/20 = **33.55**")
+              } else {
+                feedback_parts <- c(feedback_parts, paste0("  • Gemiddelde: Je gaf ", student_answer, ", maar correct is **33.55**"))
+              }
             }
             if (!results$mediaan$correct && results$mediaan$exists) {
               student_answer <- as.numeric(results$mediaan$value)
@@ -686,8 +690,13 @@ context({
             
             if (!results$gemiddelde$correct && results$gemiddelde$exists) {
               student_val <- as.numeric(results$gemiddelde$value)
-              feedback_parts <- c(feedback_parts, 
-                paste0("• **gemiddelde:** Je gaf ", student_val, ", maar correct is **33.55** → Som = (24×3 + 28×2 + 32×2 + 34×1 + 35×1 + 36×7 + 38×1 + 40×3) = 671. Gemiddelde = 671/20 = 33.55"))
+              if (abs(student_val - 12) < 0.01) {
+                feedback_parts <- c(feedback_parts, 
+                  "• **gemiddelde:** Je gaf 12, maar dit is fout. Je gebruikte een verkeerde berekeningsmethode. Het juiste antwoord is **33.55** → Som = (24×3 + 28×2 + 32×2 + 34×1 + 35×1 + 36×7 + 38×1 + 40×3) = 671. Gemiddelde = 671/20 = 33.55")
+              } else {
+                feedback_parts <- c(feedback_parts, 
+                  paste0("• **gemiddelde:** Je gaf ", student_val, ", maar correct is **33.55** → Som = (24×3 + 28×2 + 32×2 + 34×1 + 35×1 + 36×7 + 38×1 + 40×3) = 671. Gemiddelde = 671/20 = 33.55"))
+              }
             }
             
             # SPREIDINGSMATEN - Met berekening
