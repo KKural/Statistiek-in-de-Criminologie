@@ -646,31 +646,7 @@ context({
               )
             }
             
-            # 🔎 Extra: lijst ALLE foute gekwadrateerde afwijkingen
-            wrong_gekw <- gekw_vars[
-              sapply(gekw_vars, function(v) {
-                v %in% names(results) && results[[v]]$exists && !results[[v]]$correct
-              })
-            ]
-            
-            if (length(wrong_gekw) > 0) {
-              feedback_parts <- c(feedback_parts, "  • **Foute gekwadrateerde afwijkingen:**")
-              
-              for (v in wrong_gekw) {
-                if (v %in% names(results)) {
-                  res <- results[[v]]
-                  student_val  <- suppressWarnings(as.numeric(res$value))
-                  expected_val <- res$expected
-                  
-                  if (!is.na(student_val) && !is.na(expected_val)) {
-                    feedback_parts <- c(
-                      feedback_parts,
-                      paste0("    - ", v, ": je gaf ", student_val, ", moet zijn ", round(expected_val, 4))
-                    )
-                  }
-                }
-              }
-            }
+
           }
 
           
@@ -1019,20 +995,46 @@ context({
           incorrect_vars <- names(results)[sapply(results, function(rec) {
             isTRUE(rec$exists) && !isTRUE(rec$correct)
           })]
+
           if (length(incorrect_vars) > 0) {
-            feedback_parts <- c(feedback_parts, "- Overzicht fouten (jouw antwoord -> verwacht):")
+            feedback_parts <- c(
+              feedback_parts,
+              "",
+              "• Overzicht fouten (jouw antwoord → juiste antwoord):"
+            )
+            
             for (var_name in incorrect_vars) {
               res <- results[[var_name]]
               expected_str <- toString(res$expected)
-              if (!res$exists) {
-                feedback_parts <- c(feedback_parts, paste0("  - ", var_name, ": niet gevonden. Verwacht: ", expected_str))
-                next
+              student_str  <- toString(res$value)
+              if (student_str == "NA") student_str <- "ontbreekt"
+              
+              # 1) Afwijkingen (X - gemiddelde)
+              if (grepl("^afwijking_", var_name)) {
+                feedback_parts <- c(
+                  feedback_parts,
+                  paste0("  - Je gaf ", student_str,
+                         " voor een afwijking (X - gemiddelde), maar het juiste antwoord is ",
+                         expected_str, ".")
+                )
+                
+              # 2) Gekwadrateerde afwijkingen ( (X - gemiddelde)² )
+              } else if (grepl("^gekw_afwijking_", var_name)) {
+                feedback_parts <- c(
+                  feedback_parts,
+                  paste0("  - Je gaf ", student_str,
+                         " voor een gekwadrateerde afwijking, maar het juiste antwoord is ",
+                         expected_str, ".")
+                )
+                
+              # 3) Alle andere (modus, mediaan, q1, …) mogen de naam behouden
+              } else {
+                feedback_parts <- c(
+                  feedback_parts,
+                  paste0("  - ", var_name, ": je gaf ", student_str,
+                         ", maar het juiste antwoord is ", expected_str, ".")
+                )
               }
-              student_str <- toString(res$value)
-              if (student_str == "NA") {
-                student_str <- "Ontbreekt"
-              }
-              feedback_parts <- c(feedback_parts, paste0("  - ", var_name, ": ", student_str, " -> ", expected_str))
             }
           }
 
