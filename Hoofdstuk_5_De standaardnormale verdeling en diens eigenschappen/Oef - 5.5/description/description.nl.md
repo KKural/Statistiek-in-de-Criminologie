@@ -1,10 +1,21 @@
-Als de leeftijd van een verdachte wordt uitgedrukt in een exact getal in jaren, wat is dan het meetniveau van deze variabele?
+## Onderzoekscontext: Gevangenispopulatie-onderzoek
 
-1. Nominaal
-2. Ordinaal  
-3. Dichotoom
-4. Interval/Ratio
+Een gevangenisdirecteur wil een bevraging organiseren bij de **oudste 10%** van de gevangenispopulatie. De leeftijden in de gevangenis zijn normaal verdeeld, met gemiddelde 37.8 jaar en een standaardafwijking 5.6 jaar. Vanaf welke leeftijd zullen de gevangenen aan de bevraging kunnen deelnemen?
 
-**Hint:** *Denk na over de eigenschappen van leeftijd. Kun je leeftijden rangschikken? Zijn de afstanden tussen jaren altijd hetzelfde? Is de afstand tussen 20 en 30 hetzelfde als de afstand tussen 30 en 40? Wat betekent 0 jaar?*
+## Vraag
 
-- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven
+**Vanaf welke leeftijd zullen de gevangenen aan de bevraging kunnen deelnemen?**
+
+**Kies het juiste antwoord:**
+
+1) De gevangenen vanaf de leeftijd van (afgerond) 42.5 jaar
+2) De gevangenen vanaf de leeftijd van (afgerond) 45 jaar  
+3) De gevangenen vanaf de leeftijd van (afgerond) 47 jaar
+4) De gevangenen vanaf de leeftijd van (afgerond) 50 jaar
+5) We kunnen dit niet berekenen bij een gebrek aan gegevens
+
+## Instructies
+
+- Typ je antwoord als één enkel getal (1, 2, 3, 4, of 5)
+- Bijvoorbeeld: `answer <- 2`
+- Geen aanhalingstekens of extra karakters nodig
