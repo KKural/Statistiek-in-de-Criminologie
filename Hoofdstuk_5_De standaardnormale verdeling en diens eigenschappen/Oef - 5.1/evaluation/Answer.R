@@ -45,11 +45,11 @@ context({
           results$p_z1_a <- check_value("p_z1_a", exp_p_z1_a, tol = 0.001)
           results$p_z2_a <- check_value("p_z2_a", exp_p_z2_a, tol = 0.001)
           results$verschil_a <- check_value("verschil_a", exp_verschil_a, tol = 0.001)
-          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.05, expect_percent = TRUE)
+          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.05, expect_percent = FALSE)
           
-          # Check final answers for b and c (expecting percentage strings)
-          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.05, expect_percent = TRUE)
-          results$vraag_c <- check_value("vraag_c", exp_c, tol = 0.05, expect_percent = TRUE)
+          # Check final answers for b and c (expecting numeric values)
+          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.05, expect_percent = FALSE)
+          results$vraag_c <- check_value("vraag_c", exp_c, tol = 0.05, expect_percent = FALSE)
 
           assign("detailed_results", results, envir = globalenv())
 
@@ -143,72 +143,76 @@ context({
 
           # Feedback for wrong answers - question a
           wrong_msg_a <- function(val) {
-            if (abs(val - 0.86) < 0.01) return("✅ Juist!")
-            if (abs(val - 0.0086) < 0.001) return("Je gaf 0.0086, maar dit is fout. Geef het antwoord als **percentage** (0.86, niet 0.0086). Het juiste antwoord is 0.86.")
-            if (abs(val - 86) < 1) return("Je gaf 86, maar dit is fout. Geef het antwoord als decimaal percentage (0.86, niet 86). Het juiste antwoord is 0.86.")
-            if (abs(val - 0.13) < 0.01) return("Je gaf 0.13, maar dit is fout. Controleer je berekening. Het juiste antwoord is 0.86.")
-            return(paste0("Je gaf ", val, ", maar dit is fout. Bereken handmatig: Z-scores, zoek kansen op in tabel, bereken verschil en zet om in %. Het juiste antwoord is 0.86."))
+            val_num <- parse_num(val)
+            if (is.na(val_num)) return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 0.86.")
+            
+            if (abs(val_num - 0.86) < 0.01) return("✅ Juist!")
+            if (abs(val_num - 0.0086) < 0.001) return("Je gaf 0.0086, maar dit is fout. Dit is de kans in decimaalvorm. Zet om naar percentage: 0.0086 × 100 = 0.86. Het juiste antwoord is 0.86.")
+            if (abs(val_num - 86) < 1) return("Je gaf 86, maar dit is fout. Je vermenigvuldigde een keer te veel met 100. Het juiste antwoord is 0.86.")
+            if (abs(val_num - 0.13) < 0.01) return("Je gaf 0.13, maar dit is fout. Controleer je berekening van het verschil. Het juiste antwoord is 0.86.")
+            return(paste0("Je gaf ", val, ", maar dit is fout. Bereken: Z-scores → kansen uit tabel → verschil → zet om naar percentage. Het juiste antwoord is 0.86."))
           }
 
           # Feedback for wrong answers - question b
           wrong_msg_b <- function(val) {
             val_num <- parse_num(val)
-            if (is.na(val_num)) return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 8.08%.")
+            if (is.na(val_num)) return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 8.08.")
             
             if (abs(val_num - 8.08) < 0.01) return("✅ Juist!")
             
             # Correct probability but needs percentage conversion
             if (abs(val_num - 0.0808) < 0.001) {
-              return("Je gaf 0.0808, dit is de juiste kans in decimaalvorm, maar je moet het als percentage uitdrukken. **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) P(Z ≤ -1.4) = 0.0808, 3) **0.0808 → 8.08%**. Het juiste antwoord is 8.08%.")
+              return("Je gaf 0.0808, dit is de juiste kans in decimaalvorm, maar je moet het als percentage uitdrukken. **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) P(Z ≤ -1.4) = 0.0808, 3) **0.0808 × 100 = 8.08**. Het juiste antwoord is 8.08.")
+            }
             }
             
             # Complement error
             if (abs(val_num - 91.92) < 0.1 || abs(val_num - 0.9192) < 0.001) {
-              return("Je gaf een antwoord rond 91.92%, maar dit is fout. Je berekende P(X > 32) in plaats van P(X < 32). **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) P(Z ≤ -1.4) = 0.0808 (niet het complement!), 3) 0.0808 → 8.08%. Het juiste antwoord is 8.08%.")
+              return("Je gaf een antwoord rond 91.92, maar dit is fout. Je berekende P(X > 32) in plaats van P(X < 32). **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) P(Z ≤ -1.4) = 0.0808 (niet het complement!), 3) 0.0808 × 100 = 8.08. Het juiste antwoord is 8.08.")            }
             }
             
             # Too large answers (double percentage conversion)
             if (val_num > 50) {
-              return("Je antwoord is te groot (>50%). Voor X = 32 (ver onder het gemiddelde μ = 42.5) moet de kans klein zijn. **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) P(Z ≤ -1.4) = 0.0808, 3) 0.0808 → 8.08%. Het juiste antwoord is 8.08%.")
+              return("Je antwoord is te groot (>50). Voor X = 32 (ver onder het gemiddelde μ = 42.5) moet de kans klein zijn. **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) P(Z ≤ -1.4) = 0.0808, 3) 0.0808 × 100 = 8.08. Het juiste antwoord is 8.08.")
             }
             
             # Generic wrong answer
             if (val_num < 8.08) {
-              return(paste0("Je gaf ", val, "%, dit is te laag. Controleer je berekening: **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) Zoek P(Z ≤ -1.4) ≈ 0.0808 in de tabel, 3) Zet om naar percentage: 8.08%. Het juiste antwoord is 8.08%."))
+              return(paste0("Je gaf ", val, ", dit is te laag. Controleer je berekening: **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) Zoek P(Z ≤ -1.4) ≈ 0.0808 in de tabel, 3) Zet om naar percentage: 8.08. Het juiste antwoord is 8.08."))
             } else {
-              return(paste0("Je gaf ", val, "%, dit is te hoog. Controleer je berekening: **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) Zoek P(Z ≤ -1.4) ≈ 0.0808 in de tabel, 3) Zet om naar percentage: 8.08%. Het juiste antwoord is 8.08%."))
+              return(paste0("Je gaf ", val, ", dit is te hoog. Controleer je berekening: **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) Zoek P(Z ≤ -1.4) ≈ 0.0808 in de tabel, 3) Zet om naar percentage: 8.08. Het juiste antwoord is 8.08."))
             }
           }
 
           # Feedback for wrong answers - question c
           wrong_msg_c <- function(val) {
             val_num <- parse_num(val)
-            if (is.na(val_num)) return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 96.41%.")
+            if (is.na(val_num)) return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 96.41.")
             
             if (abs(val_num - 96.41) < 0.01) return("✅ Juist!")
             
             # Correct probability but needs percentage conversion
             if (abs(val_num - 0.9641) < 0.001) {
-              return("Je gaf 0.9641, dit is de juiste kans in decimaalvorm, maar je moet het als percentage uitdrukken. **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) **0.9641 → 96.41%**. Het juiste antwoord is 96.41%.")
+              return("Je gaf 0.9641, dit is de juiste kans in decimaalvorm, maar je moet het als percentage uitdrukken. **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) **0.9641 × 100 = 96.41**. Het juiste antwoord is 96.41.")            }
             }
             
             # Forgot complement
             if (abs(val_num - 3.59) < 0.1 || abs(val_num - 0.0359) < 0.001) {
-              return("Je gaf een antwoord rond 3.59%, maar dit is fout. Je berekende P(X < 29) en vergat het complement te nemen voor P(X > 29). **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) **P(X > 29) = 1 - 0.0359 = 0.9641**, 4) 96.41%. Het juiste antwoord is 96.41%.")
+              return("Je gaf een antwoord rond 3.59, maar dit is fout. Je berekende P(X < 29) en vergat het complement te nemen voor P(X > 29). **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) **P(X > 29) = 1 - 0.0359 = 0.9641**, 4) 96.41. Het juiste antwoord is 96.41.")
             }
             
             # Answer too small (probably wrong tail or missed complement)
             if (val_num < 50) {
-              return(paste0("Je gaf ", val, "%, dit is te laag. Je hebt waarschijnlijk de verkeerde staart gebruikt of het complement vergeten. **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) 96.41%. Het juiste antwoord is 96.41%."))
+              return(paste0("Je gaf ", val, ", dit is te laag. Je hebt waarschijnlijk de verkeerde staart gebruikt of het complement vergeten. **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) 96.41. Het juiste antwoord is 96.41."))
             }
             
             # Answer > 100% (impossible)
             if (val_num > 100) {
-              return("Je antwoord is groter dan 100%, maar kansen kunnen niet meer dan 100% zijn. Je hebt waarschijnlijk een keer te vaak met 100 vermenigvuldigd. **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) 96.41%. Het juiste antwoord is 96.41%.")
+              return("Je antwoord is groter dan 100, maar kansen kunnen niet meer dan 100% zijn. Je hebt waarschijnlijk een keer te vaak met 100 vermenigvuldigd. **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) 96.41. Het juiste antwoord is 96.41.")
             }
             
             # Generic wrong answer
-            return(paste0("Je gaf ", val, "%. Controleer je berekening stap voor stap: **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) Zoek P(Z ≤ -1.8) ≈ 0.0359 in de tabel, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) Zet om naar percentage: 96.41%. Het juiste antwoord is 96.41%."))
+            return(paste0("Je gaf ", val, ". Controleer je berekening stap voor stap: **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) Zoek P(Z ≤ -1.8) ≈ 0.0359 in de tabel, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) Zet om naar percentage: 96.41. Het juiste antwoord is 96.41."))
           }
 
           # Build feedback string directly with proper line breaks

@@ -2,7 +2,7 @@
 
 # INSTRUCTIE: Voor vraag a: vul alle stappen in. Voor vraag b en c: bereken handmatig en voer alleen het eindpercentage in
 # Gebruik de standaardnormale tabel om de waarschijnlijkheden op te zoeken
-# LET OP: Geef percentages tussen aanhalingstekens! (bijvoorbeeld: "8.08%" niet 8.08%)
+# LET OP: Geef percentages als getallen ZONDER %-teken! (bijvoorbeeld: 8.08 niet "8.08%")
 
 # a. Kans dat boete tussen 20€ en 25€ ligt
 # Stap 1: Bereken Z-scores
@@ -17,14 +17,14 @@ p_z2_a <- ???  # Waarschijnlijkheid voor z2_a
 verschil_a <- ???  # p_z2_a - p_z1_a
 
 # Stap 4: Zet om in percentage
-vraag_a <- "???.???%"  # Geef antwoord met percentage teken (bijvoorbeeld: "0.86%")
+vraag_a <- ???  # Geef antwoord als getal (bijvoorbeeld: 0.86)
 
 # ============================================================
 
 # b. Kans dat boete lager dan 32€ is  
 # Bereken alle stappen handmatig en voer het antwoord in als percentage
-vraag_b <- "???.???%"  # Geef antwoord met percentage teken (bijvoorbeeld: "8.08%")
+vraag_b <- ???  # Geef antwoord als getal (bijvoorbeeld: 8.08)
 
 # c. Kans dat boete hoger dan 29€ is
 # Bereken alle stappen handmatig en voer het antwoord in als percentage
-vraag_c <- "???.???%"  # Geef antwoord met percentage teken (bijvoorbeeld: "96.41%")
+vraag_c <- ???  # Geef antwoord als getal (bijvoorbeeld: 96.41)
