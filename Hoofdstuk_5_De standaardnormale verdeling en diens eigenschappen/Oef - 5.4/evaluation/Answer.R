@@ -64,52 +64,119 @@ context({
             suppressWarnings(as.numeric(val))
           }
 
-          # Generate feedback for each question
-          feedback <- list()
-          
-          for (qname in names(qnames)) {
-            if (results[[qname]]$exists && results[[qname]]$correct) {
-              feedback[[qname]] <- paste("✅", qnames[qname], ":", round(as.numeric(results[[qname]]$value), 2), "%")
-            } else if (!results[[qname]]$exists) {
-              feedback[[qname]] <- paste("❌", qnames[qname], ": variabele niet gevonden")
-            } else {
-              feedback[[qname]] <- paste("❌", qnames[qname], ":", round(as.numeric(results[[qname]]$value), 2), "% (verwacht:", results[[qname]]$expected, "%)")
+          # --- DIAGNOSTIC FUNCTIONS ---
+
+          wrong_msg_a <- function(val) {
+            val_num <- parse_num(val)
+            if (is.na(val_num)) {
+              return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 38.30%.")
             }
+
+            # correct probability but not converted to %
+            if (abs(val_num - 0.3830) < 0.0001) {
+              return("Je gebruikte de kans in decimaalvorm (0.3830) in plaats van het percentage. Vermenigvuldig met 100: 0.3830 × 100 = 38.30%.")
+            }
+            # complement instead of interval
+            if (abs(val_num - 61.70) < 0.1 || abs(val_num - 0.6170) < 0.001) {
+              return("Je berekende waarschijnlijk de complementaire kans i.p.v. de kans in het interval. Controleer: P(32 ≤ X ≤ 34) = P(Z ≤ 0.5) - P(Z ≤ -0.5).")
+            }
+            # percentage but wrong magnitude
+            if (val_num > 100 || val_num < 0) {
+              return("Kansen kunnen niet kleiner dan 0% of groter dan 100% zijn. Controleer je berekening en het gebruik van de Z-tabel.")
+            }
+
+            return(paste0(
+              "Je gaf ", val, ", maar dit is fout. Bereken eerst Z-scores (Z = (X - μ)/σ), zoek de kansen in de Z-tabel en neem het verschil: ",
+              "Z₁ = -0.5, Z₂ = 0.5 → P(-0.5 ≤ Z ≤ 0.5) = 0.3830 = 38.30%."
+            ))
           }
 
-          # Build feedback string with clean formatting
-          feedback_text <- "**Resultaten per vraag:**\n\n"
-          
-          for (qname in names(qnames)) {
-            if (results[[qname]]$exists && results[[qname]]$correct) {
-              feedback_text <- paste0(feedback_text, "✅ ", qnames[qname], " **Correct! (", round(as.numeric(results[[qname]]$value), 2), "%)**\n\n")
-            } else if (!results[[qname]]$exists) {
-              feedback_text <- paste0(feedback_text, "❌ ", qnames[qname], " **Je hebt geen antwoord gegeven.**\n\n")
-            } else {
-              feedback_text <- paste0(feedback_text, "❌ ", qnames[qname], " **Fout.** Je gaf ", round(as.numeric(results[[qname]]$value), 2), "% (verwacht: ", results[[qname]]$expected, "%)\n\n")
+          wrong_msg_b <- function(val) {
+            val_num <- parse_num(val)
+            if (is.na(val_num)) {
+              return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 15.87%.")
             }
+
+            # correct probability but not converted to %
+            if (abs(val_num - 0.1587) < 0.0001) {
+              return("Je gebruikte de kans in decimaalvorm (0.1587) in plaats van het percentage. Vermenigvuldig met 100: 0.1587 × 100 = 15.87%.")
+            }
+            # complement used (P(X ≤ 35) ipv P(X > 35))
+            if (abs(val_num - 84.13) < 0.1 || abs(val_num - 0.8413) < 0.001) {
+              return("Je gebruikte waarschijnlijk P(X ≤ 35) in plaats van P(X > 35). Vergeet niet: P(X > 35) = 1 − P(X ≤ 35).")
+            }
+            if (val_num > 100 || val_num < 0) {
+              return("Kansen kunnen niet kleiner dan 0% of groter dan 100% zijn. Controleer je Z-waarde en of je het complement correct nam.")
+            }
+
+            return(paste0(
+              "Je gaf ", val, ", maar dit is fout. Bereken eerst Z = (35 − 33) / 2 = 1, zoek P(Z ≤ 1) = 0.8413 en neem dan het complement: ",
+              "P(X > 35) = 1 − 0.8413 = 0.1587 = 15.87%."
+            ))
           }
-          
-          # Add calculation details
-          if (all(sapply(results, function(x) x$correct))) {
-            feedback_text <- paste0(feedback_text, 
-              "**Gegeven:** N(33, 2) - μ = 33 cl, σ = 2 cl\n\n",
-              "**Vraag a berekening:**\n",
-              "- Z₁ = (32-33)/2 = -0.5, Z₂ = (34-33)/2 = 0.5\n",
-              "- P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830 = **38.30%**\n\n",
-              "**Vraag b berekening:**\n",
-              "- Z = (35-33)/2 = 1 → P(Z > 1) = 1 - 0.8413 = 0.1587 = **15.87%**"
-            )
+
+          # --- BUILD FEEDBACK TEXT ---
+
+          feedback_text <- "**Resultaten per vraag:**\n\n"
+
+          # Vraag A
+          q <- "vraag_a"
+          if (results[[q]]$exists) {
+            if (results[[q]]$correct) {
+              feedback_text <- paste0(
+                feedback_text,
+                "✅ ", qnames[[q]],
+                " **Correct! (", round(as.numeric(results[[q]]$value), 2), "%)**\n\n"
+              )
+            } else {
+              msg <- wrong_msg_a(results[[q]]$value)
+              feedback_text <- paste0(
+                feedback_text,
+                "❌ ", qnames[[q]], " **Fout.**\n\n",
+                msg, "\n\n"
+              )
+            }
           } else {
-            feedback_text <- paste0(feedback_text,
-              "**Handmatige berekening:**\n",
-              "1. Bereken Z-scores: Z = (X - μ) / σ\n",
-              "2. Zoek P(Z ≤ z) op in Z-tabel\n",
-              "3. Bereken interval/staart kansen\n",
-              "4. Zet om naar percentage\n\n",
-              "**Z-tabel:** https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm"
+            feedback_text <- paste0(
+              feedback_text,
+              "❌ ", qnames[[q]],
+              " **Je hebt geen antwoord gegeven.**\n\n"
             )
           }
+
+          # Vraag B
+          q <- "vraag_b"
+          if (results[[q]]$exists) {
+            if (results[[q]]$correct) {
+              feedback_text <- paste0(
+                feedback_text,
+                "✅ ", qnames[[q]],
+                " **Correct! (", round(as.numeric(results[[q]]$value), 2), "%)**\n\n"
+              )
+            } else {
+              msg <- wrong_msg_b(results[[q]]$value)
+              feedback_text <- paste0(
+                feedback_text,
+                "❌ ", qnames[[q]], " **Fout.**\n\n",
+                msg, "\n\n"
+              )
+            }
+          } else {
+            feedback_text <- paste0(
+              feedback_text,
+              "❌ ", qnames[[q]],
+              " **Je hebt geen antwoord gegeven.**\n\n"
+            )
+          }
+
+          # Extra uitleg (zoals in je oude oefening)
+          feedback_text <- paste0(
+            feedback_text,
+            "**Gegeven:** N(33, 2) — μ = 33 cl, σ = 2 cl\n\n",
+            "**Vraag a:** Z₁ = (32−33)/2 = −0.5, Z₂ = (34−33)/2 = 0.5 → P(−0.5 ≤ Z ≤ 0.5) = 0.6915 − 0.3085 = 0.3830 = 38.30%.\n\n",
+            "**Vraag b:** Z = (35−33)/2 = 1 → P(Z > 1) = 1 − 0.8413 = 0.1587 = 15.87%.\n\n",
+            "**Z-tabel:** https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm"
+          )
 
           get_reporter()$add_message(feedback_text, type = "markdown")
           generated == expected

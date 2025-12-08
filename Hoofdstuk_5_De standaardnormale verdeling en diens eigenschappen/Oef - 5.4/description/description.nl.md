@@ -1,5 +1,3 @@
-## Kwaliteitscontrole: Trappistenbier Westvleteren
-
 De Trappisten van de Sint-Sixtusabdij in Westvleteren controleren hun productieproces. Na het controleren van een sample van 100 flesjes blijkt dat de inhoud van hun beroemde **Westvleteren** trappistenbier **normaal verdeeld** is.
 
 **Onderzoeksgegevens:**
