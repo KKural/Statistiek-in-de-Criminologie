@@ -90,6 +90,11 @@ context({
               return("Je berekende waarschijnlijk slechts één kant van het interval. Voor P(32 ≤ X ≤ 34) heb je beide Z-waarden nodig: P(Z ≤ 0.5) - P(Z ≤ -0.5) = 38.30%, niet de helft.")
             }
             
+            # Used much smaller value - might be calculation error or wrong approach
+            if (abs(val_num - 7.935) < 0.1 || (val_num > 5 && val_num < 15)) {
+              return("Je antwoord is veel te klein voor dit interval. Controleer je berekening: P(32 ≤ X ≤ 34) = P(Z ≤ 0.5) - P(Z ≤ -0.5) = 0.6915 - 0.3085 = 0.3830 = 38.30%.")
+            }
+            
             # Doubled the correct answer
             if (abs(val_num - 76.60) < 0.1) {
               return("Je antwoord is te groot - waarschijnlijk heb je ergens dubbel geteld. Voor het interval P(32 ≤ X ≤ 34): Z₁ = -0.5, Z₂ = 0.5 → P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 38.30%.")
@@ -123,9 +128,9 @@ context({
 
             # Generic wrong answer with step-by-step guidance
             return(paste0(
-              "Je gaf ", val, "%, maar dit is fout.\n\n**Stap-voor-stap:**\n",
+              "Je gaf ", val, "%, maar dit is fout.\n\n**Correcte berekening:**\n",
               "1. Z₁ = (32-33)/2 = -0.5, Z₂ = (34-33)/2 = 0.5\n",
-              "2. P(Z ≤ -0.5) = 0.3085, P(Z ≤ 0.5) = 0.6915\n",
+              "2. P(Z ≤ -0.5) = 0.3085, P(Z ≤ 0.5) = 0.6915 (uit Z-tabel)\n",
               "3. P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830\n",
               "4. 0.3830 × 100% = **38.30%**"
             ))
@@ -193,7 +198,7 @@ context({
 
             # Generic wrong answer with step-by-step guidance
             return(paste0(
-              "Je gaf ", val, "%, maar dit is fout.\n\n**Stap-voor-stap:**\n",
+              "Je gaf ", val, "%, maar dit is fout.\n\n**Correcte berekening:**\n",
               "1. Z = (35-33)/2 = 1\n",
               "2. P(Z ≤ 1) = 0.8413 (uit Z-tabel)\n",
               "3. P(X > 35) = P(Z > 1) = 1 - P(Z ≤ 1) = 1 - 0.8413 = 0.1587\n",
