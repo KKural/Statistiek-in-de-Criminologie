@@ -12,7 +12,14 @@
   },
   "test_suite": "evaluation",
   "access": "public",
-  "labels": [],
+  "labels": [
+    "Hoofdstuk 5",
+    "Normaalverdeling",
+    "Percentielen",
+    "Multiple Choice",
+    "Gevangenispopulatie",
+    "Statistiek"
+  ],
   "type": "exercise",
   "author": "Statistiek in de Criminologie - UGent",
   "contact": "statistiek.criminologie@ugent.be",
