@@ -3,7 +3,6 @@ context({
     "",
     {
       testEqual(
-        "",
         function(env) {
           results <- list()
 
@@ -24,7 +23,7 @@ context({
             val <- get(varname, envir = env)
             
             if (expect_percent) {
-              # Handle percentage strings like "8.08%"
+              # Handle percentage strings like "38.30%"
               if (is.character(val) && grepl("%$", val)) {
                 val_num <- suppressWarnings(as.numeric(gsub("%$", "", val)))
               } else {
@@ -55,14 +54,6 @@ context({
             vraag_a = "a) Percentage flesjes tussen 32cl en 34cl",
             vraag_b = "b) Percentage flesjes meer dan 35cl"
           )
-
-          # Helper function for parsing student answers
-          parse_num <- function(val) {
-            if (is.character(val) && grepl("%$", val)) {
-              val <- gsub("%$", "", val)
-            }
-            suppressWarnings(as.numeric(val))
-          }
 
           # Generate feedback for each question
           feedback <- list()
