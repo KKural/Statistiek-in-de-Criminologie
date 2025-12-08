@@ -67,8 +67,7 @@ Toegepaste voorbeelden van kansen berekenen met behulp van de z-tabel, vergelijk
 
 * **Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)**
 
-  * **Hoofdstuk: De normale verdeling en z-scores**
-  * *Exacte hoofdstuktitel en paginanummers volgens jouw cursus (bv. "Hoofdstuk 6 – De normale verdeling", pagina's xx–yy).*
+  * **Hoofdstuk 5: De standaardnormale verdeling en diens eigenschappen**
 
 Lees dit hoofdstuk grondig. Let vooral op:
 
