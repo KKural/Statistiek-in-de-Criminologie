@@ -60,8 +60,6 @@ context({
         comparator = function(generated, expected, ...) {
           results <- get("detailed_results", envir = globalenv())
 
-          feedback <- c("**Resultaten per vraag:**\n")
-
           qnames <- c(
             z1_a = "a.1) Z-score voor X = 20",
             z2_a = "a.2) Z-score voor X = 25",
@@ -98,52 +96,54 @@ context({
             return(paste0("Je gaf ", val, ", maar dit is fout. Bereken: (29-42.5)/7.5 = -1.8 → P(Z ≤ -1.8) = 0.0359. Dan: P(X > 29) = 1 - 0.0359 = 0.9641 = 96.41%. Het juiste antwoord is 96.41."))
           }
 
-          # Display results grouped by question
+          # Build feedback string directly with proper line breaks
+          feedback_text <- "**Resultaten per vraag:**\n\n"
+          
           # Question A - all steps
-          feedback <- c(feedback, "\n**Vraag A:**")
+          feedback_text <- paste0(feedback_text, "**Vraag A:**\n")
           for (q in c("z1_a", "z2_a", "p_z1_a", "p_z2_a", "verschil_a", "vraag_a")) {
             if (results[[q]]$exists) {
               if (results[[q]]$correct) {
-                feedback <- c(feedback, paste0("✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**"))
+                feedback_text <- paste0(feedback_text, "✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**\n")
               } else {
                 if (q == "vraag_a") msg <- wrong_msg_a(results[[q]]$value)
                 else msg <- paste0("Je gaf ", results[[q]]$value, ", maar dit is fout. Het juiste antwoord is ", results[[q]]$expected, ".")
-                feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Fout.** ", msg))
+                feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Fout.** ", msg, "\n")
               }
             } else {
-              feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**"))
+              feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n")
             }
           }
           
           # Question B
-          feedback <- c(feedback, "\n**Vraag B:**")
+          feedback_text <- paste0(feedback_text, "\n**Vraag B:**\n")
           q <- "vraag_b"
           if (results[[q]]$exists) {
             if (results[[q]]$correct) {
-              feedback <- c(feedback, paste0("✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**"))
+              feedback_text <- paste0(feedback_text, "✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**\n")
             } else {
               msg <- wrong_msg_b(results[[q]]$value)
-              feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Fout.** ", msg))
+              feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Fout.** ", msg, "\n")
             }
           } else {
-            feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**"))
+            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n")
           }
           
           # Question C
-          feedback <- c(feedback, "\n**Vraag C:**")
+          feedback_text <- paste0(feedback_text, "\n**Vraag C:**\n")
           q <- "vraag_c"
           if (results[[q]]$exists) {
             if (results[[q]]$correct) {
-              feedback <- c(feedback, paste0("✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**"))
+              feedback_text <- paste0(feedback_text, "✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**\n")
             } else {
               msg <- wrong_msg_c(results[[q]]$value)
-              feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Fout.** ", msg))
+              feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Fout.** ", msg, "\n")
             }
           } else {
-            feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**"))
+            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n")
           }
 
-          get_reporter()$add_message(paste(feedback, collapse = "\n"), type = "markdown")
+          get_reporter()$add_message(feedback_text, type = "markdown")
           generated == expected
         }
       )
