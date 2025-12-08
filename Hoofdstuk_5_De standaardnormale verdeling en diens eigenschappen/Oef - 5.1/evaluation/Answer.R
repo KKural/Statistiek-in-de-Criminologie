@@ -8,9 +8,14 @@ context({
           results <- list()
 
           # Expected correct answers
-          exp_a <- 0.86   # P(20 < X < 25) = 0.0099 - 0.0013 = 0.0086 = 0.86%
-          exp_b <- 8.08   # P(X < 32) = 0.0808 = 8.08%
-          exp_c <- 96.41  # P(X > 29) = 1 - 0.0359 = 0.9641 = 96.41%
+          exp_z1_a <- -3       # (20 - 42.5) / 7.5
+          exp_z2_a <- -2.33    # (25 - 42.5) / 7.5
+          exp_p_z1_a <- 0.0013 # P(Z ≤ -3)
+          exp_p_z2_a <- 0.0099 # P(Z ≤ -2.33)
+          exp_verschil_a <- 0.0086 # 0.0099 - 0.0013
+          exp_a <- 0.86        # 0.0086 * 100
+          exp_b <- 8.08        # P(X < 32) = 8.08%
+          exp_c <- 96.41       # P(X > 29) = 96.41%
 
           # Helper function to check each answer
           check_value <- function(varname, expected, tol = 0.01) {
@@ -23,8 +28,15 @@ context({
             return(list(exists = TRUE, value = val, correct = correct, expected = expected))
           }
 
-          # Check each answer
+          # Check all answers for question a (all steps)
+          results$z1_a <- check_value("z1_a", exp_z1_a, tol = 0.05)
+          results$z2_a <- check_value("z2_a", exp_z2_a, tol = 0.05)
+          results$p_z1_a <- check_value("p_z1_a", exp_p_z1_a, tol = 0.001)
+          results$p_z2_a <- check_value("p_z2_a", exp_p_z2_a, tol = 0.001)
+          results$verschil_a <- check_value("verschil_a", exp_verschil_a, tol = 0.001)
           results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.05)
+          
+          # Check final answers for b and c only
           results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.05)
           results$vraag_c <- check_value("vraag_c", exp_c, tol = 0.05)
 
@@ -40,7 +52,12 @@ context({
           feedback <- c("**Resultaten per vraag:**\n")
 
           qnames <- c(
-            vraag_a = "a) Kans boete tussen 20€ en 25€",
+            z1_a = "a.1) Z-score voor X = 20",
+            z2_a = "a.2) Z-score voor X = 25",
+            p_z1_a = "a.3) P(Z ≤ z1_a)",
+            p_z2_a = "a.4) P(Z ≤ z2_a)",
+            verschil_a = "a.5) Verschil tussen kansen",
+            vraag_a = "a.6) Eindantwoord percentage",
             vraag_b = "b) Kans boete lager dan 32€",
             vraag_c = "c) Kans boete hoger dan 29€"
           )
@@ -50,8 +67,8 @@ context({
             if (abs(val - 0.86) < 0.01) return("✅ Juist!")
             if (abs(val - 0.0086) < 0.001) return("Je gaf 0.0086, maar dit is fout. Geef het antwoord als **percentage** (0.86, niet 0.0086). Het juiste antwoord is 0.86.")
             if (abs(val - 86) < 1) return("Je gaf 86, maar dit is fout. Geef het antwoord als decimaal percentage (0.86, niet 86). Het juiste antwoord is 0.86.")
-            if (abs(val - 0.13) < 0.01) return("Je gaf 0.13, maar dit is fout. Je hebt waarschijnlijk 0.13% - 0.99% berekend in plaats van 0.99% - 0.13%. Het juiste antwoord is 0.86.")
-            return(paste0("Je gaf ", val, ", maar dit is fout. Bereken: (25-42.5)/7.5 = -2.33 → P=0.0099 en (20-42.5)/7.5 = -3 → P=0.0013. Verschil = 0.0099 - 0.0013 = 0.0086 = 0.86%. Het juiste antwoord is 0.86."))
+            if (abs(val - 0.13) < 0.01) return("Je gaf 0.13, maar dit is fout. Controleer je berekening. Het juiste antwoord is 0.86.")
+            return(paste0("Je gaf ", val, ", maar dit is fout. Bereken handmatig: Z-scores, zoek kansen op in tabel, bereken verschil en zet om in %. Het juiste antwoord is 0.86."))
           }
 
           # Feedback for wrong answers - question b

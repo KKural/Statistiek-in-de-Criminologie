@@ -1,0 +1,41 @@
+Voordat je begint met de praktische oefeningen, is het belangrijk dat je de theorie goed begrijpt. Deze oefening bevat alle studiematerialen, video's en bronnen die je nodig hebt voor dit hoofdstuk.
+
+
+## 📹 **Verplichte Video's**
+
+### **Video 1: Meetniveaus Uitleg**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KJPXZIEmvfA" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### **Video 2: Variabeletypes, Kwantitatief vs. Kwalitatief, en Univariate/Bivariate**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1uK" frameborder="0" allowfullscreen></iframe>
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SIH8iejRTYM" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### **Video 3: Onafhankelijke en Afhankelijke Variabelen**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ylXCI5Aw_wE" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### **Video 4: Onderzoeksvraagtypen**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rjEBCOCa2z4" frameborder="0" allowfullscreen></iframe>
+
+---
+
+## 📖 **Verplichte Literatuur**
+
+### 📋 **Hoofdstuk 2 - ...) Basiscursus Statistiek  in de Criminologie Deel I Theorieboek** (**Pagina's: 17-54**)
+
+### 📄 **Aanvullende Artikelen**
+1. **"Levels of Measurement in Criminology and Criminal Justice"** 
+   - [Lees artikel op ResearchGate](https://www.researchgate.net/publication/373517435_Levels_of_Measurement_in_Criminology_and_Criminal_Justice)
+
+2. **"Research Questions and Methods Guides"** 
+   - [University of Maryland Research Guide](https://guides.umd.umich.edu/c.php?g=963668&p=6960830)
+   - [Lycoming College Research Methods](https://lycoming.libguides.com/c.php?g=950718&p=9200177)
+   - [Kent State University Research Guide](https://libguides.library.kent.edu/c.php?g=440125&p=2998824)
+

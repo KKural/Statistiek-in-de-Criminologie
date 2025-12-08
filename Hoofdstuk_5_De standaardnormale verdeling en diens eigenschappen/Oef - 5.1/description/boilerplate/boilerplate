@@ -1,37 +1,30 @@
 # Gegeven: μ = 42.5, σ = 7.5
 
+# INSTRUCTIE: Voor vraag a: vul alle stappen in. Voor vraag b en c: bereken handmatig en voer alleen het eindpercentage in
+# Gebruik de standaardnormale tabel om de waarschijnlijkheden op te zoeken
+# Geef je antwoorden als percentage (bijvoorbeeld: 8.08 voor 8.08%)
+
 # a. Kans dat boete tussen 20€ en 25€ ligt
 # Stap 1: Bereken Z-scores
-z1_a <- (20 - 42.5) / 7.5      # Z-score voor X = 20
-
-z2_a <- (25 - 42.5) / 7.5      # Z-score voor X = 25
+z1_a <- ???  # Z-score voor X = 20: (20 - 42.5) / 7.5
+z2_a <- ???  # Z-score voor X = 25: (25 - 42.5) / 7.5
 
 # Stap 2: Zoek P(Z ≤ z) op in de standaardnormale tabel
+p_z1_a <- ???  # Waarschijnlijkheid voor z1_a
+p_z2_a <- ???  # Waarschijnlijkheid voor z2_a
 
-p_z1_a <- ???  # Zoek de waarschijnlijkheid op voor je Z-score
-p_z2_a <- ???  # Zoek de waarschijnlijkheid op voor je Z-score
+# Stap 3: Bereken het verschil
+verschil_a <- ???  # p_z2_a - p_z1_a
 
-# Stap 3: Bereken het verschil en zet om in percentage
-verschil_a <- ???              # Verschil tussen de twee waarschijnlijkheden
-vraag_a <- ???                 # Zet het verschil om in percentage
-
-# ============================================================
-
-# b. Kans dat boete lager dan 32€ is
-# Bereken de Z-score voor X = 32
-z_b <- (32 - 42.5) / 7.5
-
-# Zoek P(Z ≤ -1.4) op in de standaardnormale tabel en zet om in percentage
-# Gebruik dezelfde methode als bij vraag a
-vraag_b <- ???
+# Stap 4: Zet om in percentage
+vraag_a <- ???  # verschil_a * 100
 
 # ============================================================
+
+# b. Kans dat boete lager dan 32€ is  
+# Bereken alle stappen handmatig en voer het antwoord in als percentage
+vraag_b <- ???  # %
 
 # c. Kans dat boete hoger dan 29€ is
-# Bereken de Z-score voor X = 29
-z_c <- (29 - 42.5) / 7.5
-
-# Zoek P(Z ≤ -1.8) op in de standaardnormale tabel
-# Let op: Je moet P(X > 29) berekenen, dus gebruik je het complement: 1 - P(X ≤ 29)
-# Zet om in percentage
-vraag_c <- ???
+# Bereken alle stappen handmatig en voer het antwoord in als percentage
+vraag_c <- ???  # %
