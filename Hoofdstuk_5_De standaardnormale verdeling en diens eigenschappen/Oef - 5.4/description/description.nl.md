@@ -17,7 +17,7 @@ $$Z = \frac{X - \mu}{\sigma}$$
 - P(Z ≥ z) = 1 - P(Z ≤ z)
 - P(a ≤ X ≤ b) = P(Z ≤ z_b) - P(Z ≤ z_a)
 
-**📊 Volledige Z-score tabel:** [Standaardnormale verdeling tabel](https://www.belfactorij.be/lessen-statistiek/normale-verdeling/z-tabel/)
+**📊 Volledige Z-score tabel:** [Standaardnormale verdeling tabel](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)
 
 **Vragen**
 
