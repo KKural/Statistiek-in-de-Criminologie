@@ -16,19 +16,30 @@ context({
           exp_b <- 15.87
 
           # Helper function to check each answer
-          check_value <- function(varname, expected, tol = 0.01) {
+          check_value <- function(varname, expected, tol = 0.01, expect_percent = FALSE) {
             if (!exists(varname, envir = env)) {
               return(list(exists = FALSE, value = NA, correct = FALSE, expected = expected))
             }
             val <- get(varname, envir = env)
-            val_num <- suppressWarnings(as.numeric(val))
+            
+            if (expect_percent) {
+              # Handle percentage strings like "38.30%"
+              if (is.character(val) && grepl("%$", val)) {
+                val_num <- suppressWarnings(as.numeric(gsub("%$", "", val)))
+              } else {
+                val_num <- suppressWarnings(as.numeric(val))
+              }
+            } else {
+              val_num <- suppressWarnings(as.numeric(val))
+            }
+            
             correct <- !is.na(val_num) && abs(val_num - expected) < tol
             return(list(exists = TRUE, value = val, correct = correct, expected = expected))
           }
 
           # Check final answers only
-          results$vraag_a <- check_value("vraag_a", exp_a)
-          results$vraag_b <- check_value("vraag_b", exp_b)
+          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.01, expect_percent = FALSE)
+          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.01, expect_percent = FALSE)
 
           assign("detailed_results", results, envir = globalenv())
 
