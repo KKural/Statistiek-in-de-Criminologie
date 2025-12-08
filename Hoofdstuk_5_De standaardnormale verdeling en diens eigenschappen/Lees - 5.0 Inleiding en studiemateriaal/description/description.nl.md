@@ -1,150 +1,150 @@
-Voordat je begint met de praktische oefeningen over **z-scores en de normale verdeling**, is het belangrijk dat je de theorie goed begrijpt.  
-Deze oefening bundelt alle **studiematerialen, video's en bronnen** die je nodig hebt om:
+# Hoofdstuk 5 – Theorieblok  
+## De standaardnormale verdeling en diens eigenschappen
 
-- z-scores te berekenen en te interpreteren  
-- kansen te bepalen met de **(standaard)normale verdeling**  
-- correct te werken met een **z-tabel** (standaardnormale tabel)  
+Voordat je aan de oefeningen begint, is het cruciaal dat je de kernbegrippen van **Hoofdstuk 5** goed begrijpt.  
+Dit hoofdstuk vormt de basis voor alle inferentiële statistiek die later volgt.  
 
-Neem eerst rustig deze materialen door. Daarna zal je veel vlotter door de rekenoefeningen geraken.
+Dit theorieblok bundelt alle **verplichte video's**, **verplichte literatuur**, **extra bronnen** en **interactieve tools** die je nodig hebt om:
+
+- De normale verdeling te herkennen en interpreteren  
+- De parameters μ (gemiddelde) en σ (standaardafwijking) te begrijpen  
+- De 68–95–99.7 regel toe te passen  
+- Te begrijpen waarom standaardisatie nodig is  
+- Z-scores te berekenen en om te zetten naar kansen  
+- De tabel van de standaardnormale verdeling correct te gebruiken  
 
 ---
 
 ## 📹 Verplichte Video's
 
-### 🎥 Video 1: Introductie tot z-scores
-Wat is een z-score, wat betekent "aantal standaardafwijkingen van het gemiddelde" en waarom gebruiken we dit in de statistiek?
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5S-Zfa-vOXs" title="Z-score introduction" frameborder="0" allowfullscreen></iframe>
+Deze video's zijn niet alleen over z-scores, maar over de **volledige inhoud van Hoofdstuk 5**: de normale verdeling, haar eigenschappen, de klokvorm, standaardisatie en kansberekening.
 
 ---
 
-### 🎥 Video 2: Z-scores berekenen (stap voor stap)
+### 🎥 Video 1 — Wat is een normale verdeling? (Introductie & Eigenschappen)
 
-Toont duidelijk hoe je van een ruwe score (x) naar een z-score gaat met de formule
-*z = (x − μ) / σ* en hoe je het teken (positief/negatief) moet interpreteren.
+Visualiseert de klokvorm, de rol van gemiddelde μ en standaardafwijking σ, en de interpretatie van oppervlakte als kans.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Y2EwXvayK8s" title="How to Calculate Z Scores" frameborder="0" allowfullscreen></iframe>
-
----
-
-### 🎥 Video 3: Z-scores, standaardisatie en de standaardnormale verdeling
-
-Verduidelijkt de link tussen z-scores en de standaardnormale verdeling *Z ~ N(0,1)* en waarom standaardisatie toelaat om verschillende variabelen te vergelijken.
-
-```html
-<iframe width="560" height="315"
-        src="https://www.youtube.com/embed/2tuBREK_mgE"
-        title="Z-Scores, Standardization, and the Standard Normal Distribution"
-        frameborder="0"
-        allowfullscreen></iframe>
----
-
-### 🎥 Video 3: Z-scores, standaardisatie en de standaardnormale verdeling
-
-Verduidelijkt de link tussen z-scores en de standaardnormale verdeling *Z ~ N(0,1)* en waarom standaardisatie toelaat om verschillende variabelen te vergelijken.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7ExI-n0SxEw" title="The Standard Normal Distribution" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MTzj2C5VJAI" title="Normal Distribution Explained" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-### 🎥 Video 4: Werken met de z-tabel (standaardnormale tabel)
+### 🎥 Video 2 — De 68–95–99.7 Regel (Empirische Regel)
 
-Legt uit hoe je kansen afleest uit een z-tabel: kansen **linker staart**, **rechter staart** en **tussen twee z-scores**.
+Duidelijke uitleg van de drie basisintervallen:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xbDnT3NqEIs" title="How to Use a Z Table" frameborder="0" allowfullscreen></iframe>
+* 68% binnen ±1σ
+* 95% binnen ±1,96σ
+* 99,7% binnen ±3σ
 
----
-
-### 🎥 Video 5: Kansen berekenen met de normale verdeling (0 tot z, links, rechts, tussen)
-
-Toegepaste voorbeelden van kansen berekenen met behulp van de z-tabel, vergelijkbaar met de verkeersboete-oefening (bv. P(20€ < X < 25€)).
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/p_KApjpyBHE" title="Normal Distribution: Calculating Probabilities/Areas (z-table)" frameborder="0" allowfullscreen></iframe>
-
-## 📖 Verplichte Literatuur
-
-### 📚 Hoofdstuk in het theorieboek
-
-* **Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)**
-
-  * **Hoofdstuk 5: De standaardnormale verdeling en diens eigenschappen**
-
-Lees dit hoofdstuk grondig. Let vooral op:
-
-* De definitie en eigenschappen van de **normale verdeling**
-* De formule en interpretatie van **z-scores**
-* De link tussen z-scores en de **z-tabel**
-* Voorbeelden van kansen: *P(X < a)*, *P(X > b)* en *P(a < X < b)*
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ezwz6Z4Fqj8" title="Empirical Rule (68-95-99.7 Rule)" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-### 📄 Aanvullende (online) literatuur
+### 🎥 Video 3 — Waarom standaardiseren? Van X → Z
 
-1. **OpenStax – 6.1 The Standard Normal Distribution**
-   Heldere uitleg over wat z-scores zijn, hoe je ze berekent en hoe je ruwe scores omzet naar gestandaardiseerde scores.
+Uitleg over waarom verschillende normale verdelingen niet rechtstreeks vergelijkbaar zijn, en waarom we standaardiseren naar **N(0,1)**.
 
-   * [https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution](https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution)
-
-2. **OpenStax – 6.2 Using the Normal Distribution**
-   Stap-voor-stap uitleg over hoe je met z-scores en een z-tabel kansen berekent.
-
-   * [https://openstax.org/books/statistics/pages/6-2-using-the-normal-distribution](https://openstax.org/books/statistics/pages/6-2-using-the-normal-distribution)
-
-3. **OpenStax (Business Statistics) – Standard Normal Distribution & Z-scores**
-   Alternatieve uitleg met voorbeelden uit business/management, maar dezelfde concepten.
-
-   * [https://openstax.org/books/introductory-business-statistics/pages/6-1-the-standard-normal-distribution](https://openstax.org/books/introductory-business-statistics/pages/6-1-the-standard-normal-distribution)
-
-4. **Khan Academy – Z-score introduction**
-   Korte Engelstalige uitleg met visuele ondersteuning over wat z-scores zijn en hoe je ze interpreteert.
-
-   * [https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap/measuring-position/v/z-score-introduction](https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap/measuring-position/v/z-score-introduction)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qcSG9J9rrsA" title="Standardizing and Z-distribution" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-## 🌐 Extra: Online Tools & Oefenmateriaal
+### 🎥 Video 4 — De standaardnormale verdeling & z-tabel gebruiken
 
-Deze tools zijn **niet verplicht**, maar heel handig om de theorie te visualiseren en je eigen berekeningen na te kijken.
+Toont hoe je:
 
-### 🔢 Z-tabellen (online)
+* z-scores interpreteert
+* de linker staart opzoekt
+* de rechter staart berekent met het complement
+* kansen tussen twee grenzen berekent
 
-* **Interactieve z-tabel (ZTable.io)**
-  [https://ztable.io/](https://ztable.io/)
-  Handige online z-tabel waar je snel kansen kan opzoeken voor een gegeven z-score.
-
-* **Interactieve z-tabel met grafiek (StatsCalculators)**
-  [https://www.statscalculators.com/resources/statistical-tables/z-table](https://www.statscalculators.com/resources/statistical-tables/z-table)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hKSn8yQyVjI" title="How to Use the Standard Normal Table" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-### 📈 Normale verdeling – grafieken en kansberekening
+## 📖 Verplichte Literatuur (sluit exact aan bij Hoofdstuk 5)
 
-* **Normal Distribution Applet (University of Iowa)**
-  [https://homepage.divms.uiowa.edu/~mbognar/applets/normal.html](https://homepage.divms.uiowa.edu/~mbognar/applets/normal.html)
-  Voer μ, σ en x in en zie meteen de grafiek en de bijhorende kans.
+### 📘 Hoofdstuk 5 — *De standaardnormale verdeling en diens eigenschappen*
 
-* **Interactive Normal Distribution Graph (IntMath)**
-  [https://www.intmath.com/counting-probability/normal-distribution-graph-interactive.php](https://www.intmath.com/counting-probability/normal-distribution-graph-interactive.php)
-  Visualiseert de normale curve en de gebieden onder de curve voor verschillende z-scores.
+*Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 
-* **Normal Distribution Calculator (StatTrek)**
-  [https://stattrek.com/online-calculator/normal](https://stattrek.com/online-calculator/normal)
-  Berekent kansen op basis van een gegeven gemiddelde, standaardafwijking en waarde of z-score.
+Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
-* **OnlineStatBook – Normal Distribution Calculator**
-  [https://onlinestatbook.com/2/calculators/normal_dist.html](https://onlinestatbook.com/2/calculators/normal_dist.html)
+* Wat histogrammen ons leren over vorm van verdelingen
+* Waarom de normale verdeling zo belangrijk is in statistiek
+* De rol van μ en σ in het bepalen van vorm en spreiding
+* De betekenis van proporties als oppervlakten onder de curve
+* De 68–95–99.7 regel en de interpretatie van staarten
+* Het concept "zeldzame waarden ≈ meer dan 3σ van μ"
+* Waarom standaardisatie noodzakelijk is
+* Hoe z-scores worden berekend
+* Hoe de standaardnormale tabel gebruikt wordt
 
 ---
 
-### ✅ Wat moet je zeker kunnen vóór je aan de oefening begint?
+## 📄 Aanvullende Leesbronnen
 
-Na het doornemen van deze materialen zou je in staat moeten zijn om:
+### 1. OpenStax – The Normal Distribution
 
-* De formule voor een **z-score** correct toe te passen:
-  $$z = \frac{x - \mu}{\sigma}$$
-* Te bepalen of je een **linker staart** (*P(X < a)*), **rechter staart** (*P(X > b)*) of **interval** (*P(a < X < b)*) nodig hebt.
-* Correct een **z-tabel** te gebruiken om kansen op te zoeken op basis van een z-score.
-* Kansen in **decimale vorm** om te zetten naar **percentages** (bv. 0.0808 → 8.08%).
+Heldere uitleg van alle eigenschappen van de normale verdeling, met figuren.
 
-Heb je deze basis onder de knie? Dan ben je klaar om de oefening over **z-scores en verkeersboetes** te maken.
+* [https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution](https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution)
 
+### 2. OpenStax – Using the Normal Distribution
+
+Uitleg over standaardiseren, z-scores, tabelgebruik en kansberekening.
+
+* [https://openstax.org/books/statistics/pages/6-2-using-the-normal-distribution](https://openstax.org/books/statistics/pages/6-2-using-the-normal-distribution)
+
+### 3. Khan Academy – Normal Distribution Intro
+
+Basisuitleg over klokvorm en kansinterpretatie.
+
+* [https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap](https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap)
+
+### 4. Boekenbron – 68–95–99.7 regel
+
+Compacte samenvatting van de empirische regel en voorbeelden.
+
+* [https://www.statisticshowto.com/probability-and-statistics/normal-distributions/empirical-rule/](https://www.statisticshowto.com/probability-and-statistics/normal-distributions/empirical-rule/)
+
+---
+
+## 🌐 Extra Online Tools
+
+Gebruik deze tools om concepten visueel te maken.
+
+### 🔢 Interactieve Standaardnormale Tabel
+
+* [https://ztable.net/](https://ztable.net/)
+* [https://ztable.io/](https://ztable.io/)
+
+### 📈 Interactieve Normale Verdeling (met instelbare μ & σ)
+
+* [https://homepage.divms.uiowa.edu/~mbognar/applets/normal.html](https://homepage.divms.uiowa.edu/~mbognar/applets/normal.html)
+* [https://www.intmath.com/counting-probability/normal-distribution-graph-interactive.php](https://www.intmath.com/counting-probability/normal-distribution-graph-interactive.php)
+
+### 🧮 Normal Distribution Calculator
+
+* [https://stattrek.com/online-calculator/normal](https://stattrek.com/online-calculator/normal)
+
+---
+
+## 🎯 Wat moet je zeker kunnen na dit theorieblok?
+
+Je moet:
+
+* De klokvormige normale verdeling herkennen
+* Kunnen uitleggen wat μ en σ betekenen
+* De 68–95–99.7 regel begrijpen en toepassen
+* Weten wat een "staart" van de verdeling is
+* Begrijpen waarom waarden verder dan 3σ extreem zeldzaam zijn
+* Elke normale variabele kunnen omzetten naar een z-score
+* Kunnen werken met de tabel van de standaardnormale verdeling
+* Kansen kunnen berekenen voor:
+
+  * linker staart (*P(X < a)*)
+  * rechter staart (*P(X > b)*)
+  * intervallen (*P(a < X < b)*)
+
+Met deze kennis ben je volledig voorbereid om de oefening over **verkeersboetes en kansberekening** te maken.
