@@ -13,7 +13,12 @@
   "workdir": "workdir",
   "access": "public",
   "labels": [
-    "begrippen"
+    "Hoofdstuk 5",
+    "Normaalverdeling",
+    "Z-scores",
+    "Kwaliteitscontrole",
+    "Productieproces",
+    "Statistiek"
   ],
   "internals": {
     "token": "a7ZqXj_4tN9-mUigAWEvPwkd3uGF2tbm4rDiIuSYz7VEC7afphTQUgGvMnuHn6fK",

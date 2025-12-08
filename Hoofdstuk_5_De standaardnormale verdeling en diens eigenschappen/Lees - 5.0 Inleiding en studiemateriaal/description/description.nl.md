@@ -1,6 +1,3 @@
-# Hoofdstuk 5 – Theorieblok  
-## De standaardnormale verdeling en diens eigenschappen
-
 Voordat je aan de oefeningen begint, is het cruciaal dat je de kernbegrippen van **Hoofdstuk 5** goed begrijpt.  
 Dit hoofdstuk vormt de basis voor alle inferentiële statistiek die later volgt.  
 
