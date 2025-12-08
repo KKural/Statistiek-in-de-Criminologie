@@ -1,16 +1,34 @@
 {
   "description": {
     "names": {
-      "nl": "Oef - "
+      "nl": "Oef - 5.5: Gevangenispopulatie - Oudste 10% bevragen",
+      "en": "Exercise 5.5: Prison Population - Surveying the Oldest 10%"
     }
   },
   "programming_language": "R",
   "evaluation": {
-    "handler": "R"
+    "handler": "R",
+    "time_limit": 30,
+    "memory_limit": 268435456
   },
   "test_suite": "evaluation",
   "access": "public",
-  "labels": [],
+  "labels": [
+    "hoofdstuk-5",
+    "normale-verdeling",
+    "percentiles",
+    "90ste-percentiel",
+    "kansberekening",
+    "criminologie",
+    "gevangenispopulatie",
+    "multiple-choice",
+    "standaardnormale-verdeling",
+    "z-scores"
+  ],
+  "type": "exercise",
+  "author": "Statistiek in de Criminologie - UGent",
+  "contact": "statistiek.criminologie@ugent.be",
+  "workdir": ".",
   "internals": {
     "token": "M8HSS55GVYH247YJ2zgItkg4yBIEZwJjRfeTA3VMNiGy3nRFeffy99Me_7I8vfYX",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
