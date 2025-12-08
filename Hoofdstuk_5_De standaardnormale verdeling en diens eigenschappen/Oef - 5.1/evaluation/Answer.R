@@ -98,20 +98,49 @@ context({
             return(paste0("Je gaf ", val, ", maar dit is fout. Bereken: (29-42.5)/7.5 = -1.8 → P(Z ≤ -1.8) = 0.0359. Dan: P(X > 29) = 1 - 0.0359 = 0.9641 = 96.41%. Het juiste antwoord is 96.41."))
           }
 
-          # Display results
-          for (q in names(results)) {
+          # Display results grouped by question
+          # Question A - all steps
+          feedback <- c(feedback, "\n**Vraag A:**")
+          for (q in c("z1_a", "z2_a", "p_z1_a", "p_z2_a", "verschil_a", "vraag_a")) {
             if (results[[q]]$exists) {
               if (results[[q]]$correct) {
                 feedback <- c(feedback, paste0("✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**"))
               } else {
                 if (q == "vraag_a") msg <- wrong_msg_a(results[[q]]$value)
-                else if (q == "vraag_b") msg <- wrong_msg_b(results[[q]]$value)
-                else if (q == "vraag_c") msg <- wrong_msg_c(results[[q]]$value)
+                else msg <- paste0("Je gaf ", results[[q]]$value, ", maar dit is fout. Het juiste antwoord is ", results[[q]]$expected, ".")
                 feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Fout.** ", msg))
               }
             } else {
               feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**"))
             }
+          }
+          
+          # Question B
+          feedback <- c(feedback, "\n**Vraag B:**")
+          q <- "vraag_b"
+          if (results[[q]]$exists) {
+            if (results[[q]]$correct) {
+              feedback <- c(feedback, paste0("✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**"))
+            } else {
+              msg <- wrong_msg_b(results[[q]]$value)
+              feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Fout.** ", msg))
+            }
+          } else {
+            feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**"))
+          }
+          
+          # Question C
+          feedback <- c(feedback, "\n**Vraag C:**")
+          q <- "vraag_c"
+          if (results[[q]]$exists) {
+            if (results[[q]]$correct) {
+              feedback <- c(feedback, paste0("✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**"))
+            } else {
+              msg <- wrong_msg_c(results[[q]]$value)
+              feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Fout.** ", msg))
+            }
+          } else {
+            feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**"))
           }
 
           get_reporter()$add_message(paste(feedback, collapse = "\n"), type = "markdown")
