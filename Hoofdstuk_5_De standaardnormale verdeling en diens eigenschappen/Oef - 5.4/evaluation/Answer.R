@@ -92,7 +92,7 @@ context({
             
             # Used much smaller value - might be calculation error or wrong approach
             if (abs(val_num - 7.935) < 0.1 || (val_num > 5 && val_num < 15)) {
-              return("**Waarom dit fout is:** Je antwoord (~", round(val_num, 1), "%) is veel te klein voor dit interval.\n\n**Mogelijke oorzaken:** Verkeerd gebruik van de Z-tabel, gedeeld door 2, of een andere rekenfout.\n\n**Wat je miste:** [32,34] is een relatief groot interval (2cl breed rondom het gemiddelde), dus de kans moet redelijk hoog zijn.\n\n**Realiteitscheck:** ~38% lijkt realistisch voor een interval van 1 standaarddeviatie breed.\n\n**Correct:** P(32 ≤ X ≤ 34) = **38.30%**")
+              return(paste0("**Waarom dit fout is:** Je antwoord (~", round(val_num, 1), "%) is veel te klein voor dit interval.\n\n**Mogelijke oorzaken:** Verkeerd gebruik van de Z-tabel, gedeeld door 2, of een andere rekenfout.\n\n**Wat je miste:** [32,34] is een relatief groot interval (2cl breed rondom het gemiddelde), dus de kans moet redelijk hoog zijn.\n\n**Realiteitscheck:** ~38% lijkt realistisch voor een interval van 1 standaarddeviatie breed.\n\n**Correct:** P(32 ≤ X ≤ 34) = **38.30%**"))
             }
             
             # Doubled the correct answer
