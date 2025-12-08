@@ -1,6 +1,95 @@
-# Empty evaluation - to be implemented
 context({
-  testcase("Placeholder test", {
-    expect_true(TRUE, "Deze oefening is nog niet uitgewerkt.")
-  })
+  testcase(
+    "",
+    {
+      testEqual(
+        "",
+        function(env) {
+          results <- list()
+
+          # Expected correct answers
+          exp_a <- 0.86   # P(20 < X < 25) = 0.0099 - 0.0013 = 0.0086 = 0.86%
+          exp_b <- 8.08   # P(X < 32) = 0.0808 = 8.08%
+          exp_c <- 96.41  # P(X > 29) = 1 - 0.0359 = 0.9641 = 96.41%
+
+          # Helper function to check each answer
+          check_value <- function(varname, expected, tol = 0.01) {
+            if (!exists(varname, envir = env)) {
+              return(list(exists = FALSE, value = NA, correct = FALSE, expected = expected))
+            }
+            val <- get(varname, envir = env)
+            val_num <- suppressWarnings(as.numeric(val))
+            correct <- !is.na(val_num) && abs(val_num - expected) < tol
+            return(list(exists = TRUE, value = val, correct = correct, expected = expected))
+          }
+
+          # Check each answer
+          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.05)
+          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.05)
+          results$vraag_c <- check_value("vraag_c", exp_c, tol = 0.05)
+
+          assign("detailed_results", results, envir = globalenv())
+
+          all_correct <- all(sapply(results, function(x) x$correct))
+          return(all_correct)
+        },
+        TRUE,
+        comparator = function(generated, expected, ...) {
+          results <- get("detailed_results", envir = globalenv())
+
+          feedback <- c("**Resultaten per vraag:**\n")
+
+          qnames <- c(
+            vraag_a = "a) Kans boete tussen 20€ en 25€",
+            vraag_b = "b) Kans boete lager dan 32€",
+            vraag_c = "c) Kans boete hoger dan 29€"
+          )
+
+          # Feedback for wrong answers - question a
+          wrong_msg_a <- function(val) {
+            if (abs(val - 0.86) < 0.01) return("✅ Juist!")
+            if (abs(val - 0.0086) < 0.001) return("Je gaf 0.0086, maar dit is fout. Geef het antwoord als **percentage** (0.86, niet 0.0086). Het juiste antwoord is 0.86.")
+            if (abs(val - 86) < 1) return("Je gaf 86, maar dit is fout. Geef het antwoord als decimaal percentage (0.86, niet 86). Het juiste antwoord is 0.86.")
+            if (abs(val - 0.13) < 0.01) return("Je gaf 0.13, maar dit is fout. Je hebt waarschijnlijk 0.13% - 0.99% berekend in plaats van 0.99% - 0.13%. Het juiste antwoord is 0.86.")
+            return(paste0("Je gaf ", val, ", maar dit is fout. Bereken: (25-42.5)/7.5 = -2.33 → P=0.0099 en (20-42.5)/7.5 = -3 → P=0.0013. Verschil = 0.0099 - 0.0013 = 0.0086 = 0.86%. Het juiste antwoord is 0.86."))
+          }
+
+          # Feedback for wrong answers - question b
+          wrong_msg_b <- function(val) {
+            if (abs(val - 8.08) < 0.01) return("✅ Juist!")
+            if (abs(val - 0.0808) < 0.001) return("Je gaf 0.0808, maar dit is fout. Geef het antwoord als **percentage** (8.08, niet 0.0808). Het juiste antwoord is 8.08.")
+            if (abs(val - 91.92) < 0.1) return("Je gaf 91.92, maar dit is fout. Dit is P(X > 32), niet P(X < 32). Je moet 1 - 0.9192 berekenen. Het juiste antwoord is 8.08.")
+            return(paste0("Je gaf ", val, ", maar dit is fout. Bereken: (32-42.5)/7.5 = -1.4 → P(Z ≤ -1.4) = 0.0808 = 8.08%. Het juiste antwoord is 8.08."))
+          }
+
+          # Feedback for wrong answers - question c
+          wrong_msg_c <- function(val) {
+            if (abs(val - 96.41) < 0.01) return("✅ Juist!")
+            if (abs(val - 0.9641) < 0.001) return("Je gaf 0.9641, maar dit is fout. Geef het antwoord als **percentage** (96.41, niet 0.9641). Het juiste antwoord is 96.41.")
+            if (abs(val - 3.59) < 0.1) return("Je gaf 3.59, maar dit is fout. Dit is P(X < 29), niet P(X > 29). Je bent het complement vergeten. Het juiste antwoord is 96.41.")
+            return(paste0("Je gaf ", val, ", maar dit is fout. Bereken: (29-42.5)/7.5 = -1.8 → P(Z ≤ -1.8) = 0.0359. Dan: P(X > 29) = 1 - 0.0359 = 0.9641 = 96.41%. Het juiste antwoord is 96.41."))
+          }
+
+          # Display results
+          for (q in names(results)) {
+            if (results[[q]]$exists) {
+              if (results[[q]]$correct) {
+                feedback <- c(feedback, paste0("✅ ", qnames[[q]], " **Correct! (", results[[q]]$value, ")**"))
+              } else {
+                if (q == "vraag_a") msg <- wrong_msg_a(results[[q]]$value)
+                else if (q == "vraag_b") msg <- wrong_msg_b(results[[q]]$value)
+                else if (q == "vraag_c") msg <- wrong_msg_c(results[[q]]$value)
+                feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Fout.** ", msg))
+              }
+            } else {
+              feedback <- c(feedback, paste0("❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**"))
+            }
+          }
+
+          get_reporter()$add_message(paste(feedback, collapse = "\n"), type = "markdown")
+          generated == expected
+        }
+      )
+    }
+  )
 })

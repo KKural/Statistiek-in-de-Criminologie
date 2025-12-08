@@ -1,19 +1,21 @@
 {
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 5.1"
+      "nl": "Oef - 5.1 Verkeersboetes - Standaardnormale verdeling"
     }
   },
-  "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "R"
   },
-  "test_suite": "evaluation",
-  "workdir": "workdir",
-  "access": "public",
+  "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
-    "begrippen"
+    "standaardnormale verdeling",
+    "z-score",
+    "waarschijnlijkheid",
+    "applicatie"
   ],
   "internals": {
     "token": "rQ_Vf8WvxZD425cXyNGGTTRTX5MmXbRJhfpqdUvfZXr-4DqzRXyfcwKEUDgZy4af",
