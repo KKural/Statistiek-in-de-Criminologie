@@ -23,17 +23,17 @@ $$Z = \frac{X - \mu}{\sigma}$$
 
 **a) Aangezien de monniken een eerlijk product willen verkopen, willen ze dat er in alle flesjes minstens 32cl en maximum 34cl zit. Hoeveel procent van de flesjes voldoen aan deze vereiste?**
 
-*Stap 1:* Bereken de Z-scores voor beide grenzen (32cl en 34cl)
-*Stap 2:* Zoek de kansen op in de standaardnormale tabel
-*Stap 3:* Bereken het verschil voor het interval
+- *Stap 1:* Bereken de Z-scores voor beide grenzen (32cl en 34cl)
+- *Stap 2:* Zoek de kansen op in de standaardnormale tabel
+- *Stap 3:* Bereken het verschil voor het interval
 
-Geef je antwoord als **percentage** (bijvoorbeeld: 38.30)
+Geef je antwoord als **percentage** (bijvoorbeeld: 20.43)
 
 **b) Pater Boudewijn, commercieel verantwoordelijke, vraagt zich af hoeveel procent van de flesjes meer dan 35cl bevat.**
 
-*Stap 1:* Bereken de Z-score voor X = 35
-*Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel
-*Stap 3:* Bereken het complement: 1 - P(Z ≤ z)
+- *Stap 1:* Bereken de Z-score voor X = 35
+- *Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel
+- *Stap 3:* Bereken het complement: 1 - P(Z ≤ z)
 
-Geef je antwoord als **percentage** (bijvoorbeeld: 15.87)
+Geef je antwoord als **percentage** (bijvoorbeeld: 52.54)
 
