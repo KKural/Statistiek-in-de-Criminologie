@@ -17,14 +17,14 @@ p_z2_a <- ???  # Waarschijnlijkheid voor z2_a
 verschil_a <- ???  # p_z2_a - p_z1_a
 
 # Stap 4: Zet om in percentage
-vraag_a <- ???  # verschil_a * 100
+vraag_a <- "???.???%"  # Geef antwoord met percentage teken (bijvoorbeeld: "0.86%")
 
 # ============================================================
 
 # b. Kans dat boete lager dan 32€ is  
 # Bereken alle stappen handmatig en voer het antwoord in als percentage
-vraag_b <- ???  # %
+vraag_b <- "???.???%"  # Geef antwoord met percentage teken (bijvoorbeeld: "8.08%")
 
 # c. Kans dat boete hoger dan 29€ is
 # Bereken alle stappen handmatig en voer het antwoord in als percentage
-vraag_c <- ???  # %
+vraag_c <- "???.???%"  # Geef antwoord met percentage teken (bijvoorbeeld: "96.41%")

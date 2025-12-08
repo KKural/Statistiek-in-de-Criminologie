@@ -18,12 +18,23 @@ context({
           exp_c <- 96.41       # P(X > 29) = 96.41%
 
           # Helper function to check each answer
-          check_value <- function(varname, expected, tol = 0.01) {
+          check_value <- function(varname, expected, tol = 0.01, expect_percent = FALSE) {
             if (!exists(varname, envir = env)) {
               return(list(exists = FALSE, value = NA, correct = FALSE, expected = expected))
             }
             val <- get(varname, envir = env)
-            val_num <- suppressWarnings(as.numeric(val))
+            
+            if (expect_percent) {
+              # Handle percentage strings like "8.08%"
+              if (is.character(val) && grepl("%$", val)) {
+                val_num <- suppressWarnings(as.numeric(gsub("%$", "", val)))
+              } else {
+                val_num <- suppressWarnings(as.numeric(val))
+              }
+            } else {
+              val_num <- suppressWarnings(as.numeric(val))
+            }
+            
             correct <- !is.na(val_num) && abs(val_num - expected) < tol
             return(list(exists = TRUE, value = val, correct = correct, expected = expected))
           }
@@ -34,11 +45,11 @@ context({
           results$p_z1_a <- check_value("p_z1_a", exp_p_z1_a, tol = 0.001)
           results$p_z2_a <- check_value("p_z2_a", exp_p_z2_a, tol = 0.001)
           results$verschil_a <- check_value("verschil_a", exp_verschil_a, tol = 0.001)
-          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.05)
+          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.05, expect_percent = TRUE)
           
-          # Check final answers for b and c only
-          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.05)
-          results$vraag_c <- check_value("vraag_c", exp_c, tol = 0.05)
+          # Check final answers for b and c (expecting percentage strings)
+          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.05, expect_percent = TRUE)
+          results$vraag_c <- check_value("vraag_c", exp_c, tol = 0.05, expect_percent = TRUE)
 
           assign("detailed_results", results, envir = globalenv())
 
