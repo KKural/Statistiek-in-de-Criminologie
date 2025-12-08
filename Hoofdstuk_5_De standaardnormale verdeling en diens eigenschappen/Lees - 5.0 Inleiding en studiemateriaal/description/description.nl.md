@@ -14,13 +14,7 @@ Neem eerst rustig deze materialen door. Daarna zal je veel vlotter door de reken
 ### 🎥 Video 1: Introductie tot z-scores
 Wat is een z-score, wat betekent "aantal standaardafwijkingen van het gemiddelde" en waarom gebruiken we dit in de statistiek?
 
-```html
-<iframe width="560" height="315"
-        src="https://www.youtube.com/embed/5S-Zfa-vOXs"
-        title="Z-score introduction"
-        frameborder="0"
-        allowfullscreen></iframe>
-```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5S-Zfa-vOXs" title="Z-score introduction" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -29,13 +23,7 @@ Wat is een z-score, wat betekent "aantal standaardafwijkingen van het gemiddelde
 Toont duidelijk hoe je van een ruwe score (x) naar een z-score gaat met de formule
 *z = (x − μ) / σ* en hoe je het teken (positief/negatief) moet interpreteren.
 
-```html
-<iframe width="560" height="315"
-        src="https://www.youtube.com/embed/Y2EwXvayK8s"
-        title="How to Calculate Z Scores"
-        frameborder="0"
-        allowfullscreen></iframe>
-```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y2EwXvayK8s" title="How to Calculate Z Scores" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -49,7 +37,13 @@ Verduidelijkt de link tussen z-scores en de standaardnormale verdeling *Z ~ N(0,
         title="Z-Scores, Standardization, and the Standard Normal Distribution"
         frameborder="0"
         allowfullscreen></iframe>
-```
+---
+
+### 🎥 Video 3: Z-scores, standaardisatie en de standaardnormale verdeling
+
+Verduidelijkt de link tussen z-scores en de standaardnormale verdeling *Z ~ N(0,1)* en waarom standaardisatie toelaat om verschillende variabelen te vergelijken.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7ExI-n0SxEw" title="The Standard Normal Distribution" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -57,13 +51,7 @@ Verduidelijkt de link tussen z-scores en de standaardnormale verdeling *Z ~ N(0,
 
 Legt uit hoe je kansen afleest uit een z-tabel: kansen **linker staart**, **rechter staart** en **tussen twee z-scores**.
 
-```html
-<iframe width="560" height="315"
-        src="https://www.youtube.com/embed/xbDnT3NqEIs"
-        title="How to Use a Z Table"
-        frameborder="0"
-        allowfullscreen></iframe>
-```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xbDnT3NqEIs" title="How to Use a Z Table" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -71,13 +59,7 @@ Legt uit hoe je kansen afleest uit een z-tabel: kansen **linker staart**, **rech
 
 Toegepaste voorbeelden van kansen berekenen met behulp van de z-tabel, vergelijkbaar met de verkeersboete-oefening (bv. P(20€ < X < 25€)).
 
-```html
-<iframe width="560" height="315"
-        src="https://www.youtube.com/embed/p_KApjpyBHE"
-        title="Normal Distribution: Calculating Probabilities/Areas (z-table)"
-        frameborder="0"
-        allowfullscreen></iframe>
-```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p_KApjpyBHE" title="Normal Distribution: Calculating Probabilities/Areas (z-table)" frameborder="0" allowfullscreen></iframe>
 
 ## 📖 Verplichte Literatuur
 
