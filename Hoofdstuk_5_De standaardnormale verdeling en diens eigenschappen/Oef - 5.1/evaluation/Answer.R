@@ -164,7 +164,6 @@ context({
             if (abs(val_num - 0.0808) < 0.001) {
               return("Je gaf 0.0808, dit is de juiste kans in decimaalvorm, maar je moet het als percentage uitdrukken. **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) P(Z ≤ -1.4) = 0.0808, 3) **0.0808 × 100 = 8.08**. Het juiste antwoord is 8.08.")
             }
-            }
             
             # Complement error
             if (abs(val_num - 91.92) < 0.1 || abs(val_num - 0.9192) < 0.001) {
@@ -193,7 +192,7 @@ context({
             
             # Correct probability but needs percentage conversion
             if (abs(val_num - 0.9641) < 0.001) {
-              return("Je gaf 0.9641, dit is de juiste kans in decimaalvorm, maar je moet het als percentage uitdrukken. **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) **0.9641 × 100 = 96.41**. Het juiste antwoord is 96.41.")            }
+              return("Je gaf 0.9641, dit is de juiste kans in decimaalvorm, maar je moet het als percentage uitdrukken. **Stappen:** 1) Z = (29-42.5)/7.5 = -1.80, 2) P(Z ≤ -1.8) = 0.0359, 3) P(X > 29) = 1 - 0.0359 = 0.9641, 4) **0.9641 × 100 = 96.41**. Het juiste antwoord is 96.41.")
             }
             
             # Forgot complement
