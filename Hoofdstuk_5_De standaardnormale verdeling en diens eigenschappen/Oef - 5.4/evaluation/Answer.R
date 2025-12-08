@@ -68,43 +68,43 @@ context({
             }
           }
 
-          # Check if all correct
-          if (all(sapply(results, function(x) x$correct))) {
-            return(list(
-              result = generated,
-              readable_expected = "Beide antwoorden correct",
-              readable_actual = paste(feedback, collapse = "\n"),
-              description = paste(
-                "🍺 **Uitstekend! Trappistenbier kwaliteitscontrole perfect opgelost!**\n\n",
-                "**📊 Jouw antwoorden:**\n",
-                paste(feedback, collapse = "\n"), "\n\n",
-                "**📋 Gegeven:** N(33, 2) - μ = 33 cl, σ = 2 cl\n\n",
-                "**Vraag a berekening:**\n",
-                "- Z₁ = (32-33)/2 = -0.5, Z₂ = (34-33)/2 = 0.5\n",
-                "- P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830 = **38.30%**\n\n",
-                "**Vraag b berekening:**\n",
-                "- Z = (35-33)/2 = 1 → P(Z > 1) = 1 - 0.8413 = 0.1587 = **15.87%**\n\n",
-                "**🏆 Perfect! Je beheerst normaalverdelingen uitstekend!**"
-              )
-            ))
-          } else {
-            return(list(
-              result = generated,
-              readable_expected = "38.30% en 15.87%",
-              readable_actual = paste(feedback, collapse = "\n"),
-              description = paste(
-                "❌ **Trappistenbier kwaliteitscontrole - Nog niet correct**\n\n",
-                "**📊 Jouw antwoorden:**\n",
-                paste(feedback, collapse = "\n"), "\n\n",
-                "**💡 Handmatige berekening:**\n",
-                "1. Bereken Z-scores: Z = (X - μ) / σ\n",
-                "2. Zoek P(Z ≤ z) op in Z-tabel\n",
-                "3. Bereken interval/staart kansen\n",
-                "4. Zet om naar percentage\n\n",
-                "**🔗 Z-tabel:** https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm"
-              )
-            ))
+          # Build feedback string with clean formatting
+          feedback_text <- "**🍺 Trappistenbier Kwaliteitscontrole - Resultaten:**\n\n"
+          
+          for (qname in names(qnames)) {
+            if (results[[qname]]$exists && results[[qname]]$correct) {
+              feedback_text <- paste0(feedback_text, "✅ ", qnames[qname], " **Correct! (", round(as.numeric(results[[qname]]$value), 2), "%)**\n\n")
+            } else if (!results[[qname]]$exists) {
+              feedback_text <- paste0(feedback_text, "❌ ", qnames[qname], " **Je hebt geen antwoord gegeven.**\n\n")
+            } else {
+              feedback_text <- paste0(feedback_text, "❌ ", qnames[qname], " **Fout.** Je gaf ", round(as.numeric(results[[qname]]$value), 2), "% (verwacht: ", results[[qname]]$expected, "%)\n\n")
+            }
           }
+          
+          # Add calculation details
+          if (all(sapply(results, function(x) x$correct))) {
+            feedback_text <- paste0(feedback_text, 
+              "**📋 Gegeven:** N(33, 2) - μ = 33 cl, σ = 2 cl\n\n",
+              "**Vraag a berekening:**\n",
+              "- Z₁ = (32-33)/2 = -0.5, Z₂ = (34-33)/2 = 0.5\n",
+              "- P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830 = **38.30%**\n\n",
+              "**Vraag b berekening:**\n",
+              "- Z = (35-33)/2 = 1 → P(Z > 1) = 1 - 0.8413 = 0.1587 = **15.87%**\n\n",
+              "**🏆 Perfect! Je beheerst normaalverdelingen uitstekend!**"
+            )
+          } else {
+            feedback_text <- paste0(feedback_text,
+              "**💡 Handmatige berekening:**\n",
+              "1. Bereken Z-scores: Z = (X - μ) / σ\n",
+              "2. Zoek P(Z ≤ z) op in Z-tabel\n",
+              "3. Bereken interval/staart kansen\n",
+              "4. Zet om naar percentage\n\n",
+              "**🔗 Z-tabel:** https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm"
+            )
+          }
+
+          get_reporter()$add_message(feedback_text, type = "markdown")
+          generated == expected
         }
       )
     }
