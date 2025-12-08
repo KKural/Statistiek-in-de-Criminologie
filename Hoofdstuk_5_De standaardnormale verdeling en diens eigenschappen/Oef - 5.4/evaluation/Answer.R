@@ -72,22 +72,51 @@ context({
               return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 38.30%.")
             }
 
-            # correct probability but not converted to %
-            if (abs(val_num - 0.3830) < 0.0001) {
+            # Correct probability but not converted to percentage
+            if (abs(val_num - 0.3830) < 0.0001 || abs(val_num - 0.383) < 0.001) {
               return("Je gebruikte de kans in decimaalvorm (0.3830) in plaats van het percentage. Vermenigvuldig met 100: 0.3830 × 100 = 38.30%.")
             }
-            # complement instead of interval
+            
+            # Complement errors - calculated 100% - 38.30%
             if (abs(val_num - 61.70) < 0.1 || abs(val_num - 0.6170) < 0.001) {
-              return("Je berekende waarschijnlijk de complementaire kans i.p.v. de kans in het interval. Controleer: P(32 ≤ X ≤ 34) = P(Z ≤ 0.5) - P(Z ≤ -0.5).")
+              return("Je berekende de complementaire kans (100% - 38.30% = 61.70%). Voor het interval P(32 ≤ X ≤ 34) moet je P(Z ≤ 0.5) - P(Z ≤ -0.5) = 0.6915 - 0.3085 = 0.3830 = 38.30% berekenen.")
             }
-            # percentage but wrong magnitude
-            if (val_num > 100 || val_num < 0) {
-              return("Kansen kunnen niet kleiner dan 0% of groter dan 100% zijn. Controleer je berekening en het gebruik van de Z-tabel.")
+            
+            # Used only one tail (half the interval)
+            if (abs(val_num - 19.15) < 0.1) {
+              return("Je berekende waarschijnlijk slechts één kant van het interval. Voor P(32 ≤ X ≤ 34) heb je beide Z-waarden nodig: P(Z ≤ 0.5) - P(Z ≤ -0.5) = 38.30%, niet de helft.")
+            }
+            
+            # Doubled the correct answer
+            if (abs(val_num - 76.60) < 0.1) {
+              return("Je antwoord is te groot - waarschijnlijk heb je ergens dubbel geteld. Voor het interval P(32 ≤ X ≤ 34): Z₁ = -0.5, Z₂ = 0.5 → P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 38.30%.")
+            }
+            
+            # Confused with empirical rule (68%)
+            if (abs(val_num - 68.30) < 0.5 || abs(val_num - 68.27) < 0.5) {
+              return("Je gebruikte waarschijnlijk de empirische regel (68% binnen 1σ). Maar hier gaat het om een specifiek interval [32,34]. Bereken: Z₁ = -0.5, Z₂ = 0.5 → P(-0.5 ≤ Z ≤ 0.5) = 38.30%.")
+            }
+            
+            # Assumed 50% (symmetric around mean)
+            if (abs(val_num - 50.0) < 0.1) {
+              return("Je nam waarschijnlijk aan dat het 50% is omdat het interval symmetrisch is rond μ = 33. Maar de breedte van het interval bepaalt de kans. Bereken correct: P(32 ≤ X ≤ 34) = 38.30%.")
+            }
+            
+            # Invalid ranges
+            if (val_num < 0) {
+              return("Kansen kunnen niet negatief zijn! Controleer je berekening. Het juiste antwoord is 38.30%.")
+            }
+            if (val_num > 100) {
+              return("Kansen kunnen niet groter dan 100% zijn! Controleer of je niet ergens te veel vermenigvuldigde. Het juiste antwoord is 38.30%.")
             }
 
+            # Generic wrong answer with step-by-step guidance
             return(paste0(
-              "Je gaf ", val, ", maar dit is fout. Bereken eerst Z-scores (Z = (X - μ)/σ), zoek de kansen in de Z-tabel en neem het verschil: ",
-              "Z₁ = -0.5, Z₂ = 0.5 → P(-0.5 ≤ Z ≤ 0.5) = 0.3830 = 38.30%."
+              "Je gaf ", val, "%, maar dit is fout.\n\n**Stap-voor-stap:**\n",
+              "1. Z₁ = (32-33)/2 = -0.5, Z₂ = (34-33)/2 = 0.5\n",
+              "2. P(Z ≤ -0.5) = 0.3085, P(Z ≤ 0.5) = 0.6915\n",
+              "3. P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830\n",
+              "4. 0.3830 × 100% = **38.30%**"
             ))
           }
 
@@ -97,21 +126,56 @@ context({
               return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 15.87%.")
             }
 
-            # correct probability but not converted to %
+            # Correct probability but not converted to percentage
             if (abs(val_num - 0.1587) < 0.0001) {
               return("Je gebruikte de kans in decimaalvorm (0.1587) in plaats van het percentage. Vermenigvuldig met 100: 0.1587 × 100 = 15.87%.")
             }
-            # complement used (P(X ≤ 35) ipv P(X > 35))
+            
+            # Complement error - calculated P(X ≤ 35) instead of P(X > 35)
             if (abs(val_num - 84.13) < 0.1 || abs(val_num - 0.8413) < 0.001) {
-              return("Je gebruikte waarschijnlijk P(X ≤ 35) in plaats van P(X > 35). Vergeet niet: P(X > 35) = 1 − P(X ≤ 35).")
+              return("Je berekende P(X ≤ 35) = 84.13% in plaats van P(X > 35). Voor 'meer dan 35cl' moet je het complement nemen: P(X > 35) = 1 - P(X ≤ 35) = 1 - 0.8413 = 0.1587 = 15.87%.")
             }
-            if (val_num > 100 || val_num < 0) {
-              return("Kansen kunnen niet kleiner dan 0% of groter dan 100% zijn. Controleer je Z-waarde en of je het complement correct nam.")
+            
+            # Doubled the correct answer
+            if (abs(val_num - 31.74) < 0.1) {
+              return("Je antwoord is te groot - waarschijnlijk heb je ergens dubbel geteld. Voor P(X > 35): Z = (35-33)/2 = 1 → P(Z > 1) = 1 - 0.8413 = 15.87%.")
+            }
+            
+            # Used half value
+            if (abs(val_num - 7.935) < 0.1 || abs(val_num - 7.94) < 0.1) {
+              return("Je antwoord is te klein - waarschijnlijk heb je ergens gedeeld door 2. Voor P(X > 35): Z = 1 → P(Z > 1) = 1 - 0.8413 = 15.87%.")
+            }
+            
+            # Assumed 50% for anything above mean
+            if (abs(val_num - 50.0) < 0.1) {
+              return("Je nam waarschijnlijk aan dat alles boven het gemiddelde 50% is. Maar X = 35 ligt 1 standaarddeviatie boven μ = 33. Bereken: P(X > 35) = P(Z > 1) = 15.87%.")
+            }
+            
+            # Wrong Z-table value
+            if (abs(val_num - 34.13) < 0.1) {
+              return("Je gebruikte waarschijnlijk een verkeerde Z-tabelwaarde. Voor Z = (35-33)/2 = 1: P(Z ≤ 1) = 0.8413, dus P(Z > 1) = 1 - 0.8413 = 15.87%.")
+            }
+            
+            # Confused with empirical rule (68%)
+            if (abs(val_num - 68.27) < 0.5 || abs(val_num - 68.3) < 0.5) {
+              return("Je gebruikte waarschijnlijk de empirische regel. Maar hier gaat het om P(X > 35), niet om een interval. Bereken: Z = 1 → P(Z > 1) = 15.87%.")
+            }
+            
+            # Invalid ranges
+            if (val_num < 0) {
+              return("Kansen kunnen niet negatief zijn! Controleer je berekening. Het juiste antwoord is 15.87%.")
+            }
+            if (val_num > 100) {
+              return("Kansen kunnen niet groter dan 100% zijn! Controleer of je ergens een rekenfout maakte. Het juiste antwoord is 15.87%.")
             }
 
+            # Generic wrong answer with step-by-step guidance
             return(paste0(
-              "Je gaf ", val, ", maar dit is fout. Bereken eerst Z = (35 − 33) / 2 = 1, zoek P(Z ≤ 1) = 0.8413 en neem dan het complement: ",
-              "P(X > 35) = 1 − 0.8413 = 0.1587 = 15.87%."
+              "Je gaf ", val, "%, maar dit is fout.\n\n**Stap-voor-stap:**\n",
+              "1. Z = (35-33)/2 = 1\n",
+              "2. P(Z ≤ 1) = 0.8413 (uit Z-tabel)\n",
+              "3. P(X > 35) = P(Z > 1) = 1 - P(Z ≤ 1) = 1 - 0.8413 = 0.1587\n",
+              "4. 0.1587 × 100% = **15.87%**"
             ))
           }
 
