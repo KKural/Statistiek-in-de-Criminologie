@@ -197,31 +197,31 @@ context({
             
             # Correct probability but needs percentage conversion
             if (abs(val_num - 0.0808) < 0.0001) {
-              return("**Stap-voor-stap analyse van je antwoord 0.0808:**\n\n✅ **Stap 1 (Z-score):** Correct! Z = (32-42.5)/7.5 = -1.40\n✅ **Stap 2 (Kans opzoeken):** Correct! P(Z ≤ -1.40) = 0.0808\n❌ **Stap 3 (Naar percentage):** Fout! Je vergat te vermenigvuldigen met 100.\n\n**Oplossing:** 0.0808 × 100 = 8.08")
+              return("Je vergat te vermenigvuldigen met 100.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
             }
             
             # Complement error (got P(X > 32) instead of P(X < 32))
             if (abs(val_num - 91.92) < 0.01 || abs(val_num - 0.9192) < 0.0001) {
-              return("**Stap-voor-stap analyse van je antwoord ~91.92:**\n\n✅ **Stap 1 (Z-score):** Waarschijnlijk correct! Z = (32-42.5)/7.5 = -1.40\n❌ **Stap 2 (Kans opzoeken):** Fout! Je nam P(Z > -1.40) = 0.9192 in plaats van P(Z ≤ -1.40) = 0.0808\n❌ **Stap 3 (Naar percentage):** Verkeerde kans gebruikt.\n\n**Oplossing:** Voor P(X < 32) gebruik je P(Z ≤ -1.40) = 0.0808, dan × 100 = 8.08")
+              return("Je berekende P(X > 32) in plaats van P(X < 32).\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808 (niet het complement!)\nStap 3: 0.0808 × 100 = 8.08")
             }
             
             # Wrong Z-score calculation (probably used positive Z)
             if (abs(val_num - 91.08) < 0.1) {
-              return("**Stap-voor-stap analyse van je antwoord ~91.08:**\n\n❌ **Stap 1 (Z-score):** Fout! Je gebruikte waarschijnlijk Z = +1.40 in plaats van Z = -1.40\n❌ **Stap 2 (Kans opzoeken):** P(Z ≤ +1.40) = 0.9108 is fout voor deze vraag\n❌ **Stap 3 (Naar percentage):** Verkeerde kans gebruikt.\n\n**Oplossing:** Z = (32-42.5)/7.5 = -1.40, dan P(Z ≤ -1.40) = 0.0808, dan × 100 = 8.08")
+              return("Je gebruikte +1.40 in plaats van -1.40.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
             }
             
             # Used wrong formula (probably calculated difference from mean)
             if (abs(val_num - 140) < 1) {
-              return("**Stap-voor-stap analyse van je antwoord ~140:**\n\n❌ **Stap 1 (Z-score):** Fout! Je berekende waarschijnlijk het verschil |32-42.5| = 10.5 zonder te delen door σ\n❌ **Stappen 2-3:** Niet van toepassing door fout in stap 1.\n\n**Oplossing:** Z = (32-42.5)/7.5 = -1.40, dan P(Z ≤ -1.40) = 0.0808, dan × 100 = 8.08")
+              return("Je vergat te delen door σ.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
             }
             
             # Generic guidance based on answer range
             if (val_num < 0.1) {
-              return(paste0("**Stap-voor-stap analyse van je antwoord ", val, ":**\n\n❌ **Je antwoord is veel te klein.** Controleer alle stappen:\n\n**Stap 1:** Z = (32-42.5)/7.5 = -1.40\n**Stap 2:** P(Z ≤ -1.40) = 0.0808\n**Stap 3:** 0.0808 × 100 = 8.08"))
+              return("Je antwoord is veel te klein.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
             } else if (val_num > 50) {
-              return(paste0("**Stap-voor-stap analyse van je antwoord ", val, ":**\n\n❌ **Je antwoord is veel te groot.** Voor X = 32 (onder gemiddelde μ = 42.5) moet de kans klein zijn.\n\n**Controleer:** Gebruik je P(X < 32) en niet P(X > 32)?\n\n**Juiste stappen:**\n**Stap 1:** Z = (32-42.5)/7.5 = -1.40\n**Stap 2:** P(Z ≤ -1.40) = 0.0808\n**Stap 3:** 0.0808 × 100 = 8.08"))
+              return("Je antwoord is veel te groot. Voor X = 32 (onder gemiddelde) moet de kans klein zijn.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
             } else {
-              return(paste0("**Stap-voor-stap analyse van je antwoord ", val, ":**\n\n❌ **Niet correct.** Controleer deze stappen:\n\n**Stap 1:** Z = (32-42.5)/7.5 = -1.40\n**Stap 2:** Zoek P(Z ≤ -1.40) ≈ 0.0808 in de tabel\n**Stap 3:** 0.0808 × 100 = 8.08"))
+              return("Stap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: Zoek P(Z ≤ -1.40) ≈ 0.0808 in de tabel\nStap 3: 0.0808 × 100 = 8.08")
             }
           }
 
@@ -271,42 +271,42 @@ context({
             
             # Correct probability but needs percentage conversion
             if (abs(val_num - 0.9641) < 0.0001) {
-              return("**Stap-voor-stap analyse van je antwoord 0.9641:**\n\n✅ **Stap 1 (Z-score):** Correct! Z = (29-42.5)/7.5 = -1.80\n✅ **Stap 2 (Kans opzoeken):** Correct! P(Z ≤ -1.80) = 0.0359\n✅ **Stap 3 (Complement):** Correct! 1 - 0.0359 = 0.9641\n❌ **Stap 4 (Naar percentage):** Fout! Je vergat te vermenigvuldigen met 100.\n\n**Oplossing:** 0.9641 × 100 = 96.41")
+              return("Je vergat te vermenigvuldigen met 100.\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Forgot to take complement (got P(X < 29) instead of P(X > 29))
             if (abs(val_num - 3.59) < 0.01 || abs(val_num - 0.0359) < 0.0001) {
-              return("**Stap-voor-stap analyse van je antwoord ~3.59:**\n\n✅ **Stap 1 (Z-score):** Correct! Z = (29-42.5)/7.5 = -1.80\n✅ **Stap 2 (Kans opzoeken):** Correct! P(Z ≤ -1.80) = 0.0359\n❌ **Stap 3 (Complement):** Fout! Je vergat het complement te nemen voor P(X > 29)\n❌ **Stap 4 (Naar percentage):** Verkeerde kans gebruikt.\n\n**Oplossing:** Voor P(X > 29) moet je 1 - 0.0359 = 0.9641 berekenen, dan × 100 = 96.41")
+              return("Je vergat het complement te nemen voor P(X > 29).\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Used positive Z-score (got P(X > 29) with wrong Z)
             if (abs(val_num - 4.41) < 0.1) {
-              return("**Stap-voor-stap analyse van je antwoord ~4.41:**\n\n❌ **Stap 1 (Z-score):** Fout! Je gebruikte waarschijnlijk Z = +1.80 in plaats van Z = -1.80\n❌ **Stap 2 (Kans opzoeken):** P(Z ≤ +1.80) = 0.9641, maar dit is verkeerd voor deze berekening\n❌ **Stap 3 (Complement):** 1 - 0.9641 = 0.0359, maar gebaseerd op foute Z-score\n❌ **Stap 4:** Verkeerde resultaat door foute Z-score.\n\n**Oplossing:** Z = (29-42.5)/7.5 = -1.80, dan P(Z ≤ -1.80) = 0.0359, dan 1 - 0.0359 = 0.9641, dan × 100 = 96.41")
+              return("Je gebruikte +1.80 in plaats van -1.80.\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Calculated wrong direction but got complement right
             if (abs(val_num - 95.59) < 0.1) {
-              return("**Stap-voor-stap analyse van je antwoord ~95.59:**\n\n✅ **Stap 1 (Z-score):** Waarschijnlijk correct: Z = -1.80\n❌ **Stap 2 (Kans opzoeken):** Lichte fout in het aflezen uit de tabel\n✅ **Stap 3 (Complement):** Correct toegepast\n✅ **Stap 4 (Naar percentage):** Correct toegepast\n\n**Tip:** Controleer de exacte waarde in de Z-tabel: P(Z ≤ -1.80) = 0.0359")
+              return("Controleer de exacte waarde in de Z-tabel.\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Answer > 100% (impossible)
             if (val_num > 100) {
-              return("**Stap-voor-stap analyse van je antwoord > 100:**\n\n❌ **Kansen kunnen niet meer dan 100% zijn!** Je hebt waarschijnlijk een rekenfout gemaakt.\n\n**Controleer deze stappen:**\n**Stap 1:** Z = (29-42.5)/7.5 = -1.80\n**Stap 2:** P(Z ≤ -1.80) = 0.0359\n**Stap 3:** P(X > 29) = 1 - 0.0359 = 0.9641\n**Stap 4:** 0.9641 × 100 = 96.41")
+              return("Kansen kunnen niet meer dan 100% zijn!\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Generic guidance based on answer range
             if (val_num < 50) {
-              return(paste0("**Stap-voor-stap analyse van je antwoord ", val, ":**\n\n❌ **Je antwoord is te laag.** Voor X = 29 (onder gemiddelde μ = 42.5) moet P(X > 29) groot zijn (~96%).\n\n**Mogelijk probleem:** Vergat je het complement te nemen?\n\n**Controleer deze stappen:**\n**Stap 1:** Z = (29-42.5)/7.5 = -1.80\n**Stap 2:** P(Z ≤ -1.80) = 0.0359\n**Stap 3:** P(X > 29) = 1 - 0.0359 = 0.9641\n**Stap 4:** 0.9641 × 100 = 96.41"))
+              return("Je antwoord is te laag. Vergat je het complement te nemen?\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
             } else {
-              return(paste0("**Stap-voor-stap analyse van je antwoord ", val, ":**\n\n❌ **Niet helemaal correct.** Controleer deze stappen:\n\n**Stap 1:** Z = (29-42.5)/7.5 = -1.80\n**Stap 2:** Zoek P(Z ≤ -1.80) ≈ 0.0359 in de tabel\n**Stap 3:** P(X > 29) = 1 - 0.0359 = 0.9641\n**Stap 4:** 0.9641 × 100 = 96.41"))
+              return("Stap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: Zoek P(Z ≤ -1.80) ≈ 0.0359 in de tabel\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
             }
           }
 
-          # Build feedback string directly with proper line breaks
+          # Build feedback string with clean formatting and proper spacing
           feedback_text <- "**Resultaten per vraag:**\n\n"
           
-          # Question A - all steps
-          feedback_text <- paste0(feedback_text, "**Vraag A:**\n")
+          # Question A - all steps with spacing
+          feedback_text <- paste0(feedback_text, "**Vraag A:**\n\n")
           for (q in c("z1_a", "z2_a", "p_z1_a", "p_z2_a", "verschil_a", "vraag_a")) {
             if (results[[q]]$exists) {
               if (results[[q]]$correct) {
@@ -328,8 +328,8 @@ context({
             }
           }
           
-          # Question B - final answer only
-          feedback_text <- paste0(feedback_text, "**Vraag B:**\n")
+          # Question B - final answer only with clean formatting
+          feedback_text <- paste0(feedback_text, "**Vraag B:**\n\n")
           q <- "vraag_b"
           if (results[[q]]$exists) {
             if (results[[q]]$correct) {
@@ -339,11 +339,11 @@ context({
               feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Fout.**\n\n", msg, "\n\n")
             }
           } else {
-            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\n**Om deze vraag op te lossen:**\n**Stap 1:** Z = (32-42.5)/7.5 = -1.40\n**Stap 2:** P(Z ≤ -1.40) = 0.0808\n**Stap 3:** 0.0808 × 100 = 8.08\n\n")
+            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08\n\n")
           }
           
-          # Question C - final answer only
-          feedback_text <- paste0(feedback_text, "**Vraag C:**\n")
+          # Question C - final answer only with clean formatting
+          feedback_text <- paste0(feedback_text, "**Vraag C:**\n\n")
           q <- "vraag_c"
           if (results[[q]]$exists) {
             if (results[[q]]$correct) {
@@ -353,7 +353,7 @@ context({
               feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Fout.**\n\n", msg, "\n\n")
             }
           } else {
-            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\n**Om deze vraag op te lossen:**\n**Stap 1:** Z = (29-42.5)/7.5 = -1.80\n**Stap 2:** P(Z ≤ -1.80) = 0.0359\n**Stap 3:** P(X > 29) = 1 - 0.0359 = 0.9641\n**Stap 4:** 0.9641 × 100 = 96.41\n\n")
+            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41\n\n")
           }
 
           get_reporter()$add_message(feedback_text, type = "markdown")
