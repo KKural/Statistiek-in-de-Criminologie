@@ -197,31 +197,31 @@ context({
             
             # Correct probability but needs percentage conversion
             if (abs(val_num - 0.0808) < 0.0001) {
-              return("Je vergat te vermenigvuldigen met 100.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
+              return("Je vergat te vermenigvuldigen met 100.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\n\nStap 2: P(Z ≤ -1.40) = 0.0808\n\nStap 3: 0.0808 × 100 = 8.08")
             }
             
             # Complement error (got P(X > 32) instead of P(X < 32))
             if (abs(val_num - 91.92) < 0.01 || abs(val_num - 0.9192) < 0.0001) {
-              return("Je berekende P(X > 32) in plaats van P(X < 32).\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808 (niet het complement!)\nStap 3: 0.0808 × 100 = 8.08")
+              return("Je berekende P(X > 32) in plaats van P(X < 32).\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\n\nStap 2: P(Z ≤ -1.40) = 0.0808 (niet het complement!)\n\nStap 3: 0.0808 × 100 = 8.08")
             }
             
             # Wrong Z-score calculation (probably used positive Z)
             if (abs(val_num - 91.08) < 0.1) {
-              return("Je gebruikte +1.40 in plaats van -1.40.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
+              return("Je gebruikte +1.40 in plaats van -1.40.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\n\nStap 2: P(Z ≤ -1.40) = 0.0808\n\nStap 3: 0.0808 × 100 = 8.08")
             }
             
             # Used wrong formula (probably calculated difference from mean)
             if (abs(val_num - 140) < 1) {
-              return("Je vergat te delen door σ.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
+              return("Je vergat te delen door σ.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\n\nStap 2: P(Z ≤ -1.40) = 0.0808\n\nStap 3: 0.0808 × 100 = 8.08")
             }
             
             # Generic guidance based on answer range
             if (val_num < 0.1) {
-              return("Je antwoord is veel te klein.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
+              return("Je antwoord is veel te klein.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\n\nStap 2: P(Z ≤ -1.40) = 0.0808\n\nStap 3: 0.0808 × 100 = 8.08")
             } else if (val_num > 50) {
-              return("Je antwoord is veel te groot. Voor X = 32 (onder gemiddelde) moet de kans klein zijn.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08")
+              return("Je antwoord is veel te groot. Voor X = 32 (onder gemiddelde) moet de kans klein zijn.\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\n\nStap 2: P(Z ≤ -1.40) = 0.0808\n\nStap 3: 0.0808 × 100 = 8.08")
             } else {
-              return("Stap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: Zoek P(Z ≤ -1.40) ≈ 0.0808 in de tabel\nStap 3: 0.0808 × 100 = 8.08")
+              return("Stap 1: Z = (32-42.5)/7.5 = -1.40\n\nStap 2: Zoek P(Z ≤ -1.40) ≈ 0.0808 in de tabel\n\nStap 3: 0.0808 × 100 = 8.08")
             }
           }
 
@@ -271,34 +271,34 @@ context({
             
             # Correct probability but needs percentage conversion
             if (abs(val_num - 0.9641) < 0.0001) {
-              return("Je vergat te vermenigvuldigen met 100.\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
+              return("Je vergat te vermenigvuldigen met 100.\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\n\nStap 2: P(Z ≤ -1.80) = 0.0359\n\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\n\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Forgot to take complement (got P(X < 29) instead of P(X > 29))
             if (abs(val_num - 3.59) < 0.01 || abs(val_num - 0.0359) < 0.0001) {
-              return("Je vergat het complement te nemen voor P(X > 29).\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
+              return("Je vergat het complement te nemen voor P(X > 29).\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\n\nStap 2: P(Z ≤ -1.80) = 0.0359\n\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\n\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Used positive Z-score (got P(X > 29) with wrong Z)
             if (abs(val_num - 4.41) < 0.1) {
-              return("Je gebruikte +1.80 in plaats van -1.80.\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
+              return("Je gebruikte +1.80 in plaats van -1.80.\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\n\nStap 2: P(Z ≤ -1.80) = 0.0359\n\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\n\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Calculated wrong direction but got complement right
             if (abs(val_num - 95.59) < 0.1) {
-              return("Controleer de exacte waarde in de Z-tabel.\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
+              return("Controleer de exacte waarde in de Z-tabel.\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\n\nStap 2: P(Z ≤ -1.80) = 0.0359\n\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\n\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Answer > 100% (impossible)
             if (val_num > 100) {
-              return("Kansen kunnen niet meer dan 100% zijn!\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
+              return("Kansen kunnen niet meer dan 100% zijn!\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\n\nStap 2: P(Z ≤ -1.80) = 0.0359\n\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\n\nStap 4: 0.9641 × 100 = 96.41")
             }
             
             # Generic guidance based on answer range
             if (val_num < 50) {
-              return("Je antwoord is te laag. Vergat je het complement te nemen?\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
+              return("Je antwoord is te laag. Vergat je het complement te nemen?\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\n\nStap 2: P(Z ≤ -1.80) = 0.0359\n\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\n\nStap 4: 0.9641 × 100 = 96.41")
             } else {
-              return("Stap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: Zoek P(Z ≤ -1.80) ≈ 0.0359 in de tabel\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41")
+              return("Stap 1: Z = (29-42.5)/7.5 = -1.80\n\nStap 2: Zoek P(Z ≤ -1.80) ≈ 0.0359 in de tabel\n\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\n\nStap 4: 0.9641 × 100 = 96.41")
             }
           }
 
@@ -339,7 +339,7 @@ context({
               feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Fout.**\n\n", msg, "\n\n")
             }
           } else {
-            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\nStap 2: P(Z ≤ -1.40) = 0.0808\nStap 3: 0.0808 × 100 = 8.08\n\n")
+            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\nStap 1: Z = (32-42.5)/7.5 = -1.40\n\nStap 2: P(Z ≤ -1.40) = 0.0808\n\nStap 3: 0.0808 × 100 = 8.08\n\n")
           }
           
           # Question C - final answer only with clean formatting
@@ -353,7 +353,7 @@ context({
               feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Fout.**\n\n", msg, "\n\n")
             }
           } else {
-            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\nStap 2: P(Z ≤ -1.80) = 0.0359\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\nStap 4: 0.9641 × 100 = 96.41\n\n")
+            feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\n\nStap 2: P(Z ≤ -1.80) = 0.0359\n\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\n\nStap 4: 0.9641 × 100 = 96.41\n\n")
           }
 
           get_reporter()$add_message(feedback_text, type = "markdown")
