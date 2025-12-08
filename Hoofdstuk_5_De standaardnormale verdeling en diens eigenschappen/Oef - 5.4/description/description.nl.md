@@ -1,35 +1,39 @@
-De Trappisten van de Sint-Sixtusabdij in Westvleteren zijn volop bezig met een controle van het productieproces van hun beroemde trappistenbier: **Westvleteren**. Na het controleren van een random sample van 100 flesjes stellen ze vast dat hun bottelmachine een lichte afwijking vertoont: de inhoud van de flesjes is niet exact 33cl, maar volgt een **normaalverdeling**: **N(33, 2)**.
+## Kwaliteitscontrole: Trappistenbier Westvleteren
 
-Dit betekent:
-- **Gemiddelde (μ) = 33 cl**  
-- **Standaardafwijking (σ) = 2 cl**
+De Trappisten van de Sint-Sixtusabdij in Westvleteren controleren hun productieproces. Na het controleren van een sample van 100 flesjes blijkt dat de inhoud van hun beroemde **Westvleteren** trappistenbier **normaal verdeeld** is.
 
-### Vraag a
-**Aangezien de monniken een eerlijk product willen verkopen, willen ze dat er in alle flesjes minstens 32cl en maximum 34cl zit. Hoeveel procent van de flesjes voldoen aan deze vereiste?**
+**Onderzoeksgegevens:**
+- **Gemiddelde inhoud (μ):** 33 cl
+- **Standaardafwijking (σ):** 2 cl  
+- **Verdeling:** Normale verdeling N(33, 2)
 
-*Bereken het percentage flesjes met een inhoud tussen 32cl en 34cl (inclusief).*
+**Formules**
 
-### Vraag b
-**Pater Boudewijn, commercieel verantwoordelijke, vraagt zich af hoeveel procent van de flesjes meer dan 35cl bevat.**
+**Z-score berekening:**
+$$Z = \frac{X - \mu}{\sigma}$$
 
-*Bereken het percentage flesjes met een inhoud van meer dan 35cl.*
+**Waarschijnlijkheden:**
+- P(Z ≤ z) kan je opzoeken in de standaardnormale tabel
+- P(Z ≥ z) = 1 - P(Z ≤ z)
+- P(a ≤ X ≤ b) = P(Z ≤ z_b) - P(Z ≤ z_a)
 
-## **Instructies**
+**📊 Volledige Z-score tabel:** [Standaardnormale verdeling tabel](https://www.belfactorij.be/lessen-statistiek/normale-verdeling/z-tabel/)
 
-1. **Gebruik de standaard normaalverdeling** voor je berekeningen
-2. **Bereken eerst de z-scores** voor de gegeven waarden
-3. **Gebruik de z-tabel** om de kansen te bepalen
-4. **Geef je antwoorden in decimalen** (bijvoorbeeld: 0.3830 voor 38.30%)
+**Vragen**
 
-### Formule z-score:
-**Z = (X - μ) / σ**
+**a) Aangezien de monniken een eerlijk product willen verkopen, willen ze dat er in alle flesjes minstens 32cl en maximum 34cl zit. Hoeveel procent van de flesjes voldoen aan deze vereiste?**
 
-waar:
-- **X** = de waarde waarvoor je de z-score berekent
-- **μ** = gemiddelde (33 cl)  
-- **σ** = standaardafwijking (2 cl)
+*Stap 1:* Bereken de Z-scores voor beide grenzen (32cl en 34cl)
+*Stap 2:* Zoek de kansen op in de standaardnormale tabel
+*Stap 3:* Bereken het verschil voor het interval
 
-- **Z-tabel**: [Belfactorij Z-tabel](https://www.belfactorij.be/lessen-statistiek/normale-verdeling/z-tabel/)
-- **R functies**: `pnorm()`, `qnorm()`
-- **Formule**: Z = (X - μ) / σ
+Geef je antwoord als **decimaal** (bijvoorbeeld: 0.3830)
+
+**b) Pater Boudewijn, commercieel verantwoordelijke, vraagt zich af hoeveel procent van de flesjes meer dan 35cl bevat.**
+
+*Stap 1:* Bereken de Z-score voor X = 35
+*Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel
+*Stap 3:* Bereken het complement: 1 - P(Z ≤ z)
+
+Geef je antwoord als **decimaal** (bijvoorbeeld: 0.1587)
 
