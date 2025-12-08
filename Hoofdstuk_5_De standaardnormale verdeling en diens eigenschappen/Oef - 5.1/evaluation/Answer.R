@@ -96,9 +96,11 @@ context({
             return(paste0("Je gaf ", val, ", maar dit is fout. Bereken: (29-42.5)/7.5 = -1.8 → P(Z ≤ -1.8) = 0.0359. Dan: P(X > 29) = 1 - 0.0359 = 0.9641 = 96.41%. Het juiste antwoord is 96.41."))
           }
 
-          # Display results grouped by question
+          # Build feedback string directly with proper line breaks
+          feedback_text <- "**Resultaten per vraag:**\n\n"
+          
           # Question A - all steps
-          feedback <- c(feedback, "\n**Vraag A:**")
+          feedback_text <- paste0(feedback_text, "**Vraag A:**\n")
           for (q in c("z1_a", "z2_a", "p_z1_a", "p_z2_a", "verschil_a", "vraag_a")) {
             if (results[[q]]$exists) {
               if (results[[q]]$correct) {
@@ -114,7 +116,7 @@ context({
           }
           
           # Question B
-          feedback <- c(feedback, "\n**Vraag B:**")
+          feedback_text <- paste0(feedback_text, "\n**Vraag B:**\n")
           q <- "vraag_b"
           if (results[[q]]$exists) {
             if (results[[q]]$correct) {
@@ -128,7 +130,7 @@ context({
           }
           
           # Question C
-          feedback <- c(feedback, "\n**Vraag C:**")
+          feedback_text <- paste0(feedback_text, "\n**Vraag C:**\n")
           q <- "vraag_c"
           if (results[[q]]$exists) {
             if (results[[q]]$correct) {
