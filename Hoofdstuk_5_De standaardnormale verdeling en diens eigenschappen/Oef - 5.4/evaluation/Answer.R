@@ -12,12 +12,12 @@ context({
     # Vraag a: P(32 ≤ X ≤ 34)
     # Z1 = (32-33)/2 = -0.5, Z2 = (34-33)/2 = 0.5
     # P(-0.5 ≤ Z ≤ 0.5) = P(Z ≤ 0.5) - P(Z ≤ -0.5) = 0.6915 - 0.3085 = 0.3830
-    expected_a <- 0.3830
+    expected_a <- 38.30  # As percentage
     
     # Vraag b: P(X > 35)
     # Z = (35-33)/2 = 1
     # P(Z > 1) = 1 - P(Z ≤ 1) = 1 - 0.8413 = 0.1587
-    expected_b <- 0.1587
+    expected_b <- 15.87  # As percentage
     
     # Controleer of variabelen bestaan
     if (!exists("vraag_a") || !exists("vraag_b")) {
@@ -26,14 +26,19 @@ context({
           description = "**❌ Variabelen niet gevonden**",
           format = "markdown",
           content = list(
-            "Je moet twee variabelen definiëren:",
+            "Je moet twee variabelen definiëren met je eindantwoorden:",
             "- `vraag_a`: percentage flesjes tussen 32cl en 34cl",
             "- `vraag_b`: percentage flesjes met meer dan 35cl",
             "",
+            "**Bereken handmatig:**",
+            "1. Gebruik formule Z = (X - μ) / σ",
+            "2. Zoek kansen op in Z-tabel", 
+            "3. Bereken eindpercentage",
+            "",
             "**Voorbeeld:**",
             "```r",
-            "vraag_a <- [jouw berekening voor vraag a]",
-            "vraag_b <- [jouw berekening voor vraag b]",
+            "vraag_a <- 38.30  # Je berekende percentage",
+            "vraag_b <- 15.87  # Je berekende percentage", 
             "```"
           )
         )
@@ -64,8 +69,8 @@ context({
       return(FALSE)
     }
     
-    # Controleer vraag a (met zeer strikte tolerantie)
-    tolerance <- 0.0001
+    # Controleer vraag a (met strikte tolerantie voor percentages)
+    tolerance <- 0.01
     if (abs(vraag_a - expected_a) > tolerance) {
       
       # Bereken de z-scores voor diagnostiek
@@ -78,9 +83,9 @@ context({
           description = "**❌ Vraag a: Incorrect percentage (32cl ≤ X ≤ 34cl)**",
           format = "markdown",
           content = list(
-            paste("**Je antwoord:** ", round(vraag_a, 4)),
-            paste("**Verwacht:** ", expected_a),
-            paste("**Verschil:** ", round(abs(vraag_a - expected_a), 4)),
+            paste("**Je antwoord:** ", round(vraag_a, 2), "%"),
+            paste("**Verwacht:** ", expected_a, "%"),
+            paste("**Verschil:** ", round(abs(vraag_a - expected_a), 2), "%"),
             "",
             "**📊 Stap-voor-stap controle:**",
             "",
@@ -101,11 +106,13 @@ context({
             "**Stap 4: Bereken interval kans**",
             "- P(-0.5 ≤ Z ≤ 0.5) = P(Z ≤ 0.5) - P(Z ≤ -0.5)",
             "- P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830",
+            "- Als percentage: 0.3830 × 100 = 38.30%",
             "",
-            "**💡 Tips:**",
-            "- Gebruik de formule: Z = (X - μ) / σ",
-            "- Voor intervallen: P(a ≤ X ≤ b) = P(Z ≤ z_b) - P(Z ≤ z_a)",
-            "- Controleer je z-tabel waarden zorgvuldig",
+            "**💡 Tips voor handmatige berekening:**",
+            "- Stap 1: Bereken Z-scores met Z = (X - μ) / σ",
+            "- Stap 2: Zoek P(Z ≤ z) op in Z-tabel",
+            "- Stap 3: Voor intervallen: P(a ≤ X ≤ b) = P(Z ≤ z_b) - P(Z ≤ z_a)",
+            "- Stap 4: Zet om naar percentage (× 100)",
             "",
             "**🔗 Hulpmiddelen:**",
             "- [Z-tabel Belfactorij](https://www.belfactorij.be/lessen-statistiek/normale-verdeling/z-tabel/)"
@@ -127,9 +134,9 @@ context({
           description = "**❌ Vraag b: Incorrect percentage (X > 35cl)**",
           format = "markdown",
           content = list(
-            paste("**Je antwoord:** ", round(vraag_b, 4)),
-            paste("**Verwacht:** ", expected_b),
-            paste("**Verschil:** ", round(abs(vraag_b - expected_b), 4)),
+            paste("**Je antwoord:** ", round(vraag_b, 2), "%"),
+            paste("**Verwacht:** ", expected_b, "%"),
+            paste("**Verschil:** ", round(abs(vraag_b - expected_b), 2), "%"),
             "",
             "**📊 Stap-voor-stap controle:**",
             "",
@@ -148,11 +155,13 @@ context({
             "**Stap 4: Bereken rechterstaartkans**",
             "- P(Z > 1) = 1 - P(Z ≤ 1)",
             "- P(Z > 1) = 1 - 0.8413 = 0.1587",
+            "- Als percentage: 0.1587 × 100 = 15.87%",
             "",
-            "**💡 Tips:**",
-            "- Voor rechterstaartkansen: P(X > a) = 1 - P(X ≤ a)",
-            "- Eerst z-score berekenen, dan z-tabel raadplegen",
-            "- Let op: P(Z > z) = 1 - P(Z ≤ z)",
+            "**💡 Tips voor handmatige berekening:**",
+            "- Stap 1: Bereken Z-score met Z = (X - μ) / σ",
+            "- Stap 2: Zoek P(Z ≤ z) op in Z-tabel", 
+            "- Stap 3: Voor rechterstaartkans: P(X > a) = 1 - P(X ≤ a)",
+            "- Stap 4: Zet om naar percentage (× 100)",
             "",
             "**🔗 Hulpmiddelen:**",
             "- [Z-tabel Belfactorij](https://www.belfactorij.be/lessen-statistiek/normale-verdeling/z-tabel/)"
@@ -175,19 +184,19 @@ context({
           "- μ = 33 cl, σ = 2 cl",
           "",
           "**📊 Vraag a: P(32 ≤ X ≤ 34)**",
-          paste("- **Je antwoord:** ", round(vraag_a, 4), " (38.30%)"),
+          paste("- **Je antwoord:** ", round(vraag_a, 2), "% (correct)"),
           "- Z₁ = (32-33)/2 = -0.5 → P(Z ≤ -0.5) = 0.3085",
           "- Z₂ = (34-33)/2 = 0.5 → P(Z ≤ 0.5) = 0.6915", 
-          "- P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = **0.3830**",
+          "- P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830 = **38.30%**",
           "",
           "**📊 Vraag b: P(X > 35)**", 
-          paste("- **Je antwoord:** ", round(vraag_b, 4), " (15.87%)"),
+          paste("- **Je antwoord:** ", round(vraag_b, 2), "% (correct)"),
           "- Z = (35-33)/2 = 1 → P(Z ≤ 1) = 0.8413",
-          "- P(Z > 1) = 1 - 0.8413 = **0.1587**",
+          "- P(Z > 1) = 1 - 0.8413 = 0.1587 = **15.87%**",
           "",
           "**🎯 Interpretatie:**",
-          "- **38.30%** van de flesjes valt binnen het gewenste bereik (32-34cl)",
-          "- **15.87%** van de flesjes bevat meer dan 35cl",
+          paste("- **", round(vraag_a, 2), "%** van de flesjes valt binnen het gewenste bereik (32-34cl)"),
+          paste("- **", round(vraag_b, 2), "%** van de flesjes bevat meer dan 35cl"),
           "- De bottelmachine moet wellicht **bijgesteld** worden",
           "",
           "**🔬 Criminologische Context:**",

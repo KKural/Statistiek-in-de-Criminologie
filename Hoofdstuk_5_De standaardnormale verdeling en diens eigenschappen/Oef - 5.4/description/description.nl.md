@@ -27,7 +27,7 @@ $$Z = \frac{X - \mu}{\sigma}$$
 *Stap 2:* Zoek de kansen op in de standaardnormale tabel
 *Stap 3:* Bereken het verschil voor het interval
 
-Geef je antwoord als **decimaal** (bijvoorbeeld: 0.3830)
+Geef je antwoord als **percentage** (bijvoorbeeld: 38.30)
 
 **b) Pater Boudewijn, commercieel verantwoordelijke, vraagt zich af hoeveel procent van de flesjes meer dan 35cl bevat.**
 
@@ -35,5 +35,5 @@ Geef je antwoord als **decimaal** (bijvoorbeeld: 0.3830)
 *Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel
 *Stap 3:* Bereken het complement: 1 - P(Z ≤ z)
 
-Geef je antwoord als **decimaal** (bijvoorbeeld: 0.1587)
+Geef je antwoord als **percentage** (bijvoorbeeld: 15.87)
 
