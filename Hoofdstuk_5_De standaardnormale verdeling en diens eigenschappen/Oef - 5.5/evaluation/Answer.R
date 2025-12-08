@@ -8,15 +8,22 @@ context({
         2,  # Correct answer: 2) 45 jaar
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
-            "1" = "❌ Fout: 1) 42.5 jaar\n\n42.5 jaar is te laag. Je hebt mogelijk een fout gemaakt in de berekening voor het 90ste percentiel.\n\nTip: Voor de oudste 10% zoek je het 90ste percentiel. Controleer je berekening van de z-score en de omzetting naar leeftijd.",
-            "2" = "✅ Juist: 2) 45 jaar\n\nJuiste redenering:\n- Oudste 10% betekent het 90ste percentiel\n- Met normale verdeling (μ = 37.8, σ = 5.6) komt dit neer op ongeveer 45 jaar\n- Gedetineerden van 45 jaar en ouder vormen de oudste 10% en zullen deelnemen aan de bevraging",
-            "3" = "❌ Fout: 3) 47 jaar\n\n47 jaar is te hoog. Bij deze leeftijd zou je een kleiner percentage dan 10% krijgen.\n\nTip: Controleer of je het juiste percentiel gebruikt. Voor de oudste 10% heb je het 90ste percentiel nodig, niet het 95ste.",
-            "4" = "❌ Fout: 4) 50 jaar\n\n50 jaar is veel te hoog. Bij deze leeftijd zou slechts een zeer klein percentage van de populatie ouder zijn, veel minder dan 10%.\n\nTip: 50 jaar ligt meer dan 2 standaardafwijkingen boven het gemiddelde. Dit zou betekenen dat minder dan 2.5% van de populatie ouder is.",
-            "5" = "❌ Fout: 5) Niet berechenbaar\n\nDeze opgave is wel degelijk oplosbaar! We hebben alle benodigde informatie: gemiddelde (37.8 jaar), standaardafwijking (5.6 jaar), normale verdeling, en doelgroep (oudste 10%).\n\nTip: Met deze gegevens kun je het 90ste percentiel berekenen."
+            "1" = "❌ **Fout.** 42.5 jaar is **te laag** voor de oudste 10% van deze gevangenispopulatie. Met een **gemiddelde leeftijd** van 37.8 jaar en een **standaardafwijking** van 5.6 jaar betekent dit dat je mogelijk een **fout** hebt gemaakt in de berekening van het **90ste percentiel**. Voor de oudste 10% moet je het punt vinden waarbij 90% van de populatie jonger is. Dit vereist de juiste **z-score** (ongeveer 1.28) uit de standaardnormale verdeling. [Lees meer over percentielen](https://www.statisticshowto.com/probability-and-statistics/percentiles-rank-range/)",
+            
+            "2" = "✅ **Juist!** De gevangenen vanaf de leeftijd van **45 jaar** vormen inderdaad de oudste 10% van deze gevangenispopulatie. Met μ = 37.8 en σ = 5.6 jaar, en gebruik van het **90ste percentiel** (z ≈ 1.28), berekenen we: X = 37.8 + (1.28 × 5.6) ≈ 45 jaar. Dit betekent dat ongeveer **10% van alle gedetineerden** 45 jaar of ouder is, wat deze groep geschikt maakt voor de **gerichteerde bevraging** van de gevangenisdirecteur. Dit is een praktisch voorbeeld van hoe **normale verdelingen** gebruikt worden in **criminologisch onderzoek** voor steekproefplanning. [Lees meer](https://www.statisticshowto.com/probability-and-statistics/normal-distributions/)",
+            
+            "3" = "❌ **Fout.** 47 jaar is **te hoog** en zou resulteren in een veel **kleiner percentage** dan de gewenste 10%. Bij deze leeftijdsgrens zou je waarschijnlijk slechts **5-6% van de populatie** selecteren in plaats van 10%. Dit suggereert dat je mogelijk de **95ste percentiel** (z ≈ 1.65) hebt gebruikt in plaats van het **90ste percentiel** (z ≈ 1.28). In **criminologisch onderzoek** is het cruciaal om de juiste **percentielgrenzen** te gebruiken voor representatieve steekproeven. [Lees meer over z-scores](https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap/measuring-position/v/z-score-introduction)",
+            
+            "4" = "❌ **Fout.** 50 jaar is **veel te hoog** en zou slechts een **zeer klein percentage** van de gevangenispopulatie omvatten - waarschijnlijk minder dan **2-3%** in plaats van de gewenste 10%. Deze leeftijd ligt meer dan **2 standaardafwijkingen** boven het gemiddelde (37.8 + 2×5.6 = 48.6), wat betekent dat je ver buiten het **90ste percentiel** zit. In de praktijk zou dit betekenen dat de **steekproef te klein** wordt voor betrouwbare conclusies over de oudere gedetineerden. [Lees meer over standaardafwijkingen](https://www.statisticshowto.com/probability-and-statistics/standard-deviation/)",
+            
+            "5" = "❌ **Fout.** Deze opgave is **wel degelijk oplosbaar**! We hebben alle benodigde informatie voor een **normale verdeling berekening**: het **gemiddelde** (μ = 37.8 jaar), de **standaardafwijking** (σ = 5.6 jaar), en de gewenste **percentielgrens** (oudste 10% = 90ste percentiel). In **criminologische statistiek** zijn dit de **standaardingrediënten** voor percentielberekeningen. Het proces vereist het opzoeken van de juiste z-score en toepassing van de formule X = μ + z×σ. Dit is een **fundamentele vaardigheid** voor onderzoeksplanning in de criminologie. [Lees meer over normale verdeling](https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution)"
           )
+          
           key <- as.character(generated)
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 5 in."
+          
           get_reporter()$add_message(msg, type = "markdown")
+          
           generated == expected
         }
       )
