@@ -168,7 +168,7 @@ context({
             
             # Complement error
             if (abs(val_num - 91.92) < 0.1 || abs(val_num - 0.9192) < 0.001) {
-              return("Je gaf een antwoord rond 91.92, maar dit is fout. Je berekende P(X > 32) in plaats van P(X < 32). **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) P(Z ≤ -1.4) = 0.0808 (niet het complement!), 3) 0.0808 × 100 = 8.08. Het juiste antwoord is 8.08.")            }
+              return("Je gaf een antwoord rond 91.92, maar dit is fout. Je berekende P(X > 32) in plaats van P(X < 32). **Stappen:** 1) Z = (32-42.5)/7.5 = -1.40, 2) P(Z ≤ -1.4) = 0.0808 (niet het complement!), 3) 0.0808 × 100 = 8.08. Het juiste antwoord is 8.08.")
             }
             
             # Too large answers (double percentage conversion)
