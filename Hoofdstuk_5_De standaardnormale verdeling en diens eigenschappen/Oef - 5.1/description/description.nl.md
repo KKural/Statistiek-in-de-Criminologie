@@ -1,9 +1,15 @@
-# Oef - 5.1 Verkeersboetes en Standaardnormale Verdeling
+## Onderzoekscontext: Verkeersboetes in België
 
-Stel dat de bedragen van opgelegde verkeersboetes normaal verdeeld zijn met een
-gemiddelde van 42,5€ en een standaardafwijking van 7,5€
+Een criminoloog onderzoekt de verdeling van verkeersboetes die door de politie worden opgelegd in een bepaalde regio van België. Na analyse van een grote dataset van 10.000 verkeersboetes blijkt dat deze **normaal verdeeld** zijn.
 
-## Formules
+**Onderzoeksgegevens:**
+- **Gemiddelde boete (μ):** 42,5€
+- **Standaardafwijking (σ):** 7,5€
+- **Verdeling:** Normale verdeling
+
+De onderzoeker wil nu specifieke kansen berekenen om beter te begrijpen hoe verkeersboetes verdeeld zijn en wat de waarschijnlijkheid is dat een willekeurige overtreder een boete binnen bepaalde bedragscategorieën krijgt.
+
+**Formules**
 
 **Z-score berekening:**
 $$Z = \frac{X - \mu}{\sigma}$$
@@ -15,7 +21,7 @@ $$Z = \frac{X - \mu}{\sigma}$$
 
 **📊 Volledige Z-score tabel:** [Standaardnormale verdeling tabel](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)
 
-## Vragen
+**Vragen**
 
 **a) Wat is de kans dat een willekeurige overtreder een boete dient te betalen tussen de 20€ en 25€?**
 
@@ -42,7 +48,7 @@ Geef je antwoord als **percentage** (bijvoorbeeld: 15.67)
 
 Geef je antwoord als **percentage** (bijvoorbeeld: 78.92)
 
-## Instructies
+## **Instructies**
 
 - Vervang "???" door het juiste antwoord
 - Gebruik decimalen met **punt** (geen komma)
