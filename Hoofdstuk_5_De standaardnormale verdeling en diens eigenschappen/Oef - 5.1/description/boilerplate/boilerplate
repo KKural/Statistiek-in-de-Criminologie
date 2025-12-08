@@ -1,8 +1,8 @@
 # Gegeven: μ = 42.5, σ = 7.5
 
-# INSTRUCTIE: Voor vraag a: vul alle stappen in. Voor vraag b en c: bereken handmatig en voer alleen het eindpercentage in
+# INSTRUCTIE: Vul alle stappen in voor elke vraag
 # Gebruik de standaardnormale tabel om de waarschijnlijkheden op te zoeken
-# LET OP: Geef percentages als getallen ZONDER %-teken! (bijvoorbeeld: 8.08 niet "8.08%")
+# LET OP: Geef percentages als getallen ZONDER %-teken!
 
 # a. Kans dat boete tussen 20€ en 25€ ligt
 # Stap 1: Bereken Z-scores
@@ -17,14 +17,31 @@ p_z2_a <- ???  # Waarschijnlijkheid voor z2_a
 verschil_a <- ???  # p_z2_a - p_z1_a
 
 # Stap 4: Zet om in percentage
-vraag_a <- ???  # Geef antwoord als getal (bijvoorbeeld: 0.86)
+vraag_a <- ???  # Eindantwoord als percentage
 
 # ============================================================
 
-# b. Kans dat boete lager dan 32€ is  
-# Bereken alle stappen handmatig en voer het antwoord in als percentage
-vraag_b <- ???  # Geef antwoord als getal (bijvoorbeeld: 8.08)
+# b. Kans dat boete lager dan 32€ is
+# Stap 1: Bereken Z-score
+z1_b <- ???  # Z-score voor X = 32: (32 - 42.5) / 7.5
+
+# Stap 2: Zoek P(Z ≤ z) op in de standaardnormale tabel
+p_z1_b <- ???  # Waarschijnlijkheid voor z1_b
+
+# Stap 3: Zet om naar percentage
+vraag_b <- ???  # Eindantwoord als percentage
+
+# ============================================================
 
 # c. Kans dat boete hoger dan 29€ is
-# Bereken alle stappen handmatig en voer het antwoord in als percentage
-vraag_c <- ???  # Geef antwoord als getal (bijvoorbeeld: 96.41)
+# Stap 1: Bereken Z-score
+z1_c <- ???  # Z-score voor X = 29: (29 - 42.5) / 7.5
+
+# Stap 2: Zoek P(Z ≤ z) op in de standaardnormale tabel
+p_z1_c <- ???  # Waarschijnlijkheid voor z1_c
+
+# Stap 3: Bereken het complement
+complement_c <- ???  # 1 - p_z1_c
+
+# Stap 4: Zet om naar percentage
+vraag_c <- ???  # Eindantwoord als percentage
