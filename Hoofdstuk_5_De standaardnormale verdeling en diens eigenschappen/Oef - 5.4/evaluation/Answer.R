@@ -1,214 +1,118 @@
-# Beoordelingsscript voor Oefening 5.4: Kwaliteitscontrole Trappistenbier
-# Normaalverdeling N(33, 2) - Inhoud flesjes bier
-
 context({
-  testcase("Oefening 5.4: Kwaliteitscontrole Trappistenbier", {
+  testcase(
+    "",
+    {
+      testEqual(
+        "",
+        function(env) {
+          results <- list()
+
+          # Expected answers for Exercise 5.4: Trappist Beer Quality Control
+          # Normal distribution N(33, 2) - bottle contents in cl
+          
+          # Question A - P(32 ≤ X ≤ 34)
+          # Z1 = (32-33)/2 = -0.5, Z2 = (34-33)/2 = 0.5
+          # P(-0.5 ≤ Z ≤ 0.5) = P(Z ≤ 0.5) - P(Z ≤ -0.5) = 0.6915 - 0.3085 = 0.3830
+          exp_a <- 38.30  # As percentage
+          
+          # Question B - P(X > 35)  
+          # Z = (35-33)/2 = 1
+          # P(Z > 1) = 1 - P(Z ≤ 1) = 1 - 0.8413 = 0.1587
+          exp_b <- 15.87  # As percentage
+
+          # Helper function to check each answer
+          check_value <- function(varname, expected, tol = 0.01) {
+            if (!exists(varname, envir = env)) {
+              return(list(exists = FALSE, value = NA, correct = FALSE, expected = expected))
+            }
+            val <- get(varname, envir = env)
+            val_num <- suppressWarnings(as.numeric(val))
+            correct <- !is.na(val_num) && abs(val_num - expected) < tol
+            return(list(exists = TRUE, value = val, correct = correct, expected = expected))
+          }
     
-    # Definieer de parameters van de normaalverdeling
-    mu <- 33      # gemiddelde in cl
-    sigma <- 2    # standaardafwijking in cl
-    
-    # Verwachte antwoorden (gebaseerd op de uitwerking)
-    # Vraag a: P(32 ≤ X ≤ 34)
-    # Z1 = (32-33)/2 = -0.5, Z2 = (34-33)/2 = 0.5
-    # P(-0.5 ≤ Z ≤ 0.5) = P(Z ≤ 0.5) - P(Z ≤ -0.5) = 0.6915 - 0.3085 = 0.3830
-    expected_a <- 38.30  # As percentage
-    
-    # Vraag b: P(X > 35)
-    # Z = (35-33)/2 = 1
-    # P(Z > 1) = 1 - P(Z ≤ 1) = 1 - 0.8413 = 0.1587
-    expected_b <- 15.87  # As percentage
-    
-    # Controleer of variabelen bestaan
-    if (!exists("vraag_a") || !exists("vraag_b")) {
-      env$evaluationResult <- list(
-        list(
-          description = "**❌ Variabelen niet gevonden**",
-          format = "markdown",
-          content = list(
-            "Je moet twee variabelen definiëren met je eindantwoorden:",
-            "- `vraag_a`: percentage flesjes tussen 32cl en 34cl",
-            "- `vraag_b`: percentage flesjes met meer dan 35cl",
-            "",
-            "**Bereken handmatig:**",
-            "1. Gebruik formule Z = (X - μ) / σ",
-            "2. Zoek kansen op in Z-tabel", 
-            "3. Bereken eindpercentage",
-            "",
-            "**Voorbeeld:**",
-            "```r",
-            "vraag_a <- 38.30  # Je berekende percentage",
-            "vraag_b <- 15.87  # Je berekende percentage", 
-            "```"
-          )
-        )
+          # Check each answer
+          result_a <- check_value("vraag_a", exp_a)
+          result_b <- check_value("vraag_b", exp_b)
+
+          # Initialize results list
+          feedback_messages <- list()
+          all_correct <- TRUE
+
+          # Check Question A
+          if (!result_a$exists) {
+            feedback_messages <- append(feedback_messages, list(
+              "❌ **Vraag a niet gevonden**: Definieer `vraag_a` met het percentage flesjes tussen 32cl en 34cl"
+            ))
+            all_correct <- FALSE
+          } else if (!result_a$correct) {
+            feedback_messages <- append(feedback_messages, list(
+              paste("❌ **Vraag a incorrect**:", round(as.numeric(result_a$value), 2), "% (verwacht:", exp_a, "%)")
+            ))
+            all_correct <- FALSE
+          } else {
+            feedback_messages <- append(feedback_messages, list(
+              paste("✅ **Vraag a correct**:", round(as.numeric(result_a$value), 2), "%")
+            ))
+          }
+
+          # Check Question B  
+          if (!result_b$exists) {
+            feedback_messages <- append(feedback_messages, list(
+              "❌ **Vraag b niet gevonden**: Definieer `vraag_b` met het percentage flesjes meer dan 35cl"
+            ))
+            all_correct <- FALSE
+          } else if (!result_b$correct) {
+            feedback_messages <- append(feedback_messages, list(
+              paste("❌ **Vraag b incorrect**:", round(as.numeric(result_b$value), 2), "% (verwacht:", exp_b, "%)")
+            ))
+            all_correct <- FALSE  
+          } else {
+            feedback_messages <- append(feedback_messages, list(
+              paste("✅ **Vraag b correct**:", round(as.numeric(result_b$value), 2), "%")
+            ))
+          }
+          # Generate final result
+          if (all_correct) {
+            results$message <- "🍺 **Uitstekend! Beide vragen correct beantwoord**"
+            results$details <- c(
+              "**Trappistenbier Kwaliteitscontrole - Volledige Oplossing:**",
+              "",
+              "**📋 Gegeven:** N(33, 2) - μ = 33 cl, σ = 2 cl",
+              "",
+              paste("**📊 Vraag a:** ", round(as.numeric(result_a$value), 2), "% (38.30% verwacht) ✅"),
+              "- Z₁ = (32-33)/2 = -0.5, Z₂ = (34-33)/2 = 0.5",
+              "- P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830 = **38.30%**",
+              "",
+              paste("**📊 Vraag b:** ", round(as.numeric(result_b$value), 2), "% (15.87% verwacht) ✅"),
+              "- Z = (35-33)/2 = 1 → P(Z > 1) = 1 - 0.8413 = 0.1587 = **15.87%**",
+              "",
+              "**🎯 Interpretatie:**",
+              paste("- ", round(as.numeric(result_a$value), 2), "% van de flesjes valt binnen bereik (32-34cl)"),
+              paste("- ", round(as.numeric(result_b$value), 2), "% van de flesjes bevat meer dan 35cl"),
+              "",
+              "**🏆 Perfect! Je beheerst normaalverdelingen uitstekend!**"
+            )
+          } else {
+            results$message <- "❌ **Één of meer antwoorden zijn incorrect**"
+            results$details <- c(
+              "**🍺 Trappistenbier Kwaliteitscontrole N(33, 2):**",
+              "",
+              feedback_messages,
+              "",
+              "**💡 Handmatige berekening:**",
+              "1. Bereken Z-scores: Z = (X - μ) / σ",
+              "2. Zoek P(Z ≤ z) op in Z-tabel",
+              "3. Bereken interval/staart kansen",
+              "4. Zet om naar percentage",
+              "",
+              "**🔗 Z-tabel:** https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm"
+            )
+          }
+          
+          return(results)
+        }
       )
-      return(FALSE)
     }
-    
-    # Controleer of de waarden numeriek zijn
-    if (!is.numeric(vraag_a) || !is.numeric(vraag_b)) {
-      env$evaluationResult <- list(
-        list(
-          description = "**❌ Antwoorden moeten numeriek zijn**",
-          format = "markdown", 
-          content = list(
-            "Je antwoorden moeten numerieke waarden zijn (geen strings).",
-            "",
-            "**Fout:** Een of beide antwoorden zijn niet numeriek",
-            "**Oplossing:** Gebruik numerieke berekeningen",
-            "",
-            "**Voorbeeld:**",
-            "```r",
-            "vraag_a <- 0.3830  # Correct: numerieke waarde",
-            "vraag_b <- 0.1587  # Correct: numerieke waarde",
-            "```"
-          )
-        )
-      )
-      return(FALSE)
-    }
-    
-    # Controleer vraag a (met strikte tolerantie voor percentages)
-    tolerance <- 0.01
-    if (abs(vraag_a - expected_a) > tolerance) {
-      
-      # Bereken de z-scores voor diagnostiek
-      z1 <- (32 - mu) / sigma  # -0.5
-      z2 <- (34 - mu) / sigma  # 0.5
-      
-      # Geef gedetailleerde feedback
-      env$evaluationResult <- list(
-        list(
-          description = "**❌ Vraag a: Incorrect percentage (32cl ≤ X ≤ 34cl)**",
-          format = "markdown",
-          content = list(
-            paste("**Je antwoord:** ", round(vraag_a, 2), "%"),
-            paste("**Verwacht:** ", expected_a, "%"),
-            paste("**Verschil:** ", round(abs(vraag_a - expected_a), 2), "%"),
-            "",
-            "**📊 Stap-voor-stap controle:**",
-            "",
-            "**Stap 1: Gegeven informatie**",
-            "- Normaalverdeling: N(33, 2)",
-            "- μ (gemiddelde) = 33 cl", 
-            "- σ (standaardafwijking) = 2 cl",
-            "- Zoek: P(32 ≤ X ≤ 34)",
-            "",
-            "**Stap 2: Bereken z-scores**",
-            paste("- Z₁ = (32 - 33) / 2 =", z1),
-            paste("- Z₂ = (34 - 33) / 2 =", z2),
-            "",
-            "**Stap 3: Zoek kansen in z-tabel**",
-            "- P(Z ≤ 0.5) = 0.6915",
-            "- P(Z ≤ -0.5) = 0.3085",
-            "",
-            "**Stap 4: Bereken interval kans**",
-            "- P(-0.5 ≤ Z ≤ 0.5) = P(Z ≤ 0.5) - P(Z ≤ -0.5)",
-            "- P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830",
-            "- Als percentage: 0.3830 × 100 = 38.30%",
-            "",
-            "**💡 Tips voor handmatige berekening:**",
-            "- Stap 1: Bereken Z-scores met Z = (X - μ) / σ",
-            "- Stap 2: Zoek P(Z ≤ z) op in Z-tabel",
-            "- Stap 3: Voor intervallen: P(a ≤ X ≤ b) = P(Z ≤ z_b) - P(Z ≤ z_a)",
-            "- Stap 4: Zet om naar percentage (× 100)",
-            "",
-            "**🔗 Hulpmiddelen:**",
-            "- [Z-tabel Belfactorij](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)"
-          )
-        )
-      )
-      return(FALSE)
-    }
-    
-    # Controleer vraag b (met zeer strikte tolerantie) 
-    if (abs(vraag_b - expected_b) > tolerance) {
-      
-      # Bereken de z-score voor diagnostiek
-      z <- (35 - mu) / sigma  # 1
-      
-      # Geef gedetailleerde feedback
-      env$evaluationResult <- list(
-        list(
-          description = "**❌ Vraag b: Incorrect percentage (X > 35cl)**",
-          format = "markdown",
-          content = list(
-            paste("**Je antwoord:** ", round(vraag_b, 2), "%"),
-            paste("**Verwacht:** ", expected_b, "%"),
-            paste("**Verschil:** ", round(abs(vraag_b - expected_b), 2), "%"),
-            "",
-            "**📊 Stap-voor-stap controle:**",
-            "",
-            "**Stap 1: Gegeven informatie**",
-            "- Normaalverdeling: N(33, 2)",
-            "- μ (gemiddelde) = 33 cl",
-            "- σ (standaardafwijking) = 2 cl", 
-            "- Zoek: P(X > 35)",
-            "",
-            "**Stap 2: Bereken z-score**",
-            paste("- Z = (35 - 33) / 2 =", z),
-            "",
-            "**Stap 3: Zoek kans in z-tabel**",
-            "- P(Z ≤ 1) = 0.8413",
-            "",
-            "**Stap 4: Bereken rechterstaartkans**",
-            "- P(Z > 1) = 1 - P(Z ≤ 1)",
-            "- P(Z > 1) = 1 - 0.8413 = 0.1587",
-            "- Als percentage: 0.1587 × 100 = 15.87%",
-            "",
-            "**💡 Tips voor handmatige berekening:**",
-            "- Stap 1: Bereken Z-score met Z = (X - μ) / σ",
-            "- Stap 2: Zoek P(Z ≤ z) op in Z-tabel", 
-            "- Stap 3: Voor rechterstaartkans: P(X > a) = 1 - P(X ≤ a)",
-            "- Stap 4: Zet om naar percentage (× 100)",
-            "",
-            "**🔗 Hulpmiddelen:**",
-            "- [Z-tabel Belfactorij](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)"
-          )
-        )
-      )
-      return(FALSE)
-    }
-    
-    # Als beide antwoorden correct zijn
-    env$evaluationResult <- list(
-      list(
-        description = "**✅ Uitstekend! Beide vragen correct beantwoord**",
-        format = "markdown",
-        content = list(
-          "**🍺 Trappistenbier Kwaliteitscontrole - Volledige Oplossing:**",
-          "",
-          "**📋 Gegeven:**",
-          "- Normaalverdeling: N(33, 2)",
-          "- μ = 33 cl, σ = 2 cl",
-          "",
-          "**📊 Vraag a: P(32 ≤ X ≤ 34)**",
-          paste("- **Je antwoord:** ", round(vraag_a, 2), "% (correct)"),
-          "- Z₁ = (32-33)/2 = -0.5 → P(Z ≤ -0.5) = 0.3085",
-          "- Z₂ = (34-33)/2 = 0.5 → P(Z ≤ 0.5) = 0.6915", 
-          "- P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830 = **38.30%**",
-          "",
-          "**📊 Vraag b: P(X > 35)**", 
-          paste("- **Je antwoord:** ", round(vraag_b, 2), "% (correct)"),
-          "- Z = (35-33)/2 = 1 → P(Z ≤ 1) = 0.8413",
-          "- P(Z > 1) = 1 - 0.8413 = 0.1587 = **15.87%**",
-          "",
-          "**🎯 Interpretatie:**",
-          paste("- **", round(vraag_a, 2), "%** van de flesjes valt binnen het gewenste bereik (32-34cl)"),
-          paste("- **", round(vraag_b, 2), "%** van de flesjes bevat meer dan 35cl"),
-          "- De bottelmachine moet wellicht **bijgesteld** worden",
-          "",
-          "**🔬 Criminologische Context:**",
-          "Deze technieken worden ook gebruikt bij:",
-          "- Analyse van responsietijden politie",
-          "- Kwaliteitscontrole forensische metingen", 
-          "- Beoordeling psychologische testscores",
-          "",
-          "**🏆 Excellent work! Je beheerst normaalverdelingen perfect!**"
-        )
-      )
-    )
-    return(TRUE)
-  })
+  )
 })
