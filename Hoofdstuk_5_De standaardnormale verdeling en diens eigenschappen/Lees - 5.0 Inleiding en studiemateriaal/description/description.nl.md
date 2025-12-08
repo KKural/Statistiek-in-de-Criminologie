@@ -25,7 +25,7 @@ Deze video's zijn niet alleen over z-scores, maar over de **volledige inhoud van
 
 Visualiseert de klokvorm, de rol van gemiddelde μ en standaardafwijking σ, en de interpretatie van oppervlakte als kans.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MTzj2C5VJAI" title="Normal Distribution Explained" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iYiOVISWXS4" title="Normal Distribution - Explained Simply" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -37,7 +37,7 @@ Duidelijke uitleg van de drie basisintervallen:
 * 95% binnen ±1,96σ
 * 99,7% binnen ±3σ
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ezwz6Z4Fqj8" title="Empirical Rule (68-95-99.7 Rule)" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xgolpGrAZWo" title="Empirical Rule 68-95-99.7" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -45,7 +45,7 @@ Duidelijke uitleg van de drie basisintervallen:
 
 Uitleg over waarom verschillende normale verdelingen niet rechtstreeks vergelijkbaar zijn, en waarom we standaardiseren naar **N(0,1)**.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qcSG9J9rrsA" title="Standardizing and Z-distribution" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Wp2nUWG5hts" title="Z-Scores and Standardization" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -58,7 +58,7 @@ Toont hoe je:
 * de rechter staart berekent met het complement
 * kansen tussen twee grenzen berekent
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hKSn8yQyVjI" title="How to Use the Standard Normal Table" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bUQEj2GRdqg" title="Using the Standard Normal Table" frameborder="0" allowfullscreen></iframe>
 
 ---
 
