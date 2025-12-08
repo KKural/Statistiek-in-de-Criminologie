@@ -143,11 +143,11 @@ context({
             val_num <- parse_num(val)
             if (is.na(val_num)) return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 0.0086.")
             
-            if (abs(val_num - (-0.0086)) < 0.0001) return("Je gaf -0.0086, maar dit is fout. Je hebt de aftrekking omgekeerd. **Formule:** P(a < X < b) = P(X < b) - P(X < a). Het moet 0.0099 - 0.0013 = 0.0086 zijn.")
-            if (abs(val_num - 0.0112) < 0.0001) return("Je gaf 0.0112, maar dit is fout. Je hebt de kansen opgeteld in plaats van afgetrokken. **Formule:** P(a < X < b) = P(X < b) - P(X < a). Het moet 0.0099 - 0.0013 = 0.0086 zijn.")
-            if (abs(val_num - 0.0013) < 0.0001) return("Je gaf 0.0013, maar dit is fout. Je hebt alleen de eerste kans gebruikt. **Formule:** P(a < X < b) = P(X < b) - P(X < a). Bereken het verschil: 0.0099 - 0.0013 = 0.0086.")
-            if (abs(val_num - 0.0099) < 0.0001) return("Je gaf 0.0099, maar dit is fout. Je hebt alleen de tweede kans gebruikt. **Formule:** P(a < X < b) = P(X < b) - P(X < a). Bereken het verschil: 0.0099 - 0.0013 = 0.0086.")
-            return(paste0("Je gaf ", val, ", maar dit is fout. **Formule:** P(a < X < b) = P(X < b) - P(X < a). Bereken het verschil: 0.0099 - 0.0013 = 0.0086."))
+            if (abs(val_num - (-0.0086)) < 0.0001) return("Je gaf -0.0086, maar dit is fout. Je hebt de aftrekking omgekeerd. **Formule:** P(20 < X < 25) = P(X < 25) - P(X < 20). Het moet 0.0099 - 0.0013 = 0.0086 zijn.")
+            if (abs(val_num - 0.0112) < 0.0001) return("Je gaf 0.0112, maar dit is fout. Je hebt de kansen opgeteld in plaats van afgetrokken. **Formule:** P(20 < X < 25) = P(X < 25) - P(X < 20). Het moet 0.0099 - 0.0013 = 0.0086 zijn.")
+            if (abs(val_num - 0.0013) < 0.0001) return("Je gaf 0.0013, maar dit is fout. Je hebt alleen de eerste kans gebruikt. **Formule:** P(20 < X < 25) = P(X < 25) - P(X < 20). Bereken het verschil: 0.0099 - 0.0013 = 0.0086.")
+            if (abs(val_num - 0.0099) < 0.0001) return("Je gaf 0.0099, maar dit is fout. Je hebt alleen de tweede kans gebruikt. **Formule:** P(20 < X < 25) = P(X < 25) - P(X < 20). Bereken het verschil: 0.0099 - 0.0013 = 0.0086.")
+            return(paste0("Je gaf ", val, ", maar dit is fout. **Formule:** P(20 < X < 25) = P(X < 25) - P(X < 20). Bereken het verschil: 0.0099 - 0.0013 = 0.0086."))
           }
 
           # Feedback for wrong answers - question a

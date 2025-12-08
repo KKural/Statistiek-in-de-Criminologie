@@ -23,7 +23,7 @@ $$Z = \frac{X - \mu}{\sigma}$$
 *Stap 2:* Zoek de kansen op in de standaardnormale tabel
 *Stap 3:* Bereken het verschil
 
-Geef je antwoord als **percentage** (bijvoorbeeld: 7.26)
+Geef je antwoord als **percentage** (bijvoorbeeld: 12.34)
 
 **b) Wat is de kans dat een willekeurige overtreder een boete dient te betalen lager dan 32€?**
 
@@ -31,7 +31,7 @@ Geef je antwoord als **percentage** (bijvoorbeeld: 7.26)
 *Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel  
 *Stap 3:* Zet om naar percentage
 
-Geef je antwoord als **percentage** (bijvoorbeeld: 9.25)
+Geef je antwoord als **percentage** (bijvoorbeeld: 15.67)
 
 **c) Wat is de kans dat een willekeurige overtreder een boete dient te betalen hoger dan 29€?**
 
@@ -40,7 +40,7 @@ Geef je antwoord als **percentage** (bijvoorbeeld: 9.25)
 *Stap 3:* Bereken het complement: 1 - P(Z ≤ z)
 *Stap 4:* Zet om naar percentage
 
-Geef je antwoord als **percentage** (bijvoorbeeld: 25.31)
+Geef je antwoord als **percentage** (bijvoorbeeld: 78.92)
 
 ## Instructies
 

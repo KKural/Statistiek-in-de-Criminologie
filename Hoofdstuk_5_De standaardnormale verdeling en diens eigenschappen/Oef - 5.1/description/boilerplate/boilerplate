@@ -6,15 +6,15 @@
 
 # a. Kans dat boete tussen 20€ en 25€ ligt
 # Stap 1: Bereken Z-scores
-z1_a <- ???  # Z-score voor X = 20: (20 - 42.5) / 7.5
-z2_a <- ???  # Z-score voor X = 25: (25 - 42.5) / 7.5
+z1_a <- ???  # Z-score voor X = 20
+z2_a <- ???  # Z-score voor X = 25
 
 # Stap 2: Zoek P(Z ≤ z) op in de standaardnormale tabel
 p_z1_a <- ???  # Waarschijnlijkheid voor z1_a
 p_z2_a <- ???  # Waarschijnlijkheid voor z2_a
 
 # Stap 3: Bereken het verschil
-verschil_a <- ???  # p_z2_a - p_z1_a
+verschil_a <- ???  # Verschil tussen de twee kansen
 
 # Stap 4: Zet om in percentage
 vraag_a <- ???  # Eindantwoord als percentage
