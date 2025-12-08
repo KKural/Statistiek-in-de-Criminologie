@@ -1,8 +1,7 @@
 {
   "description": {
     "names": {
-      "nl": "Oef - 5.5: Gevangenispopulatie - Oudste 10% bevragen",
-      "en": "Exercise 5.5: Prison Population - Surveying the Oldest 10%"
+      "nl": "Oef - 5.5: Gevangenispopulatie - Oudste 10% bevragen"
     }
   },
   "programming_language": "R",
@@ -13,18 +12,7 @@
   },
   "test_suite": "evaluation",
   "access": "public",
-  "labels": [
-    "hoofdstuk-5",
-    "normale-verdeling",
-    "percentiles",
-    "90ste-percentiel",
-    "kansberekening",
-    "criminologie",
-    "gevangenispopulatie",
-    "multiple-choice",
-    "standaardnormale-verdeling",
-    "z-scores"
-  ],
+  "labels": [],
   "type": "exercise",
   "author": "Statistiek in de Criminologie - UGent",
   "contact": "statistiek.criminologie@ugent.be",
