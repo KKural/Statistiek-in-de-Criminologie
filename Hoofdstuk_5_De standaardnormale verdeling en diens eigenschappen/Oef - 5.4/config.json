@@ -1,24 +1,22 @@
 {
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
   "description": {
     "names": {
       "nl": "Oef - 5.4: Kwaliteitscontrole Trappistenbier"
     }
   },
-  "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "R"
   },
-  "test_suite": "evaluation",
-  "workdir": "workdir",
-  "access": "public",
+  "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
-    "Hoofdstuk 5",
-    "Normaalverdeling",
-    "Z-scores",
-    "Kwaliteitscontrole",
-    "Productieproces",
-    "Statistiek"
+    "standaardnormale verdeling",
+    "z-score",
+    "waarschijnlijkheid",
+    "kwaliteitscontrole",
+    "trappistenbier"
   ],
   "internals": {
     "token": "a7ZqXj_4tN9-mUigAWEvPwkd3uGF2tbm4rDiIuSYz7VEC7afphTQUgGvMnuHn6fK",

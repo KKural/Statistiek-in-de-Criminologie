@@ -115,7 +115,7 @@ context({
             "- Stap 4: Zet om naar percentage (× 100)",
             "",
             "**🔗 Hulpmiddelen:**",
-            "- [Z-tabel Belfactorij](https://www.belfactorij.be/lessen-statistiek/normale-verdeling/z-tabel/)"
+            "- [Z-tabel Belfactorij](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)"
           )
         )
       )
@@ -164,7 +164,7 @@ context({
             "- Stap 4: Zet om naar percentage (× 100)",
             "",
             "**🔗 Hulpmiddelen:**",
-            "- [Z-tabel Belfactorij](https://www.belfactorij.be/lessen-statistiek/normale-verdeling/z-tabel/)"
+            "- [Z-tabel Belfactorij](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)"
           )
         )
       )
