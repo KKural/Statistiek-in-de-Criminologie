@@ -8,7 +8,7 @@
 
 <img src="media/oudste_10_procent_gevangenen.png" alt="Oudste 10% gevangenispopulatie" width="700">
 
-*De afbeelding toont de normale verdeling van leeftijden in de gevangenispopulatie. Het rode gebied rechts van de gestreepte lijn toont de oudste 10% (≈ 45 jaar en ouder).*
+*De afbeelding toont de normale verdeling van leeftijden in de gevangenispopulatie. Het rode gebied rechts van de gestreepte lijn toont de oudste 10% van de populatie.*
 
 > **Hint:** Denk na over percentielberekeningen bij een normale verdeling - je zoekt het punt waarbij 90% van de populatie jonger is.
 
