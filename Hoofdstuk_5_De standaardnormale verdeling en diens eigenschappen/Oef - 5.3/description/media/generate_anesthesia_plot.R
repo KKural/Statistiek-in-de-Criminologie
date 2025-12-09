@@ -90,7 +90,7 @@ print(p)
 # Dit maakt een scherpe PNG (300 dpi) die je in Dodona kunt gebruiken.
 ggsave("anesthesie_dosissen.png",
        plot = p,
-       width = 8, height = 5.33, dpi = 300, units = "in")
+       width = 6, height = 4, dpi = 300, units = "in")
 
 cat("Plot opgeslagen als anesthesie_dosissen.png\n")
 cat("Effectieve dosis (92%):", round(dosis_92, 1), "mg\n")
