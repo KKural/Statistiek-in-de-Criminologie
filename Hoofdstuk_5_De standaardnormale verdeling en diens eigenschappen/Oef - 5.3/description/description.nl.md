@@ -27,10 +27,10 @@ $$Z = \frac{X - \mu}{\sigma}$$
 2. Bereken de kans dat deze dosis letaal is
 
 **Maak een keuze:**
-- 1) 0.3%
-- 2) 0.9%  
-- 3) 1.4%
-- 4) 2.8%
+1. 0.3%
+2. 0.9%  
+3. 1.4%
+4. 2.8%
 
-Geef je antwoord enkle 1-4
+Geef je antwoord als **nummer van de optie** (bijvoorbeeld: 2)
 
