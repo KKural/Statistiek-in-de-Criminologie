@@ -212,7 +212,7 @@ context({
 
           # --- BUILD FEEDBACK TEXT ---
 
-          feedback_text <- ""
+          feedback_text <- "**Gegeven:** N(33, 2) — μ = 33 cl, σ = 2 cl\n\n"
 
           # Vraag A
           q <- "vraag_a"
@@ -276,10 +276,9 @@ context({
             "**Uitleg Vraag B:** Z = (35−33)/2 = 1 → P(Z > 1) = 1 − 0.8413 = 0.1587 = 15.87%.\n\n"
           )
 
-          # General info and Z-table reference
+          # Z-table reference
           feedback_text <- paste0(
             feedback_text,
-            "**Gegeven:** N(33, 2) — μ = 33 cl, σ = 2 cl\n\n",
             "**Z-tabel:** [https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)"
           )
 
