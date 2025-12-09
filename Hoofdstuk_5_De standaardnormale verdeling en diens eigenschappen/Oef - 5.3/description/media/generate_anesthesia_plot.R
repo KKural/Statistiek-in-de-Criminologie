@@ -78,7 +78,9 @@ p <- ggplot(df, aes(x = dosis)) +
   theme_minimal(base_size = 14) +
   theme(
     plot.title  = element_text(hjust = 0.5, face = "bold"),
-    legend.position = "top"
+    legend.position = "top",
+    plot.background = element_rect(fill = "white", color = NA),
+    panel.background = element_rect(fill = "white", color = NA)
   )
 
 # Plot tonen in R

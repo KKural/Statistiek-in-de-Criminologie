@@ -13,7 +13,7 @@ Een arts wil een dosis toedienen die bij 92% van de patiënten effectief is voor
 ![Effectieve en letale dosissen](media/anesthesie_medium.png)
 
 **Method 2: HTML img tag with width 400px (Large file)**
-<img src="media/anesthesie_large.png" alt="Effectieve en letale dosissen" width="400">
+<img src="media/anesthesie_large.png" alt="Effectieve en letale dosissen" width="500">
 
 **Method 3: HTML img tag with width 300px (Large file)**
 <img src="media/anesthesie_large.png" alt="Effectieve en letale dosissen" width="300">
