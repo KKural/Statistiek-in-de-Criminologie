@@ -1,216 +1,299 @@
-# Possible Wrong Answers - Chapter 5 Exercises
+# Chapter 5 - Common Wrong Answers & Diagnostic Testing
 
-This document contains common incorrect answers for testing the diagnostic feedback systems in Chapter 5 exercises.
-
----
-
-## Exercise 5.1 - Traffic Fine Probability (Normal Distribution)
-
-### Question A - Detailed Steps
-
-#### z1_a (correct answer: -3)
-- `3` → sign error
-- `-22.5` → forgot to divide by σ
-- `22.5` → forgot division and wrong sign
-- `-0.4` → divided by wrong value
-
-#### z2_a (correct answer: -2.33)
-- `2.33` → sign error
-- `-17.5` → forgot to divide by σ
-- `-0.31` → divided by wrong value
-
-#### p_z1_a (correct answer: 0.0013)
-- `0.9987` → complement error
-- `0.13` → percentage instead of decimal
-- `1.3` → comma/dot confusion
-
-#### p_z2_a (correct answer: 0.0099)
-- `0.9901` → complement error
-- `0.99` → percentage instead of decimal
-- `9.9` → comma/dot confusion
-
-#### verschil_a (correct answer: 0.0086)
-- `-0.0086` → wrong order subtraction
-- `0.0112` → added instead of subtracted
-- `0.0013` → used only first probability
-- `0.0099` → used only second probability
-
-### Final Answers
-
-#### vraag_a (correct answer: 0.86)
-- `0.0086` → forgot to convert to percentage
-- `86` → multiplied by 100 too many times
-- `0.13` → calculation error
-
-#### vraag_b (correct answer: 8.08)
-- `0.0808` → correct probability but not converted to percentage
-- `91.92` → complement error - calculated P(X > 32)
-- `80.8` → multiplied by 100 twice
-
-#### vraag_c (correct answer: 96.41)
-- `0.9641` → correct probability but not converted to percentage
-- `3.59` → forgot to take complement
-- `103.59` → added instead of taking complement
-- `964.1` → multiplied by 100 twice
-
-**Note:** These should trigger all the different diagnostic messages in the feedback system!
+This document contains systematically organized incorrect answers for testing the diagnostic feedback systems in Chapter 5 exercises.
 
 ---
 
-## Exercise 5.4 - Trappist Beer Quality Control (N(33,2))
+## 📊 Error Pattern Categories
 
-### Question A - P(32 ≤ X ≤ 34) (correct answer: 38.30%)
+### 1. **Z-Score Calculation Errors**
+- Sign errors (positive instead of negative)
+- Formula errors (forgot to subtract μ, forgot to divide by σ)
+- Decimal/percentage confusion
+- Wrong denominator usage
 
-#### Common Wrong Answers:
-- `0.3830` → correct probability but not converted to percentage
-- `0.383` → correct probability, not converted, slight rounding
-- `61.70` → complement error - calculated 100% - 38.30%
-- `0.6170` → complement as decimal
-- `19.15` → used only one tail (half the interval)
-- `76.60` → doubled the correct answer
-- `68.30` → confused with empirical rule percentages
-- `50.00` → assumed symmetric around mean
-- `-38.30` → negative percentage (impossible)
-- `138.30` → added instead of proper calculation
+### 2. **Probability Calculation Errors**  
+- Complement errors (calculated 1-P instead of P)
+- Percentage vs decimal confusion
+- Wrong tail calculations
+- Z-table lookup mistakes
 
-### Question B - P(X > 35) (correct answer: 15.87%)
+### 3. **Interval Probability Errors**
+- Used only one boundary (single tail instead of interval)
+- Added probabilities instead of subtracting
+- Complement of interval instead of interval itself
 
-#### Common Wrong Answers:
-- `0.1587` → correct probability but not converted to percentage
-- `84.13` → complement error - calculated P(X ≤ 35) instead of P(X > 35)
-- `0.8413` → complement as decimal
-- `31.74` → doubled the correct answer
-- `7.935` → used half value
-- `50.00` → assumed 50% for anything above mean
-- `34.13` → used wrong Z-table value
-- `68.27` → confused with empirical rule
-- `-15.87` → negative percentage (impossible)
-- `115.87` → calculation error
+### 4. **Percentage Conversion Errors**
+- Forgot to multiply by 100
+- Multiplied by 100 twice
+- Negative percentages (impossible values)
+- Percentages > 100% (impossible values)
 
-### Testing Values for Diagnostic System:
+---
 
-**For vraag_a:**
+## 🎯 Exercise 5.1 - Traffic Fine Probability N(22.5, 7.5)
+
+**Correct Answers:** vraag_a = 0.86%, vraag_b = 8.08%, vraag_c = 96.41%
+
+### Common Wrong Answers by Type:
+
+#### **Z-Score Errors:**
 ```r
-vraag_a <- 0.3830    # Should trigger: "decimaalvorm" message
-vraag_a <- 61.70     # Should trigger: "complementaire kans" message  
-vraag_a <- 0.6170    # Should trigger: "complementaire kans" message
-vraag_a <- -5        # Should trigger: "kleiner dan 0%" message
-vraag_a <- 150       # Should trigger: "groter dan 100%" message
-vraag_a <- 25.5      # Should trigger: generic wrong answer message
+# For z1_a (correct: -3.0)
+z1_a <- 3.0      # Sign error
+z1_a <- -22.5    # Forgot to divide by σ  
+z1_a <- -0.4     # Wrong denominator
+
+# For z2_a (correct: -2.33)  
+z2_a <- 2.33     # Sign error
+z2_a <- -17.5    # Forgot to divide by σ
+z2_a <- -0.31    # Wrong denominator
 ```
 
-**For vraag_b:**
+#### **Probability & Final Answer Errors:**
 ```r
-vraag_b <- 0.1587    # Should trigger: "decimaalvorm" message
-vraag_b <- 84.13     # Should trigger: "P(X ≤ 35) in plaats van P(X > 35)" message
-vraag_b <- 0.8413    # Should trigger: "P(X ≤ 35) in plaats van P(X > 35)" message  
-vraag_b <- -10       # Should trigger: "kleiner dan 0%" message
-vraag_b <- 120       # Should trigger: "groter dan 100%" message
-vraag_b <- 25.0      # Should trigger: generic wrong answer message
+# Question A (correct: 0.86%)
+vraag_a <- 0.0086    # Forgot percentage conversion
+vraag_a <- 86.0      # Multiplied by 100 twice
+vraag_a <- -0.86     # Negative percentage (impossible)
+
+# Question B (correct: 8.08%)
+vraag_b <- 0.0808    # Forgot percentage conversion  
+vraag_b <- 91.92     # Complement error
+vraag_b <- 808.0     # Multiplied by 100 twice
+
+# Question C (correct: 96.41%)
+vraag_c <- 0.9641    # Forgot percentage conversion
+vraag_c <- 3.59      # Complement error
+vraag_c <- 103.59    # Invalid percentage > 100%
 ```
 
 ---
 
-## Exercise 5.2 - Football Academy Scores N(75, 10)
+## 🍺 Exercise 5.2 - Football Academy Selection N(75, 10)
 
-### Question A - Z-scores for 65% and 80% (correct answers: -1.0 and 0.5)
+**Correct Answers:** z_65 = -1.0, z_80 = 0.5, percentage_trainen = 53.28%, percentage_spelen = 30.85%, aantal_trainen = 27, aantal_spelen = 15
 
-#### Common Wrong Answers for Z-score 65%:
-- `1.0` → sign error (forgot negative)
-- `-10` → forgot to divide by σ
-- `10` → forgot division and wrong sign
-- `-0.1` → divided by wrong value (100 instead of 10)
-- `0.1` → wrong value and sign
-- `-65` → used raw score without transformation
+### Common Wrong Answers by Question:
 
-#### Common Wrong Answers for Z-score 80%:
-- `-0.5` → sign error
-- `5` → forgot to divide by σ
-- `-5` → forgot division, wrong sign
-- `0.05` → divided by wrong value
-- `80` → used raw score without transformation
+#### **A. Z-Score Calculations:**
+```r
+# Z-score for 65% (correct: -1.0)
+z_65 <- 1.0      # Sign error (most common)
+z_65 <- -10.0    # Forgot to divide by σ
+z_65 <- 6.5      # Used X/σ instead of (X-μ)/σ  
+z_65 <- 0.65     # Decimal confusion (65% → 0.65)
 
-### Question B - Percentage between 65% and 79% (correct answer: 53.28%)
+# Z-score for 80% (correct: 0.5)
+z_80 <- -0.5     # Sign error
+z_80 <- 5.0      # Forgot to divide by σ
+z_80 <- 8.0      # Used X/σ instead of (X-μ)/σ
+```
 
-#### Common Wrong Answers:
-- `0.5328` → correct probability but not converted to percentage
-- `46.72` → complement error - calculated outside the interval
-- `0.4672` → complement as decimal
-- `26.64` → used only one tail (half the interval)
-- `106.56` → doubled the correct answer
-- `68.26` → confused with empirical rule (68% within 1σ)
-- `50.00` → assumed 50% for central region
-- `-53.28` → negative percentage (impossible)
-- `153.28` → calculation error
+#### **B. Training Percentage 65-79% (correct: 53.28%):**
+```r
+percentage_trainen <- 0.5328     # Forgot percentage conversion
+percentage_trainen <- 84.13      # Complement error (outside interval)
+percentage_trainen <- 65.54      # Only upper tail P(Z≤0.4)
+percentage_trainen <- 15.87      # Only lower tail P(Z≤-1.0)
+percentage_trainen <- 68.0       # Empirical rule confusion
+```
 
-### Question C - Percentage 80% or higher (correct answer: 30.85%)
+#### **C. Playing Percentage ≥80% (correct: 30.85%):**
+```r  
+percentage_spelen <- 0.3085      # Forgot percentage conversion
+percentage_spelen <- 69.15       # Wrong tail P(Z≤0.5) instead of P(Z≥0.5)
+percentage_spelen <- 50.0        # Assumed 50% above mean
+percentage_spelen <- 15.87       # Used wrong Z-score
+```
 
-#### Common Wrong Answers:
-- `0.3085` → correct probability but not converted to percentage
-- `69.15` → complement error - calculated P(X ≤ 80) instead of P(X > 80)
-- `0.6915` → complement as decimal
-- `61.70` → doubled the correct answer
-- `15.425` → used half value
-- `50.00` → assumed 50% above mean
-- `84.13` → used wrong Z-table value
-- `-30.85` → negative percentage (impossible)
-- `130.85` → calculation error
+#### **D. Player Counts (correct: 27 trainen, 15 spelen):**
+```r
+aantal_trainen <- 26        # Correct calculation but rounded down
+aantal_spelen <- 15         # Usually correct if percentages right
+```
 
 ---
 
-## Exercise 5.3 - Anesthesia Risk Analysis (correct answer: 2 = 0.9%)
+## 🍺 Exercise 5.4 - Trappist Beer Quality Control N(33, 2)
 
-### Multiple Choice Analysis - Mortality Risk
+**Correct Answers:** vraag_a = 38.30%, vraag_b = 15.87%
 
-#### Common Wrong Choice Patterns:
+### Common Wrong Answers by Question:
 
-**Choice 1 (0.3%) - Too Low:**
-- Used wrong Z-value for 92% (possibly Z = 1.645 for 95% instead of Z = 1.405)
-- Calculation error in effective dose (got ~52 mg instead of ~57.6 mg)
+#### **A. Interval P(32 ≤ X ≤ 34) (correct: 38.30%):**
+```r
+vraag_a <- 0.3830      # Correct but forgot percentage conversion
+vraag_a <- 61.70       # Complement error (100% - 38.30%)
+vraag_a <- 0.6170      # Complement as decimal
+vraag_a <- 19.15       # Half interval (single tail)
+vraag_a <- 76.60       # Double counting error
+vraag_a <- 68.30       # Empirical rule confusion  
+vraag_a <- 50.0        # Assumed symmetry
+vraag_a <- -38.30      # Negative percentage (impossible)
+vraag_a <- 138.30      # > 100% (impossible)
+```
+
+#### **B. Right Tail P(X > 35) (correct: 15.87%):**
+```r
+vraag_b <- 0.1587      # Correct but forgot percentage conversion
+vraag_b <- 84.13       # Complement error P(X≤35) instead of P(X>35)
+vraag_b <- 0.8413      # Complement as decimal
+vraag_b <- 31.74       # Double counting
+vraag_b <- 50.0        # Assumed 50% above mean
+vraag_b <- -15.87      # Negative percentage (impossible)
+vraag_b <- 115.87      # > 100% (impossible)
+```
+
+---
+
+## 💊 Exercise 5.3 - Anesthesia Risk Analysis (Multiple Choice)
+
+**Correct Answer:** Choice 2 (0.9% mortality risk)
+
+### Wrong Answer Patterns by Choice:
+
+#### **Choice 1 (0.3%) - Too Low:**
+```
+Error Pattern: Used wrong Z-value for 92% effectiveness
+- Possibly used Z = 1.645 (95% percentile) instead of Z = 1.405 (92%)
+- Effective dose calculation: ~52 mg instead of ~57.6 mg  
 - Wrong Z-table lookup for mortality calculation
-- Used P(Z ≥ z) instead of P(Z ≤ z) for lethal distribution
-
-**Choice 2 (0.9%) - CORRECT:**
-- Step 1: Z₉₂% = 1.405 → X = 1.405×9+45 = 57.65 mg
-- Step 2: Z = (57.65-100)/18 = -2.36 → P(Z ≤ -2.36) = 0.0091 = 0.9%
-
-**Choice 3 (1.4%) - Too High:**
-- Used Z = 1.645 for 95% instead of Z = 1.405 for 92%
-- Calculation errors in dose conversion
-- Wrong complement calculation (used 1 + P instead of P)
-- Confused percentiles (used 95% instead of 92%)
-
-**Choice 4 (2.8%) - Much Too High:**
-- Double-counting error somewhere in calculation
-- Used wrong Z-table section (possibly positive instead of negative)
-- Used P(|Z| ≥ 2.36) instead of P(Z ≤ -2.36)
-- Calculation error: approximately double the correct answer
-
-### Testing Values for Diagnostic System:
-
-```r
-evaluationResult <- 1    # Should trigger: "Te laag - controleer Z-waarde en dose berekening"
-evaluationResult <- 2    # Should trigger: "Correct! 0.9% mortality risk"  
-evaluationResult <- 3    # Should trigger: "Te hoog - mogelijk 95% gebruikt i.p.v. 92%"
-evaluationResult <- 4    # Should trigger: "Veel te hoog - dubbeltelling of verkeerde Z-tabel"
 ```
 
-### Detailed Wrong Answer Patterns:
+#### **Choice 3 (1.4%) - Too High:**
+```
+Error Pattern: Percentile confusion or calculation errors
+- Used Z = 1.645 for 95% instead of Z = 1.405 for 92%
+- Wrong complement calculation
+- Dose conversion errors
+```
 
-#### Step 1 Errors (Effective Dose Calculation):
-- `52.0 mg` → Used Z = 1.645 (95%) instead of Z = 1.405 (92%)
-- `60.0 mg` → Arithmetic error in Z×σ calculation
-- `45.0 mg` → Forgot to add mean (only calculated Z×σ)
-- `62.6 mg` → Used wrong Z-value from table
+#### **Choice 4 (2.8%) - Much Too High:**  
+```
+Error Pattern: Major calculation error
+- Double-counting somewhere in process
+- Used two-tailed probability P(|Z| ≥ 2.36) instead of P(Z ≤ -2.36)
+- Wrong Z-table section (positive instead of negative)
+```
 
-#### Step 2 Errors (Mortality Calculation):
-- `2.8%` → Used P(|Z| ≥ 2.36) (two-tailed) instead of P(Z ≤ -2.36)
-- `97.2%` → Complement error: calculated P(Z ≥ -2.36) = 1 - 0.0091
-- `1.4%` → Wrong Z-table lookup or interpolation error
-- `0.3%` → Combined errors from both steps
+### Detailed Step-by-Step Errors:
+
+#### **Step 1: Effective Dose Calculation (correct: ~57.6 mg)**
+```r
+# Wrong effective doses that lead to wrong answers:
+dose <- 52.0    # Used Z = 1.645 instead of 1.405  
+dose <- 60.0    # Arithmetic error in calculation
+dose <- 45.0    # Forgot to add mean (only Z×σ)
+dose <- 62.6    # Wrong Z-table interpolation
+```
+
+#### **Step 2: Mortality Risk Calculation (correct: 0.9%)**
+```r
+# Wrong mortality calculations:
+mortality <- 2.8     # Two-tailed error P(|Z| ≥ 2.36)
+mortality <- 97.2    # Complement error P(Z ≥ -2.36) 
+mortality <- 1.4     # Wrong Z-table lookup
+mortality <- 0.3     # Combined errors from both steps
+```
 
 ---
 
-## Additional Exercises - [To be added]
+## 🎯 Exercise 5.5 - Prison Population Age Analysis (Multiple Choice)
 
-*Reserved for future exercises in Chapter 5*
+**Correct Answer:** Choice B (26 years - 75th percentile threshold)
+
+### Wrong Answer Patterns by Choice:
+
+#### **Choice A (25 years) - Too Low:**
+```
+Error Pattern: Approximation or rounding error
+- Used Z ≈ 0.67 instead of exact Z = 0.6745
+- Minor calculation error in age conversion
+- Rounded intermediate results too early
+```
+
+#### **Choice C (27 years) - Too High:**  
+```
+Error Pattern: Wrong percentile or Z-value
+- Possibly confused 75th with 80th percentile
+- Used approximate Z = 0.84 instead of 0.6745
+- Calculation error in final conversion
+```
+
+#### **Choice D (28 years) - Much Too High:**
+```  
+Error Pattern: Major calculation error
+- Wrong percentile interpretation
+- Used Z = 1.0 or higher
+- Sign error in calculation
+```
+
+---
+
+## 📋 Testing Protocol for Diagnostic Systems
+
+### **Exercise 5.1 Test Values:**
+```r
+# Test all major error patterns:
+vraag_a <- 0.0086    # Percentage conversion error
+vraag_a <- -0.86     # Negative percentage (impossible) 
+vraag_a <- 860       # Multiplication error
+
+vraag_b <- 91.92     # Complement error
+vraag_c <- 3.59      # Complement error  
+vraag_c <- 964.1     # Double multiplication
+```
+
+### **Exercise 5.2 Test Values:**
+```r  
+# Z-score errors:
+z_65 <- 1.0          # Sign error (most common)
+z_65 <- -10.0        # Division error
+
+# Percentage errors:
+percentage_trainen <- 84.13   # Complement error
+percentage_spelen <- 69.15    # Wrong tail error
+```
+
+### **Exercise 5.4 Test Values:**
+```r
+# Comprehensive error testing:
+vraag_a <- 0.3830    # Decimal vs percentage
+vraag_a <- 61.70     # Complement error
+vraag_a <- -38.30    # Impossible negative
+vraag_a <- 138.30    # Impossible > 100%
+
+vraag_b <- 84.13     # Wrong tail  
+vraag_b <- 0.1587    # Decimal vs percentage
+```
+
+### **Multiple Choice Test Values:**
+```r
+# Exercise 5.3:
+evaluationResult <- 1    # Too low (wrong Z-value)
+evaluationResult <- 3    # Too high (percentile confusion)  
+evaluationResult <- 4    # Much too high (major error)
+
+# Exercise 5.5:
+evaluationResult <- 1    # Approximation error
+evaluationResult <- 3    # Wrong percentile
+evaluationResult <- 4    # Major calculation error
+```
+
+---
+
+## 🔍 Error Pattern Summary
+
+| **Error Type** | **Common in** | **Diagnostic Keywords** |
+|---|---|---|
+| Sign errors | Z-scores | "negatief/positief", "onder/boven gemiddelde" |
+| Division omitted | Z-scores | "vergat delen door σ" |
+| Complement errors | All percentages | "complement", "verkeerde staart" |
+| Decimal/% confusion | Final answers | "vermenigvuldig met 100", "decimaal" |
+| Interval errors | 5.2, 5.4 | "interval", "beide grenzen" |
+| Impossible values | All | "tussen 0% en 100%", "kans kan niet" |
+| Empirical rule confusion | Intervals | "68-95-99.7", "empirische regel" |
+| Table lookup errors | All | "Z-tabel", "verkeerde waarde" |
+
+This organization provides clear testing pathways for all diagnostic feedback systems!

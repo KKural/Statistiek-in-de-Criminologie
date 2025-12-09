@@ -3,7 +3,7 @@
 
 # INSTRUCTIE: Bereken handmatig alle stappen met de formules uit de beschrijving
 # Gebruik de standaardnormale tabel om de waarschijnlijkheden op te zoeken
-# LET OP: Geef decimalen als getallen (bijv. -1.0, 0.5) en percentages ZONDER %-teken!
+# LET OP: Geef decimalen als getallen (bijv. 3.0) en percentages ZONDER %-teken!
 
 # a. Bereken de Z-scores voor 65% en 80%
 z_65 <- ???  # Z-score voor 65% (decimaal)
