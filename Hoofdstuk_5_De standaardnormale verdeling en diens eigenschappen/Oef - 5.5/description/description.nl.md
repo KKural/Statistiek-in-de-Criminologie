@@ -4,13 +4,12 @@
 - **Gemiddelde leeftijd (μ):** 37.8 jaar
 - **Standaardafwijking (σ):** 5.6 jaar  
 - **Verdeling:** Normale verdeling N(37.8, 5.6)
-- **Gezocht:** Oudste 10% (90ste percentiel)
 
-<img src="media/oudste_10_procent_gevangenen.png" alt="Oudste 10% gevangenispopulatie" width="700">
+<img src="media/leeftijdsverdeling_clean.png" alt="Leeftijdsverdeling gevangenispopulatie" width="700">
 
-*De afbeelding toont de normale verdeling van leeftijden in de gevangenispopulatie. Het rode gebied rechts van de gestreepte lijn toont de oudste 10% van de populatie.*
+*De afbeelding toont de normale verdeling van leeftijden in de gevangenispopulatie N(37.8, 5.6). Studenten moeten bepalen welke leeftijd correspondeert met de oudste 10%.*
 
-> **Hint:** Denk na over percentielberekeningen bij een normale verdeling - je zoekt het punt waarbij 90% van de populatie jonger is.
+> **Hint:** Denk na over percentielberekeningen bij een normale verdeling - welk percentiel correspondeert met "oudste 10%"?
 
 1. De gevangenen vanaf de leeftijd van (afgerond) 42.5 jaar
 2. De gevangenen vanaf de leeftijd van (afgerond) 47 jaar  
