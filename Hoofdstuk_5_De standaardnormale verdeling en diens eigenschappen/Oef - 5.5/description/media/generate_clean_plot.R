@@ -32,7 +32,7 @@ p5 <- ggplot(df5, aes(x = leeftijd, y = dichtheid)) +
   # Titels en assen
   labs(
     title = "Leeftijdsverdeling in de gevangenispopulatie",
-    subtitle = "Normale verdeling N(37.8, 5.6)",
+    subtitle = "Normale verdeling (Gemiddelde leeftijd (μ): 37.8 jaar, Standaardafwijking (σ): 5.6 jaar)",
     x = "Leeftijd (jaar)",
     y = "Dichtheid"
   ) +

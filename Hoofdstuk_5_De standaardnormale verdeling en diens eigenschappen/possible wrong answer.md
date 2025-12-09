@@ -111,15 +111,103 @@ vraag_b <- 25.0      # Should trigger: generic wrong answer message
 
 ---
 
-## Exercise 5.2 - [To be added]
+## Exercise 5.2 - Football Academy Scores N(75, 10)
 
-*Reserved for Exercise 5.2 possible wrong answers*
+### Question A - Z-scores for 65% and 80% (correct answers: -1.0 and 0.5)
+
+#### Common Wrong Answers for Z-score 65%:
+- `1.0` → sign error (forgot negative)
+- `-10` → forgot to divide by σ
+- `10` → forgot division and wrong sign
+- `-0.1` → divided by wrong value (100 instead of 10)
+- `0.1` → wrong value and sign
+- `-65` → used raw score without transformation
+
+#### Common Wrong Answers for Z-score 80%:
+- `-0.5` → sign error
+- `5` → forgot to divide by σ
+- `-5` → forgot division, wrong sign
+- `0.05` → divided by wrong value
+- `80` → used raw score without transformation
+
+### Question B - Percentage between 65% and 79% (correct answer: 53.28%)
+
+#### Common Wrong Answers:
+- `0.5328` → correct probability but not converted to percentage
+- `46.72` → complement error - calculated outside the interval
+- `0.4672` → complement as decimal
+- `26.64` → used only one tail (half the interval)
+- `106.56` → doubled the correct answer
+- `68.26` → confused with empirical rule (68% within 1σ)
+- `50.00` → assumed 50% for central region
+- `-53.28` → negative percentage (impossible)
+- `153.28` → calculation error
+
+### Question C - Percentage 80% or higher (correct answer: 30.85%)
+
+#### Common Wrong Answers:
+- `0.3085` → correct probability but not converted to percentage
+- `69.15` → complement error - calculated P(X ≤ 80) instead of P(X > 80)
+- `0.6915` → complement as decimal
+- `61.70` → doubled the correct answer
+- `15.425` → used half value
+- `50.00` → assumed 50% above mean
+- `84.13` → used wrong Z-table value
+- `-30.85` → negative percentage (impossible)
+- `130.85` → calculation error
 
 ---
 
-## Exercise 5.3 - [To be added]
+## Exercise 5.3 - Anesthesia Risk Analysis (correct answer: 2 = 0.9%)
 
-*Reserved for Exercise 5.3 possible wrong answers*
+### Multiple Choice Analysis - Mortality Risk
+
+#### Common Wrong Choice Patterns:
+
+**Choice 1 (0.3%) - Too Low:**
+- Used wrong Z-value for 92% (possibly Z = 1.645 for 95% instead of Z = 1.405)
+- Calculation error in effective dose (got ~52 mg instead of ~57.6 mg)
+- Wrong Z-table lookup for mortality calculation
+- Used P(Z ≥ z) instead of P(Z ≤ z) for lethal distribution
+
+**Choice 2 (0.9%) - CORRECT:**
+- Step 1: Z₉₂% = 1.405 → X = 1.405×9+45 = 57.65 mg
+- Step 2: Z = (57.65-100)/18 = -2.36 → P(Z ≤ -2.36) = 0.0091 = 0.9%
+
+**Choice 3 (1.4%) - Too High:**
+- Used Z = 1.645 for 95% instead of Z = 1.405 for 92%
+- Calculation errors in dose conversion
+- Wrong complement calculation (used 1 + P instead of P)
+- Confused percentiles (used 95% instead of 92%)
+
+**Choice 4 (2.8%) - Much Too High:**
+- Double-counting error somewhere in calculation
+- Used wrong Z-table section (possibly positive instead of negative)
+- Used P(|Z| ≥ 2.36) instead of P(Z ≤ -2.36)
+- Calculation error: approximately double the correct answer
+
+### Testing Values for Diagnostic System:
+
+```r
+evaluationResult <- 1    # Should trigger: "Te laag - controleer Z-waarde en dose berekening"
+evaluationResult <- 2    # Should trigger: "Correct! 0.9% mortality risk"  
+evaluationResult <- 3    # Should trigger: "Te hoog - mogelijk 95% gebruikt i.p.v. 92%"
+evaluationResult <- 4    # Should trigger: "Veel te hoog - dubbeltelling of verkeerde Z-tabel"
+```
+
+### Detailed Wrong Answer Patterns:
+
+#### Step 1 Errors (Effective Dose Calculation):
+- `52.0 mg` → Used Z = 1.645 (95%) instead of Z = 1.405 (92%)
+- `60.0 mg` → Arithmetic error in Z×σ calculation
+- `45.0 mg` → Forgot to add mean (only calculated Z×σ)
+- `62.6 mg` → Used wrong Z-value from table
+
+#### Step 2 Errors (Mortality Calculation):
+- `2.8%` → Used P(|Z| ≥ 2.36) (two-tailed) instead of P(Z ≤ -2.36)
+- `97.2%` → Complement error: calculated P(Z ≥ -2.36) = 1 - 0.0091
+- `1.4%` → Wrong Z-table lookup or interpolation error
+- `0.3%` → Combined errors from both steps
 
 ---
 
