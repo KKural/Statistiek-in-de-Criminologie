@@ -238,6 +238,12 @@ context({
               " **Je hebt geen antwoord gegeven.**\n\n"
             )
           }
+          
+          # Add step-by-step explanation for Question A
+          feedback_text <- paste0(
+            feedback_text,
+            "**Uitleg Vraag A:** Z₁ = (32−33)/2 = −0.5, Z₂ = (34−33)/2 = 0.5 → P(−0.5 ≤ Z ≤ 0.5) = 0.6915 − 0.3085 = 0.3830 = 38.30%.\n\n"
+          )
 
           # Vraag B
           q <- "vraag_b"
@@ -263,13 +269,17 @@ context({
               " **Je hebt geen antwoord gegeven.**\n\n"
             )
           }
+          
+          # Add step-by-step explanation for Question B
+          feedback_text <- paste0(
+            feedback_text,
+            "**Uitleg Vraag B:** Z = (35−33)/2 = 1 → P(Z > 1) = 1 − 0.8413 = 0.1587 = 15.87%.\n\n"
+          )
 
-          # Extra uitleg (zoals in je oude oefening)
+          # General info and Z-table reference
           feedback_text <- paste0(
             feedback_text,
             "**Gegeven:** N(33, 2) — μ = 33 cl, σ = 2 cl\n\n",
-            "**Vraag a:** Z₁ = (32−33)/2 = −0.5, Z₂ = (34−33)/2 = 0.5 → P(−0.5 ≤ Z ≤ 0.5) = 0.6915 − 0.3085 = 0.3830 = 38.30%.\n\n",
-            "**Vraag b:** Z = (35−33)/2 = 1 → P(Z > 1) = 1 − 0.8413 = 0.1587 = 15.87%.\n\n",
             "**Z-tabel:** [https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)"
           )
 
