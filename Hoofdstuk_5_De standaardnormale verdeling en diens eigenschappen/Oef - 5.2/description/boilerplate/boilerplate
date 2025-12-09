@@ -6,11 +6,11 @@
 # LET OP: Geef decimalen als getallen (bijv. -1.0, 0.5) en percentages ZONDER %-teken!
 
 # a. Bereken de Z-scores voor 65% en 80%
-z_score_65 <- ???  # Z-score voor 65% (decimaal, bijv. -1.0)
-z_score_80 <- ???  # Z-score voor 80% (decimaal, bijv. 0.5)
+z_score_65 <- ???  # Z-score voor 65% (decimaal)
+z_score_80 <- ???  # Z-score voor 80% (decimaal)
 
 # b. Percentage kandidaten dat tussen 65% en 79% scoort (mogen trainen maar niet spelen)
-percentage_trainen <- ???  # Eindantwoord als percentage (bijv. 53.28)
+percentage_trainen <- ???  # Eindantwoord als percentage
 
 # c. Percentage kandidaten dat 80% of hoger scoort (mogen volledig spelen)  
-percentage_spelen <- ???  # Eindantwoord als percentage (bijv. 30.85)
+percentage_spelen <- ???  # Eindantwoord als percentage

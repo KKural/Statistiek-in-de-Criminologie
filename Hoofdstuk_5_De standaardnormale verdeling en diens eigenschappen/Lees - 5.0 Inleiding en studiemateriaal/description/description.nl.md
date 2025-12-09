@@ -1,24 +1,20 @@
-Voordat je aan de oefeningen begint, is het cruciaal dat je de kernbegrippen van **Hoofdstuk 5** goed begrijpt.  
-Dit hoofdstuk vormt de basis voor alle inferentiële statistiek die later volgt.  
+Dit theorieblok behandelt de fundamentele concepten van **Hoofdstuk 5: De standaardnormale verdeling en diens eigenschappen**. Deze kennis vormt de basis voor alle inferentiële statistische analyses in de criminologie.
 
-Dit theorieblok bundelt alle **verplichte video's**, **verplichte literatuur**, **extra bronnen** en **interactieve tools** die je nodig hebt om:
+Studiemateriaal en leerdoelen:
 
-- De normale verdeling te herkennen en interpreteren  
-- De parameters μ (gemiddelde) en σ (standaardafwijking) te begrijpen  
-- De 68–95–99.7 regel toe te passen  
-- Te begrijpen waarom standaardisatie nodig is  
-- Z-scores te berekenen en om te zetten naar kansen  
-- De tabel van de standaardnormale verdeling correct te gebruiken  
+- Herkenning en interpretatie van normale verdelingen
+- Parameters μ (gemiddelde) en σ (standaardafwijking)
+- De 68-95-99.7 regel (empirische regel)
+- Standaardisatie en Z-score transformaties
+- Kansberekeningen met de standaardnormale tabel  
 
 ---
 
-## 📹 Verplichte Video's
+## Verplichte Videomateriaal
 
-Deze video's zijn niet alleen over z-scores, maar over de **volledige inhoud van Hoofdstuk 5**: de normale verdeling, haar eigenschappen, de klokvorm, standaardisatie en kansberekening.
+De volgende video's behandelen de volledige inhoud van Hoofdstuk 5, inclusief de normale verdeling, eigenschappen, standaardisatie en kansberekening.
 
----
-
-### 🎥 Video 1 — Wat is een normale verdeling? (Introductie & Eigenschappen)
+### Video 1: Introductie Normale Verdeling
 
 Visualiseert de klokvorm, de rol van gemiddelde μ en standaardafwijking σ, en de interpretatie van oppervlakte als kans.
 
@@ -26,27 +22,22 @@ Visualiseert de klokvorm, de rol van gemiddelde μ en standaardafwijking σ, en 
 
 ---
 
-### 🎥 Video 2 — De 68–95–99.7 Regel (Empirische Regel)
+### Video 2: De Empirische Regel (68-95-99.7)
 
-Duidelijke uitleg van de drie basisintervallen:
-
-* 68% binnen ±1σ
-* 95% binnen ±1,96σ
-* 99,7% binnen ±3σ
+Behandeling van de drie basisintervallen:
+- 68% binnen ±1σ
+- 95% binnen ±1.96σ  
+- 99.7% binnen ±3σ
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xbDnT3NqEIs" title="Empirical Rule and Normal Distribution" frameborder="0" allowfullscreen></iframe>
 
----
+### Video 3: Standaardisatie en Z-scores
 
-### 🎥 Video 3 — Waarom standaardiseren? Van X → Z
-
-Uitleg over waarom verschillende normale verdelingen niet rechtstreeks vergelijkbaar zijn, en waarom we standaardiseren naar **N(0,1)**.
+Uitleg over transformatie van verschillende normale verdelingen naar de standaardnormale verdeling N(0,1).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uAxyI_XfqXk" title="Z-Scores - What They Are and How to Use Them" frameborder="0" allowfullscreen></iframe>
 
----
-
-### 🎥 Video 4 — De standaardnormale verdeling & z-tabel gebruiken
+### Video 4: Gebruik van de Z-tabel
 
 Toont hoe je:
 
@@ -59,9 +50,9 @@ Toont hoe je:
 
 ---
 
-## 📖 Verplichte Literatuur (sluit exact aan bij Hoofdstuk 5)
+## Verplichte Literatuur
 
-### 📘 Hoofdstuk 5 — *De standaardnormale verdeling en diens eigenschappen*
+### Hoofdstuk 5: De standaardnormale verdeling en diens eigenschappen
 
 *Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 
@@ -79,7 +70,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## 📄 Aanvullende Leesbronnen
+## Aanvullende Literatuur
 
 ### 1. OpenStax – The Normal Distribution
 
@@ -107,41 +98,36 @@ Compacte samenvatting van de empirische regel en voorbeelden.
 
 ---
 
-## 🌐 Extra Online Tools
+## Interactieve Hulpmiddelen
 
-Gebruik deze tools om concepten visueel te maken.
+Online tools ter ondersteuning van het leerproces.
 
-### 🔢 Interactieve Standaardnormale Tabel
+### Standaardnormale Tabel
 
 * [https://ztable.net/](https://ztable.net/)
 * [https://ztable.io/](https://ztable.io/)
 
-### 📈 Interactieve Normale Verdeling (met instelbare μ & σ)
+### Normale Verdeling Simulatie
 
 * [https://homepage.divms.uiowa.edu/~mbognar/applets/normal.html](https://homepage.divms.uiowa.edu/~mbognar/applets/normal.html)
 * [https://www.intmath.com/counting-probability/normal-distribution-graph-interactive.php](https://www.intmath.com/counting-probability/normal-distribution-graph-interactive.php)
 
-### 🧮 Normal Distribution Calculator
+### Kansrekening Calculator
 
 * [https://stattrek.com/online-calculator/normal](https://stattrek.com/online-calculator/normal)
 
 ---
 
-## 🎯 Wat moet je zeker kunnen na dit theorieblok?
+## Leerdoelen
 
-Je moet:
+Na bestudering van dit materiaal beheerst u:
 
-* De klokvormige normale verdeling herkennen
-* Kunnen uitleggen wat μ en σ betekenen
-* De 68–95–99.7 regel begrijpen en toepassen
-* Weten wat een "staart" van de verdeling is
-* Begrijpen waarom waarden verder dan 3σ extreem zeldzaam zijn
-* Elke normale variabele kunnen omzetten naar een z-score
-* Kunnen werken met de tabel van de standaardnormale verdeling
-* Kansen kunnen berekenen voor:
+- Herkenning van klokvormige normale verdelingen
+- Interpretatie van parameters μ (gemiddelde) en σ (standaardafwijking)  
+- Toepassing van de empirische regel (68-95-99.7)
+- Het concept van staarten in verdelingen
+- Standaardisatie via Z-score transformaties
+- Gebruik van de standaardnormale tabel
+- Kansberekeningen voor verschillende intervallen
 
-  * linker staart (*P(X < a)*)
-  * rechter staart (*P(X > b)*)
-  * intervallen (*P(a < X < b)*)
-
-Met deze kennis ben je volledig voorbereid om de oefening over **verkeersboetes en kansberekening** te maken.
+Deze competenties vormen de basis voor de praktische oefeningen in dit hoofdstuk.
