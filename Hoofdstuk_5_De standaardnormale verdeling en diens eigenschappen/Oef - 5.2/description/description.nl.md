@@ -30,24 +30,24 @@ $$Z = \frac{X - \mu}{\sigma}$$
 **a) Bereken de Z-scores voor de toetsscores van 65% en 80%.**
 
 - *Stap 1:* Gebruik de formule Z = (X - μ) / σ
-- *Stap 2:* Voor 65%: Z = (65 - 75) / 10 = -1
-- *Stap 3:* Voor 80%: Z = (80 - 75) / 10 = 0.5
+- *Stap 2:* Substituteer de waarden voor beide scores
+- *Stap 3:* Bereken beide Z-scores
 
 Geef je antwoorden als **decimalen** (bijvoorbeeld: -1.0 en 0.5)
 
 **b) Bepaal het percentage kandidaten dat een score tussen 65% en 79% heeft (mogen trainen maar niet spelen).**
 
-- *Stap 1:* Bereken Z-scores voor 65% en 79%
-- *Stap 2:* Zoek P(Z ≤ z) op voor beide waarden
-- *Stap 3:* Bereken P(65 ≤ X ≤ 79) = P(Z ≤ 0.4) - P(Z ≤ -1.0)
+- *Stap 1:* Bereken Z-scores voor beide grenswaarden
+- *Stap 2:* Zoek de kansen op in de standaardnormale tabel
+- *Stap 3:* Bereken het verschil tussen de twee kansen
 
 Geef je antwoord als **percentage** (bijvoorbeeld: 53.28)
 
 **c) Bepaal het percentage kandidaten dat een score van 80% of hoger heeft (mogen volledig spelen).**
 
-- *Stap 1:* Bereken Z-score voor 80%
-- *Stap 2:* Zoek P(Z ≤ 0.5) op in de tabel
-- *Stap 3:* Bereken P(X ≥ 80) = 1 - P(Z ≤ 0.5)
+- *Stap 1:* Bereken Z-score voor de grenswaarde
+- *Stap 2:* Zoek de kans op in de standaardnormale tabel  
+- *Stap 3:* Bereken het complement (rechterstaartkans)
 
 Geef je antwoord als **percentage** (bijvoorbeeld: 30.85)
 

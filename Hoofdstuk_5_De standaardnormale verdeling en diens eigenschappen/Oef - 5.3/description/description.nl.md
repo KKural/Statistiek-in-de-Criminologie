@@ -23,11 +23,11 @@ $$Z = \frac{X - \mu}{\sigma}$$
 
 **Vraag**
 
-**Wat is het verwachte sterftepercentage bij het toedienen van een dosis die 92% van de patiënten effectief anesthesieert?**
+**De arts wil een dosis bepalen die effectief is voor het merendeel van de patiënten, maar ook veilig genoeg om het mortaliteitsrisico laag te houden. Op basis van medische standaarden wordt een effectiviteit van ongeveer 9 op de 10 patiënten nagestreefd (uitgedrukt als percentiel). Wat is het verwachte sterftepercentage bij het toedienen van deze dosis?**
 
 **Stappen:**
-1. Bepaal de dosis die bij 92% van de patiënten effectief is
-2. Bereken de kans dat deze dosis letaal is
+1. Bepaal eerst welke dosis nodig is voor de gewenste effectiviteit
+2. Bereken vervolgens de kans dat deze dosis letaal is
 
 **Maak een keuze:**
 1. 0.3%
