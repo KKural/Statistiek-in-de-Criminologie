@@ -10,23 +10,22 @@ Studiemateriaal en leerdoelen:
 
 ---
 
-## Verplichte Videomateriaal
+## **Verplichte Videomateriaal**
 
-### Standaardnormale verdeling
+### **Standaardnormale verdeling**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VmuPqWnC0nw" title="Standard Normal Distribution" frameborder="0" allowfullscreen></iframe>
 
-### Z-scores en Standaardisatie
-
+### **Z-scores en Standaardisatie**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2tuBREK_mgE" title="Z-scores en Standaardisatie" frameborder="0" allowfullscreen></iframe>
 
-### De Z-tabel gebruiken
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/p_KApjpyBHE" title="De Z-tabel gebruiken" frameborder="0" allowfullscreen></iframe>
-
-### Z-scores berekenen
+### **Z-scores berekenen**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RdY9V_vittA" title="Z-scores berekenen" frameborder="0" allowfullscreen></iframe>
+
+### **De Z-tabel gebruiken**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p_KApjpyBHE" title="De Z-tabel gebruiken" frameborder="0" allowfullscreen></iframe>
 
 ---
 
