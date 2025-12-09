@@ -9,6 +9,10 @@ Een Europese voetbalacademie selecteert eerstejaars spelers op basis van hun sch
 - **Standaardafwijking (σ):** 10%
 - **Verdeling:** Normale verdeling N(75, 10)
 
+<img src="media/voetbalacademie_scores.png" alt="Toetsscores voetbalacademie" width="700">
+
+*De afbeelding toont de normale verdeling van toetsscores met de drie categorieën: rood (niet deelnemen < 65%), oranje (mee trainen 65-79%), en groen (volledig deelnemen ≥ 80%).*
+
 **Formules**
 
 **Z-score berekening:**
