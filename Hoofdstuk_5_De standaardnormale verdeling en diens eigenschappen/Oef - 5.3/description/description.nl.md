@@ -7,6 +7,10 @@ Een arts wil een dosis toedienen die bij 92% van de patiënten effectief is voor
 - **Letale dosis:** N(100, 18) mg
 - **Gewenste effectiviteit:** 92% van de patiënten
 
+![Effectieve en letale dosissen](media/anesthesie_dosissen.png)
+
+*De afbeelding toont de effectieve dosis N(45,9) in oranje en letale dosis N(100,18) in rood. Het rode gebied rechts van de gestreepte lijn (92% effectieve dosis ≈ 57.6 mg) toont het mortaliteitsrisico.*
+
 **Formules**
 
 **Z-score berekening:**
