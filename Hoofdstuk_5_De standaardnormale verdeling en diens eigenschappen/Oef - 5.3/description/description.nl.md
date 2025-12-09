@@ -6,9 +6,9 @@ Een arts wil een dosis toedienen die bij een groot percentage van de patiënten 
 - **Effectieve dosis:** N(45, 9) mg  
 - **Letale dosis:** N(100, 18) mg
 
-<img src="media/anesthesie_large.png" alt="Effectieve en letale dosissen" width="800">
+<img src="media/anesthesie_uniform.png" alt="Effectieve en letale dosissen" width="800">
 
-*De afbeelding toont de effectieve dosis N(45,9) in oranje en letale dosis N(100,18) in rood. Het gestreepte lijn markeert de gewenste dosis voor effectieve anesthesie.*
+*De afbeelding toont beide verdelingen uniform: effectieve dosis N(45,9) in oranje en letale dosis N(100,18) in rood. De gestreepte lijn markeert de gewenste effectieve dosis.*
 
 **Formules**
 
