@@ -22,34 +22,30 @@ $$Z = \frac{X - \mu}{\sigma}$$
 
 **📊 Volledige Z-score tabel:** [Standaardnormale verdeling tabel](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)
 
-## Visualisatie van de Normale Verdeling
-
-<img src="media/normal_distribution_plot.png" width="600" alt="Normale verdeling van verkeersboetes">
 
 **Vragen**
 
 **a) Wat is de kans dat een willekeurige overtreder een boete dient te betalen tussen de 20€ en 25€?**
 
-*Stap 1:* Bereken de Z-scores voor beide grenzen
-*Stap 2:* Zoek de kansen op in de standaardnormale tabel
-*Stap 3:* Bereken het verschil
+- **Stap 1:** Bereken de Z-scores voor beide grenzen
+- **Stap 2:** Zoek de kansen op in de standaardnormale tabel
+- **Stap 3:** Bereken het verschil
 
 Geef je antwoord als **percentage** (bijvoorbeeld: 12.34)
 
 **b) Wat is de kans dat een willekeurige overtreder een boete dient te betalen lager dan 32€?**
 
-*Stap 1:* Bereken de Z-score voor X = 32
-*Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel  
-*Stap 3:* Zet om naar percentage
-
+- **Stap 1:** Bereken de Z-score voor X = 32
+- **Stap 2:** Zoek P(Z ≤ z) op in de standaardnormale tabel  
+- **Stap 3:** Zet om naar percentage
 Geef je antwoord als **percentage** (bijvoorbeeld: 15.67)
 
 **c) Wat is de kans dat een willekeurige overtreder een boete dient te betalen hoger dan 29€?**
 
-*Stap 1:* Bereken de Z-score voor X = 29
-*Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel
-*Stap 3:* Bereken het complement: 1 - P(Z ≤ z)
-*Stap 4:* Zet om naar percentage
+- **Stap 1:** Bereken de Z-score voor X = 29
+- **Stap 2:** Zoek P(Z ≤ z) op in de standaardnormale tabel
+- **Stap 3:** Bereken het complement: 1 - P(Z ≤ z)
+- **Stap 4:** Zet om naar percentage
 
 Geef je antwoord als **percentage** (bijvoorbeeld: 78.92)
 
