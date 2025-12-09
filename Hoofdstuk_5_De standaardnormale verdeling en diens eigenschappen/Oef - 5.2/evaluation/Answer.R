@@ -90,32 +90,29 @@ context({
 
             # Sign error - most common mistake
             if (abs(val_num - 1.0) < 0.1) {
-              return("**Wat je goed deed:** Je berekende de afstand tot het gemiddelde correct (1.0 standaarddeviatie).\n\n**Waarom dit fout is:** Je gaf +1.0, maar 65% ligt ONDER het gemiddelde van 75%.\n\n**Conceptueel:** Waarden onder μ geven negatieve Z-scores, waarden boven μ geven positieve Z-scores.\n\n**Realiteitscheck:** 65 < 75, dus Z moet negatief zijn.\n\n**Correctie:** Z = (65-75)/10 = -10/10 = **-1.0**")
+              return("**Waarom dit fout is:** Je gaf +1.0, maar 65% ligt ONDER het gemiddelde van 75%.\n\n**Wat er gebeurde:** Je berekende de afstand correct (1.0), maar vergat het negatieve teken.\n\n**Wat je miste:** Waarden onder μ geven negatieve Z-scores, waarden boven μ positieve.\n\n**Check:** 65 < 75, dus Z moet negatief zijn.\n\n**Uitleg:** Z = (65−75)/10 = −10/10 = **−1.0**.")
             }
             
             # Forgot to subtract μ
             if (abs(val_num - 6.5) < 0.1) {
-              return("**Waarom dit fout is:** Je gaf 6.5 - dit suggereert dat je X/σ deed in plaats van (X-μ)/σ.\n\n**Wat er waarschijnlijk gebeurde:** Je berekende 65/10 = 6.5, maar vergat het gemiddelde af te trekken.\n\n**Conceptueel:** Standaardisatie vereist EERST centreren (X-μ), DAN schalen (/σ).\n\n**Correctie:** Z = (65-75)/10 = -10/10 = **-1.0**")
+              return("**Waarom dit fout is:** Je gaf 6.5 - dit suggereert X/σ in plaats van (X−μ)/σ.\n\n**Wat er gebeurde:** Je berekende 65/10 = 6.5, maar vergat het gemiddelde af te trekken.\n\n**Wat je miste:** Standaardisatie vereist EERST centreren (X−μ), DAN delen door σ.\n\n**Uitleg:** Z = (65−75)/10 = −10/10 = **−1.0**.")
             }
             
             # Used wrong denominator
             if (abs(val_num - (-10)) < 0.5) {
-              return("**Wat je goed deed:** Je trok correct μ af: 65-75 = -10.\n\n**Waarom dit fout is:** Je vergat te delen door σ = 10.\n\n**Wat er waarschijnlijk gebeurde:** Je stopte na de eerste stap van de Z-score formule.\n\n**Conceptueel:** Z-scores meten 'hoeveel standaardafwijkingen van het gemiddelde'. Dus: (afstand tot μ) / σ.\n\n**Correctie:** Z = -10 / **10** = **-1.0**")
+              return("**Waarom dit fout is:** Je gaf −10 maar vergat te delen door σ = 10.\n\n**Wat er gebeurde:** Je stopte na de eerste stap: 65−75 = −10.\n\n**Wat je miste:** Z-scores = (afstand tot μ) / σ. Je moet nog delen.\n\n**Uitleg:** Z = −10 / **10** = **−1.0**.")
             }
             
             # Decimal confusion
             if (abs(val_num - 0.65) < 0.05) {
-              return("**Waarom dit fout is:** Je gaf 0.65 - dit lijkt op de ruwe score zelf als decimaal.\n\n**Wat je miste:** Z-scores meten standaardafwijkingen, niet decimale versies van de originele waarde.\n\n**Conceptueel:** 65% wordt 0.65 als decimaal, maar Z = (65-75)/10 = -1.0.\n\n**Correctie:** Gebruik de Z-formule: Z = (65-75)/10 = **-1.0**")
+              return("**Waarom dit fout is:** Je gaf 0.65 - dit lijkt op 65% als decimaal.\n\n**Wat er gebeurde:** Je verwarde de ruwe score met de Z-score.\n\n**Wat je miste:** Z-scores meten standaardafwijkingen, niet decimale waarden.\n\n**Uitleg:** Z = (65−75)/10 = **−1.0**.")
             }
 
             return(paste0(
-              "**Je antwoord ", val, " is niet correct.**\n\n",
-              "**Mogelijke oorzaken:** Teken-fout, verkeerde formule-toepassing, of rekenfout.\n\n",
-              "**Stap-voor-stap controle:**\n",
-              "1. **Formule:** Z = (X - μ) / σ ✓\n",
-              "2. **Invullen:** Z = (65 - 75) / 10 ✓\n", 
-              "3. **Berekening:** Z = -10 / 10 = **-1.0** ✓\n",
-              "4. **Realiteitscheck:** 65 < 75, dus Z < 0 ✓"
+              "**Waarom dit fout is:** Je antwoord ", val, " is niet correct.\n\n",
+              "**Wat er gebeurde:** Waarschijnlijk een teken-fout of verkeerde formule-toepassing.\n\n",
+              "**Wat je miste:** Z-score formule correct toepassen en controleren of het teken klopt.\n\n",
+              "**Uitleg:** Z = (65−75)/10 = −10/10 = **−1.0**."
             ))
           }
 
@@ -126,19 +123,18 @@ context({
             }
 
             if (abs(val_num - (-0.5)) < 0.1) {
-              return("**Waarom dit fout is:** Je berekende -0.5 in plaats van +0.5.\n\n**Wat je miste:** 80% ligt BOVEN het gemiddelde van 75%, dus de Z-score moet positief zijn.\n\n**Correctie:** Z = (80-75)/10 = 5/10 = **+0.5**")
+              return("**Waarom dit fout is:** Je gaf −0.5, maar 80% ligt BOVEN het gemiddelde van 75%.\n\n**Wat er gebeurde:** Je berekende de afstand correct maar gebruikte verkeerd teken.\n\n**Wat je miste:** Waarden boven μ geven positieve Z-scores.\n\n**Uitleg:** Z = (80−75)/10 = 5/10 = **+0.5**.")
             }
             
             if (abs(val_num - 8.0) < 0.1) {
-              return("**Waarom dit fout is:** Je gebruikte waarschijnlijk 80 in plaats van (80-75).\n\n**Controleer:** Z = (X - μ) / σ = (80 - 75) / 10 = 5/10 = **0.5**")
+              return("**Waarom dit fout is:** Je gaf 8.0 - dit suggereert X/σ in plaats van (X−μ)/σ.\n\n**Wat er gebeurde:** Je berekende 80/10 = 8.0, maar vergat μ af te trekken.\n\n**Wat je miste:** Eerst centreren: X−μ, dan delen door σ.\n\n**Uitleg:** Z = (80−75)/10 = 5/10 = **0.5**.")
             }
 
             return(paste0(
-              "**Je antwoord ", val, " is niet correct.**\n\n",
-              "**Stap-voor-stap controle:**\n",
-              "1. **Formule:** Z = (X - μ) / σ ✓\n",
-              "2. **Invullen:** Z = (80 - 75) / 10 ✓\n", 
-              "3. **Berekening:** Z = 5 / 10 = **0.5** ✓"
+              "**Waarom dit fout is:** Je antwoord ", val, " is niet correct.\n\n",
+              "**Wat er gebeurde:** Waarschijnlijk een rekenfout of verkeerde formule-toepassing.\n\n",
+              "**Wat je miste:** Z-score formule: (X−μ)/σ correct gebruiken.\n\n",
+              "**Uitleg:** Z = (80−75)/10 = 5/10 = **0.5**."
             ))
           }
 
@@ -150,37 +146,34 @@ context({
 
             # Complement error - calculated everything EXCEPT the interval
             if (abs(val_num - 84.13) < 0.5) {
-              return("**Waarom dit fout is:** Je berekende 84.13% = het complement van 53.28%. Dit gebeurt vaak bij intervalvragen.\n\n**Wat er waarschijnlijk gebeurde:** Je dacht aan 'iedereen die NIET tussen 65-79% scoort' in plaats van 'iedereen die WEL tussen 65-79% scoort'.\n\n**Conceptueel:** Voor P(65 ≤ X ≤ 79) zoek je spelers BINNEN het interval, niet erbuiten.\n\n**Realiteitscheck:** ~53% lijkt realistisch voor dit middeninterval rond het gemiddelde.\n\n**Correctie:** P(Z ≤ 0.4) - P(Z ≤ -1.0) = 0.6554 - 0.1587 = **53.28%**")
+              return("**Waarom dit fout is:** Je berekende 84.13% = het complement van het interval.\n\n**Wat er gebeurde:** Je dacht aan 'iedereen BEHALVE 65-79%' in plaats van het interval zelf.\n\n**Wat je miste:** We zoeken spelers BINNEN [65,79], niet erbuiten.\n\n**Uitleg:** P(65≤X≤79) = P(−1≤Z≤0.4) = 0.6554−0.1587 = **53.28%**.")
             }
             
             # Only used upper tail - forgot to subtract lower tail
             if (abs(val_num - 65.54) < 0.5) {
-              return("**Wat je goed deed:** Je vond correct P(Z ≤ 0.4) = 0.6554 = 65.54%!\n\n**Waarom dit fout is:** Je vergat de linkerkant af te trekken.\n\n**Wat er waarschijnlijk gebeurde:** Je berekende alleen tot de bovengrens (79%), maar een interval vereist bovenkant - onderkant.\n\n**Conceptueel:** P(a ≤ X ≤ b) = P(X ≤ b) - P(X ≤ a). Denk aan 'alle kans tot b' minus 'alle kans tot a'.\n\n**Correctie:** 0.6554 - 0.1587 = **53.28%**")
+              return("**Waarom dit fout is:** Je gaf 65.54% - dit is alleen P(Z≤0.4).\n\n**Wat er gebeurde:** Je berekende tot de bovengrens maar vergat de ondergrens af te trekken.\n\n**Wat je miste:** Voor intervallen: P(a≤X≤b) = P(X≤b) − P(X≤a).\n\n**Uitleg:** 0.6554 − 0.1587 = **53.28%**.")
             }
             
             # Only used lower tail
             if (abs(val_num - 15.87) < 0.5) {
-              return("**Wat je goed deed:** Je vond correct P(Z ≤ -1.0) = 0.1587 = 15.87%!\n\n**Waarom dit fout is:** Dit is alleen de kans op scores ≤65%, niet het interval 65-79%.\n\n**Wat je miste:** Voor een interval P(65 ≤ X ≤ 79) moet je beide grenzen gebruiken: P(Z ≤ 0.4) - P(Z ≤ -1.0).\n\n**Conceptueel:** Je berekende de linkerstaart, maar we willen het middengedeelte.\n\n**Correctie:** 0.6554 - 0.1587 = **53.28%**")
+              return("**Waarom dit fout is:** Je gaf 15.87% - dit is alleen P(Z≤−1.0).\n\n**Wat er gebeurde:** Je berekende de linkerstaart in plaats van het interval.\n\n**Wat je miste:** Voor het interval 65-79% moet je beide grenzen gebruiken.\n\n**Uitleg:** P(−1≤Z≤0.4) = 0.6554−0.1587 = **53.28%**.")
             }
             
             # Percentage vs decimal confusion
             if (abs(val_num - 0.5328) < 0.001) {
-              return("**Wat je goed deed:** Je berekende de kans perfect als 0.5328!\n\n**Wat je miste:** De vraag vraagt om een percentage, niet een decimale kans.\n\n**Conceptueel:** Kansen zijn decimalen (0-1), percentages zijn decimalen × 100.\n\n**Correctie:** 0.5328 × 100 = **53.28%**")
+              return("**Waarom dit fout is:** Je gaf 0.5328 - dit is de decimale kans.\n\n**Wat er gebeurde:** Je berekende correct maar vergat om te zetten naar percentage.\n\n**Wat je miste:** Percentages = decimalen × 100.\n\n**Check:** 0.5328 × 100 = **53.28%**.")
             }
             
             # Used empirical rule approximation
             if (abs(val_num - 68.0) < 1.0) {
-              return("**Waarom dit fout is:** Je gebruikte de empirische regel (68% binnen μ ± 1σ).\n\n**Wat je miste:** De empirische regel geldt voor [65%, 85%] = μ ± 1σ. Maar we willen [65%, 79%] - een kleiner interval!\n\n**Conceptueel:** [65,79] is asymmetrisch en smaller dan [65,85]. Gebruik altijd de Z-tabel voor specifieke intervallen.\n\n**Realiteitscheck:** 53% < 68% omdat ons interval kleiner is dan μ ± 1σ.")
+              return("**Waarom dit fout is:** Je gebruikte de empirische regel (68% binnen μ±1σ).\n\n**Wat er gebeurde:** Je dacht aan [65,85] = μ±1σ, maar we willen [65,79].\n\n**Wat je miste:** [65,79] is kleiner dan μ±1σ, dus < 68%.\n\n**Uitleg:** Z₁=−1.0, Z₂=0.4 → 0.6554−0.1587 = **53.28%**.")
             }
 
             return(paste0(
-              "**Je antwoord ", val, "% is niet correct.**\n\n",
-              "**Mogelijke oorzaken:** Verkeerde Z-waarden, fout in interval-berekening, of complement genomen.\n\n",
-              "**Stap-voor-stap controle:**\n",
-              "1. **Z-scores:** 65% → Z = -1.0, 79% → Z = (79-75)/10 = 0.4 ✓\n",
-              "2. **Z-tabel:** P(Z ≤ -1.0) = 0.1587, P(Z ≤ 0.4) = 0.6554 ✓\n",
-              "3. **Interval:** P(-1 ≤ Z ≤ 0.4) = 0.6554 - 0.1587 = 0.5328 ✓\n",
-              "4. **Percentage:** 0.5328 × 100% = **53.28%** ✓"
+              "**Waarom dit fout is:** Je antwoord ", val, "% is niet correct.\n\n",
+              "**Wat er gebeurde:** Waarschijnlijk fout in interval-berekening of Z-tabel gebruik.\n\n",
+              "**Wat je miste:** Correcte toepassing van P(a≤X≤b) = P(X≤b) − P(X≤a).\n\n",
+              "**Uitleg:** Z₁=−1.0, Z₂=0.4 → P(−1≤Z≤0.4) = 0.6554−0.1587 = **53.28%**."
             ))
           }
 
@@ -192,37 +185,34 @@ context({
 
             # Wrong tail - used left instead of right
             if (abs(val_num - 69.15) < 0.5) {
-              return("**Wat je goed deed:** Je vond correct P(Z ≤ 0.5) = 0.6915 = 69.15%!\n\n**Waarom dit fout is:** Je berekende de verkeerde staart. We willen P(Z ≥ 0.5), niet P(Z ≤ 0.5).\n\n**Wat er waarschijnlijk gebeurde:** Je las de Z-tabel correct, maar vergat dat ≥80% betekent 'rechter staart', niet 'linker staart'.\n\n**Conceptueel:** Z-tabellen geven P(Z ≤ z). Voor P(Z ≥ z) gebruik je 1 - P(Z ≤ z).\n\n**Realiteitscheck:** ~31% van spelers scoort ≥80% lijkt realistisch (minderheidsprestatie).\n\n**Correctie:** 1 - 0.6915 = **30.85%**")
+              return("**Waarom dit fout is:** Je gaf 69.15% - dit is P(Z≤0.5) in plaats van P(Z≥0.5).\n\n**Wat er gebeurde:** Je las de Z-tabel correct maar gebruikte de verkeerde staart.\n\n**Wat je miste:** Voor ≥80% gebruik je het complement: 1−P(Z≤0.5).\n\n**Uitleg:** P(Z≥0.5) = 1−0.6915 = **30.85%**.")
             }
             
             # Assumed symmetry/50-50
             if (abs(val_num - 50.0) < 0.5) {
-              return("**Waarom dit fout is:** Je nam aan dat de kans 50% is.\n\n**Wat er waarschijnlijk gebeurde:** Je dacht dat 80% precies op de mediaan ligt, of dat alles boven het gemiddelde 50% kans heeft.\n\n**Wat je miste:** 80% ligt 0.5σ BOVEN μ = 75%. Dit is geen 50-50 verdeling!\n\n**Conceptueel:** Alleen bij de mediaan (μ zelf) is de kans 50%. Voor andere waarden gebruik je de Z-tabel.\n\n**Realiteitscheck:** Scores boven gemiddelde+0.5σ zijn relatief zeldzaam, dus < 50%.")
+              return("**Waarom dit fout is:** Je nam aan dat de kans 50% is.\n\n**Wat er gebeurde:** Je dacht dat alles boven het gemiddelde 50% kans heeft.\n\n**Wat je miste:** 80% ligt 0.5σ boven μ, dus geen 50-50 verdeling.\n\n**Uitleg:** Z=0.5 → P(Z≥0.5) = 1−0.6915 = **30.85%**.")
             }
             
             # Percentage vs decimal confusion
             if (abs(val_num - 0.3085) < 0.001) {
-              return("**Wat je goed deed:** Je berekende de kans perfect als 0.3085!\n\n**Wat je miste:** De vraag vraagt om een percentage, niet een decimale kans.\n\n**Conceptueel:** 0.3085 betekent '30.85 van elke 100 spelers kunnen volledig spelen'.\n\n**Correctie:** 0.3085 × 100 = **30.85%**")
+              return("**Waarom dit fout is:** Je gaf 0.3085 - dit is de decimale kans.\n\n**Wat er gebeurde:** Je berekende correct maar vergat om te zetten naar percentage.\n\n**Wat je miste:** Percentages = decimalen × 100.\n\n**Check:** 0.3085 × 100 = **30.85%**.")
             }
             
             # Used wrong Z-score
             if (abs(val_num - 15.87) < 0.5) {
-              return("**Waarom dit fout is:** Je gaf 15.87% - dit suggereert Z = -1.0 in plaats van Z = +0.5.\n\n**Wat er waarschijnlijk gebeurde:** Je berekende Z = (80-75)/10 verkeerd, of gebruikte de verkeerde grens.\n\n**Wat je miste:** Voor 80%: Z = (80-75)/10 = 5/10 = +0.5, niet -1.0.\n\n**Conceptueel:** 80% > 75% (gemiddelde), dus Z moet positief zijn.\n\n**Correctie:** P(Z ≥ 0.5) = 1 - P(Z ≤ 0.5) = 1 - 0.6915 = **30.85%**")
+              return("**Waarom dit fout is:** Je gaf 15.87% - dit suggereert Z=−1.0 in plaats van Z=+0.5.\n\n**Wat er gebeurde:** Je berekende Z=(80−75)/10 verkeerd of gebruikte verkeerde grens.\n\n**Wat je miste:** 80% > 75%, dus Z moet positief zijn: Z=+0.5.\n\n**Uitleg:** P(Z≥0.5) = 1−0.6915 = **30.85%**.")
             }
             
             # Doubled or added incorrectly
             if (abs(val_num - 138.5) < 1.0) {
-              return("**Waarom dit fout is:** 138.5% > 100% - kansen kunnen nooit groter dan 100% zijn!\n\n**Wat er waarschijnlijk gebeurde:** Je telde 0.6915 + 0.6915 of deed iets soortgelijks met dubbeltelling.\n\n**Wat je miste:** Voor rechterstaarten gebruik je aftrekking: 1 - P(Z ≤ z), niet optelling.\n\n**Check:** Alle kansen liggen tussen 0% en 100%.")
+              return("**Waarom dit fout is:** 138.5% > 100% - kansen kunnen nooit groter dan 100% zijn!\n\n**Wat er gebeurde:** Waarschijnlijk dubbeltelling of verkeerde optelling.\n\n**Wat je miste:** Voor rechterstaarten: 1−P(Z≤z), niet optelling.\n\n**Check:** Alle kansen liggen tussen 0% en 100%.")
             }
 
             return(paste0(
-              "**Je antwoord ", val, "% is niet correct.**\n\n",
-              "**Mogelijke oorzaken:** Verkeerde staart, fout Z-score, of complement-fout.\n\n",
-              "**Stap-voor-stap controle:**\n",
-              "1. **Z-score:** 80% → Z = (80-75)/10 = 0.5 ✓\n",
-              "2. **Z-tabel:** P(Z ≤ 0.5) = 0.6915 ✓\n",
-              "3. **Rechterstaart:** P(Z ≥ 0.5) = 1 - P(Z ≤ 0.5) = 1 - 0.6915 = 0.3085 ✓\n",
-              "4. **Percentage:** 0.3085 × 100% = **30.85%** ✓"
+              "**Waarom dit fout is:** Je antwoord ", val, "% is niet correct.\n\n",
+              "**Wat er gebeurde:** Waarschijnlijk verkeerde staart of complement-fout.\n\n",
+              "**Wat je miste:** Voor P(X≥80) gebruik je P(Z≥0.5) = 1−P(Z≤0.5).\n\n",
+              "**Uitleg:** Z = (80−75)/10 = 0.5 → P(Z≥0.5) = 1−0.6915 = **30.85%**."
             ))
           }
 
