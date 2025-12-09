@@ -38,7 +38,7 @@ context({
           }
 
           # Check final answer only
-          results$antwoord <- check_value("antwoord", exp_answer, tol = 0.05, expect_percent = FALSE)
+          results$antwoord <- check_value("antwoord", exp_answer, tol = 0.0, expect_percent = FALSE)
 
           assign("detailed_results", results, envir = globalenv())
 
