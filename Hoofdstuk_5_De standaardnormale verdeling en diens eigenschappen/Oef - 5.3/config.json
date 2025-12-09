@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 5.4: Kwaliteitscontrole Trappistenbier"
+      "nl": "Oef - 5.3: Anesthesie Risico Analyse"
     }
   },
   "evaluation": {
@@ -15,8 +15,9 @@
     "standaardnormale verdeling",
     "z-score",
     "waarschijnlijkheid",
-    "kwaliteitscontrole",
-    "trappistenbier"
+    "anesthesie",
+    "medische statistiek",
+    "risico analyse"
   ],
   "internals": {
     "token": "a7ZqXj_4tN9-mUigAWEvPwkd3uGF2tbm4rDiIuSYz7VEC7afphTQUgGvMnuHn6fK",
