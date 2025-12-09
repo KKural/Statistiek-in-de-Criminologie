@@ -5,9 +5,7 @@ Een criminoloog onderzoekt de verdeling van verkeersboetes die door de politie w
 - **Standaardafwijking (σ):** 7,5€
 - **Verdeling:** Normale verdeling
 
-<img src="media/verkeersboetes_clear.png" width="700" alt="Normale verdeling van verkeersboetes">
-
-*De afbeelding toont de normale verdeling van verkeersboetes met μ = 42,5€ en σ = 7,5€. De gekleurde lijnen markeren de belangrijke grenzen uit de vraagstelling: 20-25€ (oranje), 32€ (groen), en 29€ (paars).*
+<img src="media/normal_distribution_improved.png" width="600" alt="Normale verdeling van verkeersboetes">
 
 
 De onderzoeker wil nu specifieke kansen berekenen om beter te begrijpen hoe verkeersboetes verdeeld zijn en wat de waarschijnlijkheid is dat een willekeurige overtreder een boete binnen bepaalde bedragscategorieën krijgt.
