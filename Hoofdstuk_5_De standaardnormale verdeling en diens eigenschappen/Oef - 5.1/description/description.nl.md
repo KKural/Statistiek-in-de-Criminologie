@@ -21,6 +21,10 @@ $$Z = \frac{X - \mu}{\sigma}$$
 
 **📊 Volledige Z-score tabel:** [Standaardnormale verdeling tabel](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)
 
+## Visualisatie van de Normale Verdeling
+
+<img src="media/normal_distribution_plot.png" width="600" alt="Normale verdeling van verkeersboetes">
+
 **Vragen**
 
 **a) Wat is de kans dat een willekeurige overtreder een boete dient te betalen tussen de 20€ en 25€?**
