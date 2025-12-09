@@ -7,6 +7,11 @@ Een criminoloog onderzoekt de verdeling van verkeersboetes die door de politie w
 - **Standaardafwijking (σ):** 7,5€
 - **Verdeling:** Normale verdeling
 
+## Visualisatie van de Normale Verdeling
+
+<img src="media/normal_distribution_plot.png" width="600" alt="Normale verdeling van verkeersboetes">
+
+
 De onderzoeker wil nu specifieke kansen berekenen om beter te begrijpen hoe verkeersboetes verdeeld zijn en wat de waarschijnlijkheid is dat een willekeurige overtreder een boete binnen bepaalde bedragscategorieën krijgt.
 
 **Formules**
