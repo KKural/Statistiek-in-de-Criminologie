@@ -1,9 +1,0 @@
-# Gegeven: Anesthesie N(45, 9), Letaal N(100, 18)
-
-# INSTRUCTIE: Bereken handmatig alle stappen met de formules uit de beschrijving
-# Gebruik de standaardnormale tabel om de waarschijnlijkheden op te zoeken
-# LET OP: Geef percentages als getallen ZONDER %-teken!
-
-# Verwacht sterftepercentage bij dosis die 92% van patiënten verdooft
-# Bereken handmatig alle stappen en voer alleen het eindpercentage in
-antwoord <- ???  # Eindantwoord als percentage

@@ -26,11 +26,11 @@ $$Z = \frac{X - \mu}{\sigma}$$
 1. Bepaal de dosis die bij 92% van de patiënten effectief is
 2. Bereken de kans dat deze dosis letaal is
 
-**Multiple Choice:**
-- A) 0.3%
-- B) 0.9%  
-- C) 1.4%
-- D) 2.8%
+**Maak een keuze:**
+- 1) 0.3%
+- 2) 0.9%  
+- 3) 1.4%
+- 4) 2.8%
 
-Geef je antwoord als **percentage** (bijvoorbeeld: 0.9)
+Geef je antwoord enkle 1-4
 

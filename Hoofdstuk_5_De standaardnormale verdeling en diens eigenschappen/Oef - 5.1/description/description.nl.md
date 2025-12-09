@@ -1,6 +1,6 @@
 Een criminoloog onderzoekt de verdeling van verkeersboetes die door de politie worden opgelegd in een bepaalde regio van België. Na analyse van een grote dataset van 10.000 verkeersboetes blijkt dat deze **normaal verdeeld** zijn.
 
-**Onderzoeksgegevens:**
+**gegevens:**
 - **Gemiddelde boete (μ):** 42,5€
 - **Standaardafwijking (σ):** 7,5€
 - **Verdeling:** Normale verdeling
