@@ -212,7 +212,7 @@ context({
 
           # --- BUILD FEEDBACK TEXT ---
 
-          feedback_text <- "**Resultaten per vraag:**\n\n"
+          feedback_text <- ""
 
           # Vraag A
           q <- "vraag_a"
