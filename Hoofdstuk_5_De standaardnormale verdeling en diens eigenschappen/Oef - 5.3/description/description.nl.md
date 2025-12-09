@@ -32,5 +32,5 @@ $$Z = \frac{X - \mu}{\sigma}$$
 3. 1.4%
 4. 2.8%
 
-Geef je antwoord als **nummer van de optie** (bijvoorbeeld: 2)
+Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.
 
