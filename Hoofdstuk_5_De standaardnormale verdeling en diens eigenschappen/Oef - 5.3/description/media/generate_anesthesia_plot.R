@@ -87,10 +87,18 @@ print(p)
 # -----------------------------
 # 4. Hoge resolutie afbeelding opslaan (voor Dodona)
 # -----------------------------
-# Dit maakt een scherpe PNG (300 dpi) die je in Dodona kunt gebruiken.
-ggsave("anesthesie_dosissen.png",
-       plot = p,
-       width = 3, height = 2, dpi = 150)
+# Dit maakt verschillende PNG versies voor testing
+# Large version (for HTML sizing methods)
+ggsave("anesthesie_large.png", plot = p, width = 10, height = 6, dpi = 300)
+
+# Medium version  
+ggsave("anesthesie_medium.png", plot = p, width = 6, height = 3.6, dpi = 200)
+
+# Small version
+ggsave("anesthesie_small.png", plot = p, width = 4, height = 2.4, dpi = 150)
+
+# Default current name (medium size)
+ggsave("anesthesie_dosissen.png", plot = p, width = 6, height = 3.6, dpi = 200)
 
 cat("Plot opgeslagen als anesthesie_dosissen.png\n")
 cat("Effectieve dosis (92%):", round(dosis_92, 1), "mg\n")

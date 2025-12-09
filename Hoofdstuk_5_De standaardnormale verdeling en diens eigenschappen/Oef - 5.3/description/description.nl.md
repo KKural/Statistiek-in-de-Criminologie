@@ -7,7 +7,25 @@ Een arts wil een dosis toedienen die bij 92% van de patiënten effectief is voor
 - **Letale dosis:** N(100, 18) mg
 - **Gewenste effectiviteit:** 92% van de patiënten
 
-![Effectieve en letale dosissen](media/image.png)
+**Test verschillende image sizing methodes:**
+
+**Method 1: Standard Markdown (Medium file)**
+![Effectieve en letale dosissen](media/anesthesie_medium.png)
+
+**Method 2: HTML img tag with width 400px (Large file)**
+<img src="media/anesthesie_large.png" alt="Effectieve en letale dosissen" width="400">
+
+**Method 3: HTML img tag with width 300px (Large file)**
+<img src="media/anesthesie_large.png" alt="Effectieve en letale dosissen" width="300">
+
+**Method 4: Percentage-based sizing 50% (Large file)**
+<img src="media/anesthesie_large.png" alt="Effectieve en letale dosissen" style="width: 50%; max-width: 400px;">
+
+**Method 5: CSS style with fixed width 350px (Large file)**
+<img src="media/anesthesie_large.png" alt="Effectieve en letale dosissen" style="width: 350px;">
+
+**Method 6: Small file without size constraints**
+![Effectieve en letale dosissen](media/anesthesie_small.png)
 
 *De afbeelding toont de effectieve dosis N(45,9) in oranje en letale dosis N(100,18) in rood. Het rode gebied rechts van de gestreepte lijn (92% effectieve dosis ≈ 57.6 mg) toont het mortaliteitsrisico.*
 
