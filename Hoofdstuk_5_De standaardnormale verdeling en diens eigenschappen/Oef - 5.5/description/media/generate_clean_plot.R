@@ -25,9 +25,9 @@ p5 <- ggplot(df5, aes(x = leeftijd, y = dichtheid)) +
   # Gemiddelde lijn ter referentie
   geom_vline(xintercept = mu_age, colour = "black", linewidth = 1, linetype = "solid") +
   
-  # Label voor gemiddelde
-  annotate("text", x = mu_age, y = max(df5$dichtheid) * 1.05,
-           label = "μ = 37.8 jaar", hjust = 0.5, size = 4, fontface = "bold") +
+  # Label voor gemiddelde (offset naar rechts om overlap te vermijden)
+  annotate("text", x = mu_age + 1.5, y = max(df5$dichtheid) * 0.9,
+           label = "μ = 37.8 jaar", hjust = 0, size = 4, fontface = "bold") +
   
   # Titels en assen
   labs(
