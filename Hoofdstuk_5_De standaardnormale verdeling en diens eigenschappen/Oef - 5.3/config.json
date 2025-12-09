@@ -8,9 +8,11 @@
     }
   },
   "evaluation": {
-    "handler": "R"
+    "handler": "R",
+    "time_limit": 30,
+    "memory_limit": 268435456
   },
-  "boilerplate": "description/boilerplate/boilerplate",
+  "test_suite": "evaluation",
   "labels": [
     "standaardnormale verdeling",
     "z-score",
