@@ -15,18 +15,20 @@ Studiemateriaal en leerdoelen:
 ### **Standaardnormale verdeling**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VmuPqWnC0nw" title="Standard Normal Distribution" frameborder="0" allowfullscreen></iframe>
+---
 
 ### **Z-scores en Standaardisatie**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2tuBREK_mgE" title="Z-scores en Standaardisatie" frameborder="0" allowfullscreen></iframe>
+---
 
 ### **Z-scores berekenen**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RdY9V_vittA" title="Z-scores berekenen" frameborder="0" allowfullscreen></iframe>
+---
 
 ### **De Z-tabel gebruiken**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/p_KApjpyBHE" title="De Z-tabel gebruiken" frameborder="0" allowfullscreen></iframe>
-
 ---
 
 ## Verplichte Literatuur
@@ -62,14 +64,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 * [https://ztable.net/](https://ztable.net/)
 
-### Normale Verdeling Calculator
-
-* [https://stattrek.com/online-calculator/normal](https://stattrek.com/online-calculator/normal)
-
 ---
-
-## Leerdoelen
-
 Na bestudering van dit materiaal beheerst u:
 
 - Herkenning van klokvormige normale verdelingen
