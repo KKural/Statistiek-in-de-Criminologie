@@ -1,0 +1,32 @@
+# Gegeven: μ = 42.5, σ = 7.5
+
+# INSTRUCTIE: Vul alle stappen in voor elke vraag
+# Gebruik de standaardnormale tabel om de waarschijnlijkheden op te zoeken
+# LET OP: Geef percentages als getallen ZONDER %-teken!
+
+# a. Kans dat boete tussen 20€ en 25€ ligt
+# Stap 1: Bereken Z-scores
+z1_a <- ???  # Z-score voor X = 20
+z2_a <- ???  # Z-score voor X = 25
+
+# Stap 2: Zoek P(Z ≤ z) op in de standaardnormale tabel
+p_z1_a <- ???  # Waarschijnlijkheid voor z1_a
+p_z2_a <- ???  # Waarschijnlijkheid voor z2_a
+
+# Stap 3: Bereken het verschil
+verschil_a <- ???  # Verschil tussen de twee kansen
+
+# Stap 4: Zet om in percentage
+vraag_a <- ???  # Eindantwoord als percentage
+
+# ============================================================
+
+# b. Kans dat boete lager dan 32€ is
+# Bereken handmatig alle stappen en voer alleen het eindpercentage in
+vraag_b <- ???  # Eindantwoord als percentage
+
+# ============================================================
+
+# c. Kans dat boete hoger dan 29€ is
+# Bereken handmatig alle stappen en voer alleen het eindpercentage in
+vraag_c <- ???  # Eindantwoord als percentage

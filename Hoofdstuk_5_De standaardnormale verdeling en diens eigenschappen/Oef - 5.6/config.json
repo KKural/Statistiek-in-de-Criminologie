@@ -1,13 +1,13 @@
 {
   "description": {
     "names": {
-      "nl": "Oef - 5.6"
+      "nl": "Lees - 3.6"
     }
   },
   "access": "public",
   "type": "content",
   "internals": {
-    "token": "fv-JevsuIATHhkKZ8-jbHgb2TWYY_bBzBzTWwFQZ5mNutu8kgZypD4eAdXgHrV-g",
+    "token": "siPwWy5rpgjeIQqNxxnnafX93e2gmz4CbS-yu5PBe5rAaWym6jYXRPhSmXkA9yI2",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

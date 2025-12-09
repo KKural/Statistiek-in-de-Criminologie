@@ -1,0 +1,13 @@
+# Gegeven: μ = 33, σ = 2
+
+# INSTRUCTIE: Bereken handmatig alle stappen met de formules uit de beschrijving
+# Gebruik de standaardnormale tabel om de waarschijnlijkheden op te zoeken
+# LET OP: Geef percentages als getallen ZONDER %-teken!
+
+# a. Kans dat inhoud tussen 32cl en 34cl ligt
+# Bereken handmatig alle stappen en voer alleen het eindpercentage in
+vraag_a <- ???  # Eindantwoord als percentage
+
+# b. Kans dat inhoud hoger dan 35cl is  
+# Bereken handmatig alle stappen en voer alleen het eindpercentage in
+vraag_b <- ???  # Eindantwoord als percentage
