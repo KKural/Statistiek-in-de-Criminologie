@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 5.1 Verkeersboetes - Standaardnormale verdeling"
+      "nl": "Oef - 5.2: Europese Voetbalacademie Selectie"
     }
   },
   "evaluation": {
@@ -15,10 +15,13 @@
     "standaardnormale verdeling",
     "z-score",
     "waarschijnlijkheid",
-    "applicatie"
+    "voetbalacademie",
+    "selectie",
+    "NCAA",
+    "sport statistiek"
   ],
   "internals": {
-    "token": null,
+    "token": "a7ZqXj_4tN9-mUigAWEvPwkd3uGF2tbm4rDiIuSYz7VEC7afphTQUgGvMnuHn6fK",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

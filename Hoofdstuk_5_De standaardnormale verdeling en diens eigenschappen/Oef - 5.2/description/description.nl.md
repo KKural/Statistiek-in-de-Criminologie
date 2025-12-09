@@ -1,13 +1,13 @@
-## Onderzoekscontext: Verkeersboetes in België
+Een Europese voetbalacademie selecteert eerstejaars spelers op basis van hun schoolprestaties en toetsscores. De academie hanteert de volgende regels vergelijkbaar met de Amerikaanse NCAA (National Collegiate Athletic Association):
 
-Een criminoloog onderzoekt de verdeling van verkeersboetes die door de politie worden opgelegd in een bepaalde regio van België. Na analyse van een grote dataset van 10.000 verkeersboetes blijkt dat deze **normaal verdeeld** zijn.
+- **Volledige deelname aan wedstrijden:** toetsresultaat van 80% of hoger
+- **Mee trainen en studiebeurs ontvangen, maar niet spelen:** toetsresultaat tussen 65% en 79%  
+- **Niet deelnemen:** minder dan 65%
 
 **Onderzoeksgegevens:**
-- **Gemiddelde boete (μ):** 42,5€
-- **Standaardafwijking (σ):** 7,5€
-- **Verdeling:** Normale verdeling
-
-De onderzoeker wil nu specifieke kansen berekenen om beter te begrijpen hoe verkeersboetes verdeeld zijn en wat de waarschijnlijkheid is dat een willekeurige overtreder een boete binnen bepaalde bedragscategorieën krijgt.
+- **Gemiddelde toetsscore (μ):** 75%
+- **Standaardafwijking (σ):** 10%
+- **Verdeling:** Normale verdeling N(75, 10)
 
 **Formules**
 
@@ -23,33 +23,35 @@ $$Z = \frac{X - \mu}{\sigma}$$
 
 **Vragen**
 
-**a) Wat is de kans dat een willekeurige overtreder een boete dient te betalen tussen de 20€ en 25€?**
+**a) Bereken de Z-scores voor de toetsscores van 65% en 80%.**
 
-*Stap 1:* Bereken de Z-scores voor beide grenzen
-*Stap 2:* Zoek de kansen op in de standaardnormale tabel
-*Stap 3:* Bereken het verschil
+- *Stap 1:* Gebruik de formule Z = (X - μ) / σ
+- *Stap 2:* Voor 65%: Z = (65 - 75) / 10 = -1
+- *Stap 3:* Voor 80%: Z = (80 - 75) / 10 = 0.5
 
-Geef je antwoord als **percentage** (bijvoorbeeld: 12.34)
+Geef je antwoorden als **decimalen** (bijvoorbeeld: -1.0 en 0.5)
 
-**b) Wat is de kans dat een willekeurige overtreder een boete dient te betalen lager dan 32€?**
+**b) Bepaal het percentage kandidaten dat een score tussen 65% en 79% heeft (mogen trainen maar niet spelen).**
 
-*Stap 1:* Bereken de Z-score voor X = 32
-*Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel  
-*Stap 3:* Zet om naar percentage
+- *Stap 1:* Bereken Z-scores voor 65% en 79%
+- *Stap 2:* Zoek P(Z ≤ z) op voor beide waarden
+- *Stap 3:* Bereken P(65 ≤ X ≤ 79) = P(Z ≤ 0.4) - P(Z ≤ -1.0)
 
-Geef je antwoord als **percentage** (bijvoorbeeld: 15.67)
+Geef je antwoord als **percentage** (bijvoorbeeld: 53.28)
 
-**c) Wat is de kans dat een willekeurige overtreder een boete dient te betalen hoger dan 29€?**
+**c) Bepaal het percentage kandidaten dat een score van 80% of hoger heeft (mogen volledig spelen).**
 
-*Stap 1:* Bereken de Z-score voor X = 29
-*Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel
-*Stap 3:* Bereken het complement: 1 - P(Z ≤ z)
-*Stap 4:* Zet om naar percentage
+- *Stap 1:* Bereken Z-score voor 80%
+- *Stap 2:* Zoek P(Z ≤ 0.5) op in de tabel
+- *Stap 3:* Bereken P(X ≥ 80) = 1 - P(Z ≤ 0.5)
 
-Geef je antwoord als **percentage** (bijvoorbeeld: 78.92)
+Geef je antwoord als **percentage** (bijvoorbeeld: 30.85)
 
-## **Instructies**
+**d) Als de academie 50 eerstejaars spelers aanneemt, hoeveel van hen mogen alleen trainen en hoeveel mogen volledig spelen?**
 
-- Vervang "???" door het juiste antwoord
-- Gebruik decimalen met **punt** (geen komma)
-- Rond af tot op twee decimalen waar nodig
+- *Stap 1:* Gebruik de percentages uit vraag b en c
+- *Stap 2:* Alleen trainen: 50 × (percentage uit vraag b) / 100
+- *Stap 3:* Volledig spelen: 50 × (percentage uit vraag c) / 100
+
+Geef je antwoorden als **hele getallen** (bijvoorbeeld: 27 en 15)
+
