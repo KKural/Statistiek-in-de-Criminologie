@@ -1,13 +1,13 @@
 {
   "description": {
     "names": {
-      "nl": "Lees - 3.6"
+      "nl": "Lees - 5.6 Besluit en vooruitblik naar volgende leerpad"
     }
   },
   "access": "public",
   "type": "content",
   "internals": {
-    "token": null,
+    "token": "SDVXs5gmH9I2QzQYJvAiHFAEzayXmprbHX6-kyEHcFCWqBhGEnIqUrX2MMefm4Iu",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
