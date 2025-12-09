@@ -1,13 +1,16 @@
-# Gegeven: μ = 33, σ = 2
+# Gegeven: μ = 75%, σ = 10%
+# Voetbalacademie selectie op basis van toetsscores
 
 # INSTRUCTIE: Bereken handmatig alle stappen met de formules uit de beschrijving
 # Gebruik de standaardnormale tabel om de waarschijnlijkheden op te zoeken
-# LET OP: Geef percentages als getallen ZONDER %-teken!
+# LET OP: Geef decimalen als getallen (bijv. -1.0, 0.5) en percentages ZONDER %-teken!
 
-# a. Kans dat inhoud tussen 32cl en 34cl ligt
-# Bereken handmatig alle stappen en voer alleen het eindpercentage in
-vraag_a <- ???  # Eindantwoord als percentage
+# a. Bereken de Z-scores voor 65% en 80%
+z_score_65 <- ???  # Z-score voor 65% (decimaal, bijv. -1.0)
+z_score_80 <- ???  # Z-score voor 80% (decimaal, bijv. 0.5)
 
-# b. Kans dat inhoud hoger dan 35cl is  
-# Bereken handmatig alle stappen en voer alleen het eindpercentage in
-vraag_b <- ???  # Eindantwoord als percentage
+# b. Percentage kandidaten dat tussen 65% en 79% scoort (mogen trainen maar niet spelen)
+percentage_trainen <- ???  # Eindantwoord als percentage (bijv. 53.28)
+
+# c. Percentage kandidaten dat 80% of hoger scoort (mogen volledig spelen)  
+percentage_spelen <- ???  # Eindantwoord als percentage (bijv. 30.85)
