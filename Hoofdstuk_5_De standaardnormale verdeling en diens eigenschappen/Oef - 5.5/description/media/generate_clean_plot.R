@@ -50,10 +50,10 @@ p5 <- ggplot(df5, aes(x = leeftijd, y = dichtheid)) +
 print(p5)
 
 # Hoge resolutie opslaan voor Dodona
-ggsave("leeftijdsverdeling_clean.png",
+ggsave("leeftijdsverdeling_clean_v2.png",
        plot = p5, width = 10, height = 6, dpi = 300,
        bg = "white")
 
-cat("Schone leeftijdsverdeling plot gegenereerd als 'leeftijdsverdeling_clean.png'\n")
+cat("Schone leeftijdsverdeling plot gegenereerd als 'leeftijdsverdeling_clean_v2.png'\n")
 cat("GEEN antwoord-spoilers: geen shaded gebied, geen percentiel-lijnen\n")
 cat("Studenten moeten zelf berekenen welke leeftijd bij oudste 10% hoort\n")

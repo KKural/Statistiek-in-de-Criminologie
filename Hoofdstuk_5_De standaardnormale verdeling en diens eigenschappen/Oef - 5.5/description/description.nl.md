@@ -5,7 +5,7 @@ Een gevangenisdirecteur wil een bevraging organiseren bij de oudste 10% van de g
 - **Standaardafwijking (σ):** 5.6 jaar  
 - **Verdeling:** Normale verdeling N(37.8, 5.6)
 
-<img src="media/leeftijdsverdeling_clean.png" alt="Leeftijdsverdeling gevangenispopulatie" width="700">
+<img src="media/leeftijdsverdeling_clean_v2.png" alt="Leeftijdsverdeling gevangenispopulatie" width="700">
 
 *De afbeelding toont de normale verdeling van leeftijden in de gevangenispopulatie N(37.8, 5.6). Studenten moeten bepalen welke leeftijd correspondeert met de oudste 10%.*
 
