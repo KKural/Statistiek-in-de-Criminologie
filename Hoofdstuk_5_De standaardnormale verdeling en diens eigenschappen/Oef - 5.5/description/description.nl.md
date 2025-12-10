@@ -1,4 +1,4 @@
-**Een gevangenisdirecteur wil een bevraging organiseren bij de oudste 10% van de gevangenispopulatie. De leeftijden in de gevangenis zijn normaal verdeeld, met gemiddelde 37.8 jaar en een standaardafwijking 5.6 jaar. Vanaf welke leeftijd zullen de gevangenen aan de bevraging kunnen deelnemen?**
+Een gevangenisdirecteur wil een bevraging organiseren bij de oudste 10% van de gevangenispopulatie. De leeftijden in de gevangenis zijn normaal verdeeld, met **gemiddelde 37.8 jaar** en een **standaardafwijking 5.6 jaar**. Vanaf welke leeftijd zullen de gevangenen aan de bevraging kunnen deelnemen?
 
 **Onderzoeksgegevens:**
 - **Gemiddelde leeftijd (μ):** 37.8 jaar
