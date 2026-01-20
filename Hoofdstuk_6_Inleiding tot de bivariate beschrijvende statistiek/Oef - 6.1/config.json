@@ -1,5 +1,4 @@
 {
-  "type": "exercise",
   "description": {
     "names": {
       "nl": "Oef - 6.1 Bivariate beschrijvende statistiek"
@@ -11,11 +10,9 @@
   },
   "test_suite": "evaluation",
   "access": "public",
-  "labels": [
-    "begrippen"
-  ],
+  "labels": [],
   "internals": {
-    "token": "cKqC4kk-yRiAfv-Xs5aJeaieJHxMa2Yrcvb9PZsxCqQymAYs-SbgGBs-EtSFYB5n",
+    "token": null,
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
