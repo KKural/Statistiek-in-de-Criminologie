@@ -5,13 +5,13 @@ context({
       testEqual(
         "",
         function(env) as.numeric(env$evaluationResult),
-        4,  # Correct answer: Interval/Ratio
+        3,  # Correct answer: causaliteit impliceert statistische samenhang
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
-            "1" = "❌ Fout. Nominaal betekent categorieën zonder rangorde. Voorbeeld: haarkleur (blond, bruin, zwart) is nominaal. Leeftijd heeft wel numerieke waarden en rangorde. [Lees meer over meetschalen](https://www.questionpro.com/blog/nominal-ordinal-interval-ratio/)",
-            "2" = "❌ Fout. Als je uitgaat van leeftijd in jaren is het antwoord fout, omdat ordinaal alleen rangorde aangeeft en geen gelijke intervallen. Leeftijd heeft wél gelijke intervallen tussen jaren, dus het oorspronkelijke meetniveau is interval/ratio (ratio, omdat er een natuurlijk nulpunt is). Wel is het mogelijk om van een interval/ratio-variabele een categorische variabele te maken. Bijvoorbeeld door leeftijden in categorieën zoals “0-9”, “4-12”, “13-17” enz. in te delen. In dat geval wordt het meetniveau ordinaal, omdat de categorieën een rangorde hebben, maar de exacte afstanden tussen categorieën niet meer relevant zijn. [Lees meer over meetschalen](https://www.questionpro.com/blog/nominal-ordinal-interval-ratio/)",
-            "3" = "❌ Fout. Dichotoom betekent slechts twee categorieën. Voorbeeld: geslacht (man/vrouw) of ja/nee vragen. Leeftijd heeft een oneindig aantal mogelijke waarden. [Lees meer over meetschalen](https://www.questionpro.com/blog/nominal-ordinal-interval-ratio/)",
-            "4" = "✅ Juist! Leeftijd is interval/ratio omdat het numerieke waarden heeft, gelijke intervallen, en een absoluut nulpunt (0 jaar = geen leeftijd). Voorbeeld: leeftijd in jaren: 18, 19, 20, ... [Lees meer over meetschalen](https://www.questionpro.com/blog/nominal-ordinal-interval-ratio/)"
+            "1" = "❌ Fout. Statistische samenhang is **niet** voldoende om causaliteit te bewijzen. Statistiek toont enkel verbanden; de oorzakelijke interpretatie komt uit theorie, kennis van mechanismen en onderzoeksdesign.",
+            "2" = "❌ Fout. Causaliteit **kan** empirisch onderzocht worden (bv. via experimenten, longitudinaal onderzoek, mediatieanalyse), maar statistiek levert geen waterdicht bewijs. Ze toont robuuste verbanden die we inhoudelijk moeten interpreteren.",
+            "3" = "✅ Juist! Als er een echte causale relatie is, zal er in de populatie ook statistische samenhang zijn. Het omgekeerde geldt niet: statistische samenhang op zich is geen bewijs van causaliteit.",
+            "4" = "❌ Fout. Causaliteit is een theoretisch/filosofisch begrip, terwijl statistische relaties enkel de **empirische samenhang** beschrijven. Twee variabelen kunnen correleren zonder dat er een oorzakelijk verband is (schijnverband)."
           )
           key <- as.character(generated)
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."
