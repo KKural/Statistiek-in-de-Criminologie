@@ -7,4 +7,4 @@ Welke uitspraak over Spearman's rho is fout?
 
 **Hint:** Een monotone relatie betekent dat de ene variabele systematisch stijgt of daalt wanneer de andere toeneemt.
 
-- Typ je antwoord als een enkel getal (1-4) om je keuze aan te geven.
+- Type je antwoord als een enkel getal (1-4) om je keuze aan te geven.
