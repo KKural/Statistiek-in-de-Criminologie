@@ -1,17 +1,10 @@
-# **Praktische toepassingen**
+Welke uitspraak over Spearman's rho is fout?
 
-- In criminologisch onderzoek worden odds ratio’s vaak gebruikt om **risico- en beschermingsfactoren** te identificeren.  
-  Zo blijkt uit de zelfrapportagestudie onder Antwerpse jongeren dat jongeren met **lage zelfcontrole**  
-  **4,15 keer meer kans** hebben om ernstige delinquentie te plegen.  
+1. Een rho van 0 betekent geen monotone relatie.
+2. Een rho van 0 betekent absoluut geen verband tussen de variabelen, ook niet ordinaal.
+3. Spearman's rho kan gebruikt worden bij ordinale data.
+4. Spearman's rho is een niet-parametrische correlatiemaat.
 
-- **Beleidsrelevantie**:  
-  Nominale en ordinale associatiematen helpen bij het bepalen van **prioriteiten** in preventiebeleid,  
-  zoals het identificeren van risicogroepen of het evalueren van interventies.  
+Noot: een monotone relatie tussen twee variabelen betekent dat de ene variabele steeds in dezelfde richting verandert als de andere variabele (stijgend of dalend). Bij een niet-monotone relatie verandert de richting tijdens de reeks data.
 
-- **Rapportering**:  
-  Combineer steeds **percentages**, **odds ratio’s**, en een gestandaardiseerde maat (Φ, V, Γ of τb).  
-  Vermeld het meetniveau van de variabelen en de steekproefgrootte (N).  
-
-- **Interpretatievoorbeeld**:  
-  Een Cramer’s V van 0,25 duidt op een matig verband tussen gezinsstructuur en delictgedrag,  
-  terwijl een Rho van 0,40 wijst op een duidelijke positieve samenhang tussen lage moraliteit en spijbelen.  
+- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.
