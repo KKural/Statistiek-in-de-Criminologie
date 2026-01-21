@@ -645,7 +645,6 @@ context({
           # --- BUILD FEEDBACK TEXT ---
           
           wrong_msg <- function(key) {
-          wrong_msg <- function(key) {
             r <- results[[key]]
             if (!r$exists) return("Je hebt deze variabele niet ingevuld.")
             if (is.na(r$value_num)) return("Je antwoord kon niet als getal geïnterpreteerd worden.")
@@ -667,8 +666,6 @@ context({
             
             "Controleer je berekening en afronding."
           }
-
-          # --- BUILD FEEDBACK TEXT ---
           
           feedback_text <- "**Gegeven:**\n- N = 2000 volwassenen\n- Man: YES=380, NO=850 (totaal=1230)\n- Vrouw: YES=120, NO=650 (totaal=770)\n\n"
           
