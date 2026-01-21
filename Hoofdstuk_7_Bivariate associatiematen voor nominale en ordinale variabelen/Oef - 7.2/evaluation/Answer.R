@@ -52,14 +52,36 @@ context({
             suppressWarnings(as.numeric(val))
           }
 
-          check_value <- function(varname, expected, tol = 0.01, allow_percent = TRUE) {
-            if (!exists(varname, envir = env)) {
-              return(list(exists = FALSE, value = NA, value_num = NA, correct = FALSE, expected = expected))
+          pick_var <- function(varnames) {
+            for (name in varnames) {
+              if (exists(name, envir = env)) return(name)
             }
-            raw <- get(varname, envir = env)
+            NA_character_
+          }
+
+          check_value <- function(varnames, expected, tol = 0.01, allow_percent = TRUE) {
+            used_var <- pick_var(varnames)
+            if (is.na(used_var)) {
+              return(list(
+                exists = FALSE,
+                used_var = NA_character_,
+                value = NA,
+                value_num = NA,
+                correct = FALSE,
+                expected = expected
+              ))
+            }
+            raw <- get(used_var, envir = env)
             num <- parse_num(raw)
             if (is.na(num)) {
-              return(list(exists = TRUE, value = raw, value_num = NA, correct = FALSE, expected = expected))
+              return(list(
+                exists = TRUE,
+                used_var = used_var,
+                value = raw,
+                value_num = NA,
+                correct = FALSE,
+                expected = expected
+              ))
             }
 
             ok <- abs(num - expected) <= tol
@@ -68,27 +90,34 @@ context({
               if (expected <= 1 && abs(num / 100 - expected) <= tol) ok <- TRUE
               if (expected > 1 && abs(num * 100 - expected) <= tol) ok <- TRUE
             }
-            list(exists = TRUE, value = raw, value_num = num, correct = ok, expected = expected)
+            list(
+              exists = TRUE,
+              used_var = used_var,
+              value = raw,
+              value_num = num,
+              correct = ok,
+              expected = expected
+            )
           }
 
           # Collect results
-          results$perc_male <- check_value("perc_male", exp_perc_male, tol = 0.05, allow_percent = FALSE)
-          results$perc_female <- check_value("perc_female", exp_perc_female, tol = 0.05, allow_percent = FALSE)
-          results$perc_yes <- check_value("perc_yes", exp_perc_yes, tol = 0.05, allow_percent = FALSE)
-          results$perc_no <- check_value("perc_no", exp_perc_no, tol = 0.05, allow_percent = FALSE)
+          results$perc_male <- check_value(c("percentage_mannen", "perc_male"), exp_perc_male, tol = 0.05, allow_percent = FALSE)
+          results$perc_female <- check_value(c("percentage_vrouwen", "perc_female"), exp_perc_female, tol = 0.05, allow_percent = FALSE)
+          results$perc_yes <- check_value(c("percentage_yes", "perc_yes"), exp_perc_yes, tol = 0.05, allow_percent = FALSE)
+          results$perc_no <- check_value(c("percentage_no", "perc_no"), exp_perc_no, tol = 0.05, allow_percent = FALSE)
 
-          results$perc_yes_male <- check_value("perc_yes_male", exp_perc_yes_male, tol = 0.05, allow_percent = FALSE)
-          results$perc_yes_female <- check_value("perc_yes_female", exp_perc_yes_female, tol = 0.05, allow_percent = FALSE)
-          results$perc_diff_yes <- check_value("perc_diff_yes", exp_perc_diff_yes, tol = 0.05, allow_percent = FALSE)
+          results$perc_yes_male <- check_value(c("percentage_yes_bij_mannen", "perc_yes_male"), exp_perc_yes_male, tol = 0.05, allow_percent = FALSE)
+          results$perc_yes_female <- check_value(c("percentage_yes_bij_vrouwen", "perc_yes_female"), exp_perc_yes_female, tol = 0.05, allow_percent = FALSE)
+          results$perc_diff_yes <- check_value(c("percentageverschil_yes", "perc_diff_yes"), exp_perc_diff_yes, tol = 0.05, allow_percent = FALSE)
 
-          results$odds_male <- check_value("odds_male", exp_odds_male, tol = 0.005, allow_percent = FALSE)
-          results$odds_female <- check_value("odds_female", exp_odds_female, tol = 0.005, allow_percent = FALSE)
-          results$odds_ratio <- check_value("odds_ratio", exp_or, tol = 0.05, allow_percent = FALSE)
+          results$odds_male <- check_value(c("odds_mannen", "odds_male"), exp_odds_male, tol = 0.005, allow_percent = FALSE)
+          results$odds_female <- check_value(c("odds_vrouwen", "odds_female"), exp_odds_female, tol = 0.005, allow_percent = FALSE)
+          results$odds_ratio <- check_value(c("odds_ratio"), exp_or, tol = 0.05, allow_percent = FALSE)
 
-          results$chi2 <- check_value("chi2", exp_chi2, tol = 0.05, allow_percent = FALSE)
+          results$chi2 <- check_value(c("chi_kwadraat", "chi2"), exp_chi2, tol = 0.05, allow_percent = FALSE)
 
-          results$p_no_female <- check_value("p_no_female", exp_p_no_female, tol = 0.01, allow_percent = TRUE)
-          results$antwoord_mc <- check_value("antwoord_mc", exp_antwoord_mc, tol = 0.0, allow_percent = FALSE)
+          results$p_no_female <- check_value(c("kans_no_bij_vrouwen", "p_no_female"), exp_p_no_female, tol = 0.01, allow_percent = TRUE)
+          results$antwoord_mc <- check_value(c("antwoord_mc"), exp_antwoord_mc, tol = 0.0, allow_percent = FALSE)
 
           assign("detailed_results", results, envir = globalenv())
           all(sapply(results, function(x) x$correct))
@@ -98,19 +127,19 @@ context({
           results <- get("detailed_results", envir = globalenv())
 
           qnames <- c(
-            perc_male = "1) % mannen (marginaal)",
-            perc_female = "1) % vrouwen (marginaal)",
-            perc_yes = "1) % YES (marginaal)",
-            perc_no = "1) % NO (marginaal)",
-            perc_yes_male = "2) % YES bij mannen (P(YES|Man))",
-            perc_yes_female = "3) % YES bij vrouwen (P(YES|Vrouw))",
-            perc_diff_yes = "4) Percentageverschil (procentpunten)",
-            odds_male = "5) Odds mannen (YES/NO)",
-            odds_female = "5) Odds vrouwen (YES/NO)",
-            odds_ratio = "5) Odds ratio (OR)",
-            chi2 = "6) Chi-kwadraat (χ²)",
-            p_no_female = "7) P(NO | Vrouw)",
-            antwoord_mc = "7) Meerkeuze (A=1, B=2, C=3, D=4)"
+            perc_male = "1) Percentage mannen (marginaal) (`percentage_mannen`)",
+            perc_female = "1) Percentage vrouwen (marginaal) (`percentage_vrouwen`)",
+            perc_yes = "1) Percentage YES (marginaal) (`percentage_yes`)",
+            perc_no = "1) Percentage NO (marginaal) (`percentage_no`)",
+            perc_yes_male = "2) Percentage YES bij mannen (`percentage_yes_bij_mannen`)",
+            perc_yes_female = "3) Percentage YES bij vrouwen (`percentage_yes_bij_vrouwen`)",
+            perc_diff_yes = "4) Percentageverschil (procentpunten) (`percentageverschil_yes`)",
+            odds_male = "5) Odds mannen (YES/NO) (`odds_mannen`)",
+            odds_female = "5) Odds vrouwen (YES/NO) (`odds_vrouwen`)",
+            odds_ratio = "5) Odds ratio (OR) (`odds_ratio`)",
+            chi2 = "6) Chi-kwadraat (χ²) (`chi_kwadraat`)",
+            p_no_female = "7) P(NO | Vrouw) (`kans_no_bij_vrouwen`)",
+            antwoord_mc = "7) Meerkeuze (`antwoord_mc`)"
           )
 
           msg_for <- function(key) {
@@ -129,55 +158,55 @@ context({
               if (key == "perc_female" && !is.na(v) && abs(v - 61.5) < 0.1) return("Je wisselde vrouwen en mannen om. Vrouwen = 770/2000 = 38.5%.")
               if (key == "perc_yes" && !is.na(v) && abs(v - 500) < 1) return("Je vergat te delen door het totaal. % YES = 500/2000 × 100.")
               if (key == "perc_no" && !is.na(v) && abs(v - 1500) < 1) return("Je vergat te delen door het totaal. % NO = 1500/2000 × 100.")
-              return(paste0("Gebruik: (totaal categorie / 2000) × 100. Verwacht: ", e, "."))
+              return(paste0("Gebruik: (totaal categorie / 2000) × 100. Juiste waarde: ", e, "."))
             }
 
             if (key == "perc_yes_male") {
               if (!is.na(v) && abs(v - (380 / 2000 * 100)) < 0.1) return("Je deelde door 2000 i.p.v. door het aantal mannen. Gebruik 380/1230 × 100.")
               if (!is.na(v) && abs(v - (380 / 500 * 100)) < 0.1) return("Je deelde door totaal YES (500). Voor P(YES|Man) deel je door het aantal mannen (1230).")
-              return("Gebruik: 380/1230 × 100 ≈ 30.89%.")
+              return(paste0("Gebruik: 380/1230 × 100. Juiste waarde: ", e, "%."))
             }
 
             if (key == "perc_yes_female") {
               if (!is.na(v) && abs(v - (120 / 2000 * 100)) < 0.1) return("Je deelde door 2000 i.p.v. door het aantal vrouwen. Gebruik 120/770 × 100.")
               if (!is.na(v) && abs(v - (120 / 500 * 100)) < 0.1) return("Je deelde door totaal YES (500). Voor P(YES|Vrouw) deel je door het aantal vrouwen (770).")
-              return("Gebruik: 120/770 × 100 ≈ 15.58%.")
+              return(paste0("Gebruik: 120/770 × 100. Juiste waarde: ", e, "%."))
             }
 
             if (key == "perc_diff_yes") {
               if (!is.na(v) && abs(v + e) < 0.1) return("Je nam het verschil in omgekeerde richting. Neem (mannen% - vrouwen%) voor YES.")
               if (!is.na(v) && abs(v - e / 100) < 0.01) return("Je lijkt een proportie te geven. Het verschil moet in **procentpunten** zijn (bv. 15.31).")
-              return("Verschil in procentpunten: 30.89 − 15.58 ≈ 15.31.")
+              return(paste0("Verschil in procentpunten: P(YES|Man) − P(YES|Vrouw). Juiste waarde: ", e, "."))
             }
 
             if (key == "odds_male") {
               if (!is.na(v) && abs(v - (380 / 1230)) < 0.01) return("Dat is een kans, geen odds. Odds = YES/NO = 380/850.")
               if (!is.na(v) && abs(v - (850 / 380)) < 0.05) return("Je keerde de odds om. Gebruik 380/850 (niet 850/380).")
-              return("Odds mannen: 380/850 ≈ 0.447.")
+              return(paste0("Odds mannen: YES/NO = 380/850. Juiste waarde: ", e, "."))
             }
 
             if (key == "odds_female") {
               if (!is.na(v) && abs(v - (120 / 770)) < 0.01) return("Dat is een kans, geen odds. Odds = YES/NO = 120/650.")
               if (!is.na(v) && abs(v - (650 / 120)) < 0.1) return("Je keerde de odds om. Gebruik 120/650 (niet 650/120).")
-              return("Odds vrouwen: 120/650 ≈ 0.1846.")
+              return(paste0("Odds vrouwen: YES/NO = 120/650. Juiste waarde: ", e, "."))
             }
 
             if (key == "odds_ratio") {
               rr <- (380 / 1230) / (120 / 770)
               if (!is.na(v) && abs(v - rr) < 0.1) return("Je berekende een **risicoratio** (kansenratio). Gevraagd is de **odds ratio**: (380/850)/(120/650) ≈ 2.42.")
               if (!is.na(v) && abs(v - 1 / e) < 0.05) return("Je nam het omgekeerde (vrouwen t.o.v. mannen). Gevraagd is mannen t.o.v. vrouwen.")
-              return("OR = (380/850) / (120/650) ≈ 2.42.")
+              return(paste0("OR = (380/850) / (120/650). Juiste waarde: ", e, "."))
             }
 
             if (key == "chi2") {
               if (!is.na(v) && abs(v - 0.059) < 0.01) return("Je lijkt te delen door 1000 of met proporties te werken. Gebruik frequenties en \u03A3 (O−E)^2/E.")
-              return("Voor 2×2: bereken verwachte frequenties en sommeer (O−E)^2/E. Verwacht ≈ 59.2093.")
+              return(paste0("Voor 2×2: bereken verwachte frequenties en sommeer (O−E)^2/E. Juiste waarde: ", e, "."))
             }
 
             if (key == "p_no_female") {
               if (!is.na(v) && abs(v - (650 / 2000)) < 0.01) return("Je deelde door 2000 i.p.v. door het aantal vrouwen. Gebruik 650/770.")
               if (!is.na(v) && abs(v - (120 / 770)) < 0.01) return("Je nam P(YES|Vrouw) i.p.v. P(NO|Vrouw). Gebruik 650/770.")
-              return("P(NO|Vrouw) = 650/770 ≈ 0.844 (≈ 84.4%).")
+              return(paste0("P(NO|Vrouw) = 650/770. Juiste waarde: ", e, " (≈ ", round(e * 100, 2), "%)."))
             }
 
             if (key == "antwoord_mc") {

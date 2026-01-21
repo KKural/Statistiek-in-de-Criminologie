@@ -1,16 +1,15 @@
 {
+  "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 7.3"
+      "nl": "Oef - 7.3 Spearman's rho (I)"
     }
   },
   "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "R"
   },
   "test_suite": "evaluation",
-  "workdir": "workdir",
   "access": "public",
   "labels": [
     "begrippen"

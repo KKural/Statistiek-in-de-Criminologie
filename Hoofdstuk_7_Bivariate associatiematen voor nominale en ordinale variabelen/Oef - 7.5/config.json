@@ -1,20 +1,18 @@
 {
+  "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 7.5"
+      "nl": "Oef - 7.5 Kendall's tau"
     }
   },
   "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "R"
   },
   "test_suite": "evaluation",
-  "workdir": "workdir",
   "access": "public",
   "labels": [
-    "begrippen",
-    "populatie"
+    "begrippen"
   ],
   "internals": {
     "token": "WK4ypsmnk3fUhIrYjV79-vu-xHVGG2dbhYt6BSbNXrc8arxdgIVFIAANHbDQq6Zx",

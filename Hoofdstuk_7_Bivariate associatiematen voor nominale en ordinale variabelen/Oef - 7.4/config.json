@@ -1,16 +1,15 @@
 {
+  "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 7.4"
+      "nl": "Oef - 7.4 Gamma"
     }
   },
   "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "R"
   },
   "test_suite": "evaluation",
-  "workdir": "workdir",
   "access": "public",
   "labels": [
     "begrippen"

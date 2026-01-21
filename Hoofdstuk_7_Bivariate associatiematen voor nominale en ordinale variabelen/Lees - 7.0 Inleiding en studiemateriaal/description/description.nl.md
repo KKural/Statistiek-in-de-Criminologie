@@ -20,7 +20,7 @@ Studiemateriaal en leerdoelen:
 ---
 ### **Odds en odds-ratio**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1gOeBE1s3zE" title="Odds and odds ratios" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wqybeUSWFrA" title="Odds and odds ratios" frameborder="0" allowfullscreen></iframe>
 ---
 
 ### **Chi-kwadraat in kruistabellen**
