@@ -1,18 +1,20 @@
 {
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 8.1"
+      "nl": "Oef - 8.1 Koffieprijs en ontbossing"
     }
   },
-  "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "R"
   },
   "test_suite": "evaluation",
-  "workdir": "workdir",
-  "access": "public",
+  "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
+    "correlatie",
+    "pearson",
     "begrippen"
   ],
   "internals": {

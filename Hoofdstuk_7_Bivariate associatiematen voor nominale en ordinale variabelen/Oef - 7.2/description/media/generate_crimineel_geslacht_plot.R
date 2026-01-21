@@ -39,8 +39,8 @@ p <- ggplot(data, aes(x = geslacht, y = freq, fill = gedrag)) +
 
 print(p)
 
-# PNG opslaan voor gebruik in Dodona (zelfde map als dit script)
+# PNG opslaan voor gebruik in Dodona (in de media map van Oef - 7.2)
 ggsave("crimineel_geslacht_kruistabel.png",
        plot = p, width = 8, height = 5, dpi = 300, bg = "white")
 
-cat("Plot gegenereerd en opgeslagen als 'crimineel_geslacht_kruistabel.png'\n")
+cat("Plot gegenereerd en opgeslagen als: crimineel_geslacht_kruistabel.png\n")
