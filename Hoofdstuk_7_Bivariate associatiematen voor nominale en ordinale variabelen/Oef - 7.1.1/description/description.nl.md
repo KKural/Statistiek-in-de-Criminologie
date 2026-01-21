@@ -32,8 +32,6 @@ Opgelet: bepaal vooraf welke variabele je inhoudelijk als **onafhankelijk** besc
 
 <img src="media/vuurwapen_geslacht_kruistabel.png" alt="Vuurwapenbezit per geslacht (absolute aantallen)" width="650">
 
-Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **eindresultaten** in.
-
 ## Opdrachten
 
 1) **Bereken het relevante percentageverschil (in procentpunten).**
