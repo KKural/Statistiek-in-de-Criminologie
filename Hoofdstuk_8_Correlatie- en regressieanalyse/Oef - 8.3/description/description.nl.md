@@ -1,9 +1,5 @@
-# Q2.5 - [Te vullen]
+**Wat hebben we bereikt in Hoofdstuk 8?**  
+In Hoofdstuk 8 heb je geleerd hoe je **lineaire relaties tussen metrische variabelen** beschrijft en analyseert. Via puntenwolken, covariatie, covariantie, correlatie en bivariate regressie kon je de richting, sterkte en voorspellende waarde van een verband bepalen. Je leerde regressieparameters interpreteren (intercept, regressiegewicht, residuen, R²) en de totale variatie in Y opsplitsen in verklaarde en onverklaarde componenten. Daarmee bouwde Hoofdstuk 8 de analytische basis voor verklarend en voorspellend criminologisch onderzoek.
 
-*Deze oefening is nog niet uitgewerkt.*
-
-Schrijf hier je R-code:
-
-```r
-# Je code hier
-```
+**Vooruitblik naar Hoofdstuk 9**  
+In Hoofdstuk 9 verschuift de aandacht van **beschrijven** naar **toetsen en veralgemenen**. Je leert hoe je op basis van een steekproef betrouwbare uitspraken doet over een populatie via kansrekening, steekproevenverdelingen, standaardfouten en betrouwbaarheidsintervallen. Vervolgens maak je kennis met de logica van **significantietoetsing**, p-waarden, type-I en type-II fouten, power en het verschil tussen eenzijdig en tweezijdig toetsen. Het hoofdstuk introduceert ook de belangrijkste kansverdelingen die aan de basis liggen van alle inferentiële tests. Tot slot leer je de **variantieanalyse (ANOVA)** uitwerken en interpreteren, een methode om te bepalen of groepsgemiddelden significant van elkaar verschillen. Hoofdstuk 9 vormt daarmee de brug tussen beschrijvende statistiek en geavanceerde inferentiële analysetechnieken in criminologisch onderzoek.

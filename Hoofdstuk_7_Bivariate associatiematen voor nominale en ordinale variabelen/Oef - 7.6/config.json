@@ -1,21 +1,13 @@
 {
-  "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 7.6 Spearman's rho (II)"
+      "nl": "Oef - 7.6: Besluit en vooruitblik naar volgende leerpad"
     }
   },
-  "programming_language": "R",
-  "evaluation": {
-    "handler": "R"
-  },
-  "test_suite": "evaluation",
   "access": "public",
-  "labels": [
-    "begrippen"
-  ],
+  "type": "content",
   "internals": {
-    "token": "3pwKab8C7iP2n3-Jyvbd7pgnCsx3GuzgbFsPBU4pzs3eYupyaixB3g7ihWYKBa7B",
+    "token": "cYTgVAgRW8q9gna65eExDAYTHT_r-N7ZdtWMhZdCGfSwnZyXkrUnC8csv7UC3WaY",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

@@ -2,7 +2,7 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 7.5 Kendall's tau"
+      "nl": "Oef - 7.5 Spearman's rho (II)"
     }
   },
   "programming_language": "R",
@@ -15,7 +15,7 @@
     "begrippen"
   ],
   "internals": {
-    "token": "WK4ypsmnk3fUhIrYjV79-vu-xHVGG2dbhYt6BSbNXrc8arxdgIVFIAANHbDQq6Zx",
+    "token": "3pwKab8C7iP2n3-Jyvbd7pgnCsx3GuzgbFsPBU4pzs3eYupyaixB3g7ihWYKBa7B",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

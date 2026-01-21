@@ -1,10 +1,10 @@
-Welke uitspraak over Kendall's tau is fout?
+Welke uitspraak over Spearman's rho is fout?
 
-1. Kendall's tau ligt altijd tussen -1 en +1.
-2. Kendall's tau kan exact gelijk zijn aan 2 of -2, afhankelijk van het aantal rangparen.
-3. Kendall's tau houdt rekening met het aantal concordante en discordante paren.
-4. Kendall's tau meet de overeenkomst tussen rangorden van twee variabelen.
+1. Spearman's rho kan gebruikt worden bij ordinale data.
+2. Spearman's rho is een niet-parametrische correlatiemaat.
+3. Een rho van 0 betekent absoluut geen verband tussen de variabelen, ook niet ordinaal.
+4. Een rho van 0 betekent geen monotone relatie.
 
-**Hint:** *Kendall's tau is, net als Spearman's rho, een rangcorrelatiemaat met een begrensd bereik. Denk na over welke waarde(n) binnen dat bereik theoretisch mogelijk zijn en hoe Kendall's tau wordt berekend uit concordante en discordante paren.*
+**Hint:** *Een monotone relatie betekent dat de ene variabele systematisch stijgt of daalt wanneer de andere toeneemt. Bedenk wat een waarde van rho = 0 precies uitsluit (geen monotone trend) en wat nog mogelijk blijft (complexe, niet-monotone verbanden).* 
 
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.

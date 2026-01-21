@@ -1,25 +1,21 @@
 {
   "type": "exercise",
-  "programming_language": "R",
-  "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 7.2 Geslacht en crimineel gedrag"
+      "nl": "Oef - 7.2 Spearman's rho (I)"
     }
   },
+  "programming_language": "R",
   "evaluation": {
     "handler": "R"
   },
   "test_suite": "evaluation",
-  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
   "labels": [
-    "kruistabel",
-    "percentages",
-    "odds ratio",
-    "chi-kwadraat"
+    "begrippen"
   ],
   "internals": {
-    "token": "x_eIEUexA6QNNjUYZYKZyIvRGB35w-KFx3gQUK7wm9yEhHtVrBKkP8mYyVbmJcZD",
+    "token": "Sa7rgEBtBEhny4XkCDw3KdNhax_46AeRYhKhrdIK7IP-VINcG7Sj7f5ErhnMMTYD",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

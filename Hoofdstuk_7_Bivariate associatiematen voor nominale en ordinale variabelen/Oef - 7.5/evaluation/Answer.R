@@ -1,17 +1,17 @@
 context({
   testcase(
-    "Kendall's tau: juiste foutieve uitspraak",
+    "Spearman's rho (rho = 0): juiste foutieve uitspraak",
     {
       testEqual(
         "",
         function(env) as.numeric(env$evaluationResult),
-        2,
+        3,
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
-            "1" = "Deze uitspraak is niet fout. Kendall's tau ligt altijd tussen -1 en +1.",
-            "2" = "Correct. Deze uitspraak is fout: Kendall's tau kan nooit gelijk zijn aan 2 of -2; de waarde blijft steeds binnen het interval [-1, 1].",
-            "3" = "Deze uitspraak is niet fout. Kendall's tau is gebaseerd op het aantal concordante en discordante paren.",
-            "4" = "Deze uitspraak is niet fout. Kendall's tau meet de overeenkomst tussen rangorden van twee variabelen."
+            "1" = "Deze uitspraak is niet fout. Spearman's rho is bij uitstek geschikt voor ordinale data of metrische variabelen die tot rangen zijn omgezet.",
+            "2" = "Deze uitspraak is niet fout. Spearman's rho is een niet-parametrische correlatiemaat die werkt met rangorden in plaats van ruwe metrische waarden.",
+            "3" = "Correct. Deze uitspraak is fout: een rho van 0 sluit andere (niet-monotone) verbanden niet uit. Er kan nog steeds een complex patroon tussen de variabelen bestaan.",
+            "4" = "Deze uitspraak is niet fout. Een rho van 0 betekent dat er geen monotone relatie wordt gedetecteerd (geen stijgende of dalende trend in de rangen)."
           )
           key <- as.character(generated)
           msg <- feedbacks[[key]]

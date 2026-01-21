@@ -26,7 +26,9 @@ Een onderzoeker wil nagaan of er een verband is tussen **geslacht** en **crimine
 </tbody>
 </table>
 
-Je berekent alles **met de hand** (rekenmachine mag). 
+<img src="media/crimineel_geslacht_kruistabel.png" alt="Crimineel gedrag per geslacht" width="600">
+
+*De figuur toont de absolute aantallen YES/NO voor mannen en vrouwen in dezelfde steekproef (N = 2000). Gebruik deze visualisatie ter ondersteuning bij het interpreteren van percentages, odds en de chi-kwadraatwaarde.*
 
 
 1) Marginale percentages (t.o.v. N = 2000)
@@ -62,5 +64,3 @@ Je berekent alles **met de hand** (rekenmachine mag).
   - Zet je keuze in `antwoord_mc` (A=1, B=2, C=3, D=4)
 
 Afronden: percentages op 2 decimalen, odds op 4 decimalen, OR op 2 decimalen, chi^2 op 4 decimalen.
-
-**Instructie:** In de boilerplate vervang je `???` door je antwoord. Gebruik decimalen met punt (niet komma) en geen procentteken.

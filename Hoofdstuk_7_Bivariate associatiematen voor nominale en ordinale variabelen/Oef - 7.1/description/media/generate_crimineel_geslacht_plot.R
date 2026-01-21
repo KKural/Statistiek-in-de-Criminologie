@@ -5,6 +5,18 @@
 
 library(ggplot2)
 
+get_script_dir <- function() {
+  cmd <- commandArgs(trailingOnly = FALSE)
+  file_arg <- grep("^--file=", cmd, value = TRUE)
+  if (length(file_arg) > 0) {
+    return(dirname(normalizePath(sub("^--file=", "", file_arg[1]))))
+  }
+  if (!is.null(sys.frames()[[1]]$ofile)) {
+    return(dirname(normalizePath(sys.frames()[[1]]$ofile)))
+  }
+  getwd()
+}
+
 # Gegevens uit Tabel 1
 # Crimineel gedrag per geslacht (absolute frequenties)
 
@@ -39,8 +51,9 @@ p <- ggplot(data, aes(x = geslacht, y = freq, fill = gedrag)) +
 
 print(p)
 
-# PNG opslaan voor gebruik in Dodona (in de media map van Oef - 7.2)
-ggsave("crimineel_geslacht_kruistabel.png",
+# PNG opslaan voor gebruik in Dodona (in dezelfde map als dit script)
+out_file <- file.path(get_script_dir(), "crimineel_geslacht_kruistabel.png")
+ggsave(out_file,
        plot = p, width = 8, height = 5, dpi = 300, bg = "white")
 
-cat("Plot gegenereerd en opgeslagen als: crimineel_geslacht_kruistabel.png\n")
+cat("Plot gegenereerd en opgeslagen als: ", out_file, "\n", sep = "")
