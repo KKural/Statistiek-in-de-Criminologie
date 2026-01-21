@@ -10,6 +10,7 @@
     "handler": "R"
   },
   "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
   "access": "public",
   "labels": [
     "begrippen"

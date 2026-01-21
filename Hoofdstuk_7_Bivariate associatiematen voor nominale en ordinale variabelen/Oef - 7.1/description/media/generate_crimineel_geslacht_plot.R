@@ -1,4 +1,4 @@
-# Oefening 7.2 – Crimineel gedrag per geslacht
+# Oefening 7.1 – Crimineel gedrag per geslacht
 # -------------------------------------------
 # Visualisatie van de kruistabel uit de oefening
 # met absolute aantallen YES/NO per geslacht.
