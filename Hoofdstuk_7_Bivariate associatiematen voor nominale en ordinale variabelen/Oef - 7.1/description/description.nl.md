@@ -26,6 +26,8 @@ Een onderzoeker wil nagaan of er een verband is tussen **geslacht** en **crimine
 </tbody>
 </table>
 
+<img src="media/crimineel_geslacht_kruistabel.png" alt="Crimineel gedrag per geslacht (absolute aantallen)" width="600">
+
 Je berekent alles **met de hand** (rekenmachine mag). 
 
 
