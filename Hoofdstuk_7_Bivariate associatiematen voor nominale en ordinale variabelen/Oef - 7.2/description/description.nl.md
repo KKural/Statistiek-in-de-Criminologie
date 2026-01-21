@@ -62,3 +62,5 @@ Je berekent alles **met de hand** (rekenmachine mag).
   - Zet je keuze in `antwoord_mc` (A=1, B=2, C=3, D=4)
 
 Afronden: percentages op 2 decimalen, odds op 4 decimalen, OR op 2 decimalen, chi^2 op 4 decimalen.
+
+**Instructie:** In de boilerplate vervang je `???` door je antwoord. Gebruik decimalen met punt (niet komma) en geen procentteken.

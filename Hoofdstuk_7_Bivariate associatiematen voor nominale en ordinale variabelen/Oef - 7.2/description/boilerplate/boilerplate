@@ -1,31 +1,30 @@
-# Vul hieronder je antwoorden in.
-#
-# Richtlijnen:
-# - Bereken met de hand en vul enkel eindwaarden in (geen R-berekeningen nodig).
-# - Gebruik percentages als getallen (bv. 61.5, niet 0.615).
-# - Rond af zoals gevraagd in de opgave.
-# - De automatische feedback aanvaardt ook de vroegere korte variabelen,
-#   maar gebruik bij voorkeur de namen hieronder (voluit).
+# Vervang ??? door je antwoord.
+# Let op de volgende instructies:
+    # - Gebruik percentages als getallen (bv. 61.5, niet 0.615).
+    # - Rond af zoals gevraagd in de opgave.
+    # - Gebruik decimalen met punt (niet komma) en geen procentteken.
+    # - De automatische feedback aanvaardt ook de vroegere korte variabelen,
+    #   maar gebruik bij voorkeur de namen hieronder (voluit).
 
 # 1) Marginale percentages (t.o.v. N = 2000)
-percentage_mannen <- NA
-percentage_vrouwen <- NA
-percentage_yes <- NA
-percentage_no <- NA
+percentage_mannen <- ???
+percentage_vrouwen <- ???
+percentage_yes <- ???
+percentage_no <- ???
 
 # 2-4) Conditionele percentages en percentageverschil (in procentpunten)
-percentage_yes_bij_mannen <- NA
-percentage_yes_bij_vrouwen <- NA
-percentageverschil_yes <- NA
+percentage_yes_bij_mannen <- ???
+percentage_yes_bij_vrouwen <- ???
+percentageverschil_yes <- ???
 
 # 5) Odds en odds ratio
-odds_mannen <- NA
-odds_vrouwen <- NA
-odds_ratio <- NA
+odds_mannen <- ???
+odds_vrouwen <- ???
+odds_ratio <- ???
 
 # 6) Chi-kwadraat
-chi_kwadraat <- NA
+chi_kwadraat <- ???
 
 # 7) Extra + meerkeuze
-kans_no_bij_vrouwen <- NA  # kans (0-1) of percentage (0-100) wordt aanvaard
-antwoord_mc <- NA          # A=1, B=2, C=3, D=4
+kans_no_bij_vrouwen <- ???  # kans (0-1) of percentage (0-100) wordt aanvaard
+antwoord_mc <- ???          # A=1, B=2, C=3, D=4
