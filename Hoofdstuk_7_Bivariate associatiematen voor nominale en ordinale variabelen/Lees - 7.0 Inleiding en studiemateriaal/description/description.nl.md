@@ -14,27 +14,14 @@ Studiemateriaal en leerdoelen:
 
 ## **Verplichte Videomateriaal**
 
-### **Kruistabellen en percentageverschillen**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Xn2XskBwjH4" title="Percentages and Contingency Tables" frameborder="0" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kfpvRurSft4" title="Percent from Contingency Tables" frameborder="0" allowfullscreen></iframe>
----
-### **Odds en odds-ratio**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vuFKAFEcmy0" title="Inleiding tot associatiematen" frameborder="0" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wqybeUSWFrA" title="Odds and odds ratios" frameborder="0" allowfullscreen></iframe>
----
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9UvOR7fGWZM" title="Gamma berekenen in kruistabellen" frameborder="0" allowfullscreen></iframe>
 
-### **Chi-kwadraat in kruistabellen**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZnoWaNLOOvQ" title="Associatiematen voor nominale en ordinale variabelen" frameborder="0" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hpWdDmgsIRE" title="Contingency table chi-square test" frameborder="0" allowfullscreen></iframe>
----
-
-### **Associatiematen voor ordinale variabelen (gamma en rangcorrelaties)**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vuFKAFEcmy0" title="What Are Measures Of Association?" frameborder="0" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9UvOR7fGWZM" title="Calculating Gamma for Contingency Tables" frameborder="0" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZnoWaNLOOvQ" title="Measures of Association: Nominal- and Ordinal-level Variables" frameborder="0" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iPSV-n9UWuo" title="Tests of Significance and Measures of Association for Nominal and Ordinal Variables" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iPSV-n9UWuo" title="Toetsen en associatiematen voor nominale en ordinale variabelen" frameborder="0" allowfullscreen></iframe>
 ---
 
 ## Verplichte Literatuur

@@ -137,7 +137,7 @@ context({
             odds_male = "5) Odds mannen (YES/NO) (`odds_mannen`)",
             odds_female = "5) Odds vrouwen (YES/NO) (`odds_vrouwen`)",
             odds_ratio = "5) Odds ratio (OR) (`odds_ratio`)",
-            chi2 = "6) Chi-kwadraat (χ²) (`chi_kwadraat`)",
+            chi2 = "6) Chi-kwadraat (chi^2) (`chi_kwadraat`)",
             p_no_female = "7) P(NO | Vrouw) (`kans_no_bij_vrouwen`)",
             antwoord_mc = "7) Meerkeuze (`antwoord_mc`)"
           )
@@ -145,7 +145,7 @@ context({
           msg_for <- function(key) {
             r <- results[[key]]
             if (!r$exists) return("Je hebt deze variabele niet aangemaakt.")
-            if (is.na(r$value_num) && !is.numeric(r$value)) return("Je antwoord kon niet als getal geïnterpreteerd worden.")
+            if (is.na(r$value_num) && !is.numeric(r$value)) return("Je antwoord kon niet als getal geinterpreteerd worden.")
 
             v <- r$value_num
             e <- r$expected
