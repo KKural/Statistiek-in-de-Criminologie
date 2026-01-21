@@ -7,7 +7,7 @@ Een onderzoeker wil nagaan of er een verband is tussen **geslacht** en **crimine
 
 Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **eindresultaten** in (geen R-berekeningen nodig).
 
-<img src="media/gender_counts_stacked.png" alt="Kruistabel als gestapelde staafdiagram" width="620">
+<img src="media/gender_counts_stacked.png" alt="100%-gestapelde staafdiagram (percentages binnen geslacht)" width="620">
 
 ## Opdrachten (vul de variabelen in de boilerplate)
 1) Marginale percentages (t.o.v. N = 2000)

@@ -156,19 +156,19 @@ context({
               }
               if (key == "perc_male" && !is.na(v) && abs(v - 38.5) < 0.1) return("Je wisselde mannen en vrouwen om. Gebruik: (totaal mannen / 2000) * 100.")
               if (key == "perc_female" && !is.na(v) && abs(v - 61.5) < 0.1) return("Je wisselde vrouwen en mannen om. Gebruik: (totaal vrouwen / 2000) * 100.")
-              if (key == "perc_yes" && !is.na(v) && abs(v - 500) < 1) return("Je vergat te delen door het totaal. % YES = 500/2000 × 100.")
-              if (key == "perc_no" && !is.na(v) && abs(v - 1500) < 1) return("Je vergat te delen door het totaal. % NO = 1500/2000 × 100.")
+              if (key == "perc_yes" && !is.na(v) && abs(v - 500) < 1) return("Je vergat te delen door het totaal. Gebruik: (totaal YES / 2000) * 100.")
+              if (key == "perc_no" && !is.na(v) && abs(v - 1500) < 1) return("Je vergat te delen door het totaal. Gebruik: (totaal NO / 2000) * 100.")
               return("Gebruik: (totaal categorie / 2000) * 100. Controleer ook je afronding.")
             }
 
             if (key == "perc_yes_male") {
-              if (!is.na(v) && abs(v - (380 / 2000 * 100)) < 0.1) return("Je deelde door 2000 i.p.v. door het aantal mannen. Gebruik 380/1230 × 100.")
+              if (!is.na(v) && abs(v - (380 / 2000 * 100)) < 0.1) return("Je deelde door 2000 i.p.v. door het aantal mannen. Gebruik: (YES bij mannen / totaal mannen) * 100.")
               if (!is.na(v) && abs(v - (380 / 500 * 100)) < 0.1) return("Je deelde door totaal YES (500). Voor P(YES|Man) deel je door het aantal mannen (1230).")
               return("Gebruik: (YES bij mannen / totaal mannen) * 100. Rond af op 2 decimalen.")
             }
 
             if (key == "perc_yes_female") {
-              if (!is.na(v) && abs(v - (120 / 2000 * 100)) < 0.1) return("Je deelde door 2000 i.p.v. door het aantal vrouwen. Gebruik 120/770 × 100.")
+              if (!is.na(v) && abs(v - (120 / 2000 * 100)) < 0.1) return("Je deelde door 2000 i.p.v. door het aantal vrouwen. Gebruik: (YES bij vrouwen / totaal vrouwen) * 100.")
               if (!is.na(v) && abs(v - (120 / 500 * 100)) < 0.1) return("Je deelde door totaal YES (500). Voor P(YES|Vrouw) deel je door het aantal vrouwen (770).")
               return("Gebruik: (YES bij vrouwen / totaal vrouwen) * 100. Rond af op 2 decimalen.")
             }
@@ -199,8 +199,8 @@ context({
             }
 
             if (key == "chi2") {
-              if (!is.na(v) && abs(v - 0.059) < 0.01) return("Je lijkt te delen door 1000 of met proporties te werken. Gebruik frequenties en \u03A3 (O−E)^2/E.")
-              return("Gebruik frequenties: bereken de verwachte frequenties E en sommeer Σ (O - E)^2 / E. Rond af op 4 decimalen.")
+              if (!is.na(v) && abs(v - 0.059) < 0.01) return("Je lijkt te werken met proporties i.p.v. frequenties. Voor chi-kwadraat gebruik je frequenties en tel je (O - E)^2/E op over alle cellen.")
+              return("Gebruik frequenties: bereken de verwachte frequenties E en tel (O - E)^2/E op over alle cellen. Rond af op 4 decimalen.")
             }
 
             if (key == "p_no_female") {
