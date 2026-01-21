@@ -30,7 +30,7 @@ Opgelet: bepaal vooraf welke variabele je inhoudelijk als **onafhankelijk** besc
 </tbody>
 </table>
 
-<img src="media/vuurwapen_geslacht_percentages.png" alt="Vuurwapenbezit per geslacht (percentages binnen geslacht)" width="650">
+<img src="media/vuurwapen_geslacht_kruistabel.png" alt="Vuurwapenbezit per geslacht (absolute aantallen)" width="650">
 
 Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **eindresultaten** in.
 
@@ -60,4 +60,3 @@ Omdat geslacht de onafhankelijke variabele is, werk je met **kolompercentages** 
 Afronden: percentages op 2 decimalen, chi^2 op 2 decimalen, phi op 2 decimalen.
 
 **Instructie:** In de boilerplate vervang je `???` door je antwoord. Gebruik decimalen met punt (niet komma) en geen procentteken.
-
