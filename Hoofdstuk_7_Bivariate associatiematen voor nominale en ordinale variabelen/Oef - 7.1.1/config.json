@@ -1,0 +1,22 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 7.1.1 Vuurwapenbezit en geslacht"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "kruistabel",
+    "percentages",
+    "chi-kwadraat",
+    "phi"
+  ]
+}
+
