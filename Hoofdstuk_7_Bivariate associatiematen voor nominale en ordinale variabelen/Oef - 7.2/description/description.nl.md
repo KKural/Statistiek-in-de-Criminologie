@@ -5,65 +5,41 @@ Een onderzoeker wil nagaan of er een verband is tussen **geslacht** en **crimine
 | YES | 380 | 120 |
 | NO  | 850 | 650 |
 
-In deze oefening bereken je (1) **marginale percentages**, (2) **conditionele percentages**, en (3) enkele **associatiematen** (odds ratio en chi-kwadraat) op basis van deze kruistabel.
+Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **eindresultaten** in (geen R-berekeningen nodig).
 
-<img src="media/gender_yes_bar.png" alt="Percentage YES per geslacht" width="520">
+<img src="media/gender_counts_stacked.png" alt="Kruistabel als gestapelde staafdiagram" width="620">
 
-## Stap 1 — Marginale verdelingen (t.o.v. N = 2000)
-Bereken de marginale percentages:
-- **Percentage mannen** = 1230/2000 × 100
-- **Percentage vrouwen** = 770/2000 × 100
-- **Percentage YES** = 500/2000 × 100
-- **Percentage NO** = 1500/2000 × 100
+## Opdrachten (vul de variabelen in de boilerplate)
+1) Marginale percentages (t.o.v. N = 2000)
+- `percentage_mannen` = (totaal mannen / 2000) * 100
+- `percentage_vrouwen` = (totaal vrouwen / 2000) * 100
+- `percentage_yes` = (totaal YES / 2000) * 100
+- `percentage_no` = (totaal NO / 2000) * 100
 
-## Stap 2 — Conditionele verdelingen (kolompercentages)
-Bereken binnen elk geslacht welk percentage **YES** is:
-- \(P(YES\\,|\\,Man)\) = 380/1230 × 100
-- \(P(YES\\,|\\,Vrouw)\) = 120/770 × 100
+2) Conditionele percentages (kolompercentages)
+- `percentage_yes_bij_mannen` = (YES bij mannen / totaal mannen) * 100
+- `percentage_yes_bij_vrouwen` = (YES bij vrouwen / totaal vrouwen) * 100
 
-## Stap 3 — Percentageverschil (procentpunten)
-Het relevante percentageverschil bij een theoretisch **asymmetrische** relatie bereken je met **kolompercentages** (kolommen = 100%):
-**Percentageverschil (in procentpunten)** = \(P(YES\\,|\\,Man) - P(YES\\,|\\,Vrouw)\)
+3) Percentageverschil (procentpunten)
+- `percentageverschil_yes` = percentage_yes_bij_mannen - percentage_yes_bij_vrouwen
 
-## Stap 4 — Odds en odds ratio (OR)
-- **Odds** (YES vs. NO) bij mannen: 380/850  
-- **Odds** (YES vs. NO) bij vrouwen: 120/650  
-- **Odds ratio**: \(OR = (odds\\ mannen) / (odds\\ vrouwen)\)
+4) Odds en odds ratio
+- `odds_mannen` = (YES bij mannen) / (NO bij mannen)
+- `odds_vrouwen` = (YES bij vrouwen) / (NO bij vrouwen)
+- `odds_ratio` = odds_mannen / odds_vrouwen
 
-## Stap 5 — Chi-kwadraat (\u03C7²)
-Bereken de verwachte frequenties met:
-- \(E_{ij} = (rijtotaal_i \\times kolomtotaal_j) / N\)
+5) Chi-kwadraat (chi^2)
+- Verwachte frequentie: `E_ij = (rijtotaal_i * kolomtotaal_j) / N`
+- Daarna: `chi^2 = Σ (O - E)^2 / E`
+- Noteer het resultaat als `chi_kwadraat`
 
-en sommeer vervolgens:
-- \u03C7² = \u03A3 (O − E)² / E
+6) Extra + meerkeuze
+- `kans_no_bij_vrouwen` = P(NO | Vrouw) = (NO bij vrouwen) / (totaal vrouwen)
+- Meerkeuze: "Wat is de kans dat een willekeurige vrouw **geen** misdrijf pleegde?"
+  - A. 30%
+  - B. 15%
+  - C. 85%
+  - D. 6%
+  - Zet je keuze in `antwoord_mc` (A=1, B=2, C=3, D=4)
 
-## Stap 6 — Extra vraag + meerkeuze
-Bereken:
-- \(P(NO\\,|\\,Vrouw) = 650/770\)
-
-Meerkeuze: “Wat is de kans dat een willekeurige vrouw **geen** misdrijf pleegde?”
-- A. 30%
-- B. 15%
-- C. 85%
-- D. 6%
-
-## Wat moet je indienen in R?
-Vul de variabelen in de boilerplate in. De namen zijn bewust **voluit** geschreven:
-
-| Grootheid | Variabele | Eenheid |
-|---|---|---|
-| % mannen (marginaal) | `percentage_mannen` | % |
-| % vrouwen (marginaal) | `percentage_vrouwen` | % |
-| % YES (marginaal) | `percentage_yes` | % |
-| % NO (marginaal) | `percentage_no` | % |
-| % YES bij mannen | `percentage_yes_bij_mannen` | % |
-| % YES bij vrouwen | `percentage_yes_bij_vrouwen` | % |
-| verschil in procentpunten | `percentageverschil_yes` | procentpunten |
-| odds mannen (YES/NO) | `odds_mannen` | odds |
-| odds vrouwen (YES/NO) | `odds_vrouwen` | odds |
-| odds ratio | `odds_ratio` | OR |
-| chi-kwadraat | `chi_kwadraat` | \u03C7² |
-| P(NO \u007c Vrouw) | `kans_no_bij_vrouwen` | kans (0–1) of % |
-| meerkeuze (A=1,B=2,C=3,D=4) | `antwoord_mc` | 1–4 |
-
-**Afronden:** rond percentages af op 2 decimalen, odds op 4 decimalen, OR op 2 decimalen en \u03C7² op 4 decimalen.
+Afronden: percentages op 2 decimalen, odds op 4 decimalen, OR op 2 decimalen, chi^2 op 4 decimalen.
