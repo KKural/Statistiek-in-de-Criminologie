@@ -2,7 +2,7 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 6.6 Bivariate beschrijvende statistiek"
+      "nl": "Oef - 6.6 Kruistabel bij metrische variabelen"
     }
   },
   "programming_language": "R",

@@ -2,7 +2,7 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 6.1 Bivariate beschrijvende statistiek"
+      "nl": "Oef - 6.1 Causaliteit en statistische samenhang"
     }
   },
   "programming_language": "R",
