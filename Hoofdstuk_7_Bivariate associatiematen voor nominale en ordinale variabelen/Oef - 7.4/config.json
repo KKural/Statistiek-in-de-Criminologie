@@ -2,7 +2,7 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 7.4 Kendall's tau"
+      "nl": "Oef - 7.4 Gamma"
     }
   },
   "programming_language": "R",
@@ -15,7 +15,7 @@
     "begrippen"
   ],
   "internals": {
-    "token": "WK4ypsmnk3fUhIrYjV79-vu-xHVGG2dbhYt6BSbNXrc8arxdgIVFIAANHbDQq6Zx",
+    "token": "9_2e6MfqMePTPVqChBEpDXJHT7r_83sz59mQp6jq8Txfv6askYbjVZ8xgCHZQZzT",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

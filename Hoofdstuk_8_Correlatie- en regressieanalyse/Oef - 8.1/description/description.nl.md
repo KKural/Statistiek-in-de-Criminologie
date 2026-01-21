@@ -49,7 +49,7 @@ Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak
 
 ---
 
-## Opgaven (vul de variabelen in de boilerplate)
+## Opgaven
 
 ### Deel A: Basisvragen
 
@@ -105,4 +105,4 @@ Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak
 
 ---
 
-**Instructie:** In de boilerplate vervang je `???` door je antwoord. Gebruik decimalen met punt (niet komma) en geen procentteken.
+**Instructie:** Vervang `???` door je antwoord. Gebruik decimalen met punt (niet komma) en geen procentteken.
