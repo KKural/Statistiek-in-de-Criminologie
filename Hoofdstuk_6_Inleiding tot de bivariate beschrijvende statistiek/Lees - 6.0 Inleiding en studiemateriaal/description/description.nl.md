@@ -56,6 +56,79 @@ Lees dit hoofdstuk zorgvuldig. Besteed daarbij extra aandacht aan de volgende on
 
 ---
 
+  ## 📹 Verplichte video's
+
+  Deze video's helpen je de kernbegrippen van Hoofdstuk 6 visueel te maken: causaliteit vs statistische samenhang, kruistabellen, scatterplots en associatiematen.
+
+  > Let op: om compatibiliteitsproblemen te vermijden, worden de video’s enkel via links aangeboden (geen ingesloten iframe). Studenten kunnen gewoon op de link klikken.
+
+  ### 🎥 Video 1 — Correlation vs Causation (intuïtief overzicht)
+
+  Korte, toegankelijke uitleg over het verschil tussen statistische samenhang en oorzakelijke interpretaties.
+
+  - **CrashCourse Statistics – Correlation and Causation**  
+    <https://www.youtube.com/watch?v=0nWlNX91GNs>
+
+  ### 🎥 Video 2 — Two-way tables (kruistabellen) en percentages
+
+  Toont hoe je kruistabellen leest, rij- en kolomtotalen interpreteert en percentages correct berekent.
+
+  - **Khan Academy – Two-way frequency tables**  
+    <https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/two-way-tables/v/two-way-frequency-tables-and-venn-diagrams>
+
+  ### 🎥 Video 3 — Scatterplots en associatie tussen twee metrische variabelen
+
+  Introductie tot scatterplots, richting (+/−) en vorm (lineair/niet-lineair) van een relatie.
+
+  - **Khan Academy – Intro to scatterplots**  
+    <https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/scatterplots/v/scatterplots-introduction>
+
+  ### 🎥 Video 4 — Correlatie als maat van samenhang
+
+  Uitleg over hoe je de sterkte en richting van een lineair verband kunt samenvatten met één getal (correlatiecoëfficiënt).
+
+  - **Khan Academy – Correlation and causality**  
+    <https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/correlation-library/v/correlation-and-causality>
+
+  ---
+
+  ## 📄 Aanvullende leesbronnen
+
+  Deze bronnen sluiten inhoudelijk aan bij Hoofdstuk 6 en bieden extra voorbeelden en figuren.
+
+  1. **OpenStax – Two-Way Tables**  
+    Uitleg over bivariate frequentieverdelingen, kruistabellen en interpretatie van percentages.
+
+    - <https://openstax.org/books/statistics/pages/11-1-two-way-tables>
+
+  2. **OpenStax – The Linear Correlation Coefficient**  
+    Basisuitleg over de correlatiecoëfficiënt als maat voor sterkte en richting van lineaire relaties.
+
+    - <https://openstax.org/books/statistics/pages/12-2-the-linear-correlation-coefficient>
+
+  3. **Khan Academy – Correlation and causality (article)**  
+    Korte tekst met voorbeelden van schijnverbanden en het verschil tussen correlatie en causaliteit.
+
+    - <https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/correlation-library/a/correlation-and-causality-review>
+
+  ---
+
+  ## 🌐 Extra online tools
+
+  Gebruik deze tools om zelf relaties tussen twee variabelen te verkennen.
+
+  1. **Interactieve kruistabel- en chi-kwadraat calculator**  
+    (voor het verkennen van associatie tussen twee categorische variabelen, eventueel later in het hoofdstuk nuttig)
+
+    - <https://www.socscistatistics.com/tests/chisquare2/default2.aspx>
+
+  2. **Interactieve scatterplot-tool**  
+    Visualiseer zelf puntenwolken en bekijk hoe richting en vorm van het verband veranderen.
+
+    - <https://www.geogebra.org/m/yzudqznq>
+
+  ---
+
 ## 🎯 Wat moet je zeker kunnen na dit theorieblok?
 
 Na het doornemen van dit leesblok moet je:

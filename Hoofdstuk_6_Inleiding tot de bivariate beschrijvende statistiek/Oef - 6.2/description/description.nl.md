@@ -1,9 +1,10 @@
-# Q2.6 - [Te vullen]
+Welke causale factor komt het meest overeen met de realiteit in criminologisch onderzoek?
 
-*Deze oefening is nog niet uitgewerkt.*
+1. Voldoende en noodzakelijke oorzaken
+2. Contributieve oorzaken (niet-voldoende en niet-noodzakelijke oorzaken)
+3. Voldoende en niet-noodzakelijke oorzaken
+4. Onvoldoende en noodzakelijke oorzaken
 
-Schrijf hier je R-code:
+**Hint:** *Criminologisch gedrag is meestal multicausaal: factoren leveren vaak een bijdrage zonder op zichzelf voldoende of noodzakelijk te zijn.*
 
-```r
-# Je code hier
-```
+- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

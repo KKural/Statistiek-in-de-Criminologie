@@ -2,7 +2,7 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 6.2 Bivariate beschrijvende statistiek"
+      "nl": "Oef - 6.7 Bivariate beschrijvende statistiek"
     }
   },
   "programming_language": "R",
@@ -15,7 +15,7 @@
     "begrippen"
   ],
   "internals": {
-    "token": "y6XSjhTMXK6pjtIBrtrHmdSdYNIcKfcUqX3aFYETvnn9aSc4CRJMpRKPpNFQJWBa",
+    "token": "1KPpjBwmMQrUJWR6olLF3G1rCMLiyDrnostcjDNCplUqbIg0ZbI35LeESDrhCFn3",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

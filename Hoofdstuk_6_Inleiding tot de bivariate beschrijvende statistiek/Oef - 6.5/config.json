@@ -1,20 +1,18 @@
 {
+  "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 6.5"
+      "nl": "Oef - 6.5 Bivariate beschrijvende statistiek"
     }
   },
   "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "R"
   },
   "test_suite": "evaluation",
-  "workdir": "workdir",
   "access": "public",
   "labels": [
-    "begrippen",
-    "populatie"
+    "begrippen"
   ],
   "internals": {
     "token": "PzKx-tpVmpEGQtTxvNTdy9EGZWehFwQF-T_KfcNMUXxvXx5PZvRxzvuyqcCggj7Q",

@@ -1,9 +1,10 @@
-# Q2.4 - [Te vullen]
+Welke vorm van causaliteit legt de nadruk op mechanismen die verklaren hoe een effect tot stand komt?
 
-*Deze oefening is nog niet uitgewerkt.*
+1. Tegenfeitelijke causaliteit
+2. Generatieve (productieve) causaliteit
+3. Robuuste statistische afhankelijkheid
+4. Contributieve causaliteit
 
-Schrijf hier je R-code:
+**Hint:** *Sommige causaliteitsopvattingen focussen op “wat er zou gebeuren bij interventie”, andere op “welk mechanisme het effect produceert”.*
 
-```r
-# Je code hier
-```
+- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

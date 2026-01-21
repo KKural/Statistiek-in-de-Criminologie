@@ -1,11 +1,10 @@
-- **Criminologische analyses:**  
-  De bivariate statistiek helpt relaties te ontdekken, bijvoorbeeld tussen **drankgebruik en geweld**, **armoede en criminaliteit**, of **sociale controle en vandalisme**.
+Wat is het belangrijkste verschil tussen het gebruik van een kruistabel voor nominale/ordinale variabelen en metrische variabelen?
 
-- **Beleidsvorming:**  
-  Statistische relaties kunnen aanwijzingen bieden voor risicofactoren waarop beleid kan ingrijpen.
+1. Kruistabellen kunnen alleen worden gebruikt bij metrische variabelen.
+2. Voor metrische variabelen is een kruistabel vaak onleesbaar vanwege het grote aantal mogelijke waarden.
+3. Metrische variabelen hoeven nooit gevisualiseerd te worden.
+4. Kruistabellen geven altijd percentages, ongeacht het meetniveau van de variabelen.
 
-- **Onderwijs en onderzoek:**  
-  Studenten leren verbanden herkennen, hypotheses formuleren, en resultaten visualiseren met kruistabellen en scatterplots.
+**Hint:** *Nominale/ordinale variabelen hebben meestal weinig categorieën. Metrische variabelen hebben vaak veel mogelijke waarden, waardoor een kruistabel snel onoverzichtelijk wordt (denk aan een scatterplot).*
 
-- **Methodologische reflectie:**  
-  Een sterke correlatie betekent niet noodzakelijk causaliteit; theorie en context blijven noodzakelijk voor interpretatie.
+- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

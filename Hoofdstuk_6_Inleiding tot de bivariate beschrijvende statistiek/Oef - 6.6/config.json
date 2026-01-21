@@ -1,11 +1,19 @@
 {
+  "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 6.6"
+      "nl": "Oef - 6.6 Bivariate beschrijvende statistiek"
     }
   },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
   "access": "public",
-  "type": "content",
+  "labels": [
+    "begrippen"
+  ],
   "internals": {
     "token": "UBwftnzKsCwszNDfFeMQbgzbqb963X3dp9x5cUqCqQuhksiHYuuWNpMQ2SYrCdv2",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
