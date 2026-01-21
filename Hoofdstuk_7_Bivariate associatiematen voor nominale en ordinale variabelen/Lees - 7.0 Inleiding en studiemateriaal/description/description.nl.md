@@ -14,13 +14,17 @@ Studiemateriaal en leerdoelen:
 
 ## **Verplichte Videomateriaal**
 
+### **Inleiding tot associatiematen**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vuFKAFEcmy0" title="Inleiding tot associatiematen" frameborder="0" allowfullscreen></iframe>
 
+### **Gamma berekenen in kruistabellen**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9UvOR7fGWZM" title="Gamma berekenen in kruistabellen" frameborder="0" allowfullscreen></iframe>
 
+### **Associatiematen voor nominale en ordinale variabelen**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZnoWaNLOOvQ" title="Associatiematen voor nominale en ordinale variabelen" frameborder="0" allowfullscreen></iframe>
 
+### **Toetsen en associatiematen voor nominale en ordinale variabelen**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iPSV-n9UWuo" title="Toetsen en associatiematen voor nominale en ordinale variabelen" frameborder="0" allowfullscreen></iframe>
 ---
 

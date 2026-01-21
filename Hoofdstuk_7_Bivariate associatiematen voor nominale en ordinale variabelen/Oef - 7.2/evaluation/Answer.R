@@ -154,66 +154,66 @@ context({
               if (!is.na(v) && e > 1 && abs(v - e / 100) < 0.01) {
                 return("Je lijkt een proportie (0-1) te geven. Geef een **percentage** (0-100).")
               }
-              if (key == "perc_male" && !is.na(v) && abs(v - 38.5) < 0.1) return("Je wisselde mannen en vrouwen om. Mannen = 1230/2000 = 61.5%.")
-              if (key == "perc_female" && !is.na(v) && abs(v - 61.5) < 0.1) return("Je wisselde vrouwen en mannen om. Vrouwen = 770/2000 = 38.5%.")
+              if (key == "perc_male" && !is.na(v) && abs(v - 38.5) < 0.1) return("Je wisselde mannen en vrouwen om. Gebruik: (totaal mannen / 2000) * 100.")
+              if (key == "perc_female" && !is.na(v) && abs(v - 61.5) < 0.1) return("Je wisselde vrouwen en mannen om. Gebruik: (totaal vrouwen / 2000) * 100.")
               if (key == "perc_yes" && !is.na(v) && abs(v - 500) < 1) return("Je vergat te delen door het totaal. % YES = 500/2000 × 100.")
               if (key == "perc_no" && !is.na(v) && abs(v - 1500) < 1) return("Je vergat te delen door het totaal. % NO = 1500/2000 × 100.")
-              return(paste0("Gebruik: (totaal categorie / 2000) × 100. Juiste waarde: ", e, "."))
+              return("Gebruik: (totaal categorie / 2000) * 100. Controleer ook je afronding.")
             }
 
             if (key == "perc_yes_male") {
               if (!is.na(v) && abs(v - (380 / 2000 * 100)) < 0.1) return("Je deelde door 2000 i.p.v. door het aantal mannen. Gebruik 380/1230 × 100.")
               if (!is.na(v) && abs(v - (380 / 500 * 100)) < 0.1) return("Je deelde door totaal YES (500). Voor P(YES|Man) deel je door het aantal mannen (1230).")
-              return(paste0("Gebruik: 380/1230 × 100. Juiste waarde: ", e, "%."))
+              return("Gebruik: (YES bij mannen / totaal mannen) * 100. Rond af op 2 decimalen.")
             }
 
             if (key == "perc_yes_female") {
               if (!is.na(v) && abs(v - (120 / 2000 * 100)) < 0.1) return("Je deelde door 2000 i.p.v. door het aantal vrouwen. Gebruik 120/770 × 100.")
               if (!is.na(v) && abs(v - (120 / 500 * 100)) < 0.1) return("Je deelde door totaal YES (500). Voor P(YES|Vrouw) deel je door het aantal vrouwen (770).")
-              return(paste0("Gebruik: 120/770 × 100. Juiste waarde: ", e, "%."))
+              return("Gebruik: (YES bij vrouwen / totaal vrouwen) * 100. Rond af op 2 decimalen.")
             }
 
             if (key == "perc_diff_yes") {
               if (!is.na(v) && abs(v + e) < 0.1) return("Je nam het verschil in omgekeerde richting. Neem (mannen% - vrouwen%) voor YES.")
-              if (!is.na(v) && abs(v - e / 100) < 0.01) return("Je lijkt een proportie te geven. Het verschil moet in **procentpunten** zijn (bv. 15.31).")
-              return(paste0("Verschil in procentpunten: P(YES|Man) − P(YES|Vrouw). Juiste waarde: ", e, "."))
+              if (!is.na(v) && abs(v - e / 100) < 0.01) return("Je lijkt een proportie te geven. Het verschil moet in **procentpunten** zijn (dus op 0-100 schaal).")
+              return("Verschil in procentpunten: P(YES|Man) - P(YES|Vrouw). Gebruik kolompercentages (kolommen = 100%).")
             }
 
             if (key == "odds_male") {
               if (!is.na(v) && abs(v - (380 / 1230)) < 0.01) return("Dat is een kans, geen odds. Odds = YES/NO = 380/850.")
               if (!is.na(v) && abs(v - (850 / 380)) < 0.05) return("Je keerde de odds om. Gebruik 380/850 (niet 850/380).")
-              return(paste0("Odds mannen: YES/NO = 380/850. Juiste waarde: ", e, "."))
+              return("Odds mannen: YES/NO (dus 380/850). Rond af op 4 decimalen.")
             }
 
             if (key == "odds_female") {
               if (!is.na(v) && abs(v - (120 / 770)) < 0.01) return("Dat is een kans, geen odds. Odds = YES/NO = 120/650.")
               if (!is.na(v) && abs(v - (650 / 120)) < 0.1) return("Je keerde de odds om. Gebruik 120/650 (niet 650/120).")
-              return(paste0("Odds vrouwen: YES/NO = 120/650. Juiste waarde: ", e, "."))
+              return("Odds vrouwen: YES/NO (dus 120/650). Rond af op 4 decimalen.")
             }
 
             if (key == "odds_ratio") {
               rr <- (380 / 1230) / (120 / 770)
-              if (!is.na(v) && abs(v - rr) < 0.1) return("Je berekende een **risicoratio** (kansenratio). Gevraagd is de **odds ratio**: (380/850)/(120/650) ≈ 2.42.")
+              if (!is.na(v) && abs(v - rr) < 0.1) return("Je berekende een **risicoratio** (kansenratio). Gevraagd is de **odds ratio**: (YES/NO bij mannen) / (YES/NO bij vrouwen).")
               if (!is.na(v) && abs(v - 1 / e) < 0.05) return("Je nam het omgekeerde (vrouwen t.o.v. mannen). Gevraagd is mannen t.o.v. vrouwen.")
-              return(paste0("OR = (380/850) / (120/650). Juiste waarde: ", e, "."))
+              return("OR = (380/850) / (120/650). Rond af op 2 decimalen.")
             }
 
             if (key == "chi2") {
               if (!is.na(v) && abs(v - 0.059) < 0.01) return("Je lijkt te delen door 1000 of met proporties te werken. Gebruik frequenties en \u03A3 (O−E)^2/E.")
-              return(paste0("Voor 2×2: bereken verwachte frequenties en sommeer (O−E)^2/E. Juiste waarde: ", e, "."))
+              return("Gebruik frequenties: bereken de verwachte frequenties E en sommeer Σ (O - E)^2 / E. Rond af op 4 decimalen.")
             }
 
             if (key == "p_no_female") {
               if (!is.na(v) && abs(v - (650 / 2000)) < 0.01) return("Je deelde door 2000 i.p.v. door het aantal vrouwen. Gebruik 650/770.")
               if (!is.na(v) && abs(v - (120 / 770)) < 0.01) return("Je nam P(YES|Vrouw) i.p.v. P(NO|Vrouw). Gebruik 650/770.")
-              return(paste0("P(NO|Vrouw) = 650/770. Juiste waarde: ", e, " (≈ ", round(e * 100, 2), "%)."))
+              return("Gebruik: P(NO|Vrouw) = (NO bij vrouwen) / (totaal vrouwen) = 650/770. Je mag dit als kans (0-1) of als percentage geven.")
             }
 
             if (key == "antwoord_mc") {
-              return("Correct is optie C (=3), want P(NO|Vrouw) ≈ 85%.")
+              return("Bereken P(NO|Vrouw) en kies de optie (A-D) die het best overeenkomt met je percentage.")
             }
 
-            paste0("Verwacht: ", e, ".")
+            "Controleer je berekening en afronding."
           }
 
           feedback <- "**Resultaten:**\n\n"
