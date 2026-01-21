@@ -5,4 +5,6 @@ Welke uitspraak over Gamma is fout?
 3. Gamma ligt tussen -1 en +1.
 4. Gamma negeert gebonden rangen (ties) bij de berekening.
 
+**Hint:** *Gamma is een ordinale associemaat die vertrekt van het aantal concordante en discordante paren. Denk na over het mogelijke bereik van Gamma en hoe er met gebonden rangen (ties) wordt omgegaan.*
+
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.
