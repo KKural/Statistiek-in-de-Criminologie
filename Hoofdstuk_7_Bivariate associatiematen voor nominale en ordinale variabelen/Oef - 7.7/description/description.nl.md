@@ -1,13 +1,5 @@
-# **Besluit en vooruitblik naar het volgende leerpad**
+**Wat hebben we bereikt in Hoofdstuk 7?**  
+In Hoofdstuk 7 heb je geleerd hoe je **bivariate verbanden tussen nominale en ordinale variabelen** beschrijft. Je kan nu kruistabellen lezen, procentverschillen interpreteren en verschillende associatiematen toepassen (zoals Phi, Cramer’s V, gamma, Spearman en Kendall). Je begrijpt dat de keuze van een maat altijd afhangt van het **meetniveau** en van de **rol van variabelen** in een onderzoek. Dit hoofdstuk legde de basis voor het systematisch beschrijven van relaties tussen twee categorische kenmerken.
 
-De keuze van de juiste associatiemaat hangt af van het **meetniveau** en de **onderzoeksvraag**.  
-- **Nominale variabelen**: percentageverschil, odds ratio, chi-kwadraat, Phi, Cramer’s V.  
-- **Ordinale variabelen**: Gamma, Spearman’s Rho, Kendall’s Tau-b.  
-
-Let steeds op:  
-- Correct **percenteren** (rij/kolom afhankelijk van richting).  
-- De **assumpties** van de gekozen maat (vooral bij X²).  
-- De **invloed van steekproefgrootte** op de uitkomst.  
-
-De volgende stap in het leerpad richt zich op het verklaren van samenhangen met **multivariate technieken**,  
-zoals **logistische regressie**, waar odds ratio’s worden gebruikt om effecten te schatten wanneer meerdere variabelen tegelijk worden gecontroleerd.  
+**Vooruitblik naar Hoofdstuk 8**  
+In het volgende hoofdstuk breid je deze kennis uit naar **metrische variabelen**. Je leert hoe je de **sterkte en richting van lineaire verbanden** beoordeelt met covariatie, covariantie en de Pearson-correlatie. Ook ontdek je hoe je via **lineaire regressieanalyse** voorspellingen maakt en bepaalt hoeveel variatie in een afhankelijke variabele door een onafhankelijke variabele wordt verklaard. Deze technieken zijn fundamenteel voor criminologische theorietoetsing en predictieonderzoek.

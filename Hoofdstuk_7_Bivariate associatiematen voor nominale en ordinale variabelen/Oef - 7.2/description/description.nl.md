@@ -1,15 +1,34 @@
 Een onderzoeker wil nagaan of er een verband is tussen **geslacht** en **crimineel gedrag** (wel/geen misdrijf gepleegd). In een representatieve steekproef van **2.000** volwassenen werd het volgende gevonden:
 
-| Crimineel gedrag | Man | Vrouw |
-|---|---:|---:|
-| YES | 380 | 120 |
-| NO  | 850 | 650 |
+**Tabel 1**
 
-Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **eindresultaten** in (geen R-berekeningen nodig).
+*Crimineel gedrag per geslacht (absolute frequenties)*
 
-<img src="media/gender_counts_stacked.png" alt="100%-gestapelde staafdiagram (percentages binnen geslacht)" width="620">
+<table style="border-collapse: collapse; width: 45%; margin: 20px auto; font-family: Times, serif;">
+<thead>
+<tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
+<th style="padding: 6px 8px; text-align: left; font-weight: bold;">Crimineel gedrag</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold;">Man</th>
+<th style="padding: 6px 8px; text-align: center; font-weight: bold;">Vrouw</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 4px 8px; text-align: left;">YES</td>
+<td style="padding: 4px 8px; text-align: center;">380</td>
+<td style="padding: 4px 8px; text-align: center;">120</td>
+</tr>
+<tr style="border-bottom: 2px solid #000;">
+<td style="padding: 4px 8px; text-align: left;">NO</td>
+<td style="padding: 4px 8px; text-align: center;">850</td>
+<td style="padding: 4px 8px; text-align: center;">650</td>
+</tr>
+</tbody>
+</table>
 
-## Opdrachten (vul de variabelen in de boilerplate)
+Je berekent alles **met de hand** (rekenmachine mag). 
+
+
 1) Marginale percentages (t.o.v. N = 2000)
 - `percentage_mannen` = (totaal mannen / 2000) * 100
 - `percentage_vrouwen` = (totaal vrouwen / 2000) * 100
@@ -30,7 +49,7 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 
 5) Chi-kwadraat (chi^2)
 - Verwachte frequentie: `E_ij = (rijtotaal_i * kolomtotaal_j) / N`
-- Daarna: `chi^2 = Σ (O - E)^2 / E`
+- Daarna: tel voor alle cellen `(O - E)^2 / E` op
 - Noteer het resultaat als `chi_kwadraat`
 
 6) Extra + meerkeuze
