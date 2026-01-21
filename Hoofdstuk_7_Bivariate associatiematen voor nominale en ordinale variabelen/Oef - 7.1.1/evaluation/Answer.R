@@ -475,7 +475,7 @@ context({
 
           get_reporter()$add_message(feedback_text, type = "markdown")
 
-          get_reporter()$add_message(feedback, type = "markdown")
+          get_reporter()$add_message(feedback_text, type = "markdown")
           generated == expected
         }
       )
