@@ -1,27 +1,30 @@
-# Zet je antwoorden in de onderstaande variabelen.
+# Vul hieronder je antwoorden in.
 #
-# Gebruik percentages als getallen (bv. 61.5, niet 0.615).
-# Rond af op 2 decimalen waar nodig.
+# Richtlijnen:
+# - Gebruik percentages als getallen (bv. 61.5, niet 0.615).
+# - Rond af zoals gevraagd in de opgave.
+# - De automatische feedback aanvaardt ook de vroegere korte variabelen,
+#   maar gebruik bij voorkeur de namen hieronder (voluit).
 
-# 1) Marginale percentages (t.o.v. 2000)
-perc_male <- NA
-perc_female <- NA
-perc_yes <- NA
-perc_no <- NA
+# 1) Marginale percentages (t.o.v. N = 2000)
+percentage_mannen <- NA
+percentage_vrouwen <- NA
+percentage_yes <- NA
+percentage_no <- NA
 
-# 2-4) Conditionele percentages en verschil (in procentpunten)
-perc_yes_male <- NA
-perc_yes_female <- NA
-perc_diff_yes <- NA
+# 2-4) Conditionele percentages en percentageverschil (in procentpunten)
+percentage_yes_bij_mannen <- NA
+percentage_yes_bij_vrouwen <- NA
+percentageverschil_yes <- NA
 
 # 5) Odds en odds ratio
-odds_male <- NA
-odds_female <- NA
+odds_mannen <- NA
+odds_vrouwen <- NA
 odds_ratio <- NA
 
 # 6) Chi-kwadraat
-chi2 <- NA
+chi_kwadraat <- NA
 
 # 7) Extra + meerkeuze
-p_no_female <- NA          # kans (0-1) of percentage (0-100) wordt aanvaard
+kans_no_bij_vrouwen <- NA  # kans (0-1) of percentage (0-100) wordt aanvaard
 antwoord_mc <- NA          # A=1, B=2, C=3, D=4
