@@ -17,6 +17,9 @@
     "percentages",
     "chi-kwadraat",
     "phi"
-  ]
+  ],
+  "internals": {
+    "token": "h8zr-RdfamHhQFcfKKF_YwYdM9jrRyJCFQtn9CgCTHCgSwyGvrktVVSnXDrJPiHD",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
-
