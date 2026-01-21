@@ -1,22 +1,25 @@
 {
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 7.2"
+      "nl": "Oef - 7.2 Geslacht en crimineel gedrag"
     }
   },
-  "programming_language": "R",
   "evaluation": {
-    "handler": "R",
-    "memory_limit": 10000000
+    "handler": "R"
   },
   "test_suite": "evaluation",
-  "workdir": "workdir",
-  "access": "public",
+  "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
-    "begrippen"
+    "kruistabel",
+    "percentages",
+    "odds ratio",
+    "chi-kwadraat"
   ],
   "internals": {
-    "token": "x_eIEUexA6QNNjUYZYKZyIvRGB35w-KFx3gQUK7wm9yEhHtVrBKkP8mYyVbmJcZD",
+    "token": "Jy0wHEF_dbZkcTKslrwm4Ml7d13h5XvvnUxYLB1rd9-KYqV4y4pTikWM8o8wfmkc",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
