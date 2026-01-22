@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Spearman's rho: juiste foutieve uitspraak",
+    "",
     {
       testEqual(
         "",
