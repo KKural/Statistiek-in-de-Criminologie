@@ -242,6 +242,8 @@ context({
             }
           }
 
+          feedback <- paste0(feedback, "\n**Meer leren?** [Chi-kwadraat test](https://www.youtube.com/watch?v=7_cs1YlZoug) | [Verwachte waarden](https://www.statisticshowto.com/expected-value/) | [Kruistabellen](https://statistics.laerd.com/spss-tutorials/chi-square-test-for-association-using-spss-statistics.php)\n\n")
+
           get_reporter()$add_message(feedback, type = "markdown")
           generated == expected
         }
