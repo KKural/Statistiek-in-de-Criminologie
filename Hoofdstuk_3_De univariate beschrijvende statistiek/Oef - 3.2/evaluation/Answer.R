@@ -298,6 +298,7 @@ context({
           expected_cum_abs <- c(33, 117, 219, 282, 330)
           cat_names_display <- c("zeer ontevreden", "ontevreden", "noch tevreden, noch ontevreden", "tevreden", "zeer tevreden")
           cum_abs_errors <- c()
+          cum_abs_all_correct <- TRUE
           
           for (i in seq_along(cum_abs_vars)) {
             var <- cum_abs_vars[i]
