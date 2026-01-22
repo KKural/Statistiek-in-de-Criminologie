@@ -15,7 +15,11 @@
     "begrippen"
   ],
   "internals": {
+<<<<<<< HEAD
     "token": "xR9pK2mfNqT7vWcYjH4sLdFg3bZ8nX5PaUwEiO6tGhVkMqCxJyB1rAeN0zSfDlYm",
+=======
+    "token": "UfbVgPeBjHCd-9xW9figzsQybG8wX46cbcrppvmF-m_z-67fF3vymaHNSXq6Tmen",
+>>>>>>> f5b8b1b191f26533d42e27017d772caf7fcc3268
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
