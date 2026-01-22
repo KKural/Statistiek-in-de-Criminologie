@@ -242,7 +242,7 @@ context({
             }
           }
 
-          feedback <- paste0(feedback, "\n**Meer leren?** [Chi-kwadraat test](https://www.youtube.com/watch?v=7_cs1YlZoug) | [Verwachte waarden](https://www.statisticshowto.com/expected-value/) | [Kruistabellen](https://statistics.laerd.com/spss-tutorials/chi-square-test-for-association-using-spss-statistics.php)\n\n")
+          feedback <- paste0(feedback, "\n**Meer leren?** [Chi-kwadraat test](https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/) | [Verwachte waarden](https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/) | [Kruistabellen](https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/)\n\n")
 
           get_reporter()$add_message(feedback, type = "markdown")
           generated == expected

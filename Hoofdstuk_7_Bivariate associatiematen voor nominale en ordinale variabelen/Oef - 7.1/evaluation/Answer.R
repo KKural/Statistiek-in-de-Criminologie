@@ -702,7 +702,7 @@ context({
             "- **Percentageverschil:** 15.3 procentpunten\n",
             "- **Odds ratio:** 2.42 (mannen hebben 2.42× hogere odds op crimineel gedrag)\n",
             "- **Chi-kwadraat:** 63.76\n",
-            "\n**Meer leren?** [Chi-kwadraat test uitleg](https://www.youtube.com/watch?v=7_cs1YlZoug) | [Odds Ratio](https://www.statisticshowto.com/odds-ratio/) | [Kruistabellen](https://statistics.laerd.com/spss-tutorials/chi-square-test-for-association-using-spss-statistics.php)\n\n",
+            "\n**Meer leren?** [Chi-kwadraat test uitleg](https://www.scribbr.com/statistics/chi-square-tests/) | [Odds Ratio](https://www.theanalysisfactor.com/odds-ratio-cross-tabulation-table/) | [Kruistabellen](https://www.scribbr.com/statistics/chi-square-tests/)\n\n",
             "- **Conditionele percentages:** P(YES|Man)=30.89%, P(YES|Vrouw)=15.58%\n",
             "- **Percentageverschil:** 30.89 - 15.58 = 15.31 procentpunten\n",
             "- **Odds:** Mannen=0.4471, Vrouwen=0.1846\n",
