@@ -16,25 +16,25 @@ Studiemateriaal en leerdoelen:
 
 ### **Inleiding tot correlatie en regressie**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder1" title="Inleiding tot correlatie en regressie" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GtV-VYdNt_g" title="Inleiding tot correlatie en regressie" frameborder="0" allowfullscreen></iframe>
 
 ---
 
 ### **Pearson correlatie berekenen**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder2" title="Pearson correlatie berekenen" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/u4ugaNo6v1Q" title="Pearson correlatie berekenen" frameborder="0" allowfullscreen></iframe>
 
 ---
 
 ### **Lineaire regressieanalyse uitgelegd**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder3" title="Lineaire regressieanalyse uitgelegd" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yMgFHbjbAW8" title="Lineaire regressieanalyse uitgelegd" frameborder="0" allowfullscreen></iframe>
 
 ---
 
 ### **Interpretatie van regressiecoëfficiënten**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder4" title="Interpretatie van regressiecoëfficiënten" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iAgYLRy7e20" title="Interpretatie van regressiecoëfficiënten" frameborder="0" allowfullscreen></iframe>
 
 ---
 
