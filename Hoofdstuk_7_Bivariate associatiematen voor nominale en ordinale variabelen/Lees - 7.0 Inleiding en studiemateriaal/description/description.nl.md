@@ -4,15 +4,15 @@ Studiemateriaal en leerdoelen:
 
 - Begrijpen van kruistabellen en bivariate frequentieverdelingen
 - Percentages en percentageverschillen correct kunnen berekenen en interpreteren
-- Inzicht in odds en odds-ratio als associematen voor nominale variabelen
+- Inzicht in odds-ratio als associematen voor nominale variabelen
 - Begrijpen van de chi-kwadraattoets en de beperkingen ervan
 - Kennismaken met Phi en Cramer’s V als op chi-kwadraat gebaseerde sterktematen
 - Inzicht in gamma, Spearman’s rho en Kendall’s tau-b voor ordinale variabelen
-- Kunnen motiveren welke associemaat past bij een gegeven onderzoeksvraag en meetniveau
+- Kunnen motiveren welke associatiemaat past bij een gegeven onderzoeksvraag en meetniveau
 
 ---
 
-## **Verplichte Videomateriaal**
+## **Aanbevolen kennisclips**
 
 ### **Inleiding tot associatiematen**
 

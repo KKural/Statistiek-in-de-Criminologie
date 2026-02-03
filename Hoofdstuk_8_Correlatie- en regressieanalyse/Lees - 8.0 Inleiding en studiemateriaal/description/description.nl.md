@@ -12,7 +12,7 @@ Studiemateriaal en leerdoelen:
 
 ---
 
-## **Verplichte Videomateriaal**
+## **Aanbevolen kennisclips**
 
 ### **Inleiding tot correlatie en regressie**
 
