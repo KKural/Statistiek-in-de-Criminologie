@@ -279,7 +279,7 @@ context({
           # Z-table reference
           feedback_text <- paste0(
             feedback_text,
-            "**Z-tabel:** [https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)"
+            "**Z-tabel:** <a href='https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm' target='_blank' rel='noopener noreferrer'>https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm</a>"
           )
 
           get_reporter()$add_message(feedback_text, type = "markdown")

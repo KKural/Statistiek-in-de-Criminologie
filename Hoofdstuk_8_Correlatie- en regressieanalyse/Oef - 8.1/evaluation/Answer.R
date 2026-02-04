@@ -642,7 +642,7 @@ context({
             "- **SD's:** sx=16.3248, sy=0.9278\n",
             "- **Covariantie:** s²xy=14.4675\n",
             "- **Pearson's r:** 0.9552 (zeer sterke positieve correlatie)\n",
-            "- **Lineaire transformatie:** Correlatie blijft onveranderd bij euro↔dollar omzetting\n\n**Meer leren?** [Pearson correlatie](https://www.youtube.com/watch?v=2bcmKSX8jls) | [Covariantie uitleg](https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/introduction-to-trend-lines/v/covariance-and-the-regression-line) | [Regressie en correlatie](https://statistics.laerd.com/statistical-guides/pearson-correlation-coefficient-statistical-guide.php)\n\n"
+            "- **Lineaire transformatie:** Correlatie blijft onveranderd bij euro↔dollar omzetting\n\n**Meer leren?** <a href='https://www.youtube.com/watch?v=2bcmKSX8jls' target='_blank' rel='noopener noreferrer'>Pearson correlatie</a> | <a href='https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/introduction-to-trend-lines/v/covariance-and-the-regression-line' target='_blank' rel='noopener noreferrer'>Covariantie uitleg</a> | <a href='https://statistics.laerd.com/statistical-guides/pearson-correlation-coefficient-statistical-guide.php' target='_blank' rel='noopener noreferrer'>Regressie en correlatie</a>\n\n"
           )
 
           get_reporter()$add_message(feedback_text, type = "markdown")

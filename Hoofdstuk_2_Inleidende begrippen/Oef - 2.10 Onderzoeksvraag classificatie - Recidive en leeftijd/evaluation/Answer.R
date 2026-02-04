@@ -251,7 +251,7 @@ context({
           feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Kans op recidive (de uitkomst die wordt verklaard)")
           feedback_parts <- c(feedback_parts, "• **Recidive**: Opnieuw een misdrijf plegen na eerdere veroordeling (ja/nee = nominaal)")
           feedback_parts <- c(feedback_parts, "• **Leeftijd**: Continue numerieke waarden met echt nulpunt (ratio)")
-          feedback_parts <- c(feedback_parts, "**Meer leren?** [Bekijk Video: Bivariate Verklarende Onderzoeksvragen](https://www.youtube.com/watch?v=rjEBCOCa2z4) | [Meetniveaus Uitleg](https://www.youtube.com/watch?v=KJPXZIEmvfA)")
+          feedback_parts <- c(feedback_parts, "**Meer leren?** <a href='https://www.youtube.com/watch?v=rjEBCOCa2z4' target='_blank' rel='noopener noreferrer'>Bekijk Video: Bivariate Verklarende Onderzoeksvragen</a> | <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Meetniveaus Uitleg</a>")
           
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           

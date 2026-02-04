@@ -242,7 +242,7 @@ context({
             }
           }
 
-          feedback <- paste0(feedback, "\n**Meer leren?** [Chi-kwadraat test](https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/) | [Verwachte waarden](https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/) | [Kruistabellen](https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/)\n\n")
+          feedback <- paste0(feedback, "\n**Meer leren?** <a href='https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/' target='_blank' rel='noopener noreferrer'>Chi-kwadraat test</a> | <a href='https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/' target='_blank' rel='noopener noreferrer'>Verwachte waarden</a> | <a href='https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/' target='_blank' rel='noopener noreferrer'>Kruistabellen</a>\n\n")
 
           get_reporter()$add_message(feedback, type = "markdown")
           generated == expected
