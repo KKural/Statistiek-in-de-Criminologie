@@ -38,9 +38,9 @@ Studiemateriaal en leerdoelen:
 
 ---
 
-## Verplichte Literatuur
+## **Verplichte Literatuur**
 
-### Hoofdstuk 8: Correlatie- en regressieanalyse
+### **Hoofdstuk 8: Correlatie- en regressieanalyse**
 
 *Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 
@@ -60,7 +60,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## Aanvullende Literatuur
+## **Aanvullende Literatuur**
 
 1. <a href='https://openstax.org/books/statistics/pages/12-introduction' target='_blank' rel='noopener noreferrer'>OpenStax – Linear Regression and Correlation</a>
 
@@ -72,7 +72,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## Hulpmiddelen
+## **Hulpmiddelen**
 
 1. <a href='https://www.geogebra.org/m/xc6zv7dg' target='_blank' rel='noopener noreferrer'>Interactieve regressie-simulator</a>
 

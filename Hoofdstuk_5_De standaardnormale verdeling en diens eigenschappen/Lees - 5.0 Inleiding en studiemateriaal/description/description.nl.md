@@ -10,7 +10,7 @@ Studiemateriaal en leerdoelen:
 
 ---
 
-## **Verplichte Videomateriaal**
+## **Aanbevolen kennisclips**
 
 ### **Standaardnormale verdeling**
 

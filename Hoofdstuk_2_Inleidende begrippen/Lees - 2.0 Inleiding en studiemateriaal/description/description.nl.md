@@ -1,7 +1,7 @@
 Voordat je begint met de praktische oefeningen, is het belangrijk dat je de theorie goed begrijpt. Deze oefening bevat alle studiematerialen, video's en bronnen die je nodig hebt voor dit hoofdstuk.
 
 
-## 📹 **Verplichte Video's**
+## **Aanbevolen kennisclips**
 
 ### **Video 1: Meetniveaus Uitleg**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KJPXZIEmvfA" frameborder="0" allowfullscreen></iframe>
