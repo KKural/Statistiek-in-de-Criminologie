@@ -16,22 +16,33 @@ Studiemateriaal en leerdoelen:
 
 1. **Causaliteit versus statistische samenhang**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0nWlNX91GNs" title="Correlation and Causation" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ---
 
 2. **Kruistabellen en tweewegfrequenties**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b5p2olvPjSk" title="Two-way frequency tables" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ---
 
 3. **Scatterplots en lineaire samenhang**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FVG6cVSmOQ0" title="Intro to scatterplots" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ---
 
 4. **Correlatie en schijnverbanden**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Y2UqUo1RZik" title="Correlation and causality" frameborder="0" allowfullscreen></iframe>
+</div>
 ---
 
 ## **Verplichte Literatuur**

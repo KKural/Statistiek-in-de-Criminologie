@@ -1,4 +1,4 @@
-# Oefening 8.2: Interactieve Correlatie- en Regressie-app
+# **Oefening 8.2: Interactieve Correlatie- en Regressie-app**
 
 In deze oefening oefen je met **correlatie-analyse** en **bivariate lineaire regressie** aan de hand van een interactieve Shiny-app. De app genereert criminologische datasets en laat je alle tussenstappen handmatig berekenen, vergelijkbaar met Oefening 8.1, maar nu met directe feedback.
 

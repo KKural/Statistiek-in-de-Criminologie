@@ -4,25 +4,37 @@ Voordat je begint met de praktische oefeningen, is het belangrijk dat je de theo
 ## **Aanbevolen kennisclips**
 
 1. **Meetniveaus Uitleg**
+
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KJPXZIEmvfA" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
 2. **Variabeletypes, Kwantitatief vs. Kwalitatief, en Univariate/Bivariate**
+
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1uK" frameborder="0" allowfullscreen></iframe>
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SIH8iejRTYM" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
 3. **Onafhankelijke en Afhankelijke Variabelen**
+
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ylXCI5Aw_wE" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
 4. **Onderzoeksvraagtypen**
+
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rjEBCOCa2z4" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 

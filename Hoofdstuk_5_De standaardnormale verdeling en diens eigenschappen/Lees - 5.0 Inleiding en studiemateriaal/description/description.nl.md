@@ -14,21 +14,33 @@ Studiemateriaal en leerdoelen:
 
 1. **Standaardnormale verdeling**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VmuPqWnC0nw" title="Standard Normal Distribution" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ---
 
 2. **Z-scores en Standaardisatie**
+
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2tuBREK_mgE" title="Z-scores en Standaardisatie" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ---
 
 3. **Z-scores berekenen**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RdY9V_vittA" title="Z-scores berekenen" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ---
 
 4. **De Z-tabel gebruiken**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/p_KApjpyBHE" title="De Z-tabel gebruiken" frameborder="0" allowfullscreen></iframe>
+</div>
 ---
 
 ## **Verplichte Literatuur**

@@ -15,19 +15,25 @@ Studiemateriaal en leerdoelen:
 
 1. **Inleiding tot wetenschappelijk onderzoek**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cFqppKL8OH8" title="What is Research?" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
 2. **Het onderzoeksproces**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Pj9Q1YLs2A4" title="The Research Process" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
 3. **Hypothesen formuleren**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qVVN7_Q7hFM" title="Hypothesis Testing" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
