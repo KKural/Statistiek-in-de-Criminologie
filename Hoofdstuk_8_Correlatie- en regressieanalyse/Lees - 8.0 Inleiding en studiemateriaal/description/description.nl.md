@@ -14,27 +14,27 @@ Studiemateriaal en leerdoelen:
 
 ## **Aanbevolen kennisclips**
 
-### **Inleiding tot correlatie en regressie**
+1. **Inleiding tot correlatie en regressie**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GtV-VYdNt_g" title="Inleiding tot correlatie en regressie" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-### **Pearson correlatie berekenen**
+2. **Pearson correlatie berekenen**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/u4ugaNo6v1Q" title="Pearson correlatie berekenen" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-### **Lineaire regressieanalyse uitgelegd**
+3. **Lineaire regressieanalyse uitgelegd**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yMgFHbjbAW8" title="Lineaire regressieanalyse uitgelegd" frameborder="0" allowfullscreen></iframe>
 
 ---
 
-### **Interpretatie van regressiecoëfficiënten**
+4. **Interpretatie van regressiecoëfficiënten**
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=G00p2Kx-k0E" title="Interpretatie van regressiecoëfficiënten" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G00p2Kx-k0E" title="Interpretatie van regressiecoëfficiënten" frameborder="0" allowfullscreen></iframe>
 
 ---
 

@@ -14,19 +14,19 @@ Studiemateriaal en leerdoelen:
 
 ## **Aanbevolen kennisclips**
 
-### **Inleiding tot associatiematen**
+1. **Inleiding tot associatiematen**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vuFKAFEcmy0" title="Inleiding tot associatiematen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
-### **Gamma berekenen in kruistabellen**
+2. **Gamma berekenen in kruistabellen**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9UvOR7fGWZM" title="Gamma berekenen in kruistabellen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
-### **Associatiematen voor nominale en ordinale variabelen**
+3. **Associatiematen voor nominale en ordinale variabelen**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZnoWaNLOOvQ" title="Associatiematen voor nominale en ordinale variabelen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
