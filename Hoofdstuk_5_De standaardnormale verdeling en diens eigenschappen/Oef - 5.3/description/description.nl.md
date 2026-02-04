@@ -19,7 +19,7 @@ $$Z = \frac{X - \mu}{\sigma}$$
 - P(Z ≤ z) kan je opzoeken in de standaardnormale tabel
 - P(Z ≥ z) = 1 - P(Z ≤ z)
 
-**📊 Volledige Z-score tabel:** [Standaardnormale verdeling tabel](https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm)
+**📊 Volledige Z-score tabel:** <a href='https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm' target='_blank' rel='noopener noreferrer'>Standaardnormale verdeling tabel</a>
 
 **Vraag**
 

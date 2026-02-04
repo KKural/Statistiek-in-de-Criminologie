@@ -22,24 +22,24 @@ Na het bestuderen van dit materiaal kun je:
 ### 🔹 **Video 1: Meetniveaus Uitleg**
 **Duur:** ~15 minuten  
 **Onderwerpen:** Nominaal, ordinaal, interval, ratio niveau met criminologie voorbeelden  
-**Link:** [Bekijk Video 1 - Meetniveaus](https://www.youtube.com/watch?v=KJPXZIEmvfA)
+**Link:** <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Bekijk Video 1 - Meetniveaus</a>
 
 ### 🔹 **Video 2: Variabeletypes, Kwantitatief vs. Kwalitatief, en Univariate/Bivariate**  
 **Duur:** ~12 minuten  
 **Onderwerpen:** Onderscheid tussen kwantitatieve en kwalitatieve variabelen, univariate en bivariate analyses  
 **Links:**
-- [Univariate/Bivariate Concepten](https://www.youtube.com/watch?v=1uK)
-- [Aanvullende Video](https://www.youtube.com/watch?v=SIH8iejRTYM)
+- <a href='https://www.youtube.com/watch?v=1uK' target='_blank' rel='noopener noreferrer'>Univariate/Bivariate Concepten</a>
+- <a href='https://www.youtube.com/watch?v=SIH8iejRTYM' target='_blank' rel='noopener noreferrer'>Aanvullende Video</a>
 
 ### 🔹 **Video 3: Onafhankelijke en Afhankelijke Variabelen**
 **Duur:** ~10 minuten  
 **Onderwerpen:** Identificatie van oorzaak-gevolg relaties in onderzoek  
-**Link:** [Bekijk Video 3 - Afhankelijke en Onafhankelijke Variabelen](https://www.youtube.com/watch?v=ylXCI5Aw_wE)
+**Link:** <a href='https://www.youtube.com/watch?v=ylXCI5Aw_wE' target='_blank' rel='noopener noreferrer'>Bekijk Video 3 - Afhankelijke en Onafhankelijke Variabelen</a>
 
 ### 🔹 **Video 4: Onderzoeksvraagtypen**
 **Duur:** ~18 minuten  
 **Onderwerpen:** Univariate/bivariate, beschrijvende/verklarende onderzoeksvragen  
-**Link:** [Bekijk Video 4 - Bivariate Verklarende Onderzoeksvragen](https://www.youtube.com/watch?v=rjEBCOCa2z4)
+**Link:** <a href='https://www.youtube.com/watch?v=rjEBCOCa2z4' target='_blank' rel='noopener noreferrer'>Bekijk Video 4 - Bivariate Verklarende Onderzoeksvragen</a>
 
 ---
 
@@ -48,19 +48,19 @@ Na het bestuderen van dit materiaal kun je:
 ### 📋 **Hoofdstuk 2 - Handboek Statistiek in de Criminologie**
 - **Pagina's:** 45-78
 - **Onderwerpen:** Alle bovenstaande concepten met uitgebreide uitleg
-- **Download:** [Handboek PDF - Hoofdstuk 2](https://example.com/handboek-ch2.pdf)
+- **Download:** <a href='https://example.com/handboek-ch2.pdf' target='_blank' rel='noopener noreferrer'>Handboek PDF - Hoofdstuk 2</a>
 
 ### 📄 **Aanvullende Artikelen**
 1. **"Measurement Scales in Criminological Research"** - Dr. Smith (2023)  
-   [Download PDF](https://example.com/measurement-scales.pdf)
+   <a href='https://example.com/measurement-scales.pdf' target='_blank' rel='noopener noreferrer'>Download PDF</a>
 
 2. **"Research Questions in Criminal Justice Studies"** - Prof. Johnson (2022)  
-   [Download PDF](https://example.com/research-questions.pdf)
+   <a href='https://example.com/research-questions.pdf' target='_blank' rel='noopener noreferrer'>Download PDF</a>
 
 ### 🌐 **Online Bronnen**
 3. **"Variabelen, Meetniveaus en Hypothesen"** - Athena Kennisbank  
    **Onderwerpen:** Afhankelijke en onafhankelijke variabelen, Kwantitatieve vs. kwalitatieve/categorische variabelen  
-   [Lees Online](https://athenacheck.nl/kennisbank/onderzoek/onderzoeksmethoden/variabelen-meetniveaus-en-hypothesen/variabelen)
+   <a href='https://athenacheck.nl/kennisbank/onderzoek/onderzoeksmethoden/variabelen-meetniveaus-en-hypothesen/variabelen' target='_blank' rel='noopener noreferrer'>Lees Online</a>
 
 ---
 
@@ -68,7 +68,7 @@ Na het bestuderen van dit materiaal kun je:
 
 ### 📊 **Meetniveau Beslisboom**
 Een visuele gids om het juiste meetniveau te bepalen.  
-**Download:** [Meetniveau Beslisboom PDF](https://example.com/beslisboom.pdf)
+**Download:** <a href='https://example.com/beslisboom.pdf' target='_blank' rel='noopener noreferrer'>Meetniveau Beslisboom PDF</a>
 
 ### 📝 **Cheatsheet: Variabeletypes**
 
@@ -85,11 +85,11 @@ Een visuele gids om het juiste meetniveau te bepalen.
 
 ### 🧩 **Online Quiz: Meetniveaus**
 Test je kennis van meetniveaus met criminologische voorbeelden.  
-[Start Interactive Quiz](https://example.com/meetniveau-quiz)
+<a href='https://example.com/meetniveau-quiz' target='_blank' rel='noopener noreferrer'>Start Interactive Quiz</a>
 
 ### 🎯 **Drag & Drop: Variabele Classificatie**
 Oefen met het classificeren van variabelen uit echte onderzoeken.  
-[Open Interactive Tool](https://example.com/variabele-tool)
+<a href='https://example.com/variabele-tool' target='_blank' rel='noopener noreferrer'>Open Interactive Tool</a>
 
 ---
 

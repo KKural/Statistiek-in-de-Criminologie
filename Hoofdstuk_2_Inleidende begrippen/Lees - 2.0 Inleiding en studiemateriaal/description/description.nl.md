@@ -32,10 +32,10 @@ Voordat je begint met de praktische oefeningen, is het belangrijk dat je de theo
 
 ### 📄 **Aanvullende Artikelen**
 1. **"Levels of Measurement in Criminology and Criminal Justice"** 
-   - [Lees artikel op ResearchGate](https://www.researchgate.net/publication/373517435_Levels_of_Measurement_in_Criminology_and_Criminal_Justice)
+   - <a href='https://www.researchgate.net/publication/373517435_Levels_of_Measurement_in_Criminology_and_Criminal_Justice' target='_blank' rel='noopener noreferrer'>Lees artikel op ResearchGate</a>
 
 2. **"Research Questions and Methods Guides"** 
-   - [University of Maryland Research Guide](https://guides.umd.umich.edu/c.php?g=963668&p=6960830)
-   - [Lycoming College Research Methods](https://lycoming.libguides.com/c.php?g=950718&p=9200177)
-   - [Kent State University Research Guide](https://libguides.library.kent.edu/c.php?g=440125&p=2998824)
+   - <a href='https://guides.umd.umich.edu/c.php?g=963668&p=6960830' target='_blank' rel='noopener noreferrer'>University of Maryland Research Guide</a>
+   - <a href='https://lycoming.libguides.com/c.php?g=950718&p=9200177' target='_blank' rel='noopener noreferrer'>Lycoming College Research Methods</a>
+   - <a href='https://libguides.library.kent.edu/c.php?g=440125&p=2998824' target='_blank' rel='noopener noreferrer'>Kent State University Research Guide</a>
 
