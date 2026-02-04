@@ -16,25 +16,33 @@ Studiemateriaal en leerdoelen:
 
 1. **Inleiding tot correlatie en regressie**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GtV-VYdNt_g" title="Inleiding tot correlatie en regressie" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
 2. **Pearson correlatie berekenen**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/u4ugaNo6v1Q" title="Pearson correlatie berekenen" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
 3. **Lineaire regressieanalyse uitgelegd**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yMgFHbjbAW8" title="Lineaire regressieanalyse uitgelegd" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
 4. **Interpretatie van regressiecoëfficiënten**
 
+<div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/G00p2Kx-k0E" title="Interpretatie van regressiecoëfficiënten" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ---
 
