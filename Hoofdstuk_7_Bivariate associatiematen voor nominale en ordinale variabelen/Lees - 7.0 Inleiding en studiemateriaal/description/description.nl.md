@@ -29,11 +29,6 @@ Studiemateriaal en leerdoelen:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZnoWaNLOOvQ" title="Associatiematen voor nominale en ordinale variabelen" frameborder="0" allowfullscreen></iframe>
 ---
 
-### **Toetsen en associatiematen voor nominale en ordinale variabelen**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iPSV-n9UWuo" title="Toetsen en associatiematen voor nominale en ordinale variabelen" frameborder="0" allowfullscreen></iframe>
----
-
 ## Verplichte Literatuur
 
 ### Hoofdstuk 7: Bivariate associatiematen voor nominale en ordinale variabelen
@@ -57,13 +52,12 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 <https://openstax.org/books/statistics/pages/11-1-two-way-tables>
 
-### OpenStax – The Linear Correlation Coefficient
+### The Linear Correlation Coefficient
 
-<https://openstax.org/books/statistics/pages/12-2-the-linear-correlation-coefficient>
+<https://stats.libretexts.org/Bookshelves/Introductory_Statistics/Introductory_Statistics_(Shafer_and_Zhang)/10%3A_Correlation_and_Regression/10.02%3A_The_Linear_Correlation_Coefficient>
 
-### Khan Academy – Correlation and causality (article)
-
-<https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/correlation-library/a/correlation-and-causality-review>
+### Correlation and causality 
+<https://www.nataschabauwens.nl/verschil-correlatie-en-causatie/>
 
 ---
 
@@ -72,10 +66,6 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 ### Interactieve kruistabel- en chi-kwadraat calculator
 
 <https://www.socscistatistics.com/tests/chisquare2/default2.aspx>
-
-### Interactieve scatterplot-tool
-
-<https://www.geogebra.org/m/yzudqznq>
 
 ---
 Na bestudering van dit materiaal beheerst u:
