@@ -62,37 +62,23 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## Aanvullende Literatuur
 
-### OpenStax – Linear Regression and Correlation
+### <a href='https://openstax.org/books/statistics/pages/12-introduction' target='_blank' rel='noopener noreferrer'>OpenStax – Linear Regression and Correlation</a>
 
-<https://openstax.org/books/statistics/pages/12-introduction>
+### <a href='https://openstax.org/books/statistics/pages/12-3-the-regression-equation' target='_blank' rel='noopener noreferrer'>OpenStax – The Regression Equation</a>
 
-### OpenStax – The Regression Equation
+### <a href='https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data' target='_blank' rel='noopener noreferrer'>Khan Academy – Correlation and regression</a>
 
-<https://openstax.org/books/statistics/pages/12-3-the-regression-equation>
-
-### Khan Academy – Correlation and regression
-
-<https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data>
-
-### StatQuest – Linear Regression
-
-<https://www.youtube.com/watch?v=nk2CQITm_eo>
+### <a href='https://www.youtube.com/watch?v=nk2CQITm_eo' target='_blank' rel='noopener noreferrer'>StatQuest – Linear Regression</a>
 
 ---
 
 ## Hulpmiddelen
 
-### Interactieve regressie-simulator
+### <a href='https://www.geogebra.org/m/xc6zv7dg' target='_blank' rel='noopener noreferrer'>Interactieve regressie-simulator</a>
 
-<https://www.geogebra.org/m/xc6zv7dg>
+### <a href='https://www.socscistatistics.com/tests/pearson/default2.aspx' target='_blank' rel='noopener noreferrer'>Correlatie en regressie calculator</a>
 
-### Correlatie en regressie calculator
-
-<https://www.socscistatistics.com/tests/pearson/default2.aspx>
-
-### Scatterplot generator
-
-<https://www.meta-chart.com/scatter>
+### <a href='https://www.meta-chart.com/scatter' target='_blank' rel='noopener noreferrer'>Scatterplot generator</a>
 
 ---
 

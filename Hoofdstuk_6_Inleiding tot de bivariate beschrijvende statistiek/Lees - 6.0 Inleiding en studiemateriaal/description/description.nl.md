@@ -53,29 +53,19 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## Aanvullende Literatuur
 
-### OpenStax – Two-Way Tables
+### <a href='https://openstax.org/books/statistics/pages/11-1-two-way-tables' target='_blank' rel='noopener noreferrer'>OpenStax – Two-Way Tables</a>
 
-<https://openstax.org/books/statistics/pages/11-1-two-way-tables>
+### <a href='https://openstax.org/books/statistics/pages/12-2-the-linear-correlation-coefficient' target='_blank' rel='noopener noreferrer'>OpenStax – The Linear Correlation Coefficient</a>
 
-### OpenStax – The Linear Correlation Coefficient
-
-<https://openstax.org/books/statistics/pages/12-2-the-linear-correlation-coefficient>
-
-### Khan Academy – Correlation and causality (article)
-
-<https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/correlation-library/a/correlation-and-causality-review>
+### <a href='https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/correlation-library/a/correlation-and-causality-review' target='_blank' rel='noopener noreferrer'>Khan Academy – Correlation and causality (article)</a>
 
 ---
 
 ## Hulpmiddelen
 
-### Interactieve kruistabel- en chi-kwadraat calculator
+### <a href='https://www.socscistatistics.com/tests/chisquare2/default2.aspx' target='_blank' rel='noopener noreferrer'>Interactieve kruistabel- en chi-kwadraat calculator</a>
 
-<https://www.socscistatistics.com/tests/chisquare2/default2.aspx>
-
-### Interactieve scatterplot-tool
-
-<https://www.geogebra.org/m/yzudqznq>
+### <a href='https://www.geogebra.org/m/yzudqznq' target='_blank' rel='noopener noreferrer'>Interactieve scatterplot-tool</a>
 
 ---
 Na bestudering van dit materiaal beheerst u:

@@ -48,21 +48,15 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## Aanvullende Literatuur
 
-### OpenStax – The Normal Distribution
+### <a href='https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution' target='_blank' rel='noopener noreferrer'>OpenStax – The Normal Distribution</a>
 
-* <a href='https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution' target='_blank' rel='noopener noreferrer'>https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution</a>
-
-### Khan Academy – Normal Distribution
-
-* <a href='https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap' target='_blank' rel='noopener noreferrer'>https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap</a>
+### <a href='https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap' target='_blank' rel='noopener noreferrer'>Khan Academy – Normal Distribution</a>
 
 ---
 
 ## Hulpmiddelen
 
-### Z-tabel
-
-* <a href='https://ztable.net/' target='_blank' rel='noopener noreferrer'>https://ztable.net/</a>
+### <a href='https://ztable.net/' target='_blank' rel='noopener noreferrer'>Z-tabel</a>
 
 ---
 Na bestudering van dit materiaal beheerst u:

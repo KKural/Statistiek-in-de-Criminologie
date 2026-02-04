@@ -51,11 +51,11 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## Aanvullende Literatuur
 
-### <a href='https://www.khanacademy.org/math/statistics-probability/analyzing-categorical-data/two-way-tables-for-categorical-data/a/two-way-tables-review' target='_blank' rel='noopener noreferrer'> Two-way tables </a>
+1. <a href='https://www.khanacademy.org/math/statistics-probability/analyzing-categorical-data/two-way-tables-for-categorical-data/a/two-way-tables-review' target='_blank' rel='noopener noreferrer'>Two-way tables</a>
 
-### <a href='https://stats.libretexts.org/Bookshelves/Introductory_Statistics/Introductory_Statistics_(Shafer_and_Zhang)/10%3A_Correlation_and_Regression/10.02%3A_The_Linear_Correlation_Coefficient' target='_blank' rel='noopener noreferrer'>The Linear Correlation Coefficient</a>
+2. <a href='https://stats.libretexts.org/Bookshelves/Introductory_Statistics/Introductory_Statistics_(Shafer_and_Zhang)/10%3A_Correlation_and_Regression/10.02%3A_The_Linear_Correlation_Coefficient' target='_blank' rel='noopener noreferrer'>The Linear Correlation Coefficient</a>
 
-### <a href='https://www.nataschabauwens.nl/verschil-correlatie-en-causatie/' target='_blank' rel='noopener noreferrer'>Correlation and causality</a>
+3. <a href='https://www.nataschabauwens.nl/verschil-correlatie-en-causatie/' target='_blank' rel='noopener noreferrer'>Correlation and causality</a>
 
 ---
 
