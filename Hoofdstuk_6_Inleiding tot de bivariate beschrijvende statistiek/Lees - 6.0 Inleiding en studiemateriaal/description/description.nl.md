@@ -34,7 +34,7 @@ Studiemateriaal en leerdoelen:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Y2UqUo1RZik" title="Correlation and causality" frameborder="0" allowfullscreen></iframe>
 ---
 
-## Verplichte Literatuur
+## **Verplichte Literatuur**
 
 ### Hoofdstuk 6: Inleiding tot de bivariate beschrijvende statistiek
 
@@ -51,7 +51,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## Aanvullende Literatuur
+## **Aanvullende Literatuur**
 
 ### <a href='https://openstax.org/books/statistics/pages/11-1-two-way-tables' target='_blank' rel='noopener noreferrer'>OpenStax – Two-Way Tables</a>
 
@@ -61,7 +61,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## Hulpmiddelen
+## **Hulpmiddelen**
 
 ### <a href='https://www.socscistatistics.com/tests/chisquare2/default2.aspx' target='_blank' rel='noopener noreferrer'>Interactieve kruistabel- en chi-kwadraat calculator</a>
 

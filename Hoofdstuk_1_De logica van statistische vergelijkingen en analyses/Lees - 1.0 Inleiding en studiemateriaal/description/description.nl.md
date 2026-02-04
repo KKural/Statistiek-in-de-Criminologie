@@ -31,7 +31,7 @@ Studiemateriaal en leerdoelen:
 
 ---
 
-## Verplichte Literatuur
+## **Verplichte Literatuur**
 
 ### Hoofdstuk 1: De logica van statistische vergelijkingen en analyses
 
@@ -48,7 +48,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## Aanvullende Literatuur
+## **Aanvullende Literatuur**
 
 ### Research Methods in Criminology
 

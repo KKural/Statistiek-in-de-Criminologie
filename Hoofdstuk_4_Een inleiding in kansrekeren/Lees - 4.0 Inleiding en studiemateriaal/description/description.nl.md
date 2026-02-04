@@ -12,7 +12,7 @@ Studiemateriaal en leerdoelen:
 
 ---
 
-## Verplichte Literatuur
+## **Verplichte Literatuur**
 
 ### Hoofdstuk 4: Een inleiding in kansrekeren
 

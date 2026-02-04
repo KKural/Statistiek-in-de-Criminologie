@@ -31,7 +31,7 @@ Studiemateriaal en leerdoelen:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/p_KApjpyBHE" title="De Z-tabel gebruiken" frameborder="0" allowfullscreen></iframe>
 ---
 
-## Verplichte Literatuur
+## **Verplichte Literatuur**
 
 ### Hoofdstuk 5: De standaardnormale verdeling en diens eigenschappen
 
@@ -46,7 +46,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## Aanvullende Literatuur
+## **Aanvullende Literatuur**
 
 ### <a href='https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution' target='_blank' rel='noopener noreferrer'>OpenStax – The Normal Distribution</a>
 
@@ -54,7 +54,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## Hulpmiddelen
+## **Hulpmiddelen**
 
 ### <a href='https://ztable.net/' target='_blank' rel='noopener noreferrer'>Z-tabel</a>
 

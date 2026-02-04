@@ -11,7 +11,7 @@ Studiemateriaal en leerdoelen:
 
 ---
 
-## Verplichte Literatuur
+## **Verplichte Literatuur**
 
 ### Hoofdstuk 3: De univariate beschrijvende statistiek
 

@@ -34,7 +34,7 @@ Studiemateriaal en leerdoelen:
 
 ### **Interpretatie van regressiecoëfficiënten**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iAgYLRy7e20" title="Interpretatie van regressiecoëfficiënten" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=G00p2Kx-k0E" title="Interpretatie van regressiecoëfficiënten" frameborder="0" allowfullscreen></iframe>
 
 ---
 

@@ -32,7 +32,7 @@ Studiemateriaal en leerdoelen:
 
 ---
 
-## Verplichte Literatuur
+## **Verplichte Literatuur**
 
 ### Hoofdstuk 7: Bivariate associatiematen voor nominale en ordinale variabelen
 
@@ -49,7 +49,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## Aanvullende Literatuur
+## **Aanvullende Literatuur**
 
 1. <a href='https://www.khanacademy.org/math/statistics-probability/analyzing-categorical-data/two-way-tables-for-categorical-data/a/two-way-tables-review' target='_blank' rel='noopener noreferrer'>Two-way tables</a>
 
@@ -59,7 +59,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ---
 
-## Hulpmiddelen
+## **Hulpmiddelen**
 
 <a href='https://www.socscistatistics.com/tests/chisquare2/default2.aspx' target='_blank' rel='noopener noreferrer'>Interactieve kruistabel- en chi-kwadraat calculator</a>
 
