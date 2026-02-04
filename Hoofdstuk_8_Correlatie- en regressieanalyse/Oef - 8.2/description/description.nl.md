@@ -1,10 +1,8 @@
-# **Oefening 8.2: Interactieve Correlatie- en Regressie-app**
-
 In deze oefening oefen je met **correlatie-analyse** en **bivariate lineaire regressie** aan de hand van een interactieve Shiny-app. De app genereert criminologische datasets en laat je alle tussenstappen handmatig berekenen, vergelijkbaar met Oefening 8.1, maar nu met directe feedback.
 
 ---
 
-## De App Openen
+## **De App Openen**
 
 De interactieve app is beschikbaar op:
 
@@ -14,7 +12,7 @@ De interactieve app is beschikbaar op:
 
 ---
 
-## Leerdoelen
+## **Leerdoelen**
 
 Na het werken met deze app kun je:
 
@@ -26,9 +24,9 @@ Na het werken met deze app kun je:
 
 ---
 
-## Hoe Werkt de App?
+## **Hoe Werkt de App?**
 
-### Stap 1: Kies een Scenario
+### **Stap 1: Kies een Scenario**
 
 De app bevat **verschillende criminologische scenario's**, zoals:
 
@@ -40,14 +38,14 @@ De app bevat **verschillende criminologische scenario's**, zoals:
 
 Elk scenario heeft **realistische variabelennamen** in het Nederlands.
 
-### Stap 2: Kies de Steekproefgrootte
+### **Stap 2: Kies de Steekproefgrootte**
 
 Selecteer het aantal observaties (N):
 - **Klein (5-10)**: Makkelijker voor handmatige berekening
 - **Medium (15-25)**: Realistischer
 - **Groot (30-50)**: Voor geavanceerde oefeningen
 
-### Stap 3: Kies je Analyse-Modus
+### **Stap 3: Kies je Analyse-Modus**
 
 De app biedt **twee modi**:
 
@@ -77,13 +75,13 @@ Asymmetrische analysetechniek - voorspelt Y op basis van X.
 14. **Determinatiecoëfficiënt (R²)**
 15. **Aliënatiecoëfficiënt (1-R²)**
 
-### Stap 4: Genereer Data
+### **Stap 4: Genereer Data**
 
 Klik op **"Genereer Nieuwe Data"** of voer een **seed** in voor reproduceerbare datasets.
 
 Je krijgt een **datatabel** te zien met de X- en Y-waarden voor elke eenheid.
 
-### Stap 5: Bereken Handmatig
+### **Stap 5: Bereken Handmatig**
 
 Met de hand (rekenmachine mag!), bereken alle tussenstappen zoals in Hoofdstuk 8 geleerd:
 
@@ -99,7 +97,7 @@ Met de hand (rekenmachine mag!), bereken alle tussenstappen zoals in Hoofdstuk 8
 
 4. **Bereken correlatie of regressieparameters**
 
-### Stap 6: Vul je Antwoorden in de App
+### **Stap 6: Vul je Antwoorden in de App**
 
 Voer je berekende waarden in de **invoervelden** in:
 
@@ -108,7 +106,7 @@ Voer je berekende waarden in de **invoervelden** in:
 
 > **Belangrijke afrondingsregel**: Rond pas af bij het invullen, niet tijdens de berekening!
 
-### Stap 7: Ontvang Feedback
+### **Stap 7: Ontvang Feedback**
 
 De app geeft **directe feedback** met kleuren:
 
@@ -120,9 +118,9 @@ De app toont **geen correcte antwoorden**, maar geeft wel aan welke stappen fout
 
 ---
 
-## Visualisaties in de App
+## **Visualisaties in de App**
 
-### Voor Regressie-Modus:
+### **Voor Regressie-Modus:**
 
 1. **Scatterplot met Regressielijn**
    - Toont de datapunten en de best passende rechte lijn
@@ -138,7 +136,7 @@ De app toont **geen correcte antwoorden**, maar geeft wel aan welke stappen fout
    - Diagonale lijn = perfecte voorspelling
    - Hoe dichter punten bij de lijn, hoe beter het model
 
-### Statistieken Samenvatting
+### **Statistieken Samenvatting**
 
 De app toont automatisch (na correcte berekening):
 - Correlatie (r)
@@ -146,7 +144,7 @@ De app toont automatisch (na correcte berekening):
 - Regressiecoëfficiënt (b)
 - Intercept (a)
 
-### Interpretatie
+### **Interpretatie**
 
 De app geeft een **automatische interpretatie** in begrijpelijk Nederlands, bijvoorbeeld:
 
@@ -154,7 +152,7 @@ De app geeft een **automatische interpretatie** in begrijpelijk Nederlands, bijv
 
 ---
 
-## Tips voor Efficiënt Oefenen
+## **Tips voor Efficiënt Oefenen**
 
 1. **Begin klein**: Start met N=5 om de stappen te leren
 2. **Controleer tussenstappen**: Als een stap rood is, controleer ook eerdere stappen
@@ -165,9 +163,9 @@ De app geeft een **automatische interpretatie** in begrijpelijk Nederlands, bijv
 
 ---
 
-## Oefenopgaven
+## **Oefenopgaven**
 
-### Opdracht 1: Correlatie Basis
+### **Opdracht 1: Correlatie Basis**
 - Scenario: **Wanorde en Angst**
 - N = 8
 - Modus: **Correlatie**
@@ -175,7 +173,7 @@ De app geeft een **automatische interpretatie** in begrijpelijk Nederlands, bijv
 
 Bereken alle 9 stappen en interpreteer het resultaat.
 
-### Opdracht 2: Regressie Volledig
+### **Opdracht 2: Regressie Volledig**
 - Scenario: **Voetpatrouilles**
 - N = 12
 - Modus: **Bivariate Regressie**
@@ -183,7 +181,7 @@ Bereken alle 9 stappen en interpreteer het resultaat.
 
 Bereken alle 15 stappen. Wat is de voorspelde waarde voor Y als X = 10?
 
-### Opdracht 3: Vergelijking
+### **Opdracht 3: Vergelijking**
 Genereer dezelfde data (zelfde seed) en doe:
 1. Eerst correlatie-analyse
 2. Dan regressie-analyse
@@ -192,7 +190,7 @@ Controleer: Is r² (uit correlatie) gelijk aan R² (uit regressie)?
 
 ---
 
-## Veelgestelde Vragen
+## **Veelgestelde Vragen**
 
 **Q: Waarom verschillen mijn antwoorden van de app?**  
 A: Controleer je afrondingen. Gebruik 4 decimalen tijdens berekening en rond pas af bij invoer.
@@ -211,7 +209,7 @@ A: Nee! Deze oefening is voor **handmatige berekening**. De app is alleen een hu
 
 ---
 
-## Verband met Hoofdstuk 8
+## **Verband met Hoofdstuk 8**
 
 Deze app helpt je oefenen met:
 - **§8.1**: Symmetrische associatiematen (covariatie, covariantie, correlatie)
@@ -222,7 +220,7 @@ Deze app helpt je oefenen met:
 
 ---
 
-## Wat Moet Je Inleveren?
+## **Wat Moet Je Inleveren?**
 
 **Voor deze oefening hoef je niets in te leveren op Dodona.** Dit is een **oefentool** voor zelfstudie en voorbereiding op het examen.
 
