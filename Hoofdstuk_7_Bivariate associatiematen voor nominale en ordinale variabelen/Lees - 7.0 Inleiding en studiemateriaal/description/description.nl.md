@@ -16,17 +16,20 @@ Studiemateriaal en leerdoelen:
 
 ### **Inleiding tot associatiematen**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vuFKAFEcmy0" title="Inleiding tot associatiematen" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vuFKAFEcmy0" title="Inleiding tot associatiematen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ### **Gamma berekenen in kruistabellen**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9UvOR7fGWZM" title="Gamma berekenen in kruistabellen" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9UvOR7fGWZM" title="Gamma berekenen in kruistabellen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ### **Associatiematen voor nominale en ordinale variabelen**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZnoWaNLOOvQ" title="Associatiematen voor nominale en ordinale variabelen" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZnoWaNLOOvQ" title="Associatiematen voor nominale en ordinale variabelen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ## Verplichte Literatuur
@@ -48,24 +51,17 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## Aanvullende Literatuur
 
-### OpenStax – Two-Way Tables
+### <a href='https://www.khanacademy.org/math/statistics-probability/analyzing-categorical-data/two-way-tables-for-categorical-data/a/two-way-tables-review' target='_blank' rel='noopener noreferrer'> Two-way tables </a>
 
-<https://openstax.org/books/statistics/pages/11-1-two-way-tables>
+### <a href='https://stats.libretexts.org/Bookshelves/Introductory_Statistics/Introductory_Statistics_(Shafer_and_Zhang)/10%3A_Correlation_and_Regression/10.02%3A_The_Linear_Correlation_Coefficient' target='_blank' rel='noopener noreferrer'>The Linear Correlation Coefficient</a>
 
-### The Linear Correlation Coefficient
-
-<https://stats.libretexts.org/Bookshelves/Introductory_Statistics/Introductory_Statistics_(Shafer_and_Zhang)/10%3A_Correlation_and_Regression/10.02%3A_The_Linear_Correlation_Coefficient>
-
-### Correlation and causality 
-<https://www.nataschabauwens.nl/verschil-correlatie-en-causatie/>
+### <a href='https://www.nataschabauwens.nl/verschil-correlatie-en-causatie/' target='_blank' rel='noopener noreferrer'>Correlation and causality</a>
 
 ---
 
 ## Hulpmiddelen
 
-### Interactieve kruistabel- en chi-kwadraat calculator
-
-<https://www.socscistatistics.com/tests/chisquare2/default2.aspx>
+### <a href='https://www.socscistatistics.com/tests/chisquare2/default2.aspx' target='_blank' rel='noopener noreferrer'>Interactieve kruistabel- en chi-kwadraat calculator</a>
 
 ---
 Na bestudering van dit materiaal beheerst u:
