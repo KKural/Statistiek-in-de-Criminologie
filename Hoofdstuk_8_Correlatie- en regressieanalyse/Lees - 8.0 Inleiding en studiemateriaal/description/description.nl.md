@@ -62,23 +62,23 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## Aanvullende Literatuur
 
-### <a href='https://openstax.org/books/statistics/pages/12-introduction' target='_blank' rel='noopener noreferrer'>OpenStax – Linear Regression and Correlation</a>
+1. <a href='https://openstax.org/books/statistics/pages/12-introduction' target='_blank' rel='noopener noreferrer'>OpenStax – Linear Regression and Correlation</a>
 
-### <a href='https://openstax.org/books/statistics/pages/12-3-the-regression-equation' target='_blank' rel='noopener noreferrer'>OpenStax – The Regression Equation</a>
+2. <a href='https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-a-regression-equation/' target='_blank' rel='noopener noreferrer'>OpenStax – The Regression Equation</a>
 
-### <a href='https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data' target='_blank' rel='noopener noreferrer'>Khan Academy – Correlation and regression</a>
+3. <a href='https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data' target='_blank' rel='noopener noreferrer'> Correlation and regression</a>
 
-### <a href='https://www.youtube.com/watch?v=nk2CQITm_eo' target='_blank' rel='noopener noreferrer'>StatQuest – Linear Regression</a>
+4. <a href='https://www.youtube.com/watch?v=nk2CQITm_eo' target='_blank' rel='noopener noreferrer'> Linear Regression</a>
 
 ---
 
 ## Hulpmiddelen
 
-### <a href='https://www.geogebra.org/m/xc6zv7dg' target='_blank' rel='noopener noreferrer'>Interactieve regressie-simulator</a>
+1. <a href='https://www.geogebra.org/m/xc6zv7dg' target='_blank' rel='noopener noreferrer'>Interactieve regressie-simulator</a>
 
-### <a href='https://www.socscistatistics.com/tests/pearson/default2.aspx' target='_blank' rel='noopener noreferrer'>Correlatie en regressie calculator</a>
+2. <a href='https://www.socscistatistics.com/tests/pearson/default2.aspx' target='_blank' rel='noopener noreferrer'>Correlatie en regressie calculator</a>
 
-### <a href='https://www.meta-chart.com/scatter' target='_blank' rel='noopener noreferrer'>Scatterplot generator</a>
+3. <a href='https://www.meta-chart.com/scatter' target='_blank' rel='noopener noreferrer'>Scatterplot generator</a>
 
 ---
 

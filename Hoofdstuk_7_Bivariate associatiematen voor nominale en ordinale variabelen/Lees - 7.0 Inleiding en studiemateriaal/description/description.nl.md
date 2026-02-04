@@ -61,7 +61,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## Hulpmiddelen
 
-### <a href='https://www.socscistatistics.com/tests/chisquare2/default2.aspx' target='_blank' rel='noopener noreferrer'>Interactieve kruistabel- en chi-kwadraat calculator</a>
+<a href='https://www.socscistatistics.com/tests/chisquare2/default2.aspx' target='_blank' rel='noopener noreferrer'>Interactieve kruistabel- en chi-kwadraat calculator</a>
 
 ---
 Na bestudering van dit materiaal beheerst u:
