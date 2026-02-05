@@ -47,7 +47,7 @@ Studiemateriaal en leerdoelen:
 
 ## **Verplichte Literatuur**
 
-### Hoofdstuk 6: Inleiding tot de bivariate beschrijvende statistiek
+### **Hoofdstuk 6: Inleiding tot de bivariate beschrijvende statistiek**
 
 *Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 
@@ -64,19 +64,19 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## **Aanvullende Literatuur**
 
-### <a href='https://openstax.org/books/statistics/pages/11-1-two-way-tables' target='_blank' rel='noopener noreferrer'>OpenStax – Two-Way Tables</a>
+### **<a href='https://openstax.org/books/statistics/pages/11-1-two-way-tables' target='_blank' rel='noopener noreferrer'>OpenStax – Two-Way Tables</a>**
 
-### <a href='https://openstax.org/books/statistics/pages/12-2-the-linear-correlation-coefficient' target='_blank' rel='noopener noreferrer'>OpenStax – The Linear Correlation Coefficient</a>
+### **<a href='https://openstax.org/books/statistics/pages/12-2-the-linear-correlation-coefficient' target='_blank' rel='noopener noreferrer'>OpenStax – The Linear Correlation Coefficient</a>**
 
-### <a href='https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/correlation-library/a/correlation-and-causality-review' target='_blank' rel='noopener noreferrer'>Khan Academy – Correlation and causality (article)</a>
+### **<a href='https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/correlation-library/a/correlation-and-causality-review' target='_blank' rel='noopener noreferrer'>Khan Academy – Correlation and causality (article)</a>**
 
 ---
 
 ## **Hulpmiddelen**
 
-### <a href='https://www.socscistatistics.com/tests/chisquare2/default2.aspx' target='_blank' rel='noopener noreferrer'>Interactieve kruistabel- en chi-kwadraat calculator</a>
+### **<a href='https://www.socscistatistics.com/tests/chisquare2/default2.aspx' target='_blank' rel='noopener noreferrer'>Interactieve kruistabel- en chi-kwadraat calculator</a>**
 
-### <a href='https://www.geogebra.org/m/yzudqznq' target='_blank' rel='noopener noreferrer'>Interactieve scatterplot-tool</a>
+### **<a href='https://www.geogebra.org/m/yzudqznq' target='_blank' rel='noopener noreferrer'>Interactieve scatterplot-tool</a>**
 
 ---
 Na bestudering van dit materiaal beheerst u:

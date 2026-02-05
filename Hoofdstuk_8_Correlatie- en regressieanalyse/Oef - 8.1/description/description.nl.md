@@ -24,7 +24,7 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 
 ---
 
-## Berekeningsstappen voor Pearson's correlatie
+## **Berekeningsstappen voor Pearson's correlatie**
 
 Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak een tabel zoals in Hoofdstuk 8):
 
@@ -49,14 +49,14 @@ Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak
 
 ---
 
-## Opgaven
+## **Opgaven**
 
-### Deel A: Basisvragen
+### **Deel A: Basisvragen**
 
 1) **Wat is de verklarende variabele?**
    - `verklarende_variabele` = 1 (prijs) of 2 (ontbossing)
 
-### Deel B: Gemiddelden
+### **Deel B: Gemiddelden**
 
 2) **Bereken het gemiddelde van de prijs (x̄)**
    - `gemiddelde_x` (rond af op 2 decimalen)
@@ -64,7 +64,7 @@ Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak
 3) **Bereken het gemiddelde van ontbossing (ȳ)**
    - `gemiddelde_y` (rond af op 4 decimalen)
 
-### Deel C: Afwijkingen en gekwadrateerde afwijkingen
+### **Deel C: Afwijkingen en gekwadrateerde afwijkingen**
 
 4) **Bereken de som van de gekwadrateerde afwijkingen van X (SSx)**
    - `SSx` (geheel getal of 1 decimaal)
@@ -75,7 +75,7 @@ Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak
 6) **Bereken de som van de kruisproducten (SSxy)**
    - `SSxy` (rond af op 2 decimalen)
 
-### Deel D: Varianties en standaardafwijkingen
+### **Deel D: Varianties en standaardafwijkingen**
 
 7) **Bereken de variantie van X (s²x = SSx/(n-1))**
    - `variantie_x` (rond af op 1 decimaal)
@@ -92,12 +92,12 @@ Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak
 11) **Bereken de covariantie (s²xy = SSxy/(n-1))**
     - `covariantie` (rond af op 4 decimalen)
 
-### Deel E: Pearson's correlatie
+### **Deel E: Pearson's correlatie**
 
 12) **Bereken Pearson's r (r = s²xy / (sx · sy))**
     - `pearson_r` (rond af op 4 decimalen)
 
-### Deel F: Interpretatie
+### **Deel F: Interpretatie**
 
 13) **De prijs werd uitgedrukt in dollars. Als de prijs in euro zou worden uitgedrukt (dus elke waarde wordt vermenigvuldigd met een constante en eventueel verschoven), verandert de correlatie dan?**
     - `correlatie_verandert` = 1 (ja) of 2 (nee)

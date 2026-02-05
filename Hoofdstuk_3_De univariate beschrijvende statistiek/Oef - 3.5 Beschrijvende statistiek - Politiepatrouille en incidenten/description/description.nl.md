@@ -23,12 +23,12 @@ Een criminoloog onderzoekt of het **aantal uren patrouilleren per dag** door pol
 
 Bereken de **meest relevante maat van spreiding** voor de afhankelijke variabele (AV) *aantal geregistreerde incidenten*. Vul de ontbrekende waarden in de R-code aan.
 
-### Te volgen stappen
+### **Te volgen stappen**
 1. **Gemiddelde** van de incidenten berekenen.
 2. **Afwijkingen**: elke waarde minus het gemiddelde.
 3. **Kwadraten**: afwijkingen kwadrateren en optellen (*sum of squares*).
 4. **Steekproefvariantie**: `SS / (n - 1)`.
 5. **Standaarddeviatie**: wortel uit de variantie. Dit is de gekozen spreidingsmaat voor interval/ratio-gegevens.
 
-### Instructie voor de code
+### **Instructie voor de code**
 Vervang `???` door het juiste antwoord. Gebruik een **decimale punt** en rond de standaarddeviatie af op **twee decimalen**.

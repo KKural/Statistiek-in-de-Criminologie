@@ -75,7 +75,7 @@ Analyseer deze gegevens en beantwoord de onderstaande vragen.
 
 **c.** Welke **maat van centraliteit** en welke **maat van spreiding** zou jij kiezen om de werkuren van de deelnemers het best te beschrijven, en **waarom**?
 
-### Te volgen redenering
+### **Te volgen redenering**
 
 **Stap 1 – Frequentietabel en centraliteitsmaten**
 
@@ -89,7 +89,7 @@ Bereken de **spreidingsmaten**: variatiebreedte, kwartielen (Q1, Q3) en interkwa
 
 Voor een volledige analyse bereken je de **afwijkingen** van het gemiddelde, de **gekwadrateerde afwijkingen**, en daaruit de **variantie**, **standaardafwijking** en **variatiecoëfficiënt**.
 
-### Instructie voor de code
+### **Instructie voor de code**
 
 In het code-bestand vervang je overal `???` door het juiste antwoord.
 

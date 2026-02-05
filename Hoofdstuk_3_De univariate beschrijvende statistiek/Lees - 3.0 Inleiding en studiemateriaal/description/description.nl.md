@@ -13,7 +13,7 @@ Studiemateriaal en leerdoelen:
 
 ## **Verplichte Literatuur**
 
-### Hoofdstuk 3: De univariate beschrijvende statistiek
+### **Hoofdstuk 3: De univariate beschrijvende statistiek**
 
 *Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 

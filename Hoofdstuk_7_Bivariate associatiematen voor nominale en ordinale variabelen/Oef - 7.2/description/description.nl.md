@@ -32,7 +32,7 @@ Opgelet: bepaal vooraf welke variabele je inhoudelijk als **onafhankelijk** besc
 
 <img src="media/vuurwapen_geslacht_kruistabel.png" alt="Vuurwapenbezit per geslacht (absolute aantallen)" width="650">
 
-## Opdrachten
+## **Opdrachten**
 
 1) **Bereken het relevante percentageverschil (in procentpunten).**
 

@@ -14,7 +14,7 @@ Studiemateriaal en leerdoelen:
 
 ## **Verplichte Literatuur**
 
-### Hoofdstuk 4: Een inleiding in kansrekeren
+### **Hoofdstuk 4: Een inleiding in kansrekeren**
 
 *Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 

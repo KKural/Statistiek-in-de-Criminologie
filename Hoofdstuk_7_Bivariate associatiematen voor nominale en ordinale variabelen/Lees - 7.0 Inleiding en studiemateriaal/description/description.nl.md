@@ -40,7 +40,7 @@ Studiemateriaal en leerdoelen:
 
 ## **Verplichte Literatuur**
 
-### Hoofdstuk 7: Bivariate associatiematen voor nominale en ordinale variabelen
+### **Hoofdstuk 7: Bivariate associatiematen voor nominale en ordinale variabelen**
 
 *Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 

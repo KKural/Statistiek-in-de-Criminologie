@@ -39,7 +39,7 @@ Studiemateriaal en leerdoelen:
 
 ## **Verplichte Literatuur**
 
-### Hoofdstuk 1: De logica van statistische vergelijkingen en analyses
+### **Hoofdstuk 1: De logica van statistische vergelijkingen en analyses**
 
 *Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 
@@ -56,11 +56,11 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## **Aanvullende Literatuur**
 
-### Research Methods in Criminology
+### **Research Methods in Criminology**
 
 <a href='https://handboeksgpl.sites.uu.nl/doing-research/central-question-and-sub-questions/?lang=en' target='_blank' rel='noopener noreferrer'>Central Questions and Sub-Questions in Research</a>
 
-### The Research Process
+### **The Research Process**
 
 <a href='https://guides.library.bloomu.edu/c.php?g=634769&p=4449455' target='_blank' rel='noopener noreferrer'>Research Process Guide</a>
 

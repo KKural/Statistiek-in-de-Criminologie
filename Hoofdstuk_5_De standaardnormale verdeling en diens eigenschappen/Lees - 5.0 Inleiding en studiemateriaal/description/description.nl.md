@@ -45,7 +45,7 @@ Studiemateriaal en leerdoelen:
 
 ## **Verplichte Literatuur**
 
-### Hoofdstuk 5: De standaardnormale verdeling en diens eigenschappen
+### **Hoofdstuk 5: De standaardnormale verdeling en diens eigenschappen**
 
 *Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 
@@ -60,15 +60,15 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## **Aanvullende Literatuur**
 
-### <a href='https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution' target='_blank' rel='noopener noreferrer'>OpenStax – The Normal Distribution</a>
+### **<a href='https://openstax.org/books/statistics/pages/6-1-the-standard-normal-distribution' target='_blank' rel='noopener noreferrer'>OpenStax – The Normal Distribution</a>**
 
-### <a href='https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap' target='_blank' rel='noopener noreferrer'>Khan Academy – Normal Distribution</a>
+### **<a href='https://www.khanacademy.org/math/ap-statistics/density-curves-normal-distribution-ap' target='_blank' rel='noopener noreferrer'>Khan Academy – Normal Distribution</a>**
 
 ---
 
 ## **Hulpmiddelen**
 
-### <a href='https://ztable.net/' target='_blank' rel='noopener noreferrer'>Z-tabel</a>
+### **<a href='https://ztable.net/' target='_blank' rel='noopener noreferrer'>Z-tabel</a>**
 
 ---
 Na bestudering van dit materiaal beheerst u:
