@@ -1,4 +1,4 @@
-Een onderzoeker maakt een lijst van verschillende **delicten** gerangschikt van '**minst ernstig**' tot '**meest ernstig**'. Op welk **meetniveau** werkt de onderzoeker?
+Een onderzoeker maakt een lijst van verschillende **delicten** gerangschikt van '**minst ernstig**' tot '**meest ernstig**'. Op welk **meetniveau** werkt de onderzoekers?
 
 1. Nominaal
 2. Ordinaal
