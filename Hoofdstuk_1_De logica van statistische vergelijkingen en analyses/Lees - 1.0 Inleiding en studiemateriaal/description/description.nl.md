@@ -1,4 +1,4 @@
-Dit theorieblok behandelt de fundamentele concepten van **Hoofdstuk 1: De logica van statistische vergelijkingen en analyses**. Dit hoofdstuk legt de basis voor het begrijpen van de logica van statistisch onderzoek en de rol van statistiek in criminologisch onderzoek.
+Dit theorieblok behandelt de fundamentele concepten van **Hoofdstuk 1: De logica van statistische vergelijkingen en analys**. Dit hoofdstuk legt de basis voor het begrijpen van de logica van statistisch onderzoek en de rol van statistiek in criminologisch onderzoek.
 
 Studiemateriaal en leerdoelen:
 
