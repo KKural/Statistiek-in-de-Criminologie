@@ -1,1 +1,3 @@
+# Welk gelabeld punt heeft het grootste residu (grootste verticale afstand tot de regressielijn)?
+# Geef de bijbehorende letter als tekst (bijv. "A", "B", "C", "D", "E" of "F")
 uitbijter <- ???

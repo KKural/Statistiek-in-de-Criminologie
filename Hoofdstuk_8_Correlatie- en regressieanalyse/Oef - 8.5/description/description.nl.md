@@ -5,7 +5,3 @@ Onderstaande tabel geeft de uitvoer van een enkelvoudige OLS-regressieanalyse vo
 Welk percentage van de variantie in Y wordt verklaard door het regressiemodel?
 
 Voer uw antwoord in als een geheel getal.
-
-```r
-r_kwadraat_pct <- ???
-```

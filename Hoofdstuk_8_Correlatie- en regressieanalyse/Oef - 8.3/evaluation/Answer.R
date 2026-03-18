@@ -1,74 +1,89 @@
 context({
-  testcase(
-    "Uitbijter herkennen via residu",
-    {
-      testEqual(
-        "",
-        function(env) {
+  testcase("Uitbijter herkennen via residu", {
+    testEqual("",
+      function(env) {
+        results <- list()
 
-          # Correct answer: B(8,29) has residual ~+4.8 vs the regression line.
-          # A(3,33) looks highest in Y but the line at x=3 is ~34, so A is BELOW line (e=-1.1).
-          # F(20,3) is extreme in X but the line nearly reaches zero there (e=+2.4 only).
-          exp_uitbijter <- "B"
+        exp_uitbijter <- "B"
 
-          if (!exists("uitbijter", envir = env)) {
-            get_reporter()$add_message(
-              paste0("## Oef - 8.3: Uitbijter herkennen via residu\n\n",
-                     "❌ **Je hebt geen antwoord ingevoerd.**\n\n",
-                     "Wijs een letter toe aan de variabele `uitbijter`, bijv. `uitbijter <- \"A\"`"),
-              type = "markdown")
-            return(FALSE)
-          }
-
-          val <- trimws(toupper(as.character(get("uitbijter", envir = env))))
-          correct_ans <- toupper(exp_uitbijter)
-          ok <- (val == correct_ans)
-
-          if (ok) {
-            msg <- paste0(
-              "## Oef - 8.3: Uitbijter herkennen via residu\n\n",
-              "✅ **Correct! Punt B heeft het grootste residu.**\n\n",
-              "**Uitleg:** Het residu van elk punt is Y − Ŷ.\n\n",
-              "| Punt | x | y | Ŷ | Residu |\n",
-              "|------|----|----|-------|--------|\n",
-              "| A | 3 | 33 | ≈34,1 | −1,1 |\n",
-              "| **B** | **8** | **29** | **≈24,2** | **+4,8** ← grootst |\n",
-              "| C | 11 | 16 | ≈18,3 | −2,3 |\n",
-              "| D | 14 | 10 | ≈12,4 | −2,4 |\n",
-              "| E | 17 | 5 | ≈6,5 | −1,5 |\n",
-              "| F | 20 | 3 | ≈0,6 | +2,4 |\n\n",
-              "Punt B heeft het grootste absolute residu (+4,8)."
-            )
-          } else {
-            msg <- paste0(
-              "## Oef - 8.3: Uitbijter herkennen via residu\n\n",
-              "❌ **Fout. Je antwoord: `\"", val, "\"`. Correct antwoord: `\"B\"`**\n\n",
-              "**Uitleg:** Bereken voor elk punt het residu = Y − Ŷ:\n\n",
-              "| Punt | x | y | Ŷ | Residu |\n",
-              "|------|----|----|-------|--------|\n",
-              "| A | 3 | 33 | ≈34,1 | −1,1 |\n",
-              "| **B** | **8** | **29** | **≈24,2** | **+4,8** ← grootst! |\n",
-              "| C | 11 | 16 | ≈18,3 | −2,3 |\n",
-              "| D | 14 | 10 | ≈12,4 | −2,4 |\n",
-              "| E | 17 | 5 | ≈6,5 | −1,5 |\n",
-              "| F | 20 | 3 | ≈0,6 | +2,4 |\n\n",
-              "**Veelgemaakte fouten:** Punt A heeft de hoogste Y-waarde (33), maar de regressielijn loopt op x=3 al op 34,1 — A ligt dus net **onder** de lijn (residu −1,1). ",
-              "Punt F is extreem in X (x=20), maar de lijn daalt daar ook sterk naar ~0,6 — residual slechts +2,4. ",
-              "Alleen punt B (x=8, y=29) staat 4,8 eenheden boven de lijn en heeft daarmee het grootste absolute residu."
-            )
-          }
-
-          get_reporter()$add_message(msg, type = "markdown")
-          ok
-        },
-        function(generated, expected) {
-          if (isTRUE(generated)) {
-            correct("Correct! Punt B heeft het grootste residu.")
-          } else {
-            wrong("Fout. Bereken het residu (Y minus voorspelde Y) voor elk punt en vergelijk.")
-          }
+        check_letter <- function(varname, expected) {
+          if (!exists(varname, envir = env))
+            return(list(exists = FALSE, value = NA, value_char = NA, correct = FALSE, expected = expected))
+          raw <- get(varname, envir = env)
+          val <- trimws(toupper(as.character(raw)))
+          ok  <- val == toupper(expected)
+          list(exists = TRUE, value = raw, value_char = val, correct = ok, expected = expected)
         }
-      )
-    }
-  )
+
+        results$uitbijter <- check_letter("uitbijter", exp_uitbijter)
+
+        assign("detailed_results", results, envir = globalenv())
+        all(sapply(results, function(r) isTRUE(r$correct)))
+      },
+      TRUE,
+      comparator = function(generated, expected, ...) {
+        results <- get("detailed_results", envir = globalenv())
+
+        qnames <- c(uitbijter = "Punt met het grootste absolute residu")
+
+        wrong_msg_uitbijter <- function(val) {
+          v <- trimws(toupper(as.character(val)))
+          if (v == "A") return(paste0(
+            "**Waarom dit fout is:** Punt A heeft de hoogste Y-waarde (33), maar de regressielijn loopt op x = 3 al tot circa 34,1 — A ligt net **onder** de lijn (residu = −1,1).\n\n",
+            "**Wat je miste:** Het grootste *absolute* residu vind je niet door de hoogste Y op te zoeken, maar door Y − Ŷ te berekenen voor elk punt.\n\n",
+            "**Correctie:** Punt B (x=8, y=29) geeft Ŷ ≈ 24,2 → residu = +4,8 (grootst in absolute waarde)."
+          ))
+          if (v == "F") return(paste0(
+            "**Waarom dit fout is:** Punt F staat ver rechts (x = 20) en valt op door zijn extreme ligging, maar de regressielijn daalt op x = 20 ook sterk (Ŷ ≈ 0,6) — residu slechts +2,4.\n\n",
+            "**Wat je miste:** Een extreme X-waarde betekent niet automatisch een groot residu. Het residu hangt af van de verticale afstand tot de lijn.\n\n",
+            "**Correctie:** Punt B (x=8, y=29) geeft Ŷ ≈ 24,2 → residu = +4,8 (grootst)."
+          ))
+          paste0(
+            "**Je antwoord \"", v, "\" is niet correct.**\n\n",
+            "**Stap-voor-stap controle:** Bereken residu = Y − Ŷ voor elk punt:\n",
+            "- Punt A: 33 − 34,1 = −1,1\n",
+            "- **Punt B: 29 − 24,2 = +4,8** ← grootste absolute waarde\n",
+            "- Punt C: 16 − 18,3 = −2,3\n",
+            "- Punt D: 10 − 12,4 = −2,4\n",
+            "- Punt E: 5 − 6,5 = −1,5\n",
+            "- Punt F: 3 − 0,6 = +2,4"
+          )
+        }
+
+        feedback_text <- ""
+
+        q <- "uitbijter"
+        r <- results[[q]]
+        if (!r$exists) {
+          feedback_text <- paste0(feedback_text,
+            "❌ **", qnames[[q]], "** — **Je hebt geen antwoord ingevoerd.**\n\n",
+            "Wijs een letter toe aan `uitbijter`, bijv. `uitbijter <- \"A\"`\n\n"
+          )
+        } else if (r$correct) {
+          feedback_text <- paste0(feedback_text,
+            "✅ **", qnames[[q]], "** — **Correct! (\"", r$value, "\")**\n\n",
+            "Punt B (x=8, y=29) heeft Ŷ ≈ 24,2 en residu = **+4,8** — het grootste absolute residu van alle zes punten.\n\n",
+            "**Residutabel:**\n\n",
+            "| Punt | x | y | Ŷ | Residu |\n",
+            "|------|----|----|-------|--------|\n",
+            "| A | 3 | 33 | ≈34,1 | −1,1 |\n",
+            "| **B** | **8** | **29** | **≈24,2** | **+4,8** ← grootst |\n",
+            "| C | 11 | 16 | ≈18,3 | −2,3 |\n",
+            "| D | 14 | 10 | ≈12,4 | −2,4 |\n",
+            "| E | 17 | 5 | ≈6,5 | −1,5 |\n",
+            "| F | 20 | 3 | ≈0,6 | +2,4 |\n\n"
+          )
+        } else {
+          msg <- wrong_msg_uitbijter(r$value)
+          feedback_text <- paste0(feedback_text,
+            "❌ **", qnames[[q]], "** — **Fout. Antwoord: `\"", r$value_char, "\"`. Correct: `\"B\"`**\n\n",
+            msg, "\n\n"
+          )
+        }
+
+        get_reporter()$add_message(feedback_text, type = "markdown")
+        generated == expected
+      }
+    )
+  })
 })

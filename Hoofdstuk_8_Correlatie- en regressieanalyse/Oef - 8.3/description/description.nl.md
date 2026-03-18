@@ -3,7 +3,3 @@ In een criminologische studie naar de relatie tussen **politie-inzet (X)** en **
 <img src="media/scatter_outlier.png" alt="Scatterplot met regressielijn en gelabelde punten" width="600">
 
 Welke observatie vertoont het **grootste absolute residu** ten opzichte van de regressielijn?
-
-```r
-uitbijter <- ???
-```

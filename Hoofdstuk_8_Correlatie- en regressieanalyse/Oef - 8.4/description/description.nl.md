@@ -9,7 +9,3 @@ Bepaal de ligging van observatie P ten opzichte van de regressielijn:
 | 1 | boven de regressielijn |
 | 2 | op de regressielijn |
 | 3 | onder de regressielijn |
-
-```r
-punt_positie <- ???
-```
