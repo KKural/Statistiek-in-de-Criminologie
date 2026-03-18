@@ -4,7 +4,7 @@
     "access": "public",
     "description": {
         "names": {
-            "nl": "Oef - 8.3 Uitbijter herkennen via residu"
+            "nl": "Oef - 8.4 Ligging van een punt t.o.v. de regressielijn"
         }
     },
     "evaluation": {
@@ -15,7 +15,7 @@
     "labels": [
         "regressie",
         "residu",
-        "outlier",
-        "scatterplot"
+        "scatterplot",
+        "visualisatie"
     ]
 }

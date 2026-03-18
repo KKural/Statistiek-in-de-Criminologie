@@ -1,0 +1,80 @@
+# ============================================================================
+# OEFENING 9.1: Beleidsverklaringen Premier vs. Minister van BZ
+# Chi-kwadraattoets voor onafhankelijkheid
+# ============================================================================
+# Bereken ALLE tussenstappen met de hand (rekenmachine mag).
+# Vul hieronder je eindresultaten in (vervang alle ???).
+# Gebruik decimalen met PUNT (niet komma).
+# ============================================================================
+
+# Kruistabel (ter referentie):
+#                          Premier   Minister BZ   Totaal
+# Opsluiting                   6          16         22
+# Specifieke afschrikking      2          14         16
+# Algemene afschrikking        4          20         24
+# Rehabilitatie                0          15         15
+# Gedwongen betaling          13          10         23
+# Totaal                      25          75        100
+
+# ----------------------------------------------------------------------------
+# DEEL A: HYPOTHESEN
+# ----------------------------------------------------------------------------
+
+# 1) Welke nulhypothese hoor je hier te formuleren?
+#    1 = Er is GEEN verband (onafhankelijkheid)
+#    2 = Er IS een verband
+H0_richting <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL B: VERWACHTE FREQUENTIES (SELECTIE)
+# ----------------------------------------------------------------------------
+# Formule: E_ij = (rijtotaal_i * kolomtotaal_j) / N
+
+# 2) Verwachte frequentie: Opsluiting & Premier
+#    Rond af op 1 decimaal
+E_opsluiting_premier <- ???
+
+# 3) Verwachte frequentie: Gedwongen betaling & Premier
+#    Rond af op 2 decimalen
+E_betaling_premier <- ???
+
+# 4) Verwachte frequentie: Rehabilitatie & Minister BZ
+#    Rond af op 2 decimalen
+E_rehab_minister <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL C: CHI-KWADRAAT
+# ----------------------------------------------------------------------------
+# Formule: chi² = som van (O - E)² / E voor alle cellen
+
+# 5) Chi-kwadraatwaarde (χ²)
+#    Rond af op 3 decimalen
+chi_kwadraat <- ???
+
+# 6) Aantal vrijheidsgraden: df = (rijen-1) * (kolommen-1)
+df_chi <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL D: SIGNIFICANTIE
+# ----------------------------------------------------------------------------
+
+# 7) Kritieke chi-kwadraatwaarde bij α = 0.05 en jouw df
+#    (te vinden in een chi-kwadraatverdeling tabel)
+#    Rond af op 3 decimalen
+kritieke_waarde_005 <- ???
+
+# 8) Is het verband statistisch significant bij α = 0.05?
+#    1 = ja, 2 = nee
+significant_005 <- ???
+
+# 9) Kritieke chi-kwadraatwaarde bij α = 0.01 en jouw df
+#    (te vinden in een chi-kwadraatverdeling tabel)
+#    Rond af op 3 decimalen
+kritieke_waarde_001 <- ???
+
+# 10) Is het verband ook significant bij α = 0.01?
+#     1 = ja, 2 = nee
+significant_001 <- ???

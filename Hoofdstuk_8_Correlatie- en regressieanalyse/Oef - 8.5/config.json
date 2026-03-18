@@ -4,7 +4,7 @@
     "access": "public",
     "description": {
         "names": {
-            "nl": "Oef - 8.3 Uitbijter herkennen via residu"
+            "nl": "Oef - 8.5 R\u00b2 omzetten naar een percentage"
         }
     },
     "evaluation": {
@@ -14,8 +14,8 @@
     "boilerplate": "description/boilerplate/boilerplate",
     "labels": [
         "regressie",
-        "residu",
-        "outlier",
-        "scatterplot"
+        "r-kwadraat",
+        "determinatiecoefficient",
+        "visualisatie"
     ]
 }

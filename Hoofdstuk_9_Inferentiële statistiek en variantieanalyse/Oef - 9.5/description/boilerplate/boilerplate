@@ -1,0 +1,56 @@
+# ============================================================================
+# OEFENING 9.5: Controlevragen - Inferentiële statistiek en ANOVA
+# ============================================================================
+# Beantwoord elke meerkeuzevraag met het nummer van het juiste antwoord.
+# Vervang ??? door 1, 2, 3 of 4.
+# ============================================================================
+
+# 1) Welke hypothesen kun je met een variantieanalyse testen?
+#    1 = Verband tussen twee nominale variabelen
+#    2 = Gemiddelde verschilt tussen 2+ groepen
+#    3 = Correlatie verschilt van nul
+#    4 = Variabelen zijn normaal verdeeld
+vraag1 <- ???
+
+# 2) Welke toetsingsgrootheid gebruik je bij de variantieanalyse?
+#    1 = t-waarde
+#    2 = z-waarde
+#    3 = chi-kwadraatwaarde
+#    4 = F-waarde
+vraag2 <- ???
+
+# 3) Wat gebeurt er met de F-waarde als de tussengroepsvariantie
+#    GROTER is dan de binnengroepsvariantie?
+#    1 = F < 1
+#    2 = F > 1
+#    3 = F = 1
+#    4 = F wordt negatief
+vraag3 <- ???
+
+# 4) Wat gebeurt er met de p-waarde naarmate de F-waarde GROTER is?
+#    1 = p wordt groter
+#    2 = p blijft gelijk
+#    3 = p wordt kleiner
+#    4 = p fluctueert willekeurig
+vraag4 <- ???
+
+# 5) Wanneer gebruik je bij regressieanalyse een F-toets?
+#    1 = Om te testen of het model significant meer variantie verklaart dan het nulmodel
+#    2 = Om te testen of β significant verschilt van nul
+#    3 = Om te testen of residuen normaal verdeeld zijn
+#    4 = Om multicollineariteit te controleren
+vraag5 <- ???
+
+# 6) Wat betekent p < 0.05 bij de F-toets van een regressie?
+#    1 = Er is een sterke correlatie
+#    2 = De regressielijn past perfect
+#    3 = Het model verklaart statistisch significant meer variantie dan op basis van toeval
+#    4 = De intercept is significant
+vraag6 <- ???
+
+# 7) Welke toets wordt ook bij regressieanalyse gebruikt (naast de F-toets)?
+#    1 = Chi-kwadraattoets
+#    2 = t-toets voor individuele regressiecoëfficiënten
+#    3 = Mann-Whitney U-toets
+#    4 = Levene-toets
+vraag7 <- ???

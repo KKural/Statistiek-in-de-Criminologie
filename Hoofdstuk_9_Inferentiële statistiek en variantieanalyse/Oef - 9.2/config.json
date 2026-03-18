@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 9.2: Betrouwbaarheidsintervallen - gemiddelde leeftijd"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "betrouwbaarheidsinterval",
+    "inferentiele-statistiek",
+    "standaardfout"
+  ],
+  "internals": {
+    "token": "JBXaEjFnnAhCi_aJcsI6tw9rsMRvyZPfqmGQDKzwdeTNIsDgTFK2CscM66Jdwrjt",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

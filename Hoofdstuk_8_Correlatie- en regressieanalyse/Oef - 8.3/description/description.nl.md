@@ -1,5 +1,24 @@
-**Wat hebben we bereikt in Hoofdstuk 8?**  
-In Hoofdstuk 8 heb je geleerd hoe je **lineaire relaties tussen metrische variabelen** beschrijft en analyseert. Via puntenwolken, covariatie, covariantie, correlatie en bivariate regressie kon je de richting, sterkte en voorspellende waarde van een verband bepalen. Je leerde regressieparameters interpreteren (intercept, regressiegewicht, residuen, R²) en de totale variatie in Y opsplitsen in verklaarde en onverklaarde componenten. Daarmee bouwde Hoofdstuk 8 de analytische basis voor verklarend en voorspellend criminologisch onderzoek.
+Een criminoloog onderzoekt de relatie tussen **politie-aanwezigheid (X)** en **inbraken (Y)** in 6 wijken.
+De variabelen zijn:
+- **X** = gemiddeld aantal politie-uren per week
+- **Y** = aantal inbraken per 1.000 inwoners per jaar
 
-**Vooruitblik naar Hoofdstuk 9**  
-In Hoofdstuk 9 verschuift de aandacht van **beschrijven** naar **toetsen en veralgemenen**. Je leert hoe je op basis van een steekproef betrouwbare uitspraken doet over een populatie via kansrekening, steekproevenverdelingen, standaardfouten en betrouwbaarheidsintervallen. Vervolgens maak je kennis met de logica van **significantietoetsing**, p-waarden, type-I en type-II fouten, power en het verschil tussen eenzijdig en tweezijdig toetsen. Het hoofdstuk introduceert ook de belangrijkste kansverdelingen die aan de basis liggen van alle inferentiële tests. Tot slot leer je de **variantieanalyse (ANOVA)** uitwerken en interpreteren, een methode om te bepalen of groepsgemiddelden significant van elkaar verschillen. Hoofdstuk 9 vormt daarmee de brug tussen beschrijvende statistiek en geavanceerde inferentiële analysetechnieken in criminologisch onderzoek.
+---
+
+Bekijk de onderstaande scatterplot. De regressielijn is ingetekend.
+
+![](image/description.nl/scatter_outlier.png)
+
+Welk gelabeld punt heeft het **grootste residu** ten opzichte van de regressielijn?
+
+Het residu van een punt = werkelijke Y − voorspelde Y op de lijn.
+Het punt met het grootste (absolute) residu wijkt het sterkst af van de regressielijn.
+
+> **Let op:** het punt met de hoogste Y-waarde of de extremeenste X-waarde is
+> **niet** automatisch het punt met het grootste residu.
+
+Geef de letter in als tekst, bijv. `"A"`.
+
+```r
+uitbijter <- ???   # letter van het punt met het grootste residu
+```

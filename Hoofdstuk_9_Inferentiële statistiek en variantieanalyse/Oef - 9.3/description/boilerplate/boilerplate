@@ -1,0 +1,43 @@
+# ============================================================================
+# OEFENING 9.3: Steekproefgrootte - topsalarissen bij banken
+# ============================================================================
+# Gegeven:
+#   - Standaardafwijking σ = €9.000 (uit vooronderzoek)
+#   - Maximale foutenmarge E = €400
+#   - Betrouwbaarheidsniveau: 95%
+#
+# Vul je eindresultaten in (vervang alle ???).
+# Gebruik decimalen met PUNT (niet komma). Ronde n altijd OMHOOG af.
+# ============================================================================
+
+# Formule: n = (z × σ / E)²
+
+# ----------------------------------------------------------------------------
+# DEEL A: INVULWAARDEN IDENTIFICEREN
+# ----------------------------------------------------------------------------
+
+# 1) De z-waarde voor een 95%-betrouwbaarheidsinterval
+#    (gebruik 2 decimalen)
+z_waarde <- ???
+
+# 2) De standaardafwijking (σ in euro)
+sigma <- ???
+
+# 3) De maximale foutenmarge (E in euro)
+foutenmarge <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL B: STEEKPROEFGROOTTE BEREKENEN
+# ----------------------------------------------------------------------------
+
+# 4) Het quotiënt: z × σ / E
+#    Rond af op 4 decimalen
+quotient <- ???
+
+# 5) Het kwadraat van het quotiënt (n vóór afronding)
+#    Rond af op 2 decimalen
+n_voor_afronding <- ???
+
+# 6) De minimale steekproefgrootte (naar BOVEN afgerond - geheel getal)
+n_minimum <- ???

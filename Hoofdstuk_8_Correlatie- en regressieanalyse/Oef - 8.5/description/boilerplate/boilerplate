@@ -1,0 +1,6 @@
+# Oef - 8.7: R² omzetten naar een percentage
+# Lees R² af uit de tabel in de opgave en reken om naar een percentage.
+
+# R² als percentage = R² (decimaal) x 100, afgerond naar een geheel getal
+# Bijv. als R² = 0.741 dan is het antwoord 74
+r_kwadraat_pct <- ???   # geheel getal in procenten

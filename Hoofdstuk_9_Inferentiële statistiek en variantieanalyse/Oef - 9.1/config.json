@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 9.1: Chi-kwadraat - Premier vs. Minister BZ"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "chi-kwadraat",
+    "hypothesetoetsing",
+    "inferentiele-statistiek"
+  ],
+  "internals": {
+    "token": "8DKJWrrRtxYyub2PWJxvpDfT_MVKxxdbNEtZi6qBzcVzcBsF6uiESWRHG8-tfrIW",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,85 @@
+# ============================================================================
+# OEFENING 9.4: ANOVA - Fietsdiefstallen naar gemeentetype
+# ============================================================================
+# Gegevens: 30 Belgische gemeenten (10 per type), jaar 2008
+# Bereken ALLE tussenstappen met de hand (rekenmachine mag).
+# Vul je eindresultaten in (vervang alle ???).
+# Gebruik decimalen met PUNT (niet komma).
+# ============================================================================
+
+# De data (ter referentie):
+# Grootsteden:      3500, 2700, 2900, 3200, 3150, 3300, 2650, 4000, 3500, 3000
+# Middelgrote st.:  1850, 1650, 1450, 1600, 1550, 1800, 1400, 1750, 1250, 1500
+# Rurale gem.:       400,  450,  500,  550,  390,  530,  410,  440,  570,  600
+
+# ----------------------------------------------------------------------------
+# DEEL A: BESCHRIJVENDE STATISTIEKEN
+# ----------------------------------------------------------------------------
+
+# 1) Gemiddelde fietsdiefstallen - Grootsteden (geheel getal)
+gemiddelde_groot <- ???
+
+# 2) Gemiddelde fietsdiefstallen - Middelgrote steden (geheel getal)
+gemiddelde_middel <- ???
+
+# 3) Gemiddelde fietsdiefstallen - Rurale gemeenten (geheel getal)
+gemiddelde_ruraal <- ???
+
+# 4) Grand mean - gemiddelde over alle 30 gemeenten (2 decimalen)
+grand_mean <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL B: BINNENGROEPSVARIATIE (SSwithin)
+# ----------------------------------------------------------------------------
+# Formule per groep: SSg = som van (xi - x̄g)²
+
+# 5) SS within - Grootsteden (geheel getal)
+SS_within_groot <- ???
+
+# 6) SS within - Middelgrote steden (geheel getal)
+SS_within_middel <- ???
+
+# 7) SS within - Rurale gemeenten (geheel getal)
+SS_within_ruraal <- ???
+
+# 8) Totale SS within = som van de drie SS-waarden (geheel getal)
+SS_within <- ???
+
+# 9) Vrijheidsgraden within: df_within = N - k  (N=30 gemeenten, k=3 groepen)
+df_within <- ???
+
+# 10) MS within = SS_within / df_within (2 decimalen)
+MS_within <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL C: TUSSENGROEPSVARIATIE (SSbetween)
+# ----------------------------------------------------------------------------
+# Formule: SS_between = som van n_g * (x̄g - grand_mean)²
+
+# 11) Totale SS between (2 decimalen)
+SS_between <- ???
+
+# 12) Vrijheidsgraden between: df_between = k - 1
+df_between <- ???
+
+# 13) MS between = SS_between / df_between (2 decimalen)
+MS_between <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL D: F-TOETS EN EFFECTGROOTTE
+# ----------------------------------------------------------------------------
+
+# 14) F-ratio = MS_between / MS_within (2 decimalen)
+F_ratio <- ???
+
+# 15) Eta-kwadraat: η² = SS_between / SS_total (4 decimalen)
+#     SS_total = SS_between + SS_within
+eta_kwadraat <- ???
+
+# 16) Is het effect statistisch significant bij α = 0.05?
+#     Kritieke F-waarde bij df(2,27) en α=0.05 ≈ 3.35
+#     1 = ja, 2 = nee
+significant_anova <- ???

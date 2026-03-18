@@ -1,0 +1,64 @@
+# ============================================================================
+# OEFENING 9.2: Betrouwbaarheidsintervallen voor de gemiddelde leeftijd
+# ============================================================================
+# Gegeven: het 95%-betrouwbaarheidsinterval ligt tussen 25.8 en 28.4
+#          (steekproef van n = 1000 personen)
+# Bereken met de hand en vul je eindresultaten in (vervang alle ???).
+# Gebruik decimalen met PUNT (niet komma).
+# ============================================================================
+
+# Gegeven 95%-BI:
+BI_95_ondergrens <- 25.8
+BI_95_bovengrens <- 28.4
+n                <- 1000
+
+# ----------------------------------------------------------------------------
+# DEEL A: GEMIDDELDE EN STANDAARDFOUT
+# ----------------------------------------------------------------------------
+
+# 1) Steekproefgemiddelde: x̄ = (ondergrens + bovengrens) / 2
+#    Rond af op 1 decimaal
+gemiddelde <- ???
+
+# 2) Standaardfout: SE = halve_breedte / z(0.975)
+#    waarbij z(0.975) = 1.96 voor een 95%-BI
+#    Rond af op 4 decimalen
+standaardfout <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL B: 90%-BETROUWBAARHEIDSINTERVAL
+# ----------------------------------------------------------------------------
+# Formule: x̄ ± z(0.95) × SE  met z(0.95) = 1.645
+
+# 3) Ondergrens van het 90%-BI
+#    Rond af op 2 decimalen
+BI_90_onder <- ???
+
+# 4) Bovengrens van het 90%-BI
+#    Rond af op 2 decimalen
+BI_90_boven <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL C: 99%-BETROUWBAARHEIDSINTERVAL
+# ----------------------------------------------------------------------------
+# Formule: x̄ ± z(0.995) × SE  met z(0.995) = 2.576
+
+# 5) Ondergrens van het 99%-BI
+#    Rond af op 2 decimalen
+BI_99_onder <- ???
+
+# 6) Bovengrens van het 99%-BI
+#    Rond af op 2 decimalen
+BI_99_boven <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL D: INTERPRETATIE
+# ----------------------------------------------------------------------------
+
+# 7) Welk interval is breder?
+#    1 = 90%-BI is breder
+#    2 = 99%-BI is breder
+breder_interval <- ???
