@@ -1,6 +1,1 @@
-# Oef - 8.5: R² omzetten naar een percentage
-# Bekijk de regressie-uitvoer in de opgave.
-
-# Welk percentage van de variantie in Y wordt verklaard door X?
-# Vermenigvuldig R² met 100 en rond af naar een geheel getal.
 r_kwadraat_pct <- ???

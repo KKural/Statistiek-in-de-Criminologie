@@ -4,8 +4,6 @@ In een criminologische studie naar de relatie tussen **politie-inzet (X)** en **
 
 Welke observatie vertoont het **grootste absolute residu** ten opzichte van de regressielijn?
 
-Druk uw antwoord uit als de letter van de betreffende observatie (bijv. `"A"`).
-
 ```r
 uitbijter <- ???
 ```

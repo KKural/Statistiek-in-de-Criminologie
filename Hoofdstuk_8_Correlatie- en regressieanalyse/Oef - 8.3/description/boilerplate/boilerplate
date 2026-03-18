@@ -1,6 +1,1 @@
-# Oef - 8.3: Uitbijter herkennen via residu
-# Bekijk de scatterplot in de opgave.
-
-# Welk gelabeld punt heeft het grootste residu (grootste verticale afstand tot de regressielijn)?
-# Geef de bijbehorende letter als tekst (bijv. "A", "B", "C", "D", "E" of "F")
 uitbijter <- ???

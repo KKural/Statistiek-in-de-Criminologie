@@ -11,5 +11,5 @@ Bepaal de ligging van observatie P ten opzichte van de regressielijn:
 | 3 | onder de regressielijn |
 
 ```r
-punt_positie <- ???   # 1, 2 of 3
+punt_positie <- ???
 ```
