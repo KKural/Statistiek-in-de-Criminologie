@@ -1,9 +1,13 @@
 {
-    "description": {
-        "names": {
-            "nl": "Lees - 9.0 Inleiding en studiemateriaal"
-        }
-    },
-    "access": "public",
-    "type": "content"
+  "description": {
+    "names": {
+      "nl": "Lees - 9.0 Inleiding en studiemateriaal"
+    }
+  },
+  "access": "public",
+  "type": "content",
+  "internals": {
+    "token": "C9U6jJjaerVaJHgxXNFQrT3Q2caf89RSdY5rw59AVHxSGH9nZCHmPjHk95u4gQNX",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
