@@ -17,6 +17,8 @@ Studiemateriaal en leerdoelen:
 
 ## **Aanbevolen kennisclips**
 
+> **Opmerking:** Deze video's zijn in het Engels, maar bieden de meest heldere visuele uitleg van de concepten.
+
 1. **Inleiding tot inferentiële statistiek**
 
 <div style="text-align: center;">
@@ -91,7 +93,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 4. <a href='https://www.khanacademy.org/math/statistics-probability/analysis-of-variance-anova-library' target='_blank' rel='noopener noreferrer'>Khan Academy – Analysis of variance (ANOVA)</a>
 
-5. <a href='https://www.youtube.com/watch?v=VK-rnA3-41c' target='_blank' rel='noopener noreferrer'>StatQuest – p-values: What they are and how to interpret them</a>
+5. <a href='https://www.youtube.com/watch?v=vemZtEM63GY' target='_blank' rel='noopener noreferrer'>StatQuest – p-values: What they are and how to interpret them</a>
 
 ---
 
