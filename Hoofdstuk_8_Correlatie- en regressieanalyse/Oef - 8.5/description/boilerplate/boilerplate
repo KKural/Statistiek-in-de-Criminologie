@@ -1,1 +1,3 @@
+# Hoeveel procent van de variantie in de responsvariabele wordt verklaard door het model?
+# Geef R² als een geheel getal (bijv. 72 voor 72%)
 r_kwadraat_pct <- ???
