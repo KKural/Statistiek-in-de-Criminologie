@@ -4,4 +4,4 @@ Onderstaande tabel geeft de uitvoer van een enkelvoudige OLS-regressieanalyse vo
 
 Welk percentage van de variantie in Y wordt verklaard door het regressiemodel?
 
-Voer uw antwoord in als een geheel getal.
+Gebruik de kolom **R²** uit de Modelsamenvatting en geef uw antwoord als een geheel getal (bijv. 72 voor 72%).

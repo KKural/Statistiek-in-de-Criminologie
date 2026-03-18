@@ -52,7 +52,7 @@ Studiemateriaal en leerdoelen:
 5. **Variantieanalyse (ANOVA) uitgelegd**
 
 <div style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0SVFtpoPkE4" title="Variantieanalyse ANOVA uitgelegd" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oOuu8IBd-yo" title="ANOVA: Crash Course Statistics #33" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ---
