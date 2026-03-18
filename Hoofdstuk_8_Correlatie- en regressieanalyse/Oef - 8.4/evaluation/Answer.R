@@ -13,7 +13,7 @@ context({
 
           if (!exists("punt_positie", envir = env)) {
             get_reporter()$add_message(
-              paste0("## Oef - 8.6: Ligging van punt P\n\n",
+              paste0("## Oef - 8.4: Ligging van punt P\n\n",
                      "❌ **Je hebt geen antwoord ingevoerd.**\n\n",
                      "Wijs code 1, 2 of 3 toe aan `punt_positie`."),
               type = "markdown")
@@ -30,7 +30,7 @@ context({
 
           if (ok) {
             msg <- paste0(
-              "## Oef - 8.6: Ligging van punt P\n\n",
+              "## Oef - 8.4: Ligging van punt P\n\n",
               "✅ **Correct! Punt P ligt onder de regressielijn (code 3).**\n\n",
               "**Uitleg:** Bij x = 8 voorspelt de regressielijn circa **18,3** inbraken. ",
               "Wijk P heeft in werkelijkheid **16** inbraken. ",
@@ -38,7 +38,7 @@ context({
             )
           } else {
             msg <- paste0(
-              "## Oef - 8.6: Ligging van punt P\n\n",
+              "## Oef - 8.4: Ligging van punt P\n\n",
               "❌ **Fout. Je antwoord: ", student_lbl, " (code ", raw, "). Correct: onder de lijn (code 3).**\n\n",
               "**Uitleg:** Bepaal de voorspelde Y bij x = 8: dat is circa **18,3**. ",
               "Punt P heeft y = **16**, wat lager is dan 18,3. ",

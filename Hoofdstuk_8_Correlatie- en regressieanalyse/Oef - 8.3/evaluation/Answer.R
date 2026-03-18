@@ -13,7 +13,7 @@ context({
 
           if (!exists("uitbijter", envir = env)) {
             get_reporter()$add_message(
-              paste0("## Oef - 8.5: Uitbijter herkennen via residu\n\n",
+              paste0("## Oef - 8.3: Uitbijter herkennen via residu\n\n",
                      "❌ **Je hebt geen antwoord ingevoerd.**\n\n",
                      "Wijs een letter toe aan de variabele `uitbijter`, bijv. `uitbijter <- \"A\"`"),
               type = "markdown")
@@ -26,7 +26,7 @@ context({
 
           if (ok) {
             msg <- paste0(
-              "## Oef - 8.5: Uitbijter herkennen via residu\n\n",
+              "## Oef - 8.3: Uitbijter herkennen via residu\n\n",
               "✅ **Correct! Punt B heeft het grootste residu.**\n\n",
               "**Uitleg:** Het residu van elk punt is Y − Ŷ.\n\n",
               "| Punt | x | y | Ŷ | Residu |\n",
@@ -41,7 +41,7 @@ context({
             )
           } else {
             msg <- paste0(
-              "## Oef - 8.5: Uitbijter herkennen via residu\n\n",
+              "## Oef - 8.3: Uitbijter herkennen via residu\n\n",
               "❌ **Fout. Je antwoord: `\"", val, "\"`. Correct antwoord: `\"B\"`**\n\n",
               "**Uitleg:** Bereken voor elk punt het residu = Y − Ŷ:\n\n",
               "| Punt | x | y | Ŷ | Residu |\n",
