@@ -6,8 +6,9 @@ context({
         "",
         function(env) {
 
-          # Correct answer: B(6,31) has residual ~+9.1 vs the regression line.
-          # A looks high in Y but resid ~+1.7; F looks extreme in X but resid ~+1.8.
+          # Correct answer: B(8,29) has residual ~+4.8 vs the regression line.
+          # A(3,33) looks highest in Y but the line at x=3 is ~34, so A is BELOW line (e=-1.1).
+          # F(20,3) is extreme in X but the line nearly reaches zero there (e=+2.4 only).
           exp_uitbijter <- "B"
 
           if (!exists("uitbijter", envir = env)) {
@@ -29,14 +30,14 @@ context({
               "✅ **Correct! Punt B heeft het grootste residu.**\n\n",
               "**Uitleg:** Het residu van elk punt is Y − Ŷ.\n\n",
               "| Punt | x | y | Ŷ | Residu |\n",
-              "|------|---|---|------|--------|\n",
-              "| A | 3 | 29 | ≈27,3 | +1,7 |\n",
-              "| **B** | **6** | **31** | **≈21,9** | **+9,1** ← grootst |\n",
-              "| C | 8 | 18 | ≈18,3 | −0,3 |\n",
-              "| D | 10 | 12 | ≈14,8 | −2,8 |\n",
-              "| E | 13 | 9 | ≈9,4 | −0,4 |\n",
-              "| F | 17 | 4 | ≈2,2 | +1,8 |\n\n",
-              "Punt B heeft een residu van bijna **+9**, ruim groter dan alle andere punten."
+              "|------|----|----|-------|--------|\n",
+              "| A | 3 | 33 | ≈34,1 | −1,1 |\n",
+              "| **B** | **8** | **29** | **≈24,2** | **+4,8** ← grootst |\n",
+              "| C | 11 | 16 | ≈18,3 | −2,3 |\n",
+              "| D | 14 | 10 | ≈12,4 | −2,4 |\n",
+              "| E | 17 | 5 | ≈6,5 | −1,5 |\n",
+              "| F | 20 | 3 | ≈0,6 | +2,4 |\n\n",
+              "Punt B heeft het grootste absolute residu (+4,8)."
             )
           } else {
             msg <- paste0(
@@ -44,16 +45,16 @@ context({
               "❌ **Fout. Je antwoord: `\"", val, "\"`. Correct antwoord: `\"B\"`**\n\n",
               "**Uitleg:** Bereken voor elk punt het residu = Y − Ŷ:\n\n",
               "| Punt | x | y | Ŷ | Residu |\n",
-              "|------|---|---|------|--------|\n",
-              "| A | 3 | 29 | ≈27,3 | +1,7 |\n",
-              "| **B** | **6** | **31** | **≈21,9** | **+9,1** ← grootst! |\n",
-              "| C | 8 | 18 | ≈18,3 | −0,3 |\n",
-              "| D | 10 | 12 | ≈14,8 | −2,8 |\n",
-              "| E | 13 | 9 | ≈9,4 | −0,4 |\n",
-              "| F | 17 | 4 | ≈2,2 | +1,8 |\n\n",
-              "Punt **F** lijkt extremer (ver rechts in X), maar ligt bijna op de lijn (residu slechts +1,8). ",
-              "Punt **A** heeft de hoogste Y maar past bij de trend (residu +1,7). ",
-              "Alleen punt **B** wijkt met een residu van +9,1 sterk af van de verwachte waarde."
+              "|------|----|----|-------|--------|\n",
+              "| A | 3 | 33 | ≈34,1 | −1,1 |\n",
+              "| **B** | **8** | **29** | **≈24,2** | **+4,8** ← grootst! |\n",
+              "| C | 11 | 16 | ≈18,3 | −2,3 |\n",
+              "| D | 14 | 10 | ≈12,4 | −2,4 |\n",
+              "| E | 17 | 5 | ≈6,5 | −1,5 |\n",
+              "| F | 20 | 3 | ≈0,6 | +2,4 |\n\n",
+              "**Veelgemaakte fouten:** Punt A heeft de hoogste Y-waarde (33), maar de regressielijn loopt op x=3 al op 34,1 — A ligt dus net **onder** de lijn (residu −1,1). ",
+              "Punt F is extreem in X (x=20), maar de lijn daalt daar ook sterk naar ~0,6 — residual slechts +2,4. ",
+              "Alleen punt B (x=8, y=29) staat 4,8 eenheden boven de lijn en heeft daarmee het grootste absolute residu."
             )
           }
 
