@@ -1,24 +1,17 @@
-# Oef - 8.7: R² omzetten naar een percentage
-
-Een criminoloog voert een regressieanalyse uit op data van **10 stadsdelen**.
+Een criminoloog onderzoekt de relatie tussen **politie-aanwezigheid (X)** en **inbraken (Y)** in 10 wijken.
 De variabelen zijn:
 - **X** = gemiddeld aantal politie-uren per week
 - **Y** = aantal inbraken per 1.000 inwoners per jaar
 
----
+Bekijk de onderstaande regressie-uitvoer.
 
-Bekijk het onderstaande regressieoverzicht.
+<img src="media/regressie_output_tabel.png" alt="Regressie-uitvoer tabel met R-kwadraat" width="600">
 
-![](image/description.nl/regressie_output_tabel.png)
+Hoeveel **procent** van de variantie in inbraken wordt verklaard door politie-aanwezigheid?
 
-De tabel toont de waarde van R² als **decimaal getal**.
-
-**Bereken** hoeveel procent van de variantie in het inbraakcijfer verklaard
-wordt door het aantal politie-uren.
-Rond af naar een **geheel getal** (bijv. `74` voor 74%).
-
-> **Tip:** R² als percentage = R² × 100, afgerond naar een geheel getal.
+> **Tip:** Zoek de waarde van R² in de tabel en vermenigvuldig met 100.
+> Geef het antwoord als **geheel getal** (afronden naar de dichtstbijzijnde eenheid).
 
 ```r
-r_kwadraat_pct <- ???   # geheel getal in procenten (bijv. 74)
+r_kwadraat_pct <- ???   # R² omgezet naar een percentage (geheel getal)
 ```
