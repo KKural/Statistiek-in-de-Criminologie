@@ -7,7 +7,7 @@ De variabelen zijn:
 
 Bekijk de onderstaande scatterplot. Punt **P** is rood aangeduid.
 
-![](image/description.nl/punt_P_lijn.png)
+<img src="media/punt_P_lijn.png" alt="Scatterplot met regressielijn en punt P" width="600">
 
 De regressielijn geeft voor elke X-waarde een **voorspeld** inbraakcijfer (Y-dak).
 Vergelijk het werkelijke inbraakcijfer van wijk P met de voorspelling van de regressielijn.

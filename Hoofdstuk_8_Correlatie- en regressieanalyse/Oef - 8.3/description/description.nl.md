@@ -7,7 +7,7 @@ De variabelen zijn:
 
 Bekijk de onderstaande scatterplot. De regressielijn is ingetekend.
 
-![](image/description.nl/scatter_outlier.png)
+<img src="media/scatter_outlier.png" alt="Scatterplot met regressielijn en gelabelde punten" width="600">
 
 Welk gelabeld punt heeft het **grootste residu** ten opzichte van de regressielijn?
 
