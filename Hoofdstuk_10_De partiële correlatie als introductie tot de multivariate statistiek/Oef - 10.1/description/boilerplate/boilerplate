@@ -1,0 +1,129 @@
+# ============================================================================
+# OEFENING 10.1: Partiële correlatie — scholieren en leeftijd (ruwe data)
+# ============================================================================
+# Bereken ALLE tussenstappen met de hand (rekenmachine mag).
+# Vul hieronder je eindresultaten in (vervang alle ???).
+# Gebruik decimalen met PUNT (niet komma). Rond af op 4 decimalen.
+# ============================================================================
+
+# Data (ter referentie):
+#  Scholier  X (DelictenGepleegd)  Y (DelictenSlachtoffer)  Z (Leeftijd)
+#     1              2                       2                   17
+#     2              0                       0                   15
+#     3              0                       1                   14
+#     4              6                       3                   16
+#     5              3                       2                   15
+#     6              0                       3                   14
+#     7              2                       4                   18
+
+# ----------------------------------------------------------------------------
+# DEEL A: GEMIDDELDEN (Stap 1)
+# ----------------------------------------------------------------------------
+
+# 1) Gemiddelde van X (4 decimalen)
+X_bar <- ???
+
+# 2) Gemiddelde van Y (4 decimalen)
+Y_bar <- ???
+
+# 3) Gemiddelde van Z (4 decimalen)
+Z_bar <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL B: SOMKWADRATEN EN KRUISPRODUCTSOMMEN (Stap 2-3)
+# ----------------------------------------------------------------------------
+# Bereken de afwijkingstabel en sommeer de kwadraten/kruisproducten.
+
+# 4) SS_X = som van (Xi - X_bar)^2
+SS_X <- ???
+
+# 5) SS_Y = som van (Yi - Y_bar)^2
+SS_Y <- ???
+
+# 6) SS_Z = som van (Zi - Z_bar)^2
+SS_Z <- ???
+
+# 7) SCP_XY = som van (Xi - X_bar)(Yi - Y_bar)
+SCP_XY <- ???
+
+# 8) SCP_XZ = som van (Xi - X_bar)(Zi - Z_bar)
+SCP_XZ <- ???
+
+# 9) SCP_YZ = som van (Yi - Y_bar)(Zi - Z_bar)
+SCP_YZ <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL C: VARIANTIES, STANDAARDDEVIATIES EN COVARIANTIES (Stap 4)
+# ----------------------------------------------------------------------------
+# Var = SS / (n-1),   SD = sqrt(Var),   Cov = SCP / (n-1)
+
+# 10) Var_X (4 decimalen)
+Var_X <- ???
+
+# 11) Var_Y (4 decimalen)
+Var_Y <- ???
+
+# 12) Var_Z (4 decimalen)
+Var_Z <- ???
+
+# 13) SD_X (4 decimalen)
+SD_X <- ???
+
+# 14) SD_Y (4 decimalen)
+SD_Y <- ???
+
+# 15) SD_Z (4 decimalen)
+SD_Z <- ???
+
+# 16) Cov_XY (4 decimalen)
+Cov_XY <- ???
+
+# 17) Cov_XZ (4 decimalen)
+Cov_XZ <- ???
+
+# 18) Cov_YZ (4 decimalen)
+Cov_YZ <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL D: BIVARIATE CORRELATIES (Stap 5)
+# ----------------------------------------------------------------------------
+# r = Cov / (SD_X * SD_Y)
+
+# 19) r_XY: correlatie tussen DelictenGepleegd en DelictenSlachtoffer (4 dp)
+r_XY <- ???
+
+# 20) r_XZ: correlatie tussen DelictenGepleegd en Leeftijd (4 dp)
+r_XZ <- ???
+
+# 21) r_YZ: correlatie tussen DelictenSlachtoffer en Leeftijd (4 dp)
+r_YZ <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL E: PARTIELE CORRELATIE (Stap 6)
+# ----------------------------------------------------------------------------
+# Formule: r_XY.Z = (r_XY - r_XZ * r_YZ) / sqrt((1 - r_XZ^2)(1 - r_YZ^2))
+
+# 22) Teller: r_XY - r_XZ * r_YZ  (4 decimalen)
+r_XY_teller <- ???
+
+# 23) Noemer: sqrt((1 - r_XZ^2) * (1 - r_YZ^2))  (4 decimalen)
+r_XY_noemer <- ???
+
+# 24) Partiele correlatie r_XY.Z  (4 decimalen)
+r_XY_Z <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL F: INTERPRETATIE
+# ----------------------------------------------------------------------------
+
+# 25) Welk type effect heeft leeftijd (Z) op de relatie X-Y?
+#     1 = Schijnverband: het verband verdwijnt grotendeels na controle voor Z
+#     2 = Indirect verband: het verband verzwakt significant maar blijft deels aanwezig
+#     3 = Suppressoreffect: het verband wordt sterker na controle voor Z
+#     4 = Reeel verband: het verband verandert nauwelijks na controle voor Z
+conclusie_type <- ???

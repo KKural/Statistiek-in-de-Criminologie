@@ -1,0 +1,55 @@
+# ============================================================================
+# OEFENING 10.2: Partiële correlatie — politieagenten en dienstjaren
+# Berekening via correlatietabel
+# ============================================================================
+# Gegeven correlatietabel (n = 50 politieagenten):
+#   X = Fysieke bekwaamheid,  Y = Jaarsalaris,  Z = Dienstjaren
+#
+#         X       Y       Z
+#   X    1      -0.44   -0.68
+#   Y   -0.44    1       0.82
+#   Z   -0.68    0.82    1
+#
+# Bereken met de hand en vul je eindresultaten in (vervang alle ???).
+# Gebruik decimalen met PUNT (niet komma). Rond af op 4 decimalen.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# DEEL A: CORRELATIES AFLEZEN UIT DE TABEL
+# ----------------------------------------------------------------------------
+
+# 1) Bivariate correlatie tussen X (fysieke bekwaamheid) en Y (jaarsalaris)
+r_XY <- ???
+
+# 2) Bivariate correlatie tussen X (fysieke bekwaamheid) en Z (dienstjaren)
+r_XZ <- ???
+
+# 3) Bivariate correlatie tussen Y (jaarsalaris) en Z (dienstjaren)
+r_YZ <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL B: PARTIELE CORRELATIE
+# ----------------------------------------------------------------------------
+# Formule: r_XY.Z = (r_XY - r_XZ * r_YZ) / sqrt((1 - r_XZ^2) * (1 - r_YZ^2))
+
+# 4) Teller: r_XY - r_XZ * r_YZ  (4 decimalen)
+r_XY_teller <- ???
+
+# 5) Noemer: sqrt((1 - r_XZ^2) * (1 - r_YZ^2))  (4 decimalen)
+r_XY_noemer <- ???
+
+# 6) Partiele correlatie r_XY.Z  (4 decimalen)
+r_XY_Z <- ???
+
+
+# ----------------------------------------------------------------------------
+# DEEL C: INTERPRETATIE
+# ----------------------------------------------------------------------------
+
+# 7) Welk type effect heeft dienstjaren (Z) op de relatie X-Y?
+#    1 = Schijnverband: het verband verdwijnt grotendeels na controle voor Z
+#    2 = Indirect verband: het verband verzwakt significant maar blijft deels aanwezig
+#    3 = Suppressoreffect: het verband wordt sterker na controle voor Z
+#    4 = Teken omgekeerd: het verband keert van teken na controle voor Z
+conclusie_type <- ???

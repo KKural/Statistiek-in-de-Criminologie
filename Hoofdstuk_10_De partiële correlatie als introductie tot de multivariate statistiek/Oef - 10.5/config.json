@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 10.5: Controlevragen — partiële correlatie en multivariate statistiek"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "partiele-correlatie",
+    "begrippen",
+    "multivariate-statistiek"
+  ],
+  "internals": {
+    "token": "CNKWs-xeEHcgvMimY-kEUDbzDUdZGTyp9CYfz89jF5uSrmAF6ZwXb9zI6NqC8UIh",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

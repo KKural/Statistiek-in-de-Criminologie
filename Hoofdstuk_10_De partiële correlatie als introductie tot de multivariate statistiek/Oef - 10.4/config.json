@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 10.4: Partiële correlatie — interpretatie van controlevariabelen"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "partiele-correlatie",
+    "interpretatie",
+    "multivariate-statistiek"
+  ],
+  "internals": {
+    "token": "d9x-ii--ZYPGWSZPVGx4C9aINSVmgBuW6bAFE6Mafab8u8x_869KVkIade5yIUSe",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

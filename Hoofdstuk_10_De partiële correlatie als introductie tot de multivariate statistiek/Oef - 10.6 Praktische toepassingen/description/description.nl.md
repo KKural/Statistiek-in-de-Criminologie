@@ -1,6 +1,87 @@
-# **Praktische toepassingen**
+# **Interactieve app — partiële correlatie**
 
-## **Toepassing 1: Politieonderzoek - Meetniveaus in criminaliteitsregistratie**
+In deze oefening oefen je de **partiële correlatie** aan de hand van de interactieve Shiny-app. De app genereert criminologische datasets met drie variabelen (X, Y en een controlevariabele Z) en laat je stap voor stap de partiële correlatie berekenen — vergelijkbaar met wat je deed in Oefening 8.2 (bivariate correlatie), maar nu inclusief het uitschakelen van een derde variabele.
+
+---
+
+## **De App Openen**
+
+De interactieve app is beschikbaar op:
+
+**<a href='https://statistiek-in-de-criminologie.shinyapps.io/Dodona/' target='_blank' rel='noopener noreferrer'>Interactieve oefeningen — Correlatie, Regressie & Partiële correlatie</a>**
+
+> **Let op:** De app werkt alleen als ze actief draait. Vraag je docent om de app te starten als deze niet beschikbaar is.
+
+---
+
+## **Leerdoelen**
+
+Na het werken met deze app kun je:
+
+- De **drie bivariate correlaties** (r_XY, r_XZ, r_YZ) berekenen of aflezen uit een correlatietabel
+- De **partiële correlatie** $r_{XY \cdot Z}$ met de formule stap voor stap berekenen
+- Het **type effect** van een controlevariabele herkennen: schijnverband, indirect verband, suppressoreffect of reëel verband
+- Resultaten vergelijken met de bivariate correlatie om te beoordelen of Z een rol speelt
+
+---
+
+## **Verband met Oefening 8.2 en 8.3**
+
+In **Oefening 8.2** oefende je de bivariate correlatie (r_XY) tussen twee variabelen. In **Oefening 8.3** interpreteerde je die correlaties grafisch via een scatterplot.
+
+In **Oefening 10.6** ga je één stap verder: je voegt een **derde variabele Z** toe en onderzoekt wat er met r_XY gebeurt wanneer je voor Z controleert. Dat is precies het principe van partiële correlatie en een eerste stap naar **multivariate analyse**.
+
+$$r_{XY \cdot Z} = \frac{r_{XY} - r_{XZ} \cdot r_{YZ}}{\sqrt{(1 - r_{XZ}^2)(1 - r_{YZ}^2)}}$$
+
+---
+
+## **Hoe Werkt de App?**
+
+### **Stap 1: Kies het scenario "Partiële correlatie"**
+
+Selecteer in de app het tabblad of het scenario voor partiële correlatie. Je krijgt een dataset met drie variabelen X, Y en Z met bijbehorende criminologische context (bijv. daderschap, slachtofferschap en leeftijd).
+
+### **Stap 2: Lees de correlatietabel af**
+
+De app toont een correlatietabel. Noteer:
+- $r_{XY}$ — bivariate correlatie X–Y
+- $r_{XZ}$ — bivariate correlatie X–Z (controlevariabele)
+- $r_{YZ}$ — bivariate correlatie Y–Z (controlevariabele)
+
+### **Stap 3: Bereken de partiële correlatie met de hand**
+
+Gebruik de formule:
+1. **Teller:** $r_{XY} - r_{XZ} \cdot r_{YZ}$
+2. **Noemer:** $\sqrt{(1 - r_{XZ}^2)(1 - r_{YZ}^2)}$
+3. **Partiële correlatie:** teller ÷ noemer
+
+### **Stap 4: Interpreteer het resultaat**
+
+Vergelijk $r_{XY \cdot Z}$ met $r_{XY}$ en bepaal het type effect:
+
+| Type effect | Wat er gebeurt |
+|---|---|
+| **Schijnverband** | $r_{XY \cdot Z} \approx 0$ na controle: Z veroorzaakte de ogenschijnlijke samenhang |
+| **Indirect verband** | $r_{XY \cdot Z}$ kleiner maar ≠ 0: relatie loopt deels via Z |
+| **Suppressoreffect** | $r_{XY \cdot Z}$ sterker of ander teken: Z onderdrukte de ware relatie |
+| **Reëel verband** | $r_{XY \cdot Z} \approx r_{XY}$: Z heeft nauwelijks invloed |
+
+### **Stap 5: Vergelijk met de app-feedback**
+
+Vul je berekende waarden in de app in en controleer meteen of je teller, noemer en eindresultaat kloppen.
+
+---
+
+## **Oefenschenario's in de App**
+
+De app bevat onder andere de volgende criminologische scenario's voor partiële correlatie:
+
+- **Daderschap en slachtofferschap** — controlevariabele: leeftijd *(gelijkaardig aan Oef. 10.1)*
+- **Fysieke bekwaamheid en salaris** — controlevariabele: dienstjaren *(gelijkaardig aan Oef. 10.2)*
+- **Schoolbetrokkenheid en delinquentie** — controlevariabele: zelfcontrole *(suppressoreffect)*
+- **Buurtoverlast en angst voor criminaliteit** — controlevariabele: sociaaleconomische status
+
+Gebruik meerdere scenario's om de vier verschillende types effecten te oefenen.
 
 ### **Situatie:**
 De politie van Gent wil hun criminaliteitsregistratie verbeteren om betere analyses te kunnen maken voor beleidsbeslissingen.

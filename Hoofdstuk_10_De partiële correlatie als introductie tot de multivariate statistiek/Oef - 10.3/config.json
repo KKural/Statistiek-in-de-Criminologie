@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 10.3: Partiële correlatie — schoolbetrokkenheid en suppressorvariabele (correlatietabel)"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "partiele-correlatie",
+    "suppressorvariabele",
+    "multivariate-statistiek"
+  ],
+  "internals": {
+    "token": "T-RMsnyEvIZYzxgGVe9FY4Tf_P68jJvYM93cheE_fWUIBMtg-sPVPPFYdJiKwp-Q",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
