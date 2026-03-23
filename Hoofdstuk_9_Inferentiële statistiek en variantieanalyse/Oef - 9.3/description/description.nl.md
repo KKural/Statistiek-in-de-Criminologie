@@ -47,5 +47,3 @@ Waarbij:
 
 6) **De minimale steekproefgrootte (naar boven afgerond)**
    - `n_minimum` (geheel getal)
-
-**Instructie:** Vervang `???` door je antwoord. Gebruik decimalen met punt (niet komma).

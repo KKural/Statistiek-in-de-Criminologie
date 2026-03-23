@@ -66,5 +66,4 @@ Aan studenten uit de faculteit Economie en Bedrijfswetenschappen werd gevraagd h
 
 Analyseer deze frequentietabel en beantwoord de onderstaande vragen door de juiste waarden in te vullen.
 
-**Instructie:** 
 Vervang "???" door het juiste antwoord. Let op de exacte notatie - gebruik decimalen met punt (niet komma) en geen duizendenscheidingstekens.

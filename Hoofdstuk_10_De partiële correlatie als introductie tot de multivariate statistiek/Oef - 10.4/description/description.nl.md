@@ -1,5 +1,3 @@
-## Oef - 10.4: Partiële correlatie — interpretatie van controlevariabelen
-
 In de oefeningen 10.1, 10.2 en 10.3 heb je partiële correlaties berekend. In deze oefening oefen je de **interpretatie**: welk type effect heeft de controlevariabele op de relatie X–Y?
 
 ---
@@ -67,5 +65,3 @@ Resultaten:
 - `conclusie_C`
 
 ---
-
-**Instructie:** Vervang alle `???` door het juiste getal (1, 2, 3 of 4). Geen decimalen nodig.

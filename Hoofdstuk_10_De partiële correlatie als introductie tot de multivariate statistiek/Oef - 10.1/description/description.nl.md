@@ -1,5 +1,3 @@
-## Oef - 10.1: Partiële correlatie — scholieren en leeftijd (ruwe data)
-
 Een onderzoeker bestudeert de relatie tussen het **aantal gepleegde delicten** (X) en het **aantal keren dat men slachtoffer werd** (Y) bij een groep jongeren. Een criminoloog vermoedt dat **leeftijd** (Z) een rol speelt — oudere jongeren plegen mogelijk meer delicten én worden vaker slachtoffer. De onderzoeker wil weten in hoeverre de bivariate correlatie tussen X en Y verandert wanneer we controleren voor leeftijd.
 
 De volgende gegevens werden verzameld bij 7 scholieren:
@@ -119,5 +117,3 @@ $$r_{XY \cdot Z} = \frac{r_{XY} - r_{XZ} \cdot r_{YZ}}{\sqrt{(1 - r_{XZ}^2)(1 - 
     - 3 = Suppressoreffect: het verband wordt sterker na controle voor leeftijd
     - 4 = Reëel verband: het verband verandert nauwelijks na controle voor leeftijd
     - `conclusie_type`
-
-**Instructie:** Vervang alle `???` door je antwoord. Gebruik decimalen met punt (niet komma).

@@ -49,8 +49,6 @@ Geef je antwoord als **percentage** (bijvoorbeeld: 15.67)
 
 Geef je antwoord als **percentage** (bijvoorbeeld: 78.92)
 
-## **Instructies**
-
 - Vervang "???" door het juiste antwoord
 - Gebruik decimalen met **punt** (geen komma)
 - Rond af tot op twee decimalen waar nodig

@@ -30,5 +30,4 @@ Bereken de **meest relevante maat van spreiding** voor de afhankelijke variabele
 4. **Steekproefvariantie**: `SS / (n - 1)`.
 5. **Standaarddeviatie**: wortel uit de variantie. Dit is de gekozen spreidingsmaat voor interval/ratio-gegevens.
 
-### **Instructie voor de code**
 Vervang `???` door het juiste antwoord. Gebruik een **decimale punt** en rond de standaarddeviatie af op **twee decimalen**.

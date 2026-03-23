@@ -55,5 +55,3 @@ $$\bar{x} \pm z_{0.005} \times SE \quad \text{waarbij } z_{0.005} = 2.576$$
 7) **Welk interval is breder?**
    - 1 = 90%-BI is breder, 2 = 99%-BI is breder
    - `breder_interval`
-
-**Instructie:** Vervang `???` door je antwoord. Gebruik decimalen met punt (niet komma).

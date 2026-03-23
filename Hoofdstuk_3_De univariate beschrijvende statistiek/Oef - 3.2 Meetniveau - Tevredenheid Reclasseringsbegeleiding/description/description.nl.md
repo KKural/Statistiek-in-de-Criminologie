@@ -69,5 +69,4 @@ Een reclasseringsdienst wil weten hoe tevreden veroordeelde delictplegers zijn o
 
 Analyseer deze gegevens en beantwoord de onderstaande vragen.
 
-**Instructie:** 
 Vervang "???" door het juiste antwoord. Voor meetniveau gebruik "ordinaal", "nominaal" of "interval". Voor categorieën gebruik de exacte bewoordingen uit de tabel.

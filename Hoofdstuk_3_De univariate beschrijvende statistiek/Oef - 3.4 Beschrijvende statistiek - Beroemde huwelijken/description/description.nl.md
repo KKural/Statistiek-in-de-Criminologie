@@ -69,5 +69,4 @@ De individuele waarden zijn:
 
 Analyseer deze gegevens en bereken de gevraagde beschrijvende statistieken.
 
-**Instructie:** 
 Vervang "???" door het juiste antwoord. Let op de exacte notatie - gebruik decimalen met punt (niet komma) en rond af op 2 decimalen waar nodig.

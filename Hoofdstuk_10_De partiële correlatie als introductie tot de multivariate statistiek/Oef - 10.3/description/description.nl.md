@@ -1,5 +1,3 @@
-## Oef - 10.3: Partiële correlatie — schoolbetrokkenheid en suppressorvariabele (correlatietabel)
-
 Een criminoloog onderzoekt de relatie tussen **schoolbetrokkenheid** (X) en **delinquentie** (Y) bij adolescenten (n = 85). Op basis van bivariate analyse lijkt er nauwelijks een verband te zijn. De onderzoeker vermoedt echter dat **lage zelfcontrole** (Z) een suppressorvariabele is die een verborgen relatie maskeert.
 
 De volgende **correlatietabel** is beschikbaar:
@@ -63,5 +61,3 @@ $$r_{XY \cdot Z} = \frac{r_{XY} - r_{XZ} \cdot r_{YZ}}{\sqrt{(1 - r_{XZ}^2)(1 - 
    - 3 = Suppressoreffect: een verborgen (sterker) verband wordt pas zichtbaar na controle voor Z
    - 4 = Teken omgekeerd door positieve confoundering
    - `conclusie_type`
-
-**Instructie:** Vervang alle `???` door je antwoord. Gebruik decimalen met punt (niet komma).

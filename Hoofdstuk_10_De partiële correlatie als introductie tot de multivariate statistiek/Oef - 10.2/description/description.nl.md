@@ -1,5 +1,3 @@
-## Oef - 10.2: Partiële correlatie — politieagenten en dienstjaren (correlatietabel)
-
 Een onderzoeker bestudeert bij **50 politieagenten** de relatie tussen **fysieke bekwaamheid** (X) en **jaarsalaris** (Y). Ze vermoedt dat het **aantal dienstjaren** (Z) beide variabelen beïnvloedt — meer dienstjaren gaat gepaard met zowel een lager fitnessgehalte als een hoger salaris door anciënniteit. De bivariate correlatie tussen X en Y lijkt hierdoor vertekend.
 
 Uit eerder onderzoek is de volgende **correlatietabel** beschikbaar:
@@ -71,5 +69,3 @@ $$r_{XY \cdot Z} = \frac{r_{XY} - r_{XZ} \cdot r_{YZ}}{\sqrt{(1 - r_{XZ}^2)(1 - 
    - 3 = Suppressoreffect: het verband wordt sterker na controle voor Z
    - 4 = Teken omgekeerd: het verband keert van teken na controle voor Z
    - `conclusie_type`
-
-**Instructie:** Vervang alle `???` door je antwoord. Gebruik decimalen met punt (niet komma).

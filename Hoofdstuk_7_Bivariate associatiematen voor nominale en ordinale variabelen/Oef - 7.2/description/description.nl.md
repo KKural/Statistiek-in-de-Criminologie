@@ -57,4 +57,3 @@ Omdat geslacht de onafhankelijke variabele is, werk je met **kolompercentages** 
 
 Afronden: percentages op 2 decimalen, chi^2 op 2 decimalen, phi op 2 decimalen.
 
-**Instructie:** Vervang `???` door je antwoord. Gebruik decimalen met punt (niet komma) en geen procentteken.

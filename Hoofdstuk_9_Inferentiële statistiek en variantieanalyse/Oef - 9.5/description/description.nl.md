@@ -82,5 +82,3 @@ Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
 4. De Levene-toets
 
 - `vraag7` = 1, 2, 3 of 4
-
-**Instructie:** Vervang `???` door het nummer van het juiste antwoord.

@@ -105,4 +105,3 @@ Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak
 
 ---
 
-**Instructie:** Vervang `???` door je antwoord. Gebruik decimalen met punt (niet komma) en geen procentteken.

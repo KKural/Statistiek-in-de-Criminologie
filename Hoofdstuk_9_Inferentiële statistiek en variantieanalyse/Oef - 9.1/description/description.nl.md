@@ -92,5 +92,3 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 10) **Is het verband ook significant bij α = 0.01?**
     - 1 = ja, 2 = nee
     - `significant_001`
-
-**Instructie:** Vervang `???` door je antwoord. Gebruik decimalen met punt (niet komma).

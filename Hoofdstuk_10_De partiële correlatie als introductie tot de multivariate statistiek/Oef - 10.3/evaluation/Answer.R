@@ -176,6 +176,10 @@ context({
     }
   )
 })
+
+context({
+  testcase(
+    "Steekproefgrootte — topsalarissen banksector",
     {
       testEqual(
         "",

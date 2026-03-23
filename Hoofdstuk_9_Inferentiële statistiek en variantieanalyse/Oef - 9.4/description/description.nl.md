@@ -112,5 +112,3 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 16) **Is het effect statistisch significant bij α = 0.05?** (kritieke F ≈ 3.35)
     - 1 = ja, 2 = nee
     - `significant_anova`
-
-**Instructie:** Vervang `???` door je antwoord. Gebruik decimalen met punt (niet komma).

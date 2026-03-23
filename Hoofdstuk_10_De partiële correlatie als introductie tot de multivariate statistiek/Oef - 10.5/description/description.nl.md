@@ -1,5 +1,3 @@
-## Oef - 10.5: Controlevragen — partiële correlatie en multivariate statistiek
-
 Beantwoord de volgende meerkeuzevragen over de logica van partiële correlatie, schijnverbanden en controlevariabelen in criminologisch onderzoek.
 
 Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
@@ -90,5 +88,3 @@ $$r_{XY \cdot Z} = \frac{r_{XY} - r_{XZ} \cdot r_{YZ}}{\sqrt{(1 - r_{XZ}^2)(1 - 
 4. Omdat het enkel gebruikt wordt bij nominale variabelen
 
 - `vraag7` = 1, 2, 3 of 4
-
-**Instructie:** Vervang `???` door het nummer van het juiste antwoord.
