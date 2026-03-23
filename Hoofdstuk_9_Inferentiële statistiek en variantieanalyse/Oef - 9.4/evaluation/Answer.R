@@ -111,14 +111,14 @@ context({
 
           wrong_msg_mean <- function(val, group_name, exp_mean, data_str) {
             v <- parse_num(val)
-            sprintf("**Gemiddelde %s** = som van de 10 waarden / 10\n\n**Data:** %s\n\n→ x̄ = **%.0f**", group_name, data_str, exp_mean)
+            sprintf("**Hoe te corrigeren:** Gemiddelde %s = som van de 10 waarden / 10\n\n**Data:** %s\n\n→ x̄ = **%.0f**", group_name, data_str, exp_mean)
           }
 
           wrong_msg_grand <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && abs(v - (ev$mean_groot + ev$mean_middel + ev$mean_ruraal)/3) < 1)
               return(sprintf("**Bijna goed!** Je nam het gemiddelde van de drie groepsgemiddelden, wat correct is als de groepen even groot zijn (wat hier geldt):\n\n→ (%.0f + %.0f + %.0f) / 3 = **%.3f** ✓", ev$mean_groot, ev$mean_middel, ev$mean_ruraal, ev$grand))
-            sprintf("**Grand mean** = gemiddelde van **alle** 30 waarden = som van alle waarden / 30\n\n→ (%.0f×10 + %.0f×10 + %.0f×10) / 30 = **%.3f**", ev$mean_groot, ev$mean_middel, ev$mean_ruraal, ev$grand)
+            sprintf("**Hoe te corrigeren:** Grand mean = gemiddelde van **alle** 30 waarden = som van alle waarden / 30\n\n→ (%.0f×10 + %.0f×10 + %.0f×10) / 30 = **%.3f**", ev$mean_groot, ev$mean_middel, ev$mean_ruraal, ev$grand)
           }
 
           wrong_msg_SS_within_group <- function(val, group_name, exp_SS, exp_mean) {
@@ -127,14 +127,14 @@ context({
               return(sprintf("**Waarom fout:** Je gaf de variantie (SS/9 = %.1f), niet de somkwadraat.\n\n**SS_within_%s** = Σ(xᵢ − x̄_%s)² = **%d** (niet delen door df!)", exp_SS/9, group_name, group_name, as.integer(exp_SS)))
             if (!is.na(v) && !is.na(ev$grand) && abs(v - sum((c(exp_mean) - ev$grand)^2 * 10)) < 100)
               return(sprintf("**Waarom fout:** Je gebruikte de **grand mean** (%.3f) in plaats van het **groepsgemiddelde** (%.0f).\n\n**SS_within** berekent spreiding **binnen** een groep: Σ(xᵢ − x̄_groep)².", ev$grand, exp_mean))
-            sprintf("**SS_within_%s** = Σ(xᵢ − x̄_%s)² = Σ(xᵢ − %.0f)² = **%d**", group_name, group_name, exp_mean, as.integer(exp_SS))
+            sprintf("**Hoe te corrigeren:** SS_within_%s = Σ(xᵢ − x̄_%s)² = Σ(xᵢ − %.0f)² = **%d**", group_name, group_name, exp_mean, as.integer(exp_SS))
           }
 
           wrong_msg_SS_within_total <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && abs(v - ev$SS_within / ev$df_within) < 50)
               return(sprintf("**Waarom fout:** Je gaf MS_within (SS/df = %.1f) in plaats van SS_within.\n\n**SS_within** = SS_groot + SS_middel + SS_ruraal = %d + %d + %d = **%d**.", ev$SS_within/ev$df_within, as.integer(ev$SS_w_groot), as.integer(ev$SS_w_middel), as.integer(ev$SS_w_ruraal), as.integer(ev$SS_within)))
-            sprintf("**SS_within** = SS_groot + SS_middel + SS_ruraal = %d + %d + %d = **%d**", as.integer(ev$SS_w_groot), as.integer(ev$SS_w_middel), as.integer(ev$SS_w_ruraal), as.integer(ev$SS_within))
+            sprintf("**Hoe te corrigeren:** SS_within = SS_groot + SS_middel + SS_ruraal = %d + %d + %d = **%d**", as.integer(ev$SS_w_groot), as.integer(ev$SS_w_middel), as.integer(ev$SS_w_ruraal), as.integer(ev$SS_within))
           }
 
           wrong_msg_df_within <- function(val) {
@@ -143,7 +143,7 @@ context({
               return("**Waarom fout:** Je gaf N=30 als df_within, maar df_within = N − k (aantal groepen aftrekken).\n\n**df_within** = 30 − 3 = **27**.")
             if (!is.na(v) && abs(v - 27/3) < 0.5)
               return("**Waarom fout:** Je deelde door het aantal groepen. df_within = N − k = 30 − 3 = **27**.")
-            "**df_within** = N − k = 30 − 3 = **27**"
+            "**Hoe te corrigeren:** df_within = N − k = 30 − 3 = **27**"
           }
 
           wrong_msg_MS_within <- function(val) {
@@ -152,7 +152,7 @@ context({
               return(sprintf("**Waarom fout:** Je gaf SS_within (%d) als MS_within. MS = SS / df.\n\n**MS_within** = %d / %d = **%.2f**.", as.integer(ev$SS_within), as.integer(ev$SS_within), as.integer(ev$df_within), ev$MS_within))
             if (!is.na(v) && abs(v - ev$SS_within / 30) < 100)
               return(sprintf("**Waarom fout:** Je deelde door N=30 in plaats van df_within=%d.\n\n**MS_within** = SS_within / df_within = %d / **%d** = **%.2f**.", as.integer(ev$df_within), as.integer(ev$SS_within), as.integer(ev$df_within), ev$MS_within))
-            sprintf("**MS_within** = SS_within / df_within = %d / %d = **%.2f**", as.integer(ev$SS_within), as.integer(ev$df_within), ev$MS_within)
+            sprintf("**Hoe te corrigeren:** MS_within = SS_within / df_within = %d / %d = **%.2f**", as.integer(ev$SS_within), as.integer(ev$df_within), ev$MS_within)
           }
 
           wrong_msg_SS_between <- function(val) {
@@ -161,7 +161,7 @@ context({
               return(sprintf("**Waarom fout:** Je gaf MS_between (SS/df = %.1f) als SS_between.\n\n**SS_between** = Σ nⱼ × (x̄ⱼ − grand mean)² = **%.0f**.", ev$SS_between/ev$df_between, ev$SS_between))
             if (!is.na(v) && abs(v - ev$SS_between / 10) < 500)
               return(sprintf("**Waarom fout:** Je vergat te vermenigvuldigen met de groepsgrootte nⱼ=10.\n\n**Formule:** SS_between = Σ **nⱼ** × (x̄ⱼ − grand mean)² = **%.0f**.", ev$SS_between))
-            sprintf("**SS_between** = Σ nⱼ(x̄ⱼ − grand mean)²\n\n= 10×(%.0f−%.3f)² + 10×(%.0f−%.3f)² + 10×(%.0f−%.3f)²\n\n= **%.0f**",
+            sprintf("**Hoe te corrigeren:** SS_between = Σ nᴶ(x̄ᴶ − grand mean)²\n\n= 10×(%.0f−%.3f)² + 10×(%.0f−%.3f)² + 10×(%.0f−%.3f)²\n\n= **%.0f**",
               ev$mean_groot, ev$grand, ev$mean_middel, ev$grand, ev$mean_ruraal, ev$grand, ev$SS_between)
           }
 
@@ -169,21 +169,21 @@ context({
             v <- parse_num(val)
             if (!is.na(v) && abs(v - 3) < 0.5)
               return("**Waarom fout:** Je gaf k=3 als df, maar df_between = k − 1 (aantal groepen min 1).\n\n**df_between** = 3 − 1 = **2**.")
-            "**df_between** = k − 1 = 3 − 1 = **2**"
+            "**Hoe te corrigeren:** df_between = k − 1 = 3 − 1 = **2**"
           }
 
           wrong_msg_MS_between <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && abs(v - ev$SS_between) < 500)
               return(sprintf("**Waarom fout:** Je gaf SS_between (%.0f) als MS_between. MS = SS / df.\n\n**MS_between** = %.0f / %d = **%.2f**.", ev$SS_between, ev$SS_between, as.integer(ev$df_between), ev$MS_between))
-            sprintf("**MS_between** = SS_between / df_between = %.0f / %d = **%.2f**", ev$SS_between, as.integer(ev$df_between), ev$MS_between)
+            sprintf("**Hoe te corrigeren:** MS_between = SS_between / df_between = %.0f / %d = **%.2f**", ev$SS_between, as.integer(ev$df_between), ev$MS_between)
           }
 
           wrong_msg_F <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && abs(v - ev$MS_within / ev$MS_between) < 1)
               return(sprintf("**Waarom fout:** Je deelde MS_within door MS_between (omgekeerd).\n\n**F-ratio** = **MS_between** / MS_within = %.2f / %.2f = **%.2f**.", ev$MS_between, ev$MS_within, ev$F))
-            sprintf("**F-ratio** = MS_between / MS_within = %.2f / %.2f = **%.2f**", ev$MS_between, ev$MS_within, ev$F)
+            sprintf("**Hoe te corrigeren:** F-ratio = MS_between / MS_within = %.2f / %.2f = **%.2f**", ev$MS_between, ev$MS_within, ev$F)
           }
 
           wrong_msg_eta2 <- function(val) {
@@ -191,7 +191,7 @@ context({
             SS_total <- ev$SS_within + ev$SS_between
             if (!is.na(v) && abs(v - ev$SS_between / ev$SS_within) < 0.05)
               return(sprintf("**Waarom fout:** Je deelde door SS_within, maar η² = SS_between / **SS_totaal**.\n\n**SS_totaal** = SS_within + SS_between = %.0f + %.0f = %.0f\n\n→ η² = %.0f / %.0f = **%.4f**.", ev$SS_within, ev$SS_between, SS_total, ev$SS_between, SS_total, ev$eta2))
-            sprintf("**η²** = SS_between / SS_totaal = %.0f / %.0f = **%.4f**", ev$SS_between, SS_total, ev$eta2)
+            sprintf("**Hoe te corrigeren:** η² = SS_between / SS_totaal = %.0f / %.0f = **%.4f**", ev$SS_between, SS_total, ev$eta2)
           }
 
           wrong_msg_sig_anova <- function(val) {
