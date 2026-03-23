@@ -16,9 +16,11 @@ Selecteer het tabblad **"Inferentiële statistiek & ANOVA"** in de app. Je krijg
 
 - De **nulhypothese (H₀)** en **alternatieve hypothese (H₁)** formuleren
 - De **F-waarde** berekenen via tussen- en binnengroepsvariantie
-- De **p-waarde** vergelijken met het significantieniveau (α = 0.05)
+- De **kritieke F-waarde** opzoeken en je berekende **F-waarde** vergelijken met het significantieniveau (α = 0.05)
 - Beslissen of je H₀ **verwerpt of behoudt**
 - Het resultaat **interpreteren** in criminologische context
+
+> **Praktische noot:** In deze oefening hoeven studenten de **p-waarde niet handmatig te berekenen**. De beslissing over significantie gebeurt via de klassieke regel: vergelijk je berekende **F** met **Fkrit** uit een **F-tabel** bij α = 0.05, met `df_between = k - 1` als teller-vrijheidsgraden en `df_within = N - k` als noemer-vrijheidsgraden. Een bruikbare F-tabel vind je hier: <https://www.statology.org/f-distribution-table/>
 
 ---
 

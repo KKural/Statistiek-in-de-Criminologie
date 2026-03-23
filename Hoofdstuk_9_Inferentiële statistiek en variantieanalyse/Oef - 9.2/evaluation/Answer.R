@@ -85,7 +85,7 @@ context({
               return("**Waarom fout:** Je gaf de **bovengrens** van het 95%-BI (28.4) als gemiddelde.\n\n→ x̄ = (25.8 + 28.4) / 2 = **27.1**")
             if (!is.na(v) && abs(v - 2.6) < 0.1)
               return("**Waarom fout:** Je berekende de **breedte** (28.4 − 25.8 = 2.6), niet het gemiddelde.\n\n→ x̄ = midpunt = (25.8 + 28.4) / 2 = **27.1**")
-            sprintf("**Gemiddelde** = midpunt van het interval = (ondergrens + bovengrens) / 2\n\n→ x̄ = (25.8 + 28.4) / 2 = **%.1f**", ev$mean)
+            sprintf("**Hoe te corrigeren:** Het gemiddelde = midpunt van het interval = (ondergrens + bovengrens) / 2\n\n→ x̄ = (25.8 + 28.4) / 2 = **%.1f**", ev$mean)
           }
 
           wrong_msg_SE <- function(val) {
@@ -96,7 +96,7 @@ context({
               return("**Waarom fout:** Je gaf de **volledige breedte** (2.6), niet de standaardfout.\n\n**Stap:** SE = halve breedte / z_95 = 1.3 / 1.96 = **0.663**.")
             if (!is.na(v) && abs(v - 0.5047) < 0.01)
               return(sprintf("**Waarom fout:** Je deelde door z_99=2.576 in plaats van z_95=1.96.\n\n**Het gegeven CI is 95%%**, dus: SE = 1.3 / **1.96** = **%.4f**.", ev$SE))
-            sprintf("**Standaardfout:** SE = halve breedte / z_95 = 1.3 / 1.96 = **%.4f**\n\n(halve breedte = (28.4 − 25.8) / 2 = 1.3)", ev$SE)
+            sprintf("**Hoe te corrigeren:** SE = halve breedte / z_95 = 1.3 / 1.96 = **%.4f**\n\n(halve breedte = (28.4 − 25.8) / 2 = 1.3)", ev$SE)
           }
 
           wrong_msg_BI90_onder <- function(val) {
@@ -105,7 +105,7 @@ context({
               return(sprintf("**Waarom fout:** Je gebruikte z=1.96 (hoort bij 95%%-BI), maar voor een **90%%**-BI is z = **1.645**.\n\n→ BI_90_onder = %.1f − 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_onder))
             if (!is.na(v) && abs(v - (ev$mean - 2.576 * ev$SE)) < 0.05)
               return(sprintf("**Waarom fout:** Je gebruikte z=2.576 (hoort bij 99%%-BI), maar voor een **90%%**-BI is z = **1.645**.\n\n→ BI_90_onder = %.1f − 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_onder))
-            sprintf("**BI_90_onder** = x̄ − z_90 × SE = %.1f − 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_onder)
+            sprintf("**Hoe te corrigeren:** BI_90_onder = x̄ − z_90 × SE = %.1f − 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_onder)
           }
 
           wrong_msg_BI90_boven <- function(val) {
@@ -114,7 +114,7 @@ context({
               return(sprintf("**Waarom fout:** Je gebruikte z=1.96 (hoort bij 95%%-BI), maar voor een **90%%**-BI is z = **1.645**.\n\n→ BI_90_boven = %.1f + 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_boven))
             if (!is.na(v) && abs(v - (ev$mean + 2.576 * ev$SE)) < 0.05)
               return(sprintf("**Waarom fout:** Je gebruikte z=2.576 (hoort bij 99%%-BI) voor een **90%%**-BI.\n\n→ BI_90_boven = %.1f + 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_boven))
-            sprintf("**BI_90_boven** = x̄ + z_90 × SE = %.1f + 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_boven)
+            sprintf("**Hoe te corrigeren:** BI_90_boven = x̄ + z_90 × SE = %.1f + 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_boven)
           }
 
           wrong_msg_BI99_onder <- function(val) {
@@ -123,7 +123,7 @@ context({
               return(sprintf("**Waarom fout:** Je gebruikte z=1.96 (hoort bij 95%%-BI), maar voor een **99%%**-BI is z = **2.576**.\n\n→ BI_99_onder = %.1f − 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_onder))
             if (!is.na(v) && abs(v - (ev$mean - 1.645 * ev$SE)) < 0.05)
               return(sprintf("**Waarom fout:** Je gebruikte z=1.645 (hoort bij 90%%-BI), maar voor een **99%%**-BI is z = **2.576**.\n\n→ BI_99_onder = %.1f − 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_onder))
-            sprintf("**BI_99_onder** = x̄ − z_99 × SE = %.1f − 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_onder)
+            sprintf("**Hoe te corrigeren:** BI_99_onder = x̄ − z_99 × SE = %.1f − 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_onder)
           }
 
           wrong_msg_BI99_boven <- function(val) {
@@ -132,7 +132,7 @@ context({
               return(sprintf("**Waarom fout:** Je gebruikte z=1.96 (hoort bij 95%%-BI), maar voor een **99%%**-BI is z = **2.576**.\n\n→ BI_99_boven = %.1f + 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_boven))
             if (!is.na(v) && abs(v - (ev$mean + 1.645 * ev$SE)) < 0.05)
               return(sprintf("**Waarom fout:** Je gebruikte z=1.645 (hoort bij 90%%-BI), maar voor een **99%%**-BI is z = **2.576**.\n\n→ BI_99_boven = %.1f + 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_boven))
-            sprintf("**BI_99_boven** = x̄ + z_99 × SE = %.1f + 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_boven)
+            sprintf("**Hoe te corrigeren:** BI_99_boven = x̄ + z_99 × SE = %.1f + 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_boven)
           }
 
           wrong_msg_breder <- function(val) {

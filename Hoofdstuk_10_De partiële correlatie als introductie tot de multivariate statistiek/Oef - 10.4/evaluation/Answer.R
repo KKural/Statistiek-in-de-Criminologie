@@ -53,46 +53,91 @@ context({
             conclusie_C = "Scenario C: Rehabilitatie vs. recidive (controle motivatie)"
           )
 
-          type_labels <- c(
-            "1 = Schijnverband", "2 = Indirect verband",
-            "3 = Suppressoreffect", "4 = Reeel verband"
+          parse_num <- function(val) {
+            if (is.character(val)) { val <- trimws(val); val <- gsub(",", ".", val, fixed=TRUE) }
+            suppressWarnings(as.numeric(val))
+          }
+
+          # ── wrong_msg helpers ──────────────────────────────────────────────────
+
+          wrong_msg_A <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && v == 2) return("**Optie 2 (indirect verband) is onjuist.** Bij indirect verband daalt |r| deels maar blijft er een betekenisvol verband.\n\nHier daalt r van 0.62 naar **0.07** (bijna nul) → het verband verdwijnt bijna volledig → code **1** (schijnverband).")
+            if (!is.na(v) && v == 3) return("**Optie 3 (suppressoreffect) is onjuist.** Een suppressoreffect vergroot |r|.\n\nHier krimpt r van 0.62 naar 0.07 → het verband verdwijnt bijna → code **1** (schijnverband).")
+            if (!is.na(v) && v == 4) return("**Optie 4 (reëlëel verband) is onjuist.** Een reëlëel verband verandert nauwelijks na controle.\n\nHier daalt r van 0.62 naar 0.07 → bijna nul na controle → code **1** (schijnverband).")
+            "**Correct (1 = schijnverband):** r_XY=0.62 daalt naar r_XY.Z=0.07 na controle voor SES.\n\nHet verband was volledig te wijten aan de gemeenschappelijke factor SES van de wijk."
+          }
+
+          wrong_msg_B <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && v == 1) return("**Optie 1 (schijnverband) is onjuist.** Bij een schijnverband daalt r naar ~0.\n\nHier daalt r van 0.38 naar 0.21 — het verband **verzwakt** maar blijft → code **2** (indirect verband).")
+            if (!is.na(v) && v == 3) return("**Optie 3 (suppressoreffect) is onjuist.** Een suppressoreffect vergroot |r|.\n\nHier wordt r kleiner (0.38 → 0.21) → code **2** (indirect verband).")
+            if (!is.na(v) && v == 4) return("**Optie 4 (reëlëel verband) is onjuist.** Een reëlëel verband verandert nauwelijks.\n\nHier daalt r van 0.38 naar 0.21 (significante daling) → stress medieert het verband deels → code **2** (indirect verband).")
+            "**Correct (2 = indirect verband):** r_XY=0.38 daalt naar r_XY.Z=0.21 na controle voor stress.\n\nStress medieert het verband: deel van het alcoholgebruik-effect loopt via stress."
+          }
+
+          wrong_msg_C <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && v == 1) return("**Optie 1 (schijnverband) is onjuist.** Bij een schijnverband daalt |r| naar ~0.\n\nHier wordt |r| groter: van |−0.12|=0.12 naar |−0.53|=0.53 → het verband versterkt na controle → code **3** (suppressoreffect).")
+            if (!is.na(v) && v == 2) return("**Optie 2 (indirect verband) is onjuist.** Bij indirect verband verzwakt |r|.\n\nHier gaat |r| van 0.12 naar 0.53 — het verband **versterkt** na controle → code **3** (suppressoreffect).")
+            if (!is.na(v) && v == 4) return("**Optie 4 (reëlëel verband) is onjuist.** Een reëlëel verband verandert nauwelijks.\n\nHier gaat |r| van 0.12 naar 0.53 (enorm sterker) → code **3** (suppressoreffect).")
+            "**Correct (3 = suppressoreffect):** r_XY=−0.12 wordt r_XY.Z=−0.53 na controle voor motivatie.\n\nMotivatieniveau maskeerde het ware sterkere (negatieve) verband tussen rehabilitatie en recidive."
+          }
+
+          # ── labels + functies ──────────────────────────────────────────────────
+
+          qnames <- c(
+            conclusie_A = "Scenario A: Grootte school vs. pestgedrag (controle SES wijk)",
+            conclusie_B = "Scenario B: Alcoholgebruik vs. agressief gedrag (controle stress)",
+            conclusie_C = "Scenario C: Rehabilitatie vs. recidive (controle motivatie)"
           )
 
-          hints <- list(
-            conclusie_A = "Verwacht: 1  [r_XY=0.62 daalt naar r_XY.Z=0.07 → schijnverband: SES van de wijk verklaart alles]",
-            conclusie_B = "Verwacht: 2  [r_XY=0.38 daalt naar r_XY.Z=0.21 → indirect verband: stress medieert deels]",
-            conclusie_C = "Verwacht: 3  [r_XY=-0.12 → r_XY.Z=-0.53 → suppressoreffect: motivatie maskeert het ware verband]"
+          wrong_fns <- list(
+            conclusie_A = wrong_msg_A,
+            conclusie_B = wrong_msg_B,
+            conclusie_C = wrong_msg_C
           )
+
+          correct_msgs <- list(
+            conclusie_A = "1 = schijnverband (r: 0.62 → 0.07, na controle voor SES bijna nul) ✓",
+            conclusie_B = "2 = indirect verband (r: 0.38 → 0.21, verzwakt maar blijft) ✓",
+            conclusie_C = "3 = suppressoreffect (r: −0.12 → −0.53, versterkt na controle) ✓"
+          )
+
+          # ── feedback opbouwen ─────────────────────────────────────────────────
 
           lines <- character(0)
           score <- 0
           total <- length(qnames)
 
           for (key in names(qnames)) {
-            r <- results[[key]]
-            label <- qnames[[key]]
+            r   <- results[[key]]
+            lbl <- qnames[[key]]
             if (!r$exists) {
-              lines <- c(lines, sprintf("❌ **%s** (`%s`): niet ingevuld\\\n  → %s\n", label, key, hints[[key]]))
-            } else if (!r$correct) {
-              lines <- c(lines, sprintf("❌ **%s**: jouw antwoord = %s\\\n  → %s\n", label, as.character(r$value), hints[[key]]))
-            } else {
-              lines <- c(lines, sprintf("✅ **%s**: correct (%s)\n", label, as.character(r$value)))
+              lines <- c(lines, paste0("❌ **", lbl, "** — variabele `", key, "` niet ingevuld.\n\n",
+                wrong_fns[[key]]("?"), "\n"))
+            } else if (r$correct) {
+              lines <- c(lines, paste0("✅ **", lbl, "**: correct (", as.character(r$value),
+                ") — ", correct_msgs[[key]], "\n"))
               score <- score + 1
+            } else {
+              lines <- c(lines, paste0("❌ **", lbl, "** — jouw antwoord: **", as.character(r$value),
+                "**\n\n", wrong_fns[[key]](r$value), "\n"))
             }
           }
 
-          lines <- c(lines,
-            sprintf("---\n\n**Score: %d / %d**", score, total)
-          )
-
-          msg <- paste(lines, collapse = "\n")
-          get_reporter()$add_message(msg, type = "markdown")
+          lines <- c(lines, sprintf("---\n\n**Score: %d / %d**", score, total))
+          get_reporter()$add_message(paste(lines, collapse = "\n"), type = "markdown")
           generated == expected
         }
       )
     }
   )
 })
+
+context({
+  testcase(
+    "ANOVA — variantieanalyse: misdaadcijfers per gemeentetype",
     {
       testEqual(
         "",
@@ -194,6 +239,95 @@ context({
           results <- get("detailed_results", envir = globalenv())
           ev      <- get("expected_vals",    envir = globalenv())
 
+          parse_num2 <- function(val) {
+            if (is.character(val)) { val <- trimws(val); val <- gsub(",", ".", val, fixed=TRUE) }
+            suppressWarnings(as.numeric(val))
+          }
+
+          # ── wrong_msg helpers (ANOVA) ─────────────────────────────────────────
+
+          wrong_msg_mean2 <- function(val, gn, exp_mean, data_str) {
+            sprintf("**Gemiddelde %s** = (%s) / 10 = **%.0f**\n\nJouw antwoord: %s", gn, data_str, exp_mean, val)
+          }
+
+          wrong_msg_grand2 <- function(val) {
+            sprintf("**Grand mean** = som van alle 30 waarden / 30\n\n→ (%.0f×10 + %.0f×10 + %.0f×10) / 30 = **%.3f**", ev$mean_groot, ev$mean_middel, ev$mean_ruraal, ev$grand)
+          }
+
+          wrong_msg_SS_within_g2 <- function(val, gn, exp_SS, exp_mean) {
+            v <- parse_num2(val)
+            if (!is.na(v) && !is.na(exp_SS) && abs(v - exp_SS/9) < 50)
+              return(sprintf("**Waarom fout:** Je gaf de variantie (SS/9≈%.0f).  **SS_within_%s** = Σ(xᵢ − x̄_%s)² = **%d** (niet delen!)", exp_SS/9, gn, gn, as.integer(exp_SS)))
+            sprintf("**SS_within_%s** = Σ(xᵢ − x̄_%s)² = Σ(xᵢ − %.0f)² = **%d**", gn, gn, exp_mean, as.integer(exp_SS))
+          }
+
+          wrong_msg_SSw_total2 <- function(val) {
+            v <- parse_num2(val)
+            if (!is.na(v) && !is.na(ev$SS_within) && abs(v - ev$SS_within/ev$df_within) < 100)
+              return(sprintf("**Waarom fout:** Je gaf MS_within (SS/df≈%.0f) als SS_within.\n\n**SS_within** = %d + %d + %d = **%d**.", ev$SS_within/ev$df_within, as.integer(ev$SS_w_groot), as.integer(ev$SS_w_middel), as.integer(ev$SS_w_ruraal), as.integer(ev$SS_within)))
+            sprintf("**SS_within** = SS_groot + SS_middel + SS_ruraal = %d + %d + %d = **%d**", as.integer(ev$SS_w_groot), as.integer(ev$SS_w_middel), as.integer(ev$SS_w_ruraal), as.integer(ev$SS_within))
+          }
+
+          wrong_msg_dfw2 <- function(val) {
+            v <- parse_num2(val)
+            if (!is.na(v) && abs(v - 30) < 0.5)
+              return("**Waarom fout:** df_within = N − k = 30 − 3 = **27** (niet N=30).")
+            "**df_within** = N − k = 30 − 3 = **27**"
+          }
+
+          wrong_msg_MSw2 <- function(val) {
+            v <- parse_num2(val)
+            if (!is.na(v) && !is.na(ev$SS_within) && abs(v - ev$SS_within) < 200)
+              return(sprintf("**Waarom fout:** Je gaf SS_within (%d) als MS_within. **MS = SS/df.**\n\n**MS_within** = %d/%d = **%.2f**.", as.integer(ev$SS_within), as.integer(ev$SS_within), as.integer(ev$df_within), ev$MS_within))
+            sprintf("**MS_within** = SS_within / df_within = %d / %d = **%.2f**", as.integer(ev$SS_within), as.integer(ev$df_within), ev$MS_within)
+          }
+
+          wrong_msg_SSb2 <- function(val) {
+            v <- parse_num2(val)
+            if (!is.na(v) && !is.na(ev$SS_between) && abs(v - ev$SS_between/10) < 5000)
+              return(sprintf("**Waarom fout:** Je vergat te vermenigvuldigen met n=10.\n\n**SS_between** = Σ **n** × (x̄_groep − grand mean)² = **%.0f**.", ev$SS_between))
+            sprintf("**SS_between** = Σ nⱼ(x̄ⱼ − grand mean)²\n\n= 10×(%.0f−%.3f)² + 10×(%.0f−%.3f)² + 10×(%.0f−%.3f)² = **%.0f**",
+              ev$mean_groot, ev$grand, ev$mean_middel, ev$grand, ev$mean_ruraal, ev$grand, ev$SS_between)
+          }
+
+          wrong_msg_dfb2 <- function(val) {
+            v <- parse_num2(val)
+            if (!is.na(v) && abs(v - 3) < 0.5)
+              return("**Waarom fout:** df_between = k − 1 = 3 − 1 = **2** (niet k=3).")
+            "**df_between** = k − 1 = 3 − 1 = **2**"
+          }
+
+          wrong_msg_MSb2 <- function(val) {
+            v <- parse_num2(val)
+            if (!is.na(v) && !is.na(ev$SS_between) && abs(v - ev$SS_between) < 5000)
+              return(sprintf("**Waarom fout:** Je gaf SS_between als MS_between. **MS = SS/df.**\n\n**MS_between** = %.0f/2 = **%.2f**.", ev$SS_between, ev$MS_between))
+            sprintf("**MS_between** = SS_between / df_between = %.0f / 2 = **%.2f**", ev$SS_between, ev$MS_between)
+          }
+
+          wrong_msg_F2 <- function(val) {
+            v <- parse_num2(val)
+            if (!is.na(v) && !is.na(ev$F) && abs(v - ev$MS_within/ev$MS_between) < 1)
+              return(sprintf("**Waarom fout:** Je deelde MS_within/MS_between (omgekeerd).\n\n**F** = **MS_between** / MS_within = %.2f / %.2f = **%.2f**.", ev$MS_between, ev$MS_within, ev$F))
+            sprintf("**F-ratio** = MS_between / MS_within = %.2f / %.2f = **%.2f**", ev$MS_between, ev$MS_within, ev$F)
+          }
+
+          wrong_msg_eta2_2 <- function(val) {
+            v <- parse_num2(val)
+            SS_tot <- ev$SS_within + ev$SS_between
+            if (!is.na(v) && !is.na(ev$SS_between) && abs(v - ev$SS_between/ev$SS_within) < 0.05)
+              return(sprintf("**Waarom fout:** Je deelde door SS_within. **η² = SS_between / SS_totaal** (niet SS_within).\n\nSS_totaal = %.0f + %.0f = %.0f\n\n→ η² = %.0f / %.0f = **%.4f**.", ev$SS_within, ev$SS_between, SS_tot, ev$SS_between, SS_tot, ev$eta2))
+            sprintf("η² = SS_between / SS_totaal = %.0f / %.0f = **%.4f**", ev$SS_between, SS_tot, ev$eta2)
+          }
+
+          wrong_msg_sig2 <- function(val) {
+            v <- parse_num2(val)
+            if (!is.na(v) && v == 2)
+              return(sprintf("**Waarom fout:** F=%.2f is **veel groter** dan de kritieke waarde (≈3.35 bij df=2,27, α=0.05) → **significant** → code **1** (ja).", ev$F))
+            sprintf("F=%.2f >> 3.35 (kritieke F bij df=2,27, α=0.05) → significant → code **1** (ja).", ev$F)
+          }
+
+          # ── labels + functies ──────────────────────────────────────────────────
+
           qnames <- c(
             gemiddelde_groot  = "Gemiddelde Grootsteden",
             gemiddelde_middel = "Gemiddelde Middelgrote steden",
@@ -213,48 +347,69 @@ context({
             significant_anova = "Statistisch significant bij α = 0.05? (1=ja)"
           )
 
-          hints <- list(
-            gemiddelde_groot  = sprintf("Verwacht: %d  [gemiddelde van 10 grootstadswaarden]", as.integer(ev$mean_groot)),
-            gemiddelde_middel = sprintf("Verwacht: %d  [gemiddelde van 10 middelgrote waarden]", as.integer(ev$mean_middel)),
-            gemiddelde_ruraal = sprintf("Verwacht: %d  [gemiddelde van 10 rurale waarden]", as.integer(ev$mean_ruraal)),
-            grand_mean        = sprintf("Verwacht: %.3f  [gemiddelde van alle 30 waarden]", ev$grand),
-            SS_within_groot   = sprintf("Verwacht: %d  [som van (x - groepsgemiddelde)²]", as.integer(ev$SS_w_groot)),
-            SS_within_middel  = sprintf("Verwacht: %d  [som van (x - groepsgemiddelde)²]", as.integer(ev$SS_w_middel)),
-            SS_within_ruraal  = sprintf("Verwacht: %d  [som van (x - groepsgemiddelde)²]", as.integer(ev$SS_w_ruraal)),
-            SS_within         = sprintf("Verwacht: %d  [SS_groot + SS_middel + SS_ruraal]", as.integer(ev$SS_within)),
-            df_within         = sprintf("Verwacht: %d  [N - k = 30 - 3]", as.integer(ev$df_within)),
-            MS_within         = sprintf("Verwacht: %.2f  [SS_within / df_within]", ev$MS_within),
-            SS_between        = sprintf("Verwacht: %.2f  [som van n × (groepsgemiddelde - grand mean)²]", ev$SS_between),
-            df_between        = sprintf("Verwacht: %d  [k - 1 = 3 - 1]", as.integer(ev$df_between)),
-            MS_between        = sprintf("Verwacht: %.2f  [SS_between / df_between]", ev$MS_between),
-            F_ratio           = sprintf("Verwacht: %.2f  [MS_between / MS_within]", ev$F),
-            eta_kwadraat      = sprintf("Verwacht: %.4f  [SS_between / SS_totaal]", ev$eta2),
-            significant_anova = sprintf("Verwacht: 1 (ja)  [F=%.2f is veel groter dan kritieke waarde ≈ 3.35]", ev$F)
+          wrong_fns <- list(
+            gemiddelde_groot  = function(v) wrong_msg_mean2(v, "grootsteden",  ev$mean_groot,  "3500+2700+2900+3200+3150+3300+2650+4000+3500+3000"),
+            gemiddelde_middel = function(v) wrong_msg_mean2(v, "middelgrote",  ev$mean_middel, "1850+1650+1450+1600+1550+1800+1400+1750+1250+1500"),
+            gemiddelde_ruraal = function(v) wrong_msg_mean2(v, "ruraal",       ev$mean_ruraal, "400+450+500+550+390+530+410+440+570+600"),
+            grand_mean        = wrong_msg_grand2,
+            SS_within_groot   = function(v) wrong_msg_SS_within_g2(v, "groot",  ev$SS_w_groot,  ev$mean_groot),
+            SS_within_middel  = function(v) wrong_msg_SS_within_g2(v, "middel", ev$SS_w_middel, ev$mean_middel),
+            SS_within_ruraal  = function(v) wrong_msg_SS_within_g2(v, "ruraal", ev$SS_w_ruraal, ev$mean_ruraal),
+            SS_within         = wrong_msg_SSw_total2,
+            df_within         = wrong_msg_dfw2,
+            MS_within         = wrong_msg_MSw2,
+            SS_between        = wrong_msg_SSb2,
+            df_between        = wrong_msg_dfb2,
+            MS_between        = wrong_msg_MSb2,
+            F_ratio           = wrong_msg_F2,
+            eta_kwadraat      = wrong_msg_eta2_2,
+            significant_anova = wrong_msg_sig2
           )
+
+          SS_tot_v <- ev$SS_within + ev$SS_between
+          correct_msgs <- list(
+            gemiddelde_groot  = sprintf("%.0f ✓", ev$mean_groot),
+            gemiddelde_middel = sprintf("%.0f ✓", ev$mean_middel),
+            gemiddelde_ruraal = sprintf("%.0f ✓", ev$mean_ruraal),
+            grand_mean        = sprintf("%.3f ✓", ev$grand),
+            SS_within_groot   = sprintf("%d ✓", as.integer(ev$SS_w_groot)),
+            SS_within_middel  = sprintf("%d ✓", as.integer(ev$SS_w_middel)),
+            SS_within_ruraal  = sprintf("%d ✓", as.integer(ev$SS_w_ruraal)),
+            SS_within         = sprintf("%d ✓", as.integer(ev$SS_within)),
+            df_within         = sprintf("%d ✓", as.integer(ev$df_within)),
+            MS_within         = sprintf("%.2f ✓", ev$MS_within),
+            SS_between        = sprintf("%.0f ✓", ev$SS_between),
+            df_between        = sprintf("%d ✓", as.integer(ev$df_between)),
+            MS_between        = sprintf("%.2f ✓", ev$MS_between),
+            F_ratio           = sprintf("%.2f ✓", ev$F),
+            eta_kwadraat      = sprintf("%.4f ✓", ev$eta2),
+            significant_anova = sprintf("ja — F=%.2f >> 3.35 ✓", ev$F)
+          )
+
+          # ── feedback opbouwen ─────────────────────────────────────────────────
 
           lines <- character(0)
           score <- 0
           total <- length(qnames)
 
           for (key in names(qnames)) {
-            r     <- results[[key]]
-            label <- qnames[[key]]
+            r   <- results[[key]]
+            lbl <- qnames[[key]]
             if (!r$exists) {
-              lines <- c(lines, sprintf("❌ **%s** (`%s`): niet ingevuld\\\n  → %s\n", label, key, hints[[key]]))
-            } else if (!r$correct) {
-              lines <- c(lines, sprintf("❌ **%s**: jouw antwoord = %s\\\n  → %s\n", label, as.character(r$value), hints[[key]]))
-            } else {
-              lines <- c(lines, sprintf("✅ **%s**: correct (%s)\n", label, as.character(r$value)))
+              lines <- c(lines, paste0("❌ **", lbl, "** — variabele `", key, "` niet ingevuld.\n\n",
+                wrong_fns[[key]]("?"), "\n"))
+            } else if (r$correct) {
+              lines <- c(lines, paste0("✅ **", lbl, "**: correct (", as.character(r$value),
+                ") — ", correct_msgs[[key]], "\n"))
               score <- score + 1
+            } else {
+              lines <- c(lines, paste0("❌ **", lbl, "** — jouw antwoord: **", as.character(r$value),
+                "**\n\n", wrong_fns[[key]](r$value), "\n"))
             }
           }
 
-          lines <- c(lines,
-            sprintf("---\n\n**Score: %d / %d**", score, total)
-          )
-
-          msg <- paste(lines, collapse = "\n")
-          get_reporter()$add_message(msg, type = "markdown")
+          lines <- c(lines, sprintf("---\n\n**Score: %d / %d**", score, total))
+          get_reporter()$add_message(paste(lines, collapse = "\n"), type = "markdown")
           generated == expected
         }
       )
