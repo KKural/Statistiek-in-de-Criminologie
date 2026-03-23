@@ -92,11 +92,8 @@ context({
           )
 
           msg <- paste(lines, collapse = "\n")
-          if (score == total) {
-            correct(msg)
-          } else {
-            wrong(msg)
-          }
+          get_reporter()$add_message(msg, type = "markdown")
+          generated == expected
         }
       )
     }
@@ -257,7 +254,8 @@ context({
           )
 
           msg <- paste(lines, collapse = "\n")
-          if (score == total) correct(msg) else wrong(msg)
+          get_reporter()$add_message(msg, type = "markdown")
+          generated == expected
         }
       )
     }
