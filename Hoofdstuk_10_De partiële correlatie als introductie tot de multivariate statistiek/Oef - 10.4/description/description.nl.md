@@ -13,6 +13,12 @@ Bij partiële correlatie vergelijk je r_XY (bivariaat) met r_XY.Z (na controle v
 | **Suppressoreffect** | r_XY.Z is sterker (of omgekeerd teken) dan r_XY (Z onderdrukte ware r) |
 | **Reëel verband** | r_XY.Z ≈ r_XY (Z heeft nauwelijks invloed) |
 
+**Figuur 1** — *De vier effecttypen visueel vergeleken*
+
+![Vier effecttypen bij partiële correlatie](media/partiele_correlatie_types.png)
+
+> Elk gekleurde punt toont de waarde van r **vóór** (links) en **na** controle voor Z (rechts). Let op de richting en grootte van de verschuiving om het type te herkennen.
+
 ---
 
 ## **Scenario's**
