@@ -59,6 +59,16 @@ context({
             vraag7 = "Vraag 7: Partiële correlatie als introductie tot multivariate statistiek"
           )
 
+          hints <- list(
+            vraag1 = "Antwoord: 2  [correlatie X-Y nadat het effect van Z op beide variabelen is uitgeschakeld]",
+            vraag2 = "Antwoord: 3  [r_XY.Z≈0 = hoogstwaarschijnlijk een schijnverband veroorzaakt door Z]",
+            vraag3 = "Antwoord: 1  [ONJUIST: pc kan NOOIT groter zijn dan r_XY — suppressoreffect toont van wel]",
+            vraag4 = "Antwoord: 3  [r blijft vergelijkbaar → reëel verband dat nauwelijks beïnvloed wordt door leeftijd]",
+            vraag5 = "Antwoord: 2  [teller = r_XY verminderd met het product van r_XZ en r_YZ]",
+            vraag6 = "Antwoord: 3  [Z is suppressor als r_XY.Z sterker of tegenovergesteld teken heeft dan r_XY]",
+            vraag7 = "Antwoord: 2  [partiële correlatie leert het principe van controleren voor derde variabelen]"
+          )
+
           lines <- character(0)
           score <- 0
           total <- length(qnames)
@@ -67,19 +77,18 @@ context({
             r     <- results[[key]]
             label <- qnames[[key]]
             if (!r$exists) {
-              lines <- c(lines, sprintf("❌ **%s**: variabele `%s` niet gevonden.", label, key))
+              lines <- c(lines, sprintf("❌ **%s** (`%s`): niet ingevuld\\\n  → %s\n", label, key, hints[[key]]))
             } else if (!r$correct) {
-              lines <- c(lines, sprintf("❌ **%s**: jouw antwoord = %s | juiste antwoord = %d",
-                label, as.character(r$value), as.integer(r$expected)))
+              lines <- c(lines, sprintf("❌ **%s**: jouw antwoord = %s\\\n  → %s\n", label, as.character(r$value), hints[[key]]))
             } else {
-              lines <- c(lines, sprintf("✅ **%s**: correct (antwoord %d)",
+              lines <- c(lines, sprintf("✅ **%s**: correct (antwoord %d)\n",
                 label, as.integer(r$expected)))
               score <- score + 1
             }
           }
 
-          lines <- c(lines, "",
-            sprintf("**Score: %d / %d**", score, total)
+          lines <- c(lines,
+            sprintf("---\n\n**Score: %d / %d**", score, total)
           )
 
           msg <- paste(lines, collapse = "\n")

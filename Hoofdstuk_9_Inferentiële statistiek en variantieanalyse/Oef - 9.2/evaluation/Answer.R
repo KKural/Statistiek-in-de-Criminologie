@@ -70,8 +70,82 @@ context({
           results <- get("detailed_results", envir = globalenv())
           ev      <- get("expected_vals",    envir = globalenv())
 
+          parse_num <- function(val) {
+            if (is.character(val)) { val <- trimws(val); val <- gsub(",", ".", val, fixed=TRUE) }
+            suppressWarnings(as.numeric(val))
+          }
+
+          # ── wrong_msg helpers ──────────────────────────────────────────────────
+
+          wrong_msg_gemiddelde <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && abs(v - 25.8) < 0.1)
+              return("**Waarom fout:** Je gaf de **ondergrens** van het 95%-BI (25.8) als gemiddelde.\n\n**Het gemiddelde** is het middelpunt van het interval:\n\n→ x̄ = (25.8 + 28.4) / 2 = **27.1**")
+            if (!is.na(v) && abs(v - 28.4) < 0.1)
+              return("**Waarom fout:** Je gaf de **bovengrens** van het 95%-BI (28.4) als gemiddelde.\n\n→ x̄ = (25.8 + 28.4) / 2 = **27.1**")
+            if (!is.na(v) && abs(v - 2.6) < 0.1)
+              return("**Waarom fout:** Je berekende de **breedte** (28.4 − 25.8 = 2.6), niet het gemiddelde.\n\n→ x̄ = midpunt = (25.8 + 28.4) / 2 = **27.1**")
+            sprintf("**Gemiddelde** = midpunt van het interval = (ondergrens + bovengrens) / 2\n\n→ x̄ = (25.8 + 28.4) / 2 = **%.1f**", ev$mean)
+          }
+
+          wrong_msg_SE <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && abs(v - 1.3) < 0.05)
+              return("**Waarom fout:** Je gaf de **halve breedte** (1.3), niet de standaardfout.\n\n**Stap:** De halve breedte = z × SE → SE = halve breedte / z_95 = 1.3 / 1.96 = **0.663**.")
+            if (!is.na(v) && abs(v - 2.6) < 0.1)
+              return("**Waarom fout:** Je gaf de **volledige breedte** (2.6), niet de standaardfout.\n\n**Stap:** SE = halve breedte / z_95 = 1.3 / 1.96 = **0.663**.")
+            if (!is.na(v) && abs(v - 0.5047) < 0.01)
+              return(sprintf("**Waarom fout:** Je deelde door z_99=2.576 in plaats van z_95=1.96.\n\n**Het gegeven CI is 95%%**, dus: SE = 1.3 / **1.96** = **%.4f**.", ev$SE))
+            sprintf("**Standaardfout:** SE = halve breedte / z_95 = 1.3 / 1.96 = **%.4f**\n\n(halve breedte = (28.4 − 25.8) / 2 = 1.3)", ev$SE)
+          }
+
+          wrong_msg_BI90_onder <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && abs(v - (ev$mean - 1.96 * ev$SE)) < 0.05)
+              return(sprintf("**Waarom fout:** Je gebruikte z=1.96 (hoort bij 95%%-BI), maar voor een **90%%**-BI is z = **1.645**.\n\n→ BI_90_onder = %.1f − 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_onder))
+            if (!is.na(v) && abs(v - (ev$mean - 2.576 * ev$SE)) < 0.05)
+              return(sprintf("**Waarom fout:** Je gebruikte z=2.576 (hoort bij 99%%-BI), maar voor een **90%%**-BI is z = **1.645**.\n\n→ BI_90_onder = %.1f − 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_onder))
+            sprintf("**BI_90_onder** = x̄ − z_90 × SE = %.1f − 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_onder)
+          }
+
+          wrong_msg_BI90_boven <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && abs(v - (ev$mean + 1.96 * ev$SE)) < 0.05)
+              return(sprintf("**Waarom fout:** Je gebruikte z=1.96 (hoort bij 95%%-BI), maar voor een **90%%**-BI is z = **1.645**.\n\n→ BI_90_boven = %.1f + 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_boven))
+            if (!is.na(v) && abs(v - (ev$mean + 2.576 * ev$SE)) < 0.05)
+              return(sprintf("**Waarom fout:** Je gebruikte z=2.576 (hoort bij 99%%-BI) voor een **90%%**-BI.\n\n→ BI_90_boven = %.1f + 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_boven))
+            sprintf("**BI_90_boven** = x̄ + z_90 × SE = %.1f + 1.645 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI90_boven)
+          }
+
+          wrong_msg_BI99_onder <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && abs(v - (ev$mean - 1.96 * ev$SE)) < 0.05)
+              return(sprintf("**Waarom fout:** Je gebruikte z=1.96 (hoort bij 95%%-BI), maar voor een **99%%**-BI is z = **2.576**.\n\n→ BI_99_onder = %.1f − 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_onder))
+            if (!is.na(v) && abs(v - (ev$mean - 1.645 * ev$SE)) < 0.05)
+              return(sprintf("**Waarom fout:** Je gebruikte z=1.645 (hoort bij 90%%-BI), maar voor een **99%%**-BI is z = **2.576**.\n\n→ BI_99_onder = %.1f − 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_onder))
+            sprintf("**BI_99_onder** = x̄ − z_99 × SE = %.1f − 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_onder)
+          }
+
+          wrong_msg_BI99_boven <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && abs(v - (ev$mean + 1.96 * ev$SE)) < 0.05)
+              return(sprintf("**Waarom fout:** Je gebruikte z=1.96 (hoort bij 95%%-BI), maar voor een **99%%**-BI is z = **2.576**.\n\n→ BI_99_boven = %.1f + 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_boven))
+            if (!is.na(v) && abs(v - (ev$mean + 1.645 * ev$SE)) < 0.05)
+              return(sprintf("**Waarom fout:** Je gebruikte z=1.645 (hoort bij 90%%-BI), maar voor een **99%%**-BI is z = **2.576**.\n\n→ BI_99_boven = %.1f + 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_boven))
+            sprintf("**BI_99_boven** = x̄ + z_99 × SE = %.1f + 2.576 × %.4f = **%.3f**", ev$mean, ev$SE, ev$BI99_boven)
+          }
+
+          wrong_msg_breder <- function(val) {
+            v <- parse_num(val)
+            if (!is.na(v) && v == 1)
+              return("**Waarom fout:** Je koos het 90%-BI als 'breder', maar een **hoger betrouwbaarheidsniveau** vereist een breder interval.\n\n**Regel:** meer zekerheid (99% > 90%) → groter z (2.576 > 1.645) → breder interval → code **2** (99%-BI).")
+            "**Code 2** (99%-BI) — een hoger betrouwbaarheidsniveau geeft altijd een breder interval."
+          }
+
+          # ── labels + functies ──────────────────────────────────────────────────
+
           qnames <- c(
-            gemiddelde      = "Steekproefgemiddelde (ā)",
+            gemiddelde      = "Steekproefgemiddelde (x̄)",
             standaardfout   = "Standaardfout (SE)",
             BI_90_onder     = "Ondergrens 90%-BI",
             BI_90_boven     = "Bovengrens 90%-BI",
@@ -80,36 +154,50 @@ context({
             breder_interval = "Breder interval (1=90%, 2=99%)"
           )
 
+          wrong_fns <- list(
+            gemiddelde      = wrong_msg_gemiddelde,
+            standaardfout   = wrong_msg_SE,
+            BI_90_onder     = wrong_msg_BI90_onder,
+            BI_90_boven     = wrong_msg_BI90_boven,
+            BI_99_onder     = wrong_msg_BI99_onder,
+            BI_99_boven     = wrong_msg_BI99_boven,
+            breder_interval = wrong_msg_breder
+          )
+
+          correct_msgs <- list(
+            gemiddelde      = sprintf("midpunt van het 95%%-BI = (25.8+28.4)/2 = **%.1f** ✓", ev$mean),
+            standaardfout   = sprintf("SE = halve breedte / z_95 = 1.3 / 1.96 = **%.4f** ✓", ev$SE),
+            BI_90_onder     = sprintf("x̄ − 1.645×SE = **%.3f** ✓", ev$BI90_onder),
+            BI_90_boven     = sprintf("x̄ + 1.645×SE = **%.3f** ✓", ev$BI90_boven),
+            BI_99_onder     = sprintf("x̄ − 2.576×SE = **%.3f** ✓", ev$BI99_onder),
+            BI_99_boven     = sprintf("x̄ + 2.576×SE = **%.3f** ✓", ev$BI99_boven),
+            breder_interval = "99%-BI (code 2) is altijd breder — hogere zekerheid vereist groter z ✓"
+          )
+
+          # ── feedback opbouwen ─────────────────────────────────────────────────
+
           lines <- character(0)
           score <- 0
           total <- length(qnames)
 
           for (key in names(qnames)) {
-            r     <- results[[key]]
-            label <- qnames[[key]]
+            r   <- results[[key]]
+            lbl <- qnames[[key]]
             if (!r$exists) {
-              lines <- c(lines, sprintf("❌ **%s**: variabele `%s` niet gevonden.", label, key))
-            } else if (!r$correct) {
-              lines <- c(lines, sprintf("❌ **%s**: jouw antwoord = %s | verwacht ≈ %s",
-                label, as.character(r$value), round(r$expected, 4)))
-            } else {
-              lines <- c(lines, sprintf("✅ **%s**: correct (%s)", label, as.character(r$value)))
+              lines <- c(lines, paste0("❌ **", lbl, "** — variabele `", key, "` niet ingevuld.\n\n",
+                wrong_fns[[key]]("?"), "\n"))
+            } else if (r$correct) {
+              lines <- c(lines, paste0("✅ **", lbl, "**: correct (", as.character(r$value),
+                ") — ", correct_msgs[[key]], "\n"))
               score <- score + 1
+            } else {
+              lines <- c(lines, paste0("❌ **", lbl, "** — jouw antwoord: **", as.character(r$value),
+                "**\n\n", wrong_fns[[key]](r$value), "\n"))
             }
           }
 
-          lines <- c(lines, "",
-            sprintf("**Score: %d / %d**", score, total),
-            "",
-            "**Referentiewaarden (ter controle):**",
-            sprintf("- x̄ = %.1f", ev$mean),
-            sprintf("- SE = %.4f", ev$SE),
-            sprintf("- 90%%-BI: [%.2f ; %.2f]", ev$BI90_onder, ev$BI90_boven),
-            sprintf("- 99%%-BI: [%.2f ; %.2f]", ev$BI99_onder, ev$BI99_boven)
-          )
-
-          msg <- paste(lines, collapse = "\n")
-          get_reporter()$add_message(msg, type = "markdown")
+          lines <- c(lines, sprintf("---\n\n**Score: %d / %d**", score, total))
+          get_reporter()$add_message(paste(lines, collapse = "\n"), type = "markdown")
           generated == expected
         }
       )

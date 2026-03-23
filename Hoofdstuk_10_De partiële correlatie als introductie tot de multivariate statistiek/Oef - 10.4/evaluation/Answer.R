@@ -58,6 +58,12 @@ context({
             "3 = Suppressoreffect", "4 = Reeel verband"
           )
 
+          hints <- list(
+            conclusie_A = "Verwacht: 1  [r_XY=0.62 daalt naar r_XY.Z=0.07 → schijnverband: SES van de wijk verklaart alles]",
+            conclusie_B = "Verwacht: 2  [r_XY=0.38 daalt naar r_XY.Z=0.21 → indirect verband: stress medieert deels]",
+            conclusie_C = "Verwacht: 3  [r_XY=-0.12 → r_XY.Z=-0.53 → suppressoreffect: motivatie maskeert het ware verband]"
+          )
+
           lines <- character(0)
           score <- 0
           total <- length(qnames)
@@ -66,29 +72,17 @@ context({
             r <- results[[key]]
             label <- qnames[[key]]
             if (!r$exists) {
-              lines <- c(lines, sprintf("❌ **%s**: variabele `%s` niet gevonden.", label, key))
+              lines <- c(lines, sprintf("❌ **%s** (`%s`): niet ingevuld\\\n  → %s\n", label, key, hints[[key]]))
             } else if (!r$correct) {
-              lines <- c(lines, sprintf("❌ **%s**: jouw antwoord = %s | correct = %d",
-                label, as.character(r$value), as.integer(r$expected)))
+              lines <- c(lines, sprintf("❌ **%s**: jouw antwoord = %s\\\n  → %s\n", label, as.character(r$value), hints[[key]]))
             } else {
-              lines <- c(lines, sprintf("✅ **%s**: correct (%s)", label, as.character(r$value)))
+              lines <- c(lines, sprintf("✅ **%s**: correct (%s)\n", label, as.character(r$value)))
               score <- score + 1
             }
           }
 
-          lines <- c(lines, "",
-            sprintf("**Score: %d / %d**", score, total),
-            "",
-            "**Toelichting op de correcte antwoorden:**",
-            "- **Scenario A** (antwoord 1 = Schijnverband):",
-            "  r_XY=0.62 daalt naar r_XY.Z=0.07. SES van de wijk verklaart bijna de volledige correlatie.",
-            "  Grote scholen en meer pesten komen allebei voor in achterstandswijken.",
-            "- **Scenario B** (antwoord 2 = Indirect verband):",
-            "  r_XY=0.38 daalt naar r_XY.Z=0.21. Stress medieert de relatie deels (maar niet volledig).",
-            "- **Scenario C** (antwoord 3 = Suppressoreffect):",
-            "  r_XY=-0.12 wordt r_XY.Z=-0.53. Motivatie maskeert de ware negatieve relatie.",
-            "  Gemotiveerde mensen doen vaker aan rehabilitatie en hervaln minder - maar de",
-            "  motivatie 'verborg' het echte effect van het programma zelf."
+          lines <- c(lines,
+            sprintf("---\n\n**Score: %d / %d**", score, total)
           )
 
           msg <- paste(lines, collapse = "\n")
@@ -219,6 +213,25 @@ context({
             significant_anova = "Statistisch significant bij α = 0.05? (1=ja)"
           )
 
+          hints <- list(
+            gemiddelde_groot  = sprintf("Verwacht: %d  [gemiddelde van 10 grootstadswaarden]", as.integer(ev$mean_groot)),
+            gemiddelde_middel = sprintf("Verwacht: %d  [gemiddelde van 10 middelgrote waarden]", as.integer(ev$mean_middel)),
+            gemiddelde_ruraal = sprintf("Verwacht: %d  [gemiddelde van 10 rurale waarden]", as.integer(ev$mean_ruraal)),
+            grand_mean        = sprintf("Verwacht: %.3f  [gemiddelde van alle 30 waarden]", ev$grand),
+            SS_within_groot   = sprintf("Verwacht: %d  [som van (x - groepsgemiddelde)²]", as.integer(ev$SS_w_groot)),
+            SS_within_middel  = sprintf("Verwacht: %d  [som van (x - groepsgemiddelde)²]", as.integer(ev$SS_w_middel)),
+            SS_within_ruraal  = sprintf("Verwacht: %d  [som van (x - groepsgemiddelde)²]", as.integer(ev$SS_w_ruraal)),
+            SS_within         = sprintf("Verwacht: %d  [SS_groot + SS_middel + SS_ruraal]", as.integer(ev$SS_within)),
+            df_within         = sprintf("Verwacht: %d  [N - k = 30 - 3]", as.integer(ev$df_within)),
+            MS_within         = sprintf("Verwacht: %.2f  [SS_within / df_within]", ev$MS_within),
+            SS_between        = sprintf("Verwacht: %.2f  [som van n × (groepsgemiddelde - grand mean)²]", ev$SS_between),
+            df_between        = sprintf("Verwacht: %d  [k - 1 = 3 - 1]", as.integer(ev$df_between)),
+            MS_between        = sprintf("Verwacht: %.2f  [SS_between / df_between]", ev$MS_between),
+            F_ratio           = sprintf("Verwacht: %.2f  [MS_between / MS_within]", ev$F),
+            eta_kwadraat      = sprintf("Verwacht: %.4f  [SS_between / SS_totaal]", ev$eta2),
+            significant_anova = sprintf("Verwacht: 1 (ja)  [F=%.2f is veel groter dan kritieke waarde ≈ 3.35]", ev$F)
+          )
+
           lines <- character(0)
           score <- 0
           total <- length(qnames)
@@ -227,30 +240,17 @@ context({
             r     <- results[[key]]
             label <- qnames[[key]]
             if (!r$exists) {
-              lines <- c(lines, sprintf("❌ **%s**: variabele `%s` niet gevonden.", label, key))
+              lines <- c(lines, sprintf("❌ **%s** (`%s`): niet ingevuld\\\n  → %s\n", label, key, hints[[key]]))
             } else if (!r$correct) {
-              lines <- c(lines, sprintf("❌ **%s**: jouw antwoord = %s | verwacht ≈ %s",
-                label, as.character(r$value), round(r$expected, 3)))
+              lines <- c(lines, sprintf("❌ **%s**: jouw antwoord = %s\\\n  → %s\n", label, as.character(r$value), hints[[key]]))
             } else {
-              lines <- c(lines, sprintf("✅ **%s**: correct (%s)", label, as.character(r$value)))
+              lines <- c(lines, sprintf("✅ **%s**: correct (%s)\n", label, as.character(r$value)))
               score <- score + 1
             }
           }
 
-          lines <- c(lines, "",
-            sprintf("**Score: %d / %d**", score, total),
-            "",
-            "**ANOVA-tabel referentiewaarden:**",
-            sprintf("| | SS | df | MS | F |"),
-            sprintf("|---|---|---|---|---|"),
-            sprintf("| Between | %.2f | %d | %.2f | %.2f |",
-              ev$SS_between, ev$df_between, ev$MS_between, ev$F),
-            sprintf("| Within  | %.0f | %d | %.2f | |",
-              ev$SS_within, ev$df_within, ev$MS_within),
-            sprintf("| Total   | %.2f | %d | | |",
-              ev$SS_between + ev$SS_within, ev$df_between + ev$df_within),
-            "",
-            sprintf("η² = %.4f (%.1f%% verklaarde variantie)", ev$eta2, ev$eta2 * 100)
+          lines <- c(lines,
+            sprintf("---\n\n**Score: %d / %d**", score, total)
           )
 
           msg <- paste(lines, collapse = "\n")
