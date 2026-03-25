@@ -7,6 +7,8 @@
 library(ggplot2)
 
 # ── Data ──────────────────────────────────────────────────────────────────────
+# NOTE: values here are GENERIC examples only — deliberately different from
+# the scenario values in description.nl.md to avoid revealing answers.
 df <- data.frame(
   type = factor(
     c("1. Schijnverband", "2. Indirect verband",
@@ -14,11 +16,11 @@ df <- data.frame(
     levels = c("1. Schijnverband", "2. Indirect verband",
                "3. Suppressoreffect", "4. Reeel verband")
   ),
-  r_bi   = c(0.62, 0.38, 0.16, 0.55),
-  r_par  = c(0.02, 0.21, 0.57, 0.53),
+  r_bi   = c(0.71, 0.52, 0.09, 0.64),
+  r_par  = c(0.03, 0.28, 0.51, 0.61),
   colour = c("#d73027", "#fc8d59", "#4575b4", "#1a9641"),
-  lbl_bi  = c("0.62", "0.38", "0.16", "0.55"),
-  lbl_par = c("~0",   "0.21", "0.57", "0.53")
+  lbl_bi  = c("0.71", "0.52", "0.09", "0.64"),
+  lbl_par = c("~0",   "0.28", "0.51", "0.61")
 )
 
 arr <- data.frame(
@@ -76,8 +78,6 @@ p <- ggplot() +
   )
 
 # ── Save ──────────────────────────────────────────────────────────────────────
-out <- file.path(dirname(sys.frame(1)$ofile %||% "."), "partiele_correlatie_types.png")
-# Fallback: save next to this script
 ggsave("partiele_correlatie_types.png", plot = p,
        width = 8, height = 5.5, dpi = 150, bg = "white")
 cat("Saved: partiele_correlatie_types.png\n")
