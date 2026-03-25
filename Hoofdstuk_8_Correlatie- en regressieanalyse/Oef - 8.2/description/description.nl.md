@@ -6,7 +6,7 @@ In deze oefening oefen je met **correlatie-analyse** en **bivariate lineaire reg
 
 De interactieve app is beschikbaar op:
 
-**<a href='https://statistiek-in-de-criminologie.shinyapps.io/Dodona/' target='_blank' rel='noopener noreferrer'>Oefeningen voor Correlatie & Regressie</a>**
+**<a href='https://statistiek-in-de-criminologie.shinyapps.io/correlatie-regressie/' target='_blank' rel='noopener noreferrer'>Oefeningen voor Correlatie & Regressie</a>**
 
 > **Let op:** Deze link werkt alleen als de app actief draait op je computer. Vraag je docent om de app te starten als deze niet beschikbaar is.
 
