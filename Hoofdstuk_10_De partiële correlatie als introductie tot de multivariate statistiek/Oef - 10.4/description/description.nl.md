@@ -15,7 +15,7 @@ Bij partiële correlatie vergelijk je r_XY (bivariaat) met r_XY.Z (na controle v
 
 **Figuur 1** — *De vier effecttypen visueel vergeleken*
 
-![Vier effecttypen bij partiële correlatie](media/partiele_correlatie_types.png)
+<img src="media/partiele_correlatie_types.png" alt="Vier effecttypen bij partiële correlatie" style="max-width:600px; width:100%; display:block; margin:0 auto;">
 
 > Elk gekleurde punt toont de waarde van r **vóór** (links) en **na** controle voor Z (rechts). Let op de richting en grootte van de verschuiving om het type te herkennen.
 
