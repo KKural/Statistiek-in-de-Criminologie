@@ -46,11 +46,7 @@ p <- ggplot() +
   geom_text(data = punt_P, aes(x = x, y = y, label = "P"),
             nudge_x = 0.6, nudge_y = 1.2,
             size = 5, fontface = "bold", colour = "#d73027") +
-  # Vertical dotted line from P to the regression line (shows the gap)
-  geom_segment(
-    aes(x = 8, xend = 8, y = punt_P$y, yend = yhat_P),
-    linetype = "dotted", colour = "#d73027", linewidth = 0.9
-  ) +
+  # NOTE: residual segment removed — it would reveal that P is below the line
   labs(
     x        = "Politie-inzet (X)",
     y        = "Criminaliteitsgraad (Y)",

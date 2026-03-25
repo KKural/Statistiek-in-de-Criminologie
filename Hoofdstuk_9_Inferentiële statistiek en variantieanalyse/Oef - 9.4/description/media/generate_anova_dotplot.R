@@ -55,16 +55,7 @@ p <- ggplot(df, aes(x = gemeentetype, y = diefstallen,
                 aes(x = gemeentetype, y = diefstallen,
                     ymin = diefstallen, ymax = diefstallen),
                 width = 0.55, middle.linewidth = 3, colour = "black", linewidth = 0.9) +
-  # Grand mean label
-  annotate("text",
-           x = 3.48, y = grand_mean + 90,
-           label = sprintf("Grand mean = %s", format(round(grand_mean, 1), big.mark = ".")),
-           size = 3.1, colour = "grey40", fontface = "italic", hjust = 1) +
-  # Group mean labels
-  geom_text(data = means_df,
-            aes(x = gemeentetype, y = diefstallen,
-                label = paste0("\u03bc = ", format(round(diefstallen), big.mark = "."))),
-            nudge_x = 0.38, size = 3.5, fontface = "bold", colour = "black") +
+  # NOTE: group mean labels and grand mean value label removed — students must calculate these themselves
   scale_colour_manual(values = c(
     "Grootsteden"          = "#d73027",
     "Middelgrote\nsteden"  = "#fc8d59",
@@ -79,7 +70,7 @@ p <- ggplot(df, aes(x = gemeentetype, y = diefstallen,
     x        = "Gemeentetype",
     y        = "Aantal fietsdiefstallen",
     title    = "Fietsdiefstallen per gemeentetype \u2014 30 Belgische gemeenten (2008)",
-    subtitle = "Punten = individuele gemeenten | \u25c6 = groepsgemiddelde | \u2026 = grand mean\nDe drie groepen overlappen NIET \u2192 grote SS_between, F \u2248 265"
+    subtitle = "Punten = individuele gemeenten | \u25c6 = groepsgemiddelde | \u2026 = grand mean"
   ) +
   theme_classic(base_size = 12) +
   theme(

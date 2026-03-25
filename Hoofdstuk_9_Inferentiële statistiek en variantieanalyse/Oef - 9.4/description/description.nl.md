@@ -32,7 +32,7 @@ In onderstaande tabel zie je het **aantal geregistreerde fietsdiefstallen** in *
 
 <img src="media/anova_dotplot.png" alt="Dot plot fietsdiefstallen per gemeentetype" style="width:100%; max-width:100%;" />
 
-> De drie groepen overlappen **niet**. Dit verklaart waarom SS_between veel groter is dan SS_within en de F-ratio extreem hoog uitvalt (F ≈ 265).
+> De drie groepen overlappen **niet**. Let op de spreiding binnen elke groep en de afstand tussen de groepen.
 
 Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **eindresultaten** in.
 

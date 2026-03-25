@@ -40,13 +40,9 @@ p <- ggplot(df, aes(x = x, y = y)) +
   # Regression line
   geom_line(data = line_df, aes(x = x, y = y),
             colour = "#2166ac", linewidth = 1.1) +
-  # All points (open circles)
+  # All points (open circles — no highlighting to avoid revealing the answer)
   geom_point(size = 3.5, colour = "grey30", fill = "white", shape = 21,
              stroke = 1.2) +
-  # Point B highlighted (largest residual)
-  geom_point(data = subset(df, label == "B"),
-             size = 3.8, colour = "#d73027", fill = "#d73027", shape = 21,
-             stroke = 1.4) +
   # Point labels (offset above right)
   geom_text(aes(label = label),
             nudge_x = 0.7, nudge_y = 1.2,
@@ -56,7 +52,7 @@ p <- ggplot(df, aes(x = x, y = y)) +
     x       = "Politie-inzet (X)",
     y       = "Criminaliteitsgraad (Y)",
     title   = "Scatterplot: Politie-inzet vs Criminaliteitsgraad",
-    subtitle = "OLS-regressielijn met residuen (gestippeld) | punt B = grootste absoluut residu"
+    subtitle = "OLS-regressielijn met residuen (gestippeld)"
   ) +
   scale_x_continuous(limits = c(0, 23), breaks = seq(0, 22, 2)) +
   scale_y_continuous(limits = c(0, 38), breaks = seq(0, 35, 5)) +
