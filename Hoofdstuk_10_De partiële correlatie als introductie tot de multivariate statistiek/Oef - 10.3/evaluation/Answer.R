@@ -67,7 +67,7 @@ context({
             suppressWarnings(as.numeric(val))
           }
 
-          # â”€â”€ wrong_msg helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+          # ── wrong_msg helpers ──────────────────────────────────────────────────
 
           wrong_msg_r_tbl <- function(val, var_label, exp_r, x_lbl, y_lbl) {
             v <- parse_num(val)
@@ -80,20 +80,20 @@ context({
             v <- parse_num(val)
             product <- ev$r_XZ * ev$r_YZ
             if (!is.na(v) && abs(v - ev$r_XY * product) < 0.01)
-              return(sprintf("**Waarom fout:** Je berekende een product i.p.v. een aftrekking.\n\n**Teller** = r_XY **âˆ’** r_XZ Ã— r_YZ = %.2f âˆ’ (%.2f Ã— %.2f) = **%.4f**.", ev$r_XY, ev$r_XZ, ev$r_YZ, ev$teller))
+              return(sprintf("**Waarom fout:** Je berekende een product i.p.v. een aftrekking.\n\n**Teller** = r_XY **-** r_XZ x r_YZ = %.2f - (%.2f x %.2f) = **%.4f**.", ev$r_XY, ev$r_XZ, ev$r_YZ, ev$teller))
             if (!is.na(v) && abs(v - (ev$r_XY + ev$r_XZ * ev$r_YZ)) < 0.01)
-              return(sprintf("**Waarom fout:** Je telde op in plaats van af te trekken.\n\n**Teller** = r_XY âˆ’ r_XZ Ã— r_YZ = %.2f **âˆ’** %.4f = **%.4f**.", ev$r_XY, product, ev$teller))
-            sprintf("**Teller** = r_XY âˆ’ r_XZ Ã— r_YZ = %.2f âˆ’ (%.2f Ã— %.2f) = **%.4f**", ev$r_XY, ev$r_XZ, ev$r_YZ, ev$teller)
+              return(sprintf("**Waarom fout:** Je telde op in plaats van af te trekken.\n\n**Teller** = r_XY - r_XZ x r_YZ = %.2f **-** %.4f = **%.4f**.", ev$r_XY, product, ev$teller))
+            sprintf("**Teller** = r_XY - r_XZ x r_YZ = %.2f - (%.2f x %.2f) = **%.4f**", ev$r_XY, ev$r_XZ, ev$r_YZ, ev$teller)
           }
 
           wrong_msg_noemer_103 <- function(val) {
             v <- parse_num(val)
             inside <- (1 - ev$r_XZ^2) * (1 - ev$r_YZ^2)
             if (!is.na(v) && abs(v - inside) < 0.01)
-              return(sprintf("**Waarom fout:** Je gaf de waarde onder het wortelteken (%.4f). Neem nog **âˆš**.\n\n**Noemer** = âˆš%.4f = **%.4f**.", inside, inside, ev$noemer))
+              return(sprintf("**Waarom fout:** Je gaf de waarde onder het wortelteken (%.4f). Neem nog **sqrt()**.\n\n**Noemer** = sqrt(%.4f) = **%.4f**.", inside, inside, ev$noemer))
             if (!is.na(v) && abs(v - sqrt(1 - ev$r_XZ^2)) < 0.01)
-              return(sprintf("**Waarom fout:** Je vergat de factor (1âˆ’r_YZÂ²).\n\n**Formule:** noemer = âˆš((1âˆ’r_XZÂ²) Ã— (1âˆ’r_YZÂ²)) = âˆš(%.4f Ã— %.4f) = **%.4f**.", 1-ev$r_XZ^2, 1-ev$r_YZ^2, ev$noemer))
-            sprintf("**Noemer** = âˆš((1âˆ’r_XZÂ²)(1âˆ’r_YZÂ²)) = âˆš(%.4f Ã— %.4f) = **%.4f**", 1-ev$r_XZ^2, 1-ev$r_YZ^2, ev$noemer)
+              return(sprintf("**Waarom fout:** Je vergat de factor (1-r_YZ^2).\n\n**Formule:** noemer = sqrt((1-r_XZ^2) x (1-r_YZ^2)) = sqrt(%.4f x %.4f) = **%.4f**.", 1-ev$r_XZ^2, 1-ev$r_YZ^2, ev$noemer))
+            sprintf("**Noemer** = sqrt((1-r_XZ^2)(1-r_YZ^2)) = sqrt(%.4f x %.4f) = **%.4f**", 1-ev$r_XZ^2, 1-ev$r_YZ^2, ev$noemer)
           }
 
           wrong_msg_r_partial_103 <- function(val) {
@@ -106,23 +106,23 @@ context({
           wrong_msg_conclusie_103 <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && v == 1)
-              return(sprintf("**Optie 1 (schijnverband) is onjuist.** Bij een schijnverband daalt r_XY.Z naar ~0.\n\nHier neemt r_XY.Z toe tot **%.4f** (sterker) â†’ dat is een **suppressoreffect** (code 3).", ev$r_XY_Z))
+              return(sprintf("**Optie 1 (schijnverband) is onjuist.** Bij een schijnverband daalt r_XY.Z naar ~0.\n\nHier neemt r_XY.Z toe tot **%.4f** (sterker) -> dat is een **suppressoreffect** (code 3).", ev$r_XY_Z))
             if (!is.na(v) && v == 2)
-              return(sprintf("**Optie 2 (indirect verband) is onjuist.** Bij indirect verband verzwakt |r|.\n\nHier gaat |r| van %.2f naar %.4f â€” **sterker** worden â†’ **suppressoreffect** (code 3).", abs(ev$r_XY), abs(ev$r_XY_Z)))
+              return(sprintf("**Optie 2 (indirect verband) is onjuist.** Bij indirect verband verzwakt |r|.\n\nHier gaat |r| van %.2f naar %.4f -- **sterker** worden -> **suppressoreffect** (code 3).", abs(ev$r_XY), abs(ev$r_XY_Z)))
             if (!is.na(v) && v == 4)
-              return(sprintf("**Optie 4 (tekenwisseling) is onjuist.** Het teken draait hier niet om (%.2f en %.4f hebben hetzelfde teken).\n\nMaar |r| wordt sterker â†’ **suppressoreffect** (code 3).", ev$r_XY, ev$r_XY_Z))
+              return(sprintf("**Optie 4 (tekenwisseling) is onjuist.** Het teken draait hier niet om (%.2f en %.4f hebben hetzelfde teken).\n\nMaar |r| wordt sterker -> **suppressoreffect** (code 3).", ev$r_XY, ev$r_XY_Z))
             sprintf("**Code 3 (suppressoreffect):** r_XY.Z=%.4f is sterker dan r_XY=%.2f.\n\nLage zelfcontrole (Z) maskeert het ware (negatieve) verband tussen schoolbetrokkenheid en delinquentie.", ev$r_XY_Z, ev$r_XY)
           }
 
-          # â”€â”€ labels + functies â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+          # ── labels + functies ──────────────────────────────────────────────────
 
           qnames <- c(
             r_XY           = "Bivariate correlatie r_XY (uit tabel)",
             r_XZ           = "Bivariate correlatie r_XZ (uit tabel)",
             r_YZ           = "Bivariate correlatie r_YZ (uit tabel)",
-            r_XY_teller    = "Teller partiÃ«le correlatie",
-            r_XY_noemer    = "Noemer partiÃ«le correlatie",
-            r_XY_Z         = "PartiÃ«le correlatie r_XY.Z",
+            r_XY_teller    = "Teller partiele correlatie",
+            r_XY_noemer    = "Noemer partiele correlatie",
+            r_XY_Z         = "Partiele correlatie r_XY.Z",
             conclusie_type = "Interpretatie (conclusie_type)"
           )
 
@@ -137,16 +137,16 @@ context({
           )
 
           correct_msgs <- list(
-            r_XY           = sprintf("%.2f (uit tabel) âœ“", ev$r_XY),
-            r_XZ           = sprintf("%.2f (uit tabel) âœ“", ev$r_XZ),
-            r_YZ           = sprintf("%.2f (uit tabel) âœ“", ev$r_YZ),
-            r_XY_teller    = sprintf("%.4f âœ“", ev$teller),
-            r_XY_noemer    = sprintf("%.4f âœ“", ev$noemer),
-            r_XY_Z         = sprintf("%.4f âœ“", ev$r_XY_Z),
-            conclusie_type = sprintf("3 = suppressoreffect (r: %.2f â†’ %.4f, sterker) âœ“", ev$r_XY, ev$r_XY_Z)
+            r_XY           = sprintf("%.2f (uit tabel) [correct]", ev$r_XY),
+            r_XZ           = sprintf("%.2f (uit tabel) [correct]", ev$r_XZ),
+            r_YZ           = sprintf("%.2f (uit tabel) [correct]", ev$r_YZ),
+            r_XY_teller    = sprintf("%.4f [correct]", ev$teller),
+            r_XY_noemer    = sprintf("%.4f [correct]", ev$noemer),
+            r_XY_Z         = sprintf("%.4f [correct]", ev$r_XY_Z),
+            conclusie_type = sprintf("3 = suppressoreffect (r: %.2f -> %.4f, sterker) [correct]", ev$r_XY, ev$r_XY_Z)
           )
 
-          # â”€â”€ feedback opbouwen â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+          # ── feedback opbouwen ─────────────────────────────────────────────────
 
           lines <- character(0)
           score <- 0
@@ -156,14 +156,14 @@ context({
             r   <- results[[key]]
             lbl <- qnames[[key]]
             if (!r$exists) {
-              lines <- c(lines, paste0("âŒ **", lbl, "** â€” variabele `", key, "` niet ingevuld.\n\n",
+              lines <- c(lines, paste0("❌ **", lbl, "** — variabele `", key, "` niet ingevuld.\n\n",
                 wrong_fns[[key]]("?"), "\n"))
             } else if (r$correct) {
-              lines <- c(lines, paste0("âœ… **", lbl, "**: correct (", as.character(r$value),
-                ") â€” ", correct_msgs[[key]], "\n"))
+              lines <- c(lines, paste0("✅ **", lbl, "**: correct (", as.character(r$value),
+                ") — ", correct_msgs[[key]], "\n"))
               score <- score + 1
             } else {
-              lines <- c(lines, paste0("âŒ **", lbl, "** â€” jouw antwoord: **", as.character(r$value),
+              lines <- c(lines, paste0("❌ **", lbl, "** — jouw antwoord: **", as.character(r$value),
                 "**\n\n", wrong_fns[[key]](r$value), "\n"))
             }
           }
