@@ -20,7 +20,9 @@ Selecteer het tabblad **"Inferentiele statistiek & ANOVA"** in de app. Je krijgt
 - Beslissen of je H0 **verwerpt of behoudt**
 - Het resultaat **interpreteren** in criminologische context
 
-> **Praktische noot:** In deze oefening hoeven studenten de **p-waarde niet handmatig te berekenen**. De beslissing over significantie gebeurt via de klassieke regel: vergelijk je berekende **F** met **Fkrit** uit een **F-tabel** bij `alpha = 0.05`, met `df_between = k - 1` als teller-vrijheidsgraden en `df_within = N - k` als noemer-vrijheidsgraden. Een bruikbare F-tabel vind je hier: <a href="<img src="media/T12_T19_continuous.png" alt="F-tabel pagina's T-12 tot T-19" style="width:100%; max-width:100%;" />" target="_blank" rel="noopener noreferrer">F-tabel (PDF)</a>
+> **Praktische noot:** In deze oefening hoeven studenten de **p-waarde niet handmatig te berekenen**. De beslissing over significantie gebeurt via de klassieke regel: vergelijk je berekende **F** met **Fkrit** uit een **F-tabel** bij `alpha = 0.05`, met `df_between = k - 1` als teller-vrijheidsgraden en `df_within = N - k` als noemer-vrijheidsgraden. Een bruikbare F-tabel vind je hier: <a href="media/F_table.pdf" target="_blank" rel="noopener noreferrer">F-tabel (PDF)</a>
+>
+> <a href="media/T12_T19_continuous.png" target="_blank" rel="noopener noreferrer"><img src="media/T12_T19_continuous.png" alt="F-tabel pagina's T-12 tot T-19" style="width:100%; max-width:100%;" /></a>
 
 ---
 
