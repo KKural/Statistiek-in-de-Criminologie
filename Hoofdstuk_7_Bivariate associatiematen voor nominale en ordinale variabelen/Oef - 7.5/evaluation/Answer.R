@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Kendall's tau: juiste foutieve uitspraak",
+    "",
     {
       testEqual(
         "",

@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Steekproefgrootte - topsalarissen banken",
+    "",
     {
       testEqual(
         "",

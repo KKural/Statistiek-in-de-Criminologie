@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Partiële correlatie — politieagenten en dienstjaren (correlatietabel)",
+    "",
     {
       testEqual(
         "",

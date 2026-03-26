@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Beleidsverklaringen Premier vs. Minister BZ - Chi-kwadraattoets",
+    "",
     {
       testEqual(
         "",

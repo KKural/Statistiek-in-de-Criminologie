@@ -1,6 +1,6 @@
 context({
   testcase(
-    " ",
+    "",
     {
       testEqual(
         "",

@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Vuurwapenbezit en geslacht",
+    "",
     {
       testEqual(
         "",

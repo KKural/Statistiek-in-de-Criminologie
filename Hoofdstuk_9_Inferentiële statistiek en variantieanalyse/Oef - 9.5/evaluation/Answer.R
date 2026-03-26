@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Controlevragen - Inferentiële statistiek en ANOVA",
+    "",
     {
       testEqual(
         "",

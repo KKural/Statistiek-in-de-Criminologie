@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Koffieprijs en ontbossing",
+    "",
     {
       testEqual(
         "",

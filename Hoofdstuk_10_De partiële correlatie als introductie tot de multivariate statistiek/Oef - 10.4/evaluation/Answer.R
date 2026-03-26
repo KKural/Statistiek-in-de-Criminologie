@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Partiële correlatie — interpretatie van controlevariabelen",
+    "",
     {
       testEqual(
         "",
@@ -137,7 +137,7 @@ context({
 
 context({
   testcase(
-    "ANOVA — variantieanalyse: misdaadcijfers per gemeentetype",
+    "",
     {
       testEqual(
         "",

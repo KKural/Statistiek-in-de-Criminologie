@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Controlevragen - Partiële correlatie en multivariate statistiek",
+    "",
     {
       testEqual(
         "",

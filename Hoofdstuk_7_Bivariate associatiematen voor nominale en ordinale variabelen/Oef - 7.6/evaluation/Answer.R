@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Spearman's rho (rho = 0): juiste foutieve uitspraak",
+    "",
     {
       testEqual(
         "",

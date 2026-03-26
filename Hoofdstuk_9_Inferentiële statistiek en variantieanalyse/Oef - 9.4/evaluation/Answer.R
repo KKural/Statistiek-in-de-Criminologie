@@ -1,6 +1,6 @@
 context({
   testcase(
-    "ANOVA - Fietsdiefstallen naar gemeentetype",
+    "",
     {
       testEqual(
         "",

@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Partiële correlatie — scholieren en leeftijd (ruwe data)",
+    "",
     {
       testEqual(
         "",

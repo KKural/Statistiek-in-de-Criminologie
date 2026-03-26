@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Betrouwbaarheidsintervallen - gemiddelde leeftijd",
+    "",
     {
       testEqual(
         "",

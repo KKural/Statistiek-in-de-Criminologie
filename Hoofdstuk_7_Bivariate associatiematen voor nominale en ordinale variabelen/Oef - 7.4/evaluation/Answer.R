@@ -1,6 +1,6 @@
 context({
   testcase(
-    "Gamma: juiste foutieve uitspraak",
+    "",
     {
       testEqual(
         "",
