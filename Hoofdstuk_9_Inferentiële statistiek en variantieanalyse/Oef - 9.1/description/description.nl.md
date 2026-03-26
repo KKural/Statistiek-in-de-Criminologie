@@ -41,10 +41,10 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 
 ## **Berekeningsstappen**
 
-1. Bereken de **verwachte frequenties** voor elke cel: $E_{ij} = \frac{\text{rijtotaal}_i \times \text{kolomtotaal}_j}{N}$
-2. Bereken de **chi-kwadraatbijdrage** voor elke cel: $\frac{(O_{ij} - E_{ij})^2}{E_{ij}}$
-3. Tel alle bijdragen op: $\chi^2 = \sum \frac{(O - E)^2}{E}$
-4. Bepaal het aantal vrijheidsgraden: $df = (r-1)(k-1)$
+1. Bereken de **verwachte frequenties** voor elke cel: `E_ij = (rijtotaal_i * kolomtotaal_j) / N`
+2. Bereken de **chi-kwadraatbijdrage** voor elke cel: `((O_ij - E_ij)^2) / E_ij`
+3. Tel alle bijdragen op: `chi^2 = som van ((O - E)^2 / E)`
+4. Bepaal het aantal vrijheidsgraden: `df = (r - 1)(k - 1)`
 5. Vergelijk met de kritieke waarde bij het gekozen significantieniveau
 
 ---
@@ -53,42 +53,42 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 
 ### **Deel A: Hypothesen**
 
-1) **Welke soort nulhypothese hoor je hier te formuleren?**
+- 1) **Welke soort nulhypothese hoor je hier te formuleren?**
    - 1 = Er is GEEN verband tussen de twee beleidsmakers
    - 2 = Er IS een verband tussen de twee beleidsmakers
    - `H0_richting` = 1 of 2
 
 ### **Deel B: Verwachte frequenties (selectie)**
 
-2) **Verwachte frequentie: Opsluiting & Premier**
+- 2) **Verwachte frequentie: Opsluiting & Premier**
    - `E_opsluiting_premier` (1 decimaal)
 
-3) **Verwachte frequentie: Gedwongen betaling & Premier**
+- 3) **Verwachte frequentie: Gedwongen betaling & Premier**
    - `E_betaling_premier` (2 decimalen)
 
-4) **Verwachte frequentie: Rehabilitatie & Minister BZ**
+- 4) **Verwachte frequentie: Rehabilitatie & Minister BZ**
    - `E_rehab_minister` (2 decimalen)
 
 ### **Deel C: Chi-kwadraat**
 
-5) **Bereken de chi-kwadraatwaarde (χ²)**
+- 5) **Bereken de chi-kwadraatwaarde (χ²)**
    - `chi_kwadraat` (rond af op 3 decimalen)
 
-6) **Aantal vrijheidsgraden (df)**
+- 6) **Aantal vrijheidsgraden (df)**
    - `df_chi` (geheel getal)
 
 ### **Deel D: Significantie**
 
-7) **Kritieke waarde bij α = 0.05 en jouw df**
+- 7) **Kritieke waarde bij α = 0.05 en jouw df**
    - `kritieke_waarde_005` (rond af op 3 decimalen)
 
-8) **Is het verband statistisch significant bij α = 0.05?**
+- 8) **Is het verband statistisch significant bij α = 0.05?**
    - 1 = ja, 2 = nee
    - `significant_005`
 
-9) **Kritieke waarde bij α = 0.01 en jouw df**
+- 9) **Kritieke waarde bij α = 0.01 en jouw df**
    - `kritieke_waarde_001` (rond af op 3 decimalen)
 
-10) **Is het verband ook significant bij α = 0.01?**
+- 10) **Is het verband ook significant bij α = 0.01?**
     - 1 = ja, 2 = nee
     - `significant_001`

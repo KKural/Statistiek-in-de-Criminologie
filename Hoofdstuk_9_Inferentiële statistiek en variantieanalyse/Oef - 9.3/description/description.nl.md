@@ -16,9 +16,9 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 $$n = \left(\frac{z_{\alpha/2} \times \sigma}{E}\right)^2$$
 
 Waarbij:
-- $z_{\alpha/2}$ = de kritieke z-waarde bij het gewenste betrouwbaarheidsniveau
-- $\sigma$ = de populatiestandaardafwijking (uit vooronderzoek)
-- $E$ = de maximale foutenmarge
+- `z_(alpha/2)` = de kritieke z-waarde bij het gewenste betrouwbaarheidsniveau
+- `sigma` = de populatiestandaardafwijking (uit vooronderzoek)
+- `E` = de maximale foutenmarge
 
 **Let op:** Rond altijd **omhoog** af (naar boven) — je wil minstens dat aantal.
 
@@ -28,22 +28,22 @@ Waarbij:
 
 ### **Deel A: Invulwaarden identificeren**
 
-1) **De z-waarde voor een 95%-betrouwbaarheidsinterval**
+- 1) **De z-waarde voor een 95%-betrouwbaarheidsinterval**
    - `z_waarde` (2 decimalen)
 
-2) **De standaardafwijking (σ in euro)**
+- 2) **De standaardafwijking (σ in euro)**
    - `sigma` (geheel getal)
 
-3) **De maximale foutenmarge (E in euro)**
+- 3) **De maximale foutenmarge (E in euro)**
    - `foutenmarge` (geheel getal)
 
 ### **Deel B: Steekproefgrootte**
 
-4) **Het quotiënt (z × σ / E)**
+- 4) **Het quotiënt (z × σ / E)**
    - `quotient` (rond af op 4 decimalen)
 
-5) **Het kwadraat van het quotiënt (n vóór afronding)**
+- 5) **Het kwadraat van het quotiënt (n vóór afronding)**
    - `n_voor_afronding` (rond af op 2 decimalen)
 
-6) **De minimale steekproefgrootte (naar boven afgerond)**
+- 6) **De minimale steekproefgrootte (naar boven afgerond)**
    - `n_minimum` (geheel getal)

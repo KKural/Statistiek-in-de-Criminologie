@@ -53,53 +53,53 @@ Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak
 
 ### **Deel A: Basisvragen**
 
-1) **Wat is de verklarende variabele?**
+- 1) **Wat is de verklarende variabele?**
    - `verklarende_variabele` = 1 (prijs) of 2 (ontbossing)
 
 ### **Deel B: Gemiddelden**
 
-2) **Bereken het gemiddelde van de prijs (x̄)**
+- 2) **Bereken het gemiddelde van de prijs (x̄)**
    - `gemiddelde_x` (rond af op 2 decimalen)
 
-3) **Bereken het gemiddelde van ontbossing (ȳ)**
+- 3) **Bereken het gemiddelde van ontbossing (ȳ)**
    - `gemiddelde_y` (rond af op 4 decimalen)
 
 ### **Deel C: Afwijkingen en gekwadrateerde afwijkingen**
 
-4) **Bereken de som van de gekwadrateerde afwijkingen van X (SSx)**
+- 4) **Bereken de som van de gekwadrateerde afwijkingen van X (SSx)**
    - `SSx` (geheel getal of 1 decimaal)
 
-5) **Bereken de som van de gekwadrateerde afwijkingen van Y (SSy)**
+- 5) **Bereken de som van de gekwadrateerde afwijkingen van Y (SSy)**
    - `SSy` (rond af op 4 decimalen)
 
-6) **Bereken de som van de kruisproducten (SSxy)**
+- 6) **Bereken de som van de kruisproducten (SSxy)**
    - `SSxy` (rond af op 2 decimalen)
 
 ### **Deel D: Varianties en standaardafwijkingen**
 
-7) **Bereken de variantie van X (s²x = SSx/(n-1))**
+- 7) **Bereken de variantie van X (s²x = SSx/(n-1))**
    - `variantie_x` (rond af op 1 decimaal)
 
-8) **Bereken de variantie van Y (s²y = SSy/(n-1))**
+- 8) **Bereken de variantie van Y (s²y = SSy/(n-1))**
    - `variantie_y` (rond af op 4 decimalen)
 
-9) **Bereken de standaardafwijking van X (sx = √s²x)**
+- 9) **Bereken de standaardafwijking van X (sx = √s²x)**
    - `sd_x` (rond af op 4 decimalen)
 
-10) **Bereken de standaardafwijking van Y (sy = √s²y)**
+- 10) **Bereken de standaardafwijking van Y (sy = √s²y)**
     - `sd_y` (rond af op 4 decimalen)
 
-11) **Bereken de covariantie (s²xy = SSxy/(n-1))**
+- 11) **Bereken de covariantie (s²xy = SSxy/(n-1))**
     - `covariantie` (rond af op 4 decimalen)
 
 ### **Deel E: Pearson's correlatie**
 
-12) **Bereken Pearson's r (r = s²xy / (sx · sy))**
+- 12) **Bereken Pearson's r (r = s²xy / (sx · sy))**
     - `pearson_r` (rond af op 4 decimalen)
 
 ### **Deel F: Interpretatie**
 
-13) **De prijs werd uitgedrukt in dollars. Als de prijs in euro zou worden uitgedrukt (dus elke waarde wordt vermenigvuldigd met een constante en eventueel verschoven), verandert de correlatie dan?**
+- 13) **De prijs werd uitgedrukt in dollars. Als de prijs in euro zou worden uitgedrukt (dus elke waarde wordt vermenigvuldigd met een constante en eventueel verschoven), verandert de correlatie dan?**
     - `correlatie_verandert` = 1 (ja) of 2 (nee)
     - Geef een korte verklaring in `verklaring_euro` (1-3 zinnen)
 

@@ -48,15 +48,15 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 ## **ANOVA-berekeningsstappen**
 
 1. Bereken het **groepsgemiddelde** per gemeentetype
-2. Bereken de **binnengroepsvariatie per groep**: $SS_{g} = \sum (x_i - \bar{x}_g)^2$
-3. Bereken de **totale binnengroepsvariatie**: $SS_{within} = \sum SS_{g}$
-4. Bepaal $df_{within} = N - k$ (N = totale n, k = aantal groepen)
-5. Bereken $MS_{within} = SS_{within} / df_{within}$
-6. Bereken de **totale tussengroepsvariatie**: $SS_{between} = \sum n_g \cdot (\bar{x}_g - \bar{x}_{grand})^2$
-7. Bepaal $df_{between} = k - 1$
-8. Bereken $MS_{between} = SS_{between} / df_{between}$
-9. Bereken de **F-ratio**: $F = MS_{between} / MS_{within}$
-10. Bereken eta-kwadraat: $\eta^2 = SS_{between} / SS_{total}$
+2. Bereken de **binnengroepsvariatie per groep**: `SS_g = som van (x_i - x̄_g)^2`
+3. Bereken de **totale binnengroepsvariatie**: `SS_within = som van alle SS_g`
+4. Bepaal `df_within = N - k` (N = totale n, k = aantal groepen)
+5. Bereken `MS_within = SS_within / df_within`
+6. Bereken de **totale tussengroepsvariatie**: `SS_between = som van n_g * (x̄_g - x̄_grand)^2`
+7. Bepaal `df_between = k - 1`
+8. Bereken `MS_between = SS_between / df_between`
+9. Bereken de **F-ratio**: `F = MS_between / MS_within`
+10. Bereken eta-kwadraat: `eta^2 = SS_between / SS_total`
 
 ---
 
@@ -64,57 +64,57 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 
 ### **Deel A: Beschrijvende statistieken**
 
-1) **Gemiddelde fietsdiefstallen – Grootsteden**
+- 1) **Gemiddelde fietsdiefstallen – Grootsteden**
    - `gemiddelde_groot` (geheel getal)
 
-2) **Gemiddelde fietsdiefstallen – Middelgrote steden**
+- 2) **Gemiddelde fietsdiefstallen – Middelgrote steden**
    - `gemiddelde_middel` (geheel getal)
 
-3) **Gemiddelde fietsdiefstallen – Rurale gemeenten**
+- 3) **Gemiddelde fietsdiefstallen – Rurale gemeenten**
    - `gemiddelde_ruraal` (geheel getal)
 
-4) **Grand mean (gemiddelde over alle 30 gemeenten)**
+- 4) **Grand mean (gemiddelde over alle 30 gemeenten)**
    - `grand_mean` (rond af op 2 decimalen)
 
 ### **Deel B: Binnengroepsvariatie (SSwithin)**
 
-5) **SS within – Grootsteden**
+- 5) **SS within – Grootsteden**
    - `SS_within_groot` (geheel getal)
 
-6) **SS within – Middelgrote steden**
+- 6) **SS within – Middelgrote steden**
    - `SS_within_middel` (geheel getal)
 
-7) **SS within – Rurale gemeenten**
+- 7) **SS within – Rurale gemeenten**
    - `SS_within_ruraal` (geheel getal)
 
-8) **Totale SS within**
+- 8) **Totale SS within**
    - `SS_within` (geheel getal)
 
-9) **Vrijheidsgraden within (df)**
+- 9) **Vrijheidsgraden within (df)**
    - `df_within` (geheel getal)
 
-10) **MS within (gemiddelde kwadraat binnen groepen)**
+- 10) **MS within (gemiddelde kwadraat binnen groepen)**
     - `MS_within` (rond af op 2 decimalen)
 
 ### **Deel C: Tussengroepsvariatie (SSbetween)**
 
-11) **Totale SS between**
+- 11) **Totale SS between**
     - `SS_between` (rond af op 2 decimalen)
 
-12) **Vrijheidsgraden between (df)**
+- 12) **Vrijheidsgraden between (df)**
     - `df_between` (geheel getal)
 
-13) **MS between (gemiddelde kwadraat tussen groepen)**
+- 13) **MS between (gemiddelde kwadraat tussen groepen)**
     - `MS_between` (rond af op 2 decimalen)
 
 ### **Deel D: F-toets en effectgrootte**
 
-14) **F-ratio**
+- 14) **F-ratio**
     - `F_ratio` (rond af op 2 decimalen)
 
-15) **Eta-kwadraat (η² = goodness of fit)**
+- 15) **Eta-kwadraat (η² = goodness of fit)**
     - `eta_kwadraat` (rond af op 4 decimalen)
 
-16) **Is het effect statistisch significant bij α = 0.05?** (kritieke F ≈ 3.35)
+- 16) **Is het effect statistisch significant bij α = 0.05?** (kritieke F ≈ 3.35)
     - 1 = ja, 2 = nee
     - `significant_anova`
