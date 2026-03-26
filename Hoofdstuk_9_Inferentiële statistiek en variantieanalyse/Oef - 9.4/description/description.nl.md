@@ -34,6 +34,10 @@ In onderstaande tabel zie je het **aantal geregistreerde fietsdiefstallen** in *
 
 > De drie groepen overlappen **niet**. Let op de spreiding binnen elke groep en de afstand tussen de groepen.
 
+**F-tabel**
+
+<img src="media/T12_T19_continuous.png" alt="F-tabel pagina's T-12 tot T-19" style="width:100%; max-width:100%;" />
+
 Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **eindresultaten** in.
 
 ---
