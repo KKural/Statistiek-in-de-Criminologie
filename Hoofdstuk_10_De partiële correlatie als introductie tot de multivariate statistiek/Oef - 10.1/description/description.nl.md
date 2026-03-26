@@ -112,8 +112,8 @@ $$r_{XY \cdot Z} = \frac{r_{XY} - r_{XZ} \cdot r_{YZ}}{\sqrt{(1 - r_{XZ}^2)(1 - 
 ### **Deel F: Interpretatie**
 
 25) **Welk type effect heeft leeftijd op de relatie X–Y?**
-    - 1 = Schijnverband: het verband verdwijnt grotendeels na controle voor leeftijd
-    - 2 = Indirect verband: het verband verzwakt significant maar blijft deels aanwezig
-    - 3 = Suppressoreffect: het verband wordt sterker na controle voor leeftijd
-    - 4 = Reëel verband: het verband verandert nauwelijks na controle voor leeftijd
-    - `conclusie_type`
+1 = Schijnverband: het verband verdwijnt grotendeels na controle voor leeftijd
+2 = Indirect verband: het verband verzwakt significant maar blijft deels aanwezig
+3 = Suppressoreffect: het verband wordt sterker na controle voor leeftijd
+4 = Reëel verband: het verband verandert nauwelijks na controle voor leeftijd
+`conclusie_type`
