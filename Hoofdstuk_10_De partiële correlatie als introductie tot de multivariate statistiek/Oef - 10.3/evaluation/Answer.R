@@ -1,6 +1,6 @@
-﻿context({
+context({
   testcase(
-    "PartiÃ«le correlatie â€” schoolbetrokkenheid en suppressorvariabele",
+    "Partiele correlatie - schoolbetrokkenheid en suppressorvariabele",
     {
       testEqual(
         "",
