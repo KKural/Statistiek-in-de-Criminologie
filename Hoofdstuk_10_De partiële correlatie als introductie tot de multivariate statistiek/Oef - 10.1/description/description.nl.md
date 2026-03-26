@@ -45,9 +45,9 @@ $$\bar{X} = \frac{\sum X_i}{n}, \quad \bar{Y} = \frac{\sum Y_i}{n}, \quad \bar{Z
 
 **Stap 2: Afwijkingstabel invullen** — bereken voor elke scholier:
 
-$dX_i = X_i - \bar{X}$, $dY_i = Y_i - \bar{Y}$, $dZ_i = Z_i - \bar{Z}$
+`dX_i = X_i - X_bar`, `dY_i = Y_i - Y_bar`, `dZ_i = Z_i - Z_bar`
 
-en hun kwadraten en kruisproducten: $dX^2$, $dY^2$, $dZ^2$, $dXdY$, $dXdZ$, $dYdZ$
+en hun kwadraten en kruisproducten: `dX^2`, `dY^2`, `dZ^2`, `dX*dY`, `dX*dZ`, `dY*dZ`
 
 **Stap 3: Somkwadraten (SS) en kruisproductsommen (SCP)**
 
@@ -72,48 +72,48 @@ $$r_{XY \cdot Z} = \frac{r_{XY} - r_{XZ} \cdot r_{YZ}}{\sqrt{(1 - r_{XZ}^2)(1 - 
 
 ### **Deel A: Gemiddelden (Stap 1)**
 
-1) Gemiddelde van X: `X_bar` (4 decimalen)
-2) Gemiddelde van Y: `Y_bar` (4 decimalen)
-3) Gemiddelde van Z: `Z_bar` (4 decimalen)
+- 1) Gemiddelde van X: `X_bar` (4 decimalen)
+- 2) Gemiddelde van Y: `Y_bar` (4 decimalen)
+- 3) Gemiddelde van Z: `Z_bar` (4 decimalen)
 
 ### **Deel B: Somkwadraten en kruisproductsommen (Stap 2–3)**
 
-4) $SS_X$: `SS_X` (4 decimalen)
-5) $SS_Y$: `SS_Y` (4 decimalen)
-6) $SS_Z$: `SS_Z` (4 decimalen)
-7) $SCP_{XY}$: `SCP_XY` (4 decimalen)
-8) $SCP_{XZ}$: `SCP_XZ` (4 decimalen)
-9) $SCP_{YZ}$: `SCP_YZ` (4 decimalen)
+- 4) `SS_X`: `SS_X` (4 decimalen)
+- 5) `SS_Y`: `SS_Y` (4 decimalen)
+- 6) `SS_Z`: `SS_Z` (4 decimalen)
+- 7) `SCP_XY`: `SCP_XY` (4 decimalen)
+- 8) `SCP_XZ`: `SCP_XZ` (4 decimalen)
+- 9) `SCP_YZ`: `SCP_YZ` (4 decimalen)
 
 ### **Deel C: Varianties, standaarddeviaties en covarianties (Stap 4)**
 
-10) $Var_X$: `Var_X` (4 decimalen)
-11) $Var_Y$: `Var_Y` (4 decimalen)
-12) $Var_Z$: `Var_Z` (4 decimalen)
-13) $SD_X$: `SD_X` (4 decimalen)
-14) $SD_Y$: `SD_Y` (4 decimalen)
-15) $SD_Z$: `SD_Z` (4 decimalen)
-16) $Cov_{XY}$: `Cov_XY` (4 decimalen)
-17) $Cov_{XZ}$: `Cov_XZ` (4 decimalen)
-18) $Cov_{YZ}$: `Cov_YZ` (4 decimalen)
+- 10) `Var_X`: `Var_X` (4 decimalen)
+- 11) `Var_Y`: `Var_Y` (4 decimalen)
+- 12) `Var_Z`: `Var_Z` (4 decimalen)
+- 13) `SD_X`: `SD_X` (4 decimalen)
+- 14) `SD_Y`: `SD_Y` (4 decimalen)
+- 15) `SD_Z`: `SD_Z` (4 decimalen)
+- 16) `Cov_XY`: `Cov_XY` (4 decimalen)
+- 17) `Cov_XZ`: `Cov_XZ` (4 decimalen)
+- 18) `Cov_YZ`: `Cov_YZ` (4 decimalen)
 
 ### **Deel D: Bivariate correlaties (Stap 5)**
 
-19) $r_{XY}$: `r_XY` (4 decimalen)
-20) $r_{XZ}$: `r_XZ` (4 decimalen)
-21) $r_{YZ}$: `r_YZ` (4 decimalen)
+- 19) `r_XY`: `r_XY` (4 decimalen)
+- 20) `r_XZ`: `r_XZ` (4 decimalen)
+- 21) `r_YZ`: `r_YZ` (4 decimalen)
 
 ### **Deel E: Partiële correlatie (Stap 6)**
 
-22) Teller van de formule: `r_XY_teller` (4 decimalen)
-23) Noemer van de formule: `r_XY_noemer` (4 decimalen)
-24) Partiële correlatie $r_{XY \cdot Z}$: `r_XY_Z` (4 decimalen)
+- 22) Teller van de formule: `r_XY_teller` (4 decimalen)
+- 23) Noemer van de formule: `r_XY_noemer` (4 decimalen)
+- 24) Partiële correlatie `r_XY.Z`: `r_XY_Z` (4 decimalen)
 
 ### **Deel F: Interpretatie**
 
-25) **Welk type effect heeft leeftijd op de relatie X–Y?**
-1 = Schijnverband: het verband verdwijnt grotendeels na controle voor leeftijd
-2 = Indirect verband: het verband verzwakt significant maar blijft deels aanwezig
-3 = Suppressoreffect: het verband wordt sterker na controle voor leeftijd
-4 = Reëel verband: het verband verandert nauwelijks na controle voor leeftijd
-`conclusie_type`
+- 25) **Welk type effect heeft leeftijd op de relatie X–Y?**
+- 1 = Schijnverband: het verband verdwijnt grotendeels na controle voor leeftijd
+- 2 = Indirect verband: het verband verzwakt significant maar blijft deels aanwezig
+- 3 = Suppressoreffect: het verband wordt sterker na controle voor leeftijd
+- 4 = Reëel verband: het verband verandert nauwelijks na controle voor leeftijd
+- `conclusie_type`

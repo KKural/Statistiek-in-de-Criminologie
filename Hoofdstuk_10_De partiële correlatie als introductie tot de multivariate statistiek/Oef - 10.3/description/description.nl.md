@@ -43,21 +43,21 @@ $$r_{XY \cdot Z} = \frac{r_{XY} - r_{XZ} \cdot r_{YZ}}{\sqrt{(1 - r_{XZ}^2)(1 - 
 
 ### **Deel A: Correlaties uit de tabel aflezen**
 
-1) Bivariate correlatie X–Y: `r_XY` (2 decimalen)
-2) Bivariate correlatie X–Z: `r_XZ` (2 decimalen)
-3) Bivariate correlatie Y–Z: `r_YZ` (2 decimalen)
+- 1) Bivariate correlatie X–Y: `r_XY` (2 decimalen)
+- 2) Bivariate correlatie X–Z: `r_XZ` (2 decimalen)
+- 3) Bivariate correlatie Y–Z: `r_YZ` (2 decimalen)
 
 ### **Deel B: Partiële correlatie berekenen**
 
-4) Teller van de formule: `r_XY_teller` (4 decimalen)
-5) Noemer van de formule: `r_XY_noemer` (4 decimalen)
-6) Partiële correlatie $r_{XY \cdot Z}$: `r_XY_Z` (4 decimalen)
+- 4) Teller van de formule: `r_XY_teller` (4 decimalen)
+- 5) Noemer van de formule: `r_XY_noemer` (4 decimalen)
+- 6) Partiële correlatie `r_XY.Z`: `r_XY_Z` (4 decimalen)
 
 ### **Deel C: Interpretatie**
 
-7) **Welk type effect heeft lage zelfcontrole (Z) op de relatie X–Y?**
-   - 1 = Schijnverband: het verband verdwijnt grotendeels na controle voor Z
-   - 2 = Indirect verband: het verband verzwakt significant maar blijft deels aanwezig
-   - 3 = Suppressoreffect: een verborgen (sterker) verband wordt pas zichtbaar na controle voor Z
-   - 4 = Teken omgekeerd door positieve confoundering
-   - `conclusie_type`
+- 7) **Welk type effect heeft lage zelfcontrole (Z) op de relatie X–Y?**
+- 1 = Schijnverband: het verband verdwijnt grotendeels na controle voor Z
+- 2 = Indirect verband: het verband verzwakt significant maar blijft deels aanwezig
+- 3 = Suppressoreffect: een verborgen (sterker) verband wordt pas zichtbaar na controle voor Z
+- 4 = Teken omgekeerd door positieve confoundering
+- `conclusie_type`
