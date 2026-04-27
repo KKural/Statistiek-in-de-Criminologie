@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.2 Padcoëfficiënten aflezen"
+      "nl": "Oef - 12.2 PadcoÃ«fficiÃ«nten aflezen"
     }
   },
   "evaluation": {
@@ -22,4 +22,4 @@
     "token": "4wnuCbnQFEzZFEG8FwKSVcX-7QQDBMenStSFpiU2XASKPNN8Z_r-nxiPKuKZEMiX",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
-}
+}
