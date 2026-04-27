@@ -1,4 +1,4 @@
-﻿Dit theorieblok behandelt de fundamentele concepten van **Hoofdstuk 12: Complexere relaties tussen variabelen**. Deze kennis is essentieel voor het begrijpen van **padmodellen**, **mediatie**, **moderatie (interactie-effecten)** en de interpretatie van directe, indirecte en totale effecten in criminologisch onderzoek.
+Dit theorieblok behandelt de fundamentele concepten van **Hoofdstuk 12: Complexere relaties tussen variabelen**. Deze kennis is essentieel voor het begrijpen van **padmodellen**, **mediatie**, **moderatie (interactie-effecten)** en de interpretatie van directe, indirecte en totale effecten in criminologisch onderzoek.
 
 Studiemateriaal en leerdoelen:
 
