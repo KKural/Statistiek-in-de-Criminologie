@@ -1,55 +1,43 @@
 # Vervang ??? door je antwoord.
-#
-# Richtlijnen:
-# - Bereken met de hand en vul enkel eindwaarden in (geen R-berekeningen nodig).
-# - Gebruik decimalen met punt (niet komma) en geen procentteken.
-# - Rond af zoals aangegeven per vraag.
+# Bereken alles met de hand (rekenmachine mag) en vul alleen eindwaarden in.
+# Gebruik een punt als decimaalteken (niet komma).
 
-# --- DEEL A: Verklarende variabele ---
-# 1) Verklarende variabele (1 = prijs, 2 = ontbossing)
-verklarende_variabele <- ???
+# --- Deel A: Variabelen ---
+# Welke variabele is de afhankelijke variabele?
+# 1 = politiedichtheid (X1), 2 = werkloosheid (X2), 3 = criminaliteitsindex (Y)
+afhankelijke_variabele <- ???
 
-# --- DEEL B: Gemiddelden ---
-# 2) Gemiddelde van X (prijs) - rond af op 2 decimalen
-gemiddelde_x <- ???
+# --- Deel B: Gemiddelden (2 decimalen) ---
+gemiddelde_x1 <- ???
+gemiddelde_x2 <- ???
+gemiddelde_y  <- ???
 
-# 3) Gemiddelde van Y (ontbossing) - rond af op 4 decimalen
-gemiddelde_y <- ???
+# --- Deel C: Sommen van kwadraten en kruisproducten ---
+SSx1   <- ???   # som van (x1 - x1_gem)^2
+SSx2   <- ???   # som van (x2 - x2_gem)^2
+SSy    <- ???   # som van (Y - Y_gem)^2
+SSx1x2 <- ???   # som van (x1 - x1_gem)(x2 - x2_gem)
+SSx1y  <- ???   # som van (x1 - x1_gem)(Y - Y_gem)
+SSx2y  <- ???   # som van (x2 - x2_gem)(Y - Y_gem)
 
-# --- DEEL C: Sommen van kwadraten en kruisproducten ---
-# 4) SSx: som van gekwadrateerde afwijkingen van X
-SSx <- ???
+# --- Deel D: Determinant ---
+determinant_D <- ???   # SSx1 * SSx2 - SSx1x2^2
 
-# 5) SSy: som van gekwadrateerde afwijkingen van Y - rond af op 4 decimalen
-SSy <- ???
+# --- Deel E: Regressiecoefficienten (2 decimalen) ---
+b1         <- ???   # regressiegewicht voor X1 (politiedichtheid)
+b2         <- ???   # regressiegewicht voor X2 (werkloosheid)
+intercept_a <- ???  # intercept a
 
-# 6) SSxy: som van kruisproducten - rond af op 2 decimalen
-SSxy <- ???
+# --- Deel F: Voorspelling (2 decimalen) ---
+# Voorspel Y voor een stad met X1 = 3 en X2 = 8
+voorspelling <- ???
 
-# --- DEEL D: Varianties en standaardafwijkingen ---
-# 7) Variantie van X (SSx / (n-1)) - rond af op 1 decimaal
-variantie_x <- ???
+# --- Deel G: Model fit (4 decimalen) ---
+R_kwadraat <- ???
 
-# 8) Variantie van Y (SSy / (n-1)) - rond af op 4 decimalen
-variantie_y <- ???
+# --- Deel H: Interpretatie ---
+# Richting van b1: 1 = positief, 2 = negatief
+richting_b1 <- ???
 
-# 9) Standaardafwijking van X - rond af op 4 decimalen
-sd_x <- ???
-
-# 10) Standaardafwijking van Y - rond af op 4 decimalen
-sd_y <- ???
-
-# 11) Covariantie (SSxy / (n-1)) - rond af op 4 decimalen
-covariantie <- ???
-
-# --- DEEL E: Pearson's correlatie ---
-# 12) Pearson's r (covariantie / (sd_x * sd_y)) - rond af op 4 decimalen
-pearson_r <- ???
-
-# --- DEEL F: Interpretatie ---
-# 13) Verandert de correlatie als de prijs in euro wordt uitgedrukt?
-# 1 = ja, 2 = nee
-correlatie_verandert <- ???
-
-# Korte verklaring (1-3 zinnen)
-verklaring_euro <- ???
+# Sterkste relatieve effect (beta): 1 = X1 (politiedichtheid), 2 = X2 (werkloosheid)
+sterkste_predictor <- ???

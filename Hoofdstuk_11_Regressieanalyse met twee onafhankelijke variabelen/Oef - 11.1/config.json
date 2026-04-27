@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 11.1 Koffieprijs en ontbossing"
+      "nl": "Oef - 11.1 Politiedichtheid, werkloosheid en criminaliteit"
     }
   },
   "evaluation": {
@@ -13,9 +13,10 @@
   "test_suite": "evaluation",
   "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
-    "correlatie",
-    "pearson",
-    "begrippen"
+    "meervoudige-regressie",
+    "handberekening",
+    "regressieparameters",
+    "determinant"
   ],
   "internals": {
     "token": "nrtgvYZh6SeNj9XPz6EsEhR4FmAgC__WfQUmrWmV5eAhh69uMeiFNpfC5U7MEgJN",

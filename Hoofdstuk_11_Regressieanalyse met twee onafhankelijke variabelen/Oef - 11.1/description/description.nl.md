@@ -1,107 +1,134 @@
-Voor verschillende ontwikkelingslanden is koffie een belangrijk exportartikel. Wanneer koffieprijzen hoog zijn, kappen boeren soms bossen om meer koffiebomen te planten. Hieronder staan gegevens voor Indonesie: de prijs die koffieverbouwers kregen en het percentage ontbossing in een nationaal park, gemeten over vijf jaar.
+Criminologen onderzoeken welke buurtkenmerken de criminaliteitsindex verklaren. Voor **vijf steden** zijn de volgende gegevens beschikbaar:
 
-**Tabel 1**
+- **X₁**: Politiedichtheid (agenten per km²)
+- **X₂**: Werkloosheidsgraad (%)
+- **Y**: Criminaliteitsindex (incidenten per 1000 inwoners)
 
-*Koffieprijs en ontbossing (5 jaar)*
+**Tabel 1** *— Gegevens per stad*
 
-<table style="border-collapse: collapse; width: 55%; margin: 20px auto; font-family: Times, serif;">
+<table style="border-collapse: collapse; width: 65%; margin: 20px auto; font-family: Times, serif;">
 <thead>
 <tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
-<th style="padding: 6px 8px; text-align: center; font-weight: bold;">Prijs (dollarcent per Am. pond)</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold;">Ontbossing (%)</th>
+<th style="padding: 6px 10px; text-align: center;">Stad</th>
+<th style="padding: 6px 10px; text-align: center;">Politiedichtheid (X₁)</th>
+<th style="padding: 6px 10px; text-align: center;">Werkloosheid (X₂)</th>
+<th style="padding: 6px 10px; text-align: center;">Criminaliteitsindex (Y)</th>
 </tr>
 </thead>
 <tbody>
-<tr><td style="padding: 4px 8px; text-align: center;">29</td><td style="padding: 4px 8px; text-align: center;">0.49</td></tr>
-<tr><td style="padding: 4px 8px; text-align: center;">40</td><td style="padding: 4px 8px; text-align: center;">1.59</td></tr>
-<tr><td style="padding: 4px 8px; text-align: center;">54</td><td style="padding: 4px 8px; text-align: center;">1.69</td></tr>
-<tr><td style="padding: 4px 8px; text-align: center;">55</td><td style="padding: 4px 8px; text-align: center;">1.82</td></tr>
-<tr style="border-bottom: 2px solid #000;"><td style="padding: 4px 8px; text-align: center;">72</td><td style="padding: 4px 8px; text-align: center;">3.10</td></tr>
+<tr><td style="padding: 4px 10px; text-align: center;">A</td><td style="padding: 4px 10px; text-align: center;">1</td><td style="padding: 4px 10px; text-align: center;">5</td><td style="padding: 4px 10px; text-align: center;">20</td></tr>
+<tr><td style="padding: 4px 10px; text-align: center;">B</td><td style="padding: 4px 10px; text-align: center;">2</td><td style="padding: 4px 10px; text-align: center;">10</td><td style="padding: 4px 10px; text-align: center;">24</td></tr>
+<tr><td style="padding: 4px 10px; text-align: center;">C</td><td style="padding: 4px 10px; text-align: center;">3</td><td style="padding: 4px 10px; text-align: center;">5</td><td style="padding: 4px 10px; text-align: center;">16</td></tr>
+<tr><td style="padding: 4px 10px; text-align: center;">D</td><td style="padding: 4px 10px; text-align: center;">4</td><td style="padding: 4px 10px; text-align: center;">10</td><td style="padding: 4px 10px; text-align: center;">18</td></tr>
+<tr style="border-bottom: 2px solid #000;"><td style="padding: 4px 10px; text-align: center;">E</td><td style="padding: 4px 10px; text-align: center;">5</td><td style="padding: 4px 10px; text-align: center;">5</td><td style="padding: 4px 10px; text-align: center;">12</td></tr>
 </tbody>
 </table>
 
-Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **eindresultaten** in (geen R-berekeningen nodig).
+Bereken alles **met de hand** (rekenmachine mag). Vul enkel je **eindresultaten** in R in.
 
 ---
 
-## **Berekeningsstappen voor Pearson's correlatie**
+## Berekeningsstappen voor meervoudige regressie
 
-Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak een overzichtstabel):
+**Stap 1 — Gemiddelden**
+- Bereken x̄₁, x̄₂ en Ȳ
 
-1. **Bereken het gemiddelde** van X (prijs) en Y (ontbossing): x̄ en ȳ
-2. **Bereken de afwijkingen** van het gemiddelde voor elke waarneming:
-   - (x - x̄) voor elke prijswaarde
-   - (y - ȳ) voor elke ontbossingswaarde
-3. **Kwadrateer de afwijkingen**:
-   - (x - x̄)² voor elke waarneming
-   - (y - ȳ)² voor elke waarneming
-4. **Bereken de kruisproducten**: (x - x̄)·(y - ȳ) voor elke waarneming
-5. **Som alle waarden** op:
-   - SSx = Σ(x - x̄)² (variatie in X)
-   - SSy = Σ(y - ȳ)² (variatie in Y)
-   - SSxy = Σ(x - x̄)·(y - ȳ) (covariatie)
-6. **Bereken de varianties**: s²x = SSx/(n-1) en s²y = SSy/(n-1)
-7. **Bereken de standaardafwijkingen**: sx = √s²x en sy = √s²y
-8. **Bereken de covariantie**: s²xy = SSxy/(n-1)
-9. **Bereken Pearson's r**: r = s²xy / (sx · sy)
+**Stap 2 — Afwijkingstabel (maak twee tabellen)**
+- Tabel A: (x₁−x̄₁), (x₂−x̄₂), (Y−Ȳ) voor elke stad
+- Tabel B: kwadraten en kruisproducten per stad
 
-**Tip:** Maak een tabel met kolommen voor: Prijs, x-x̄, (x-x̄)², Ontbossing, y-ȳ, (y-ȳ)², en (x-x̄)·(y-ȳ). Dit helpt je om georganiseerd te werken en fouten te vermijden.
+**Stap 3 — Sommeer**
+- SSx₁ = Σ(x₁−x̄₁)² &nbsp;&nbsp; SSx₂ = Σ(x₂−x̄₂)² &nbsp;&nbsp; SSy = Σ(Y−Ȳ)²
+- SSx₁x₂ = Σ(x₁−x̄₁)(x₂−x̄₂) &nbsp;&nbsp; SSx₁y = Σ(x₁−x̄₁)(Y−Ȳ) &nbsp;&nbsp; SSx₂y = Σ(x₂−x̄₂)(Y−Ȳ)
+
+**Stap 4 — Determinant**
+$$D = SSx_1 \cdot SSx_2 - SSx_{12}^2$$
+
+**Stap 5 — Regressiegewichten**
+$$b_1 = \frac{SSx_{1y} \cdot SSx_2 - SSx_{2y} \cdot SSx_{12}}{D} \qquad b_2 = \frac{SSx_{2y} \cdot SSx_1 - SSx_{1y} \cdot SSx_{12}}{D}$$
+
+**Stap 6 — Intercept**
+$$a = \bar{Y} - b_1 \bar{x}_1 - b_2 \bar{x}_2$$
+
+**Stap 7 — Voorspelling**
+$$\hat{Y} = a + b_1 x_1 + b_2 x_2$$
+
+**Stap 8 — Determinatiecoëfficiënt R²**
+$$R^2 = \frac{b_1 \cdot SSx_{1y} + b_2 \cdot SSx_{2y}}{SSy}$$
 
 ---
 
-## **Opgaven**
+## Opgaven
 
-### **Deel A: Basisvragen**
+### Deel A: Variabelen
 
-- 1) **Wat is de verklarende variabele?**
-   - `verklarende_variabele` = 1 (prijs) of 2 (ontbossing)
+- 1) **Welke variabele is de afhankelijke variabele (Y)?**
+   - `afhankelijke_variabele` = 1 (politiedichtheid), 2 (werkloosheid) of 3 (criminaliteitsindex)
 
-### **Deel B: Gemiddelden**
+### Deel B: Gemiddelden
 
-- 2) **Bereken het gemiddelde van de prijs (x̄)**
-   - `gemiddelde_x` (rond af op 2 decimalen)
+- 2) **Gemiddelde van X₁** (politiedichtheid) — 2 decimalen
+   - `gemiddelde_x1`
 
-- 3) **Bereken het gemiddelde van ontbossing (ȳ)**
-   - `gemiddelde_y` (rond af op 4 decimalen)
+- 3) **Gemiddelde van X₂** (werkloosheid) — 2 decimalen
+   - `gemiddelde_x2`
 
-### **Deel C: Afwijkingen en gekwadrateerde afwijkingen**
+- 4) **Gemiddelde van Y** (criminaliteitsindex) — 2 decimalen
+   - `gemiddelde_y`
 
-- 4) **Bereken de som van de gekwadrateerde afwijkingen van X (SSx)**
-   - `SSx` (geheel getal of 1 decimaal)
+### Deel C: Sommen van kwadraten en kruisproducten
 
-- 5) **Bereken de som van de gekwadrateerde afwijkingen van Y (SSy)**
-   - `SSy` (rond af op 4 decimalen)
+- 5) **SSx₁** = Σ(x₁−x̄₁)²
+   - `SSx1`
 
-- 6) **Bereken de som van de kruisproducten (SSxy)**
-   - `SSxy` (rond af op 2 decimalen)
+- 6) **SSx₂** = Σ(x₂−x̄₂)²
+   - `SSx2`
 
-### **Deel D: Varianties en standaardafwijkingen**
+- 7) **SSy** = Σ(Y−Ȳ)²
+   - `SSy`
 
-- 7) **Bereken de variantie van X (s²x = SSx/(n-1))**
-   - `variantie_x` (rond af op 1 decimaal)
+- 8) **SSx₁x₂** = Σ(x₁−x̄₁)(x₂−x̄₂)
+   - `SSx1x2`
 
-- 8) **Bereken de variantie van Y (s²y = SSy/(n-1))**
-   - `variantie_y` (rond af op 4 decimalen)
+- 9) **SSx₁y** = Σ(x₁−x̄₁)(Y−Ȳ)
+   - `SSx1y`
 
-- 9) **Bereken de standaardafwijking van X (sx = √s²x)**
-   - `sd_x` (rond af op 4 decimalen)
+- 10) **SSx₂y** = Σ(x₂−x̄₂)(Y−Ȳ)
+    - `SSx2y`
 
-- 10) **Bereken de standaardafwijking van Y (sy = √s²y)**
-    - `sd_y` (rond af op 4 decimalen)
+### Deel D: Determinant
 
-- 11) **Bereken de covariantie (s²xy = SSxy/(n-1))**
-    - `covariantie` (rond af op 4 decimalen)
+- 11) **Determinant** D = SSx₁·SSx₂ − SSx₁x₂²
+    - `determinant_D`
 
-### **Deel E: Pearson's correlatie**
+### Deel E: Regressiecoëfficiënten
 
-- 12) **Bereken Pearson's r (r = s²xy / (sx · sy))**
-    - `pearson_r` (rond af op 4 decimalen)
+- 12) **Regressiegewicht b₁** (voor politiedichtheid) — 2 decimalen
+    - `b1`
 
-### **Deel F: Interpretatie**
+- 13) **Regressiegewicht b₂** (voor werkloosheid) — 2 decimalen
+    - `b2`
 
-- 13) **De prijs werd uitgedrukt in dollars. Als de prijs in euro zou worden uitgedrukt (dus elke waarde wordt vermenigvuldigd met een constante en eventueel verschoven), verandert de correlatie dan?**
-    - `correlatie_verandert` = 1 (ja) of 2 (nee)
-    - Geef een korte verklaring in `verklaring_euro` (1-3 zinnen)
+- 14) **Intercept a** — 2 decimalen
+    - `intercept_a`
+
+### Deel F: Voorspelling
+
+- 15) **Voorspel Y voor een stad met X₁ = 3 en X₂ = 8** — 2 decimalen
+    - `voorspelling`
+
+### Deel G: Model fit
+
+- 16) **Determinatiecoëfficiënt R²** — 4 decimalen
+    - `R_kwadraat`
+
+### Deel H: Interpretatie
+
+- 17) **In welke richting werkt b₁?**
+    - `richting_b1` = 1 (positief: meer politie → meer criminaliteit) of 2 (negatief: meer politie → minder criminaliteit)
+
+- 18) **Welke predictor heeft het sterkste relatieve effect op Y (kijk naar de gestandaardiseerde coëfficiënten β)?**
+    - `sterkste_predictor` = 1 (X₁ politiedichtheid) of 2 (X₂ werkloosheid)
 
 ---
 

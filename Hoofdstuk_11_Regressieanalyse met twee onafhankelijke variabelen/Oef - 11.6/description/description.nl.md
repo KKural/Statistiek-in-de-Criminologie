@@ -1,5 +1,12 @@
-**Wat hebben we bereikt in Hoofdstuk 8?**  
-In Hoofdstuk 8 heb je geleerd hoe je **lineaire relaties tussen metrische variabelen** beschrijft en analyseert. Via puntenwolken, covariatie, covariantie, correlatie en bivariate regressie kon je de richting, sterkte en voorspellende waarde van een verband bepalen. Je leerde regressieparameters interpreteren (intercept, regressiegewicht, residuen, R²) en de totale variatie in Y opsplitsen in verklaarde en onverklaarde componenten. Daarmee bouwde Hoofdstuk 8 de analytische basis voor verklarend en voorspellend criminologisch onderzoek.
+**Wat hebben we bereikt in Hoofdstuk 11?**  
+In Hoofdstuk 11 heb je geleerd hoe je een **meervoudige lineaire regressie** met twee onafhankelijke variabelen opbouwt, berekent en interpreteert. Je oefende met het model `Y = a + b1X1 + b2X2 + e`, met de interpretatie van **ceteris-paribus** effecten, en met het onderscheid tussen ongestandaardiseerde coëfficiënten (`b`) en gestandaardiseerde coëfficiënten (`β`). Je leerde ook hoe je modelkwaliteit beoordeelt via **R²**, onverklaarde variantie, en de **globale F-toets**.
 
-**Vooruitblik naar Hoofdstuk 9**  
-In Hoofdstuk 9 verschuift de aandacht van **beschrijven** naar **toetsen en veralgemenen**. Je leert hoe je op basis van een steekproef betrouwbare uitspraken doet over een populatie via kansrekening, steekproevenverdelingen, standaardfouten en betrouwbaarheidsintervallen. Vervolgens maak je kennis met de logica van **significantietoetsing**, p-waarden, type-I en type-II fouten, power en het verschil tussen eenzijdig en tweezijdig toetsen. Het hoofdstuk introduceert ook de belangrijkste kansverdelingen die aan de basis liggen van alle inferentiële tests. Tot slot leer je de **variantieanalyse (ANOVA)** uitwerken en interpreteren, een methode om te bepalen of groepsgemiddelden significant van elkaar verschillen. Hoofdstuk 9 vormt daarmee de brug tussen beschrijvende statistiek en geavanceerde inferentiële analysetechnieken in criminologisch onderzoek.
+**Vooruitblik naar Hoofdstuk 12**  
+In Hoofdstuk 12 ga je een stap verder naar **complexere relaties tussen variabelen**. Je leert werken met **padmodellen**, waarbij variabelen tegelijk oorzaak, tussenstap en uitkomst kunnen zijn. Centraal staan:
+
+- Exogene, endogene en intermediaire variabelen
+- Directe, indirecte en totale effecten
+- Mediatie en moderatie (interactie-effecten)
+- Interpretatie van verklaringskracht in meerlagige modellen
+
+Hoofdstuk 12 bouwt rechtstreeks verder op Hoofdstuk 11: je gebruikt regressielogica als basis, maar binnen een netwerk van samenhangende causale paden.
