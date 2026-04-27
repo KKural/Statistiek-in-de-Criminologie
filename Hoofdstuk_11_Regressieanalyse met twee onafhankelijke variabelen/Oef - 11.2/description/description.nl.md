@@ -1,4 +1,4 @@
-In deze oefening oefen je met **correlatie-analyse** en **bivariate lineaire regressie** aan de hand van een interactieve Shiny-app. De app genereert criminologische datasets en laat je alle tussenstappen handmatig berekenen, vergelijkbaar met Oefening 8.1, maar nu met directe feedback.
+In deze oefening oefen je met **meervoudige regressie-analyse** (met twee onafhankelijke variabelen) aan de hand van een interactieve Shiny-app. De app genereert criminologische datasets en laat je alle tussenstappen handmatig berekenen — vergelijkbaar met Oefening 11.1, maar nu met directe feedback.
 
 ---
 
@@ -6,9 +6,9 @@ In deze oefening oefen je met **correlatie-analyse** en **bivariate lineaire reg
 
 De interactieve app is beschikbaar op:
 
-**<a href='https://statistiek-in-de-criminologie.shinyapps.io/correlatie-regressie/' target='_blank' rel='noopener noreferrer'>Oefeningen voor Correlatie & Regressie</a>**
+**<a href='https://statistiek-in-de-criminologie.shinyapps.io/meervoudige-regressie/' target='_blank' rel='noopener noreferrer'>Oefeningen voor Meervoudige Regressie</a>**
 
-> **Let op:** Deze link werkt alleen als de app actief draait op je computer. Vraag je docent om de app te starten als deze niet beschikbaar is.
+> **Let op:** Deze link werkt alleen als de app actief draait. Vraag je docent om de app te starten als deze niet beschikbaar is.
 
 ---
 
@@ -16,11 +16,11 @@ De interactieve app is beschikbaar op:
 
 Na het werken met deze app kun je:
 
-- **Correlatie-analyse** uitvoeren met 9 stappen (gemiddelden, afwijkingen, covariantie, correlatie)
-- **Bivariate regressie-analyse** uitvoeren met 15 stappen (inclusief intercept, rico, R², residuen)
-- Scatterplots interpreteren en de regressielijn begrijpen
-- Residuenplots en kalibratieplots lezen
-- Het verschil begrijpen tussen symmetrische (correlatie) en asymmetrische (regressie) analyses
+- **Meervoudige regressie** uitvoeren met 21 stappen (gemiddelden, afwijkingen, kwadraten, kruisproducten, varianties, covarianties, correlaties, determinant, regressiecoëfficiënten, voorspellingen, R²)
+- De rol van de **determinant** van de variantie-covariantiematrix begrijpen
+- De ongestandaardiseerde coëfficiënten **b₁ en b₂** handmatig berekenen
+- **R²** en de **vervreemdingscoëfficiënt** berekenen en interpreteren
+- Het verschil begrijpen tussen bivariate en meervoudige regressie
 
 ---
 
@@ -30,13 +30,13 @@ Na het werken met deze app kun je:
 
 De app bevat **verschillende criminologische scenario's**, zoals:
 
-- **Programma-effectiviteit**: Relatie tussen blootstelling aan een preventieprogramma en inbraakcijfers
-- **Voetpatrouilles**: Effect van patrouille-uren op meldingen bij de politie
-- **Wanorde en angst**: Samenhang tussen wanorde-index en angstscores
-- **Risicogedrag**: Relatie tussen risicogedrag en recidive
+- **Criminaliteitspreventie**: Effect van programma-blootstelling op inbraakcijfers (met tweede voorspeller)
+- **Hot-spot politiestrategie**: Voetpatrouille-uren en meldingen aan politie
+- **Wanorde en angst**: Wanorde-index en angstscores per buurt
+- **Politie–publiek relaties**: Procedurele rechtvaardigheid en vertrouwen in politie
 - En meer...
 
-Elk scenario heeft **realistische variabelennamen** in het Nederlands.
+Elk scenario heeft **twee onafhankelijke variabelen (x₁ en x₂)** en één afhankelijke variabele (Y), met realistische criminologische benamingen.
 
 ### **Stap 2: Kies de Steekproefgrootte**
 
@@ -45,161 +45,136 @@ Selecteer het aantal observaties (N):
 - **Medium (15-25)**: Realistischer
 - **Groot (30-50)**: Voor geavanceerde oefeningen
 
-### **Stap 3: Kies je Analyse-Modus**
+### **Stap 3: Genereer Data**
 
-De app biedt **twee modi**:
+Klik op **"Genereer dataset"** of gebruik **"Willekeurig scenario"** voor een andere dataset. Voer optioneel een **seed** in voor reproduceerbare datasets.
 
-#### **Correlatie-analyse (9 stappen)**
-Symmetrische associatiemaat - berekent de sterkte en richting van de lineaire samenhang.
+Je krijgt een **datatabel** te zien met x₁-, x₂- en Y-waarden per eenheid.
 
-**De 9 stappen zijn:**
-1. Gemiddelde van X (x̄)
-2. Gemiddelde van Y (ȳ)
-3. Som gekwadrateerde afwijkingen X (SSx)
-4. Som gekwadrateerde afwijkingen Y (SSy)
-5. Som kruisproducten (SSxy)
-6. Variantie X (s²x)
-7. Variantie Y (s²y)
-8. Standaardafwijking X (sx) en Y (sy)
-9. **Pearson's correlatie (r)**
+### **Stap 4: Bereken Handmatig (21 stappen)**
 
-#### **Bivariate Regressie (15 stappen)**
-Asymmetrische analysetechniek - voorspelt Y op basis van X.
+Met de hand (rekenmachine mag!), bereken alle tussenstappen zoals in Hoofdstuk 11 geleerd:
 
-**De 15 stappen zijn:**
-1-9. Zelfde als correlatie-analyse
-10. Covariantie (s²xy)
-11. Ongestandaardiseerde rico (b₁)
-12. Intercept (a of b₀)
-13. Gestandaardiseerde rico (β)
-14. **Determinatiecoëfficiënt (R²)**
-15. **Aliënatiecoëfficiënt (1-R²)**
+**Deel II — Stap 1: Gemiddelden**
+- x̄₁, x̄₂ en Ȳ (4 decimalen)
 
-### **Stap 4: Genereer Data**
+**Deel III — Stappen 2–6: Afwijkingen, kwadraten & kruisproducten**
+- Maak **Tabel 1**: afwijkingen x₁−x̄₁, x₂−x̄₂, Y−Ȳ per observatie
+- Maak **Tabel 2**: kwadraten (x₁−x̄₁)², (x₂−x̄₂)², (Y−Ȳ)² en kruisproducten
+- Bereken totalen: Σ(x₁−x̄₁)², Σ(x₂−x̄₂)², Σ(x₁−x̄₁)(x₂−x̄₂), Σ(x₁−x̄₁)(Y−Ȳ), Σ(x₂−x̄₂)(Y−Ȳ), Σ(Y−Ȳ)²
 
-Klik op **"Genereer Nieuwe Data"** of voer een **seed** in voor reproduceerbare datasets.
+**Deel IV — Stappen 7–8: Varianties & standaarddeviaties**
+- Var(x₁), SD(x₁), Var(x₂), SD(x₂), Var(Y), SD(Y)
 
-Je krijgt een **datatabel** te zien met de X- en Y-waarden voor elke eenheid.
+**Deel IV-A — Stappen 9–11: Covarianties**
+- Cov(x₁,Y), Cov(x₂,Y), Cov(x₁,x₂)
 
-### **Stap 5: Bereken Handmatig**
+**Deel IV-B — Stappen 12–14: Correlatiecoëfficiënten**
+- r(x₁,Y), r(x₂,Y), r(x₁,x₂)
 
-Met de hand (rekenmachine mag!), bereken alle tussenstappen zoals in Hoofdstuk 8 geleerd:
+**Deel V — Stappen 15–18: Regressiecoëfficiënten**
+- Stap 15: Determinant = Σ(x₁−x̄₁)²·Σ(x₂−x̄₂)² − [Σ(x₁−x̄₁)(x₂−x̄₂)]²
+- Stap 16: b₁ via determinantformule
+- Stap 17: b₂ via determinantformule
+- Stap 18: Intercept a = Ȳ − b₁·x̄₁ − b₂·x̄₂
 
-1. **Maak een tabel** met kolommen voor:
-   - x, y
-   - x - x̄, y - ȳ
-   - (x - x̄)², (y - ȳ)²
-   - (x - x̄)·(y - ȳ)
+**Deel VI — Stap 19: Voorspellingen**
+- Ŷ = a + b₁·x₁ + b₂·x₂ voor elke observatie
 
-2. **Bereken de sommen**: SSx, SSy, SSxy
+**Deel VII — Stappen 20–21: Model fit**
+- R² = 1 − SSE/SST
+- Vervreemdingscoëfficiënt = 1 − R²
 
-3. **Bereken varianties en standaardafwijkingen**
+### **Stap 5: Vul je Antwoorden in de App**
 
-4. **Bereken correlatie of regressieparameters**
-
-### **Stap 6: Vul je Antwoorden in de App**
-
-Voer je berekende waarden in de **invoervelden** in:
-
-- **Tussenstappen**: 4 decimalen nauwkeurigheid
-- **Eindstatistieken**: 2 decimalen nauwkeurigheid
+Voer je berekende waarden in de **invoervelden** in met **4 decimalen** nauwkeurigheid.
 
 > **Belangrijke afrondingsregel**: Rond pas af bij het invullen, niet tijdens de berekening!
 
-### **Stap 7: Ontvang Feedback**
+### **Stap 6: Ontvang Feedback**
 
 De app geeft **directe feedback** met kleuren:
 
 - **Groen**: Correct!
-- **Rood**: Fout - controleer je berekening
+- **Rood**: Fout — controleer je berekening
 - **Neutraal**: Nog niet ingevuld
 
-De app toont **geen correcte antwoorden**, maar geeft wel aan welke stappen fout zijn zodat je je berekening kunt controleren.
+De app toont **geen correcte antwoorden**, maar geeft per stap aan of je berekening klopt.
 
 ---
 
 ## **Visualisaties in de App**
 
-### **Voor Regressie-Modus:**
+De visualisaties worden ontgrendeld wanneer alle stappen correct zijn:
 
-1. **Scatterplot met Regressielijn**
-   - Toont de datapunten en de best passende rechte lijn
-   - Helpt de sterkte en richting van het verband te zien
+1. **3D-scatterplot (of projectieplot)**
+   - Toont de datapunten in de ruimte van x₁, x₂ en Y
+   - Helpt het vlak van de meervoudige regressie te begrijpen
 
 2. **Residuenplot**
-   - Toont de afstand van elk punt tot de regressielijn
-   - Horizontale lijn bij 0 = perfecte voorspelling
-   - Helpt patronen in voorspellingsfouten te zien
+   - Voorspelde waarden (Ŷ) vs. residuen (Y − Ŷ)
+   - Helpt systematische fouten in het model te detecteren
 
 3. **Kalibratieplot**
    - Vergelijkt voorspelde waarden (Ŷ) met geobserveerde waarden (Y)
    - Diagonale lijn = perfecte voorspelling
-   - Hoe dichter punten bij de lijn, hoe beter het model
 
 ### **Statistieken Samenvatting**
 
 De app toont automatisch (na correcte berekening):
-- Correlatie (r)
-- Determinatiecoëfficiënt (R²)
-- Regressiecoëfficiënt (b)
-- Intercept (a)
-
-### **Interpretatie**
-
-De app geeft een **automatische interpretatie** in begrijpelijk Nederlands, bijvoorbeeld:
-
-> "Er is een **sterke positieve** samenhang (r = 0.8234, R² = 0.6780). Een toename van 1 eenheid in ProgrammaBlootstelling gaat gemiddeld gepaard met een verandering van **-2.34** eenheden in InbraakCijfer."
+- Regressiecoëfficiënten b₁ en b₂
+- Intercept a
+- Determinatiecoëfficiënt R²
+- Vervreemdingscoëfficiënt (1 − R²)
 
 ---
 
 ## **Tips voor Efficiënt Oefenen**
 
-1. **Begin klein**: Start met N=5 om de stappen te leren
-2. **Controleer tussenstappen**: Als een stap rood is, controleer ook eerdere stappen
-3. **Maak een vaste tabel-template**: Zo maak je minder fouten
+1. **Begin klein**: Start met N=5 om de 21 stappen te leren
+2. **Controleer tussenstappen**: Een fout in de kruisproducten werkt door in b₁ en b₂
+3. **Maak een vaste tabel-template**: Twee tabellen (afwijkingen + kwadraten/kruisproducten)
 4. **Gebruik een seed**: Bij dezelfde seed krijg je dezelfde data (handig om samen te oefenen)
-5. **Vergelijk modi**: Doe eerst correlatie, dan regressie met dezelfde data om het verschil te zien
-6. **Let op afrondingen**: Gebruik de juiste precisie (4 dp voor tussenstappen, 2 dp voor eindresultaat)
+5. **Let op de determinant**: Als de determinant klein is, zijn x₁ en x₂ sterk gecorreleerd (multicollineariteit)
+6. **Let op afrondingen**: Gebruik consequent 4 decimalen voor alle tussenstappen
 
 ---
 
 ## **Oefenopgaven**
 
-### **Opdracht 1: Correlatie Basis**
-- Scenario: **Wanorde en Angst**
+### **Opdracht 1: Basisberekening**
+- Scenario: **Criminaliteitspreventie**
 - N = 8
-- Modus: **Correlatie**
 - Seed: 12345
 
-Bereken alle 9 stappen en interpreteer het resultaat.
+Bereken alle 21 stappen. Wat zijn b₁, b₂ en het intercept?
 
-### **Opdracht 2: Regressie Volledig**
-- Scenario: **Voetpatrouilles**
+### **Opdracht 2: Volledig Model**
+- Scenario: **Angst voor criminaliteit & buurtwanorde**
 - N = 12
-- Modus: **Bivariate Regressie**
 - Seed: 54321
 
-Bereken alle 15 stappen. Wat is de voorspelde waarde voor Y als X = 10?
+Bereken alle stappen. Welk percentage van de variantie in Y wordt verklaard door x₁ en x₂ samen?
 
-### **Opdracht 3: Vergelijking**
-Genereer dezelfde data (zelfde seed) en doe:
-1. Eerst correlatie-analyse
-2. Dan regressie-analyse
+### **Opdracht 3: Vergelijking met Bivariate Regressie**
+Gebruik Oefening 11.1 (bivariate regressie, alleen x₁) en Oefening 11.2 (meervoudige regressie, x₁ + x₂) met dezelfde seed.
 
-Controleer: Is r² (uit correlatie) gelijk aan R² (uit regressie)?
+Vergelijk:
+- R² van bivariate regressie vs. R² van meervoudige regressie
+- Verandert b₁ als je x₂ toevoegt? Waarom?
 
 ---
 
 ## **Veelgestelde Vragen**
 
 **Q: Waarom verschillen mijn antwoorden van de app?**  
-A: Controleer je afrondingen. Gebruik 4 decimalen tijdens berekening en rond pas af bij invoer.
+A: Controleer je afrondingen. Gebruik 4 decimalen consequent tijdens alle berekeningen.
 
 **Q: Kan ik de correcte antwoorden zien?**  
 A: Nee, de app toont alleen of je antwoord juist is (kleurcodering), niet het correcte antwoord. Dit stimuleert zelfstandig nadenken.
 
 **Q: Hoe weet ik welke stap fout is?**  
-A: Elke stap krijgt apart feedback. Begin bij de eerste rode stap en werk vanaf daar verder.
+A: Elke stap krijgt apart feedback. Begin bij de eerste rode stap — fouten propageren naar latere stappen.
 
 **Q: Wat betekent de seed?**  
 A: Een seed is een getal dat zorgt voor reproduceerbare willekeurige data. Dezelfde seed = dezelfde dataset.
@@ -207,16 +182,18 @@ A: Een seed is een getal dat zorgt voor reproduceerbare willekeurige data. Dezel
 **Q: Moet ik R-code schrijven?**  
 A: Nee! Deze oefening is voor **handmatige berekening**. De app is alleen een hulpmiddel voor feedback.
 
+**Q: Waarom is de determinant nodig?**  
+A: De determinant meet de onafhankelijkheid van x₁ en x₂. Bij hoge correlatie tussen de predictoren (multicollineariteit) wordt de determinant klein en worden b₁ en b₂ instabiel.
+
 ---
 
-## **Verband met Hoofdstuk 8**
+## **Verband met Hoofdstuk 11**
 
 Deze app helpt je oefenen met:
-- **§8.1**: Symmetrische associatiematen (covariatie, covariantie, correlatie)
-- **§8.2**: Uitgewerkt rekenvoorbeeld correlatie
-- **§8.3**: Bivariate lineaire regressieanalyse (OLS)
-- **§8.4**: Uitgewerkt rekenvoorbeeld regressie
-- **§8.5**: Interpretatie van regressieparameters
+- **§11.1**: Meervoudige regressie met twee onafhankelijke variabelen
+- **§11.2**: Berekening van regressiecoëfficiënten via de determinantmethode
+- **§11.3**: Determinatiecoëfficiënt R² en model fit bij meervoudige regressie
+- **§11.4**: Interpretatie van partiële regressiecoëfficiënten
 
 ---
 
@@ -225,9 +202,9 @@ Deze app helpt je oefenen met:
 **Voor deze oefening hoef je niets in te leveren op Dodona.** Dit is een **oefentool** voor zelfstudie en voorbereiding op het examen.
 
 Gebruik de app om:
-- Je begrip van correlatie en regressie te verdiepen
-- Snelheid en nauwkeurigheid in handmatige berekening te verbeteren
-- Verschillende scenario's en steekproefgroottes te oefenen
+- Je begrip van meervoudige regressie te verdiepen
+- De 21 berekeningsstappen te oefenen
+- Verschillende scenario's en steekproefgroottes te verkennen
 
 ---
 
