@@ -1,22 +1,23 @@
 {
-    "programming_language": "R",
-    "access": "public",
-    "description": {
-        "names": {
-            "nl": "Oef - 12.6 R-kwadraat van Morele intuities (groepsgericht)"
-        }
-    },
-    "evaluation": {
-        "handler": "R"
-    },
-    "test_suite": "evaluation",
-    "labels": [
-        "padmodel",
-        "R-kwadraat",
-        "groepsgericht",
-        "interpretatie"
-    ],
-    "internals": {
-        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 12.6 R-kwadraat van Morele intuities (groepsgericht)"
     }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "labels": [
+    "padmodel",
+    "R-kwadraat",
+    "groepsgericht",
+    "interpretatie"
+  ],
+  "internals": {
+    "token": "bdgkC5eDnTnZ6m6jgqpZ4i8gJXADU7Tkey4VXRct6bhGTFXphfDiv2tzfc9Bnrgs",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
