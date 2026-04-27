@@ -1,0 +1,25 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 8.4 Ligging van een punt t.o.v. de regressielijn"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "regressie",
+    "residu",
+    "scatterplot",
+    "visualisatie"
+  ],
+  "internals": {
+    "token": "MERgEfpDZHhGVyF3iJ3faTCZgAReMMGykRZRiv3DkKd99CUJqwmDuu_9MNQbjeaN",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
