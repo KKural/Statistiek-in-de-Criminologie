@@ -1,4 +1,4 @@
-﻿context({
+context({
   testcase(
     "",
     {
@@ -15,7 +15,11 @@
             vraag7 = 1,
             vraag8 = 1,
             vraag9 = 1,
-            vraag10 = 1
+            vraag10 = 1,
+            vraag11 = 2,
+            vraag12 = 2,
+            vraag13 = 3,
+            vraag14 = 3
           )
 
           parse_num <- function(x) {
@@ -52,7 +56,11 @@
             vraag7 = "Adjusted R² vs R²",
             vraag8 = "Concept multicollineariteit",
             vraag9 = "Concept ΔR²",
-            vraag10 = "Ceteris paribus interpretatie van b"
+            vraag10 = "Ceteris paribus interpretatie van b",
+            vraag11 = "95%-CI van b2 volledig positief",
+            vraag12 = "Sterkste relatieve effect: welke parameter?",
+            vraag13 = "Vrijheidsgraden foutterm (df residual)",
+            vraag14 = "b positief maar bivariate correlatie negatief"
           )
 
           lines <- character(0)

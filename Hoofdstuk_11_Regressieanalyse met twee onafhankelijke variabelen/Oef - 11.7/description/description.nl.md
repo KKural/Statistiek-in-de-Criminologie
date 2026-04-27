@@ -103,3 +103,39 @@ Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
 3. `b1` is alleen interpreteerbaar als `X1 = 0`
 4. `b1` geeft altijd een procentuele verandering
 
+---
+
+**11) Wat betekent het als het 95%-betrouwbaarheidsinterval van `b2` volledig positief is (bijv. [0.12, 0.48])?**
+
+1. Het effect van `X2` is statistisch niet significant
+2. We kunnen op 95%-niveau besluiten dat het effect van `X2` op `Y` positief is
+3. Het intercept is zeker negatief
+4. R² is dan altijd groter dan 0.50
+
+---
+
+**12) Welke predictor heeft het sterkste *relatieve* effect op Y?**
+
+1. De predictor met de grootste ongestandaardiseerde coëfficiënt `b`
+2. De predictor met de grootste gestandaardiseerde coëfficiënt `β`, want die vergelijkt effecten op dezelfde schaal
+3. De predictor die het eerst in het model is ingevoerd
+4. De predictor met de kleinste p-waarde (zij zijn altijd identiek)
+
+---
+
+**13) Hoe groot zijn de vrijheidsgraden van de foutterm (`df` residual) in een meervoudige regressie met `n` observaties en `k` predictors?**
+
+1. `k − 1`
+2. `n − 1`
+3. `n − k − 1`
+4. `k + 1`
+
+---
+
+**14) Wat kan verklaren dat `b2` positief is, terwijl de bivariate correlatie tussen `X2` en `Y` negatief is?**
+
+1. Er is een rekenfout gemaakt in de software
+2. Y is niet normaal verdeeld
+3. Dit is een suppressie-effect: `X2` onderdrukt variantie in `X1` die niet met `Y` samenhangt, waardoor het partiële effect van `X2` een ander teken krijgt dan de bivariate correlatie
+4. Het model heeft te weinig observaties
+

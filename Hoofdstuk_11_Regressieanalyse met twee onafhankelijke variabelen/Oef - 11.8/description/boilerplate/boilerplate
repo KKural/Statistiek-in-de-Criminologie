@@ -1,0 +1,39 @@
+# ============================================================================
+# OEFENING 11.8: Output lezen - meervoudige regressie (vaste dataset)
+# ============================================================================
+# Lees de regressie-output in de opgave en beantwoord elke vraag.
+# Vervang ??? door 1, 2, 3 of 4.
+# ============================================================================
+
+# 1) Multiple R (afgerond op 2 decimalen)
+vraag1 <- ???
+
+# 2) R² als percentage verklaarde variantie
+vraag2 <- ???
+
+# 3) Percentage NIET verklaarde variantie
+vraag3 <- ???
+
+# 4) Aantal observaties N
+vraag4 <- ???
+
+# 5) F-statistiek en significantie van het model
+vraag5 <- ???
+
+# 6) Intercept en betekenis
+vraag6 <- ???
+
+# 7) b1 voor WanordeIndex en interpretatie
+vraag7 <- ???
+
+# 8) Sterkste relatieve effect en parameter
+vraag8 <- ???
+
+# 9) Significante regressieparameter(s)
+vraag9 <- ???
+
+# 10) Betekenis 95%-CI voor b1 = [3.02, 9.16]
+vraag10 <- ???
+
+# 11) Verwachte AngstScore voor WanordeIndex=6, ZwerfvuilKlachten=55
+vraag11 <- ???
