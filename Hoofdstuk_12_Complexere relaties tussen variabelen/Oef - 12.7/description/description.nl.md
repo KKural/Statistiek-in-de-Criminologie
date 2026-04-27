@@ -1,27 +1,3 @@
-Hieronder zie je een **padmodel** over moreel oordelen bij diefstal (De Buck & Pauwels, 2022).
-
-<img src="media/padmodel.png" alt="MFT padmodel — moreel oordeel bij diefstal" width="750">
-
----
-
-Het **totale effect** van een variabele op een andere is gelijk aan het directe effect plus alle indirecte effecten via tussenvariabelen.
-
-Bereken het **totale effect** van **Empathische bezorgdheid** op **Geanticipeerde schuld**.
-
-De twee relevante paden zijn:
-- **Direct pad:** Empathische bezorgdheid → Geanticipeerde schuld (.34)
-- **Indirect pad:** Empathische bezorgdheid → Morele intuities (ind.) → Geanticipeerde schuld (.48 × .18)
-
-Welk antwoord is correct?
-
-1. 0.34
-2. 0.3432
-3. 0.4264
-4. 0.48
-
-**Hint:** *Totaal effect = direct effect + (padcoëff. naar MI(ind.) × padcoëff. MI(ind.) naar Schuld). Reken stap voor stap uit.*
-
-- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven
 **Conclusie Hoofdstuk 12**  
 Hoofdstuk 12 heeft duidelijk gemaakt dat veel criminologische verschijnselen niet adequaat beschreven kunnen worden met louter eenvoudige of meervoudige regressiemodellen zonder verdere structurering. Door de introductie van **mediatie**, **moderatie** en **pad-analyse** werd zichtbaar hoe oorzaken, mechanismen en context samen complexe patronen van regelovertredend gedrag vormen. Mediatorvariabelen tonen via welke tussenschakels een onafhankelijke variabele een afhankelijke variabele beïnvloedt, terwijl moderatorvariabelen laten zien onder welke omstandigheden of voor welke groepen een effect sterker of zwakker is.  
 
