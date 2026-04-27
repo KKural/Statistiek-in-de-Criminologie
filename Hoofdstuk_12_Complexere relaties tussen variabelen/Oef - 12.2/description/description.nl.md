@@ -1,16 +1,18 @@
-Hieronder zie je een **padmodel** over moreel oordelen bij diefstal (De Buck & Pauwels, 2022).
+Het hieronder afgebeelde padmodel is een visualisatie van een partiële test van de Morele Fundamenten Theorie (MFT) van Jonathan Haidt en collega’s. MFT werd gecreëerd om te verklaren hoe en waarom moraliteit zo sterk varieert tussen culturen en tevens zoveel overeenkomsten en terugkerende thema’s vertoont. De theorie vertrekt daarbij vanuit een evolutionair kader. De centrale vraag waarop de theorie een antwoord formuleert is: **Wat zijn de determinanten van een moreel oordeel?** Volgens MFT zijn morele oordelen het resultaat van morele intuïties en morele emoties. In een recente studie (De Buck & Pauwels, 2022) werden de relaties onderzocht tussen dimensies van empathie en moreel oordelen in de context van verschillende vormen van normovertreding. In één geval werd een vignette gebruikt waarin een diefstal wordt beschreven. Aan respondenten werd gevraagd in welke mate zij stelen/diefstal als verkeerd beschouwen.
 
-<img src="media/padmodel.png" alt="MFT padmodel — moreel oordeel bij diefstal" width="750">
+Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
+
+<img src="media/padmodel.png" alt="MFT padmodel" width="750">
 
 ---
 
-Hoe groot is de **padcoëfficiënt** van het pad van **Morele intuities (individualiserend)** naar **Geanticipeerde schuld**?
+Hoeveel bedraagt de **padcoëfficiënt** tussen **‘morele intuïties (individualiserend)’** en **‘geanticipeerde schuld’**?
 
 1. .21
 2. .34
 3. .18
 4. .48
 
-**Hint:** *Zoek in het padmodel de pijl die rechtstreeks van 'Morele intuities (individualiserend)' naar 'Geanticipeerde schuld' loopt. Het getal naast die pijl is de padcoëfficiënt.*
+**Hint:** *Zoek de pijl die rechtstreeks van ‘Morele intuïties (individualiserend)’ naar ‘Geanticipeerde schuld’ loopt en lees het getal naast die pijl af.*
 
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

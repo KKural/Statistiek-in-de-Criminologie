@@ -1,33 +1,18 @@
-Hieronder zie je een **padmodel** over moreel oordelen bij diefstal (De Buck & Pauwels, 2022).
+Het hieronder afgebeelde padmodel is een visualisatie van een partiële test van de Morele Fundamenten Theorie (MFT) van Jonathan Haidt en collega’s. MFT werd gecreëerd om te verklaren hoe en waarom moraliteit zo sterk varieert tussen culturen en tevens zoveel overeenkomsten en terugkerende thema’s vertoont. De theorie vertrekt daarbij vanuit een evolutionair kader. De centrale vraag waarop de theorie een antwoord formuleert is: **Wat zijn de determinanten van een moreel oordeel?** Volgens MFT zijn morele oordelen het resultaat van morele intuïties en morele emoties. In een recente studie (De Buck & Pauwels, 2022) werden de relaties onderzocht tussen dimensies van empathie en moreel oordelen in de context van verschillende vormen van normovertreding. In één geval werd een vignette gebruikt waarin een diefstal wordt beschreven. Aan respondenten werd gevraagd in welke mate zij stelen/diefstal als verkeerd beschouwen.
 
-<img src="media/padmodel.png" alt="MFT padmodel — moreel oordeel bij diefstal" width="750">
+Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
+
+<img src="media/padmodel.png" alt="MFT padmodel" width="750">
 
 ---
 
-Het **totale effect** van een variabele op een andere is gelijk aan het directe effect plus alle indirecte effecten via tussenvariabelen.
-
-Bereken het **totale effect** van **Empathische bezorgdheid** op **Geanticipeerde schuld**.
-
-De twee relevante paden zijn:
-- **Direct pad:** Empathische bezorgdheid → Geanticipeerde schuld (.34)
-- **Indirect pad:** Empathische bezorgdheid → Morele intuities (ind.) → Geanticipeerde schuld (.48 × .18)
-
-Welk antwoord is correct?
+Hoeveel bedraagt het **totale effect** van **‘empathische bezorgdheid’** op **‘geanticipeerde schuld’**?
 
 1. 0.34
 2. 0.3432
 3. 0.4264
 4. 0.48
 
-**Hint:** *Totaal effect = direct effect + (padcoëff. naar MI(ind.) × padcoëff. MI(ind.) naar Schuld). Reken stap voor stap uit.*
+**Hint:** *Totaal effect = direct effect + indirect effect via Morele intuïties (ind.). Bereken: direct pad + (padcoëff. naar MI(ind.) × padcoëff. MI(ind.) naar Schuld).*
 
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven
-**Conclusie Hoofdstuk 12**  
-Hoofdstuk 12 heeft duidelijk gemaakt dat veel criminologische verschijnselen niet adequaat beschreven kunnen worden met louter eenvoudige of meervoudige regressiemodellen zonder verdere structurering. Door de introductie van **mediatie**, **moderatie** en **pad-analyse** werd zichtbaar hoe oorzaken, mechanismen en context samen complexe patronen van regelovertredend gedrag vormen. Mediatorvariabelen tonen via welke tussenschakels een onafhankelijke variabele een afhankelijke variabele beïnvloedt, terwijl moderatorvariabelen laten zien onder welke omstandigheden of voor welke groepen een effect sterker of zwakker is.  
-
-Aan de hand van kruistabellen, regressiemodellen met interactietermen en padmodellen werd stap voor stap opgebouwd naar een meer genuanceerd begrip van causale structuren. De bespreking van directe, indirecte en totale effecten, evenals de toepassing van de Sewell-Wright-methode, liet zien hoe padcoëfficiënten kunnen worden terugvertaald naar interpreteerbare correlaties. Het criminologische praktijkvoorbeeld rond jeugddelinquentie en micro-context illustreerde hoe dergelijke modellen gebruikt kunnen worden om geïntegreerde theorieën te toetsen en beleidsrelevante conclusies te trekken. Hoofdstuk 12 vormt daarmee een inhoudelijke en methodologische stap richting het begrijpen van **meerlagige causaliteit** in de criminologie.
-
-**Vooruitblik naar Hoofdstuk 13 (Integratieoefeningen)**  
-In Hoofdstuk 13 worden de concepten en technieken uit de voorgaande hoofdstukken samengebracht in een reeks **integratieoefeningen**. Studenten krijgen de kans om beschrijvende statistiek, bivariate associatiematen, correlatie en regressie, partiële correlatie, meervoudige regressie en pad-analyse in samenhang toe te passen op concrete datasets en onderzoeksvragen. Het doel is niet alleen om afzonderlijke technieken te beheersen, maar om te leren **denken in termen van volledige analysetrajecten**: van onderzoeksvraag en conceptueel model, via keuze van passende statistische technieken, tot interpretatie van output en formulering van conclusies.  
-
-Hoofdstuk 13 fungeert daarmee als een oefenplatform waarin studenten hun parate kennis kunnen testen, veelgemaakte denkfouten leren herkennen en hun vaardigheden in het lezen, uitvoeren en kritisch beoordelen van kwantitatieve criminologische analyses verder verfijnen. Het vormt de brug tussen de theoretische hoofdstukken en de eigen empirische onderzoekspraktijk (scriptie, paper, stageonderzoek).
