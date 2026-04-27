@@ -1,0 +1,13 @@
+{
+  "description": {
+    "names": {
+      "nl": "Lees - 8.0 Inleiding en studiemateriaal"
+    }
+  },
+  "access": "public",
+  "type": "content",
+  "internals": {
+    "token": "6CN7xyFse4bFx8n6fJR2MNmj-dvP48f5VJKqm7S-bJqqZhYxGKS6zuaAZRMHVuXx",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

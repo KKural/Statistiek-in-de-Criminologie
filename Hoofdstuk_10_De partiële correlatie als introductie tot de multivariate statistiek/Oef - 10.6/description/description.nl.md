@@ -8,7 +8,7 @@ In deze oefening oefen je de **partiële correlatie** aan de hand van de interac
 
 De interactieve app is beschikbaar op:
 
-**<a href='https://statistiek-in-de-criminologie.shinyapps.io/partiele-correlatie/' target='_blank' rel='noopener noreferrer'>Interactieve oefeningen — Partiële correlatie</a>**
+**<a href='https://statistiek-in-de-criminologie.shinyapps.io/Partiele_correlatie/' target='_blank' rel='noopener noreferrer'>Interactieve oefeningen — Partiële correlatie</a>**
 
 > **Let op:** De app werkt alleen als ze actief draait. Vraag je docent om de app te starten als deze niet beschikbaar is.
 

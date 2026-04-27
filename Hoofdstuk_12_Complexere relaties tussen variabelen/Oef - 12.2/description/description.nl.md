@@ -8,7 +8,6 @@ De interactieve app is beschikbaar op:
 
 **<a href='https://statistiek-in-de-criminologie.shinyapps.io/Meervoudige_regressie/' target='_blank' rel='noopener noreferrer'>Oefeningen voor Meervoudige Regressie</a>**
 
-
 > **Let op:** Deze link werkt alleen als de app actief draait. Vraag je docent om de app te starten als deze niet beschikbaar is.
 
 ---
