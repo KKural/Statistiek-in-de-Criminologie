@@ -6,13 +6,13 @@ Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
 
 ---
 
-Hoeveel procent van de variatie in **‘morele intuïties (groepsgericht)’** kan verklaard worden op basis van de twee dimensies van empathie?
+Hoeveel bedraagt het **totale effect** van **‘empathische bezorgdheid’** op **‘geanticipeerde schuld’**?
 
-1. 2%
-2. 14%
-3. 24%
-4. 38%
+1. 0.34
+2. 0.3432
+3. 0.4264
+4. 0.48
 
-**Hint:** *Zoek de R² die bij de variabele ‘Morele intuïties (groepsgericht)’ vermeld staat in het padmodel.*
+**Hint:** *Totaal effect = direct effect + indirect effect via Morele intuïties (ind.). Bereken: direct pad + (padcoëff. naar MI(ind.) × padcoëff. MI(ind.) naar Schuld).*
 
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

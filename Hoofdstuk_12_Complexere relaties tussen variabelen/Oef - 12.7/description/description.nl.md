@@ -1,9 +1,18 @@
-**Conclusie Hoofdstuk 12**  
-Hoofdstuk 12 heeft duidelijk gemaakt dat veel criminologische verschijnselen niet adequaat beschreven kunnen worden met louter eenvoudige of meervoudige regressiemodellen zonder verdere structurering. Door de introductie van **mediatie**, **moderatie** en **pad-analyse** werd zichtbaar hoe oorzaken, mechanismen en context samen complexe patronen van regelovertredend gedrag vormen. Mediatorvariabelen tonen via welke tussenschakels een onafhankelijke variabele een afhankelijke variabele beïnvloedt, terwijl moderatorvariabelen laten zien onder welke omstandigheden of voor welke groepen een effect sterker of zwakker is.  
+Het hieronder afgebeelde padmodel is een visualisatie van een partiële test van de Morele Fundamenten Theorie (MFT) van Jonathan Haidt en collega’s. MFT werd gecreëerd om te verklaren hoe en waarom moraliteit zo sterk varieert tussen culturen en tevens zoveel overeenkomsten en terugkerende thema’s vertoont. De theorie vertrekt daarbij vanuit een evolutionair kader. De centrale vraag waarop de theorie een antwoord formuleert is: **Wat zijn de determinanten van een moreel oordeel?** Volgens MFT zijn morele oordelen het resultaat van morele intuïties en morele emoties. In een recente studie (De Buck & Pauwels, 2022) werden de relaties onderzocht tussen dimensies van empathie en moreel oordelen in de context van verschillende vormen van normovertreding. In één geval werd een vignette gebruikt waarin een diefstal wordt beschreven. Aan respondenten werd gevraagd in welke mate zij stelen/diefstal als verkeerd beschouwen.
 
-Aan de hand van kruistabellen, regressiemodellen met interactietermen en padmodellen werd stap voor stap opgebouwd naar een meer genuanceerd begrip van causale structuren. De bespreking van directe, indirecte en totale effecten, evenals de toepassing van de Sewell-Wright-methode, liet zien hoe padcoëfficiënten kunnen worden terugvertaald naar interpreteerbare correlaties. Het criminologische praktijkvoorbeeld rond jeugddelinquentie en micro-context illustreerde hoe dergelijke modellen gebruikt kunnen worden om geïntegreerde theorieën te toetsen en beleidsrelevante conclusies te trekken. Hoofdstuk 12 vormt daarmee een inhoudelijke en methodologische stap richting het begrijpen van **meerlagige causaliteit** in de criminologie.
+Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
 
-**Vooruitblik naar Hoofdstuk 13 (Integratieoefeningen)**  
-In Hoofdstuk 13 worden de concepten en technieken uit de voorgaande hoofdstukken samengebracht in een reeks **integratieoefeningen**. Studenten krijgen de kans om beschrijvende statistiek, bivariate associatiematen, correlatie en regressie, partiële correlatie, meervoudige regressie en pad-analyse in samenhang toe te passen op concrete datasets en onderzoeksvragen. Het doel is niet alleen om afzonderlijke technieken te beheersen, maar om te leren **denken in termen van volledige analysetrajecten**: van onderzoeksvraag en conceptueel model, via keuze van passende statistische technieken, tot interpretatie van output en formulering van conclusies.  
+<img src="media/padmodel.png" alt="MFT padmodel" width="750">
 
-Hoofdstuk 13 fungeert daarmee als een oefenplatform waarin studenten hun parate kennis kunnen testen, veelgemaakte denkfouten leren herkennen en hun vaardigheden in het lezen, uitvoeren en kritisch beoordelen van kwantitatieve criminologische analyses verder verfijnen. Het vormt de brug tussen de theoretische hoofdstukken en de eigen empirische onderzoekspraktijk (scriptie, paper, stageonderzoek).
+---
+
+Hoeveel procent van de variatie in **‘morele intuïties (groepsgericht)’** kan verklaard worden op basis van de twee dimensies van empathie?
+
+1. 2%
+2. 14%
+3. 24%
+4. 38%
+
+**Hint:** *Zoek de R² die bij de variabele ‘Morele intuïties (groepsgericht)’ vermeld staat in het padmodel.*
+
+- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

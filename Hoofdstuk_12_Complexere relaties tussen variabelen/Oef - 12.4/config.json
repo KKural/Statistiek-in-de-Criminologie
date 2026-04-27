@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.4 R-kwadraat interpreteren"
+      "nl": "Oef - 12.4 Padcoëfficiënt aflezen"
     }
   },
   "evaluation": {
@@ -14,12 +14,13 @@
   "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
     "padmodel",
+    "padcoefficient",
     "R-kwadraat",
-    "interpretatie",
-    "onverklaarde variantie"
+    "lezen"
   ],
   "internals": {
-    "token": "YfmneuzxKVwVadfykDV6WKbVtDP8p4Y9ybCMi4uqyFgKmtXKTbWiX2X-s9QYr9PS",
+    "token": "4wnuCbnQFEzZFEG8FwKSVcX-7QQDBMenStSFpiU2XASKPNN8Z_r-nxiPKuKZEMiX",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
-}
+}
+

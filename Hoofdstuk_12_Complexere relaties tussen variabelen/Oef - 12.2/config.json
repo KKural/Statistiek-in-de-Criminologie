@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.2 Padcoëfficiënten aflezen"
+      "nl": "Oef - 12.2 Soorten variabelen: endogene variabelen"
     }
   },
   "evaluation": {
@@ -14,12 +14,13 @@
   "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
     "padmodel",
-    "padcoefficient",
-    "R-kwadraat",
-    "lezen"
+    "begrippen",
+    "exogeen",
+    "endogeen",
+    "intermediair"
   ],
   "internals": {
-    "token": "4wnuCbnQFEzZFEG8FwKSVcX-7QQDBMenStSFpiU2XASKPNN8Z_r-nxiPKuKZEMiX",
+    "token": "nrtgvYZh6SeNj9XPz6EsEhR4FmAgC__WfQUmrWmV5eAhh69uMeiFNpfC5U7MEgJN",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
-}
+}

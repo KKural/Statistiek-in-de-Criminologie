@@ -5,13 +5,13 @@ context({
       testEqual(
         "",
         function(env) as.numeric(env$evaluationResult),
-        3,  # Correct answer: 57%
+        3,  # Correct answer: .18
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
-            "1" = "❌ Fout. **38%** is de R² van Morele intuities (individualiserend) — het aandeel verklaarde variantie in die variabele, niet in Moreel oordeel.\n\n**Correct antwoord:** 3 (57%) — de R² van Moreel oordeel is 43%, dus 100% − 43% = 57% wordt niet verklaard.",
-            "2" = "❌ Fout. **43%** is de R² van Moreel oordeel — het aandeel dat WEL verklaard wordt. De vraag vraagt naar het deel dat NIET verklaard wordt.\n\n**Correct antwoord:** 3 (57%) — 100% − 43% = 57%",
-            "3" = "✅ Juist! De **R² van Moreel oordeel** is 43%. Dat betekent dat het model 43% van de variantie in Moreel oordeel verklaart. Het niet-verklaarde deel is 100% − 43% = **57%**. Dit aandeel weerspiegelt de invloed van variabelen die niet in het model zijn opgenomen.",
-            "4" = "❌ Fout. **62%** is geen waarde die rechtstreeks uit het model kan worden afgelezen. Zoek de R² van Moreel oordeel op en bereken 100% minus die waarde.\n\n**Correct antwoord:** 3 (57%) — 100% − 43% = 57%"
+            "1" = "❌ Fout. **.21** is de padcoëfficiënt van het directe pad van **Empathische perspectiefneming** naar **Geanticipeerde schuld** — niet van Morele intuities (individualiserend) naar Geanticipeerde schuld.\n\n**Correct antwoord:** 3 (.18)",
+            "2" = "❌ Fout. **.34** is de padcoëfficiënt van het directe pad van **Empathische bezorgdheid** naar **Geanticipeerde schuld**.\n\n**Correct antwoord:** 3 (.18)",
+            "3" = "✅ Juist! De padcoëfficiënt van **Morele intuities (individualiserend) → Geanticipeerde schuld** is **.18**. Dit pad is statistisch significant (p < .001).",
+            "4" = "❌ Fout. **.48** is de padcoëfficiënt van het pad van **Empathische bezorgdheid** naar **Morele intuities (individualiserend)** — niet naar Geanticipeerde schuld.\n\n**Correct antwoord:** 3 (.18)"
           )
           key <- as.character(generated)
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."

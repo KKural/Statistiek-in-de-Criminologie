@@ -3,7 +3,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.7 R-kwadraat Morele intuïties (groepsgericht)"
+      "nl": "Oef - 12.9 R-kwadraat: betekenis onverklaarde variantie"
     }
   },
   "evaluation": {
@@ -13,11 +13,10 @@
   "labels": [
     "padmodel",
     "R-kwadraat",
-    "groepsgericht",
-    "interpretatie"
+    "interpretatie",
+    "onverklaarde variantie"
   ],
   "internals": {
-    "token": "bdgkC5eDnTnZ6m6jgqpZ4i8gJXADU7Tkey4VXRct6bhGTFXphfDiv2tzfc9Bnrgs",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

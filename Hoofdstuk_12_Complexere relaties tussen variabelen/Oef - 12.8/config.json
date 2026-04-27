@@ -1,23 +1,26 @@
 {
+  "type": "exercise",
   "programming_language": "R",
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.7 R-kwadraat Morele intuïties (groepsgericht)"
+      "nl": "Oef - 12.8 R-kwadraat interpreteren"
     }
   },
   "evaluation": {
     "handler": "R"
   },
   "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
     "padmodel",
     "R-kwadraat",
-    "groepsgericht",
-    "interpretatie"
+    "interpretatie",
+    "onverklaarde variantie"
   ],
   "internals": {
-    "token": "bdgkC5eDnTnZ6m6jgqpZ4i8gJXADU7Tkey4VXRct6bhGTFXphfDiv2tzfc9Bnrgs",
+    "token": "YfmneuzxKVwVadfykDV6WKbVtDP8p4Y9ybCMi4uqyFgKmtXKTbWiX2X-s9QYr9PS",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
+

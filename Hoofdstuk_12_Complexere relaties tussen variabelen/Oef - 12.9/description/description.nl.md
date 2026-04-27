@@ -2,17 +2,19 @@ Het hieronder afgebeelde padmodel is een visualisatie van een partiële test van
 
 Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
 
-<img src="image/padmodel.png" alt="MFT padmodel" width="750">
+<img src="media/padmodel.png" alt="MFT padmodel" width="750">
 
 ---
 
-Welke variabelen in het model zijn **‘endogene’** variabelen?
+De **R²** van de uitkomstvariabele **“Moreel oordeel (Stelen is OK)”** bedraagt 43%. Dit betekent dat **57%** van de variantie **niet** verklaard wordt door het model.
 
-1. Empathische bezorgdheid en empathische perspectiefneming
-2. Moreel oordeel (Stelen is OK)
-3. Morele intuïties, geanticipeerde schuld en morele boosheid
-4. Geanticipeerde schuld en morele boosheid
+Wat betekent dit concreet?
 
-**Hint:** *Een endogene variabele is de uiteindelijke uitkomstvariabele van het model — ze ontvangt pijlen maar stuurt er geen naar andere modelvariabelen.*
+1. Er zijn meetfouten in de gebruikte empathieschalen die de resultaten vertekenen
+2. Er zijn andere, niet-gemeten variabelen die ook het moreel oordeel beïnvloeden en niet in dit model zijn opgenomen
+3. De padcoëfficiënten zijn te klein om moreel oordeel te voorspellen
+4. Het model bevat te veel variabelen en is daardoor onbetrouwbaar
+
+**Hint:** *Onverklaarde variantie (1 − R²) weerspiegelt de invloed van factoren die buiten het model vallen.*
 
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

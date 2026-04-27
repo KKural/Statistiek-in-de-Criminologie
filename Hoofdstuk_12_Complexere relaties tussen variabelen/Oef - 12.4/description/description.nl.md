@@ -6,13 +6,13 @@ Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
 
 ---
 
-Hoeveel procent van de variatie in de **uitkomstvariabele** kan **niet** verklaard worden op basis van dit model?
+Hoeveel bedraagt de **correlatie** tussen **‘morele intuïties (individualiserend)’** en **‘geanticipeerde schuld’**?
 
-1. 38%
-2. 43%
-3. 57%
-4. 62%
+1. .21
+2. .34
+3. .18
+4. .48
 
-**Hint:** *Zoek de R² van de uitkomstvariabele ‘Moreel oordeel’ op. Het niet-verklaarde deel = 100% − R².*
+**Hint:** *Zoek de pijl die rechtstreeks van ‘Morele intuïties (individualiserend)’ naar ‘Geanticipeerde schuld’ loopt en lees het getal naast die pijl af.*
 
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

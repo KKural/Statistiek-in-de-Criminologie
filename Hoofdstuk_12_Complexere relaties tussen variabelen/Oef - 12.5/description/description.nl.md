@@ -6,13 +6,13 @@ Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
 
 ---
 
-Hoeveel bedraagt het **totale effect** van **‘empathische bezorgdheid’** op **‘geanticipeerde schuld’**?
+Hoeveel **‘indirecte’ effecten** van **‘empathische perspectiefneming’** op **‘moreel oordeel’** worden in het model weergegeven?
 
-1. 0.34
-2. 0.3432
-3. 0.4264
-4. 0.48
+1. Eén indirect pad
+2. Twee indirecte paden
+3. Drie indirecte paden
+4. Vier indirecte paden
 
-**Hint:** *Totaal effect = direct effect + indirect effect via Morele intuïties (ind.). Bereken: direct pad + (padcoëff. naar MI(ind.) × padcoëff. MI(ind.) naar Schuld).*
+**Hint:** *Volg alle routes van ‘Empathische perspectiefneming’ naar ‘Moreel oordeel’ die via tussenvariabelen lopen. Een direct pad telt niet mee.*
 
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

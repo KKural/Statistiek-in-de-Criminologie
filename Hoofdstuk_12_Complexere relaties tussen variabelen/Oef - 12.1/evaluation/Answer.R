@@ -5,13 +5,13 @@ context({
       testEqual(
         "",
         function(env) as.numeric(env$evaluationResult),
-        2,  # Correct answer: Endogeen
+        1,
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
-            "1" = "❌ Fout. **Exogeen** betekent dat een variabele geen inkomende pijlen heeft vanuit andere modelvariabelen. Moreel oordeel ontvangt pijlen van Geanticipeerde schuld én Morele boosheid — het is dus niet exogeen.\n\n**Correct antwoord:** 2 (endogeen) — de uiteindelijke uitkomstvariabele.",
-            "2" = "✅ Juist! **Moreel oordeel (Stelen is OK)** is de **endogene** uitkomstvariabele van het model. Het ontvangt pijlen van Geanticipeerde schuld en Morele boosheid, maar stuurt zelf geen pijlen naar andere variabelen in het model.",
-            "3" = "❌ Fout. **Intermediaire** variabelen ontvangen én sturen pijlen. Moreel oordeel stuurt geen pijlen naar andere modelvariabelen — het is dus geen intermediaire variabele.\n\n**Correct antwoord:** 2 (endogeen).",
-            "4" = "❌ Fout. Een variabele kan niet tegelijk exogeen (geen inkomende pijlen) en intermediair (ontvangt én stuurt pijlen) zijn. Kijk opnieuw naar de pijlen in het model.\n\n**Correct antwoord:** 2 (endogeen)."
+            "1" = "✅ Juist! **Empathische bezorgdheid** en **Empathische perspectiefneming** zijn de exogene variabelen. Zij ontvangen geen pijlen vanuit andere modelvariabelen — zij vormen het vertrekpunt van de verklarende keten.",
+            "2" = "❌ Fout. **Moreel oordeel** is de *endogene* uitkomstvariabele — het ontvangt pijlen van Geanticipeerde schuld en Morele boosheid.\n\n**Correct antwoord:** 1 (Empathische bezorgdheid en empathische perspectiefneming)",
+            "3" = "❌ Fout. Morele intuiïties, Geanticipeerde schuld en Morele boosheid zijn *intermediaire* variabelen — zij ontvangen én sturen pijlen.\n\n**Correct antwoord:** 1",
+            "4" = "❌ Fout. Geanticipeerde schuld en Morele boosheid zijn *intermediaire* variabelen — zij sturen pijlen naar Moreel oordeel.\n\n**Correct antwoord:** 1"
           )
           key <- as.character(generated)
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."

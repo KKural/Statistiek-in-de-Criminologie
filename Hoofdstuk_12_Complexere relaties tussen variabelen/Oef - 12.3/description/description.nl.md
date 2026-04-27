@@ -6,13 +6,13 @@ Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
 
 ---
 
-Hoeveel **‘indirecte’ effecten** van **‘empathische perspectiefneming’** op **‘moreel oordeel’** worden in het model weergegeven?
+Welke variabelen in het model zijn **‘intermediaire’** variabelen?
 
-1. Eén indirect pad
-2. Twee indirecte paden
-3. Drie indirecte paden
-4. Vier indirecte paden
+1. Empathische bezorgdheid en empathische perspectiefneming
+2. Moreel oordeel (Stelen is OK)
+3. Morele intuiïties (individualiserend en groepsgericht), geanticipeerde schuld en morele boosheid
+4. Alleen geanticipeerde schuld en morele boosheid
 
-**Hint:** *Volg alle routes van ‘Empathische perspectiefneming’ naar ‘Moreel oordeel’ die via tussenvariabelen lopen. Een direct pad telt niet mee.*
+**Hint:** *Intermediaire variabelen ontvangen pijlen én sturen pijlen door — zij liggen tussen exogene en endogene variabelen.*
 
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven
