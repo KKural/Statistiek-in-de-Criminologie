@@ -233,12 +233,12 @@ context({
             
             # Used covariance instead
             if (abs(val_num - 14.4675) < 0.1) {
-              return("**Waarom dit fout is:** Je gaf 14.4675 - dit is de covariantie, niet SSxy.\n\n**Wat er gebeurde:** Je deelde SSxy al door (n-1).\n\n**Wat je miste:** SSxy = som van (xi - x̄)(yi - ȳ), ZONDER delen.\n\n**Uitleg:** SSxy = 26.21+(−1.48)+5.95+4.10+23.09 = **57.87**.")
+              return("**Waarom dit fout is:** Je gaf 14.4675 - dit is de covariantie, niet SSxy.\n\n**Wat er gebeurde:** Je deelde SSxy al door (n-1).\n\n**Wat je miste:** SSxy = som van (xi - x̄)(yi - ȳ), ZONDER delen.\n\n**Uitleg:** SSxy = 26.21+1.48+(−0.19)+0.41+29.96 = **57.87**.")
             }
             
             # Sign error - absolute values
             if (val_num > 0 && abs(val_num - 60.83) < 2) {
-              return("**Waarom dit fout is:** Je antwoord is te hoog - controleer de tekens.\n\n**Wat er gebeurde:** Waarschijnlijk nam je absolute waarden of vergat je negatieve producten.\n\n**Wat je miste:** (xi−x̄)(yi−ȳ) kan negatief zijn als één afwijking negatief is.\n\n**Uitleg:** Let op: (40−50)×(1.59−1.738) = (−10)×(−0.148) = +1.48, NIET −1.48.\nSSxy = 26.21+(−1.48)+5.95+4.10+23.09 = **57.87**.")
+              return("**Waarom dit fout is:** Je antwoord is te hoog - controleer de tekens.\n\n**Wat er gebeurde:** Waarschijnlijk nam je absolute waarden of vergat je negatieve producten.\n\n**Wat je miste:** (xi−x̄)(yi−ȳ) kan negatief zijn als één afwijking negatief is.\n\n**Uitleg:** Let op: (54−50)×(1.69−1.738) = 4×(−0.048) = **−0.19**, NIET +0.19.\nSSxy = 26.21+1.48+(−0.19)+0.41+29.96 = **57.87**.")
             }
             
             return(paste0(
@@ -427,7 +427,7 @@ context({
             verklaring_euro = "Verklaring waarom"
           )
           
-          feedback_text <- "**Gegeven:**\n- Koffieprijs (X): 29, 40, 54, 55, 72 euro/kg\n- Ontbossing (Y): 0.49, 1.59, 1.69, 1.82, 3.10 miljoen ha\n- n = 5\n\n"
+          feedback_text <- "**Gegeven:**\n- Koffieprijs (X): 29, 40, 54, 55, 72 dollarcent per Am. pond\n- Ontbossing (Y): 0.49, 1.59, 1.69, 1.82, 3.10 miljoen ha\n- n = 5\n\n"
           
           # Question 1: Verklarende variabele
           q <- "verklarende_variabele"

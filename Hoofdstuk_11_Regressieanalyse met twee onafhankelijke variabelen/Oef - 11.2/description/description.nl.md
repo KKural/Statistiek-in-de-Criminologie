@@ -158,7 +158,7 @@ Bereken alle 21 stappen. Wat zijn b₁, b₂ en het intercept?
 Bereken alle stappen. Welk percentage van de variantie in Y wordt verklaard door x₁ en x₂ samen?
 
 ### **Opdracht 3: Vergelijking met Bivariate Regressie**
-Gebruik Oefening 11.1 (bivariate regressie, alleen x₁) en Oefening 11.2 (meervoudige regressie, x₁ + x₂) met dezelfde seed.
+Gebruik deze app twee keer met dezelfde seed: één keer met alleen x₁ als predictor (bivariate regressie) en één keer met x₁ + x₂ (meervoudige regressie).
 
 Vergelijk:
 - R² van bivariate regressie vs. R² van meervoudige regressie

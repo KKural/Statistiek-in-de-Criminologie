@@ -26,7 +26,7 @@ Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **ein
 
 ## **Berekeningsstappen voor Pearson's correlatie**
 
-Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak een tabel zoals in Hoofdstuk 8):
+Om de correlatie te berekenen, moet je de volgende tussenstappen uitvoeren (maak een overzichtstabel):
 
 1. **Bereken het gemiddelde** van X (prijs) en Y (ontbossing): x̄ en ȳ
 2. **Bereken de afwijkingen** van het gemiddelde voor elke waarneming:

@@ -3,16 +3,51 @@
 # Richtlijnen:
 # - Bereken met de hand en vul enkel eindwaarden in (geen R-berekeningen nodig).
 # - Gebruik decimalen met punt (niet komma) en geen procentteken.
-# - Rond Pearson's r af op 3 decimalen.
+# - Rond af zoals aangegeven per vraag.
 
-# 1) Verklarende variabele
-# 1 = prijs, 2 = ontbossing
+# --- DEEL A: Verklarende variabele ---
+# 1) Verklarende variabele (1 = prijs, 2 = ontbossing)
 verklarende_variabele <- ???
 
-# 2) Pearson's correlatie
+# --- DEEL B: Gemiddelden ---
+# 2) Gemiddelde van X (prijs) - rond af op 2 decimalen
+gemiddelde_x <- ???
+
+# 3) Gemiddelde van Y (ontbossing) - rond af op 4 decimalen
+gemiddelde_y <- ???
+
+# --- DEEL C: Sommen van kwadraten en kruisproducten ---
+# 4) SSx: som van gekwadrateerde afwijkingen van X
+SSx <- ???
+
+# 5) SSy: som van gekwadrateerde afwijkingen van Y - rond af op 4 decimalen
+SSy <- ???
+
+# 6) SSxy: som van kruisproducten - rond af op 2 decimalen
+SSxy <- ???
+
+# --- DEEL D: Varianties en standaardafwijkingen ---
+# 7) Variantie van X (SSx / (n-1)) - rond af op 1 decimaal
+variantie_x <- ???
+
+# 8) Variantie van Y (SSy / (n-1)) - rond af op 4 decimalen
+variantie_y <- ???
+
+# 9) Standaardafwijking van X - rond af op 4 decimalen
+sd_x <- ???
+
+# 10) Standaardafwijking van Y - rond af op 4 decimalen
+sd_y <- ???
+
+# 11) Covariantie (SSxy / (n-1)) - rond af op 4 decimalen
+covariantie <- ???
+
+# --- DEEL E: Pearson's correlatie ---
+# 12) Pearson's r (covariantie / (sd_x * sd_y)) - rond af op 4 decimalen
 pearson_r <- ???
 
-# 3) Verandert de correlatie als de prijs in euro wordt uitgedrukt?
+# --- DEEL F: Interpretatie ---
+# 13) Verandert de correlatie als de prijs in euro wordt uitgedrukt?
 # 1 = ja, 2 = nee
 correlatie_verandert <- ???
 
