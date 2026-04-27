@@ -1,4 +1,4 @@
-﻿Hieronder zie je een **padmodel** over moreel oordelen bij diefstal (De Buck & Pauwels, 2022).
+Hieronder zie je een **padmodel** over moreel oordelen bij diefstal (De Buck & Pauwels, 2022).
 
 <img src="media/padmodel.png" alt="MFT padmodel — moreel oordeel bij diefstal" width="750">
 

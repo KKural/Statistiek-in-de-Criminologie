@@ -1,4 +1,4 @@
-﻿Hieronder zie je een **padmodel** over moreel oordelen bij diefstal (De Buck & Pauwels, 2022). Het model toont hoe empathische bezorgdheid en empathische perspectiefneming via een reeks tussenvariabelen uiteindelijk het morele oordeel beïnvloeden.
+Hieronder zie je een **padmodel** over moreel oordelen bij diefstal (De Buck & Pauwels, 2022). Het model toont hoe empathische bezorgdheid en empathische perspectiefneming via een reeks tussenvariabelen uiteindelijk het morele oordeel beïnvloeden.
 
 <img src="image/padmodel.png" alt="MFT padmodel — moreel oordeel bij diefstal" width="750">
 

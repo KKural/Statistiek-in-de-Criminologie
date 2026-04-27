@@ -1,4 +1,4 @@
-﻿Hieronder zie je een **padmodel** over moreel oordelen bij diefstal (De Buck & Pauwels, 2022). Voor elke endogene en intermediaire variabele wordt de R² (verklaarde variantie) vermeld.
+Hieronder zie je een **padmodel** over moreel oordelen bij diefstal (De Buck & Pauwels, 2022). Voor elke endogene en intermediaire variabele wordt de R² (verklaarde variantie) vermeld.
 
 <img src="media/padmodel.png" alt="MFT padmodel — moreel oordeel bij diefstal" width="750">
 
