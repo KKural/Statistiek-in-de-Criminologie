@@ -1,13 +1,23 @@
-{
+﻿{
+  "programming_language": "R",
+  "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 8.2 : Interactieve Correlatie- en Regressie-app"
+      "nl": "Oef - 12.2 Padcoëfficiënten aflezen"
     }
   },
-  "access": "public",
-  "type": "content",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "labels": [
+    "padmodel",
+    "padcoefficient",
+    "R-kwadraat",
+    "lezen"
+  ],
   "internals": {
-    "token": "ybtA_cumqSycCnPnYxuZ6Ht9ujrruEYRFn-W8jcNBBtCgdE4rStSHtgu7Q6ubaVG",
+    "token": "4wnuCbnQFEzZFEG8FwKSVcX-7QQDBMenStSFpiU2XASKPNN8Z_r-nxiPKuKZEMiX",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

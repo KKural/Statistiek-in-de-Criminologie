@@ -1,10 +1,10 @@
-{
+﻿{
   "type": "exercise",
   "programming_language": "R",
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 8.5 R² omzetten naar een percentage"
+      "nl": "Oef - 11.5 R² omzetten naar een percentage"
     }
   },
   "evaluation": {

@@ -1,25 +1,23 @@
 {
-  "type": "exercise",
-  "programming_language": "R",
-  "access": "public",
-  "description": {
-    "names": {
-      "nl": "Oef - 8.4 Ligging van een punt t.o.v. de regressielijn"
+    "programming_language": "R",
+    "access": "public",
+    "description": {
+        "names": {
+            "nl": "Oef - 12.4 R-kwadraat interpreteren"
+        }
+    },
+    "evaluation": {
+        "handler": "R"
+    },
+    "test_suite": "evaluation",
+    "labels": [
+        "padmodel",
+        "R-kwadraat",
+        "interpretatie",
+        "onverklaarde variantie"
+    ],
+    "internals": {
+        "token": "YfmneuzxKVwVadfykDV6WKbVtDP8p4Y9ybCMi4uqyFgKmtXKTbWiX2X-s9QYr9PS",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
     }
-  },
-  "evaluation": {
-    "handler": "R"
-  },
-  "test_suite": "evaluation",
-  "boilerplate": "description/boilerplate/boilerplate",
-  "labels": [
-    "regressie",
-    "residu",
-    "scatterplot",
-    "visualisatie"
-  ],
-  "internals": {
-    "token": "we_7ipUu6Ek96H2xg_KB4dmcFKA59t7pJFvrFhiT9R_tn3cUEWyKT_jYnErMi_ym",
-    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-  }
 }

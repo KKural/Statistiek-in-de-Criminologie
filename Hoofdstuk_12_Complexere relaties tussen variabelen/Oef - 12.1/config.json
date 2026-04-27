@@ -1,24 +1,24 @@
-{
-  "type": "exercise",
-  "programming_language": "R",
-  "access": "public",
-  "description": {
-    "names": {
-      "nl": "Oef - 8.1 Koffieprijs en ontbossing"
+﻿{
+    "programming_language": "R",
+    "access": "public",
+    "description": {
+        "names": {
+            "nl": "Oef - 12.1 Soorten variabelen in een padmodel"
+        }
+    },
+    "evaluation": {
+        "handler": "R"
+    },
+    "test_suite": "evaluation",
+    "labels": [
+        "padmodel",
+        "begrippen",
+        "exogeen",
+        "endogeen",
+        "intermediair"
+    ],
+    "internals": {
+        "token": "nrtgvYZh6SeNj9XPz6EsEhR4FmAgC__WfQUmrWmV5eAhh69uMeiFNpfC5U7MEgJN",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
     }
-  },
-  "evaluation": {
-    "handler": "R"
-  },
-  "test_suite": "evaluation",
-  "boilerplate": "description/boilerplate/boilerplate",
-  "labels": [
-    "correlatie",
-    "pearson",
-    "begrippen"
-  ],
-  "internals": {
-    "token": "nrtgvYZh6SeNj9XPz6EsEhR4FmAgC__WfQUmrWmV5eAhh69uMeiFNpfC5U7MEgJN",
-    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-  }
 }

@@ -1,10 +1,10 @@
-{
+﻿{
   "type": "exercise",
   "programming_language": "R",
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 8.4 Ligging van een punt t.o.v. de regressielijn"
+      "nl": "Oef - 11.4 Ligging van een punt t.o.v. de regressielijn"
     }
   },
   "evaluation": {

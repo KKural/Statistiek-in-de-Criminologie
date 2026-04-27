@@ -1,104 +1,107 @@
-Dit theorieblok behandelt de fundamentele concepten van **Hoofdstuk 8: Correlatie- en regressieanalyse**. Deze kennis is essentieel voor het begrijpen en interpreteren van lineaire verbanden tussen metrische kenmerken in de criminologie.
+﻿Dit theorieblok behandelt de fundamentele concepten van **Hoofdstuk 12: Complexere relaties tussen variabelen**. Deze kennis is essentieel voor het begrijpen van **padmodellen**, **mediatie**, **moderatie (interactie-effecten)** en de interpretatie van directe, indirecte en totale effecten in criminologisch onderzoek.
 
 Studiemateriaal en leerdoelen:
 
-- Begrijpen van scatterplots en puntenwolken voor het visualiseren van bivariate relaties
-- Covariatie, covariantie en de Pearson correlatieco​ëfficiënt kunnen berekenen en interpreteren
-- Inzicht in symmetrische versus asymmetrische associatiematen
-- Begrijpen van de bivariate lineaire regressieanalyse (OLS-methode)
-- Interpretatie van regressieparameters: intercept, richtingscoëfficiënt, determinatiecoëfficiënt
-- Inzicht in model fit en de decomposit​ie van variantie (total, explained, residual)
-- Kunnen motiveren wanneer correlatie- versus regressieanalyse toepasbaar is
+- Exogene, endogene en intermediaire variabelen correct identificeren
+- Directe, indirecte en totale effecten aflezen en berekenen
+- Mediatie en moderatie theoretisch onderscheiden
+- Interactie-effecten begrijpen in regressiemodellen
+- Verklaarde en onverklaarde variantie interpreteren in padmodellen
+- Een criminologisch paddiagram kritisch lezen
 
 ---
 
 ## **Aanbevolen kennisclips**
 
-1. **Inleiding tot correlatie en regressie**
+> **Opmerking:** Deze video's zijn in het Engels, maar bieden een heldere visuele uitleg van de concepten.
+
+1. **Path Analysis: Explained! [Overview]**
 
 <div style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GtV-VYdNt_g" title="Inleiding tot correlatie en regressie" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BwGCAtPjB34" title="Path Analysis Explained" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ---
 
-2. **Pearson correlatie berekenen**
+2. **Mediation Analysis (conceptueel overzicht)**
 
 <div style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/u4ugaNo6v1Q" title="Pearson correlatie berekenen" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3zA4iB0aAvg" title="Mediation Analysis" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ---
 
-3. **Lineaire regressieanalyse uitgelegd**
+3. **Interpretation of Interaction Effects**
 
 <div style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yMgFHbjbAW8" title="Lineaire regressieanalyse uitgelegd" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/btl7tXwZ1E0" title="Interpretation of interaction effects" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ---
 
-4. **Interpretatie van regressiecoëfficiënten**
+4. **Moderation Analysis: Exploring Interaction Effects**
 
 <div style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/G00p2Kx-k0E" title="Interpretatie van regressiecoëfficiënten" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Vm_5-Flac3Y" title="Moderation Analysis" frameborder="0" allowfullscreen></iframe>
+</div>
+
+---
+
+5. **Direct, Indirect and Total Effects in Path Analysis**
+
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MQR0kLXDqhk" title="Direct indirect total effects" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ---
 
 ## **Verplichte Literatuur**
 
-### **Hoofdstuk 8: Correlatie- en regressieanalyse**
+### **Hoofdstuk 12: Complexere relaties tussen variabelen**
 
-*Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
+*Basiscursus Statistiek in de Criminologie - Deel I (Theorieboek)*
 
 Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
-* Symmetrische associatiematen voor metrische kenmerken (covariatie, covariantie, correlatie)
-* Scatterplots en het bivariate zwaartepunt
-* De Pearson product-moment correlatiecoëfficiënt en interpretatie
-* Het uitgewerkte rekenvoorbeeld voor correlatie (15-stappen methode)
-* Bivariate lineaire regressieanalyse als asymmetrische techniek
-* OLS-principe (Ordinary Least Squares) en kleinste kwadraten methode
-* Regressieparameters: β₀ (intercept), β₁ (rico), foutent​erm (e)
-* Determinatiecoëfficiënt (R²) en aliënatiecoëfficiënt
-* Decompositie van variantie: total SS, regression SS, residual SS
-* Het uitgewerkte rekenvoorbeeld voor regressie (15-stappen methode)
-* Rapportage van regressieresultaten in onderzoeksrapporten
+* Exogene, endogene en intermediaire variabelen in conceptuele modellen en paddiagrammen
+* Mediatorvariabele als mechanisme tussen oorzaak en gevolg
+* Moderatorvariabele en interactie-effecten (in kruistabellen en regressie)
+* Regressie met interactieterm: `Yhat = a + b1X1 + b2X2 + b3(X1*X2)`
+* Pad-analyse als model van directe en indirecte effecten
+* Berekening van totale effecten en interpretatie van verklaarde/onverklaarde variantie
+* Basisidee van de Sewell-Wright methode
 
 ---
 
 ## **Aanvullende Literatuur**
 
-1. <a href='https://openstax.org/books/statistics/pages/12-introduction' target='_blank' rel='noopener noreferrer'>OpenStax – Linear Regression and Correlation</a>
+1. <a href='https://openstax.org/books/statistics/pages/13-introduction' target='_blank' rel='noopener noreferrer'>OpenStax - Multiple Regression (verdieping)</a>
 
-2. <a href='https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-a-regression-equation/' target='_blank' rel='noopener noreferrer'>OpenStax – The Regression Equation</a>
+2. <a href='https://statistics.laerd.com/statistical-guides/mediation-moderation-difference.php' target='_blank' rel='noopener noreferrer'>Laerd Statistics - Mediation vs Moderation</a>
 
-3. <a href='https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data' target='_blank' rel='noopener noreferrer'> Correlation and regression</a>
+3. <a href='https://www.jmp.com/en/statistics-knowledge-portal/structural-equation-modeling' target='_blank' rel='noopener noreferrer'>JMP Knowledge Portal - Structural Equation Modeling</a>
 
-4. <a href='https://www.youtube.com/watch?v=nk2CQITm_eo' target='_blank' rel='noopener noreferrer'> Linear Regression</a>
+4. <a href='https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/interaction-effect/' target='_blank' rel='noopener noreferrer'>Statistics How To - Interaction Effect</a>
 
 ---
 
 ## **Hulpmiddelen**
 
-1. <a href='https://www.geogebra.org/m/xc6zv7dg' target='_blank' rel='noopener noreferrer'>Interactieve regressie-simulator</a>
+1. <a href='https://statmodel.com/' target='_blank' rel='noopener noreferrer'>Mplus (informatie over pad- en SEM-modellen)</a>
 
-2. <a href='https://www.socscistatistics.com/tests/pearson/default2.aspx' target='_blank' rel='noopener noreferrer'>Correlatie en regressie calculator</a>
+2. <a href='https://lavaan.ugent.be/' target='_blank' rel='noopener noreferrer'>lavaan (R package voor pad-analyse/SEM)</a>
 
-3. <a href='https://www.meta-chart.com/scatter' target='_blank' rel='noopener noreferrer'>Scatterplot generator</a>
+3. <a href='https://www.socscistatistics.com/tests/regression/default.aspx' target='_blank' rel='noopener noreferrer'>Regression calculator</a>
+
+4. <a href='https://www.geogebra.org/m/xc6zv7dg' target='_blank' rel='noopener noreferrer'>Interactieve regressie visualisatie</a>
 
 ---
 
 Na bestudering van dit materiaal beheerst u:
 
-- Het maken en interpreteren van scatterplots voor bivariate metrische data
-- Het handmatig berekenen van covariatie, covariantie en Pearson correlatie
-- Het correct interpreteren van correlatiecoëfficiënten en hun sterkte
-- Het begrijpen van het verschil tussen correlatie (symmetrisch) en regressie (asymmetrisch)
-- Het berekenen van regressieparameters via de OLS-methode
-- Het interpreteren van intercept, richtingscoëfficiënt en determinatiecoëfficiënt
-- Het beoordelen van model fit aan de hand van R² en residuele analyse
-- Het rapporteren van correlatie- en regressieresultaten in onderzoekscontext
+- Het positioneren van variabelen in een padmodel (exogeen/endogeen/intermediair)
+- Het berekenen en interpreteren van directe, indirecte en totale effecten
+- Het interpreteren van moderatie- en mediatiestructuren in criminologische context
+- Het kritisch lezen van model fit en verklaringskracht in complexe modellen
 
-Deze competenties vormen de basis voor de praktische oefeningen in dit hoofdstuk.
+Deze competenties vormen de basis voor de praktische oefeningen in Hoofdstuk 12.

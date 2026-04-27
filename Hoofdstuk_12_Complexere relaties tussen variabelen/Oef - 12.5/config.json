@@ -1,25 +1,13 @@
 {
-  "type": "exercise",
-  "programming_language": "R",
-  "access": "public",
-  "description": {
-    "names": {
-      "nl": "Oef - 8.5 R² omzetten naar een percentage"
+    "description": {
+        "names": {
+            "nl": "Oef - 12.5: Besluit en vooruitblik naar volgende leerpad"
+        }
+    },
+    "access": "public",
+    "type": "content",
+    "internals": {
+        "token": "hYUbZu9Qex5AqPTSjk54PZMPPUkvv5mQXcsQutbxSkM2MBQM_MEY-mwZ3d6D-GPj",
+        "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
     }
-  },
-  "evaluation": {
-    "handler": "R"
-  },
-  "test_suite": "evaluation",
-  "boilerplate": "description/boilerplate/boilerplate",
-  "labels": [
-    "regressie",
-    "r-kwadraat",
-    "determinatiecoefficient",
-    "visualisatie"
-  ],
-  "internals": {
-    "token": "YfmneuzxKVwVadfykDV6WKbVtDP8p4Y9ybCMi4uqyFgKmtXKTbWiX2X-s9QYr9PS",
-    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
-  }
 }

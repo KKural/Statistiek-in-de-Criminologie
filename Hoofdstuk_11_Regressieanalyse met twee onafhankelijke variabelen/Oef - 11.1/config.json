@@ -1,10 +1,10 @@
-{
+﻿{
   "type": "exercise",
   "programming_language": "R",
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 8.1 Koffieprijs en ontbossing"
+      "nl": "Oef - 11.1 Koffieprijs en ontbossing"
     }
   },
   "evaluation": {
