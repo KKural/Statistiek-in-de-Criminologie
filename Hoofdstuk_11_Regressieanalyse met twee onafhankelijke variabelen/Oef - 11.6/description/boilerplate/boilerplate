@@ -1,0 +1,48 @@
+# ============================================================================
+# OEFENING 11.7: Controlevragen - concepten meervoudige regressie
+# ============================================================================
+# Beantwoord elke meerkeuzevraag met het nummer van het juiste antwoord.
+# Vervang ??? door 1, 2, 3 of 4.
+# ============================================================================
+
+# 1) Verschil voorspelde waarde en residu
+vraag1 <- ???
+
+# 2) 95%-CI bevat 0
+vraag2 <- ???
+
+# 3) Betekenis niet-significante coëfficiënt
+vraag3 <- ???
+
+# 4) Niet-significante predictor toch nuttig?
+vraag4 <- ???
+
+# 5) Waarom veranderen coëfficiënten bij extra predictors?
+vraag5 <- ???
+
+# 6) Waarom bivariaat wel significant, multivariaat niet?
+vraag6 <- ???
+
+# 7) Waarom penaliseert adjusted R² extra predictors?
+vraag7 <- ???
+
+# 8) Betekenis multicollineariteit
+vraag8 <- ???
+
+# 9) Betekenis ΔR²
+vraag9 <- ???
+
+# 10) Ceteris paribus interpretatie van b1
+vraag10 <- ???
+
+# 11) 95%-CI van b2 volledig positief
+vraag11 <- ???
+
+# 12) Sterkste relatieve effect: welke parameter?
+vraag12 <- ???
+
+# 13) Vrijheidsgraden foutterm (df residual)
+vraag13 <- ???
+
+# 14) b2 positief maar bivariate correlatie negatief
+vraag14 <- ???

@@ -1,141 +1,160 @@
-﻿Beantwoord de volgende **vaste meerkeuzevragen** over de interpretatie van meervoudige regressie.
+In deze oefening lees je de output van een meervoudige regressieanalyse af en beantwoord je vragen over modelfit, regressieparameters en voorspellingen.
+
+**Gebruik de app niet voor deze oefening** â€” de dataset is hieronder volledig weergegeven.
+
+---
+
+## Context
+
+Een criminoloog onderzoekt angst voor criminaliteit bij buurtbewoners. De afhankelijke variabele is **AngstScore** (0â€“100). De twee onafhankelijke variabelen zijn:
+
+- **WanordeIndex** (0â€“10): mate van fysieke en sociale wanorde in de buurt
+- **ZwerfvuilKlachten** (0â€“100): aantal klachten over zwerfvuil per buurt
+
+Het regressiemodel is: `AngstScore = a + bâ‚Â·WanordeIndex + bâ‚‚Â·ZwerfvuilKlachten + e`
+
+---
+
+## Dataset (n = 5)
+
+| Buurt | WanordeIndex | ZwerfvuilKlachten | AngstScore |
+|-------|-------------|-------------------|------------|
+| 1 | 8.31 | 68.06 | 65.61 |
+| 2 | 5.02 | 35.07 | 36.43 |
+| 3 | 6.60 | 31.77 | 59.99 |
+| 4 | 7.06 | 58.88 | 76.59 |
+| 5 | 6.67 | 39.89 | 82.22 |
+
+---
+
+## Regressie-output
+
+**Model fit**
+
+| | Waarde |
+|---|---|
+| Multiple R | 0.6640 |
+| RÂ² | 0.4409 |
+| Adjusted RÂ² | âˆ’0.1183 |
+| N | 5 |
+
+**ANOVA-tabel**
+
+| | SS | df | MS | F | p |
+|---|---|---|---|---|---|
+| Regressie | 559.51 | 2 | 279.75 | 0.788 | .559 |
+| Residu | 709.60 | 2 | 354.80 | | |
+| Totaal | 1269.11 | 4 | | | |
+
+**Regressieparameters**
+
+| Parameter | b (ongest.) | Î² (gest.) | SE | t | p | 95% CI |
+|---|---|---|---|---|---|---|
+| Intercept | âˆ’9.9765 | â€” | 124.88 | âˆ’0.080 | .944 | [âˆ’269.44, 249.49] |
+| WanordeIndex | 13.5528 | 0.8962 | 18.24 | 0.743 | .535 | [âˆ’44.02, 71.12] |
+| ZwerfvuilKlachten | âˆ’0.3658 | âˆ’0.3261 | 2.04 | âˆ’0.179 | .874 | [âˆ’4.64, 3.90] |
+
+---
+
+## Vragen
 
 Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
 
 ---
 
-## **Vragen**
+**1) Hoeveel bedraagt de multipele correlatiecoefficient R, afgerond op twee decimalen?**
 
-**1) Wat is het verschil tussen een voorspelde waarde (`Ŷ`) en een residu (`e`)?**
-
-1. `Ŷ` is het geobserveerde gemiddelde, residu is de standaardfout
-2. `Ŷ` is de door het model voorspelde score, residu is `Y - Ŷ`
-3. `Ŷ` is altijd groter dan `Y`, residu altijd positief
-4. Er is geen verschil; beide betekenen hetzelfde
-
+1. 0.44
+2. 0.66
+3. 0.81
+4. 0.61
 
 ---
 
-**2) Wat betekent het als het 95%-betrouwbaarheidsinterval van een coëfficiënt de 0 bevat?**
+**2) Hoeveel bedraagt de determinatiecoefficient RÂ²? Hoeveel procent van de variantie in AngstScore wordt verklaard?**
 
-1. Het effect is zeker positief
-2. Het effect is zeker negatief
-3. Het effect is op 5%-niveau niet statistisch significant
-4. Het model is ongeldig
-
-
----
-
-**3) Wat betekent een niet-significante regressiecoëfficiënt?**
-
-1. Dat de predictor nooit relevant kan zijn
-2. Dat er onvoldoende statistisch bewijs is voor een effect verschillend van 0 (gegeven het model)
-3. Dat de data fout zijn ingevoerd
-4. Dat de predictor verwijderd moet worden uit elk model
-
+1. 66%
+2. 81%
+3. 35%
+4. 44%
 
 ---
 
-**4) Kan een niet-significante predictor toch nuttig zijn?**
+**3) Hoeveel procent van de variantie in AngstScore kan **niet** verklaard worden door dit model?**
 
-1. Nee, nooit
-2. Ja, bijvoorbeeld als controlevariabele of bij theoretische relevantie
-3. Alleen bij n kleiner dan 30
-4. Alleen als R² exact 0.50 is
-
-
----
-
-**5) Waarom kunnen regressiecoëfficiënten veranderen wanneer je predictors toevoegt?**
-
-1. Omdat software willekeurig herberekent
-2. Omdat elk effect in meervoudige regressie een partieel effect is (gecontroleerd voor andere variabelen)
-3. Omdat intercept en hellingen altijd gelijk blijven
-4. Omdat standaardisatie verplicht verandert
-
+1. 44%
+2. 35%
+3. 56%
+4. 66%
 
 ---
 
-**6) Waarom kan een predictor bivariaat significant zijn, maar niet meer in een multivariaat model?**
+**4) Hoeveel buurten zijn in de analyse betrokken?**
 
-1. Door overlap/gedeelde variantie met andere predictors (multicollineariteit of confounding)
-2. Omdat p-waarden in multivariaat altijd groter dan .50 zijn
-3. Omdat bivariate analyse altijd fout is
-4. Omdat R² dan negatief wordt
-
-
----
-
-**7) Waarom “straft” adjusted R² extra predictors, maar R² niet?**
-
-1. Adjusted R² corrigeert voor modelcomplexiteit (aantal predictors en steekproefgrootte)
-2. Omdat adjusted R² altijd groter is dan R²
-3. Omdat R² alleen werkt bij 1 predictor
-4. Omdat adjusted R² de intercept verwijdert
-
+1. 2
+2. 3
+3. 4
+4. 5
 
 ---
 
-**8) Wat is de kernbetekenis van multicollineariteit?**
+**5) Hoeveel bedraagt de toetsstatistiek F? Is het model significant op 5%-niveau?**
 
-1. Predictors zijn sterk onderling gecorreleerd, waardoor schattingen instabieler en standaardfouten groter kunnen worden
-2. Residuen zijn normaal verdeeld
-3. Y is perfect voorspeld
-4. Er zijn geen outliers
-
-
----
-
-**9) Wat betekent ΔR² in modelvergelijking?**
-
-1. Het verschil in verklaarde variantie tussen twee geneste modellen
-2. De absolute waarde van het residu
-3. Het verschil tussen b en β
-4. De p-waarde van het intercept
-
+1. F = 0.79; het model is significant (p < .001)
+2. F = 13.55; het model is significant (p < .001)
+3. F = 0.79; het model is **niet** significant (p = .559)
+4. F = 0.66; het model is significant (p = .044)
 
 ---
 
-**10) Hoe interpreteer je een ongestandaardiseerde coëfficiënt `b1` ceteris paribus?**
+**6) Hoeveel bedraagt het intercept en wat betekent dit?**
 
-1. Een toename van 1 in `X1` verandert `Y` gemiddeld met `b1`, terwijl andere predictors constant worden gehouden
-2. `b1` is de correlatie tussen `X1` en `Y`
-3. `b1` is alleen interpreteerbaar als `X1 = 0`
-4. `b1` geeft altijd een procentuele verandering
-
----
-
-**11) Wat betekent het als het 95%-betrouwbaarheidsinterval van `b2` volledig positief is (bijv. [0.12, 0.48])?**
-
-1. Het effect van `X2` is statistisch niet significant
-2. We kunnen op 95%-niveau besluiten dat het effect van `X2` op `Y` positief is
-3. Het intercept is zeker negatief
-4. R² is dan altijd groter dan 0.50
+1. 13.55 â€” de stijging in AngstScore per eenheid WanordeIndex
+2. âˆ’0.37 â€” de bijdrage van ZwerfvuilKlachten
+3. âˆ’9.98 â€” de verwachte AngstScore als zowel WanordeIndex als ZwerfvuilKlachten gelijk zijn aan 0
+4. 68.43 â€” de gemiddelde AngstScore in de steekproef
 
 ---
 
-**12) Welke predictor heeft het sterkste *relatieve* effect op Y?**
+**7) Wat is de ongestandaardiseerde regressiecoefficient bâ‚ voor WanordeIndex? Interpreteer.**
 
-1. De predictor met de grootste ongestandaardiseerde coëfficiënt `b`
-2. De predictor met de grootste gestandaardiseerde coëfficiënt `β`, want die vergelijkt effecten op dezelfde schaal
-3. De predictor die het eerst in het model is ingevoerd
-4. De predictor met de kleinste p-waarde (zij zijn altijd identiek)
-
----
-
-**13) Hoe groot zijn de vrijheidsgraden van de foutterm (`df` residual) in een meervoudige regressie met `n` observaties en `k` predictors?**
-
-1. `k − 1`
-2. `n − 1`
-3. `n − k − 1`
-4. `k + 1`
+1. Een toename van 1 eenheid in WanordeIndex gaat, gecontroleerd voor ZwerfvuilKlachten, gepaard met een gemiddelde stijging van 13.55 punten in AngstScore
+2. Een toename van 1 eenheid in WanordeIndex gaat gepaard met een daling van 0.37 punten
+3. bâ‚ = 0.90 is de gestandaardiseerde correlatie met AngstScore
+4. bâ‚ = âˆ’9.98 is de startwaarde als WanordeIndex = 0
 
 ---
 
-**14) Wat kan verklaren dat `b2` positief is, terwijl de bivariate correlatie tussen `X2` en `Y` negatief is?**
+**8) Welke variabele heeft het sterkste relatieve effect op AngstScore? Welke parameter gebruik je hiervoor?**
 
-1. Er is een rekenfout gemaakt in de software
-2. Y is niet normaal verdeeld
-3. Dit is een suppressie-effect: `X2` onderdrukt variantie in `X1` die niet met `Y` samenhangt, waardoor het partiële effect van `X2` een ander teken krijgt dan de bivariate correlatie
-4. Het model heeft te weinig observaties
+1. ZwerfvuilKlachten, op basis van bâ‚‚ = âˆ’0.37
+2. WanordeIndex, op basis van Î²â‚ = 0.90 â€” de gestandaardiseerde coeff vergelijkt effecten op dezelfde schaal
+3. ZwerfvuilKlachten, op basis van Î²â‚‚ = âˆ’0.33
+4. WanordeIndex, op basis van bâ‚ = 13.55 â€” de grootste ongestandaardiseerde coeff
 
+---
+
+**9) Welke regressieparameter(s) zijn statistisch significant op 5%-niveau?**
+
+1. Alleen WanordeIndex (p = .535)
+2. Alleen ZwerfvuilKlachten (p = .874)
+3. Geen â€” geen enkele parameter heeft p < .05; ook het overall model is niet significant
+4. Intercept en WanordeIndex
+
+---
+
+**10) Wat betekent het 95%-betrouwbaarheidsinterval voor bâ‚ (WanordeIndex): [âˆ’44.02, 71.12]?**
+
+1. Het effect van WanordeIndex is zeker positief
+2. Het effect van WanordeIndex is zeker negatief
+3. Het interval bevat 0 â€” we kunnen op 5%-niveau geen significant effect van WanordeIndex concluderen
+4. Het model voorspelt altijd goed als bâ‚ in dit interval ligt
+
+---
+
+**11) Wat is de verwachte AngstScore voor een buurt met WanordeIndex = 7 en ZwerfvuilKlachten = 45?**
+
+1. 76.59
+2. 62.44
+3. 56.20
+4. 68.43

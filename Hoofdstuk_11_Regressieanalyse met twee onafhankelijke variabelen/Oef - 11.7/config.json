@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 11.7: Controlevragen - concepten meervoudige regressie"
+      "nl": "Oef - 11.7 Output lezen: meervoudige regressie (vaste dataset)"
     }
   },
   "evaluation": {
@@ -14,10 +14,13 @@
   "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
     "meervoudige-regressie",
-    "begrippen",
+    "output-lezen",
+    "R-kwadraat",
+    "regressieparameters",
     "interpretatie"
   ],
   "internals": {
+    "token": "qiKP-8r7atGDevW76jEK7V3eiu-gUVj6tHAwS8MwakhwNWzqaNRSvJXXfFGNJ4aU",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

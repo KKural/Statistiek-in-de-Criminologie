@@ -1,26 +1,13 @@
 {
-  "type": "exercise",
-  "programming_language": "R",
-  "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 11.8 Output lezen: meervoudige regressie (vaste dataset)"
+      "nl": "Oef - 11.8: Besluit en vooruitblik naar volgende leerpad"
     }
   },
-  "evaluation": {
-    "handler": "R"
-  },
-  "test_suite": "evaluation",
-  "boilerplate": "description/boilerplate/boilerplate",
-  "labels": [
-    "meervoudige-regressie",
-    "output-lezen",
-    "R-kwadraat",
-    "regressieparameters",
-    "interpretatie"
-  ],
+  "access": "public",
+  "type": "content",
   "internals": {
-    "token": "qiKP-8r7atGDevW76jEK7V3eiu-gUVj6tHAwS8MwakhwNWzqaNRSvJXXfFGNJ4aU",
+    "token": "hYUbZu9Qex5AqPTSjk54PZMPPUkvv5mQXcsQutbxSkM2MBQM_MEY-mwZ3d6D-GPj",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
