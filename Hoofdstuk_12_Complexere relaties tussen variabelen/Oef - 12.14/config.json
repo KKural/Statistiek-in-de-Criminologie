@@ -1,0 +1,20 @@
+{
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 12.14 Assumptie regressie: Multicollineariteit (VIF)"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "labels": [
+    "regressie",
+    "assumpties",
+    "multicollineariteit",
+    "VIF",
+    "diagnostiek"
+  ]
+}

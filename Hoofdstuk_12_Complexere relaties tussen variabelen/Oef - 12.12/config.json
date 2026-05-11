@@ -1,0 +1,19 @@
+{
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 12.12 Assumptie regressie: Homoscedasticiteit"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "labels": [
+    "regressie",
+    "assumpties",
+    "homoscedasticiteit",
+    "diagnostiek"
+  ]
+}

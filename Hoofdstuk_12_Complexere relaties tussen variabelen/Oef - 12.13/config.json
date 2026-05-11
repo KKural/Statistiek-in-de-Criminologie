@@ -1,0 +1,19 @@
+{
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 12.13 Assumptie regressie: Normaliteit van residuen"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "labels": [
+    "regressie",
+    "assumpties",
+    "normaliteit",
+    "diagnostiek"
+  ]
+}
