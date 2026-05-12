@@ -1,21 +1,25 @@
 {
-    "programming_language": "R",
-    "access": "public",
-    "description": {
-        "names": {
-            "nl": "Oef - 13.3 Padmodel: totaal effect via indirecte routes"
-        }
-    },
-    "evaluation": {
-        "handler": "R"
-    },
-    "test_suite": "evaluation",
-    "boilerplate": "description/boilerplate/boilerplate",
-    "labels": [
-        "padmodel",
-        "indirect effect",
-        "totaal effect",
-        "re-integratie",
-        "synthese"
-    ]
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 13.3 Padmodel: totaal effect via indirecte routes"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "padmodel",
+    "indirect effect",
+    "totaal effect",
+    "re-integratie",
+    "synthese"
+  ],
+  "internals": {
+    "token": "gKzD3y-nb7_V3AGRc3Sw6Vs5G7JtWKZpW8Bq2_9NSyx5_KA-RQ2947Srh3vhZXNc",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
