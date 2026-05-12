@@ -16,5 +16,9 @@
     "multicollineariteit",
     "VIF",
     "diagnostiek"
-  ]
+  ],
+  "internals": {
+    "token": "BqGDc-PNq6g_jQBb8tirPzHviQT5SnRkYp99DNeiujPSdEk2Thu3FN2Y7-KqTkT6",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

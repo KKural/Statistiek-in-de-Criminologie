@@ -15,5 +15,9 @@
     "assumpties",
     "normaliteit",
     "diagnostiek"
-  ]
+  ],
+  "internals": {
+    "token": "QkCST8jHGKqZFX5bMcD5Ahp7DuyhWUweieAKwBHMA3tiF9q4_Fsz6tbaSKqx7W_y",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

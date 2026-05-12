@@ -15,5 +15,9 @@
     "assumpties",
     "homoscedasticiteit",
     "diagnostiek"
-  ]
+  ],
+  "internals": {
+    "token": "BAqJi7WiK5c5AM-TNgsTccFPiXD3dtwqGRaNvfM7czN6Ua34XdNn4b9jr3VJxkS9",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
