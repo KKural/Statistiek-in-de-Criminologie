@@ -97,9 +97,9 @@ cat("✅ Thumbnail: image_thumb.png (3×1.8 in, 100 DPI)\n")
 # MARKDOWN METHODS FOR DODONA DESCRIPTIONS
 # =================================================================
 
-cat("\n" %+% "=".repeat(60) %+% "\n")
+cat(paste0("\n", strrep("=", 60), "\n"))
 cat("COPY-PASTE INTO YOUR DESCRIPTION.NL.MD FILE:\n")
-cat("=".repeat(60) %+% "\n\n")
+cat(paste0(strrep("=", 60), "\n\n"))
 
 # Method 1: Standard Markdown (uses native file size)
 cat("<!-- METHOD 1: Standard Markdown -->\n")
@@ -129,9 +129,9 @@ cat("![Description](media/image_small.png)\n\n")
 # RECOMMENDATIONS FOR DIFFERENT USE CASES
 # =================================================================
 
-cat("=".repeat(60) %+% "\n")
+cat(paste0(strrep("=", 60), "\n"))
 cat("RECOMMENDATIONS:\n")
-cat("=".repeat(60) %+% "\n")
+cat(paste0(strrep("=", 60), "\n"))
 cat("🎯 For most exercises: METHOD 2 with width='600'\n")
 cat("📱 For mobile-friendly: METHOD 4 with responsive CSS\n") 
 cat("💾 For fast loading: METHOD 6 with small files\n")
@@ -146,7 +146,7 @@ cat("📝 Copy desired method into description.nl.md\n")
 # FILE SIZE INFORMATION
 # =================================================================
 
-cat("\n" %+% "FILE SIZES:\n")
+cat("\nFILE SIZES:\n")
 if (file.exists("image_large.png")) {
   size_large <- round(file.info("image_large.png")$size / 1024, 1)
   cat(sprintf("📊 Large: %s KB\n", size_large))

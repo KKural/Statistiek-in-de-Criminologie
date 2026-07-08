@@ -91,7 +91,7 @@ context({
               right = "Correct! **WanordeIndex** heeft het sterkste relatieve effect: \u03b2\u2081 = **0.90** tegenover |\u03b2\u2082| = 0.33. Gestandaardiseerde co\u00ebffici\u00ebnten zijn vergelijkbaar omdat ze op dezelfde schaal (z-scores) staan."
             ),
             vraag9  = list(
-              wrong = "**Geen** enkele parameter is significant: WanordeIndex p = .535, ZwerfvuilKlachten p = .874, intercept p = .944. Ook het overall model is niet significant (F p = .559) \u2192 antwoord 3.",
+              wrong = "**Geen** enkele parameter is significant: WanordeIndex p = .418, ZwerfvuilKlachten p = .748, intercept p = .884. Ook het overall model is niet significant (F p = .559) \u2192 antwoord 3.",
               right = "Correct! **Geen enkele** parameter bereikt p < .05. Dit is typisch bij een zeer kleine steekproef (N=5): de standaardfouten zijn enorm groot en de toetsen hebben weinig onderscheidingsvermogen."
             ),
             vraag10 = list(

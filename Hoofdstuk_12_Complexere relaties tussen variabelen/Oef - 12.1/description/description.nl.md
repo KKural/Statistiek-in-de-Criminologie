@@ -10,7 +10,7 @@ Welke variabelen in het model zijn **‘exogene’** variabelen?
 
 1. Empathische bezorgdheid en empathische perspectiefneming
 2. Moreel oordeel (Stelen is OK)
-3. Morele intuiïties, geanticipeerde schuld en morele boosheid
+3. Morele intuïties, geanticipeerde schuld en morele boosheid
 4. Geanticipeerde schuld en morele boosheid
 
 **Hint:** *Een exogene variabele heeft geen inkomende pijlen vanuit andere modelvariabelen — het zijn de startpunten van het model.*

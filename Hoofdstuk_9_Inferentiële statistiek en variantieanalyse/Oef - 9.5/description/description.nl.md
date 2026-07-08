@@ -1,6 +1,6 @@
-﻿## Oef - 9.5: Controlevragen â€“ InferentiÃ«le statistiek en ANOVA
+﻿## Oef - 9.5: Controlevragen – Inferentiële statistiek en ANOVA
 
-Beantwoord de volgende meerkeuzevragen over de logica van inferentiÃ«le statistiek, hypothesetoetsing en variantieanalyse.
+Beantwoord de volgende meerkeuzevragen over de logica van inferentiële statistiek, hypothesetoetsing en variantieanalyse.
 
 Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
 
@@ -12,7 +12,7 @@ Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
 
 1. Dat er een significant verband is tussen twee nominale variabelen
 2. Dat het gemiddelde van een metrische variabele verschilt tussen twee of meer groepen
-3. Dat een correlatieÃ«fficiÃ«nt significant verschilt van nul
+3. Dat een correlatieëfficiënt significant verschilt van nul
 4. Dat twee variabelen normaal verdeeld zijn
 
 
@@ -42,7 +42,7 @@ Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
 
 1. De p-waarde wordt groter (minder significant)
 2. De p-waarde blijft gelijk
-3. De p-waarde wordt kleiner (meer kans om Hâ‚€ te verwerpen)
+3. De p-waarde wordt kleiner (meer kans om H₀ te verwerpen)
 4. De p-waarde fluctueert willekeurig
 
 
@@ -50,8 +50,8 @@ Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
 
 **5) Bij een regressieanalyse gebruik je een F-toets om...**
 
-1. Te testen of het regressiemo- del significant meer variantie verklaart dan het nulmodel
-2. Te testen of de richtingscoÃ«fficiÃ«nt Î² significant verschilt van nul
+1. Te testen of het regressiemodel significant meer variantie verklaart dan het nulmodel
+2. Te testen of de richtingscoëfficiënt β significant verschilt van nul
 3. Te testen of de residuen normaal verdeeld zijn
 4. Te controleren of er multicollineariteit bestaat
 
@@ -71,7 +71,6 @@ Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
 **7) Welke toets wordt bij regressieanalyse ook gebruikt (naast de F-toets)?**
 
 1. De chi-kwadraattoets
-2. De t-toets voor individuele regressiecoefficiÃ«nten
+2. De t-toets voor individuele regressiecoëfficiënten
 3. De Mann-Whitney U-toets
 4. De Levene-toets
-

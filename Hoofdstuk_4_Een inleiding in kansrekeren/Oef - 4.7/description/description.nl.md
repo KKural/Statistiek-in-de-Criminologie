@@ -40,7 +40,7 @@ Het volgende hoofdstuk behandelt de **normale en standaardnormale verdeling** - 
 - Basis voor **betrouwbaarheidsintervallen** en **hypothesetoetsing**
 - Van **beschrijving** naar **verklaring** in criminologisch onderzoek
 
-### **� De grote lijn:**
+### **🎯 De grote lijn:**
 
 **Hoofdstuk 4 (kansrekenen)** → **Hoofdstuk 5 (normale verdeling)** → **Hoofdstuk 6+ (inferentiële statistiek)**
 

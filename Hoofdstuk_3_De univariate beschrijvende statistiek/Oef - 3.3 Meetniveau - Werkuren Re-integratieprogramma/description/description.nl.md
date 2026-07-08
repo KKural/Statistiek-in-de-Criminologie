@@ -89,7 +89,7 @@ Bereken de **spreidingsmaten**: variatiebreedte, kwartielen (Q1, Q3) en interkwa
 
 Voor een volledige analyse bereken je de **afwijkingen** van het gemiddelde, de **gekwadrateerde afwijkingen**, en daaruit de **variantie**, **standaardafwijking** en **variatiecoëfficiënt**.
 
-In het code-bestand vervang je overal `???` door het juiste antwoord.
+In het code-bestand vervang je overal `??` door het juiste antwoord.
 
 - Schrijf numerieke antwoorden met een **decimale punt** (bijv. `33.55`, niet `33,55`).
 - Voor tekstcategorieën (bijv. keuzes voor de beste maat) gebruik je kleine letters, zoals `"gemiddelde"`, `"mediaan"`, `"modus"`.

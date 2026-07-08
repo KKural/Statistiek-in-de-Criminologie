@@ -14,7 +14,7 @@ context({
             vraag4 = 3,  # p-waarde kleiner
             vraag5 = 1,  # model verklaart meer dan nulmodel
             vraag6 = 3,  # model verklaart significant meer
-            vraag7 = 2   # t-toets voor individuele coeff
+            vraag7 = 2   # t-toets voor individuele coefficienten
           )
 
           parse_num <- function(val) {
@@ -60,11 +60,11 @@ context({
           wrong_msg_vraag1 <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && v == 1)
-              return("**Optie 1 is onjuist.** Dat alle groepsgemiddelden *gelijk* zijn is juist de **nulhypothese H₀**, niet de alternatieve. ANOVA test of H₀ verworpen kan worden.\n\n**Correct (2):** H₀: μ₁=μ₂=μ₃; Hₐ: minstens één gemiddelde verschilt.")
+              return("**Optie 1 is onjuist.** Een significant verband tussen twee nominale variabelen toets je typisch met een chi-kwadraattoets, niet met ANOVA.\n\n**Correct (2):** ANOVA test of het gemiddelde van een metrische variabele verschilt tussen twee of meer groepen.")
             if (!is.na(v) && v == 3)
-              return("**Optie 3 is onjuist.** Gelijke varianties testen is de **Levene-toets** (assumptie voor ANOVA), niet de ANOVA-hypothese zelf.\n\n**Correct (2):** ANOVA test gemiddelden, niet varianties.")
+              return("**Optie 3 is onjuist.** Of een correlatiecoëfficiënt significant verschilt van nul toets je met een correlatietoets, niet met ANOVA.\n\n**Correct (2):** ANOVA test groepsverschillen in gemiddelden.")
             if (!is.na(v) && v == 4)
-              return("**Optie 4 is onjuist.** ANOVA toetst of **minstens één** gemiddelde verschilt, niet of **alle** gemiddelden van elkaar verschillen.\n\n**Correct (2):** Hₐ zegt: ∃ i,j: μᵢ ≠ μⱼ.")
+              return("**Optie 4 is onjuist.** Normaliteit is een assumptie die je kunt controleren, maar het is niet de hypothese die ANOVA zelf test.\n\n**Correct (2):** ANOVA test of minstens één groepsgemiddelde verschilt.")
             "**Correct antwoord: 2** — H₀: alle groepsgemiddelden zijn gelijk (μ₁=μ₂=...=μₖ); Hₐ: minstens één gemiddelde verschilt."
           }
 
@@ -82,11 +82,11 @@ context({
           wrong_msg_vraag3 <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && v == 1)
-              return("**Optie 1 is onjuist.** F=1 betekent dat between- en within-variantie même groot zijn — er is dan geen bewijs voor een groepseffect.\n\n**Correct (2):** F > 1 betekent dat de tussengroepsvariantie **groter** is dan de binnengroepsvariantie.")
+              return("**Optie 1 is onjuist.** Als de tussengroepsvariantie groter is dan de binnengroepsvariantie, wordt F juist groter dan 1, niet kleiner dan 1.\n\n**Correct (2):** F > 1 betekent dat de tussengroepsvariantie **groter** is dan de binnengroepsvariantie.")
             if (!is.na(v) && v == 3)
-              return("**Optie 3 is onjuist.** F < 1 zou betekenen dat de binnengroepsvariantie groter is — dat wijst eerder op *geen* groepseffect.\n\n**Correct (2):** F > 1 → tussengroepsvariantie > binnengroepsvariantie.")
+              return("**Optie 3 is onjuist.** F blijft niet gelijk aan 1 wanneer de tussengroepsvariantie groter wordt dan de binnengroepsvariantie.\n\n**Correct (2):** F > 1 → tussengroepsvariantie > binnengroepsvariantie.")
             if (!is.na(v) && v == 4)
-              return("**Optie 4 is onjuist.** F=0 is praktisch onmogelijk (zou betekenen dat alle groepsgemiddelden exact gelijk zijn én er is geen toevalsruis).\n\n**Correct (2):** F > 1 → significant groepseffect mogelijk.")
+              return("**Optie 4 is onjuist.** Een F-waarde kan niet negatief zijn, omdat ze een verhouding van varianties is.\n\n**Correct (2):** F > 1 wanneer de tussengroepsvariantie groter is dan de binnengroepsvariantie.")
             "**Correct antwoord: 2** — F > 1 betekent dat de tussengroepsvariantie (MS_between) groter is dan de binnengroepsvariantie (MS_within), wat wijst op een groepseffect."
           }
 
@@ -97,7 +97,7 @@ context({
             if (!is.na(v) && v == 2)
               return("**Optie 2 is onjuist.** De p-waarde blijft niet gelijk als F verandert — p is een functie van F.\n\n**Correct (3):** Grotere F → kleinere p-waarde.")
             if (!is.na(v) && v == 4)
-              return("**Optie 4 is onjuist.** Er is geen reden waarom p onbepaalbaar zou worden bij een grote F.\n\n**Correct (3):** Grotere F → kleinere p.")
+              return("**Optie 4 is onjuist.** De p-waarde fluctueert niet willekeurig; bij gegeven vrijheidsgraden is p een functie van F.\n\n**Correct (3):** Grotere F → kleinere p.")
             "**Correct antwoord: 3** — Hoe groter de F-waarde, hoe kleiner de p-waarde. Een grote F levert sterk bewijs tegen H₀."
           }
 
@@ -106,31 +106,31 @@ context({
             if (!is.na(v) && v == 2)
               return("**Optie 2 is onjuist.** De F-toets test het *gehele* regressiemodel, niet individuele coëfficiënten. Voor individuele coëfficiënten gebruik je de t-toets.\n\n**Correct (1):** F-toets = test of model als geheel significant is ten opzichte van het nulmodel.")
             if (!is.na(v) && v == 3)
-              return("**Optie 3 is onjuist.** De F-toets vergelijkt het *model* met het nulmodel (interceptmodel), niet twee afzonderlijke variabelen.\n\n**Correct (1):** F = variantie verklaard door het model / variantie van residuen.")
+              return("**Optie 3 is onjuist.** De normaliteit van residuen is een regressieassumptie, maar de F-toets test die assumptie niet.\n\n**Correct (1):** De F-toets vergelijkt het regressiemodel als geheel met het nulmodel.")
             if (!is.na(v) && v == 4)
-              return("**Optie 4 is onjuist.** De F-toets geeft geen schatting van de richting van effecten — daarvoor kijk je naar de regressiecoëfficiënten.\n\n**Correct (1):** F-toets test of R² significant groter is dan 0.")
+              return("**Optie 4 is onjuist.** Multicollineariteit controleer je met diagnostieken zoals VIF, niet met de globale F-toets.\n\n**Correct (1):** De F-toets test of R² significant groter is dan 0.")
             "**Correct antwoord: 1** — De F-toets bij regressie test of het model als geheel significant meer variantie verklaart dan het nulmodel (enkel het intercept)."
           }
 
           wrong_msg_vraag6 <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && v == 1)
-              return("**Optie 1 is onjuist.** p<0.05 bij F betekent dat het *model* significant is, niet noodzakelijk de individuele coëfficiënten.\n\n**Correct (3):** Het model verklaart significant meer variantie dan het nulmodel.")
+              return("**Optie 1 is onjuist.** Een significante F-toets betekent dat het regressiemodel als geheel variantie verklaart; ze zegt niet rechtstreeks dat er een sterke bivariate correlatie tussen X en Y is.\n\n**Correct (3):** Het model verklaart significant meer variantie dan verwacht op basis van toeval.")
             if (!is.na(v) && v == 2)
-              return("**Optie 2 is onjuist.** p<0.05 bij F toont niet aan dat alle predictoren significant zijn — dat vereist t-toetsen per coëfficiënt.\n\n**Correct (3):** p<0.05 bij F-toets → het complete model is significant.")
+              return("**Optie 2 is onjuist.** p<0.05 bij de F-toets betekent niet dat de regressielijn perfect bij de data past; ook bij significante modellen blijven residuen over.\n\n**Correct (3):** p<0.05 bij F-toets → het complete model is significant.")
             if (!is.na(v) && v == 4)
-              return("**Optie 4 is onjuist.** De steekproefgrootte is niet wat de F-toets test.\n\n**Correct (3):** p<0.05 bij F-toets = het regressiemodel verklaart significant meer dan het nulmodel.")
+              return("**Optie 4 is onjuist.** De significantie van het intercept toets je met een afzonderlijke t-toets op het intercept, niet met de globale F-toets.\n\n**Correct (3):** p<0.05 bij F-toets = het regressiemodel verklaart significant meer dan het nulmodel.")
             "**Correct antwoord: 3** — p<0.05 bij de F-toets betekent dat het regressiemodel als geheel significant meer variantie verklaart dan het nulmodel."
           }
 
           wrong_msg_vraag7 <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && v == 1)
-              return("**Optie 1 is onjuist.** De F-toets is al de toets voor het gehele model. Voor *individuele* coëfficiënten gebruik je een andere toets.\n\n**Correct (2):** De t-toets test of een individuele regressiecoëfficiënt significant van 0 verschilt.")
+              return("**Optie 1 is onjuist.** De chi-kwadraattoets gebruik je voor onafhankelijkheid tussen nominale variabelen, niet voor individuele regressiecoëfficiënten.\n\n**Correct (2):** De t-toets test of een individuele regressiecoëfficiënt significant van 0 verschilt.")
             if (!is.na(v) && v == 3)
-              return("**Optie 3 is onjuist.** De chi-kwadraattoets test onafhankelijkheid van nominale variabelen, niet regressiecoëfficiënten.\n\n**Correct (2):** t-toets voor B₁, B₂, ... elk afzonderlijk.")
+              return("**Optie 3 is onjuist.** De Mann-Whitney U-toets vergelijkt twee onafhankelijke groepen op een ordinale of niet-normale metrische uitkomst; ze test geen regressiecoëfficiënten.\n\n**Correct (2):** t-toets voor B₁, B₂, ... elk afzonderlijk.")
             if (!is.na(v) && v == 4)
-              return("**Optie 4 is onjuist.** De z-toets wordt zelden gebruikt bij regressie.\n\n**Correct (2):** t-toets voor individuele regressiecoëfficiënten.")
+              return("**Optie 4 is onjuist.** De Levene-toets controleert homogeniteit van varianties, niet de significantie van regressiecoëfficiënten.\n\n**Correct (2):** t-toets voor individuele regressiecoëfficiënten.")
             "**Correct antwoord: 2** — De t-toets wordt gebruikt om individuele regressiecoëfficiënten te toetsen (H₀: Bⱼ = 0)."
           }
 

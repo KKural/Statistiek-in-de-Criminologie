@@ -64,7 +64,7 @@ context({
             v <- parse_num(val)
             if (!is.na(v) && v == 2) return("**Optie 2 (indirect verband) is onjuist.** Bij indirect verband daalt |r| deels maar blijft er een betekenisvol verband.\n\nHier daalt r van 0.62 naar **0.07** (bijna nul) → het verband verdwijnt bijna volledig → code **1** (schijnverband).")
             if (!is.na(v) && v == 3) return("**Optie 3 (suppressoreffect) is onjuist.** Een suppressoreffect vergroot |r|.\n\nHier krimpt r van 0.62 naar 0.07 → het verband verdwijnt bijna → code **1** (schijnverband).")
-            if (!is.na(v) && v == 4) return("**Optie 4 (reëlëel verband) is onjuist.** Een reëlëel verband verandert nauwelijks na controle.\n\nHier daalt r van 0.62 naar 0.07 → bijna nul na controle → code **1** (schijnverband).")
+            if (!is.na(v) && v == 4) return("**Optie 4 (reëel verband) is onjuist.** Een reëel verband verandert nauwelijks na controle.\n\nHier daalt r van 0.62 naar 0.07 → bijna nul na controle → code **1** (schijnverband).")
             "**Correct (1 = schijnverband):** r_XY=0.62 daalt naar r_XY.Z=0.07 na controle voor SES.\n\nHet verband was volledig te wijten aan de gemeenschappelijke factor SES van de wijk."
           }
 
@@ -72,7 +72,7 @@ context({
             v <- parse_num(val)
             if (!is.na(v) && v == 1) return("**Optie 1 (schijnverband) is onjuist.** Bij een schijnverband daalt r naar ~0.\n\nHier daalt r van 0.38 naar 0.21 — het verband **verzwakt** maar blijft → code **2** (indirect verband).")
             if (!is.na(v) && v == 3) return("**Optie 3 (suppressoreffect) is onjuist.** Een suppressoreffect vergroot |r|.\n\nHier wordt r kleiner (0.38 → 0.21) → code **2** (indirect verband).")
-            if (!is.na(v) && v == 4) return("**Optie 4 (reëlëel verband) is onjuist.** Een reëlëel verband verandert nauwelijks.\n\nHier daalt r van 0.38 naar 0.21 (significante daling) → stress medieert het verband deels → code **2** (indirect verband).")
+            if (!is.na(v) && v == 4) return("**Optie 4 (reëel verband) is onjuist.** Een reëel verband verandert nauwelijks.\n\nHier daalt r van 0.38 naar 0.21 (significante daling) → stress medieert het verband deels → code **2** (indirect verband).")
             "**Correct (2 = indirect verband):** r_XY=0.38 daalt naar r_XY.Z=0.21 na controle voor stress.\n\nStress medieert het verband: deel van het alcoholgebruik-effect loopt via stress."
           }
 
@@ -80,7 +80,7 @@ context({
             v <- parse_num(val)
             if (!is.na(v) && v == 1) return("**Optie 1 (schijnverband) is onjuist.** Bij een schijnverband daalt |r| naar ~0.\n\nHier wordt |r| groter: van |−0.12|=0.12 naar |−0.53|=0.53 → het verband versterkt na controle → code **3** (suppressoreffect).")
             if (!is.na(v) && v == 2) return("**Optie 2 (indirect verband) is onjuist.** Bij indirect verband verzwakt |r|.\n\nHier gaat |r| van 0.12 naar 0.53 — het verband **versterkt** na controle → code **3** (suppressoreffect).")
-            if (!is.na(v) && v == 4) return("**Optie 4 (reëlëel verband) is onjuist.** Een reëlëel verband verandert nauwelijks.\n\nHier gaat |r| van 0.12 naar 0.53 (enorm sterker) → code **3** (suppressoreffect).")
+            if (!is.na(v) && v == 4) return("**Optie 4 (reëel verband) is onjuist.** Een reëel verband verandert nauwelijks.\n\nHier gaat |r| van 0.12 naar 0.53 (enorm sterker) → code **3** (suppressoreffect).")
             "**Correct (3 = suppressoreffect):** r_XY=−0.12 wordt r_XY.Z=−0.53 na controle voor motivatie.\n\nMotivatieniveau maskeerde het ware sterkere (negatieve) verband tussen rehabilitatie en recidive."
           }
 

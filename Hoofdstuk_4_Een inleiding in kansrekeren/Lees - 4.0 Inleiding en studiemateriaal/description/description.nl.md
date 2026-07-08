@@ -1,4 +1,4 @@
-Dit theorieblok behandelt **Hoofdstuk 4: Een inleiding in kansrekeren**. In dit hoofdstuk maak je kennis met de basis van kansrekenen, een noodzakelijk onderdeel van kwantitatieve criminologie. Criminologen werken voortdurend met onzekerheid: bij risicotaxatie, steekproeftrekking, recidive-inschatting of beleidsevaluatie. Om verantwoord te kunnen oordelen, moet je begrijpen wat een kans is, hoe ze kan worden berekend en geïnterpreteerd, en in welke situaties kansen objectief, experimenteel of subjectief bepaald worden. Kansrekenen vormt zo de brug tussen toevalsprocessen en statistische inferentie.
+Dit theorieblok behandelt **Hoofdstuk 4: Een inleiding in kansrekenen**. In dit hoofdstuk maak je kennis met de basis van kansrekenen, een noodzakelijk onderdeel van kwantitatieve criminologie. Criminologen werken voortdurend met onzekerheid: bij risicotaxatie, steekproeftrekking, recidive-inschatting of beleidsevaluatie. Om verantwoord te kunnen oordelen, moet je begrijpen wat een kans is, hoe ze kan worden berekend en geïnterpreteerd, en in welke situaties kansen objectief, experimenteel of subjectief bepaald worden. Kansrekenen vormt zo de brug tussen toevalsprocessen en statistische inferentie.
 
 Studiemateriaal en leerdoelen:
 
@@ -14,7 +14,7 @@ Studiemateriaal en leerdoelen:
 
 ## **Verplichte Literatuur**
 
-### **Hoofdstuk 4: Een inleiding in kansrekeren**
+### **Hoofdstuk 4: Een inleiding in kansrekenen**
 
 *Basiscursus Statistiek in de Criminologie – Deel I (Theorieboek)*
 

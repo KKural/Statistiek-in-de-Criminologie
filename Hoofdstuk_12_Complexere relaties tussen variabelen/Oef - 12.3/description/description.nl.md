@@ -10,7 +10,7 @@ Welke variabelen in het model zijn **‘intermediaire’** variabelen?
 
 1. Empathische bezorgdheid en empathische perspectiefneming
 2. Moreel oordeel (Stelen is OK)
-3. Morele intuiïties (individualiserend en groepsgericht), geanticipeerde schuld en morele boosheid
+3. Morele intuïties (individualiserend en groepsgericht), geanticipeerde schuld en morele boosheid
 4. Alleen geanticipeerde schuld en morele boosheid
 
 **Hint:** *Intermediaire variabelen ontvangen pijlen én sturen pijlen door — zij liggen tussen exogene en endogene variabelen.*

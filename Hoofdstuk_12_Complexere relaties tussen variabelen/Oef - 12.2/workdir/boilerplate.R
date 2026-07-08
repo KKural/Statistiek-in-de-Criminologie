@@ -2,7 +2,7 @@
 # OEFENING 8.1: Koffieprijs en ontbossing - Pearson's correlatie
 # ============================================================================
 # Bereken ALLE tussenstappen met de hand (rekenmachine mag).
-# Vul hieronder je eindresultaten in (vervang alle ???).
+# Vul hieronder je eindresultaten in (vervang alle ??).
 # Gebruik decimalen met PUNT (niet komma).
 # ============================================================================
 
@@ -13,7 +13,7 @@
 # 1) Wat is de verklarende variabele?
 #    1 = prijs
 #    2 = ontbossing
-verklarende_variabele <- ???
+verklarende_variabele <- ??
 
 
 # ----------------------------------------------------------------------------
@@ -22,11 +22,11 @@ verklarende_variabele <- ???
 
 # 2) Gemiddelde van X (prijs): x̄
 #    Rond af op 2 decimalen
-gemiddelde_x <- ???
+gemiddelde_x <- ??
 
 # 3) Gemiddelde van Y (ontbossing): ȳ
 #    Rond af op 4 decimalen
-gemiddelde_y <- ???
+gemiddelde_y <- ??
 
 
 # ----------------------------------------------------------------------------
@@ -35,15 +35,15 @@ gemiddelde_y <- ???
 
 # 4) Som van de gekwadrateerde afwijkingen van X: SSx = Σ(x - x̄)²
 #    Geheel getal of 1 decimaal
-SSx <- ???
+SSx <- ??
 
 # 5) Som van de gekwadrateerde afwijkingen van Y: SSy = Σ(y - ȳ)²
 #    Rond af op 4 decimalen
-SSy <- ???
+SSy <- ??
 
 # 6) Som van de kruisproducten: SSxy = Σ(x - x̄)·(y - ȳ)
 #    Rond af op 2 decimalen
-SSxy <- ???
+SSxy <- ??
 
 
 # ----------------------------------------------------------------------------
@@ -52,23 +52,23 @@ SSxy <- ???
 
 # 7) Variantie van X: s²x = SSx/(n-1)
 #    Rond af op 1 decimaal
-variantie_x <- ???
+variantie_x <- ??
 
 # 8) Variantie van Y: s²y = SSy/(n-1)
 #    Rond af op 4 decimalen
-variantie_y <- ???
+variantie_y <- ??
 
 # 9) Standaardafwijking van X: sx = √s²x
 #    Rond af op 4 decimalen
-sd_x <- ???
+sd_x <- ??
 
 # 10) Standaardafwijking van Y: sy = √s²y
 #     Rond af op 4 decimalen
-sd_y <- ???
+sd_y <- ??
 
 # 11) Covariantie: s²xy = SSxy/(n-1)
 #     Rond af op 4 decimalen
-covariantie <- ???
+covariantie <- ??
 
 
 # ----------------------------------------------------------------------------
@@ -77,7 +77,7 @@ covariantie <- ???
 
 # 12) Pearson's r: r = s²xy / (sx · sy)
 #     Rond af op 4 decimalen
-pearson_r <- ???
+pearson_r <- ??
 
 
 # ----------------------------------------------------------------------------
@@ -88,11 +88,11 @@ pearson_r <- ???
 #      uitgedrukt, verandert de correlatie dan?
 #      1 = ja
 #      2 = nee
-correlatie_verandert <- ???
+correlatie_verandert <- ??
 
 # 13b) Geef een korte verklaring (1-3 zinnen)
 #      Vermeld of de correlatie verandert en waarom (link naar lineaire transformatie)
-verklaring_euro <- "???"
+verklaring_euro <- "??"
 
 
 # ============================================================================
