@@ -4,7 +4,7 @@ In deze oefening oefen je met de **interactieve Shiny-app** voor inferentiele st
 
 De app is beschikbaar op:
 
-**<a href='https://statscrim.ugent.be/app_anova/' target='_blank' rel='noopener noreferrer'>Interactieve ANOVA-oefeningen - Statistiek in de Criminologie</a>**
+**<a href='https://statscrim.ugent.be/anova/' target='_blank' rel='noopener noreferrer'>Interactieve ANOVA-oefeningen - Statistiek in de Criminologie</a>**
 
 > **Let op:** Vraag je docent om de app te starten als deze niet beschikbaar is.
 
