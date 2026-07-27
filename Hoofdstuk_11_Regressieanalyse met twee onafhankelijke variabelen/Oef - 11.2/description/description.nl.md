@@ -6,7 +6,7 @@ In deze oefening oefen je met **meervoudige regressie-analyse** (met twee onafha
 
 De interactieve app is beschikbaar op:
 
-**<a href='https://statistiek-in-de-criminologie.shinyapps.io/Meervoudige_regressie/' target='_blank' rel='noopener noreferrer'>Oefeningen voor Meervoudige Regressie</a>**
+**<a href='https://statscrim.ugent.be/app_meervoudige_regressie/' target='_blank' rel='noopener noreferrer'>Oefeningen voor Meervoudige Regressie</a>**
 
 
 > **Let op:** Deze link werkt alleen als de app actief draait. Vraag je docent om de app te starten als deze niet beschikbaar is.

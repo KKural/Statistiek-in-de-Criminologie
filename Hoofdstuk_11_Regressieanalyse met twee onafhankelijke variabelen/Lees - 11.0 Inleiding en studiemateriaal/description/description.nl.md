@@ -53,7 +53,7 @@ Lees dit hoofdstuk zorgvuldig. Besteed speciale aandacht aan:
 
 ## **Hulpmiddelen**
 
-1. <a href='https://statistiek-in-de-criminologie.shinyapps.io/Meervoudige_regressie/' target='_blank' rel='noopener noreferrer'>Interactieve oefenapp - Meervoudige regressie</a>
+1. <a href='https://statscrim.ugent.be/app_meervoudige_regressie/' target='_blank' rel='noopener noreferrer'>Interactieve oefenapp - Meervoudige regressie</a>
 
 2. <a href='https://www.socscistatistics.com/tests/regression/default.aspx' target='_blank' rel='noopener noreferrer'>Multiple Regression Calculator</a>
 
