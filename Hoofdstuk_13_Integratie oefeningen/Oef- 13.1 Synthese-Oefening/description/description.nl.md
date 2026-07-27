@@ -6,6 +6,16 @@ De **Synthese-Oefening** (Hoofdstuk 13) is een interactieve examenoefening die c
 
 ---
 
+## **De App Openen**
+
+De interactieve app is beschikbaar op:
+
+**<a href='https://statscrim.ugent.be/synthese-oefening/' target='_blank' rel='noopener noreferrer'>Synthese-oefening - Statistiek in de Criminologie</a>**
+
+> **Let op:** Deze link werkt alleen als de app actief draait. Vraag je docent om de app te starten als deze niet beschikbaar is.
+
+---
+
 ## Structuur van de oefening
 
 De oefening bestaat uit drie gegevensbronnen die per datasetcode uniek zijn:
