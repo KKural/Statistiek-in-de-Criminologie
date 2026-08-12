@@ -87,7 +87,7 @@ for (file in files) {
   expect_count(correct, "**Transferstap:**", 1L, file, "correct")
   expect_count(correct, "**Waarschijnlijke redenering:**", 0L, file, "correct")
   expect_count(correct, "**Volgende stap:**", 0L, file, "correct")
-  expect_count(correct, "**Invoercontrole:**", 0L, file, "correct")
+  expect_count(correct, "**Controleer je invoer:**", 0L, file, "correct")
 
   for (wrong_value in setdiff(1:4, expected)) {
     wrong <- loaded$run(wrong_value)
@@ -98,11 +98,11 @@ for (file in files) {
     expect_count(wrong, "**Volgende stap:**", 1L, file, route)
     expect_count(wrong, "**Bevestiging:**", 0L, file, route)
     expect_count(wrong, "**Transferstap:**", 0L, file, route)
-    expect_count(wrong, "**Invoercontrole:**", 0L, file, route)
+    expect_count(wrong, "**Controleer je invoer:**", 0L, file, route)
   }
 
   invalid <- loaded$run(99)
-  expect_count(invalid, "**Invoercontrole:**", 1L, file, "invalid input")
+  expect_count(invalid, "**Controleer je invoer:**", 1L, file, "invalid input")
   expect_count(invalid, "**Waarom dit niet klopt:**", 1L, file, "invalid input")
   expect_count(invalid, "**Denkregel:**", 1L, file, "invalid input")
   expect_count(invalid, "**Volgende stap:**", 1L, file, "invalid input")

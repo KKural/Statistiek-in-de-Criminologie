@@ -431,7 +431,7 @@ context({
             } else if (invalid_finite_choice(key, r$value)) {
               contract_lines <- c(contract_lines, paste0(
                 "### ", qnames[[key]], "\n\n",
-                "**Invoercontrole:** de invoer is niet eenduidig aan één van de aangeboden antwoordopties te koppelen.\n\n",
+                "**Controleer je invoer:** de invoer is niet eenduidig aan één van de aangeboden antwoordopties te koppelen.\n\n",
                 "**Waarom dit niet klopt:** een waarde buiten de aangeboden opties kan niet als inhoudelijke keuze worden beoordeeld.\n\n",
                 "**Denkregel:** ", rule, "\n\n",
                 "**Volgende stap:** voer exact één geldig optienummer in. ", step

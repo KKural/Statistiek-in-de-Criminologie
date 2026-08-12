@@ -42,7 +42,7 @@ context({
           } else if (key %in% names(feedbacks)) {
             msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** de gekozen conclusie behandelt gewone spreiding of een ander plotkenmerk als veranderende residuvariantie.\n\n**Denkregel:**", msg, fixed = TRUE)
           } else {
-          msg <- paste0(msg, "\n\n**Invoercontrole:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** kies een geldige optie na vergelijking van de verticale spreiding over fitted values.\n\n**Volgende stap:** voer 1, 2, 3 of 4 in en zoek een waaier- of trechterpatroon.")
+          msg <- paste0(msg, "\n\n**Controleer je invoer:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** kies een geldige optie na vergelijking van de verticale spreiding over fitted values.\n\n**Volgende stap:** voer 1, 2, 3 of 4 in en zoek een waaier- of trechterpatroon.")
           }
           get_reporter()$add_message(msg, type = "markdown")
           generated == expected

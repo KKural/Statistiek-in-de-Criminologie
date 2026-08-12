@@ -49,6 +49,9 @@ banned_outcome_insensitive_text <- c(
   "pas dezelfde controles toe op een nieuw criminologisch voorbeeld",
   "formuleer één uitspraak die wel en één die niet uit de maat volgt",
   "**Mogelijke denkroute:**",
+  "**Invoercontrole:**",
+  "**Geen eenduidige diagnose:**",
+  "**Geen herkenbare foutroute:**",
   "controleer vraagtype, variabelenrol en meetniveau als afzonderlijke beslissingen"
 )
 confirmation_pattern <- paste(

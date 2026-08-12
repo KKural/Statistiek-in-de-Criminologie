@@ -78,7 +78,7 @@ context({
           if (is.na(num_val) || !(num_val %in% 1:3)) {
             feedback_text <- paste0(feedback_text,
               "❌ **", qnames[[q]], "** — **Ongeldige keuze: `", r$value, "`.**\n\n",
-              "**Invoercontrole:** de invoer is niet aan één van de codes 1, 2 of 3 te koppelen.\n\n",
+              "**Controleer je invoer:** de invoer is niet aan één van de codes 1, 2 of 3 te koppelen.\n\n",
               "**Waarom dit niet klopt:** alleen code 1 (boven), 2 (op) of 3 (onder) kan de positie ten opzichte van de lijn weergeven.\n\n",
               "**Denkregel:** valideer eerst de antwoordcode en gebruik daarna het teken van e = Y − Ŷ.\n\n",
               "**Volgende stap:** bereken 16 − 18,3 en voer vervolgens exact 1, 2 of 3 in.\n\n"

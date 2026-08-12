@@ -29,7 +29,7 @@ context({
         wrong_msg_uitbijter <- function(val) {
           v <- trimws(toupper(as.character(val)))
           if (length(v) != 1 || is.na(v) || !(v %in% LETTERS[1:6])) return(paste0(
-            "**Invoercontrole:** de invoer is niet aan één van de aangeboden puntletters A–F te koppelen.\n\n",
+            "**Controleer je invoer:** de invoer is niet aan één van de aangeboden puntletters A–F te koppelen.\n\n",
             "**Waarom dit niet klopt:** alleen een bestaande puntletter kan worden beoordeeld als kandidaat voor het grootste absolute residu.\n\n",
             "**Denkregel:** controleer eerst het antwoordformaat en vergelijk daarna voor A–F de waarden van |Y − Ŷ|.\n\n",
             "**Volgende stap:** voer exact één letter A, B, C, D, E of F in en maak vervolgens de residutabel af."

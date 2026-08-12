@@ -20,7 +20,7 @@ context({
           } else if (key %in% names(feedbacks)) {
             msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** de gekozen waarde is het verklaarde aandeel zelf of is berekend met het R² van een andere variabele.\n\n**Denkregel:**", msg, fixed = TRUE)
           } else {
-          msg <- paste0(msg, "\n\n**Invoercontrole:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** gebruik een geldige optie en bereken het complement van het juiste R².\n\n**Volgende stap:** voer 100 − 43 uit en kies daarna 1, 2, 3 of 4.")
+          msg <- paste0(msg, "\n\n**Controleer je invoer:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** gebruik een geldige optie en bereken het complement van het juiste R².\n\n**Volgende stap:** voer 100 − 43 uit en kies daarna 1, 2, 3 of 4.")
           }
           get_reporter()$add_message(msg, type = "markdown")
           generated == expected
