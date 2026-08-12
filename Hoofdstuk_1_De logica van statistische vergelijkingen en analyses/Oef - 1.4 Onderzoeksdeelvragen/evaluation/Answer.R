@@ -26,7 +26,7 @@ context({
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."
           if (key %in% names(feedbacks) && generated != expected) {
             msg <- paste0(
-              "**Waarschijnlijke redenering:** ", likely_reasons[[key]], "\n\n",
+              "**Waarom deze keuze begrijpelijk kan lijken:** ", likely_reasons[[key]], "\n\n",
               "**Waarom dit niet klopt:** ",
               msg,
               "\n\n**Denkregel:** Deelvragen moeten samen de centrale vraag beantwoorden; een methodekeuze of los detail is geen passende deelvraag.\n\n",

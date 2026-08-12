@@ -34,7 +34,10 @@ parse_failures <- unlist(lapply(files, function(file) {
 }))
 
 requirements <- list(
-  likely_reasoning = "\\*\\*Waarschijnlijke (redenering|denkroute):\\*\\*",
+  likely_reasoning = paste0(
+    "\\*\\*(Waarschijnlijke (redenering|denkroute)",
+    "|Waarom deze keuze begrijpelijk kan lijken):\\*\\*"
+  ),
   why_wrong = "\\*\\*Waarom dit (niet klopt|niet werkt):\\*\\*",
   thinking_rule = "\\*\\*Denkregel:\\*\\*",
   next_step = "\\*\\*Volgende stap:\\*\\*",
