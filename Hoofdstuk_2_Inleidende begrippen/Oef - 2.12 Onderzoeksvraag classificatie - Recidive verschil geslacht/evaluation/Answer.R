@@ -278,6 +278,20 @@ context({
           feedback_parts <- c(feedback_parts, "• **Percentage recidive**: Ratio variabele met echt nulpunt (0% = geen recidive)")
           feedback_parts <- c(feedback_parts, "• **Verschil**: Het woord 'verschilt' wijst op vergelijking, niet op oorzakelijk verband")
           
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct; de veldfeedback hierboven bevestigt per onderdeel waarom.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** onderscheid steeds het groepskenmerk, de uitkomst en ‘verschilt’ versus ‘beïnvloedt’; classificeer daarna de meetniveaus los van de rollen.\n\n**Transferstap:** pas deze scheiding toe op een nieuwe criminologische groepsvergelijking en schrijf de vraag als ‘verschilt Y tussen X-groepen?’.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** de afwijkende velden kunnen passen bij het lezen van een groepsverschil als een oorzakelijke invloed, of bij het verwisselen van groepskenmerk en uitkomst. Dit is slechts een plausibele diagnose op basis van je invoer.",
+              "**Waarom dit niet klopt:** ‘verschilt tussen’ beschrijft een vergelijking maar bewijst geen invloed, terwijl de X/Y-rol uit de vraagstructuur en het meetniveau uit de waarden volgt. De veldfeedback hierboven toont welke beslissing moet worden herzien.",
+              "**Denkregel:** markeer eerst de groepen (X), daarna de gemeten uitkomst (Y), en kijk vervolgens of de vraag alleen een verschil beschrijft of expliciet een effect wil verklaren.",
+              "**Volgende stap:** herstel het eerste veld met ❌, herschrijf de vraag als ‘verschilt Y tussen groepen X?’ en classificeer vervolgens X en Y elk met hun eigen meetniveaucriteria."
+            )
+          }
+
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
           generated == expected

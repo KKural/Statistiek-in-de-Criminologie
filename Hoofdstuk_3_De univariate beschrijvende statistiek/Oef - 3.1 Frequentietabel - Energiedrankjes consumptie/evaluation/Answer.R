@@ -1,3 +1,4 @@
+# **Bevestiging:** correct-route feedback below confirms every field before the Denkregel and Transferstap.
 context({
   testcase(
     "",
@@ -131,14 +132,28 @@ context({
               feedback <- c(feedback, paste0("**", label, "**: ", r$value, " ✅"))
             } else {
               val <- suppressWarnings(as.numeric(r$value))
-              msg <- wrong_handlers[[q]](val)
+              if (is.na(val)) {
+                msg <- "Je invoer kon niet als één numeriek antwoord worden geïnterpreteerd. Controleer of je een getal met de gevraagde schaal (aantal, percentage of proportie) hebt ingevoerd."
+              } else {
+                msg <- wrong_handlers[[q]](val)
+              }
               feedback <- c(feedback, paste0("**", label, "**: ", msg, " ❌"))
             }
           }
 
           # SUCCESS MESSAGE
           if (generated == expected) {
+            feedback <- c(feedback, "**Bevestiging:** alle zes frequentie-antwoorden zijn correct berekend en op de gevraagde schaal weergegeven.")
             feedback <- c(feedback, "\n✅ **Alle antwoorden correct! Goed gedaan.**")
+            feedback <- c(feedback, "**Denkregel:** bouw een frequentietabel vanuit absolute aantallen: pᵢ=nᵢ/N, cumulatief is de lopende som en percentage=100×pᵢ.\n\n**Transferstap:** maak dezelfde tabel voor een nieuwe consumptiecategorie en controleer Σnᵢ=N, Σpᵢ=1 en Σ%=100.")
+          } else {
+            feedback <- c(
+              feedback,
+              "**Waarschijnlijke redenering:** het eerste afwijkende veld kan passen bij het verwisselen van absolute, relatieve en cumulatieve frequenties, een ontbrekende deling door N, een schaalverwisseling tussen proportie en percentage of te vroeg afronden. Dit zijn mogelijke signatures, geen zekere reconstructie van je denkroute.",
+              "**Waarom dit niet klopt:** elke kolom wordt uit de vorige stap opgebouwd; een verkeerde noemer of schaal werkt daardoor door in latere cumulatieve waarden. De veldfeedback hierboven laat zien waar de eerste controle faalt.",
+              "**Denkregel:** bereken in vaste volgorde nᵢ → nᵢ/N → lopende som → 100 × proportie en rond pas af bij de gevraagde eindweergave.",
+              "**Volgende stap:** neem het eerste veld met ❌, herbereken het rechtstreeks uit de ruwe aantallen en N, en recomputeer daarna alle velden die ervan afhangen. Gebruik als eindcontrole: Σnᵢ=N, Σpᵢ=1 en Σ%=100."
+            )
           }
 
           get_reporter()$add_message(paste(feedback, collapse = "\n\n"), type = "markdown")

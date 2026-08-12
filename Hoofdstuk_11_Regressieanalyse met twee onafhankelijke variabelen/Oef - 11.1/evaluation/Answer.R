@@ -285,6 +285,11 @@ context({
             if (is.na(value)) return(fallback)
             near <- function(target, tolerance = 0.02) abs(value - target) <= tolerance
 
+            if (q == "afhankelijke_variabele" && near(1)) return("Je kiest mogelijk politiedichtheid omdat die als eerste predictor wordt genoemd; zij staat echter als X1 aan de verklarende kant.")
+            if (q == "afhankelijke_variabele" && near(2)) return("Je kiest mogelijk werkloosheid omdat die een inhoudelijk belangrijke predictor is; zij staat echter als X2 aan de verklarende kant.")
+            if (q == "richting_b1" && near(1)) return("Je leest mogelijk 'meer politie' als automatisch positief en kijkt daardoor voorbij aan het minteken van b1.")
+            if (q == "sterkste_predictor" && near(2)) return("Je kiest mogelijk X2 omdat beta2 positief is; relatieve sterkte vraagt de grootste absolute beta, ongeacht het teken.")
+
             if (q == "gemiddelde_x1" && near(15)) return("Je antwoord is de ruwe som 15; waarschijnlijk ontbreekt de deling door n = 5.")
             if (q == "gemiddelde_x2" && near(35)) return("Je antwoord is de ruwe som 35; waarschijnlijk ontbreekt de deling door n = 5.")
             if (q == "gemiddelde_y" && near(90)) return("Je antwoord is de ruwe som 90; waarschijnlijk ontbreekt de deling door n = 5.")
@@ -331,6 +336,16 @@ context({
           lines  <- character(0)
           score  <- 0
           total  <- length(res)
+          finite_choices <- list(
+            afhankelijke_variabele = 1:3,
+            richting_b1 = 1:2,
+            sterkste_predictor = 1:2
+          )
+          invalid_finite_choice <- function(key, value) {
+            if (!(key %in% names(finite_choices))) return(FALSE)
+            num <- suppressWarnings(as.numeric(as.character(value)))
+            length(num) != 1 || is.na(num) || !(num %in% finite_choices[[key]])
+          }
 
           for (q in names(res)) {
             r   <- res[[q]]
@@ -340,8 +355,11 @@ context({
             if (isTRUE(r$ok)) {
               lines <- c(lines, paste0(
                 "✅ **", lbl, "**: ", fb$right, "\n\n",
+                "**Bevestiging:** de ingevoerde waarde of keuze is correct binnen de oorspronkelijke tolerantie.\n\n",
+                "**Waarom dit klopt:** de ingevoerde waarde of keuze valt binnen de oorspronkelijke beoordelingsregel en past bij de uitgewerkte berekening.\n\n",
                 "**Denkregel:** ", diag[[3]], "\n\n",
-                "**Volgende stap:** ", diag[[4]]
+                "**Volgende stap:** ", diag[[4]], "\n\n",
+                "**Transferstap:** pas dezelfde denkregel toe op een nieuwe dataset en controleer formule, schaal en interpretatie opnieuw."
               ))
               score <- score + 1
             } else if (identical(r$reason, "missing")) {
@@ -349,6 +367,14 @@ context({
                 "❌ **", lbl, "**: variabele ", q, " ontbreekt in je script.\n\n",
                 "**Denkregel:** elke deelvraag vereist een afzonderlijke variabele.\n\n",
                 "**Volgende stap:** voeg ", q, " toe en vul daarna de gevraagde eindwaarde in."
+              ))
+            } else if (invalid_finite_choice(q, r$val)) {
+              lines <- c(lines, paste0(
+                "❌ **", lbl, "** (ongeldige keuze: ", as.character(r$val), ").\n\n",
+                "**Controleer je invoer:** de invoer is niet eenduidig aan één van de aangeboden antwoordopties te koppelen.\n\n",
+                "**Waarom dit niet klopt:** een waarde buiten de aangeboden opties kan niet als inhoudelijke keuze worden beoordeeld.\n\n",
+                "**Denkregel:** ", diag[[3]], "\n\n",
+                "**Volgende stap:** voer exact één geldig optienummer in en pas daarna deze regel toe: ", diag[[4]]
               ))
             } else {
               likely <- signature_reasoning(q, r$num, diag[[1]])

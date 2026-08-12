@@ -63,7 +63,8 @@ context({
         if (!r$exists) {
           feedback_text <- paste0(feedback_text,
             "\u274c **", qnames[[q]], "** — **Je hebt geen antwoord ingevoerd.**\n\n",
-            "Wijs een geheel getal toe aan `r_kwadraat_pct`, bijv. `r_kwadraat_pct <- 85`\n\n"
+            "**Denkregel:** lees eerst R² en controleer daarna of de gevraagde schaal decimaal of percentage is.\n\n",
+            "**Volgende stap:** wijs een geheel percentage toe aan `r_kwadraat_pct` na de omzetting 0,872 × 100.\n\n"
           )
         } else if (r$correct) {
           feedback_text <- paste0(feedback_text,
@@ -71,12 +72,19 @@ context({
             "R\u00b2 = 0,872 uit de Modelsamenvatting \u00d7 100 = **87,2% \u2248 87%**.\n\n",
             "Dit betekent dat **87%** van de variantie in de responsvariabele wordt verklaard door het model.\n\n",
             "**Let op:** de gecorrigeerde R\u00b2 (0,856 \u2192 86%) is een andere maatstaf die corrigeert voor het aantal predictoren — hier niet gevraagd.\n\n"
+            ,"**Bevestiging:** 87 is correct omdat 0,872 × 100 = 87,2 en de gevraagde invoer een geheel percentage is.\n\n",
+            "**Denkregel:** R, R² en adjusted R² zijn verschillende tabelwaarden; een percentage ontstaat pas door R² met 100 te vermenigvuldigen.\n\n",
+            "**Transferstap:** label bij een volgende output eerst de gevraagde rij en eenheid voordat je afrondt.\n\n"
           )
         } else {
           msg <- wrong_msg_r_kwadraat_pct(r$value)
           feedback_text <- paste0(feedback_text,
             "\u274c **", qnames[[q]], "** — **Fout. Antwoord: `", r$value, "`. Correct: `87`**\n\n",
-            msg, "\n\n"
+            "**Waarschijnlijke redenering:** je antwoord past mogelijk bij een verwisseling van R, R², adjusted R² of de decimale en procentuele schaal.\n\n",
+            "**Waarom dit niet klopt:** het antwoord gebruikt niet de gewone R² = 0,872 op de gevraagde percentageschaal.\n\n",
+            msg, "\n\n",
+            "**Denkregel:** selecteer de gewone R² en vermenigvuldig alleen voor een percentage met 100.\n\n",
+            "**Volgende stap:** wijs in de modeltabel eerst 0,872 aan en voer daarna 0,872 × 100 = 87,2 uit.\n\n"
           )
         }
 

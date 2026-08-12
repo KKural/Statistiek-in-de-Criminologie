@@ -223,6 +223,20 @@ context({
           feedback_parts <- c(feedback_parts, "• **Meetniveaus**: Nominaal (categorieën), Ordinaal (rangorde), Interval (geen echt nulpunt), Ratio (echt nulpunt)")
           feedback_parts <- c(feedback_parts, "**<a href='https://www.youtube.com/watch?v=ylXCI5Aw_wE' target='_blank' rel='noopener noreferrer'>Lees meer over Onafhankelijke en Afhankelijke Variabelen</a>**")
           
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct; de veldfeedback hierboven bevestigt per onderdeel waarom.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** benoem eerst wat wordt ingevoerd of vergeleken (X) en daarna welke uitkomst wordt gemeten (Y); classificeer pas vervolgens de meetniveaus.\n\n**Transferstap:** pas X→Y en de afzonderlijke meetniveaucheck toe op een nieuwe criminologische interventiestudie.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** de afwijkende velden kunnen passen bij het verwisselen van oorzaak en uitkomst, of bij het classificeren op basis van het onderwerp in plaats van de rol in de onderzoeksvraag. Dit blijft een hypothese op basis van de ingevoerde combinatie.",
+              "**Waarom dit niet klopt:** de rol van een variabele volgt uit de vraagopbouw, terwijl het meetniveau volgt uit haar waarden. Die twee beslissingen kunnen daarom niet met één kenmerk worden gemaakt; de veldfeedback hierboven laat zien waar de botsing zit.",
+              "**Denkregel:** vraag achtereenvolgens: (1) wat wordt ingevoerd of vergeleken, (2) welke uitkomst wordt gemeten en (3) welke meeteigenschappen hebben de waarden van elk van beide variabelen?",
+              "**Volgende stap:** corrigeer eerst het eerste veld met ❌ en formuleer de studie als ‘heeft X invloed op Y?’. Wijs daarna X en Y opnieuw toe en test de meetniveaus los daarvan."
+            )
+          }
+
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
           generated == expected

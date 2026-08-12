@@ -1,3 +1,4 @@
+# **Bevestiging:** correct-route feedback below confirms the result before the Denkregel and Transferstap.
 context({
   testcase(
     "",
@@ -408,6 +409,23 @@ context({
             feedback_text,
             "**Z-tabel:** <a href='https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm' target='_blank' rel='noopener noreferrer'>https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm</a>"
           )
+
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_text <- paste0(
+              feedback_text,
+              "\n\n**Bevestiging:** alle z-scores, kansen en verwachte aantallen zijn correct.\n\n**Denkregel:** koppel iedere verbale grens eerst aan een z-score en staart, reken met kansen op de 0–1-schaal en vermenigvuldig pas bij een verwacht aantal met N.\n\n",
+              "**Transferstap:** pas dezelfde keten z-score → kans → verwacht aantal toe op een team met een andere omvang en controleer of het aantal binnen 0 en N ligt."
+            )
+          } else {
+            feedback_text <- paste0(
+              feedback_text,
+              "\n\n**Waarschijnlijke redenering:** afwijkende velden kunnen passen bij een grens- of staartverwisseling, een vergeten complement, percentage versus proportie, direct vermenigvuldigen met N of afronden vóór de laatste stap. Een eindwaarde identificeert die denkroute niet altijd uniek.\n\n",
+              "**Waarom dit niet klopt:** een z-score, kans, percentage en verwacht aantal zijn verschillende grootheden; een uitkomst uit de ene schaal kan niet als antwoord op een andere schaal worden gebruikt.\n\n",
+              "**Denkregel:** vertaal de tekst naar een gebeurtenis, bepaal z, bereken de juiste staart op 0–1, zet zo nodig om naar procent en bereken pas daarna N×p.\n\n",
+              "**Volgende stap:** neem het eerste veld met ❌ en noteer ernaast ‘z’, ‘kans’, ‘percentage’ of ‘aantal’. Herbereken vanaf de vorige correcte grootheid; worked fallback: verwacht aantal = N×p, niet N×percentagegetal."
+            )
+          }
 
           get_reporter()$add_message(feedback_text, type = "markdown")
           generated == expected

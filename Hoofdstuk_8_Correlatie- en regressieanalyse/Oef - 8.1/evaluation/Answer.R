@@ -438,7 +438,8 @@ context({
               feedback_text <- paste0(
                 feedback_text,
                 "❌ ", qnames[[q]], " **Fout.**\n\n",
-                "**Waarom dit fout is:** Je koos ontbossing als verklarende variabele.\n\n",
+                "**Waarschijnlijke redenering:** je koos mogelijk ontbossing omdat dit de inhoudelijk opvallende probleemvariabele is.\n\n",
+                "**Waarom dit niet klopt:** je koos ontbossing als verklarende variabele, terwijl de modelrichting prijs X naar ontbossing Y loopt.\n\n",
                 "**Wat je miste:** In regressieanalyse is X (prijs) de verklarende variabele die Y (ontbossing) voorspelt.\n\n",
                 "**Uitleg:** Hogere koffieprijzen → meer ontbossing (economische prikkel), niet andersom.\n\n"
               )
@@ -599,7 +600,8 @@ context({
               feedback_text <- paste0(
                 feedback_text,
                 "❌ ", qnames[[q]], " **Fout.**\n\n",
-                "**Waarom dit fout is:** Correlaties zijn **dimensieloos** en veranderen NIET bij lineaire transformaties.\n\n",
+                "**Waarschijnlijke redenering:** je denkt mogelijk dat een andere valuta de numerieke schaal en daardoor ook r verandert.\n\n",
+                "**Waarom dit niet klopt:** correlaties zijn **dimensieloos** en veranderen niet bij een positieve lineaire schaaltransformatie.\n\n",
                 "**Wat je miste:** Omrekenen van euro naar dollar (× constante) is een lineaire transformatie.\n\n",
                 "**Uitleg:** r blijft 0.9552 ongeacht de eenheid van X.\n\n"
               )
@@ -629,6 +631,58 @@ context({
           } else {
             feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\n")
           }
+
+          contract_rule <- function(key) {
+            k <- tolower(key)
+            if (grepl("gemiddelde", k)) return("Gemiddelde = som / n; gebruik n-1 alleen bij een steekproefvariantie.")
+            if (grepl("^ss", k)) return("Centreer eerst, vorm kwadraten of kruisproducten en sommeer; een SS wordt niet gedeeld.")
+            if (grepl("variantie", k)) return("Steekproefvariantie = SS / (n-1); verwissel SS, variantie en standaardafwijking niet.")
+            if (grepl("^sd", k)) return("Standaardafwijking = positieve wortel van de variantie en heeft de oorspronkelijke eenheid.")
+            if (grepl("covariantie", k)) return("Covariantie = SSxy / (n-1) en behoudt het teken van de gecentreerde kruisproducten.")
+            if (grepl("pearson", k)) return("Pearson r = cov(X,Y)/(sX sY), is schaalvrij en ligt tussen -1 en 1.")
+            if (grepl("verklarende", k)) return("De verklarende variabele is X: de predictor die gebruikt wordt om Y te verklaren.")
+            "Een positieve lineaire herschaling verandert een correlatie niet; r is dimensieloos."
+          }
+          contract_lines <- c("\n---\n\n## Denk- en herstelaanpak")
+          finite_choices <- list(verklarende_variabele = 1:2, correlatie_verandert = 1:2)
+          invalid_finite_choice <- function(key, value) {
+            if (!(key %in% names(finite_choices))) return(FALSE)
+            num <- suppressWarnings(as.numeric(as.character(value)))
+            length(num) != 1 || is.na(num) || !(num %in% finite_choices[[key]])
+          }
+          for (key in names(qnames)) {
+            r <- results[[key]]
+            rule <- contract_rule(key)
+            step <- paste0("Herwerk ", qnames[[key]], " afzonderlijk: noteer doelgrootheid en formule, vul ongeafronde waarden in en controleer eenheid, bereik en afronding.")
+            if (!r$exists) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Waarom nog geen diagnose mogelijk is:** er is geen antwoord om aan een denkroute te koppelen.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Volgende stap:** vul de ontbrekende variabele in. ", step
+              ))
+            } else if (r$correct) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "✅ **Bevestiging:** correct.\n\n**Waarom dit klopt:** het antwoord voldoet aan de hierboven gecontroleerde definitie en tolerantie.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Transferstap:** ", step
+              ))
+            } else if (invalid_finite_choice(key, r$value)) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Controleer je invoer:** de invoer is niet eenduidig aan één van de aangeboden antwoordopties te koppelen.\n\n",
+                "**Waarom dit niet klopt:** een waarde buiten de aangeboden opties kan niet als inhoudelijke keuze worden beoordeeld.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Volgende stap:** voer exact één geldig optienummer in. ", step
+              ))
+            } else {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Controleer deze mogelijke fouten:** uit alleen de eindwaarde is de exacte fout niet zeker; ze past mogelijk bij de hierboven beschreven ruwe som, verkeerde deler, verwisselde grootheid, schaal of afronding.\n\n",
+                "**Waarom dit niet klopt:** de componentfeedback hierboven werkt het verschil met de vereiste berekening of formulering uit.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Volgende stap:** ", step
+              ))
+            }
+          }
+          feedback_text <- paste0(feedback_text, paste(contract_lines, collapse = "\n\n"))
           
           # Summary
           feedback_text <- paste0(

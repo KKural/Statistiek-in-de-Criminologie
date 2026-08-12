@@ -1,3 +1,4 @@
+# **Bevestiging:** correct-route feedback below confirms the answer before the Denkregel and Transferstap.
 context({
   testcase(
     "",
@@ -533,36 +534,36 @@ context({
           wrong_msg_chi2 <- function(val) {
             val_num <- parse_num(val)
             if (is.na(val_num)) {
-              return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 56.3423.")
+              return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 59.1606.")
             }
             
             # Gave p-value
-            p_val <- suppressWarnings(pchisq(56.3423, df = 1, lower.tail = FALSE))
+            p_val <- suppressWarnings(pchisq(exp_chi2, df = 1, lower.tail = FALSE))
             if (!is.na(p_val) && val_num < 0.001) {
-              return("**Waarom dit fout is:** Je gaf een zeer kleine waarde - dit lijkt de p-waarde.\n\n**Wat er gebeurde:** Je rapporteerde de significantie in plaats van de teststatistiek.\n\n**Wat je miste:** Gevraagd is χ² (chi-kwadraat), niet de p-waarde.\n\n**Uitleg:** Sommeer (O-E)²/E over alle cellen = **56.3423**.")
+              return("**Waarom dit fout is:** Je gaf een zeer kleine waarde - dit lijkt de p-waarde.\n\n**Wat er mogelijk gebeurde:** Je rapporteerde de significantie in plaats van de teststatistiek.\n\n**Wat je miste:** Gevraagd is χ² (chi-kwadraat), niet de p-waarde.\n\n**Uitleg:** Sommeer (O-E)²/E over alle cellen = **59.1606**.")
             }
             
             # Gave Phi or Cramer's V
-            phi <- sqrt(56.3423 / 2000)
+            phi <- sqrt(exp_chi2 / total)
             if (approx_eq(val_num, phi, tol = 0.01)) {
-              return("**Waarom dit fout is:** Je gaf 0.168 ≈ √(χ²/N) = Phi.\n\n**Wat er gebeurde:** Je berekende de effectgrootte in plaats van de teststatistiek.\n\n**Wat je miste:** χ² = som van (O-E)²/E, Phi = √(χ²/N).\n\n**Uitleg:** χ² = **56.3423**, Phi = 0.168.")
+              return("**Waarom dit fout is:** Je gaf ongeveer 0.172 = √(χ²/N) = Phi.\n\n**Wat er mogelijk gebeurde:** Je berekende de effectgrootte in plaats van de teststatistiek.\n\n**Wat je miste:** χ² = som van (O-E)²/E, Phi = √(χ²/N).\n\n**Uitleg:** χ² = **59.1606**, Phi ≈ 0.172.")
             }
             
             # Only one cell contribution
             e11 <- (1230 * 500) / 2000
             contrib1 <- (380 - e11)^2 / e11
             if (approx_eq(val_num, contrib1, tol = 0.5)) {
-              return("**Waarom dit fout is:** Je gaf ~14 - slechts één celbijdrage.\n\n**Wat er gebeurde:** Je berekende (O-E)²/E voor één cel, maar vergat de andere 3.\n\n**Wat je miste:** χ² = som van ALLE 4 celbijdrages.\n\n**Uitleg:** Tel alle celbijdragen op: **56.3423**.")
+              return("**Waarom dit fout is:** Je gaf ~17 - slechts één celbijdrage.\n\n**Wat er mogelijk gebeurde:** Je berekende (O-E)²/E voor één cel, maar vergat de andere drie.\n\n**Wat je miste:** χ² = som van alle vier celbijdragen.\n\n**Uitleg:** Tel alle celbijdragen op: **59.1606**.")
             }
             
             # Forgot to divide by E
             if (val_num > 200) {
-              return("**Waarom dit fout is:** Je χ² is veel te groot.\n\n**Wat er gebeurde:** Waarschijnlijk vergat je te delen door E.\n\n**Wat je miste:** Elke celbijdrage = (O-E)²/E, niet alleen (O-E)².\n\n**Uitleg:** Bereken per cel (O-E)²/E, tel op: **56.3423**.")
+              return("**Waarom dit fout is:** Je χ² is veel te groot.\n\n**Wat er mogelijk gebeurde:** Je vergat mogelijk te delen door E.\n\n**Wat je miste:** Elke celbijdrage = (O-E)²/E, niet alleen (O-E)².\n\n**Uitleg:** Bereken per cel (O-E)²/E en tel op: **59.1606**.")
             }
             
             # Divided by N again
-            if (approx_eq(val_num, 0.0282, tol = 0.01)) {
-              return("**Waarom dit fout is:** Je gaf 0.0282 = χ²/N.\n\n**Wat er gebeurde:** Je deelde χ² nog eens door 2000.\n\n**Wat je miste:** Bij χ² deel je per cel door E, niet nog eens door N.\n\n**Uitleg:** χ² = **56.3423** (geen extra deling door N).")
+            if (approx_eq(val_num, exp_chi2 / total, tol = 0.01)) {
+              return("**Waarom dit fout is:** Je gaf ongeveer 0.0296 = χ²/N.\n\n**Wat er mogelijk gebeurde:** Je deelde χ² nog eens door 2000.\n\n**Wat je miste:** Bij χ² deel je per cel door E, niet nog eens door N.\n\n**Uitleg:** χ² = **59.1606** (geen extra deling door N).")
             }
             
             return(paste0(
@@ -701,7 +702,7 @@ context({
             "- **Conditionele percentages:** YES|Man=30.9%, YES|Vrouw=15.6%\n",
             "- **Percentageverschil:** 15.3 procentpunten\n",
             "- **Odds ratio:** 2.42 (mannen hebben 2.42× hogere odds op crimineel gedrag)\n",
-            "- **Chi-kwadraat:** 63.76\n",
+            "- **Chi-kwadraat:** 59.16\n",
             "\n**Meer leren?** <a href='https://www.scribbr.com/statistics/chi-square-tests/' target='_blank' rel='noopener noreferrer'>Chi-kwadraat test uitleg</a> | <a href='https://www.theanalysisfactor.com/odds-ratio-cross-tabulation-table/' target='_blank' rel='noopener noreferrer'>Odds Ratio</a> | <a href='https://www.scribbr.com/statistics/chi-square-tests/' target='_blank' rel='noopener noreferrer'>Kruistabellen</a>\n\n",
             "- **Conditionele percentages:** P(YES|Man)=30.89%, P(YES|Vrouw)=15.58%\n",
             "- **Percentageverschil:** 30.89 - 15.58 = 15.31 procentpunten\n",
@@ -710,6 +711,24 @@ context({
             "- **χ²:** 59.16 (df=1, p<0.001 → significant verband)\n",
             "- **P(NO|Vrouw):** 650/770 = 0.8442 = 84.42% → antwoord C (85%)\n\n"
           )
+
+          # Learner-facing feedback contract. The field handlers above retain
+          # value-specific signatures; this block makes their uncertainty clear.
+          if (isTRUE(generated == expected)) {
+            feedback_text <- paste0(
+              feedback_text,
+              "\n\n**Bevestiging:** alle gevraagde kruistabelmaten zijn correct berekend en op de juiste schaal gerapporteerd.\n\n**Denkregel:** benoem vóór elke kruistabelberekening de teller, de referentiegroep in de noemer en de schaal; bereken daarna kansen, verschillen, odds/OR en χ² als afzonderlijke grootheden.\n\n",
+              "**Transferstap:** teken voor een nieuwe 2×2-tabel pijlen van elke vraag naar haar juiste rij- of kolomtotaal en bereken vervolgens één conditioneel percentage en één odds ratio."
+            )
+          } else {
+            feedback_text <- paste0(
+              feedback_text,
+              "\n\n**Waarschijnlijke redenering:** afwijkende antwoorden kunnen passen bij een verwisselde referentiegroep, delen door N in plaats van een rij- of kolomtotaal, proportie versus percentage, verschil versus verhouding, omgekeerde odds ratio, één χ²-celbijdrage of een afrondingsstap. Dezelfde waarde kan ook anders zijn ontstaan.\n\n",
+              "**Waarom dit niet klopt:** conditionele kansen veranderen met de gekozen noemer, terwijl percentageverschil, odds ratio en χ² verschillende bewerkingen en schalen hebben; een waarde uit de ene maat beantwoordt de andere vraag niet.\n\n",
+              "**Denkregel:** schrijf P(uitkomst|referentiegroep) vóór het delen, zet percentages pas na de kans om, bereken odds als p/(1−p), OR als odds₁/odds₂ en χ² als som van alle (O−E)²/E-bijdragen.\n\n",
+              "**Volgende stap:** neem het eerste veld met ❌, schrijf teller en noemer expliciet uit en recomputeer alleen de afhankelijke velden. Worked fallback: P(NO|vrouw)=650/770=0.8442=84.42%."
+            )
+          }
 
           get_reporter()$add_message(feedback_text, type = "markdown")
           generated == expected

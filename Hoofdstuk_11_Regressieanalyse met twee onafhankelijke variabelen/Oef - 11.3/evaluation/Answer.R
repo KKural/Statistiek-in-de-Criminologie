@@ -28,19 +28,29 @@ context({
 
         wrong_msg_uitbijter <- function(val) {
           v <- trimws(toupper(as.character(val)))
+          if (length(v) != 1 || is.na(v) || !(v %in% LETTERS[1:6])) return(paste0(
+            "**Controleer je invoer:** de invoer is niet aan één van de aangeboden puntletters A–F te koppelen.\n\n",
+            "**Waarom dit niet klopt:** alleen een bestaande puntletter kan worden beoordeeld als kandidaat voor het grootste absolute residu.\n\n",
+            "**Denkregel:** controleer eerst het antwoordformaat en vergelijk daarna voor A–F de waarden van |Y − Ŷ|.\n\n",
+            "**Volgende stap:** voer exact één letter A, B, C, D, E of F in en maak vervolgens de residutabel af."
+          ))
           if (v == "A") return(paste0(
-            "**Waarom dit fout is:** Punt A heeft de hoogste Y-waarde (33), maar de regressielijn loopt op x = 3 al tot circa 34,1 — A ligt net **onder** de lijn (residu = −1,1).\n\n",
-            "**Wat je miste:** Het grootste *absolute* residu vind je niet door de hoogste Y op te zoeken, maar door Y − Ŷ te berekenen voor elk punt.\n\n",
-            "**Correctie:** Punt B (x=8, y=29) geeft Ŷ ≈ 24,2 → residu = +4,8 (grootst in absolute waarde)."
+            "**Waarschijnlijke redenering:** je koos mogelijk A omdat dit punt de hoogste Y-waarde (33) heeft.\n\n",
+            "**Waarom dit niet klopt:** de regressielijn ligt bij x = 3 rond 34,1, zodat A slechts −1,1 van de lijn afligt.\n\n",
+            "**Denkregel:** vergelijk absolute verticale afstanden |Y − Ŷ|; een hoge Y of extreme X is op zichzelf geen groot residu.\n\n",
+            "**Volgende stap:** bereken voor A en B eerst Ŷ en |Y − Ŷ|. Voor B is dat |29 − 24,2| = 4,8, de grootste afstand."
           ))
           if (v == "F") return(paste0(
-            "**Waarom dit fout is:** Punt F staat ver rechts (x = 20) en valt op door zijn extreme ligging, maar de regressielijn daalt op x = 20 ook sterk (Ŷ ≈ 0,6) — residu slechts +2,4.\n\n",
-            "**Wat je miste:** Een extreme X-waarde betekent niet automatisch een groot residu. Het residu hangt af van de verticale afstand tot de lijn.\n\n",
-            "**Correctie:** Punt B (x=8, y=29) geeft Ŷ ≈ 24,2 → residu = +4,8 (grootst)."
+            "**Waarschijnlijke redenering:** je koos mogelijk F omdat zijn X-waarde het meest extreem is.\n\n",
+            "**Waarom dit niet klopt:** de lijn voorspelt bij x = 20 al Ŷ ≈ 0,6, zodat het residu van F slechts +2,4 is.\n\n",
+            "**Denkregel:** leverage (extreme X) en residu (verticale Y-afstand) zijn verschillende kenmerken.\n\n",
+            "**Volgende stap:** vergelijk |3 − 0,6| voor F met |29 − 24,2| voor B; B heeft het grootste absolute residu."
           ))
           paste0(
-            "**Je antwoord \"", v, "\" is niet correct.**\n\n",
-            "**Stap-voor-stap controle:** Bereken residu = Y − Ŷ voor elk punt:\n",
+            "**Waarschijnlijke redenering:** je keuze is niet eenduidig aan één veelvoorkomende denkstap te koppelen.\n\n",
+            "**Waarom dit niet klopt:** de gekozen observatie heeft niet de grootste waarde van |Y − Ŷ|.\n\n",
+            "**Denkregel:** bereken voor elk punt het getekende residu Y − Ŷ en vergelijk daarna de absolute waarden.\n\n",
+            "**Volgende stap:** werk de residutabel af:\n",
             "- Punt A: 33 − 34,1 = −1,1\n",
             "- **Punt B: 29 − 24,2 = +4,8** ← grootste absolute waarde\n",
             "- Punt C: 16 − 18,3 = −2,3\n",
@@ -57,7 +67,8 @@ context({
         if (!r$exists) {
           feedback_text <- paste0(feedback_text,
             "❌ **", qnames[[q]], "** — **Je hebt geen antwoord ingevoerd.**\n\n",
-            "Wijs een letter toe aan `uitbijter`, bijv. `uitbijter <- \"A\"`\n\n"
+            "**Denkregel:** de evaluator heeft één puntletter nodig om de verticale afstanden te vergelijken.\n\n",
+            "**Volgende stap:** wijs een letter toe aan `uitbijter`, bijvoorbeeld `uitbijter <- \"B\"`.\n\n"
           )
         } else if (r$correct) {
           feedback_text <- paste0(feedback_text,
@@ -71,7 +82,10 @@ context({
             "| C | 11 | 16 | ≈18,3 | −2,3 |\n",
             "| D | 14 | 10 | ≈12,4 | −2,4 |\n",
             "| E | 17 | 5 | ≈6,5 | −1,5 |\n",
-            "| F | 20 | 3 | ≈0,6 | +2,4 |\n\n"
+            "| F | 20 | 3 | ≈0,6 | +2,4 |\n\n",
+            "**Bevestiging:** punt B is correct omdat |e| = 4,8 de grootste gecontroleerde verticale afstand is.\n\n",
+            "**Denkregel:** een uitbijter volgens residu maximaliseert |Y − Ŷ|, niet X of Y afzonderlijk.\n\n",
+            "**Transferstap:** gebruik bij een nieuwe scatterplot dezelfde residutabel en controleer leverage apart.\n\n"
           )
         } else {
           msg <- wrong_msg_uitbijter(r$value)

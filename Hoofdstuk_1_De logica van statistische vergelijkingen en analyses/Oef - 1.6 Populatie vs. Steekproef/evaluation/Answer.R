@@ -17,21 +17,38 @@ context({
             "4" = "✅ Juist! Een populatie bestaat uit alle eenheden waarin je geïnteresseerd bent, een steekproef is een subset daarvan. Als je de hele populatie onderzoekt, heet dat een census. Meestal bestudeer je echter een steekproef, omdat het vaak te duur of onpraktisch is om iedereen te onderzoeken."
           )
           
+          likely_reasons <- list(
+            "1" = "je zag populatie en steekproef mogelijk beide als groepen onderzoekseenheden en liet het onderscheid tussen het volledige doeluniversum en een subset weg.",
+            "2" = "je herkende terecht een deel-geheelrelatie, maar draaide mogelijk de richting om: de steekproef wordt uit de populatie getrokken.",
+            "3" = "je koppelde ‘populatie’ mogelijk aan een vaste grote omvang, terwijl de afbakening door de onderzoeksvraag en niet door een getalsgrens wordt bepaald."
+          )
           key <- as.character(generated)
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."
           if (key %in% names(feedbacks) && generated != expected) {
             msg <- paste0(
-              "**Mogelijke denkroute:** je keuze kan aantrekkelijk zijn omdat één bekende eigenschap passend lijkt, terwijl het beslissende criterium van de vraag nog niet is toegepast.\n\n",
+              "**Waarom deze keuze begrijpelijk kan lijken:** ", likely_reasons[[key]], "\n\n",
+              "**Waarom dit niet klopt:** ",
               msg,
-              "\n\n**Versterk je denkstap:** benoem vóór je opnieuw antwoordt (1) het kernbegrip, (2) de beslissende eigenschap en (3) waarom jouw gekozen optie daar wel of niet aan voldoet."
+              "\n\n**Denkregel:** Definieer eerst de doelverzameling en daarna de gemeten subset; verwissel deze niveaus niet.\n\n",
+              "**Volgende stap:** Schrijf apart op wie tot de populatie behoort en wie werkelijk deelnam, en kies opnieuw."
             )
           } else if (key %in% names(feedbacks) && generated == expected) {
             msg <- paste0(
+              "**Bevestiging:** je gekozen optie is correct.\n\n",
               msg,
-              "\n\n**Versterk je redenering:** formuleer de beslissende eigenschap in je eigen woorden, zodat je dezelfde regel in een nieuwe criminologische context kunt toepassen."
+              "\n\n**Denkregel:** De populatie is de volledige doelgroep waarover je wilt concluderen; de steekproef is het onderzochte deel.\n\n",
+              "**Transferstap:** Benoem populatie en steekproef voor een gemeentelijke slachtofferenquete en controleer wie niet werd bereikt."
             )
           }
           
+          if (!key %in% names(feedbacks)) {
+            msg <- paste0(
+              "**Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.\n\n",
+              "**Waarom dit niet klopt:** de evaluator kan alleen een inhoudelijke optie beoordelen wanneer één geldig optienummer is ingevoerd.\n\n",
+              "**Denkregel:** koppel eerst elke antwoordoptie aan haar nummer en voer uitsluitend dat ene nummer in.\n\n",
+              "**Volgende stap:** lees de opties opnieuw, kies het nummer dat bij je redenering hoort en dien alleen dat nummer in."
+            )
+          }
           get_reporter()$add_message(msg, type = "markdown")
           
           generated == expected

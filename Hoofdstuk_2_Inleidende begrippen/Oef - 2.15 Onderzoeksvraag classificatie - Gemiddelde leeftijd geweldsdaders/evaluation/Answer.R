@@ -236,6 +236,20 @@ context({
           feedback_parts <- c(feedback_parts, "• **Continue waarden**: Gemiddelde leeftijd kan decimalen hebben (bijv. 28.7 jaar)")
           feedback_parts <- c(feedback_parts, "• **Gemiddelde**: Statistische maat die één variabele samenvat")
           
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct; de veldfeedback hierboven bevestigt per onderdeel waarom.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** onderscheid de gemeten variabele van haar statistische samenvatting; tel variabelen op individueel niveau en onderbouw daarna het meetniveau.\n\n**Transferstap:** herhaal dit voor de gemiddelde detentieduur en benoem wat bij één persoon wordt gemeten.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** één of meer afwijkingen kunnen erop wijzen dat je ‘gemiddelde’ als een tweede variabele telde, of het samenvattingsgetal en de oorspronkelijke leeftijdsmeting hetzelfde classificeerde. Andere routes naar dezelfde invoer blijven mogelijk.",
+              "**Waarom dit niet klopt:** het gemiddelde is hier een samenvatting van één gemeten variabele en creëert geen tweede variabele; vraagtype en meetniveau moeten daarom afzonderlijk worden bepaald. De veldfeedback hierboven toont de concrete mismatch.",
+              "**Denkregel:** vraag eerst ‘wat wordt bij één persoon gemeten?’, tel daarna de variabelen en bepaal pas vervolgens welke samenvattingsmaat en welk meetniveau passend zijn.",
+              "**Volgende stap:** herstel het eerste veld met ❌, schrijf ‘leeftijd per geweldsdader’ als meeteenheid op en herhaal de beslissingen voor de gemiddelde duur van een detentie."
+            )
+          }
+
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
           generated == expected

@@ -1,3 +1,4 @@
+# **Bevestiging:** correct-route feedback below confirms the result before the Denkregel and Transferstap.
 context({
   testcase(
     "",
@@ -281,6 +282,23 @@ context({
             feedback_text,
             "**Z-tabel:** <a href='https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm' target='_blank' rel='noopener noreferrer'>https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm</a>"
           )
+
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_text <- paste0(
+              feedback_text,
+              "\n\n**Bevestiging:** zowel de intervalkans als de rechterstaartkans is correct berekend.\n\n**Denkregel:** teken het interval of de staart, standaardiseer elke grens en gebruik Φ(b)−Φ(a) voor een interval of 1−Φ(c) voor een rechterstaart; zet pas daarna om naar procent.\n\n",
+              "**Transferstap:** kies een nieuw vulvolume en bepaal vóór het rekenen of je een linkerstaart, rechterstaart of interval nodig hebt."
+            )
+          } else {
+            feedback_text <- paste0(
+              feedback_text,
+              "\n\n**Waarschijnlijke redenering:** het afwijkende getal kan passen bij het complement van het gevraagde gebied, één ontbrekende intervalgrens, een verkeerde z-score, delen of verdubbelen door symmetrie, een schaalfactor 100 of vroege afronding. Dit zijn mogelijke signatures, geen zekere reconstructie.\n\n",
+              "**Waarom dit niet klopt:** de oppervlakte moet exact overeenkomen met het getekende gebied; linkerstaartwaarden optellen, een interval halveren of een percentage als proportie behandelen verandert die gebeurtenis.\n\n",
+              "**Denkregel:** markeer eerst het gebied; gebruik voor [a,b] Φ(z_b)−Φ(z_a) en voor X>c de worked rule 1−Φ(z_c). Controleer daarna dat 0≤p≤1 of 0%≤p≤100%.\n\n",
+              "**Volgende stap:** herbereken het eerste veld met ❌ vanaf de z-score(s), zonder tussentijds af te ronden. Voor vraag B: z=(35−33)/2=1 en P(X>35)=1−0.8413=0.1587=15.87%."
+            )
+          }
 
           get_reporter()$add_message(feedback_text, type = "markdown")
           generated == expected

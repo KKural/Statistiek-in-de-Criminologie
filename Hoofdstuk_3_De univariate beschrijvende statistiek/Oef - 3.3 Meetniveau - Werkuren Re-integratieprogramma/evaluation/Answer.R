@@ -1,3 +1,4 @@
+# **Bevestiging:** correct-route feedback below confirms every field before the Denkregel and Transferstap.
 context({
   testcase(
     "",
@@ -874,6 +875,20 @@ context({
             "• **Standaardafwijking = √variantie**",
             "• **Variatiecoëfficiënt = SD/gemiddelde** (voor vergelijking tussen datasets)"
           )
+
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde centrum- en spreidingsmaten zijn correct berekend.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** benoem maat en eenheid, schrijf de formule met de juiste noemer en bewaar tussenresultaten ongerond; leid variantie, SD en variatiecoëfficiënt in die volgorde af.\n\n**Transferstap:** pas de keten toe op een tweede reeks werkuren en controleer of SD dezelfde eenheid heeft als de data.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** één of meer afwijkende getallen kunnen passen bij n in plaats van n−1, een vergeten kwadratering of wortel, een tekenfout, het omkeren van SD/gemiddelde, een schaalfactor of te vroege afronding. De waarde alleen maakt die diagnose niet uniek.",
+              "**Waarom dit niet klopt:** deze spreidingsmaten zijn gekoppeld; een verkeerde noemer of tussenstap plant zich voort in variantie, standaardafwijking en variatiecoëfficiënt. De veldfeedback hierboven wijst de eerste zichtbare mismatch aan.",
+              "**Denkregel:** noteer maat + formule + eenheid, gebruik n−1 voor de steekproefvariantie wanneer dat gevraagd is, neem pas daarna de wortel en rond uitsluitend het eindantwoord af.",
+              "**Volgende stap:** herbereken het eerste veld met ❌ vanuit de oorspronkelijke werkuren. Houd de ongeronde uitkomst apart en recomputeer alle afhankelijke velden; controleer ten slotte of SD dezelfde eenheid heeft als de data."
+            )
+          }
           
           # Show markdown feedback
           get_reporter()$add_message(

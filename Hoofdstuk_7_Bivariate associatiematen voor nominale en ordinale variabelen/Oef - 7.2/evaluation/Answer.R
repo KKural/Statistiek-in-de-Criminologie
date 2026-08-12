@@ -244,6 +244,24 @@ context({
 
           feedback <- paste0(feedback, "\n**Meer leren?** <a href='https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/' target='_blank' rel='noopener noreferrer'>Chi-kwadraat test</a> | <a href='https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/' target='_blank' rel='noopener noreferrer'>Verwachte waarden</a> | <a href='https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/tables/how-to/cross-tabulation-and-chi-square/interpret-the-results/key-results/' target='_blank' rel='noopener noreferrer'>Kruistabellen</a>\n\n")
 
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback <- paste0(
+              feedback,
+              "\n\n**Bevestiging:** alle componenten van de kruistabelanalyse zijn correct berekend en geïnterpreteerd.\n\n",
+              "**Denkregel:** bereken verwachte frequenties uit rijtotaal×kolomtotaal/N, sommeer alle χ²-bijdragen en leid Phi pas daarna af met √(χ²/N); interpreteer sterkte los van significantie.\n\n",
+              "**Transferstap:** pas dezelfde volgorde toe op een nieuwe 2×2-kruistabel en controleer of alle verwachte frequenties optellen tot N."
+            )
+          } else {
+            feedback <- paste0(
+              feedback,
+              "\n\n**Waarschijnlijke redenering:** het eerste afwijkende veld kan passen bij geobserveerde in plaats van verwachte frequenties, een verwisseld rij- of kolomtotaal, één celbijdrage in plaats van de som, Phi versus χ², een te sterke effectinterpretatie of vroege afronding. Dit blijft een voorzichtige hypothese.\n\n",
+              "**Waarom dit niet klopt:** verwachte frequenties volgen uit de onafhankelijkheidsmarges; χ² en Phi zijn gekoppeld maar niet dezelfde maat, en significantie bepaalt niet automatisch de effectsterkte.\n\n",
+              "**Denkregel:** Eᵢⱼ=(rijtotaal×kolomtotaal)/N → χ²=Σ(O−E)²/E → Phi=√(χ²/N) → vergelijk Phi met de afgesproken richtwaarden.\n\n",
+              "**Volgende stap:** herstel het eerste veld met [FOUT], recomputeer de daaropvolgende maat met het ongeronde resultaat en controleer als worked fallback dat de som van alle Eᵢⱼ gelijk is aan N."
+            )
+          }
+
           get_reporter()$add_message(feedback, type = "markdown")
           generated == expected
         }

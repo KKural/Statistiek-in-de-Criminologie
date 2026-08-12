@@ -333,6 +333,20 @@ context({
           feedback_parts <- c(feedback_parts, "• **Aantal diefstallen**: Discrete ratio variabele (natuurlijke getallen)")
           feedback_parts <- c(feedback_parts, "• **Relatie**: Het woord wijst op samenhang, niet op oorzakelijk verband")
           
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct; de veldfeedback hierboven bevestigt per onderdeel waarom.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** behandel ‘relatie’ eerst als beschrijvende samenhang, tenzij de formulering expliciet een invloed wil toetsen; bepaal daarna rollen en meetniveaus afzonderlijk.\n\n**Transferstap:** pas dit toe op wijkagenten per 1.000 inwoners en aangiften, en motiveer vraagtype plus beide meetniveaus.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** de afwijkende velden kunnen ontstaan zijn doordat je ‘relatie’ als oorzaak las, of doordat je dichtheid en aantallen op basis van hun onderwerp in plaats van hun mogelijke waarden classificeerde. Dit blijft een voorzichtige hypothese.",
+              "**Waarom dit niet klopt:** samenhang is niet automatisch een causale claim, en continue/discrete of meetniveau-eigenschappen volgen uit waarden en schaal. De veldfeedback hierboven geeft aan welk criterium niet is gehaald.",
+              "**Denkregel:** bepaal eerst beschrijven versus verklaren uit het werkwoord, wijs daarna de twee variabelen toe en toets ten slotte per variabele categorie, telbaarheid, rangorde, afstand en nulpunt.",
+              "**Volgende stap:** pak het eerste veld met ❌, noteer het criterium en corrigeer dat veld. Pas dezelfde volgorde daarna toe op de relatie tussen wijkagenten per 1.000 inwoners en aangiften."
+            )
+          }
+
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
           generated == expected

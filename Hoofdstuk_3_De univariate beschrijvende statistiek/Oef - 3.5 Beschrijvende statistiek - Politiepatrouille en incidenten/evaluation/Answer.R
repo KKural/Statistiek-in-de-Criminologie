@@ -1,3 +1,4 @@
+# **Bevestiging:** correct-route feedback below confirms every field before the Denkregel and Transferstap.
 context({
   testcase(
     "",
@@ -342,6 +343,20 @@ context({
             "• **Som van gekwadrateerde afwijkingen = 60** (16+1+16+1+0+4+9+4+9)",
             "• **Voor criminologisch onderzoek:** standaarddeviatie geeft spreiding in aantal incidenten"
           )
+
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde spreidingsberekeningen zijn correct en onderling consistent.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** schrijf spreidingsmaat, formule, noemer en eenheid uit; bewaar ongeronde tussenresultaten en controleer variantie en SD via de wortelrelatie.\n\n**Transferstap:** voer dezelfde controle uit voor een tweede patrouilleweek en verklaar welke stap verandert bij een populatie- in plaats van steekproefvariantie.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** één of meer afwijkende waarden kunnen passen bij n in plaats van n−1, een ontbrekende kwadratering of wortel, het gebruiken van absolute afwijkingen, een schaalverwisseling of te vroeg afronden. Dit is geen zekere diagnose op basis van alleen het eindgetal.",
+              "**Waarom dit niet klopt:** alle spreidingsantwoorden bouwen voort op dezelfde afwijkingen; een fout in teken, kwadraat of noemer werkt dus door. De specifieke veldfeedback hierboven geeft de eerste controle die niet slaagt.",
+              "**Denkregel:** bereken eerst afwijkingen, daarna gekwadrateerde afwijkingen en hun som, deel door de gevraagde noemer en neem pas voor SD de wortel. Controleer formule en eenheid vóór afronding.",
+              "**Volgende stap:** herbereken het eerste veld met ❌ vanuit de negen incidentaantallen en gebruik dat gecorrigeerde tussenresultaat voor de vervolgvelden. Test de routine daarna op een tweede patrouilleweek."
+            )
+          }
           
           # Show markdown feedback
           get_reporter()$add_message(

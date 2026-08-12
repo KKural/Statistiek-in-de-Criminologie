@@ -99,7 +99,7 @@ context({
           wrong_msg_H0 <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && v == 2)
-              return("**Waarom fout:** Code 2 staat voor 'er IS een verband' — dat is de **alternatieve hypothese (Hₐ)**, niet H₀.\n\n**Onthoud:** H₀ is altijd de 'niets-aan-de-hand'-stelling → code **1** = geen verband (onafhankelijkheid).")
+              return("**Waarschijnlijke redenering:** je kiest mogelijk de inhoudelijke onderzoekshypothese omdat die interessanter klinkt.\n\n**Waarom dit niet klopt:** code 2 staat voor 'er IS een verband' — dat is Hₐ, niet H₀. H₀ stelt hier onafhankelijkheid en gebruikt code 1.")
             "**Correcte code:** 1 = H₀: er is **geen** verband tussen beleidsmaker en rechtvaardigingstype."
           }
 
@@ -170,7 +170,7 @@ context({
           wrong_msg_sig005 <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && v == 2)
-              return(sprintf("**Waarom fout:** Je antwoordde 'nee' (code 2 = niet significant).\n\n**Vergelijk:** χ²=%.3f > kritieke waarde %.3f bij α=0.05 → **WEL significant** → code **1** (ja).", ev$chi2, ev$kritiek_005))
+              return(sprintf("**Waarschijnlijke redenering:** je hebt mogelijk de vergelijkingsrichting tussen χ² en de kritieke waarde omgekeerd.\n\n**Waarom dit niet klopt:** χ²=%.3f > %.3f bij α=0.05, dus het resultaat is wel significant en vraagt code 1.", ev$chi2, ev$kritiek_005))
             sprintf("**Vergelijk:** χ²=%.3f vs. kritieke waarde=%.3f → χ² is **groter** → significant → code **1** (ja).", ev$chi2, ev$kritiek_005)
           }
 
@@ -186,7 +186,7 @@ context({
           wrong_msg_sig001 <- function(val) {
             v <- parse_num(val)
             if (!is.na(v) && v == 2)
-              return(sprintf("**Waarom fout:** Je antwoordde 'nee' (code 2 = niet significant bij α=0.01).\n\n**Vergelijk:** χ²=%.3f > kritieke waarde %.3f ook bij α=0.01 → **WEL significant** → code **1** (ja).", ev$chi2, ev$kritiek_001))
+              return(sprintf("**Waarschijnlijke redenering:** je denkt mogelijk dat een strenger alfa automatisch elk resultaat niet-significant maakt.\n\n**Waarom dit niet klopt:** χ²=%.3f blijft groter dan %.3f bij α=0.01, dus ook hier is code 1 correct.", ev$chi2, ev$kritiek_001))
             sprintf("**Vergelijk:** χ²=%.3f vs. kritieke waarde=%.3f → ook bij α=0.01 **significant** → code **1** (ja).", ev$chi2, ev$kritiek_001)
           }
 
@@ -254,6 +254,84 @@ context({
           }
 
           lines <- c(lines, sprintf("---\n\n**Score: %d / %d**", score, total))
+          contract_rule <- function(key) {
+            k <- tolower(key)
+            if (grepl("gemiddelde|_bar", k)) return("Gemiddelde = som / n; gebruik n-1 alleen bij een steekproefvariantie.")
+            if (grepl("^ss|scp", k)) return("Centreer eerst, vorm kwadraten of kruisproducten en sommeer; een SS/SCP wordt niet gedeeld.")
+            if (grepl("variantie|^var", k)) return("Steekproefvariantie = SS / (n-1); houd SS, variantie en standaardafwijking uit elkaar.")
+            if (grepl("standaardfout", k)) return("Standaardfout = standaardafwijking / wortel(n); gebruik de juiste onzekerheidsmaat.")
+            if (grepl("^sd|sigma", k)) return("Een standaardafwijking is de positieve wortel van de variantie en behoudt de oorspronkelijke eenheid.")
+            if (grepl("cov|scp", k)) return("Covariantie gebruikt de getekende gecentreerde kruisproducten en de afgesproken deler.")
+            if (grepl("teller", k)) return("Werk de volledige teller met tekens en haakjes uit voordat je door de noemer deelt.")
+            if (grepl("noemer", k)) return("Bereken beide factoren onder de wortel afzonderlijk; de noemer moet positief zijn.")
+            if (grepl("r_|pearson|partial", k)) return("Een correlatie is schaalvrij en ligt tussen -1 en 1; koppel elke correlatie aan de juiste variabelen en controles.")
+            if (grepl("^bi_|interval|breder", k)) return("Een betrouwbaarheidsinterval is schatting plus/minus kritieke waarde maal standaardfout; meer betrouwbaarheid geeft een breder interval.")
+            if (grepl("^df", k)) return("Vrijheidsgraden volgen uit het aantal onafhankelijke informatiedelen of geschatte parameters; tel die eerst expliciet.")
+            if (grepl("^ms", k)) return("Mean square = bijbehorende sum of squares / bijbehorende vrijheidsgraden.")
+            if (grepl("f_ratio|^f_", k)) return("F = MS tussen / MS binnen; houd teller en noemer op hun juiste ANOVA-rij.")
+            if (grepl("eta|r_kwadraat", k)) return("Een verklaarde proportie vergelijkt verklaarde met totale variatie en ligt tussen 0 en 1, of 0% en 100%.")
+            if (grepl("chi", k)) return("Sommeer voor elke cel (O-E)^2/E met de verwachte, niet de geobserveerde, frequentie als deler.")
+            if (grepl("^e_", k)) return("Verwachte frequentie = rijtotaal maal kolomtotaal / N.")
+            if (grepl("kritieke", k)) return("Lees de kritieke waarde af met zowel het juiste alfa als de juiste vrijheidsgraden.")
+            if (grepl("significant|conclusie|richting|vraag|h0", k)) return("Pas eerst de expliciete beslisregel toe en formuleer daarna alleen de conclusie die door die vergelijking wordt gedragen.")
+            if (grepl("n_minimum|n_voor|quotient", k)) return("Bereken de steekproefgrootte met ongeafronde tussenwaarden en rond het eindresultaat altijd naar boven af.")
+            "Benoem de doelgrootheid, schrijf de bijbehorende formule en eenheid op en rond pas het eindresultaat af."
+          }
+
+          contract_step <- function(key, label) {
+            k <- tolower(key)
+            if (grepl("significant|conclusie|richting|vraag|h0|breder", k)) {
+              return(paste0("Lees ", label, " opnieuw, noteer de relevante vergelijking in één regel en kies pas daarna de conclusie."))
+            }
+            paste0("Herbereken alleen ", label, ": schrijf de formule, vul de ongeafronde inputs met tekens in en controleer daarna bereik, eenheid en afronding.")
+          }
+
+          finite_choices <- list(H0_richting = 1:2, significant_005 = 1:2, significant_001 = 1:2)
+          invalid_finite_choice <- function(key, value) {
+            if (!(key %in% names(finite_choices))) return(FALSE)
+            num <- suppressWarnings(as.numeric(as.character(value)))
+            length(num) != 1 || is.na(num) || !(num %in% finite_choices[[key]])
+          }
+
+          contract_lines <- c("\n---\n\n## Denk- en herstelaanpak")
+          for (key in names(qnames)) {
+            r <- results[[key]]
+            rule <- contract_rule(key)
+            step <- contract_step(key, qnames[[key]])
+            if (!r$exists) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Waarom nog geen diagnose mogelijk is:** er is geen antwoordwaarde om aan een denkroute te koppelen.\n\n",
+                "**Denkregel:** ", rule, "\n\n",
+                "**Volgende stap:** vul de ontbrekende variabele in. ", step
+              ))
+            } else if (r$correct) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "✅ **Bevestiging:** correct.\n\n**Waarom dit klopt:** het antwoord voldoet aan de hierboven bevestigde berekening of beslissing.\n\n",
+                "**Denkregel:** ", rule, "\n\n",
+                "**Transferstap:** ", step
+              ))
+            } else if (invalid_finite_choice(key, r$value)) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Controleer je invoer:** de invoer is niet eenduidig aan één van de aangeboden antwoordopties te koppelen.\n\n",
+                "**Waarom dit niet klopt:** een waarde buiten de aangeboden opties kan niet als inhoudelijke keuze worden beoordeeld.\n\n",
+                "**Denkregel:** ", rule, "\n\n",
+                "**Volgende stap:** voer exact één geldig optienummer in. ", step
+              ))
+            } else {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Waarschijnlijke redenering:** uit één eindantwoord is de precieze denkstap niet zeker. De waarde of optie past mogelijk bij de hierboven uitgewerkte verwisseling, tussenstap, deler, schaal of afronding.\n\n",
+                "**Waarom dit niet klopt:** de bovenstaande componentcontrole toont waar het antwoord van de vereiste definitie, formule of beslisregel afwijkt.\n\n",
+                "**Denkregel:** ", rule, "\n\n",
+                "**Volgende stap:** ", step
+              ))
+            }
+          }
+          lines <- c(lines, contract_lines)
+
           get_reporter()$add_message(paste(lines, collapse = "\n"), type = "markdown")
           generated == expected
         }

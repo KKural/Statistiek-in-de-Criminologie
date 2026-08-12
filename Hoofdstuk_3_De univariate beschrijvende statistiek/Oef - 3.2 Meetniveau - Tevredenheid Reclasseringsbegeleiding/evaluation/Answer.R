@@ -1,3 +1,4 @@
+# **Bevestiging:** correct-route feedback below confirms every field before the Denkregel and Transferstap.
 context({
   testcase(
     "",
@@ -655,6 +656,21 @@ context({
             "• **Q1 & Q3:** bepaal via cumulatieve percentages",
             "• **IKA:** bereik van Q1 tot Q3 (middelste 50% van data)"
           )
+
+          # Learner-facing feedback contract. Field-specific handlers above map
+          # common values; this block makes ambiguity and transfer explicit.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificaties, posities en ordinale statistieken zijn correct.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** orden categorieën, bouw cumulatieve frequenties op en lokaliseer mediaan en kwartielen via posities; veronderstel geen gelijke afstanden.\n\n**Transferstap:** pas deze routine toe op een nieuwe ordinale criminologieschaal en markeer waar 25%, 50% en 75% voor het eerst worden bereikt.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** afwijkende waarden kunnen passen bij het behandelen van categoriecodes als afstanden, het verwisselen van absolute en cumulatieve frequenties, een proportie/percentage-schaalfout of een andere kwartielpositie. Dezelfde waarde kan ook door een andere route ontstaan; lees de velddiagnoses dus als hypothesen.",
+              "**Waarom dit niet klopt:** ordinale categorieën geven volgorde maar geen gegarandeerd gelijke afstanden, en positie-statistieken moeten uit de geordende cumulatieve verdeling volgen. Een schaal- of positiekeuze kan meerdere vervolgvelden beïnvloeden.",
+              "**Denkregel:** volg categorievolgorde → frequentie → cumulatieve frequentie → doelpositie; kies daarna alleen statistieken die door het meetniveau worden ondersteund.",
+              "**Volgende stap:** herstel eerst het eerste veld met ❌ door de cumulatieve tabel opnieuw op te bouwen. Markeer vervolgens waar 25%, 50% en 75% voor het eerst worden bereikt en controleer je maatkeuze op een nieuwe ordinale criminologieschaal."
+            )
+          }
           
           # Show markdown feedback
           get_reporter()$add_message(

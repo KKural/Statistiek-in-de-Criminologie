@@ -98,6 +98,27 @@ context({
             conclusie_C = wrong_msg_C
           )
 
+          likely_routes <- list(
+            conclusie_A = c(
+              "correct",
+              "Je ziet mogelijk dat de correlatie daalt en noemt elke daling indirect, hoewel 0,07 hier praktisch nul is.",
+              "Je ziet mogelijk een derde variabele en denkt meteen aan suppressie, maar de absolute correlatie wordt juist kleiner.",
+              "Je beschouwt mogelijk de resterende 0,07 als bewijs dat het verband robuust blijft."
+            ),
+            conclusie_B = c(
+              "Je noemt mogelijk elke daling na controle een schijnverband, hoewel 0,21 als resterend verband overblijft.",
+              "correct",
+              "Je noemt mogelijk elke verandering suppressie, maar de absolute correlatie neemt hier af.",
+              "Je focust mogelijk op het resterende verband en negeert dat de daling van 0,38 naar 0,21 inhoudelijk relevant is."
+            ),
+            conclusie_C = c(
+              "Je kijkt mogelijk alleen naar het negatieve teken en mist dat de absolute correlatie sterk toeneemt.",
+              "Je behandelt mogelijk elke invloed van de controlevariabele als een indirect verband, hoewel het verband hier sterker wordt.",
+              "correct",
+              "Je ziet mogelijk hetzelfde teken vóór en na controle en concludeert onveranderd, terwijl de grootte van 0,12 naar 0,53 stijgt."
+            )
+          )
+
           correct_msgs <- list(
             conclusie_A = "1 = schijnverband (r: 0.62 → 0.07, na controle voor SES bijna nul) ✓",
             conclusie_B = "2 = indirect verband (r: 0.38 → 0.21, verzwakt maar blijft) ✓",
@@ -121,12 +142,57 @@ context({
                 ") — ", correct_msgs[[key]], "\n"))
               score <- score + 1
             } else {
+              choice <- parse_num(r$value)
+              likely <- if (!is.na(choice) && choice %in% 1:4) {
+                likely_routes[[key]][[as.integer(choice)]]
+              } else {
+                "De invoer is niet eenduidig aan één aangeboden scenario-optie te koppelen."
+              }
               lines <- c(lines, paste0("❌ **", lbl, "** — jouw antwoord: **", as.character(r$value),
-                "**\n\n", wrong_fns[[key]](r$value), "\n"))
+                "**\n\n**Waarschijnlijke redenering:** ", likely,
+                "\n\n**Waarom dit niet klopt:** ", wrong_fns[[key]](r$value), "\n"))
             }
           }
 
           lines <- c(lines, sprintf("---\n\n**Score: %d / %d**", score, total))
+          invalid_finite_choice <- function(value) {
+            num <- suppressWarnings(as.numeric(as.character(value)))
+            length(num) != 1 || is.na(num) || !(num %in% 1:4)
+          }
+          contract_lines <- c("\n---\n\n## Denk- en herstelaanpak")
+          for (key in names(qnames)) {
+            r <- results[[key]]
+            rule <- "Vergelijk bivariate en partiële correlatie op grootte én teken: bijna nul wijst op schijn, vergelijkbaar op robuustheid en sterker of omgekeerd op mogelijke suppressie."
+            step <- paste0("Schrijf voor ", qnames[[key]], " de twee correlaties naast elkaar en benoem eerst het patroon voordat je een conclusie kiest.")
+            if (!r$exists) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Waarom nog geen diagnose mogelijk is:** er is geen keuze om aan een redenering te koppelen.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Volgende stap:** ", step
+              ))
+            } else if (r$correct) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "✅ **Bevestiging:** correct.\n\n**Waarom dit klopt:** de gekozen classificatie past bij de verandering in grootte en teken na controle.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Transferstap:** ", step
+              ))
+            } else if (invalid_finite_choice(r$value)) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Controleer je invoer:** de invoer is niet eenduidig aan één van de vier aangeboden antwoordopties te koppelen.\n\n",
+                "**Waarom dit niet klopt:** een waarde buiten opties 1–4 kan niet als inhoudelijke classificatie worden beoordeeld.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Volgende stap:** voer exact één geldig optienummer in. ", step
+              ))
+            } else {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Waarschijnlijke redenering:** de gekozen optie past mogelijk bij het bekijken van slechts één correlatie; uit de keuze alleen is dat niet met zekerheid af te leiden.\n\n",
+                "**Waarom dit niet klopt:** de bovenstaande optiecontrole laat zien welk patroon in grootte of teken is gemist.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Volgende stap:** ", step
+              ))
+            }
+          }
+          lines <- c(lines, contract_lines)
           get_reporter()$add_message(paste(lines, collapse = "\n"), type = "markdown")
           generated == expected
         }
@@ -322,7 +388,10 @@ context({
           wrong_msg_sig2 <- function(val) {
             v <- parse_num2(val)
             if (!is.na(v) && v == 2)
-              return(sprintf("**Waarom fout:** F=%.2f is **veel groter** dan de kritieke waarde (≈3.35 bij df=2,27, α=0.05) → **significant** → code **1** (ja).", ev$F))
+              return(sprintf(paste0(
+                "**Waarschijnlijke redenering:** je hebt mogelijk de beslisvergelijking omgekeerd en code 2 gekozen omdat F boven de kritieke waarde ligt.  ",
+                "**Waarom dit niet klopt:** F=%.2f is **groter** dan de kritieke waarde (≈3.35 bij df=2,27, α=0.05); dat betekent juist **significant**, dus code **1** (ja)."
+              ), ev$F))
             sprintf("F=%.2f >> 3.35 (kritieke F bij df=2,27, α=0.05) → significant → code **1** (ja).", ev$F)
           }
 
@@ -409,6 +478,44 @@ context({
           }
 
           lines <- c(lines, sprintf("---\n\n**Score: %d / %d**", score, total))
+          contract_rule <- function(key) {
+            k <- tolower(key)
+            if (grepl("gemiddelde|grand", k)) return("Bereken elk groepsgemiddelde met zijn eigen n en het gewogen totaalgemiddelde over alle observaties.")
+            if (grepl("^ss", k)) return("Een sum of squares is een onverdeelde som; houd within, between en total op hun eigen ANOVA-niveau.")
+            if (grepl("^df", k)) return("Gebruik df binnen = N-k en df tussen = k-1.")
+            if (grepl("^ms", k)) return("Mean square = bijbehorende SS gedeeld door de bijbehorende df.")
+            if (grepl("^f_", k)) return("F = MS tussen / MS binnen en kan niet negatief zijn.")
+            if (grepl("eta", k)) return("Eta-kwadraat = SS tussen / SS totaal en ligt tussen 0 en 1.")
+            "Vergelijk F met de kritieke waarde of p met alfa voordat je significantie concludeert."
+          }
+          contract_lines <- c("\n---\n\n## Denk- en herstelaanpak")
+          for (key in names(qnames)) {
+            r <- results[[key]]
+            rule <- contract_rule(key)
+            step <- paste0("Herbereken ", qnames[[key]], " met ongeafronde tussenwaarden en controleer formule, ANOVA-rij en eenheid.")
+            if (!r$exists) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Waarom nog geen diagnose mogelijk is:** er is geen antwoordwaarde om aan een denkroute te koppelen.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Volgende stap:** vul de ontbrekende variabele in. ", step
+              ))
+            } else if (r$correct) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "✅ **Bevestiging:** deze component is correct binnen de oorspronkelijke tolerantie.\n\n",
+                "**Waarom dit klopt:** de waarde past bij de hierboven getoonde ANOVA-berekening.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Transferstap:** ", step
+              ))
+            } else {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Controleer deze mogelijke fouten:** uit één eindwaarde is de precieze fout niet zeker; ze past mogelijk bij de hierboven uitgewerkte som, deler, verwisselde ANOVA-rij of afronding.\n\n",
+                "**Waarom dit niet klopt:** de componentfeedback hierboven toont waar de waarde van de vereiste berekening afwijkt.\n\n",
+                "**Denkregel:** ", rule, "\n\n**Volgende stap:** ", step
+              ))
+            }
+          }
+          lines <- c(lines, contract_lines)
           get_reporter()$add_message(paste(lines, collapse = "\n"), type = "markdown")
           generated == expected
         }

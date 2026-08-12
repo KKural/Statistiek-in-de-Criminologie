@@ -235,6 +235,20 @@ context({
           feedback_parts <- c(feedback_parts, "• **Bivariate beschrijvende**: Beschrijft relatie tussen twee variabelen") 
           feedback_parts <- c(feedback_parts, "• **Bivariate verklarende**: Onderzoekt of één variabele invloed heeft op een andere")
           
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct; de veldfeedback hierboven bevestigt per onderdeel waarom.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** tel eerst de gemeten variabelen, bepaal daarna beschrijven versus verklaren en leg pas dan per variabele het meetniveau vast.\n\n**Transferstap:** pas deze volgorde toe op een nieuwe vraag over maandelijkse aangiften en motiveer elke beslissing met één criterium.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** één of meer afwijkingen kunnen betekenen dat je op een opvallend woord of voorbeeldwaarde hebt geclassificeerd voordat je aantal variabelen, vraagdoel en meeteigenschappen apart bekeek. Dezelfde antwoorden kunnen echter ook via een andere route zijn ontstaan.",
+              "**Waarom dit niet klopt:** onderzoekstype, variabelenrol en meetniveau beantwoorden verschillende vragen; een passend antwoord op één dimensie rechtvaardigt de andere velden niet. De specifieke veldfeedback hierboven lokaliseert de eerste botsing.",
+              "**Denkregel:** gebruik deze volgorde: (1) tel variabelen, (2) bepaal of de vraag beschrijft of een invloed wil verklaren, (3) wijs eventuele X/Y-rollen toe en (4) toets rangorde, gelijke afstanden en echt nulpunt.",
+              "**Volgende stap:** neem het eerste veld met ❌, schrijf de bijbehorende beslisvraag erboven en corrigeer alleen dat veld. Doorloop daarna alle vier stappen opnieuw voor een vergelijkbare vraag over maandelijkse aangiften."
+            )
+          }
+
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
           generated == expected

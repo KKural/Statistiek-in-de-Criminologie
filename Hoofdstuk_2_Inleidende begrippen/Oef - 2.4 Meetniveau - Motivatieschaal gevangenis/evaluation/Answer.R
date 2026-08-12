@@ -17,21 +17,38 @@ context({
             "4" = "❌ Fout - **Ratio** heeft numerieke waarden met gelijke afstanden en een absoluut nulpunt. Criminologische voorbeelden: aantal therapiesessies bijgewoond (0 = geen sessies), dagen in isolatiecel. Bij motivatieschaal betekent '1' niet 'geen motivatie' - het is nog steeds motivatie, alleen heel weinig."
           )
           
+          likely_reasons <- list(
+            "1" = "je zag vijf benoembare antwoordcategorieën en koppelde die mogelijk aan nominaal, maar de scores hebben een duidelijke lage-naar-hoge volgorde.",
+            "3" = "de cijfers 1–5 deden mogelijk vermoeden dat elke stap exact even groot is, terwijl gelijke psychologische afstanden niet zijn aangetoond.",
+            "4" = "je behandelde score 1 mogelijk als volledige afwezigheid van motivatie en daarmee als werkelijk nulpunt."
+          )
           key <- as.character(generated)
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."
           if (key %in% names(feedbacks) && generated != expected) {
             msg <- paste0(
-              "**Mogelijke denkroute:** je keuze kan aantrekkelijk zijn omdat één bekende eigenschap passend lijkt, terwijl het beslissende criterium van de vraag nog niet is toegepast.\n\n",
+              "**Waarom deze keuze begrijpelijk kan lijken:** ", likely_reasons[[key]], "\n\n",
+              "**Waarom dit niet klopt:** ",
               msg,
-              "\n\n**Versterk je denkstap:** benoem vóór je opnieuw antwoordt (1) het kernbegrip, (2) de beslissende eigenschap en (3) waarom jouw gekozen optie daar wel of niet aan voldoet."
+              "\n\n**Denkregel:** Verwar numerieke antwoordcodes niet met bewezen gelijke psychologische afstanden; de rangorde is wel verdedigbaar.\n\n",
+              "**Volgende stap:** Vergelijk de betekenis van de stappen 1 naar 2 en 4 naar 5 en kies het niveau dat geen gelijke afstand vereist."
             )
           } else if (key %in% names(feedbacks) && generated == expected) {
             msg <- paste0(
+              "**Bevestiging:** je gekozen optie is correct.\n\n",
               msg,
-              "\n\n**Versterk je redenering:** formuleer de beslissende eigenschap in je eigen woorden, zodat je dezelfde regel in een nieuwe criminologische context kunt toepassen."
+              "\n\n**Denkregel:** Een motivatieschaal van 1 tot 5 ordent respondenten, maar garandeert niet dat elk stapje een gelijke motivatietoename is.\n\n",
+              "**Transferstap:** Classificeer een vijfpuntsschaal voor rehabilitatiemotivatie en benoem wat nodig is om haar als interval te behandelen."
             )
           }
           
+          if (!key %in% names(feedbacks)) {
+            msg <- paste0(
+              "**Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.\n\n",
+              "**Waarom dit niet klopt:** de evaluator kan alleen een inhoudelijke optie beoordelen wanneer één geldig optienummer is ingevoerd.\n\n",
+              "**Denkregel:** koppel eerst elke antwoordoptie aan haar nummer en voer uitsluitend dat ene nummer in.\n\n",
+              "**Volgende stap:** lees de opties opnieuw, kies het nummer dat bij je redenering hoort en dien alleen dat nummer in."
+            )
+          }
           get_reporter()$add_message(msg, type = "markdown")
           
           generated == expected
