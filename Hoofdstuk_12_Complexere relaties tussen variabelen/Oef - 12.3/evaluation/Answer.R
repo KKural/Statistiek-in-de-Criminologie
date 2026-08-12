@@ -20,7 +20,7 @@ context({
           } else if (key %in% names(feedbacks)) {
             msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** de gekozen set mist een tussenschakel of bevat een start- of eindvariabele die niet aan beide pijlvoorwaarden voldoet.\n\n**Denkregel:**", msg, fixed = TRUE)
           } else {
-          msg <- paste0(msg, "\n\n**Mogelijke denkroute:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** beoordeel alleen geldige opties 1–4 en controleer per variabele zowel inkomende als uitgaande pijlen.\n\n**Volgende stap:** voer één optienummer in.")
+          msg <- paste0(msg, "\n\n**Invoercontrole:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** beoordeel alleen geldige opties 1–4 en controleer per variabele zowel inkomende als uitgaande pijlen.\n\n**Volgende stap:** voer één optienummer in.")
           }
           get_reporter()$add_message(msg, type = "markdown")
           generated == expected

@@ -34,11 +34,22 @@ parse_failures <- unlist(lapply(files, function(file) {
 }))
 
 requirements <- list(
-  likely_reasoning = "\\*\\*(Waarschijnlijke redenering|Waarschijnlijke denkroute|Mogelijke denkroute):\\*\\*",
+  likely_reasoning = "\\*\\*Waarschijnlijke (redenering|denkroute):\\*\\*",
   why_wrong = "\\*\\*Waarom dit (niet klopt|niet werkt):\\*\\*",
   thinking_rule = "\\*\\*Denkregel:\\*\\*",
   next_step = "\\*\\*Volgende stap:\\*\\*",
   transfer = "\\*\\*Transfer(stap)?:\\*\\*"
+)
+
+banned_outcome_insensitive_text <- c(
+  "Strengthen your reasoning",
+  "formulate the decisive characteristic",
+  "formuleer die eigenschap in je eigen woorden",
+  "pas haar toe op een nieuw criminologisch voorbeeld",
+  "pas dezelfde controles toe op een nieuw criminologisch voorbeeld",
+  "formuleer één uitspraak die wel en één die niet uit de maat volgt",
+  "**Mogelijke denkroute:**",
+  "controleer vraagtype, variabelenrol en meetniveau als afzonderlijke beslissingen"
 )
 confirmation_pattern <- paste(
   "\\*\\*(Bevestiging|Waarom dit klopt):\\*\\*",
@@ -55,10 +66,29 @@ for (file in implemented) {
   if (!grepl(confirmation_pattern, source, perl = TRUE)) {
     missing <- c(missing, "confirmation")
   }
+  banned <- banned_outcome_insensitive_text[
+    vapply(
+      banned_outcome_insensitive_text,
+      grepl,
+      logical(1),
+      x = source,
+      fixed = TRUE
+    )
+  ]
   if (length(missing)) {
     coverage_failures <- c(
       coverage_failures,
       sprintf("%s: missing %s", file, paste(missing, collapse = ", "))
+    )
+  }
+  if (length(banned)) {
+    coverage_failures <- c(
+      coverage_failures,
+      sprintf(
+        "%s: contains outcome-insensitive text: %s",
+        file,
+        paste(banned, collapse = " | ")
+      )
     )
   }
 }

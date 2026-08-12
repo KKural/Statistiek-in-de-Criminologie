@@ -371,7 +371,7 @@ context({
             } else if (invalid_finite_choice(q, r$val)) {
               lines <- c(lines, paste0(
                 "❌ **", lbl, "** (ongeldige keuze: ", as.character(r$val), ").\n\n",
-                "**Mogelijke denkroute:** de invoer is niet eenduidig aan één van de aangeboden antwoordopties te koppelen.\n\n",
+                "**Invoercontrole:** de invoer is niet eenduidig aan één van de aangeboden antwoordopties te koppelen.\n\n",
                 "**Waarom dit niet klopt:** een waarde buiten de aangeboden opties kan niet als inhoudelijke keuze worden beoordeeld.\n\n",
                 "**Denkregel:** ", diag[[3]], "\n\n",
                 "**Volgende stap:** voer exact één geldig optienummer in en pas daarna deze regel toe: ", diag[[4]]

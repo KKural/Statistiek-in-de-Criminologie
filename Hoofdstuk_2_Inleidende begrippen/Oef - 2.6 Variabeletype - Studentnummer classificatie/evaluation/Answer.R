@@ -220,7 +220,7 @@ context({
           # Learner-facing feedback contract: preserve the detailed field feedback
           # above, then make the diagnostic reasoning and retry strategy explicit.
           if (isTRUE(generated == expected)) {
-            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct. De veldfeedback hierboven bevestigt per onderdeel waarom.\n\n**Denkregel:** controleer vraagtype, variabelenrol en meetniveau als afzonderlijke beslissingen.\n\n**Transferstap:** pas dezelfde beslisvolgorde toe op een nieuwe criminologische onderzoeksvraag.")
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct; de veldfeedback hierboven bevestigt per onderdeel waarom.")
             feedback_parts <- c(feedback_parts, "**Denkregel:** bepaal eerst of waarden labels of hoeveelheden zijn en toets daarna alleen de toepasselijke eigenschappen: rangorde, gelijke afstanden en echt nulpunt.\n\n**Transferstap:** pas de ladder toe op dossiernummer versus aantal delicten en leg voor beide het beslissende criterium in één zin uit.")
           } else {
             feedback_parts <- c(

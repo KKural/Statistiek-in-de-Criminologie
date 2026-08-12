@@ -237,7 +237,7 @@ context({
           
           # Learner-facing feedback contract.
           if (isTRUE(generated == expected)) {
-            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct. De veldfeedback hierboven bevestigt per onderdeel waarom.\n\n**Denkregel:** controleer vraagtype, variabelenrol en meetniveau als afzonderlijke beslissingen.\n\n**Transferstap:** pas dezelfde beslisvolgorde toe op een nieuwe criminologische onderzoeksvraag.")
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct; de veldfeedback hierboven bevestigt per onderdeel waarom.")
             feedback_parts <- c(feedback_parts, "**Denkregel:** tel eerst de gemeten variabelen, bepaal daarna beschrijven versus verklaren en leg pas dan per variabele het meetniveau vast.\n\n**Transferstap:** pas deze volgorde toe op een nieuwe vraag over maandelijkse aangiften en motiveer elke beslissing met één criterium.")
           } else {
             feedback_parts <- c(

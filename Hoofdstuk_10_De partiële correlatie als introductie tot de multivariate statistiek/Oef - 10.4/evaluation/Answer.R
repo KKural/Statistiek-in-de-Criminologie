@@ -179,7 +179,7 @@ context({
             } else if (invalid_finite_choice(r$value)) {
               contract_lines <- c(contract_lines, paste0(
                 "### ", qnames[[key]], "\n\n",
-                "**Mogelijke denkroute:** de invoer is niet eenduidig aan één van de vier aangeboden antwoordopties te koppelen.\n\n",
+                "**Invoercontrole:** de invoer is niet eenduidig aan één van de vier aangeboden antwoordopties te koppelen.\n\n",
                 "**Waarom dit niet klopt:** een waarde buiten opties 1–4 kan niet als inhoudelijke classificatie worden beoordeeld.\n\n",
                 "**Denkregel:** ", rule, "\n\n**Volgende stap:** voer exact één geldig optienummer in. ", step
               ))
@@ -509,7 +509,7 @@ context({
             } else {
               contract_lines <- c(contract_lines, paste0(
                 "### ", qnames[[key]], "\n\n",
-                "**Mogelijke denkroute:** uit één eindwaarde is de precieze fout niet zeker; ze past mogelijk bij de hierboven uitgewerkte som, deler, verwisselde ANOVA-rij of afronding.\n\n",
+                "**Geen eenduidige diagnose:** uit één eindwaarde is de precieze fout niet zeker; ze past mogelijk bij de hierboven uitgewerkte som, deler, verwisselde ANOVA-rij of afronding.\n\n",
                 "**Waarom dit niet klopt:** de componentfeedback hierboven toont waar de waarde van de vereiste berekening afwijkt.\n\n",
                 "**Denkregel:** ", rule, "\n\n**Volgende stap:** ", step
               ))

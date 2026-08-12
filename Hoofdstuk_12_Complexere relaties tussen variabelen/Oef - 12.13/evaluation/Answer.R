@@ -43,7 +43,7 @@ context({
           } else if (key %in% names(feedbacks)) {
             msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** de gekozen conclusie negeert waar de afwijking systematisch is of eist ten onrechte perfecte aansluiting.\n\n**Denkregel:**", msg, fixed = TRUE)
           } else {
-          msg <- paste0(msg, "\n\n**Mogelijke denkroute:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** beoordeel alleen geldige opties op systematische afwijking van de Q-Q-diagonaal.\n\n**Volgende stap:** voer 1, 2, 3 of 4 in en controleer vooral de rechterstaart.")
+          msg <- paste0(msg, "\n\n**Invoercontrole:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** beoordeel alleen geldige opties op systematische afwijking van de Q-Q-diagonaal.\n\n**Volgende stap:** voer 1, 2, 3 of 4 in en controleer vooral de rechterstaart.")
           }
           get_reporter()$add_message(msg, type = "markdown")
           generated == expected

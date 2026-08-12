@@ -20,7 +20,7 @@ context({
           } else if (key %in% names(feedbacks)) {
             msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** de gekozen waarde laat een effectcomponent weg, gebruikt slechts één padcoëfficiënt of volgt niet uit de vereiste padproducten.\n\n**Denkregel:**", msg, fixed = TRUE)
           } else {
-          msg <- paste0(msg, "\n\n**Mogelijke denkroute:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** alleen een geldige optie kan worden gekoppeld aan direct plus indirect effect.\n\n**Volgende stap:** bereken 0,34 + (0,48 × 0,18) en voer 1, 2, 3 of 4 in.")
+          msg <- paste0(msg, "\n\n**Invoercontrole:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** alleen een geldige optie kan worden gekoppeld aan direct plus indirect effect.\n\n**Volgende stap:** bereken 0,34 + (0,48 × 0,18) en voer 1, 2, 3 of 4 in.")
           }
           get_reporter()$add_message(msg, type = "markdown")
           generated == expected

@@ -20,7 +20,7 @@ context({
           } else if (key %in% names(feedbacks)) {
             msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** het percentage is een bestaand R²-label, maar hoort bij een andere endogene variabele.\n\n**Denkregel:**", msg, fixed = TRUE)
           } else {
-          msg <- paste0(msg, "\n\n**Mogelijke denkroute:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** voer een geldige optie 1–4 in en koppel het R²-label aan de volledige variabelenaam.\n\n**Volgende stap:** zoek groepsgerichte intuïties en lees uitsluitend het bijbehorende percentage.")
+          msg <- paste0(msg, "\n\n**Invoercontrole:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** voer een geldige optie 1–4 in en koppel het R²-label aan de volledige variabelenaam.\n\n**Volgende stap:** zoek groepsgerichte intuïties en lees uitsluitend het bijbehorende percentage.")
           }
                     get_reporter()$add_message(msg, type = "markdown")
                     generated == expected

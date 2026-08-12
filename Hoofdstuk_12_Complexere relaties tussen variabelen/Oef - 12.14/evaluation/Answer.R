@@ -44,7 +44,7 @@ context({
           } else if (key %in% names(feedbacks)) {
             msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** de gekozen modelconclusie past niet bij de getoonde VIF-waarden en hun drempel.\n\n**Denkregel:**", msg, fixed = TRUE)
           } else {
-          msg <- paste0(msg, "\n\n**Mogelijke denkroute:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** kies een geldige optie nadat elke VIF afzonderlijk met de drempel is vergeleken.\n\n**Volgende stap:** voer 1, 2, 3 of 4 in en label Model A en B apart.")
+          msg <- paste0(msg, "\n\n**Invoercontrole:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** kies een geldige optie nadat elke VIF afzonderlijk met de drempel is vergeleken.\n\n**Volgende stap:** voer 1, 2, 3 of 4 in en label Model A en B apart.")
           }
           get_reporter()$add_message(msg, type = "markdown")
           generated == expected

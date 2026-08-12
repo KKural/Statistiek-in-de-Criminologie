@@ -411,7 +411,7 @@ context({
             } else if (identical(r$reason, "missing")) {
               lines <- c(lines, paste0("### ", labels[[q]], "\n\nGeen antwoord gevonden.\n\n**Denkregel:** Elke vraag heeft een afzonderlijke variabele met één keuze van 1 tot en met 4 nodig.\n\n**Volgende stap:** Voeg ", q, " toe en wijs er het nummer van je keuze aan toe."))
             } else if (identical(r$reason, "invalid")) {
-              lines <- c(lines, paste0("### ", labels[[q]], "\n\nOngeldige keuze: ", as.character(r$val), ".\n\n**Mogelijke denkroute:** de invoer is niet eenduidig aan één van de vier aangeboden antwoordopties te koppelen.\n\n**Waarom dit niet klopt:** alleen opties 1, 2, 3 of 4 (ook A, B, C of D) kunnen inhoudelijk worden beoordeeld.\n\n**Denkregel:** Kies exact één aangeboden antwoordoptie.\n\n**Volgende stap:** Voer voor ", q, " één geldig nummer in."))
+              lines <- c(lines, paste0("### ", labels[[q]], "\n\nOngeldige keuze: ", as.character(r$val), ".\n\n**Invoercontrole:** de invoer is niet eenduidig aan één van de vier aangeboden antwoordopties te koppelen.\n\n**Waarom dit niet klopt:** alleen opties 1, 2, 3 of 4 (ook A, B, C of D) kunnen inhoudelijk worden beoordeeld.\n\n**Denkregel:** Kies exact één aangeboden antwoordoptie.\n\n**Volgende stap:** Voer voor ", q, " één geldig nummer in."))
             } else {
               selected <- as.character(as.integer(r$choice))
               lines <- c(lines, paste0("### ", labels[[q]], " — gekozen optie ", selected, "\n\n", fb[[selected]]))

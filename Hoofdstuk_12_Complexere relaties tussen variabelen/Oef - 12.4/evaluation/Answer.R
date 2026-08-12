@@ -20,7 +20,7 @@ context({
           } else if (key %in% names(feedbacks)) {
             msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** de waarde hoort bij een andere bron, een ander doel of de omgekeerde leesrichting.\n\n**Denkregel:**", msg, fixed = TRUE)
           } else {
-          msg <- paste0(msg, "\n\n**Mogelijke denkroute:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** alleen opties 1–4 kunnen aan een specifiek pad worden gekoppeld.\n\n**Volgende stap:** voer één optienummer in en volg de pijl van bron tot pijlpunt.")
+          msg <- paste0(msg, "\n\n**Invoercontrole:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** alleen opties 1–4 kunnen aan een specifiek pad worden gekoppeld.\n\n**Volgende stap:** voer één optienummer in en volg de pijl van bron tot pijlpunt.")
           }
           get_reporter()$add_message(msg, type = "markdown")
           generated == expected
