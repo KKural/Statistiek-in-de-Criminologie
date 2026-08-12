@@ -226,6 +226,20 @@ context({
           feedback_parts <- c(feedback_parts, "• **Rationale getallen**: Percentages kunnen decimalen hebben (bijv. 23.5%)")
           feedback_parts <- c(feedback_parts, "• **Bereik**: Percentages lopen altijd van 0% tot 100%")
           
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct. De veldfeedback hierboven bevestigt per onderdeel waarom.\n\n**Denkregel:** controleer vraagtype, variabelenrol en meetniveau als afzonderlijke beslissingen.\n\n**Transferstap:** pas dezelfde beslisvolgorde toe op een nieuwe criminologische onderzoeksvraag.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** tel eerst de gemeten variabelen, bepaal daarna het vraagdoel en onderbouw ten slotte het meetniveau van de uitkomst met haar meeteigenschappen.\n\n**Transferstap:** pas dit toe op een percentage slachtoffers dat aangifte doet en onderscheid de gemeten variabele van haar samenvatting.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** één of meer afwijkende velden kunnen erop wijzen dat je het onderwerp en de samenvattingsmaat als twee afzonderlijke variabelen telde, of het woord ‘percentage’ direct als volledig classificatieantwoord gebruikte. Ook andere denkroutes blijven mogelijk.",
+              "**Waarom dit niet klopt:** een statistische samenvatting van één kenmerk voegt niet automatisch een tweede onderzochte variabele toe, en elk classificatieveld vereist een eigen onderbouwing. De veldfeedback hierboven wijst de concrete mismatch aan.",
+              "**Denkregel:** bepaal achtereenvolgens (1) wat op individueel niveau wordt gemeten, (2) hoeveel variabelen in de onderzoeksvraag staan, (3) of de vraag beschrijft of verklaart en (4) welke meeteigenschappen de uitkomst heeft.",
+              "**Volgende stap:** corrigeer het eerste veld met ❌, benoem in één zin wat precies bij één persoon wordt gemeten en herhaal de vier beslissingen voor een percentage slachtoffers dat aangifte doet."
+            )
+          }
+
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
           generated == expected

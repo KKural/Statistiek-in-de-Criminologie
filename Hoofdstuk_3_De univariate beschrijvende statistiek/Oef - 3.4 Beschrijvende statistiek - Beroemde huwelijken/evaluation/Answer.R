@@ -1,3 +1,4 @@
+# **Bevestiging:** correct-route feedback below confirms every field before the Denkregel and Transferstap.
 context({
   testcase(
     "",
@@ -1119,6 +1120,20 @@ context({
             "• **Bij steekproef: variantie = SS/(n-1)** → 2,268,540.92/10 = 226,854.09",
             "• **Standaardafwijking = √variantie** → √226,854.09 = 476.29 dagen"
           )
+
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde centrum-, positie- en spreidingsmaten zijn correct, inclusief de behandeling van de uitbijter.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** sorteer eerst, vergelijk robuuste en niet-robuuste maten en bereken gekoppelde spreidingsmaten met ongeronde tussenresultaten en de juiste noemer.\n\n**Transferstap:** voeg aan een nieuwe kleine dataset één extreme waarde toe en vergelijk vóór en na de uitbijter het gemiddelde en de mediaan.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** afwijkende antwoorden kunnen passen bij een onjuiste sortering of positie, het negeren van de uitbijter, n versus n−1, een ontbrekende kwadratering/wortel, een eenheids- of afrondingsfout. Dit zijn plausibele signatures; dezelfde uitkomst kan anders zijn ontstaan.",
+              "**Waarom dit niet klopt:** mediaan en kwartielen vereisen de geordende data, terwijl variantie en SD van dezelfde afwijkingen en noemer afhangen. Een verkeerde vroege stap kan daarom meerdere latere antwoorden verschuiven.",
+              "**Denkregel:** sorteer → kies positie-statistiek → bereken afwijkingen en kwadraten → deel door de juiste noemer → neem zo nodig de wortel; rond pas het gevraagde eindresultaat af.",
+              "**Volgende stap:** zoek het eerste veld met ❌ en bouw alleen die berekening opnieuw op uit de ruwe huwelijksduren. Recomputeer daarna de afhankelijke maten en vergelijk op een nieuwe dataset gemiddelde versus mediaan vóór en na een extreme waarde."
+            )
+          }
           
           # Show markdown feedback
           get_reporter()$add_message(

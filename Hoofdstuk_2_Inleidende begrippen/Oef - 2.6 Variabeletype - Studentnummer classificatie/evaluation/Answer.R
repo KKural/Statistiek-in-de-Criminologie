@@ -217,6 +217,21 @@ context({
           feedback_parts <- c(feedback_parts, "• **Ratio**: Getallen met gelijke afstanden én echt nulpunt (bijv. leeftijd, gewicht)")
           feedback_parts <- c(feedback_parts, "**Meer leren?** <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Bekijk Video: Meetniveaus Uitleg</a> | <a href='https://www.researchgate.net/publication/373517435_Levels_of_Measurement_in_Criminology_and_Criminal_Justice' target='_blank' rel='noopener noreferrer'>Measurement Scales Artikel</a>")
           
+          # Learner-facing feedback contract: preserve the detailed field feedback
+          # above, then make the diagnostic reasoning and retry strategy explicit.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct. De veldfeedback hierboven bevestigt per onderdeel waarom.\n\n**Denkregel:** controleer vraagtype, variabelenrol en meetniveau als afzonderlijke beslissingen.\n\n**Transferstap:** pas dezelfde beslisvolgorde toe op een nieuwe criminologische onderzoeksvraag.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** bepaal eerst of waarden labels of hoeveelheden zijn en toets daarna alleen de toepasselijke eigenschappen: rangorde, gelijke afstanden en echt nulpunt.\n\n**Transferstap:** pas de ladder toe op dossiernummer versus aantal delicten en leg voor beide het beslissende criterium in één zin uit.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** één of meer afwijkende velden kunnen erop wijzen dat je een herkenbaar kenmerk hebt gekozen voordat je de criteria afzonderlijk controleerde. Dit is een voorzichtige hypothese: dezelfde antwoordcombinatie kan ook via een andere denkroute ontstaan.",
+              "**Waarom dit niet klopt:** elk veld toetst een eigen eigenschap. Een getal dat als identificatielabel wordt gebruikt, wordt bijvoorbeeld niet automatisch een kwantitatieve meting; de specifieke veldfeedback hierboven toont welk criterium botst.",
+              "**Denkregel:** gebruik alleen de toepasselijke stappen van deze ladder: (1) label of hoeveelheid, (2) betekenisvolle rangorde, (3) gelijke afstanden en (4) echt nulpunt. Stop zodra een vereiste eigenschap ontbreekt.",
+              "**Volgende stap:** neem het eerste veld met ❌ hierboven, schrijf het beslissende criterium naast je antwoord en pas alleen dat veld aan. Doorloop daarna de ladder opnieuw voor een ander criminologisch voorbeeld, zoals dossiernummer versus aantal delicten."
+            )
+          }
+
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
           generated == expected

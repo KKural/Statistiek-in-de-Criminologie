@@ -129,6 +129,51 @@ context({
             vraag7 = wrong_msg_v7
           )
 
+          likely_routes <- list(
+            vraag1 = c(
+              "Je verwijdert mogelijk alleen variatie van Z zelf en niet het lineaire Z-effect uit zowel X als Y.",
+              "correct",
+              "Je verwisselt mogelijk de doelvariabelen en beschrijft r_XZ gegeven Y.",
+              "Je behandelt partiële correlatie mogelijk als een gemiddelde van drie correlaties."
+            ),
+            vraag2 = c(
+              "Je ziet mogelijk elke verandering na controle als suppressie, hoewel het verband hier juist vrijwel verdwijnt.",
+              "Je houdt mogelijk alleen de oorspronkelijke r = 0,70 in beeld en negeert de partiële r = 0,02.",
+              "correct",
+              "Je geeft mogelijk een causale mediatie-interpretatie die uit deze correlaties alleen niet volgt."
+            ),
+            vraag3 = c(
+              "correct",
+              "Je markeert mogelijk een ware rekenvoorwaarde als onjuist in plaats van de absolute uitspraak over de grootte.",
+              "Je markeert mogelijk een werkelijk mogelijk tekenpatroon als onjuist en mist suppressie.",
+              "Je markeert mogelijk de multivariate controlelogica als onjuist, hoewel die precies de kern vormt."
+            ),
+            vraag4 = c(
+              "Je verwacht mogelijk dat elk gecontroleerd verband naar nul moet dalen en noemt het daarom schijn.",
+              "Je noemt mogelijk elke derde variabele een suppressor, ook wanneer grootte en teken nauwelijks veranderen.",
+              "correct",
+              "Je leidt mogelijk significantie af zonder steekproefgrootte, standaardfout of p-waarde."
+            ),
+            vraag5 = c(
+              "Je verwart mogelijk de teller met het verschil tussen de uiteindelijke partiële en bivariate correlatie.",
+              "correct",
+              "Je telt mogelijk de correlaties op in plaats van de overlap via Z af te trekken.",
+              "Je neemt mogelijk alleen de overlapterm r_XZ maal r_YZ en laat r_XY weg."
+            ),
+            vraag6 = c(
+              "Je noemt mogelijk verzwakking na controle suppressie, terwijl suppressie het verband juist onthult of versterkt.",
+              "Je noemt mogelijk verdwijnen naar nul suppressie in plaats van een mogelijk schijnverband.",
+              "correct",
+              "Je noemt mogelijk een onveranderd verband suppressie, hoewel Z dan nauwelijks invloed heeft."
+            ),
+            vraag7 = c(
+              "Je denkt mogelijk dat multivariaat altijd meer dan drie variabelen vereist; één controlevariabele volstaat hier.",
+              "correct",
+              "Je stelt partiële correlatie mogelijk volledig gelijk aan meervoudige regressie in plaats van hun gedeelde controleprincipe te herkennen.",
+              "Je koppelt de techniek mogelijk aan nominale data, hoewel partiële Pearson-correlatie metrische variabelen gebruikt."
+            )
+          )
+
           # ── feedback opbouwen ─────────────────────────────────────────────────
 
           lines <- character(0)
@@ -146,12 +191,97 @@ context({
                 as.integer(r$expected), ")\n\n", wrong_fns[[key]](r$value), "\n"))
               score <- score + 1
             } else {
+              choice <- r$value_num
+              likely <- if (!is.na(choice) && choice %in% 1:4) {
+                likely_routes[[key]][[as.integer(choice)]]
+              } else {
+                "De invoer is niet eenduidig aan één aangeboden optie te koppelen."
+              }
               lines <- c(lines, paste0("❌ **", lbl, "** — jouw antwoord: **", as.character(r$value),
-                "**\n\n", wrong_fns[[key]](r$value), "\n"))
+                "**\n\n**Waarschijnlijke redenering:** ", likely,
+                "\n\n**Waarom dit niet klopt:** ", wrong_fns[[key]](r$value), "\n"))
             }
           }
 
           lines <- c(lines, sprintf("---\n\n**Score: %d / %d**", score, total))
+          contract_rule <- function(key) {
+            k <- tolower(key)
+            if (grepl("gemiddelde|_bar", k)) return("Gemiddelde = som / n; gebruik n-1 alleen bij een steekproefvariantie.")
+            if (grepl("^ss|scp", k)) return("Centreer eerst, vorm kwadraten of kruisproducten en sommeer; een SS/SCP wordt niet gedeeld.")
+            if (grepl("variantie|^var", k)) return("Steekproefvariantie = SS / (n-1); houd SS, variantie en standaardafwijking uit elkaar.")
+            if (grepl("standaardfout", k)) return("Standaardfout = standaardafwijking / wortel(n); gebruik de juiste onzekerheidsmaat.")
+            if (grepl("^sd|sigma", k)) return("Een standaardafwijking is de positieve wortel van de variantie en behoudt de oorspronkelijke eenheid.")
+            if (grepl("cov|scp", k)) return("Covariantie gebruikt de getekende gecentreerde kruisproducten en de afgesproken deler.")
+            if (grepl("teller", k)) return("Werk de volledige teller met tekens en haakjes uit voordat je door de noemer deelt.")
+            if (grepl("noemer", k)) return("Bereken beide factoren onder de wortel afzonderlijk; de noemer moet positief zijn.")
+            if (grepl("r_|pearson|partial", k)) return("Een correlatie is schaalvrij en ligt tussen -1 en 1; koppel elke correlatie aan de juiste variabelen en controles.")
+            if (grepl("^bi_|interval|breder", k)) return("Een betrouwbaarheidsinterval is schatting plus/minus kritieke waarde maal standaardfout; meer betrouwbaarheid geeft een breder interval.")
+            if (grepl("^df", k)) return("Vrijheidsgraden volgen uit het aantal onafhankelijke informatiedelen of geschatte parameters; tel die eerst expliciet.")
+            if (grepl("^ms", k)) return("Mean square = bijbehorende sum of squares / bijbehorende vrijheidsgraden.")
+            if (grepl("f_ratio|^f_", k)) return("F = MS tussen / MS binnen; houd teller en noemer op hun juiste ANOVA-rij.")
+            if (grepl("eta|r_kwadraat", k)) return("Een verklaarde proportie vergelijkt verklaarde met totale variatie en ligt tussen 0 en 1, of 0% en 100%.")
+            if (grepl("chi", k)) return("Sommeer voor elke cel (O-E)^2/E met de verwachte, niet de geobserveerde, frequentie als deler.")
+            if (grepl("^e_", k)) return("Verwachte frequentie = rijtotaal maal kolomtotaal / N.")
+            if (grepl("kritieke", k)) return("Lees de kritieke waarde af met zowel het juiste alfa als de juiste vrijheidsgraden.")
+            if (grepl("significant|conclusie|richting|vraag|h0", k)) return("Pas eerst de expliciete beslisregel toe en formuleer daarna alleen de conclusie die door die vergelijking wordt gedragen.")
+            if (grepl("n_minimum|n_voor|quotient", k)) return("Bereken de steekproefgrootte met ongeafronde tussenwaarden en rond het eindresultaat altijd naar boven af.")
+            "Benoem de doelgrootheid, schrijf de bijbehorende formule en eenheid op en rond pas het eindresultaat af."
+          }
+
+          contract_step <- function(key, label) {
+            k <- tolower(key)
+            if (grepl("significant|conclusie|richting|vraag|h0|breder", k)) {
+              return(paste0("Lees ", label, " opnieuw, noteer de relevante vergelijking in één regel en kies pas daarna de conclusie."))
+            }
+            paste0("Herbereken alleen ", label, ": schrijf de formule, vul de ongeafronde inputs met tekens in en controleer daarna bereik, eenheid en afronding.")
+          }
+
+          finite_choices <- setNames(rep(list(1:4), length(qnames)), names(qnames))
+          invalid_finite_choice <- function(key, value) {
+            if (!(key %in% names(finite_choices))) return(FALSE)
+            num <- suppressWarnings(as.numeric(as.character(value)))
+            length(num) != 1 || is.na(num) || !(num %in% finite_choices[[key]])
+          }
+
+          contract_lines <- c("\n---\n\n## Denk- en herstelaanpak")
+          for (key in names(qnames)) {
+            r <- results[[key]]
+            rule <- contract_rule(key)
+            step <- contract_step(key, qnames[[key]])
+            if (!r$exists) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Waarom nog geen diagnose mogelijk is:** er is geen antwoordwaarde om aan een denkroute te koppelen.\n\n",
+                "**Denkregel:** ", rule, "\n\n",
+                "**Volgende stap:** vul de ontbrekende variabele in. ", step
+              ))
+            } else if (r$correct) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "✅ **Bevestiging:** correct.\n\n**Waarom dit klopt:** het antwoord voldoet aan de hierboven bevestigde berekening of beslissing.\n\n",
+                "**Denkregel:** ", rule, "\n\n",
+                "**Transferstap:** ", step
+              ))
+            } else if (invalid_finite_choice(key, r$value)) {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Mogelijke denkroute:** de invoer is niet eenduidig aan één van de aangeboden antwoordopties te koppelen.\n\n",
+                "**Waarom dit niet klopt:** een waarde buiten de aangeboden opties kan niet als inhoudelijke keuze worden beoordeeld.\n\n",
+                "**Denkregel:** ", rule, "\n\n",
+                "**Volgende stap:** voer exact één geldig optienummer in. ", step
+              ))
+            } else {
+              contract_lines <- c(contract_lines, paste0(
+                "### ", qnames[[key]], "\n\n",
+                "**Waarschijnlijke redenering:** uit één eindantwoord is de precieze denkstap niet zeker. De waarde of optie past mogelijk bij de hierboven uitgewerkte verwisseling, tussenstap, deler, schaal of afronding.\n\n",
+                "**Waarom dit niet klopt:** de bovenstaande componentcontrole toont waar het antwoord van de vereiste definitie, formule of beslisregel afwijkt.\n\n",
+                "**Denkregel:** ", rule, "\n\n",
+                "**Volgende stap:** ", step
+              ))
+            }
+          }
+          lines <- c(lines, contract_lines)
+
           get_reporter()$add_message(paste(lines, collapse = "\n"), type = "markdown")
           generated == expected
         }

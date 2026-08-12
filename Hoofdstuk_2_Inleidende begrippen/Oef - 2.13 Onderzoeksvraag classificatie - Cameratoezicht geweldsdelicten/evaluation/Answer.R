@@ -310,6 +310,20 @@ context({
           feedback_parts <- c(feedback_parts, "• **Aantal delicten**: Ratio variabele (natuurlijke getallen met echt nulpunt)")
           feedback_parts <- c(feedback_parts, "• **Kwantitatief vs. Kwalitatief**: Getallen vs. categorieën")
           
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct. De veldfeedback hierboven bevestigt per onderdeel waarom.\n\n**Denkregel:** controleer vraagtype, variabelenrol en meetniveau als afzonderlijke beslissingen.\n\n**Transferstap:** pas dezelfde beslisvolgorde toe op een nieuwe criminologische onderzoeksvraag.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** zet een effectvraag om in ‘heeft X invloed op Y?’, wijs X en Y toe en onderbouw daarna hun meetniveaus onafhankelijk van die rollen.\n\n**Transferstap:** pas dit toe op een andere criminaliteitspreventieve interventie en teken de verwachte X→Y-keten.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** één of meer afwijkingen kunnen wijzen op het verwisselen van interventie en uitkomst, of op het classificeren van een effectvraag als louter samenhang. De ingevoerde combinatie laat echter niet met zekerheid zien welke stap je nam.",
+              "**Waarom dit niet klopt:** het werkwoord dat invloed uitdrukt bepaalt het verklarende doel, de vraagstructuur bepaalt X en Y en de mogelijke waarden bepalen de meetniveaus. Eén kenmerk kan die drie beslissingen niet vervangen.",
+              "**Denkregel:** werk in drie lagen: (1) vraagdoel, (2) X→Y-rol en (3) meetniveau per variabele. Controleer elke laag met een apart criterium.",
+              "**Volgende stap:** corrigeer het eerste veld met ❌, schrijf ‘cameratoezicht → aantal geweldsdelicten’ op en toets daarna voor beide variabelen apart categorie/rangorde/afstand/nulpunt."
+            )
+          }
+
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
           generated == expected

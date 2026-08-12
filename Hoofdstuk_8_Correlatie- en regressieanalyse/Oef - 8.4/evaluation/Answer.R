@@ -61,23 +61,40 @@ context({
         if (!r$exists) {
           feedback_text <- paste0(feedback_text,
             "❌ **", qnames[[q]], "** — **Je hebt geen antwoord ingevoerd.**\n\n",
-            "Wijs code 1, 2 of 3 toe aan `punt_positie`, bijv. `punt_positie <- 1`\n\n"
+            "**Denkregel:** vergelijk Y met Ŷ bij dezelfde X; Y < Ŷ betekent een negatief residu en dus onder de lijn.\n\n",
+            "**Volgende stap:** wijs code 1, 2 of 3 toe aan `punt_positie` en bereken eerst 16 − 18,3.\n\n"
           )
         } else if (r$correct) {
           feedback_text <- paste0(feedback_text,
             "✅ **", qnames[[q]], "** — **Correct! (code 3: onder de lijn)**\n\n",
             "**Uitleg:** Bij x = 8 voorspelt de regressielijn **Ŷ ≈ 18,3**. Punt P heeft y = 16, dus residu = 16 − 18,3 = **−2,3** (negatief). P ligt onder de lijn.\n\n",
             "**Let op de visuele val:** P lijkt 'in lijn' te liggen met de buurpunten (6,21) en (10,16), maar de regressielijn daalt op x = 8 al naar 18,3 — P zit 2,3 eenheden daáronder.\n\n"
+            ,"**Bevestiging:** code 3 is correct omdat e = 16 − 18,3 = −2,3 negatief is.\n\n",
+            "**Denkregel:** het teken van e = Y − Ŷ bepaalt boven (positief), op (nul) of onder (negatief).\n\n",
+            "**Transferstap:** pas bij een nieuw punt steeds dezelfde drie stappen toe: lees Ŷ, bereken Y − Ŷ, vertaal het teken.\n\n"
           )
         } else {
           num_val <- parse_num(r$value)
-          student_lbl <- if (!is.na(num_val) && as.character(round(num_val)) %in% names(lbl_map))
-            lbl_map[[as.character(round(num_val))]] else paste0("ongeldig (", r$value, ")")
-          msg <- wrong_msg_punt_positie(r$value)
-          feedback_text <- paste0(feedback_text,
-            "❌ **", qnames[[q]], "** — **Fout. Antwoord: `", r$value, "` (", student_lbl, "). Correct: code `3` (onder de lijn)**\n\n",
-            msg, "\n\n"
-          )
+          if (is.na(num_val) || !(num_val %in% 1:3)) {
+            feedback_text <- paste0(feedback_text,
+              "❌ **", qnames[[q]], "** — **Ongeldige keuze: `", r$value, "`.**\n\n",
+              "**Mogelijke denkroute:** de invoer is niet aan één van de codes 1, 2 of 3 te koppelen.\n\n",
+              "**Waarom dit niet klopt:** alleen code 1 (boven), 2 (op) of 3 (onder) kan de positie ten opzichte van de lijn weergeven.\n\n",
+              "**Denkregel:** valideer eerst de antwoordcode en gebruik daarna het teken van e = Y − Ŷ.\n\n",
+              "**Volgende stap:** bereken 16 − 18,3 en voer vervolgens exact 1, 2 of 3 in.\n\n"
+            )
+          } else {
+            student_lbl <- lbl_map[[as.character(round(num_val))]]
+            msg <- wrong_msg_punt_positie(r$value)
+            feedback_text <- paste0(feedback_text,
+              "❌ **", qnames[[q]], "** — **Fout. Antwoord: `", r$value, "` (", student_lbl, "). Correct: code `3` (onder de lijn)**\n\n",
+              "**Waarschijnlijke redenering:** je hebt mogelijk de visuele positie geschat zonder het residu expliciet te berekenen.\n\n",
+              "**Waarom dit niet klopt:** bij x = 8 is Y = 16 kleiner dan Ŷ ≈ 18,3; het residu is dus negatief en de gekozen positie kan niet kloppen.\n\n",
+              msg, "\n\n",
+              "**Denkregel:** gebruik e = Y − Ŷ; alleen het teken van e bepaalt de positie ten opzichte van de lijn.\n\n",
+              "**Volgende stap:** vul Y = 16 en Ŷ = 18,3 in en koppel e = −2,3 aan code 3.\n\n"
+            )
+          }
         }
 
         get_reporter()$add_message(feedback_text, type = "markdown")

@@ -253,6 +253,20 @@ context({
           feedback_parts <- c(feedback_parts, "• **Leeftijd**: Continue numerieke waarden met echt nulpunt (ratio)")
           feedback_parts <- c(feedback_parts, "**Meer leren?** <a href='https://www.youtube.com/watch?v=rjEBCOCa2z4' target='_blank' rel='noopener noreferrer'>Bekijk Video: Bivariate Verklarende Onderzoeksvragen</a> | <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Meetniveaus Uitleg</a>")
           
+          # Learner-facing feedback contract.
+          if (isTRUE(generated == expected)) {
+            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct. De veldfeedback hierboven bevestigt per onderdeel waarom.\n\n**Denkregel:** controleer vraagtype, variabelenrol en meetniveau als afzonderlijke beslissingen.\n\n**Transferstap:** pas dezelfde beslisvolgorde toe op een nieuwe criminologische onderzoeksvraag.")
+            feedback_parts <- c(feedback_parts, "**Denkregel:** tel eerst de variabelen, bepaal beschrijven versus verklaren, wijs X en Y toe en onderbouw ten slotte elk meetniveau afzonderlijk.\n\n**Transferstap:** gebruik dezelfde vier beslissingen bij een nieuwe criminologische voorspeller-uitkomstvraag.")
+          } else {
+            feedback_parts <- c(
+              feedback_parts,
+              "**Waarschijnlijke redenering:** de afwijkende velden kunnen passen bij het verwisselen van voorspeller en uitkomst, of bij het classificeren op één herkenbaar woord zonder de volledige vraagstructuur te controleren. Dit is een hypothese; de antwoordcombinatie bewijst geen unieke denkroute.",
+              "**Waarom dit niet klopt:** aantal variabelen, vraagdoel, X/Y-rol en meetniveau hebben elk een eigen criterium. De veldfeedback hierboven toont waar jouw gekozen label niet aansluit bij dat criterium.",
+              "**Denkregel:** werk in volgorde: (1) tel variabelen, (2) zoek beschrijvende of verklarende formulering, (3) formuleer ‘heeft X invloed op Y?’ en (4) toets per variabele rangorde, afstand en nulpunt.",
+              "**Volgende stap:** herstel eerst het eerste veld met ❌ en schrijf de onderzoeksvraag expliciet als X→Y. Classificeer daarna leeftijd en recidive los van hun rol en probeer dezelfde routine op een nieuwe criminologische vraag."
+            )
+          }
+
           get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
           
           generated == expected

@@ -17,21 +17,38 @@ context({
             "4" = "❌ Fout - **Ratio** heeft numerieke waarden met gelijke afstanden en een absoluut nulpunt. Criminologische voorbeelden: aantal delicten (0 = geen delicten), lengte gevangenisstraf in maanden (0 = geen straf), leeftijd dader (0 = net geboren). Bij ratio kan je zeggen '4 jaar gevangenis is dubbel zo lang als 2 jaar'. Dit geldt niet voor ernst-rangschikking van delicten. <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Lees meer</a>"
           )
           
+          likely_reasons <- list(
+            "1" = "je zag delicttypen als categorieën en koppelde die mogelijk aan nominaal, maar de opdracht voegt expliciet een ernstvolgorde toe.",
+            "3" = "je behandelde de rangplaatsen mogelijk als numerieke scores met gelijke afstanden, terwijl alleen de volgorde van ernst vastligt.",
+            "4" = "je veronderstelde mogelijk dat een laagste ernstcategorie een werkelijk nulpunt vormt en verhoudingen tussen ernstniveaus mogelijk maakt."
+          )
           key <- as.character(generated)
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."
           if (key %in% names(feedbacks) && generated != expected) {
             msg <- paste0(
-              "**Mogelijke denkroute:** je keuze kan aantrekkelijk zijn omdat één bekende eigenschap passend lijkt, terwijl het beslissende criterium van de vraag nog niet is toegepast.\n\n",
+              "**Waarschijnlijke redenering:** ", likely_reasons[[key]], "\n\n",
+              "**Waarom dit niet klopt:** ",
               msg,
-              "\n\n**Versterk je denkstap:** benoem vóór je opnieuw antwoordt (1) het kernbegrip, (2) de beslissende eigenschap en (3) waarom jouw gekozen optie daar wel of niet aan voldoet."
+              "\n\n**Denkregel:** benoem bij elke optie eerst het kernbegrip en de beslissende eigenschap; toets daarna of de optie aan dat criterium voldoet.\n\n",
+              "**Volgende stap:** schrijf voor je gekozen optie één reden vóór en één reden tegen, en kies opnieuw op basis van het beslissende criterium."
             )
           } else if (key %in% names(feedbacks) && generated == expected) {
             msg <- paste0(
+              "**Bevestiging:** je gekozen optie is correct.\n\n",
               msg,
-              "\n\n**Versterk je redenering:** formuleer de beslissende eigenschap in je eigen woorden, zodat je dezelfde regel in een nieuwe criminologische context kunt toepassen."
+              "\n\n**Denkregel:** koppel het juiste antwoord steeds aan de beslissende eigenschap, niet alleen aan een herkenbaar voorbeeld.\n\n",
+              "**Transferstap:** formuleer die eigenschap in je eigen woorden en pas haar toe op een nieuw criminologisch voorbeeld."
             )
           }
           
+          if (!key %in% names(feedbacks)) {
+            msg <- paste0(
+              "**Mogelijke denkroute:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.\n\n",
+              "**Waarom dit niet klopt:** de evaluator kan alleen een inhoudelijke optie beoordelen wanneer één geldig optienummer is ingevoerd.\n\n",
+              "**Denkregel:** koppel eerst elke antwoordoptie aan haar nummer en voer uitsluitend dat ene nummer in.\n\n",
+              "**Volgende stap:** lees de opties opnieuw, kies het nummer dat bij je redenering hoort en dien alleen dat nummer in."
+            )
+          }
           get_reporter()$add_message(msg, type = "markdown")
           
           generated == expected

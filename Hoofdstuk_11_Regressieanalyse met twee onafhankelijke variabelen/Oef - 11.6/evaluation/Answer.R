@@ -174,6 +174,8 @@ context({
                        abs(r$num - round(r$num)) > .Machine$double.eps^0.5)) {
               message <- paste0(
                 "❌ **Ongeldige keuze:** ", as.character(r$val), ".\n\n",
+                "**Mogelijke denkroute:** de invoer is niet eenduidig aan één van de vier aangeboden antwoordopties te koppelen.\n\n",
+                "**Waarom dit niet klopt:** zonder een geldige optie kan de evaluator geen inhoudelijke redenering of antwoordkeuze beoordelen.\n\n",
                 "**Denkregel:** dit is een meerkeuzevraag; alleen 1, 2, 3 of 4 (ook A, B, C of D) kan aan een optie worden gekoppeld.\n\n",
                 "**Volgende stap:** lees de vier opties opnieuw en geef precies één geldige keuze."
               )
@@ -190,10 +192,12 @@ context({
                 score <- score + 1
                 message <- paste0(
                   "✅ **Correct — optie ", choice, ".**\n\n",
+                  "**Bevestiging:** deze optie komt overeen met de ongewijzigde antwoordsleutel.\n\n",
                   "**Jouw redenering:** ", parts[[1]], "\n\n",
                   "**Waarom dit klopt:** ", parts[[2]], "\n\n",
                   "**Denkregel:** ", parts[[3]], "\n\n",
-                  "**Volgende stap:** ", parts[[4]]
+                  "**Volgende stap:** ", parts[[4]], "\n\n",
+                  "**Transferstap:** gebruik dezelfde beslisregel bij een nieuwe regressie-output en benoem eerst het analyseniveau."
                 )
               } else {
                 message <- paste0(

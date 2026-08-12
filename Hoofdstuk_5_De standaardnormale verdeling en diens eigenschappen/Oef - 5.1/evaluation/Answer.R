@@ -1,3 +1,4 @@
+# **Bevestiging:** correct-route feedback below confirms the result before the Denkregel and Transferstap.
 context({
   testcase(
     "",
@@ -354,6 +355,24 @@ context({
             }
           } else {
             feedback_text <- paste0(feedback_text, "❌ ", qnames[[q]], " **Je hebt geen antwoord gegeven.**\n\nStap 1: Z = (29-42.5)/7.5 = -1.80\n\nStap 2: P(Z ≤ -1.80) = 0.0359\n\nStap 3: P(X > 29) = 1 - 0.0359 = 0.9641\n\nStap 4: 0.9641 × 100 = 96.41\n\n")
+          }
+
+          # Learner-facing feedback contract. The value-specific handlers above
+          # remain primary; this block states their ambiguity and retry routine.
+          if (isTRUE(generated == expected)) {
+            feedback_text <- paste0(
+              feedback_text,
+              "\n\n**Bevestiging:** alle gevraagde normale kansen zijn correct berekend en als percentage weergegeven.\n\n**Denkregel:** schrijf eerst de gebeurtenis als ongelijkheid, standaardiseer met z=(x−μ)/σ, lees Φ(z) als linkerstaart en gebruik alleen daarna een complement of intervalverschil; zet pas op het einde om naar procent.\n\n",
+              "**Transferstap:** kies een nieuwe leeftijdsgrens uit dezelfde verdeling en voorspel vóór het rekenen of de gezochte kans kleiner of groter dan 50% moet zijn."
+            )
+          } else {
+            feedback_text <- paste0(
+              feedback_text,
+              "\n\n**Waarschijnlijke redenering:** het eerste afwijkende antwoord kan passen bij een verkeerde staart, een vergeten complement, proportie versus percentage, een onjuiste z-score of te vroeg afronden. Dezelfde eindwaarde kan ook via een andere route ontstaan; de diagnose blijft dus voorzichtig.\n\n",
+              "**Waarom dit niet klopt:** Φ(z) geeft een cumulatieve linkerstaart en is niet automatisch de gebeurtenis die de vraag noemt; bovendien kunnen proporties en percentages niet zonder schaalconversie worden vergeleken.\n\n",
+              "**Denkregel:** gebeurtenis → z-score → linkerstaart → eventueel 1−Φ(z) of Φ(z₂)−Φ(z₁) → percentage; bewaar ongeronde tussenresultaten.\n\n",
+              "**Volgende stap:** herwerk het eerste veld met ❌ door de ongelijkheid boven je berekening te schrijven. Gebruik als worked fallback voor een bovengrens: P(X>c)=1−Φ((c−μ)/σ), en recomputeer daarna afhankelijke velden."
+            )
           }
 
           get_reporter()$add_message(feedback_text, type = "markdown")
