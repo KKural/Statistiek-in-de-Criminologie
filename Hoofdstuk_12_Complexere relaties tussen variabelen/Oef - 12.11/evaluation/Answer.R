@@ -9,10 +9,12 @@ context({
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
             "1" = paste0(
-              "\u274c Fout. Figuur A toont **geen** schending \u2014 de rode LOESS-lijn loopt nagenoeg horizontaal ",
-              "rond nul, wat wijst op een lineair verband.\n\n",
-              "**Correct antwoord:** 2 \u2014 Figuur B toont de schending: de rode lijn maakt een duidelijke ",
-              "boog (eerst positief, dan negatief), wat erop wijst dat het ware verband niet-lineair is."
+              "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk kleine lokale schommelingen in Figuur A ",
+              "als een systematische kromming geïnterpreteerd. De LOESS-lijn blijft daar echter nagenoeg horizontaal rond nul.\n\n",
+              "**Beslisregel:** een lineariteitsschending blijkt uit een duidelijk systematisch gebogen patroon in de smoother, ",
+              "niet uit losse spreiding van residuen.\n\n",
+              "**Volgende stap:** vergelijk de rode lijn met de horizontale nullijn. Alleen in Figuur B vormt ze een duidelijke boog.\n\n",
+              "**Correct antwoord:** 2"
             ),
             "2" = paste0(
               "\u2705 Juist! **Figuur B** toont een schending van de lineariteitsassumptie. De rode LOESS-smoother ",
@@ -21,14 +23,17 @@ context({
               "**Figuur A** is correct: de residuen liggen willekeurig verspreid rond nul \u2014 geen systematisch patroon."
             ),
             "3" = paste0(
-              "\u274c Fout. Niet beide figuren tonen een schending.\n\n",
-              "**Figuur A** vertoont geen probleem: de smoother is vlak en de residuen zijn willekeurig verspreid.\n\n",
-              "**Figuur B** toont wel een schending: de gebogen smoother wijst op niet-lineariteit.\n\n",
+              "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk elke zichtbare spreiding rond nul als niet-lineariteit beschouwd. ",
+              "Willekeurige spreiding is op zichzelf geen schending.\n\n",
+              "**Beslisregel:** beoordeel de vorm van de LOESS-smoother per figuur: ongeveer vlak is passend; systematische kromming wijst op niet-lineariteit.\n\n",
+              "**Volgende stap:** beoordeel A en B afzonderlijk. A is nagenoeg vlak; alleen B is duidelijk gebogen.\n\n",
               "**Correct antwoord:** 2"
             ),
             "4" = paste0(
-              "\u274c Fout. **Figuur B** toont wel degelijk een schending. Let op de gebogen rode lijn \u2014 ",
-              "die systematische kromming wijst op een niet-lineair verband dat het model mist.\n\n",
+              "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk vooral gekeken of de punten gemiddeld rond nul liggen ",
+              "en daardoor de vorm van de rode lijn in Figuur B gemist.\n\n",
+              "**Beslisregel:** ook wanneer residuen rond nul liggen, signaleert een systematisch gebogen smoother dat een rechte lijn een patroon mist.\n\n",
+              "**Volgende stap:** volg de rode lijn van links naar rechts in B; de duidelijke boog maakt B de schending.\n\n",
               "**Correct antwoord:** 2"
             )
           )

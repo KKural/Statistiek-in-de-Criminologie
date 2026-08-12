@@ -9,10 +9,12 @@ context({
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
             "1" = paste0(
-              "\u274c Fout. Figuur A toont **geen** heteroscedasticiteit \u2014 de rode LOESS-smoother loopt ",
-              "nagenoeg horizontaal, wat wijst op een gelijkmatige spreiding van de residuen.\n\n",
-              "**Correct antwoord:** 2 \u2014 In Figuur B stijgt de smoother, wat betekent dat de variantie ",
-              "van de residuen toeneemt naarmate de geschatte waarden groter worden."
+              "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk de aanwezigheid van verticale spreiding in Figuur A ",
+              "als heteroscedasticiteit geïnterpreteerd. De spreiding verandert daar niet systematisch en de smoother is vrijwel vlak.\n\n",
+              "**Beslisregel:** heteroscedasticiteit betekent dat de residuspreiding verandert met de geschatte waarden; ",
+              "een systematisch stijgende of dalende smoother is daarvoor een signaal.\n\n",
+              "**Volgende stap:** volg de rode lijn van links naar rechts. Alleen in Figuur B stijgt ze duidelijk.\n\n",
+              "**Correct antwoord:** 2"
             ),
             "2" = paste0(
               "\u2705 Juist! **Figuur B** toont **heteroscedasticiteit**: de rode smoother stijgt, wat aangeeft ",
@@ -20,14 +22,16 @@ context({
               "**Figuur A** vertoont geen probleem: de punten zijn gelijkmatig verspreid en de smoother is vlak."
             ),
             "3" = paste0(
-              "\u274c Fout. Niet beide figuren tonen heteroscedasticiteit.\n\n",
-              "**Figuur A** is correct: de smoother is vlak en de punten zijn gelijkmatig verspreid.\n\n",
-              "**Figuur B** toont wel een schending: de stijgende smoother wijst op toenemende variantie.\n\n",
+              "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk elke spreiding van punten als een ongelijke variantie beoordeeld. ",
+              "Bij homoscedasticiteit mogen residuen verspreid zijn; die spreiding moet vooral ongeveer constant blijven.\n\n",
+              "**Beslisregel:** vergelijk de spreiding over de volledige x-as en beoordeel elke figuur apart. Vlak en gelijkmatig is passend; een trend is problematisch.\n\n",
+              "**Volgende stap:** A blijft ongeveer gelijkmatig; B vertoont een stijgende smoother en dus toenemende spreiding.\n\n",
               "**Correct antwoord:** 2"
             ),
             "4" = paste0(
-              "\u274c Fout. **Figuur B** toont wel degelijk heteroscedasticiteit. Let op de stijgende rode lijn ",
-              "\u2014 die geeft aan dat de residuen meer verspreid zijn bij hogere geschatte waarden.\n\n",
+              "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk de puntenwolken globaal als vergelijkbaar gezien en de stijgende smoother in B onvoldoende meegewogen.\n\n",
+              "**Beslisregel:** een duidelijke trend in de Scale-Location-smoother betekent dat de residuspreiding afhangt van de geschatte waarde.\n\n",
+              "**Volgende stap:** vergelijk het begin en einde van de rode lijn in B; de hogere waarde rechts wijst op heteroscedasticiteit.\n\n",
               "**Correct antwoord:** 2"
             )
           )

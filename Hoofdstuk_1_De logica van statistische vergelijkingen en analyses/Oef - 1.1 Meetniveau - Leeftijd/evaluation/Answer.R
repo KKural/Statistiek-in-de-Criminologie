@@ -15,6 +15,18 @@ context({
           )
           key <- as.character(generated)
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."
+          if (key %in% names(feedbacks) && generated != expected) {
+            msg <- paste0(
+              "**Mogelijke denkroute:** je keuze kan aantrekkelijk zijn omdat één bekende eigenschap passend lijkt, terwijl het beslissende criterium van de vraag nog niet is toegepast.\n\n",
+              msg,
+              "\n\n**Versterk je denkstap:** benoem vóór je opnieuw antwoordt (1) het kernbegrip, (2) de beslissende eigenschap en (3) waarom jouw gekozen optie daar wel of niet aan voldoet."
+            )
+          } else if (key %in% names(feedbacks) && generated == expected) {
+            msg <- paste0(
+              msg,
+              "\n\n**Versterk je redenering:** formuleer de beslissende eigenschap in je eigen woorden, zodat je dezelfde regel in een nieuwe criminologische context kunt toepassen."
+            )
+          }
           get_reporter()$add_message(msg, type = "markdown")
           generated == expected
         }
