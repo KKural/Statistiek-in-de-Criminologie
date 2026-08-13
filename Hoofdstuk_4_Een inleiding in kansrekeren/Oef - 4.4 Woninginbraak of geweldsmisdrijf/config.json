@@ -1,0 +1,25 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.4 Woninginbraak of geweldsmisdrijf"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "somregel",
+    "complementregel",
+    "kansberekening",
+    "criminologie"
+  ],
+  "internals": {
+    "token": "tI-zYKIBe8yVuu_QIVx5NuU-EgbcyjV9HMPDzuW63ITgN8jQrTRSXv8NwBmeNxNR",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

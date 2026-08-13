@@ -1,17 +1,32 @@
-**Inleiding**  
-In dit hoofdstuk maak je kennis met de basis van **kansrekenen**, een noodzakelijk onderdeel van kwantitatieve criminologie. Criminologen werken voortdurend met onzekerheid: bij risicotaxatie, steekproeftrekking, recidive-inschatting of beleidsevaluatie. Om verantwoord te kunnen oordelen, moet je begrijpen wat een **kans** is, hoe ze kan worden berekend en geïnterpreteerd, en in welke situaties kansen **objectief**, **experimenteel** of **subjectief** bepaald worden. Kansrekenen vormt zo de brug tussen toevalsprocessen en statistische inferentie.
+# Hoofdstuk 4 — Een inleiding in kansrekenen
 
-**Leerdoelen**  
-Na dit hoofdstuk kan je:  
-- Het onderscheid uitleggen tussen **objectieve (Laplace)**, **experimentele (relatieve frequentie)** en **subjectieve** kansen.  
-- Basiskansen berekenen met **N(A)/N** en **n(A)/n**.  
-- De belangrijkste **kansregels** toepassen: algemene & speciale somregel, algemene & speciale productregel en de complementregel.  
-- Het concept **voorwaardelijke kans** gebruiken en interpreteren.  
-- **Permutaties** en **combinaties** berekenen en onderscheiden.  
-- De **binomiale verdeling** uitleggen en kansen berekenen voor k succesgevallen in n pogingen.  
-- Begrijpen waarom de binomiale verdeling, bij grote n, de **normale verdeling** benadert en waarom dit cruciaal is voor inferentiële statistiek.
+## Inleiding
 
-**Samenvatting**  
-Dit hoofdstuk introduceert de kern van kansrekenen: hoe kansen worden gedefinieerd, berekend en toegepast in criminologisch onderzoek. Je leert drie kansdefinities kennen: de **Laplace-kans**, gebaseerd op het aantal mogelijke uitkomsten; de **experimentele kans**, gebaseerd op relatieve frequenties; en de **subjectieve kans**, gebaseerd op individuele inschatting. Vervolgens maak je kennis met de vijf centrale kansregels die nodig zijn om samengestelde kansen te berekenen, inclusief **voorwaardelijke kansen**.  
+Criminologen werken voortdurend met onzekerheid: bij steekproeftrekking, slachtofferschap, recidive, risicotaxatie en beleidsevaluatie. Kansrekenen biedt een formele taal om die onzekerheid te beschrijven zonder een kans te verwarren met zekerheid, causaliteit of een voorspelling over één individu.
 
-Omdat kansberekening vaak neerkomt op tellen, worden **permutaties** en **combinaties** geïntroduceerd. Dit vormt de basis voor de **binomiale verdeling**, een verdeling die veel criminologische kenmerken beschrijft (zoals slachtofferschap of recidive: 0/1-uitkomsten). Je leert kansen berekenen voor verschillende aantallen successen in een steekproef en ziet hoe de binomiale verdeling bij grotere steekproeven geleidelijk overgaat in de **normale verdeling**. Kansrekenen vormt hiermee de basis voor statistische inferentie en het veralgemenen van steekproefresultaten naar een bredere populatie.
+## Leerdoelen
+
+Na dit hoofdstuk kan je:
+
+- uitleggen wat een kans tussen 0 en 1 betekent;
+- objectieve (Laplace-), experimentele en subjectieve kansen onderscheiden;
+- de somregel, productregel en complementregel selecteren en toepassen;
+- disjuncte gebeurtenissen onderscheiden van onafhankelijke gebeurtenissen;
+- marginale, gezamenlijke en voorwaardelijke kansen uit een kruistabel berekenen;
+- de richting van een voorwaardelijke kans correct lezen;
+- herkennen wanneer volgorde wel of niet belangrijk is;
+- faculteiten, permutaties en combinaties gebruiken voor telproblemen;
+- als verdieping een eenvoudige binomiale kans voor exact *k* successen berekenen.
+
+## Opbouw van het leerpad
+
+De oefeningen gaan van **begrip en regelselectie** naar **berekening en transfer**:
+
+1. betekenis van kansen en kansregels;
+2. som- en complementregel bij disjuncte gebeurtenissen;
+3. marginale, gezamenlijke en voorwaardelijke kansen;
+4. algemene somregel bij overlappende gebeurtenissen;
+5. permutaties, combinaties en herhaalde objecten;
+6. een synthese-oefening en een verdiepende binomiale toepassing.
+
+Bij elke berekening bepaal je eerst de gebeurtenis en de relevante noemer. Pas daarna kies je een formule.

@@ -1,0 +1,26 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.13 Doodsoorzaken - Somregel en complement"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "speciale-somregel",
+    "complementregel",
+    "kansberekening",
+    "criminologie"
+  ],
+  "internals": {
+    "token": "o3scTdiNRf1IUTe8wG3bEETi6zPolhIJDncGCKj0c4c-Voh9dYx8HFjzPPac8TLn",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

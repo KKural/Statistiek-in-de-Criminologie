@@ -1,0 +1,11 @@
+# Stap 1: P(vrouw)
+p_vrouw <- NA
+
+# Stap 2: P(diefstal)
+p_diefstal <- NA
+
+# Stap 3: P(vrouw en diefstal)
+p_overlap <- NA
+
+# Stap 4: P(vrouw of diefstal)
+p_union <- NA

@@ -1,0 +1,25 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.9 Permutatie of combinatie"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "labels": [
+    "combinaties",
+    "permutaties",
+    "telproblemen",
+    "begrippen"
+  ],
+  "internals": {
+    "token": "9Fz9X0DXpf3wBEtXVvVQQBsDswkrWZ99dkq3lUfsQKJfUzjRGcSjanfZXAST3Vox",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

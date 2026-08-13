@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.6 Verdachten en drugsmisdrijven - Productregel"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "workdir": "workdir",
+  "access": "public",
+  "labels": [
+    "kansrekenen",
+    "kruistabel",
+    "voorwaardelijke-kans",
+    "productregel"
+  ],
+  "internals": {
+    "token": "xm739dBpX4z9g-9x0GDSYdZwvSjSWJJr87vAQHflBuNKo4vd0HgZUr7O9vxzDVYk",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

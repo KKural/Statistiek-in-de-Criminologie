@@ -1,0 +1,4 @@
+# OPTIONELE VERDIEPING
+# P(X = 2) voor X ~ Binomiaal(n = 5, p = 0.30)
+# Geef een proportie met vier decimalen.
+p_exact_twee <- ???

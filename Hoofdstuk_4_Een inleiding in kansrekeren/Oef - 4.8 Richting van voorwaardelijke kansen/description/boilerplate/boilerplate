@@ -1,0 +1,5 @@
+# P(drugsmisdrijf | man)
+p_drug_given_man <- NA
+
+# P(man | drugsmisdrijf)
+p_man_given_drug <- NA
