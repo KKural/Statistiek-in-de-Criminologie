@@ -1,0 +1,26 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.12 Permutaties van objecten en examenvragen"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "permutaties",
+    "faculteit",
+    "telproblemen",
+    "kansrekenen"
+  ],
+  "internals": {
+    "token": "LDZTTzEC393ikuAceZasBDW2QCzfXZkoko18HRXAJtXlOoeB87k62FfXL5j_L5IQ",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

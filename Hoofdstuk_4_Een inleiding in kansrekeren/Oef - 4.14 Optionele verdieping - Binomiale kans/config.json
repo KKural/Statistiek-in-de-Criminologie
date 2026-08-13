@@ -1,0 +1,26 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.14 Optionele verdieping - Binomiale kans"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "optionele-verdieping",
+    "binomiale-verdeling",
+    "exact-k-successen",
+    "criminologie"
+  ],
+  "internals": {
+    "token": "0RQUtEW_bzhX67FHeDLdDwxAiCMrUiEAV05oRt2VGgRp54RPOFGRTSvWwW9tahks",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

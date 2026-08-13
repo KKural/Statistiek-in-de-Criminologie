@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.7 Vrouw of diefstal - Algemene somregel"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "workdir": "workdir",
+  "access": "public",
+  "labels": [
+    "kansrekenen",
+    "kruistabel",
+    "algemene-somregel",
+    "overlap"
+  ],
+  "internals": {
+    "token": "_NsdOiLUk_Avk1jsRwdHS9nOs2sx9TiL4IQ_JrSIVHRYFeWu3bdmz6fw8LFWpY1q",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

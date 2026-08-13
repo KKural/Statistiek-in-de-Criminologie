@@ -1,0 +1,23 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.1 Kansbegrip en Laplace-kans"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "labels": [
+    "kansbegrip",
+    "Laplace-kans",
+    "begrippen"
+  ],
+  "internals": {
+    "token": "NBTYsf6Q9v7d3KaSpQiEq6kB-xzaekfnGM7gNmtZPAJWRMNi96ga-zhCJHACrYMN",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

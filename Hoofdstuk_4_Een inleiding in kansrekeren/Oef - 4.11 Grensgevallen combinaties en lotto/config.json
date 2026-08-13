@@ -1,0 +1,26 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.11 Grensgevallen combinaties en lotto"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "combinaties",
+    "binomiaalcoefficient",
+    "grensgevallen",
+    "kansrekenen"
+  ],
+  "internals": {
+    "token": "4oHj5_efWeaCuK3Bs4PzxDwmQY4jB5xTwydJFcwg-EbL1_BJFll5pxWCuZMLYR5M",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,8 @@
+# Stap 1: marginale kans P(man)
+p_man <- NA
+
+# Stap 2: voorwaardelijke kans P(bachelor | man)
+p_bachelor_given_man <- NA
+
+# Stap 3: gezamenlijke kans P(man en bachelor)
+p_man_and_bachelor <- NA

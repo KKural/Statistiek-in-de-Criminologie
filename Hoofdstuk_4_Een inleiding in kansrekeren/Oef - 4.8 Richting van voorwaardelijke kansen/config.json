@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 4.8 Richting van voorwaardelijke kansen"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "memory_limit": 10000000
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "workdir": "workdir",
+  "access": "public",
+  "labels": [
+    "kansrekenen",
+    "kruistabel",
+    "voorwaardelijke-kans",
+    "noemer"
+  ],
+  "internals": {
+    "token": "It9AP3DVGYT2qr6WCEOoLGpfKpdhGRbFtHpKcBjlsIZF9ZYE9G0w1xFa7mt5SO-M",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
