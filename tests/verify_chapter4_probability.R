@@ -1,6 +1,36 @@
 root <- normalizePath(".", winslash = "/", mustWork = TRUE)
 chapter <- file.path(root, "Hoofdstuk_4_Een inleiding in kansrekeren")
 
+# Starting an R evaluator itself requires substantially more than 10 MB.  Keep
+# Chapter 4 on Dodona's normal judge default unless a deliberately higher limit
+# is configured.  This guards against status 137 / "Memory limit exceeded"
+# regressions caused by interpreting memory_limit as a small decimal value.
+config_files <- list.files(
+  chapter,
+  pattern = "^config\\.json$",
+  recursive = TRUE,
+  full.names = TRUE
+)
+too_small_memory_limits <- character()
+for (config_file in config_files) {
+  config_text <- paste(readLines(config_file, warn = FALSE), collapse = "\n")
+  memory_match <- regexec(
+    '"memory_limit"\\s*:\\s*([0-9]+)',
+    config_text,
+    perl = TRUE
+  )
+  matched <- regmatches(config_text, memory_match)[[1L]]
+  if (length(matched) == 2L && as.numeric(matched[[2L]]) < 134217728) {
+    too_small_memory_limits <- c(too_small_memory_limits, config_file)
+  }
+}
+if (length(too_small_memory_limits) > 0L) {
+  stop(paste(
+    "Chapter 4 contains an explicit R memory limit below 128 MiB:",
+    paste(too_small_memory_limits, collapse = ", ")
+  ))
+}
+
 find_answer <- function(number) {
   pattern <- sprintf("^Oef - 4\\.%s ", gsub("\\.", "\\\\.", as.character(number)))
   folders <- list.dirs(chapter, recursive = FALSE, full.names = TRUE)
