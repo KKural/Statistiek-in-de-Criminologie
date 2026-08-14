@@ -40,8 +40,8 @@ context({
           }
 
           # Check final answers only
-          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.01, expect_percent = FALSE)
-          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.01, expect_percent = FALSE)
+          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.0051, expect_percent = FALSE)
+          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.0051, expect_percent = FALSE)
 
           assign("detailed_results", results, envir = globalenv())
 

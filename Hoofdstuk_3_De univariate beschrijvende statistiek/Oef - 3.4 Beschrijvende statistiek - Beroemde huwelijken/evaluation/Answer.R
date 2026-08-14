@@ -140,11 +140,11 @@ context({
             results$percent_2 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 9.1) < 0.1,
-              expected = 9.1
+              correct = abs(current_val - 9.09) <= 0.005,
+              expected = 9.09
             )
           } else {
-            results$percent_2 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.1)
+            results$percent_2 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.09)
           }
           
           if (exists("percent_14", envir = env)) {
@@ -152,11 +152,11 @@ context({
             results$percent_14 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 9.1) < 0.1,
-              expected = 9.1
+              correct = abs(current_val - 9.09) <= 0.005,
+              expected = 9.09
             )
           } else {
-            results$percent_14 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.1)
+            results$percent_14 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.09)
           }
           
           if (exists("percent_26", envir = env)) {
@@ -164,11 +164,11 @@ context({
             results$percent_26 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 9.1) < 0.1,
-              expected = 9.1
+              correct = abs(current_val - 9.09) <= 0.005,
+              expected = 9.09
             )
           } else {
-            results$percent_26 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.1)
+            results$percent_26 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.09)
           }
           
           if (exists("percent_30", envir = env)) {
@@ -176,11 +176,11 @@ context({
             results$percent_30 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 9.1) < 0.1,
-              expected = 9.1
+              correct = abs(current_val - 9.09) <= 0.005,
+              expected = 9.09
             )
           } else {
-            results$percent_30 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.1)
+            results$percent_30 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.09)
           }
           
           if (exists("percent_72", envir = env)) {
@@ -188,11 +188,11 @@ context({
             results$percent_72 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 9.1) < 0.1,
-              expected = 9.1
+              correct = abs(current_val - 9.09) <= 0.005,
+              expected = 9.09
             )
           } else {
-            results$percent_72 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.1)
+            results$percent_72 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.09)
           }
           
           if (exists("percent_143", envir = env)) {
@@ -200,11 +200,11 @@ context({
             results$percent_143 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 9.1) < 0.1,
-              expected = 9.1
+              correct = abs(current_val - 9.09) <= 0.005,
+              expected = 9.09
             )
           } else {
-            results$percent_143 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.1)
+            results$percent_143 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.09)
           }
           
           if (exists("percent_144", envir = env)) {
@@ -212,11 +212,11 @@ context({
             results$percent_144 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 9.1) < 0.1,
-              expected = 9.1
+              correct = abs(current_val - 9.09) <= 0.005,
+              expected = 9.09
             )
           } else {
-            results$percent_144 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.1)
+            results$percent_144 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.09)
           }
           
           if (exists("percent_150", envir = env)) {
@@ -224,11 +224,11 @@ context({
             results$percent_150 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 18.2) < 0.1,
-              expected = 18.2
+              correct = abs(current_val - 18.18) <= 0.005,
+              expected = 18.18
             )
           } else {
-            results$percent_150 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 18.2)
+            results$percent_150 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 18.18)
           }
           
           if (exists("percent_240", envir = env)) {
@@ -236,11 +236,11 @@ context({
             results$percent_240 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 9.1) < 0.1,
-              expected = 9.1
+              correct = abs(current_val - 9.09) <= 0.005,
+              expected = 9.09
             )
           } else {
-            results$percent_240 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.1)
+            results$percent_240 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.09)
           }
           
           if (exists("percent_1657", envir = env)) {
@@ -248,11 +248,11 @@ context({
             results$percent_1657 <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 9.1) < 0.1,
-              expected = 9.1
+              correct = abs(current_val - 9.09) <= 0.005,
+              expected = 9.09
             )
           } else {
-            results$percent_1657 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.1)
+            results$percent_1657 <- list(exists = FALSE, value = NA, correct = FALSE, expected = 9.09)
           }
           
           # -----------------------------
@@ -264,7 +264,7 @@ context({
             results$gemiddelde <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 238.91) < 0.01,
+              correct = abs(current_val - 238.91) <= 0.005,
               expected = 238.91
             )
           } else {
@@ -366,7 +366,7 @@ context({
               results[[var_name]] <- list(
                 exists = TRUE,
                 value = current_val,
-                correct = abs(current_val - expected_val) < 0.01,
+                correct = abs(current_val - expected_val) <= 0.005,
                 expected = expected_val
               )
             } else {
@@ -378,7 +378,7 @@ context({
           gekw_vars <- c("gekw_afwijking_240", "gekw_afwijking_144", "gekw_afwijking_143", "gekw_afwijking_72", "gekw_afwijking_30",
                         "gekw_afwijking_26", "gekw_afwijking_2", "gekw_afwijking_150_1", "gekw_afwijking_14", "gekw_afwijking_150_2", "gekw_afwijking_1657")
           
-          expected_gekw <- c(1.1881, 9007.9081, 9198.7281, 27859.1481, 43643.5881, 45331.0681, 56126.3481, 7905.0081, 50584.5081, 7905.0081, 2010979.1981)
+          expected_gekw <- c(1.19, 9007.91, 9198.73, 27858.95, 43643.39, 45330.67, 56126.35, 7904.99, 50584.51, 7904.99, 2010979.25)
           
           for (i in 1:length(gekw_vars)) {
             var_name <- gekw_vars[i]
@@ -389,7 +389,7 @@ context({
               results[[var_name]] <- list(
                 exists = TRUE,
                 value = current_val,
-                correct = abs(current_val - expected_val) < 0.01,
+                correct = abs(current_val - expected_val) <= 0.005,
                 expected = expected_val
               )
             } else {
@@ -419,7 +419,7 @@ context({
               results[[var_name]] <- list(
                 exists = TRUE,
                 value = current_val,
-                correct = abs(current_val - expected_val) < 0.01,
+                correct = abs(current_val - expected_val) <= 0.005,
                 expected = expected_val
               )
             } else {
@@ -429,17 +429,17 @@ context({
           
           # Individual gekwadrateerde afwijking (squared deviation) variables
           gekw_vars_individual <- list(
-            "gekw_afwijking_240" = 1.1881,
-            "gekw_afwijking_144" = 9007.9081,
-            "gekw_afwijking_143" = 9198.7281,
-            "gekw_afwijking_72" = 27859.1481,
-            "gekw_afwijking_30" = 43643.5881,
-            "gekw_afwijking_26" = 45331.0681,
-            "gekw_afwijking_2" = 56126.3481,
-            "gekw_afwijking_150_1" = 7905.0081,
-            "gekw_afwijking_14" = 50584.5081,
-            "gekw_afwijking_150_2" = 7905.0081,
-            "gekw_afwijking_1657" = 2010979.1981
+            "gekw_afwijking_240" = 1.19,
+            "gekw_afwijking_144" = 9007.91,
+            "gekw_afwijking_143" = 9198.73,
+            "gekw_afwijking_72" = 27858.95,
+            "gekw_afwijking_30" = 43643.39,
+            "gekw_afwijking_26" = 45330.67,
+            "gekw_afwijking_2" = 56126.35,
+            "gekw_afwijking_150_1" = 7904.99,
+            "gekw_afwijking_14" = 50584.51,
+            "gekw_afwijking_150_2" = 7904.99,
+            "gekw_afwijking_1657" = 2010979.25
           )
           
           for (var_name in names(gekw_vars_individual)) {
@@ -449,7 +449,7 @@ context({
               results[[var_name]] <- list(
                 exists = TRUE,
                 value = current_val,
-                correct = abs(current_val - expected_val) < 0.01,
+                correct = abs(current_val - expected_val) <= 0.005,
                 expected = expected_val
               )
             } else {
@@ -463,11 +463,11 @@ context({
             results$sum_of_squares <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 2268540.92) < 0.01,
-              expected = 2268540.92
+              correct = abs(current_val - 2268540.93) <= 0.005,
+              expected = 2268540.93
             )
           } else {
-            results$sum_of_squares <- list(exists = FALSE, value = NA, correct = FALSE, expected = 2268540.92)
+            results$sum_of_squares <- list(exists = FALSE, value = NA, correct = FALSE, expected = 2268540.93)
           }
           
           if (exists("variantie", envir = env)) {
@@ -475,7 +475,7 @@ context({
             results$variantie <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 226854.09) < 0.01,
+              correct = abs(current_val - 226854.09) <= 0.005,
               expected = 226854.09
             )
           } else {
@@ -487,7 +487,7 @@ context({
             results$standaardafwijking <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 476.29) < 0.01,
+              correct = abs(current_val - 476.29) <= 0.005,
               expected = 476.29
             )
           } else {
@@ -586,16 +586,16 @@ context({
           
           # Expected percentages with calculation explanations
           percent_context <- list(
-            percent_2 = list(expected = 9.1, freq = 1, description = "Percentage waarde 2", calculation = "(1/11) × 100 = 9.1%"),
-            percent_14 = list(expected = 9.1, freq = 1, description = "Percentage waarde 14", calculation = "(1/11) × 100 = 9.1%"),
-            percent_26 = list(expected = 9.1, freq = 1, description = "Percentage waarde 26", calculation = "(1/11) × 100 = 9.1%"),
-            percent_30 = list(expected = 9.1, freq = 1, description = "Percentage waarde 30", calculation = "(1/11) × 100 = 9.1%"),
-            percent_72 = list(expected = 9.1, freq = 1, description = "Percentage waarde 72", calculation = "(1/11) × 100 = 9.1%"),
-            percent_143 = list(expected = 9.1, freq = 1, description = "Percentage waarde 143", calculation = "(1/11) × 100 = 9.1%"),
-            percent_144 = list(expected = 9.1, freq = 1, description = "Percentage waarde 144", calculation = "(1/11) × 100 = 9.1%"),
-            percent_150 = list(expected = 18.2, freq = 2, description = "Percentage waarde 150", calculation = "(2/11) × 100 = 18.2%"),
-            percent_240 = list(expected = 9.1, freq = 1, description = "Percentage waarde 240", calculation = "(1/11) × 100 = 9.1%"),
-            percent_1657 = list(expected = 9.1, freq = 1, description = "Percentage waarde 1657", calculation = "(1/11) × 100 = 9.1%")
+            percent_2 = list(expected = 9.09, freq = 1, description = "Percentage waarde 2", calculation = "(1/11) × 100 = 9.09%"),
+            percent_14 = list(expected = 9.09, freq = 1, description = "Percentage waarde 14", calculation = "(1/11) × 100 = 9.09%"),
+            percent_26 = list(expected = 9.09, freq = 1, description = "Percentage waarde 26", calculation = "(1/11) × 100 = 9.09%"),
+            percent_30 = list(expected = 9.09, freq = 1, description = "Percentage waarde 30", calculation = "(1/11) × 100 = 9.09%"),
+            percent_72 = list(expected = 9.09, freq = 1, description = "Percentage waarde 72", calculation = "(1/11) × 100 = 9.09%"),
+            percent_143 = list(expected = 9.09, freq = 1, description = "Percentage waarde 143", calculation = "(1/11) × 100 = 9.09%"),
+            percent_144 = list(expected = 9.09, freq = 1, description = "Percentage waarde 144", calculation = "(1/11) × 100 = 9.09%"),
+            percent_150 = list(expected = 18.18, freq = 2, description = "Percentage waarde 150", calculation = "(2/11) × 100 = 18.18%"),
+            percent_240 = list(expected = 9.09, freq = 1, description = "Percentage waarde 240", calculation = "(1/11) × 100 = 9.09%"),
+            percent_1657 = list(expected = 9.09, freq = 1, description = "Percentage waarde 1657", calculation = "(1/11) × 100 = 9.09%")
           )
           
           for (percent_var in percent_vars) {
@@ -613,7 +613,7 @@ context({
                   
                   # Specific error diagnosis
                   if (percent_var == "percent_150") {
-                    if (abs(student_val_num - 9.1) < 0.1) {
+                    if (abs(student_val_num - 9.09) <= 0.005) {
                       feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, "%, maar je gebruikte frequentie = 1 terwijl 150 twee keer voorkomt. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
                     } else if (abs(student_val_num - 0.18) < 0.01) {
                       feedback_parts <- c(feedback_parts, paste0("  • **", description, ":** Je gaf ", student_val, " maar vergat te vermenigvuldigen met 100. Bereken: ", calculation, ". Juiste antwoord is **", expected_val, "%**"))
@@ -643,8 +643,8 @@ context({
             feedback_parts <- c(feedback_parts, "**✅ STAP 1.2 - PERCENTAGES:** Alle percentages correct berekend!")
             feedback_parts <- c(feedback_parts, "")  
             feedback_parts <- c(feedback_parts, "📊 **Percentage berekening formule:** (frequentie ÷ totaal) × 100")
-            feedback_parts <- c(feedback_parts, "• Waarden met frequentie 1: elk 9.1% van totaal (1/11 × 100)")
-            feedback_parts <- c(feedback_parts, "• Waarde 150 met frequentie 2: 18.2% van totaal (2/11 × 100)")
+            feedback_parts <- c(feedback_parts, "• Waarden met frequentie 1: elk 9.09% van totaal (1/11 × 100)")
+            feedback_parts <- c(feedback_parts, "• Waarde 150 met frequentie 2: 18.18% van totaal (2/11 × 100)")
           } else {
             # Find the header and replace it
             header_index <- which(feedback_parts == "**STAP 1.2 - PERCENTAGES:**")
@@ -900,17 +900,17 @@ context({
           
           # Human-readable descriptions for each squared deviation with detailed calculations
           gekw_context <- list(
-            gekw_afwijking_240 = list(expected = 1.1881, description = "Gekwadrateerde afwijking Elizabeth & Larry (X = 240)", calculation = "(240 - 238.91)² = (1.09)² = 1.19", deviation = 1.09),
-            gekw_afwijking_144 = list(expected = 9007.9081, description = "Gekwadrateerde afwijking Britney & Jason (X = 144)", calculation = "(144 - 238.91)² = (-94.91)² = 9,007.91", deviation = -94.91),
-            gekw_afwijking_143 = list(expected = 9198.7281, description = "Gekwadrateerde afwijking Kim & Kris (X = 143)", calculation = "(143 - 238.91)² = (-95.91)² = 9,198.73", deviation = -95.91),
-            gekw_afwijking_72 = list(expected = 27859.1481, description = "Gekwadrateerde afwijking Carmen & Dennis (X = 72)", calculation = "(72 - 238.91)² = (-166.91)² = 27,859.15", deviation = -166.91),
-            gekw_afwijking_30 = list(expected = 43643.5881, description = "Gekwadrateerde afwijking Renée & Kenny (X = 30)", calculation = "(30 - 238.91)² = (-208.91)² = 43,643.59", deviation = -208.91),
-            gekw_afwijking_26 = list(expected = 45331.0681, description = "Gekwadrateerde afwijking Jennifer & Cris (X = 26)", calculation = "(26 - 238.91)² = (-212.91)² = 45,331.07", deviation = -212.91),
-            gekw_afwijking_2 = list(expected = 56126.3481, description = "Gekwadrateerde afwijking Britney & Kevin (X = 2)", calculation = "(2 - 238.91)² = (-236.91)² = 56,126.35", deviation = -236.91),
-            gekw_afwijking_150_1 = list(expected = 7905.0081, description = "Gekwadrateerde afwijking Drew & Jeremy (X = 150, 1e)", calculation = "(150 - 238.91)² = (-88.91)² = 7,905.01", deviation = -88.91),
-            gekw_afwijking_14 = list(expected = 50584.5081, description = "Gekwadrateerde afwijking Mario & Ali (X = 14)", calculation = "(14 - 238.91)² = (-224.91)² = 50,584.51", deviation = -224.91),
-            gekw_afwijking_150_2 = list(expected = 7905.0081, description = "Gekwadrateerde afwijking Nicolas & Lisa (X = 150, 2e)", calculation = "(150 - 238.91)² = (-88.91)² = 7,905.01", deviation = -88.91),
-            gekw_afwijking_1657 = list(expected = 2010979.1981, description = "Gekwadrateerde afwijking Jennifer & Brad (X = 1657)", calculation = "(1657 - 238.91)² = (1418.09)² = 2,010,979.20", deviation = 1418.09)
+            gekw_afwijking_240 = list(expected = 1.19, description = "Gekwadrateerde afwijking Elizabeth & Larry (X = 240)", calculation = "(240 - 238.91)² = (1.09)² = 1.19", deviation = 1.09),
+            gekw_afwijking_144 = list(expected = 9007.91, description = "Gekwadrateerde afwijking Britney & Jason (X = 144)", calculation = "(144 - 238.91)² = (-94.91)² = 9,007.91", deviation = -94.91),
+            gekw_afwijking_143 = list(expected = 9198.73, description = "Gekwadrateerde afwijking Kim & Kris (X = 143)", calculation = "(143 - 238.91)² = (-95.91)² = 9,198.73", deviation = -95.91),
+            gekw_afwijking_72 = list(expected = 27858.95, description = "Gekwadrateerde afwijking Carmen & Dennis (X = 72)", calculation = "(72 - 238.91)² = (-166.91)² = 27,858.95", deviation = -166.91),
+            gekw_afwijking_30 = list(expected = 43643.39, description = "Gekwadrateerde afwijking Renée & Kenny (X = 30)", calculation = "(30 - 238.91)² = (-208.91)² = 43,643.39", deviation = -208.91),
+            gekw_afwijking_26 = list(expected = 45330.67, description = "Gekwadrateerde afwijking Jennifer & Cris (X = 26)", calculation = "(26 - 238.91)² = (-212.91)² = 45,330.67", deviation = -212.91),
+            gekw_afwijking_2 = list(expected = 56126.35, description = "Gekwadrateerde afwijking Britney & Kevin (X = 2)", calculation = "(2 - 238.91)² = (-236.91)² = 56,126.35", deviation = -236.91),
+            gekw_afwijking_150_1 = list(expected = 7904.99, description = "Gekwadrateerde afwijking Drew & Jeremy (X = 150, 1e)", calculation = "(150 - 238.91)² = (-88.91)² = 7,904.99", deviation = -88.91),
+            gekw_afwijking_14 = list(expected = 50584.51, description = "Gekwadrateerde afwijking Mario & Ali (X = 14)", calculation = "(14 - 238.91)² = (-224.91)² = 50,584.51", deviation = -224.91),
+            gekw_afwijking_150_2 = list(expected = 7904.99, description = "Gekwadrateerde afwijking Nicolas & Lisa (X = 150, 2e)", calculation = "(150 - 238.91)² = (-88.91)² = 7,904.99", deviation = -88.91),
+            gekw_afwijking_1657 = list(expected = 2010979.25, description = "Gekwadrateerde afwijking Jennifer & Brad (X = 1657)", calculation = "(1657 - 238.91)² = (1418.09)² = 2,010,979.25", deviation = 1418.09)
           )
           
           gekw_vars <- names(gekw_context)
@@ -947,11 +947,11 @@ context({
               if (results$sum_of_squares$exists) {
                 student_answer <- as.numeric(results$sum_of_squares$value)
                 if (abs(student_answer - 226854.09) < 100) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", format(student_answer, big.mark=","), ", maar je deelde al door n-1. We willen de som: **2,268,540.92**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", format(student_answer, big.mark=","), ", maar je deelde al door n-1. We willen de som: **2,268,540.93**"))
                 } else if (student_answer < 1000000) {
-                  feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", format(student_answer, big.mark=","), ", maar dit is te laag door extreme waarde 1657. Correct: **2,268,540.92**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", format(student_answer, big.mark=","), ", maar dit is te laag door extreme waarde 1657. Correct: **2,268,540.93**"))
                 } else {
-                  feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", format(student_answer, big.mark=","), ", maar correct is **2,268,540.92**"))
+                  feedback_parts <- c(feedback_parts, paste0("  • Som gekwadrateerde afwijkingen: Je gaf ", format(student_answer, big.mark=","), ", maar correct is **2,268,540.93**"))
                 }
               } else {
                 feedback_parts <- c(feedback_parts, "  • Som gekwadrateerde afwijkingen: Ontbreekt ❌")
@@ -967,9 +967,9 @@ context({
               all_variance_correct <- FALSE
               if (results$variantie$exists) {
                 student_answer <- as.numeric(results$variantie$value)
-                if (abs(student_answer - 206230.84) < 100) {
+                if (abs(student_answer - 206230.99) < 100) {
                   feedback_parts <- c(feedback_parts, paste0("  • Variantie: Je gaf ", format(student_answer, big.mark=","), ", maar je deelde door n=11. Voor steekproef gebruik n-1=10: **226,854.09**"))
-                } else if (abs(student_answer - 2268540.92) < 100) {
+                } else if (abs(student_answer - 2268540.93) < 100) {
                   feedback_parts <- c(feedback_parts, paste0("  • Variantie: Je gaf ", format(student_answer, big.mark=","), ", maar je vergat te delen door n-1. Correct: **226,854.09**"))
                 } else {
                   feedback_parts <- c(feedback_parts, paste0("  • Variantie: Je gaf ", format(student_answer, big.mark=","), ", maar correct is som/(n-1) = **226,854.09**"))
@@ -998,7 +998,7 @@ context({
             # Remove individual messages and show overall success
             start_idx <- which(feedback_parts == "**STAP 3.3 - VARIANTIE:**")
             feedback_parts <- feedback_parts[1:(start_idx-1)]
-            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** Som=2,268,540.92, Variantie=226,854.09, SD=476.29 ✅")
+            feedback_parts <- c(feedback_parts, "**STAP 3.3 - VARIANTIE:** Som=2,268,540.93, Variantie=226,854.09, SD=476.29 ✅")
           } else {
             feedback_parts[which(feedback_parts == "**STAP 3.3 - VARIANTIE:**")] <- "**STAP 3.3 - VARIANTIE:** ❌"
           }
@@ -1071,10 +1071,10 @@ context({
                 return("Voor de interkwartielafstand (Q3 - Q1 = 150 - 26 = 124)")
               }
               if (var_name == "sum_of_squares") {
-                return("Voor de som van de gekwadrateerde afwijkingen (som alle (X-238.91)² = 2,268,540.92)")
+                return("Voor de som van de gekwadrateerde afwijkingen (som alle afgeronde (X-238.91)² = 2,268,540.93)")
               }
               if (var_name == "variantie") {
-                return("Voor de variantie (som/(n-1) = 2,268,540.92/10 = 226,854.09)")
+                return("Voor de variantie (som/(n-1) = 2,268,540.93/10 = 226,854.09)")
               }
 
               # default
@@ -1117,7 +1117,7 @@ context({
             "• **Mediaan is robuuster** dan gemiddelde bij uitbijters (143 vs 238.91)",
             "• **Afwijkingen kunnen negatief zijn** (X - μ), maar kwadraten altijd positief",
             "• **IKA minder gevoelig** voor extreme waarden dan range (124 vs 1655)", 
-            "• **Bij steekproef: variantie = SS/(n-1)** → 2,268,540.92/10 = 226,854.09",
+            "• **Bij steekproef: variantie = SS/(n-1)** → 2,268,540.93/10 = 226,854.09",
             "• **Standaardafwijking = √variantie** → √226,854.09 = 476.29 dagen"
           )
 

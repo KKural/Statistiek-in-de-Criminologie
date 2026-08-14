@@ -3,7 +3,7 @@
 # 1. Hoeveel studenten drinken "dikwijls" energiedrankjes?
 vraag1 <- ???
 
-# 2. Hoeveel procent is dat? (gebruik decimalen met punt, bijvoorbeeld 3.23)
+# 2. Hoeveel procent is dat? (gebruik decimalen met punt, bijvoorbeeld 12.34)
 vraag2 <- ???
 
 # 3. Hoeveel procent van de studenten drinkt zelden of nooit energiedrankjes?

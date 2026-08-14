@@ -90,11 +90,12 @@ z_80 <- 5.0      # Forgot to divide by σ
 z_80 <- 8.0      # Used X/σ instead of (X-μ)/σ
 ```
 
-#### **B. Training Percentage 65-79% (correct: 53.28%):**
+#### **B. Training Percentage from 65% up to, but not including, 80% (correct: 53.28%):**
 ```r
 percentage_trainen <- 0.5328     # Forgot percentage conversion
-percentage_trainen <- 84.13      # Complement error (outside interval)
-percentage_trainen <- 65.54      # Only upper tail P(Z≤0.4)
+percentage_trainen <- 84.13      # Calculated P(X ≥ 65), so the playing group was included
+percentage_trainen <- 69.15      # Calculated P(X < 80), but did not subtract P(X < 65)
+percentage_trainen <- 49.67      # Treated 79 as the continuous upper boundary instead of 80
 percentage_trainen <- 15.87      # Only lower tail P(Z≤-1.0)
 percentage_trainen <- 68.0       # Empirical rule confusion
 ```
@@ -252,7 +253,9 @@ z_65 <- 1.0          # Sign error (most common)
 z_65 <- -10.0        # Division error
 
 # Percentage errors:
-percentage_trainen <- 84.13   # Complement error
+percentage_trainen <- 84.13   # Included everyone from 65 upward, including the playing group
+percentage_trainen <- 69.15   # Used P(X < 80) without subtracting P(X < 65)
+percentage_trainen <- 49.67   # Used 79 rather than 80 as the continuous boundary
 percentage_spelen <- 69.15    # Wrong tail error
 ```
 

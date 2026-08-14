@@ -29,7 +29,7 @@ context({
             suppressWarnings(as.numeric(val))
           }
 
-          check_val <- function(varname, expected, tol = 0.0051) {
+          check_val <- function(varname, expected, tol = 0.0000501) {
             if (!exists(varname, envir = env)) {
               return(list(exists = FALSE, value = NA, correct = FALSE, expected = expected))
             }
@@ -39,12 +39,12 @@ context({
             list(exists = TRUE, value = raw, value_num = num, correct = ok, expected = expected)
           }
 
-          results$r_XY           <- check_val("r_XY",           exp_r_XY,           tol = 0.005)
-          results$r_XZ           <- check_val("r_XZ",           exp_r_XZ,           tol = 0.005)
-          results$r_YZ           <- check_val("r_YZ",           exp_r_YZ,           tol = 0.005)
-          results$r_XY_teller    <- check_val("r_XY_teller",    exp_r_XY_teller,    tol = 0.0051)
-          results$r_XY_noemer    <- check_val("r_XY_noemer",    exp_r_XY_noemer,    tol = 0.03)
-          results$r_XY_Z         <- check_val("r_XY_Z",         exp_r_XY_Z,         tol = 0.03)
+          results$r_XY           <- check_val("r_XY",           exp_r_XY,           tol = 0.0050001)
+          results$r_XZ           <- check_val("r_XZ",           exp_r_XZ,           tol = 0.0050001)
+          results$r_YZ           <- check_val("r_YZ",           exp_r_YZ,           tol = 0.0050001)
+          results$r_XY_teller    <- check_val("r_XY_teller",    exp_r_XY_teller)
+          results$r_XY_noemer    <- check_val("r_XY_noemer",    exp_r_XY_noemer)
+          results$r_XY_Z         <- check_val("r_XY_Z",         exp_r_XY_Z)
           results$conclusie_type <- check_val("conclusie_type", exp_conclusie_type, tol = 0)
 
           assign("detailed_results", results, envir = globalenv())

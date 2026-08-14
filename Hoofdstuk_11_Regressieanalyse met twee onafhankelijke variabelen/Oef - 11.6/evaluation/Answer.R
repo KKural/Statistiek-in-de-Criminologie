@@ -38,7 +38,7 @@ context({
             }
             raw <- get(q, envir = env)
             num <- parse_num(raw)
-            ok <- !is.na(num) && abs(num - expected[[q]]) < 0.5
+            ok <- !is.na(num) && num %in% 1:4 && num == expected[[q]]
             list(q = q, ok = ok, val = raw, num = num, expected = expected[[q]],
                  reason = if (ok) "ok" else "wrong")
           })

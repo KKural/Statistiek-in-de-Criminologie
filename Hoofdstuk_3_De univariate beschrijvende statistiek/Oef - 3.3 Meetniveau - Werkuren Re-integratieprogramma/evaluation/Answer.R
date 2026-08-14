@@ -237,7 +237,7 @@ context({
             results$gemiddelde <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 33.55) < 0.005,
+              correct = abs(current_val - 33.55) <= 0.005,
               expected = 33.55
             )
           } else {
@@ -314,11 +314,11 @@ context({
             results$meest_relevante_spreiding <- list(
               exists = TRUE,
               value = current_val,
-              correct = tolower(trimws(current_val)) == "interkwartielafstand",
-              expected = "interkwartielafstand"
+              correct = tolower(trimws(current_val)) == "standaardafwijking",
+              expected = "standaardafwijking"
             )
           } else {
-            results$meest_relevante_spreiding <- list(exists = FALSE, value = NA, correct = FALSE, expected = "interkwartielafstand")
+            results$meest_relevante_spreiding <- list(exists = FALSE, value = NA, correct = FALSE, expected = "standaardafwijking")
           }
           
           if (exists("reden", envir = env)) {
@@ -361,7 +361,7 @@ context({
               results[[var_name]] <- list(
                 exists   = TRUE,
                 value    = current_val,
-                correct  = abs(current_val - expected_val) < 0.005,
+                correct  = abs(current_val - expected_val) <= 0.00005,
                 expected = expected_val
               )
             } else {
@@ -392,7 +392,7 @@ context({
               results[[var_name]] <- list(
                 exists = TRUE,
                 value = current_val,
-                correct = abs(current_val - expected_val) < 0.005,
+                correct = abs(current_val - expected_val) <= 0.00005,
                 expected = expected_val
               )
             } else {
@@ -406,7 +406,7 @@ context({
             results$sum_of_squares <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 528.95) < 0.005,
+              correct = abs(current_val - 528.95) <= 0.005,
               expected = 528.95
             )
           } else {
@@ -418,11 +418,11 @@ context({
             results$variantie <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 27.8295) < 0.005,
-              expected = 27.8295
+              correct = abs(current_val - 27.8395) <= 0.00005,
+              expected = 27.8395
             )
           } else {
-            results$variantie <- list(exists = FALSE, value = NA, correct = FALSE, expected = 27.8295)
+            results$variantie <- list(exists = FALSE, value = NA, correct = FALSE, expected = 27.8395)
           }
           
           if (exists("standaardafwijking", envir = env)) {
@@ -430,7 +430,7 @@ context({
             results$standaardafwijking <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 5.2763) < 0.005,
+              correct = abs(current_val - 5.2763) <= 0.00005,
               expected = 5.2763
             )
           } else {
@@ -442,7 +442,7 @@ context({
             results$variatiecoefficient <- list(
               exists = TRUE,
               value = current_val,
-              correct = abs(current_val - 0.1573) < 0.005,
+              correct = abs(current_val - 0.1573) <= 0.00005,
               expected = 0.1573
             )
           } else {
@@ -674,7 +674,7 @@ context({
           if (!results$meest_relevante_spreiding$correct) {
             stap2_all_correct <- FALSE
             student_val <- if (results$meest_relevante_spreiding$exists) results$meest_relevante_spreiding$value else "Ontbreekt"
-            stap2_errors <- c(stap2_errors, paste0("  • **Meest relevante spreiding:** je gaf \"", student_val, "\", juiste antwoord is **\"interkwartielafstand\"**"))
+            stap2_errors <- c(stap2_errors, paste0("  • **Meest relevante spreiding:** je gaf \"", student_val, "\", juiste antwoord is **\"standaardafwijking\"**"))
           }
           
           # Reden
@@ -709,14 +709,14 @@ context({
           if (!results$variantie$correct) {
             stap3_all_correct <- FALSE
             student_val <- if (results$variantie$exists) round(results$variantie$value, 4) else "Ontbreekt"
-            stap3_errors <- c(stap3_errors, paste0("  • **Variantie:** je gaf ", student_val, ", juiste antwoord is **27.8295** (528.95 ÷ 20)"))
+            stap3_errors <- c(stap3_errors, paste0("  • **Variantie:** je gaf ", student_val, ", juiste antwoord is **27.8395** (528.95 ÷ 19)"))
           }
           
           # Check standaardafwijking
           if (!results$standaardafwijking$correct) {
             stap3_all_correct <- FALSE
             student_val <- if (results$standaardafwijking$exists) round(results$standaardafwijking$value, 4) else "Ontbreekt"
-            stap3_errors <- c(stap3_errors, paste0("  • **Standaardafwijking:** je gaf ", student_val, ", juiste antwoord is **5.2763** (√27.8295)"))
+            stap3_errors <- c(stap3_errors, paste0("  • **Standaardafwijking:** je gaf ", student_val, ", juiste antwoord is **5.2763** (√27.8395)"))
           }
           
           # Check variatiecoefficient
@@ -799,7 +799,7 @@ context({
               }
 
               if (var_name == "standaardafwijking") {
-                return("**Standaardafwijking** (bereken: √variantie = √27.8295 = 5.2763)")
+                return("**Standaardafwijking** (bereken: √variantie = √27.8395 = 5.2763)")
               }
 
               if (var_name == "variatiecoefficient") {
@@ -819,7 +819,7 @@ context({
                 return("**Som van gekwadrateerde afwijkingen** (som alle (X-33.55)² = 528.95)")
               }
               if (var_name == "variantie") {
-                return("**Variantie** (som/(n-1) = 528.95/19 = 27.8295)")
+                return("**Variantie** (som/(n-1) = 528.95/19 = 27.8395)")
               }
               
               # Parameter choices
@@ -827,7 +827,7 @@ context({
                 return("**Meest relevante centraliteitsmaat** (voor intervaldata: gemiddelde)")
               }
               if (var_name == "meest_relevante_spreiding") {
-                return("**Meest relevante spreidingsmaat** (standaardafwijking of IKA)")
+                return("**Meest relevante spreidingsmaat** (standaardafwijking gebruikt alle waarnemingen en blijft in dezelfde eenheid)")
               }
               if (var_name == "reden") {
                 return("**Reden voor keuze** (waarom deze maten kiezen)")

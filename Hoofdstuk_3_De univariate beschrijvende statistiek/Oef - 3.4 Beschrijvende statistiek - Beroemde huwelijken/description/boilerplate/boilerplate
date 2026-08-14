@@ -1,13 +1,15 @@
 
 # INSTRUCTIES:
 # - Vul de ontbrekende stukken code in door ??? te vervangen
-# - Gebruik decimale PUNTEN in R (238.91), niet komma's
-# - Rond af op 2 decimalen waar nodig
+# - Gebruik decimale PUNTEN in R (12.34), niet komma's
+# - Rond elk niet-geheel numeriek antwoord af op 2 decimalen
+# - Gebruik in elke volgende stap de afgeronde waarde uit de vorige stap:
+#   gemiddelde en afwijkingen op 2 decimalen; kwadrateer daarna die afgeronde afwijkingen
 # - Let op: Jennifer Aniston & Brad Pitt (1657 dagen) is een extreme uitbijter!
 #
 # DATA: Huwelijksduren in dagen van 11 beroemde koppels
 # Ruwe data: 240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657
-# Gesorteerd: 2, 14, 26, 30, 72, 143, 144, 150, 150, 240, 1657
+# Sorteer de ruwe data zelf voordat je positie-statistieken berekent.
 # ========================================================================
 
 # STAP 1: FREQUENTIETABEL
@@ -24,7 +26,7 @@ freq_30 <- ???     # Aantal keer dat 30 voorkomt
 freq_72 <- ???     # Aantal keer dat 72 voorkomt
 freq_143 <- ???    # Aantal keer dat 143 voorkomt
 freq_144 <- ???    # Aantal keer dat 144 voorkomt
-freq_150 <- ???    # Aantal keer dat 150 voorkomt (LET OP: komt 2x voor!)
+freq_150 <- ???    # Aantal keer dat 150 voorkomt
 freq_240 <- ???    # Aantal keer dat 240 voorkomt
 freq_1657 <- ???   # Aantal keer dat 1657 voorkomt
 
@@ -37,7 +39,7 @@ percent_30 <- ???     # freq_30 / 11 * 100
 percent_72 <- ???     # freq_72 / 11 * 100
 percent_143 <- ???    # freq_143 / 11 * 100
 percent_144 <- ???    # freq_144 / 11 * 100
-percent_150 <- ???    # freq_150 / 11 * 100 (Dit zal hoger zijn!)
+percent_150 <- ???    # freq_150 / 11 * 100
 percent_240 <- ???    # freq_240 / 11 * 100
 percent_1657 <- ???   # freq_1657 / 11 * 100
 
@@ -50,7 +52,6 @@ gemiddelde <- ???
 
 # 4. Bereken de mediaan 
 # Bij 11 waarnemingen: mediaan = 6de waarde in gesorteerde lijst
-# Gesorteerd: 2, 14, 26, 30, 72, [143], 144, 150, 150, 240, 1657
 mediaan <- ???
 
 # 5. Bereken de modus (meest voorkomende waarde)
@@ -65,13 +66,11 @@ modus <- ???
 variatiebreedte <- ???
 
 # 7. Bereken Q1 (eerste kwartiel)
-# Q1 = mediaan van onderste helft (ZONDER mediaan): 2, 14, 26, 30, 72
-# Bij 5 waarnemingen: Q1 = 3de waarde = 26
+# Q1 = mediaan van de onderste helft, zonder de algemene mediaan
 q1 <- ???
 
 # 8. Bereken Q3 (derde kwartiel)
-# Q3 = mediaan van bovenste helft (ZONDER mediaan): 144, 150, 150, 240, 1657  
-# Bij 5 waarnemingen: Q3 = 3de waarde = 150
+# Q3 = mediaan van de bovenste helft, zonder de algemene mediaan
 q3 <- ???
 
 # 9. Bereken de interkwartielafstand (IKA)
@@ -83,7 +82,7 @@ ika <- ???
 
 # 10. Bereken ALLE afwijkingen van het gemiddelde
 # DIT IS KOLOM 2 VAN DE TABEL: "Error = Score min gemiddelde"
-# Formule: afwijking = waarde - gemiddelde (238.91)
+# Formule: afwijking = waarde - gemiddelde
 # Resultaat: positieve en negatieve waarden die aangeven of boven/onder gemiddelde
 
 afwijking_240 <- ???   # 240 - gemiddelde

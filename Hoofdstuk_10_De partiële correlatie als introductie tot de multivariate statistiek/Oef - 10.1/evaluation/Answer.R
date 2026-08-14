@@ -68,7 +68,7 @@ context({
             suppressWarnings(as.numeric(val))
           }
 
-          check_val <- function(varname, expected, tol = 0.0051) {
+          check_val <- function(varname, expected, tol = 0.0000501) {
             if (!exists(varname, envir = env)) {
               return(list(exists = FALSE, value = NA, correct = FALSE, expected = expected))
             }
@@ -81,12 +81,12 @@ context({
           results$X_bar          <- check_val("X_bar",          exp_X_bar)
           results$Y_bar          <- check_val("Y_bar",          exp_Y_bar)
           results$Z_bar          <- check_val("Z_bar",          exp_Z_bar)
-          results$SS_X           <- check_val("SS_X",           exp_SS_X,   tol = 0.02)
-          results$SS_Y           <- check_val("SS_Y",           exp_SS_Y,   tol = 0.02)
-          results$SS_Z           <- check_val("SS_Z",           exp_SS_Z,   tol = 0.02)
-          results$SCP_XY         <- check_val("SCP_XY",         exp_SCP_XY, tol = 0.02)
-          results$SCP_XZ         <- check_val("SCP_XZ",         exp_SCP_XZ, tol = 0.02)
-          results$SCP_YZ         <- check_val("SCP_YZ",         exp_SCP_YZ, tol = 0.02)
+          results$SS_X           <- check_val("SS_X",           exp_SS_X)
+          results$SS_Y           <- check_val("SS_Y",           exp_SS_Y)
+          results$SS_Z           <- check_val("SS_Z",           exp_SS_Z)
+          results$SCP_XY         <- check_val("SCP_XY",         exp_SCP_XY)
+          results$SCP_XZ         <- check_val("SCP_XZ",         exp_SCP_XZ)
+          results$SCP_YZ         <- check_val("SCP_YZ",         exp_SCP_YZ)
           results$Var_X          <- check_val("Var_X",          exp_Var_X)
           results$Var_Y          <- check_val("Var_Y",          exp_Var_Y)
           results$Var_Z          <- check_val("Var_Z",          exp_Var_Z)

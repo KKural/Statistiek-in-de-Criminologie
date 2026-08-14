@@ -1,6 +1,9 @@
 # Vul de ontbrekende stukken code in door ??? te vervangen.
 # Let op:
-# - Gebruik decimale PUNTEN in R (33.55), geen komma.
+# - Gebruik decimale PUNTEN in R (12.34), geen komma.
+# - Rond gemiddelde en sum_of_squares af op 2 decimalen.
+# - Rond afwijkingen, gekwadrateerde afwijkingen, variantie,
+#   standaardafwijking en variatiecoefficient af op 4 decimalen.
 
 # Data: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36
 
@@ -58,7 +61,7 @@ ika <- ???
 meest_relevante_centraliteit <- "???"
 
 # 11. Welke maat van spreiding zou je kiezen?
-# Kies uit: "variatiebreedte", "interkwartielafstand"
+# Kies uit: "variatiebreedte", "interkwartielafstand", "standaardafwijking"
 meest_relevante_spreiding <- "???"
 
 # 12. Waarom zijn deze maten het meest geschikt?
@@ -68,51 +71,51 @@ reden <- "???"
 # STAP 3 – Geavanceerde spreidingsberekeningen
 # a. Bereken afwijkingen van het gemiddelde voor elke waarde: (X - gemiddelde waarde)
 # Data: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36
-# 13. Afwijkingen van het gemiddelde (gebruik 4 decimalen: bijv. -9.5500)
+# 13. Afwijkingen van het gemiddelde (gebruik 4 decimalen: bijv. -1.2345)
 # Data: 24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36
-afwijking_24_1 <- ??? # 24 - 33.55 = ?
-afwijking_36_1 <- ??? # 36 - 33.55 = ?
-afwijking_35 <- ??? # 35 - 33.55 = ?
-afwijking_28_1 <- ??? # 28 - 33.55 = ?
-afwijking_24_2 <- ??? # 24 - 33.55 = ?
-afwijking_28_2 <- ??? # 28 - 33.55 = ?
-afwijking_24_3 <- ??? # 24 - 33.55 = ?
-afwijking_36_2 <- ??? # 36 - 33.55 = ?
-afwijking_32_1 <- ??? # 32 - 33.55 = ?
-afwijking_36_3 <- ??? # 36 - 33.55 = ?
-afwijking_40_1 <- ??? # 40 - 33.55 = ?
-afwijking_38 <- ??? # 38 - 33.55 = ?
-afwijking_36_4 <- ??? # 36 - 33.55 = ?
-afwijking_34 <- ??? # 34 - 33.55 = ?
-afwijking_40_2 <- ??? # 40 - 33.55 = ?
-afwijking_36_5 <- ??? # 36 - 33.55 = ?
-afwijking_32_2 <- ??? # 32 - 33.55 = ?
-afwijking_36_6 <- ??? # 36 - 33.55 = ?
-afwijking_40_3 <- ??? # 40 - 33.55 = ?
-afwijking_36_7 <- ??? # 36 - 33.55 = ?
+afwijking_24_1 <- ??? # 24 - gemiddelde
+afwijking_36_1 <- ??? # 36 - gemiddelde
+afwijking_35 <- ??? # 35 - gemiddelde
+afwijking_28_1 <- ??? # 28 - gemiddelde
+afwijking_24_2 <- ??? # 24 - gemiddelde
+afwijking_28_2 <- ??? # 28 - gemiddelde
+afwijking_24_3 <- ??? # 24 - gemiddelde
+afwijking_36_2 <- ??? # 36 - gemiddelde
+afwijking_32_1 <- ??? # 32 - gemiddelde
+afwijking_36_3 <- ??? # 36 - gemiddelde
+afwijking_40_1 <- ??? # 40 - gemiddelde
+afwijking_38 <- ??? # 38 - gemiddelde
+afwijking_36_4 <- ??? # 36 - gemiddelde
+afwijking_34 <- ??? # 34 - gemiddelde
+afwijking_40_2 <- ??? # 40 - gemiddelde
+afwijking_36_5 <- ??? # 36 - gemiddelde
+afwijking_32_2 <- ??? # 32 - gemiddelde
+afwijking_36_6 <- ??? # 36 - gemiddelde
+afwijking_40_3 <- ??? # 40 - gemiddelde
+afwijking_36_7 <- ??? # 36 - gemiddelde
 
 # 14. Bereken gekwadrateerde afwijkingen: (X - gemiddelde waarde)²
 # Kwadrateer elke afwijking uit de vorige vraag
-gekw_afwijking_24_1 <- ??? # (-9.5500)² = ?
-gekw_afwijking_36_1 <- ??? # (2.4500)² = ?
-gekw_afwijking_35 <- ??? # (1.4500)² = ?
-gekw_afwijking_28_1 <- ??? # (-5.5500)² = ?
-gekw_afwijking_24_2 <- ??? # (-9.5500)² = ?
-gekw_afwijking_28_2 <- ??? # (-5.5500)² = ?
-gekw_afwijking_24_3 <- ??? # (-9.5500)² = ?
-gekw_afwijking_36_2 <- ??? # (2.4500)² = ?
-gekw_afwijking_32_1 <- ??? # (-1.5500)² = ?
-gekw_afwijking_36_3 <- ??? # (2.4500)² = ?
-gekw_afwijking_40_1 <- ??? # (6.4500)² = ?
-gekw_afwijking_38 <- ??? # (4.4500)² = ?
-gekw_afwijking_36_4 <- ??? # (2.4500)² = ?
-gekw_afwijking_34 <- ??? # (0.4500)² = ?
-gekw_afwijking_40_2 <- ??? # (6.4500)² = ?
-gekw_afwijking_36_5 <- ??? # (2.4500)² = ?
-gekw_afwijking_32_2 <- ??? # (-1.5500)² = ?
-gekw_afwijking_36_6 <- ??? # (2.4500)² = ?
-gekw_afwijking_40_3 <- ??? # (6.4500)² = ?
-gekw_afwijking_36_7 <- ??? # (2.4500)² = ?
+gekw_afwijking_24_1 <- ??? # kwadrateer afwijking_24_1
+gekw_afwijking_36_1 <- ??? # kwadrateer afwijking_36_1
+gekw_afwijking_35 <- ??? # kwadrateer afwijking_35
+gekw_afwijking_28_1 <- ??? # kwadrateer afwijking_28_1
+gekw_afwijking_24_2 <- ??? # kwadrateer afwijking_24_2
+gekw_afwijking_28_2 <- ??? # kwadrateer afwijking_28_2
+gekw_afwijking_24_3 <- ??? # kwadrateer afwijking_24_3
+gekw_afwijking_36_2 <- ??? # kwadrateer afwijking_36_2
+gekw_afwijking_32_1 <- ??? # kwadrateer afwijking_32_1
+gekw_afwijking_36_3 <- ??? # kwadrateer afwijking_36_3
+gekw_afwijking_40_1 <- ??? # kwadrateer afwijking_40_1
+gekw_afwijking_38 <- ??? # kwadrateer afwijking_38
+gekw_afwijking_36_4 <- ??? # kwadrateer afwijking_36_4
+gekw_afwijking_34 <- ??? # kwadrateer afwijking_34
+gekw_afwijking_40_2 <- ??? # kwadrateer afwijking_40_2
+gekw_afwijking_36_5 <- ??? # kwadrateer afwijking_36_5
+gekw_afwijking_32_2 <- ??? # kwadrateer afwijking_32_2
+gekw_afwijking_36_6 <- ??? # kwadrateer afwijking_36_6
+gekw_afwijking_40_3 <- ??? # kwadrateer afwijking_40_3
+gekw_afwijking_36_7 <- ??? # kwadrateer afwijking_36_7
 
 # b. Variantie en standaardafwijking
 # 15. Bereken de som van gekwadrateerde afwijkingen (Sum of Squares)

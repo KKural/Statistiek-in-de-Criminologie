@@ -1,4 +1,4 @@
-Een criminoloog onderzoekt de relatie tussen **schoolbetrokkenheid** (X) en **delinquentie** (Y) bij adolescenten (n = 85). Op basis van bivariate analyse lijkt er nauwelijks een verband te zijn. De onderzoeker vermoedt echter dat **lage zelfcontrole** (Z) een suppressorvariabele is die een verborgen relatie maskeert.
+Een criminoloog onderzoekt de relatie tussen **schoolbetrokkenheid** (X) en **delinquentie** (Y) bij adolescenten (n = 85). Op basis van bivariate analyse lijkt er nauwelijks een verband te zijn. De onderzoeker wil daarom nagaan hoe de samenhang verandert wanneer voor **lage zelfcontrole** (Z) wordt gecontroleerd.
 
 De volgende **correlatietabel** is beschikbaar:
 

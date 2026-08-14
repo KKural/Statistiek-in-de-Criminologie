@@ -45,12 +45,12 @@ context({
             list(exists = TRUE, value = raw, value_num = num, correct = ok, expected = expected)
           }
 
-          results$gemiddelde    <- check_val("gemiddelde",    exp_mean,       tol = 0.05)
-          results$standaardfout <- check_val("standaardfout", exp_SE,         tol = 0.01)
-          results$BI_90_onder   <- check_val("BI_90_onder",   exp_BI90_onder, tol = 0.1)
-          results$BI_90_boven   <- check_val("BI_90_boven",   exp_BI90_boven, tol = 0.1)
-          results$BI_99_onder   <- check_val("BI_99_onder",   exp_BI99_onder, tol = 0.1)
-          results$BI_99_boven   <- check_val("BI_99_boven",   exp_BI99_boven, tol = 0.1)
+          results$gemiddelde    <- check_val("gemiddelde",    exp_mean,       tol = 0.0500001)
+          results$standaardfout <- check_val("standaardfout", exp_SE,         tol = 0.0000501)
+          results$BI_90_onder   <- check_val("BI_90_onder",   exp_BI90_onder, tol = 0.0050001)
+          results$BI_90_boven   <- check_val("BI_90_boven",   exp_BI90_boven, tol = 0.0050001)
+          results$BI_99_onder   <- check_val("BI_99_onder",   exp_BI99_onder, tol = 0.0050001)
+          results$BI_99_boven   <- check_val("BI_99_boven",   exp_BI99_boven, tol = 0.0050001)
           results$breder_interval <- check_val("breder_interval", exp_breder, tol = 0)
 
           assign("detailed_results", results, envir = globalenv())

@@ -1,6 +1,6 @@
 # ============================================================================
 # OEFENING 10.3: Partiële correlatie — schoolbetrokkenheid (correlatietabel)
-# Suppressorvariabele: lage zelfcontrole
+# Controlevariabele: lage zelfcontrole
 # ============================================================================
 # Gegeven correlatietabel (n = 85 adolescenten):
 #   X = Schoolbetrokkenheid,  Y = Delinquentie,  Z = Lage zelfcontrole

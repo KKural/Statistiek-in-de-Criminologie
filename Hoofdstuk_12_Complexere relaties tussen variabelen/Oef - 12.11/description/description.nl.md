@@ -6,9 +6,9 @@ Na het schatten van het model inspecteert hij de diagnostische plots om de assum
 
 Hieronder zie je twee versies van de **Residuen vs Geschatte waarden**-plot.
 
-<img src="media/resfit_ok.png" alt="Figuur A: geen schending" width="680">
+<img src="media/resfit_a.png" alt="Residuen versus geschatte waarden, figuur A" width="680">
 
-<img src="media/resfit_violation.png" alt="Figuur B: schending lineariteit" width="680">
+<img src="media/resfit_b.png" alt="Residuen versus geschatte waarden, figuur B" width="680">
 
 ---
 

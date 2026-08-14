@@ -5,7 +5,7 @@ context({
         results <- list()
 
         exp_r2_pct  <- 87
-        tol_r2_pct  <- 1
+        tol_r2_pct  <- 0
 
         parse_num <- function(val) suppressWarnings(as.numeric(val))
 
@@ -27,13 +27,13 @@ context({
       comparator = function(generated, expected, ...) {
         results <- get("detailed_results", envir = globalenv())
 
-        qnames <- c(r_kwadraat_pct = "R\u00b2 als percentage (geheel getal, tolerantie \u00b11)")
+        qnames <- c(r_kwadraat_pct = "R\u00b2 als percentage (geheel getal)")
 
         parse_num <- function(val) suppressWarnings(as.numeric(val))
 
         wrong_msg_r_kwadraat_pct <- function(val) {
           num <- parse_num(val)
-          if (!is.na(num) && abs(num - 86) <= 1) return(paste0(
+          if (!is.na(num) && abs(num - 86) < 0.01) return(paste0(
             "**Waarom dit fout is:** 86% komt overeen met de **gecorrigeerde R\u00b2** (Adjusted R\u00b2 = 0,856 \u00d7 100 \u2248 86%).\n\n",
             "**Wat je miste:** De gecorrigeerde R\u00b2 corrigeert voor het aantal predictoren in het model. Hier is de gewone R\u00b2 gevraagd.\n\n",
             "**Correctie:** Gebruik de kolom **R\u00b2** (niet 'Gecorrigeerde R\u00b2'): R\u00b2 = **0,872** \u00d7 100 = **87%**."

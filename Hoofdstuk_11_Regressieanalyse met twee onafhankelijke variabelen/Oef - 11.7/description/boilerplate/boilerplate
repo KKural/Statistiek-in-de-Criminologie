@@ -1,5 +1,5 @@
 # ============================================================================
-# OEFENING 11.8: Output lezen - meervoudige regressie (vaste dataset)
+# OEFENING 11.7: Output lezen - meervoudige regressie (vaste dataset)
 # ============================================================================
 # Lees de regressie-output in de opgave en beantwoord elke vraag.
 # Vervang ??? door 1, 2, 3 of 4.
@@ -32,8 +32,8 @@ vraag8 <- ???
 # 9) Significante regressieparameter(s)
 vraag9 <- ???
 
-# 10) Betekenis 95%-CI voor b1 = [3.02, 9.16]
+# 10) Betekenis 95%-CI voor b1 = [-44.02, 71.12]
 vraag10 <- ???
 
-# 11) Verwachte AngstScore voor WanordeIndex=6, ZwerfvuilKlachten=55
+# 11) Verwachte AngstScore voor WanordeIndex=7, ZwerfvuilKlachten=45
 vraag11 <- ???

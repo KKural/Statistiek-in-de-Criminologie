@@ -35,3 +35,6 @@ Geef je antwoord als **percentage** (bijvoorbeeld: 20.43)
 
 Geef je antwoord als **percentage** (bijvoorbeeld: 52.54)
 
+Gebruik een punt als decimaalteken, laat het procentteken weg en rond beide
+eindpercentages af op **2 decimalen**.
+

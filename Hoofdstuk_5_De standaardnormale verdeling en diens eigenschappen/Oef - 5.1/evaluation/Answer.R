@@ -50,16 +50,16 @@ context({
           }
 
           # Check all answers for question a (all steps) - PRECISE MATCHING
-          results$z1_a <- check_value("z1_a", exp_z1_a, tol = 0.001)
-          results$z2_a <- check_value("z2_a", exp_z2_a, tol = 0.001)
-          results$p_z1_a <- check_value("p_z1_a", exp_p_z1_a, tol = 0.0001)
-          results$p_z2_a <- check_value("p_z2_a", exp_p_z2_a, tol = 0.0001)
-          results$verschil_a <- check_value("verschil_a", exp_verschil_a, tol = 0.0001)
-          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.001, expect_percent = FALSE)
+          results$z1_a <- check_value("z1_a", exp_z1_a, tol = 0.0051)
+          results$z2_a <- check_value("z2_a", exp_z2_a, tol = 0.0051)
+          results$p_z1_a <- check_value("p_z1_a", exp_p_z1_a, tol = 0.000051)
+          results$p_z2_a <- check_value("p_z2_a", exp_p_z2_a, tol = 0.000051)
+          results$verschil_a <- check_value("verschil_a", exp_verschil_a, tol = 0.000051)
+          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.0051, expect_percent = FALSE)
           
           # Check only final answers for questions B and C - PRECISE MATCHING
-          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.001, expect_percent = FALSE)
-          results$vraag_c <- check_value("vraag_c", exp_c, tol = 0.001, expect_percent = FALSE)
+          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.0051, expect_percent = FALSE)
+          results$vraag_c <- check_value("vraag_c", exp_c, tol = 0.0051, expect_percent = FALSE)
 
           assign("detailed_results", results, envir = globalenv())
 

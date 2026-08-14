@@ -91,6 +91,6 @@ Voor een volledige analyse bereken je de **afwijkingen** van het gemiddelde, de 
 
 In het code-bestand vervang je overal `??` door het juiste antwoord.
 
-- Schrijf numerieke antwoorden met een **decimale punt** (bijv. `33.55`, niet `33,55`).
+- Schrijf numerieke antwoorden met een **decimale punt** (bijv. `12.34`, niet `12,34`).
+- Rond het gemiddelde en de som van de gekwadrateerde afwijkingen af op **twee decimalen**. Rond afwijkingen, gekwadrateerde afwijkingen, variantie, standaardafwijking en variatiecoëfficiënt af op **vier decimalen**.
 - Voor tekstcategorieën (bijv. keuzes voor de beste maat) gebruik je kleine letters, zoals `"gemiddelde"`, `"mediaan"`, `"modus"`.
-

@@ -34,7 +34,7 @@ context({
             }
             raw <- get(q, envir = env)
             num <- parse_num(raw)
-            ok <- !is.na(num) && abs(num - expected[[q]]) < 0.5
+            ok <- !is.na(num) && num %in% 1:4 && num == expected[[q]]
             valid_choice <- !is.na(num) && num %in% 1:4
             list(
               q = q,
@@ -46,13 +46,13 @@ context({
             )
           })
           names(res) <- names(expected)
-          assign("mcq_results_11_8", res, envir = globalenv())
+          assign("mcq_results_11_7", res, envir = globalenv())
 
           all(vapply(res, function(x) isTRUE(x$ok), logical(1)))
         },
         TRUE,
         comparator = function(generated, expected, ...) {
-          res <- get("mcq_results_11_8", envir = globalenv())
+          res <- get("mcq_results_11_7", envir = globalenv())
           labels <- c(
             vraag1  = "Multiple R (2 decimalen)",
             vraag2  = "R\u00b2 als % verklaarde variantie",

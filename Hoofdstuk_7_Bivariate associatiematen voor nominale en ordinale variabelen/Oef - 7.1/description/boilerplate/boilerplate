@@ -1,6 +1,6 @@
 # Vervang ??? door je antwoord.
 # Let op de volgende instructies:
-    # - Gebruik percentages als getallen (bv. 61.5, niet 0.615).
+    # - Gebruik percentages als getallen (bv. 12.34, niet 0.1234).
     # - Rond af zoals gevraagd in de opgave.
     # - Gebruik decimalen met punt (niet komma) en geen procentteken.
     # - De automatische feedback aanvaardt ook de vroegere korte variabelen,
@@ -26,5 +26,5 @@ odds_ratio <- ???
 chi_kwadraat <- ???
 
 # 7) Extra + meerkeuze
-kans_no_bij_vrouwen <- ???  # kans (0-1) of percentage (0-100) wordt aanvaard
+kans_no_bij_vrouwen <- ???  # kans op 4 decimalen of percentage op 2 decimalen
 antwoord_mc <- ???          # A=1, B=2, C=3, D=4

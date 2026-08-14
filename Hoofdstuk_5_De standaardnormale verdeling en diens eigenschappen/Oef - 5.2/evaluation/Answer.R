@@ -15,7 +15,7 @@ context({
           exp_z65 <- -1.0
           exp_z80 <- 0.5
           
-          # Question B - P(65 ≤ X ≤ 79) = 53.28%
+          # Question B - P(65 ≤ X < 80) = 53.28%
           exp_trainen <- 53.28
           
           # Question C - P(X ≥ 80) = 30.85%  
@@ -43,17 +43,17 @@ context({
               val_num <- suppressWarnings(as.numeric(val))
             }
             
-            correct <- !is.na(val_num) && abs(val_num - expected) < tol
+            correct <- !is.na(val_num) && abs(val_num - expected) <= tol
             return(list(exists = TRUE, value = val, correct = correct, expected = expected))
           }
 
           # Check all answers
-          results$z_65 <- check_value("z_65", exp_z65, tol = 0.05, expect_percent = FALSE)
-          results$z_80 <- check_value("z_80", exp_z80, tol = 0.05, expect_percent = FALSE)
-          results$percentage_trainen <- check_value("percentage_trainen", exp_trainen, tol = 0.5, expect_percent = FALSE)
-          results$percentage_spelen <- check_value("percentage_spelen", exp_spelen, tol = 0.5, expect_percent = FALSE)
-          results$aantal_trainen <- check_value("aantal_trainen", exp_aantal_trainen, tol = 1, expect_percent = FALSE)
-          results$aantal_spelen <- check_value("aantal_spelen", exp_aantal_spelen, tol = 1, expect_percent = FALSE)
+          results$z_65 <- check_value("z_65", exp_z65, tol = 0.0051, expect_percent = FALSE)
+          results$z_80 <- check_value("z_80", exp_z80, tol = 0.0051, expect_percent = FALSE)
+          results$percentage_trainen <- check_value("percentage_trainen", exp_trainen, tol = 0.0051, expect_percent = FALSE)
+          results$percentage_spelen <- check_value("percentage_spelen", exp_spelen, tol = 0.0051, expect_percent = FALSE)
+          results$aantal_trainen <- check_value("aantal_trainen", exp_aantal_trainen, tol = 0, expect_percent = FALSE)
+          results$aantal_spelen <- check_value("aantal_spelen", exp_aantal_spelen, tol = 0, expect_percent = FALSE)
 
           assign("detailed_results", results, envir = globalenv())
 
@@ -67,7 +67,7 @@ context({
           qnames <- c(
             z_65 = "Z-score voor 65%",
             z_80 = "Z-score voor 80%", 
-            percentage_trainen = "Percentage dat mag trainen (65-79%)",
+            percentage_trainen = "Percentage dat alleen mag trainen (65% ≤ score < 80%)",
             percentage_spelen = "Percentage dat mag spelen (≥80%)",
             aantal_trainen = "Aantal spelers dat mag trainen (van 50)",
             aantal_spelen = "Aantal spelers dat mag spelen (van 50)"
@@ -145,19 +145,24 @@ context({
               return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 53.28%.")
             }
 
-            # Complement error - calculated everything EXCEPT the interval
+            # Used the literal number 79 instead of the continuous threshold below 80.
+            if (abs(val_num - 49.67) < 0.01) {
+              return("**Waarom dit fout is:** Je gebruikte 79 als bovengrens en vond daardoor 49.67%.\n\n**Wat er gebeurde:** De categorie is continu gedefinieerd als 65 ≤ X < 80. De grens is dus 80; dat de score 80 zelf tot de volgende categorie behoort, verandert bij een continue verdeling de oppervlakte niet.\n\n**Wat je miste:** Gebruik voor de bovengrens Z = (80−75)/10 = 0.50, niet Z = 0.40 voor 79.\n\n**Uitleg:** P(65≤X<80) = P(−1.00≤Z<0.50) = 0.6915−0.1587 = **53.28%**.")
+            }
+
+            # Used only the lower threshold, so the playing group was included.
             if (abs(val_num - 84.13) < 0.5) {
-              return("**Waarom dit fout is:** Je berekende 84.13% = het complement van het interval.\n\n**Wat er gebeurde:** Je dacht aan 'iedereen BEHALVE 65-79%' in plaats van het interval zelf.\n\n**Wat je miste:** We zoeken spelers BINNEN [65,79], niet erbuiten.\n\n**Uitleg:** P(65≤X≤79) = P(−1≤Z≤0.4) = 0.6554−0.1587 = **53.28%**.")
+              return("**Waarom dit fout is:** 84.13% is P(X≥65), waardoor ook kandidaten met 80% of meer worden meegeteld.\n\n**Wat er gebeurde:** Je gebruikte alleen de ondergrens.\n\n**Wat je miste:** Trek de linkerstaart tot 65 af van de cumulatieve kans tot 80.\n\n**Uitleg:** 0.6915−0.1587 = **53.28%**.")
             }
             
-            # Only used upper tail - forgot to subtract lower tail
-            if (abs(val_num - 65.54) < 0.5) {
-              return("**Waarom dit fout is:** Je gaf 65.54% - dit is alleen P(Z≤0.4).\n\n**Wat er gebeurde:** Je berekende tot de bovengrens maar vergat de ondergrens af te trekken.\n\n**Wat je miste:** Voor intervallen: P(a≤X≤b) = P(X≤b) − P(X≤a).\n\n**Uitleg:** 0.6554 − 0.1587 = **53.28%**.")
+            # Used only the upper threshold.
+            if (abs(val_num - 69.15) < 0.5) {
+              return("**Waarom dit fout is:** 69.15% is alleen P(Z≤0.50).\n\n**Wat er gebeurde:** Je berekende de cumulatieve kans tot 80, maar vergat de kans onder 65 af te trekken.\n\n**Wat je miste:** Voor intervallen geldt P(a≤X<b) = P(X<b) − P(X<a).\n\n**Uitleg:** 0.6915−0.1587 = **53.28%**.")
             }
             
             # Only used lower tail
             if (abs(val_num - 15.87) < 0.5) {
-              return("**Waarom dit fout is:** Je gaf 15.87% - dit is alleen P(Z≤−1.0).\n\n**Wat er gebeurde:** Je berekende de linkerstaart in plaats van het interval.\n\n**Wat je miste:** Voor het interval 65-79% moet je beide grenzen gebruiken.\n\n**Uitleg:** P(−1≤Z≤0.4) = 0.6554−0.1587 = **53.28%**.")
+              return("**Waarom dit fout is:** Je gaf 15.87% - dit is alleen P(Z≤−1.00).\n\n**Wat er gebeurde:** Je berekende de linkerstaart onder 65 in plaats van het interval van 65 tot 80.\n\n**Wat je miste:** Gebruik beide grenzen.\n\n**Uitleg:** P(−1.00≤Z<0.50) = 0.6915−0.1587 = **53.28%**.")
             }
             
             # Percentage vs decimal confusion
@@ -167,14 +172,14 @@ context({
             
             # Used empirical rule approximation
             if (abs(val_num - 68.0) < 1.0) {
-              return("**Waarom dit fout is:** Je gebruikte de empirische regel (68% binnen μ±1σ).\n\n**Wat er gebeurde:** Je dacht aan [65,85] = μ±1σ, maar we willen [65,79].\n\n**Wat je miste:** [65,79] is kleiner dan μ±1σ, dus < 68%.\n\n**Uitleg:** Z₁=−1.0, Z₂=0.4 → 0.6554−0.1587 = **53.28%**.")
+              return("**Waarom dit fout is:** Je gebruikte de empirische regel (68% binnen μ±1σ).\n\n**Wat er gebeurde:** Dat is het interval [65,85], terwijl we [65,80) zoeken.\n\n**Wat je miste:** De bovengrens ligt slechts 0.50 standaardafwijking boven het gemiddelde.\n\n**Uitleg:** Z₁=−1.00, Z₂=0.50 → 0.6915−0.1587 = **53.28%**.")
             }
 
             return(paste0(
               "**Waarom dit fout is:** Je antwoord ", val, "% is niet correct.\n\n",
               "**Wat er gebeurde:** Waarschijnlijk fout in interval-berekening of Z-tabel gebruik.\n\n",
-              "**Wat je miste:** Correcte toepassing van P(a≤X≤b) = P(X≤b) − P(X≤a).\n\n",
-              "**Uitleg:** Z₁=−1.0, Z₂=0.4 → P(−1≤Z≤0.4) = 0.6554−0.1587 = **53.28%**."
+              "**Wat je miste:** Correcte toepassing van P(a≤X<b) = P(X<b) − P(X<a).\n\n",
+              "**Uitleg:** Z₁=−1.00, Z₂=0.50 → P(−1.00≤Z<0.50) = 0.6915−0.1587 = **53.28%**."
             ))
           }
 
@@ -223,7 +228,11 @@ context({
               return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 27.")
             }
 
-            if (abs(val_num - 26) < 1) {
+            if (abs(val_num - 25) < 0.01) {
+              return("**Waarom dit fout is:** 25 volgt uit 49.67%, dus uit het gebruik van 79 als continue bovengrens.\n\n**Correctie:** De categorie loopt tot net onder 80: 50 × 0.5328 = 26.64, afgerond **27 spelers**.")
+            }
+
+            if (abs(val_num - 26) < 0.01 || abs(val_num - 26.64) < 0.01) {
               return("**Bijna correct!** Je berekening is juist, maar rond af naar het dichtstbijzijnde hele getal.\n\n**Correctie:** 50 × 0.5328 = 26.64 ≈ **27 spelers**")
             }
 
@@ -242,7 +251,7 @@ context({
               return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 15.")
             }
 
-            if (abs(val_num - 15) < 1) {
+            if (abs(val_num - 15.425) < 0.01) {
               return("**Bijna correct!** Je berekening is juist, maar rond af naar het dichtstbijzijnde hele getal.\n\n**Correctie:** 50 × 0.3085 = 15.425 ≈ **15 spelers**")
             }
 
@@ -257,7 +266,7 @@ context({
 
           # --- BUILD FEEDBACK TEXT ---
 
-          feedback_text <- "**Gegeven:** \n- Toetsscores: N(75, 10)%\n- Regels: <65% = niet deelnemen, 65-79% = trainen, ≥80% = spelen\n\n"
+          feedback_text <- "**Gegeven:** \n- Toetsscores: N(75, 10)%\n- Regels: <65% = niet deelnemen, 65% ≤ score < 80% = alleen trainen, ≥80% = spelen\n\n"
 
           # Question A: Z-scores
           q <- "z_65"
@@ -399,7 +408,7 @@ context({
           feedback_text <- paste0(
             feedback_text,
             "**Samenvatting oplossing:**\n",
-            "1. **Z-scores:** 65% → -1.0, 80% → 0.5\n",
+            "1. **Z-scores:** 65% → -1.00, 80% → 0.50\n",
             "2. **Percentages:** Trainen = 53.28%, Spelen = 30.85%\n", 
             "3. **Aantallen:** Van 50 spelers: 27 trainen, 15 spelen volledig\n\n"
           )

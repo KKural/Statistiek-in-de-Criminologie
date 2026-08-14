@@ -60,9 +60,9 @@ Aan studenten uit de faculteit Economie en Bedrijfswetenschappen werd gevraagd h
 </tbody>
 </table>
 
-**Berekening proportie:** Een proportie wordt berekend door de absolute frequentie te delen door het totaal aantal observaties. Bijvoorbeeld voor "Nooit": 190/310 = 0,6129.
+**Berekening proportie:** Een proportie wordt berekend door de absolute frequentie van een categorie te delen door het totaal aantal observaties: $p_i=n_i/N$.
 
-**Berekening cumulatieve proportie:** Een cumulatieve proportie wordt berekend door alle proporties tot en met die categorie op te tellen. Bijvoorbeeld voor "Zelden": 0,6129 + 0,1129 = 0,7258.
+**Berekening cumulatieve proportie:** Een cumulatieve proportie wordt berekend door alle proporties tot en met die categorie op te tellen: $P_i=p_1+\ldots+p_i$.
 
 Analyseer deze frequentietabel en beantwoord de onderstaande vragen door de juiste waarden in te vullen.
 

@@ -4,9 +4,9 @@ Om de assumptie van **homoscedasticiteit** (gelijke spreiding van de residuen) t
 
 ---
 
-<img src="media/scaleloc_ok.png" alt="Figuur A: homoscedasticiteit OK" width="680">
+<img src="media/scaleloc_a.png" alt="Scale-Location plot, figuur A" width="680">
 
-<img src="media/scaleloc_violation.png" alt="Figuur B: heteroscedasticiteit" width="680">
+<img src="media/scaleloc_b.png" alt="Scale-Location plot, figuur B" width="680">
 
 ---
 

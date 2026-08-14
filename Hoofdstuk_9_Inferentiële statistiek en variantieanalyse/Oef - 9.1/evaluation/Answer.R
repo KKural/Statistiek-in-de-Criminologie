@@ -61,14 +61,14 @@ context({
           }
 
           results$H0_richting           <- check_val("H0_richting",           exp_H0_richting,         tol = 0)
-          results$E_opsluiting_premier  <- check_val("E_opsluiting_premier",  exp_E_opsluiting_premier, tol = 0.1)
-          results$E_betaling_premier    <- check_val("E_betaling_premier",    exp_E_betaling_premier,   tol = 0.1)
-          results$E_rehab_minister      <- check_val("E_rehab_minister",      exp_E_rehab_minister,     tol = 0.1)
-          results$chi_kwadraat          <- check_val("chi_kwadraat",          exp_chi2,                 tol = 0.5)
+          results$E_opsluiting_premier  <- check_val("E_opsluiting_premier",  exp_E_opsluiting_premier, tol = 0.0500001)
+          results$E_betaling_premier    <- check_val("E_betaling_premier",    exp_E_betaling_premier,   tol = 0.0050001)
+          results$E_rehab_minister      <- check_val("E_rehab_minister",      exp_E_rehab_minister,     tol = 0.0050001)
+          results$chi_kwadraat          <- check_val("chi_kwadraat",          exp_chi2,                 tol = 0.0005001)
           results$df_chi                <- check_val("df_chi",                exp_df,                   tol = 0)
-          results$kritieke_waarde_005   <- check_val("kritieke_waarde_005",   exp_kritiek_005,          tol = 0.1)
+          results$kritieke_waarde_005   <- check_val("kritieke_waarde_005",   exp_kritiek_005,          tol = 0.0005001)
           results$significant_005       <- check_val("significant_005",       exp_significant_005,      tol = 0)
-          results$kritieke_waarde_001   <- check_val("kritieke_waarde_001",   exp_kritiek_001,          tol = 0.1)
+          results$kritieke_waarde_001   <- check_val("kritieke_waarde_001",   exp_kritiek_001,          tol = 0.0005001)
           results$significant_001       <- check_val("significant_001",       exp_significant_001,      tol = 0)
 
           assign("detailed_results", results, envir = globalenv())

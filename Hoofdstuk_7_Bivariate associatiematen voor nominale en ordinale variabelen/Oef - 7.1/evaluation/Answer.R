@@ -91,21 +91,21 @@ context({
           }
 
           # Accept both full and older short variable names
-          results$perc_male <- check_value(c("percentage_mannen", "perc_male"), exp_perc_male, tol = 0.1, allow_percent = FALSE)
-          results$perc_female <- check_value(c("percentage_vrouwen", "perc_female"), exp_perc_female, tol = 0.1, allow_percent = FALSE)
-          results$perc_yes <- check_value(c("percentage_yes", "perc_yes"), exp_perc_yes, tol = 0.1, allow_percent = FALSE)
-          results$perc_no <- check_value(c("percentage_no", "perc_no"), exp_perc_no, tol = 0.1, allow_percent = FALSE)
+          results$perc_male <- check_value(c("percentage_mannen", "perc_male"), exp_perc_male, tol = 0.0051, allow_percent = FALSE)
+          results$perc_female <- check_value(c("percentage_vrouwen", "perc_female"), exp_perc_female, tol = 0.0051, allow_percent = FALSE)
+          results$perc_yes <- check_value(c("percentage_yes", "perc_yes"), exp_perc_yes, tol = 0.0051, allow_percent = FALSE)
+          results$perc_no <- check_value(c("percentage_no", "perc_no"), exp_perc_no, tol = 0.0051, allow_percent = FALSE)
 
-          results$perc_yes_male <- check_value(c("percentage_yes_bij_mannen", "perc_yes_male"), exp_perc_yes_male, tol = 0.1, allow_percent = FALSE)
-          results$perc_yes_female <- check_value(c("percentage_yes_bij_vrouwen", "perc_yes_female"), exp_perc_yes_female, tol = 0.1, allow_percent = FALSE)
-          results$perc_diff_yes <- check_value(c("percentageverschil_yes", "perc_diff_yes"), exp_perc_diff_yes, tol = 0.1, allow_percent = FALSE)
+          results$perc_yes_male <- check_value(c("percentage_yes_bij_mannen", "perc_yes_male"), exp_perc_yes_male, tol = 0.0051, allow_percent = FALSE)
+          results$perc_yes_female <- check_value(c("percentage_yes_bij_vrouwen", "perc_yes_female"), exp_perc_yes_female, tol = 0.0051, allow_percent = FALSE)
+          results$perc_diff_yes <- check_value(c("percentageverschil_yes", "perc_diff_yes"), exp_perc_diff_yes, tol = 0.0051, allow_percent = FALSE)
 
-          results$odds_male <- check_value(c("odds_mannen", "odds_male"), exp_odds_male, tol = 0.01, allow_percent = FALSE)
-          results$odds_female <- check_value(c("odds_vrouwen", "odds_female"), exp_odds_female, tol = 0.01, allow_percent = FALSE)
-          results$odds_ratio <- check_value(c("odds_ratio", "or"), exp_or, tol = 0.1, allow_percent = FALSE)
+          results$odds_male <- check_value(c("odds_mannen", "odds_male"), exp_odds_male, tol = 0.000051, allow_percent = FALSE)
+          results$odds_female <- check_value(c("odds_vrouwen", "odds_female"), exp_odds_female, tol = 0.000051, allow_percent = FALSE)
+          results$odds_ratio <- check_value(c("odds_ratio", "or"), exp_or, tol = 0.0051, allow_percent = FALSE)
 
-          results$chi2 <- check_value(c("chi_kwadraat", "chi2"), exp_chi2, tol = 0.1, allow_percent = FALSE)
-          results$p_no_female <- check_value(c("kans_no_bij_vrouwen", "p_no_female"), exp_p_no_female, tol = 0.01, allow_percent = TRUE)
+          results$chi2 <- check_value(c("chi_kwadraat", "chi2"), exp_chi2, tol = 0.000051, allow_percent = FALSE)
+          results$p_no_female <- check_value(c("kans_no_bij_vrouwen", "p_no_female"), exp_p_no_female, tol = 0.000051, allow_percent = TRUE)
           results$antwoord_mc <- check_value(c("antwoord_mc"), exp_antwoord_mc, tol = 0.0, allow_percent = FALSE)
 
           assign("detailed_results", results, envir = globalenv())
@@ -534,36 +534,36 @@ context({
           wrong_msg_chi2 <- function(val) {
             val_num <- parse_num(val)
             if (is.na(val_num)) {
-              return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 59.1606.")
+              return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 59.1983.")
             }
             
             # Gave p-value
             p_val <- suppressWarnings(pchisq(exp_chi2, df = 1, lower.tail = FALSE))
             if (!is.na(p_val) && val_num < 0.001) {
-              return("**Waarom dit fout is:** Je gaf een zeer kleine waarde - dit lijkt de p-waarde.\n\n**Wat er mogelijk gebeurde:** Je rapporteerde de significantie in plaats van de teststatistiek.\n\n**Wat je miste:** Gevraagd is χ² (chi-kwadraat), niet de p-waarde.\n\n**Uitleg:** Sommeer (O-E)²/E over alle cellen = **59.1606**.")
+              return("**Waarom dit fout is:** Je gaf een zeer kleine waarde - dit lijkt de p-waarde.\n\n**Wat er mogelijk gebeurde:** Je rapporteerde de significantie in plaats van de teststatistiek.\n\n**Wat je miste:** Gevraagd is χ² (chi-kwadraat), niet de p-waarde.\n\n**Uitleg:** Sommeer (O-E)²/E over alle cellen = **59.1983**.")
             }
             
             # Gave Phi or Cramer's V
             phi <- sqrt(exp_chi2 / total)
             if (approx_eq(val_num, phi, tol = 0.01)) {
-              return("**Waarom dit fout is:** Je gaf ongeveer 0.172 = √(χ²/N) = Phi.\n\n**Wat er mogelijk gebeurde:** Je berekende de effectgrootte in plaats van de teststatistiek.\n\n**Wat je miste:** χ² = som van (O-E)²/E, Phi = √(χ²/N).\n\n**Uitleg:** χ² = **59.1606**, Phi ≈ 0.172.")
+              return("**Waarom dit fout is:** Je gaf ongeveer 0.172 = √(χ²/N) = Phi.\n\n**Wat er mogelijk gebeurde:** Je berekende de effectgrootte in plaats van de teststatistiek.\n\n**Wat je miste:** χ² = som van (O-E)²/E, Phi = √(χ²/N).\n\n**Uitleg:** χ² = **59.1983**, Phi ≈ 0.172.")
             }
             
             # Only one cell contribution
             e11 <- (1230 * 500) / 2000
             contrib1 <- (380 - e11)^2 / e11
             if (approx_eq(val_num, contrib1, tol = 0.5)) {
-              return("**Waarom dit fout is:** Je gaf ~17 - slechts één celbijdrage.\n\n**Wat er mogelijk gebeurde:** Je berekende (O-E)²/E voor één cel, maar vergat de andere drie.\n\n**Wat je miste:** χ² = som van alle vier celbijdragen.\n\n**Uitleg:** Tel alle celbijdragen op: **59.1606**.")
+              return("**Waarom dit fout is:** Je gaf ~17 - slechts één celbijdrage.\n\n**Wat er mogelijk gebeurde:** Je berekende (O-E)²/E voor één cel, maar vergat de andere drie.\n\n**Wat je miste:** χ² = som van alle vier celbijdragen.\n\n**Uitleg:** Tel alle celbijdragen op: **59.1983**.")
             }
             
             # Forgot to divide by E
             if (val_num > 200) {
-              return("**Waarom dit fout is:** Je χ² is veel te groot.\n\n**Wat er mogelijk gebeurde:** Je vergat mogelijk te delen door E.\n\n**Wat je miste:** Elke celbijdrage = (O-E)²/E, niet alleen (O-E)².\n\n**Uitleg:** Bereken per cel (O-E)²/E en tel op: **59.1606**.")
+              return("**Waarom dit fout is:** Je χ² is veel te groot.\n\n**Wat er mogelijk gebeurde:** Je vergat mogelijk te delen door E.\n\n**Wat je miste:** Elke celbijdrage = (O-E)²/E, niet alleen (O-E)².\n\n**Uitleg:** Bereken per cel (O-E)²/E en tel op: **59.1983**.")
             }
             
             # Divided by N again
             if (approx_eq(val_num, exp_chi2 / total, tol = 0.01)) {
-              return("**Waarom dit fout is:** Je gaf ongeveer 0.0296 = χ²/N.\n\n**Wat er mogelijk gebeurde:** Je deelde χ² nog eens door 2000.\n\n**Wat je miste:** Bij χ² deel je per cel door E, niet nog eens door N.\n\n**Uitleg:** χ² = **59.1606** (geen extra deling door N).")
+              return("**Waarom dit fout is:** Je gaf ongeveer 0.0296 = χ²/N.\n\n**Wat er mogelijk gebeurde:** Je deelde χ² nog eens door 2000.\n\n**Wat je miste:** Bij χ² deel je per cel door E, niet nog eens door N.\n\n**Uitleg:** χ² = **59.1983** (geen extra deling door N).")
             }
             
             return(paste0(
@@ -575,11 +575,11 @@ context({
               "   - E₂₁ = (770×500)/2000 = 192.5\n",
               "   - E₂₂ = (770×1500)/2000 = 577.5 ✓\n",
               "2. **Celbijdragen:**\n",
-              "   - (380-307.5)²/307.5 = 17.0894\n",
-              "   - (850-922.5)²/922.5 = 5.6967\n",
-              "   - (120-192.5)²/192.5 = 27.2727\n",
+              "   - (380-307.5)²/307.5 = 17.0935\n",
+              "   - (850-922.5)²/922.5 = 5.6978\n",
+              "   - (120-192.5)²/192.5 = 27.3052\n",
               "   - (650-577.5)²/577.5 = 9.1017 ✓\n",
-              "3. **χ²:** 17.0894 + 5.6967 + 27.2727 + 9.1017 = **59.16** (afgerond op 4 dec: 59.1606) ✓"
+              "3. **χ²:** 17.0935 + 5.6978 + 27.3052 + 9.1017 = **59.1983** ✓"
             ))
           }
           
@@ -625,22 +625,22 @@ context({
             }
             
             if (val_num < 1 || val_num > 4) {
-              return("**Waarom dit fout is:** Je moet een keuze maken tussen 1-4 (A-D).\n\n**Wat er gebeurde:** Je gaf een ongeldig antwoord.\n\n**Wat je miste:** A=1, B=2, C=3, D=4.\n\n**Uitleg:** P(NO|Vrouw) = 84.42% → antwoord C (85%) is het dichtst bij.")
+              return("**Waarom dit fout is:** Je moet een keuze maken tussen 1-4 (A-D).\n\n**Wat er gebeurde:** Je gaf een ongeldig antwoord.\n\n**Wat je miste:** A=1, B=2, C=3, D=4.\n\n**Uitleg:** Bij P(NO|Vrouw) is de referentiegroep de vrouwen; antwoord C verwoordt dat correct.")
             }
             
             if (val_num == 1) {
-              return("**Waarom dit fout is:** Je koos A (30%).\n\n**Wat er gebeurde:** Je berekende waarschijnlijk P(YES|Man) = 30.89% in plaats van P(NO|Vrouw).\n\n**Wat je miste:** Gevraagd is de kans dat een VROUW GEEN misdrijf pleegde.\n\n**Uitleg:** P(NO|Vrouw) = 650/770 = 84.42% → **antwoord C**.")
+              return("**Waarom dit fout is:** Optie A gebruikt mannen als referentiegroep.\n\n**Wat er gebeurde:** Je verwisselde de voorwaarde achter de verticale streep.\n\n**Wat je miste:** In P(NO|Vrouw) vormt Vrouw de referentiegroep.\n\n**Uitleg:** We zoeken het aandeel NO binnen de vrouwen → **antwoord C**.")
             }
             
             if (val_num == 2) {
-              return("**Waarom dit fout is:** Je koos B (15%).\n\n**Wat er gebeurde:** Je berekende waarschijnlijk P(YES|Vrouw) = 15.58%.\n\n**Wat je miste:** Gevraagd is P(NO|Vrouw), niet P(YES|Vrouw).\n\n**Uitleg:** P(NO|Vrouw) = 650/770 = 84.42% → **antwoord C**.")
+              return("**Waarom dit fout is:** Optie B beschrijft P(Vrouw|NO), niet P(NO|Vrouw).\n\n**Wat er gebeurde:** Je draaide gebeurtenis en voorwaarde om.\n\n**Wat je miste:** Voorwaardelijke kansen zijn niet omwisselbaar.\n\n**Uitleg:** We zoeken het aandeel NO binnen de vrouwen → **antwoord C**.")
             }
             
             if (val_num == 4) {
-              return("**Waarom dit fout is:** Je koos D (6%).\n\n**Wat er gebeurde:** 6% ≈ 120/2000 = marginale kans YES bij vrouwen.\n\n**Wat je miste:** Gebruik P(NO|Vrouw) = conditionele kans, niet marginaal.\n\n**Uitleg:** P(NO|Vrouw) = 650/770 = 84.42% → **antwoord C**.")
+              return("**Waarom dit fout is:** Optie D deelt door de volledige steekproef en beschrijft een gezamenlijke kans.\n\n**Wat er gebeurde:** Je gebruikte N in plaats van het aantal vrouwen als noemer.\n\n**Wat je miste:** P(NO|Vrouw) is een conditionele kans binnen de vrouwen.\n\n**Uitleg:** We zoeken het aandeel NO binnen de vrouwen → **antwoord C**.")
             }
             
-            return("Bereken P(NO|Vrouw) = 650/770 = 84.42%, kies het dichtstbijzijnde antwoord.")
+            return("Lees P(NO|Vrouw) als: het aandeel NO binnen de referentiegroep Vrouw.")
           }
           
           # --- BUILD FEEDBACK TEXT ---
@@ -702,14 +702,14 @@ context({
             "- **Conditionele percentages:** YES|Man=30.9%, YES|Vrouw=15.6%\n",
             "- **Percentageverschil:** 15.3 procentpunten\n",
             "- **Odds ratio:** 2.42 (mannen hebben 2.42× hogere odds op crimineel gedrag)\n",
-            "- **Chi-kwadraat:** 59.16\n",
+            "- **Chi-kwadraat:** 59.1983\n",
             "\n**Meer leren?** <a href='https://www.scribbr.com/statistics/chi-square-tests/' target='_blank' rel='noopener noreferrer'>Chi-kwadraat test uitleg</a> | <a href='https://www.theanalysisfactor.com/odds-ratio-cross-tabulation-table/' target='_blank' rel='noopener noreferrer'>Odds Ratio</a> | <a href='https://www.scribbr.com/statistics/chi-square-tests/' target='_blank' rel='noopener noreferrer'>Kruistabellen</a>\n\n",
             "- **Conditionele percentages:** P(YES|Man)=30.89%, P(YES|Vrouw)=15.58%\n",
             "- **Percentageverschil:** 30.89 - 15.58 = 15.31 procentpunten\n",
             "- **Odds:** Mannen=0.4471, Vrouwen=0.1846\n",
             "- **OR:** 0.4471/0.1846 = 2.42 (mannen ~2.4× meer kans op crimineel gedrag)\n",
-            "- **χ²:** 59.16 (df=1, p<0.001 → significant verband)\n",
-            "- **P(NO|Vrouw):** 650/770 = 0.8442 = 84.42% → antwoord C (85%)\n\n"
+            "- **χ²:** 59.1983 (df=1, p<0.001 → significant verband)\n",
+            "- **P(NO|Vrouw):** 650/770 = 0.8442 = 84.42%; interpretatie: het aandeel NO binnen de vrouwen → antwoord C\n\n"
           )
 
           # Learner-facing feedback contract. The field handlers above retain

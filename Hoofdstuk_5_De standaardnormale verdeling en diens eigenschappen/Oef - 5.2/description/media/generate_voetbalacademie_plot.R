@@ -1,7 +1,7 @@
 # OEFENING 2 – Voetbalacademie
 # ---------------------------------
 # Normale verdeling van toetsscores N(75, 10)
-# met drie zones: <65, 65–80, >=80
+# met drie zones: <65, [65,80), >=80
 
 library(ggplot2)
 
@@ -21,9 +21,10 @@ df2 <- data.frame(
 df2$zone <- cut(
   df2$score,
   breaks = c(-Inf, 65, 80, Inf),
+  right = FALSE,
   labels = c(
     "Niet deelnemen (< 65%)",
-    "Mee trainen, niet spelen (65–79%)",
+    "Mee trainen, niet spelen (65% ≤ score < 80%)",
     "Volledig deelnemen (≥ 80%)"
   )
 )

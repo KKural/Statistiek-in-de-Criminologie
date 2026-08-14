@@ -58,7 +58,7 @@ Het regressiemodel is: `AngstScore = a + b₁·WanordeIndex + b₂·ZwerfvuilKla
 
 ## Vragen
 
-Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
+Vul voor elke vraag één geheel optienummer (1–4) in bij de bijbehorende variabele.
 
 ---
 

@@ -2,7 +2,7 @@
 
 Beantwoord de volgende meerkeuzevragen over de logica van inferentiële statistiek, hypothesetoetsing en variantieanalyse.
 
-Vul voor elke vraag het nummer van je antwoord in (bijv. `vraag1 <- 2`).
+Vul voor elke vraag één geheel optienummer (1–4) in bij de bijbehorende variabele.
 
 ---
 

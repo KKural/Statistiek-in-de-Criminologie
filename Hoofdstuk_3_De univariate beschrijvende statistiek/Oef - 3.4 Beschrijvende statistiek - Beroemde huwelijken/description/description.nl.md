@@ -69,4 +69,4 @@ De individuele waarden zijn:
 
 Analyseer deze gegevens en bereken de gevraagde beschrijvende statistieken.
 
-Vervang "??" door het juiste antwoord. Let op de exacte notatie - gebruik decimalen met punt (niet komma) en rond af op 2 decimalen waar nodig.
+Vervang "??" door het juiste antwoord. Gebruik voor niet-gehele numerieke antwoorden steeds een punt als decimaalteken en rond af op **twee decimalen**. Gebruik in elke vervolgstap de afgeronde waarde uit de vorige stap: rond het gemiddelde en de afwijkingen af op twee decimalen en kwadrateer vervolgens die afgeronde afwijkingen. Een neutraal notatievoorbeeld is `12.34` (niet `12,34`).

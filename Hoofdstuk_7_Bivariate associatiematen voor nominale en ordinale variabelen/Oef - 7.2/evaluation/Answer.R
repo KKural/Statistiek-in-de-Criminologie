@@ -93,7 +93,7 @@ context({
             list(exists = TRUE, used_var = used_var, value = raw, value_num = num, correct = ok)
           }
 
-          check_chi2 <- function(varnames, tol = 0.3) {
+          check_chi2 <- function(varnames, tol = 0.0051) {
             used_var <- pick_var(varnames)
             if (is.na(used_var)) {
               return(list(exists = FALSE, used_var = NA_character_, value = NA, value_num = NA, correct = FALSE, expected = exp_chi2))
@@ -108,16 +108,16 @@ context({
             list(exists = TRUE, used_var = used_var, value = raw, value_num = num, correct = ok, expected = exp_chi2)
           }
 
-          results$perc_yes_male <- check_value(c("percentage_ja_bij_mannen"), exp_perc_yes_male, tol = 0.05)
-          results$perc_yes_female <- check_value(c("percentage_ja_bij_vrouwen"), exp_perc_yes_female, tol = 0.05)
-          results$perc_diff <- check_value(c("percentageverschil_ja"), exp_perc_diff, tol = 0.05)
+          results$perc_yes_male <- check_value(c("percentage_ja_bij_mannen"), exp_perc_yes_male, tol = 0.0051)
+          results$perc_yes_female <- check_value(c("percentage_ja_bij_vrouwen"), exp_perc_yes_female, tol = 0.0051)
+          results$perc_diff <- check_value(c("percentageverschil_ja"), exp_perc_diff, tol = 0.0051)
 
-          results$chi2 <- check_chi2(c("chi_kwadraat", "chi2"), tol = 0.3)
+          results$chi2 <- check_chi2(c("chi_kwadraat", "chi2"), tol = 0.0051)
 
           # For a 2x2 table: Phi and Cramer's V are both derived from chi^2
           results$assoc_mc <- check_choice(c("associatiemaat_mc"), correct_choices = c(1, 2))
 
-          results$phi <- check_value(c("phi"), exp_phi, tol = 0.02)
+          results$phi <- check_value(c("phi"), exp_phi, tol = 0.0051)
           results$interpret_mc <- check_choice(c("interpretatie_phi_mc"), correct_choices = c(1))
 
           assign("detailed_results", results, envir = globalenv())

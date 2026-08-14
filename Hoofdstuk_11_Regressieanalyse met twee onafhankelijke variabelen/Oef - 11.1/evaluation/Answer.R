@@ -27,24 +27,24 @@ context({
           )
 
           tol <- list(
-            afhankelijke_variabele = 0.4,
-            gemiddelde_x1   = 0.05,
-            gemiddelde_x2   = 0.05,
-            gemiddelde_y    = 0.05,
-            SSx1            = 0.5,
-            SSx2            = 0.5,
-            SSy             = 0.5,
-            SSx1x2          = 0.5,
-            SSx1y           = 0.5,
-            SSx2y           = 0.5,
-            determinant_D   = 1,
-            b1              = 0.05,
-            b2              = 0.05,
-            intercept_a     = 0.1,
-            voorspelling    = 0.1,
-            R_kwadraat      = 0.001,
-            richting_b1     = 0.4,
-            sterkste_predictor = 0.4
+            afhankelijke_variabele = 0,
+            gemiddelde_x1   = 0.0050001,
+            gemiddelde_x2   = 0.0050001,
+            gemiddelde_y    = 0.0050001,
+            SSx1            = 0,
+            SSx2            = 0,
+            SSy             = 0,
+            SSx1x2          = 0,
+            SSx1y           = 0,
+            SSx2y           = 0,
+            determinant_D   = 0,
+            b1              = 0.0050001,
+            b2              = 0.0050001,
+            intercept_a     = 0.0050001,
+            voorspelling    = 0.0050001,
+            R_kwadraat      = 0.0000501,
+            richting_b1     = 0,
+            sterkste_predictor = 0
           )
 
           parse_num <- function(x) {
@@ -355,8 +355,8 @@ context({
             if (isTRUE(r$ok)) {
               lines <- c(lines, paste0(
                 "✅ **", lbl, "**: ", fb$right, "\n\n",
-                "**Bevestiging:** de ingevoerde waarde of keuze is correct binnen de oorspronkelijke tolerantie.\n\n",
-                "**Waarom dit klopt:** de ingevoerde waarde of keuze valt binnen de oorspronkelijke beoordelingsregel en past bij de uitgewerkte berekening.\n\n",
+                "**Bevestiging:** de ingevoerde waarde of keuze is correct binnen de gevraagde nauwkeurigheid.\n\n",
+                "**Waarom dit klopt:** de ingevoerde waarde of keuze voldoet aan de gevraagde nauwkeurigheid en past bij de uitgewerkte berekening.\n\n",
                 "**Denkregel:** ", diag[[3]], "\n\n",
                 "**Volgende stap:** ", diag[[4]], "\n\n",
                 "**Transferstap:** pas dezelfde denkregel toe op een nieuwe dataset en controleer formule, schaal en interpretatie opnieuw."

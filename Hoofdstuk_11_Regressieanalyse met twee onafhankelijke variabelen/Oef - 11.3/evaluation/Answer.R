@@ -68,7 +68,7 @@ context({
           feedback_text <- paste0(feedback_text,
             "❌ **", qnames[[q]], "** — **Je hebt geen antwoord ingevoerd.**\n\n",
             "**Denkregel:** de evaluator heeft één puntletter nodig om de verticale afstanden te vergelijken.\n\n",
-            "**Volgende stap:** wijs een letter toe aan `uitbijter`, bijvoorbeeld `uitbijter <- \"B\"`.\n\n"
+            "**Volgende stap:** wijs aan `uitbijter` exact één letter A–F toe, tussen dubbele aanhalingstekens.\n\n"
           )
         } else if (r$correct) {
           feedback_text <- paste0(feedback_text,

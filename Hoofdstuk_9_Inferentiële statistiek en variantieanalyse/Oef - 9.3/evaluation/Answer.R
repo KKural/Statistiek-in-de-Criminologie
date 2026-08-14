@@ -38,11 +38,11 @@ context({
             list(exists = TRUE, value = raw, value_num = num, correct = ok, expected = expected)
           }
 
-          results$z_waarde          <- check_val("z_waarde",         exp_z,        tol = 0.01)
+          results$z_waarde          <- check_val("z_waarde",         exp_z,        tol = 0.0050001)
           results$sigma             <- check_val("sigma",            exp_sigma,    tol = 0)
           results$foutenmarge       <- check_val("foutenmarge",      exp_E,        tol = 0)
-          results$quotient          <- check_val("quotient",         exp_quotient, tol = 0.05)
-          results$n_voor_afronding  <- check_val("n_voor_afronding", exp_n_raw,    tol = 1)
+          results$quotient          <- check_val("quotient",         exp_quotient, tol = 0.0000501)
+          results$n_voor_afronding  <- check_val("n_voor_afronding", exp_n_raw,    tol = 0.0050001)
           results$n_minimum         <- check_val("n_minimum",        exp_n_min,    tol = 0)
 
           assign("detailed_results", results, envir = globalenv())

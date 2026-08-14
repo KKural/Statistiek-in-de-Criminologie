@@ -4,9 +4,9 @@ De assumptie van **normaliteit van de residuen** wordt gecontroleerd via een **Q
 
 ---
 
-<img src="media/qq_ok.png" alt="Figuur A: normaal verdeelde residuen" width="600">
+<img src="media/qq_a.png" alt="Q-Q plot van de residuen, figuur A" width="600">
 
-<img src="media/qq_violation.png" alt="Figuur B: scheve verdeling" width="600">
+<img src="media/qq_b.png" alt="Q-Q plot van de residuen, figuur B" width="600">
 
 ---
 

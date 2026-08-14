@@ -10,9 +10,9 @@ In **Model B** vervangt hij de risicoschaal door een **samengestelde risicoschaa
 
 ---
 
-<img src="media/vif_ok.png" alt="Figuur A: VIF Model A" width="580">
+<img src="media/vif_a.png" alt="VIF-uitvoer voor model A" width="580">
 
-<img src="media/vif_violation.png" alt="Figuur B: VIF Model B" width="580">
+<img src="media/vif_b.png" alt="VIF-uitvoer voor model B" width="580">
 
 ---
 

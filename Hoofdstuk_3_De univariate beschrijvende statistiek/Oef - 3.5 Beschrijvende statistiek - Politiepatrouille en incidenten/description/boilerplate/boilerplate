@@ -6,8 +6,7 @@
 
 # INSTRUCTIES:
 # - Vervang ??? door het juiste antwoord
-# - Gebruik een decimale PUNT (bijv. 2.58, niet 2,58)
-# - Voor interval data is standaarddeviatie de meest informatieve maat
+# - Gebruik een decimale PUNT (bijv. 12.34, niet 12,34)
 
 # STEP 1.1: GEMIDDELDE
 # Calculate the mean of the incident data
@@ -26,7 +25,7 @@ gekwadrateerde_afwijkingen <- c(???, ???, ???, ???, ???, ???, ???, ???, ???)
 sum_of_squares <- ???
 
 # STEP 3.1: VARIANTIE
-# Calculate the variance (sum of squares divided by N)
+# Calculate the sample variance (sum of squares divided by N - 1)
 variantie_incidenten <- ???
 
 # STEP 3.2: STANDAARDDEVIATIE

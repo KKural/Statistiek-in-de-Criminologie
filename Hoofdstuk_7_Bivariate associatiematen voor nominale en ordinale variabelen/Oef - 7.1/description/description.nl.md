@@ -56,12 +56,12 @@ Je berekent alles **met de hand** (rekenmachine mag).
 
 - 6) Extra + meerkeuze
 - `kans_no_bij_vrouwen` = P(NO | Vrouw) = (NO bij vrouwen) / (totaal vrouwen)
-- Meerkeuze: "Wat is de kans dat een willekeurige vrouw **geen** misdrijf pleegde?"
-  - A. 30%
-  - B. 15%
-  - C. 85%
-  - D. 6%
+- Meerkeuze: "Welke interpretatie van `P(NO | Vrouw)` is juist?"
+  - A. Het aandeel zonder misdrijf binnen de mannen.
+  - B. Het aandeel vrouwen binnen de personen zonder misdrijf.
+  - C. Het aandeel zonder misdrijf binnen de vrouwen.
+  - D. Het aandeel vrouwen zonder misdrijf binnen de volledige steekproef.
   - Zet je keuze in `antwoord_mc` (A=1, B=2, C=3, D=4)
 
-Afronden: percentages op 2 decimalen, odds op 4 decimalen, OR op 2 decimalen, chi^2 op 4 decimalen.
+Afronden: percentages op 2 decimalen, odds op 4 decimalen, OR op 2 decimalen, chi^2 op 4 decimalen. Noteer `kans_no_bij_vrouwen` als kans op 4 decimalen of als equivalent percentage op 2 decimalen.
 

@@ -78,27 +78,27 @@ $$R^2 = \frac{b_1 \cdot SSx_{1y} + b_2 \cdot SSx_{2y}}{SSy}$$
 
 ### Deel C: Sommen van kwadraten en kruisproducten
 
-- 5) **SSx₁** = Σ(x₁−x̄₁)²
+- 5) **SSx₁** = Σ(x₁−x̄₁)² — geheel getal
    - `SSx1`
 
-- 6) **SSx₂** = Σ(x₂−x̄₂)²
+- 6) **SSx₂** = Σ(x₂−x̄₂)² — geheel getal
    - `SSx2`
 
-- 7) **SSy** = Σ(Y−Ȳ)²
+- 7) **SSy** = Σ(Y−Ȳ)² — geheel getal
    - `SSy`
 
-- 8) **SSx₁x₂** = Σ(x₁−x̄₁)(x₂−x̄₂)
+- 8) **SSx₁x₂** = Σ(x₁−x̄₁)(x₂−x̄₂) — geheel getal
    - `SSx1x2`
 
-- 9) **SSx₁y** = Σ(x₁−x̄₁)(Y−Ȳ)
+- 9) **SSx₁y** = Σ(x₁−x̄₁)(Y−Ȳ) — geheel getal
    - `SSx1y`
 
-- 10) **SSx₂y** = Σ(x₂−x̄₂)(Y−Ȳ)
+- 10) **SSx₂y** = Σ(x₂−x̄₂)(Y−Ȳ) — geheel getal
     - `SSx2y`
 
 ### Deel D: Determinant
 
-- 11) **Determinant** D = SSx₁·SSx₂ − SSx₁x₂²
+- 11) **Determinant** D = SSx₁·SSx₂ − SSx₁x₂² — geheel getal
     - `determinant_D`
 
 ### Deel E: Regressiecoëfficiënten

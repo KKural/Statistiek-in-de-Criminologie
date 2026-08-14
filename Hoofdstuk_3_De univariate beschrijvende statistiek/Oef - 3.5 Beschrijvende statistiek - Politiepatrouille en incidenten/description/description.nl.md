@@ -1,4 +1,4 @@
-Een criminoloog onderzoekt of het **aantal uren patrouilleren per dag** door politieagenten een effect heeft op het **aantal geregistreerde incidenten per wijk**. Hij verzamelde onderstaande gegevens voor 9 wijken (AV = incidenten, OV = patrouille-uren).
+Een criminoloog onderzoekt of het **aantal uren patrouilleren per dag** door politieagenten een effect heeft op het **aantal geregistreerde incidenten per wijk**. Hij verzamelde onderstaande gegevens voor een **steekproef van 9 wijken** (AV = incidenten, OV = patrouille-uren).
 
 <table style="border-collapse: collapse; width: 60%; margin: 20px auto; font-family: Times, serif;">
   <thead>
@@ -28,6 +28,6 @@ Bereken de **meest relevante maat van spreiding** voor de afhankelijke variabele
 2. **Afwijkingen**: elke waarde minus het gemiddelde.
 3. **Kwadraten**: afwijkingen kwadrateren en optellen (*sum of squares*).
 4. **Steekproefvariantie**: `SS / (n - 1)`.
-5. **Standaarddeviatie**: wortel uit de variantie. Dit is de gekozen spreidingsmaat voor interval/ratio-gegevens.
+5. **Standaarddeviatie**: neem de wortel uit de variantie en vergelijk de interpretatie met de andere spreidingsmaten.
 
-Vervang `??` door het juiste antwoord. Gebruik een **decimale punt** en rond de standaarddeviatie af op **twee decimalen**.
+Vervang `???` door het juiste antwoord. Gebruik een **decimale punt** en rond de standaarddeviatie af op **twee decimalen**.
