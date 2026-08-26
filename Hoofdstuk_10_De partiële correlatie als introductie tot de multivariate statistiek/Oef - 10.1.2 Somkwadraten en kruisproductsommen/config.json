@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 10.1.2 Somkwadraten en kruisproductsommen"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "partiele-correlatie",
+    "somkwadraten",
+    "kruisproductsommen"
+  ],
+  "internals": {
+    "token": "cDYRWc4Z5Hycpf-txBPXCDzGXGrJVcGifrbkQBDAF_Wgurt4kahDX-rA5-JJkVcp",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

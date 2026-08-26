@@ -1,0 +1,23 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.3.5 Werkuren - Afwijkingen observaties 1-4"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ratio data",
+    "afwijkingen",
+    "gekwadrateerde afwijkingen"
+  ],
+  "internals": {
+    "token": "GyUkq8MH4PB5hFge8-bu37sMU_F4D4ZegR-5ZQxee5pSi484bhskD6aGHRGWGAk_",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

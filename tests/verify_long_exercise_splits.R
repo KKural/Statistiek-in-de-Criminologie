@@ -27,98 +27,98 @@ part_path <- function(chapter, folder) file.path(chapters[[chapter]], folder)
 
 cases <- list(
   "9.4.1" = list(
-    dir = part_path("ch9", "Oef - 9.4"),
+    dir = part_path("ch9", "Oef - 9.4.1 Groepsgemiddelden fietsdiefstallen"),
     values = list(gemiddelde_groot = 3190, gemiddelde_middel = 1580,
                   gemiddelde_ruraal = 484, grand_mean = 1751.33),
     choices = character()
   ),
   "9.4.2" = list(
-    dir = part_path("ch9", "Oef - 9.4.2 Deel 2 - binnengroepsvariatie"),
+    dir = part_path("ch9", "Oef - 9.4.2 Binnengroepsvariatie"),
     values = list(SS_within_groot = 1514000, SS_within_middel = 321000,
                   SS_within_ruraal = 52040, SS_within = 1887040,
                   df_within = 27, MS_within = 69890.37),
     choices = character()
   ),
   "9.4.3" = list(
-    dir = part_path("ch9", "Oef - 9.4.3 Deel 3 - tussengroepsvariatie en F-toets"),
+    dir = part_path("ch9", "Oef - 9.4.3 Tussengroepsvariatie en F-toets"),
     values = list(SS_between = 37052506.67, df_between = 2,
                   MS_between = 18526253.33, F_ratio = 265.08,
                   eta_kwadraat = 0.9515, significant_anova = 1),
     choices = "significant_anova"
   ),
   "10.1.1" = list(
-    dir = part_path("ch10", "Oef - 10.1"),
+    dir = part_path("ch10", "Oef - 10.1.1 Gemiddelden voor partiële correlatie"),
     values = list(X_bar = 1.8571, Y_bar = 2.1429, Z_bar = 15.5714),
     choices = character()
   ),
   "10.1.2" = list(
-    dir = part_path("ch10", "Oef - 10.1.2 Deel 2 - somkwadraten en kruisproductsommen"),
+    dir = part_path("ch10", "Oef - 10.1.2 Somkwadraten en kruisproductsommen"),
     values = list(SS_X = 28.8571, SS_Y = 10.8571, SS_Z = 13.7143,
                   SCP_XY = 8.1429, SCP_XZ = 8.5714, SCP_YZ = 6.4286),
     choices = character()
   ),
   "10.1.3" = list(
-    dir = part_path("ch10", "Oef - 10.1.3 Deel 3 - varianties en standaarddeviaties"),
+    dir = part_path("ch10", "Oef - 10.1.3 Varianties en standaarddeviaties"),
     values = list(Var_X = 4.8095, Var_Y = 1.8095, Var_Z = 2.2857,
                   SD_X = 2.1931, SD_Y = 1.3452, SD_Z = 1.5119),
     choices = character()
   ),
   "10.1.4" = list(
-    dir = part_path("ch10", "Oef - 10.1.4 Deel 4 - covarianties en bivariate correlaties"),
+    dir = part_path("ch10", "Oef - 10.1.4 Covarianties en bivariate correlaties"),
     values = list(Cov_XY = 1.3571, Cov_XZ = 1.4286, Cov_YZ = 1.0714,
                   r_XY = 0.4600, r_XZ = 0.4309, r_YZ = 0.5268),
     choices = character()
   ),
   "10.1.5" = list(
-    dir = part_path("ch10", "Oef - 10.1.5 Deel 5 - partiële correlatie en interpretatie"),
+    dir = part_path("ch10", "Oef - 10.1.5 Partiële correlatie en interpretatie"),
     values = list(r_XY_teller = 0.2330, r_XY_noemer = 0.7670,
                   r_XY_Z = 0.3038, conclusie_type = 2),
     choices = "conclusie_type"
   ),
   "11.1.1" = list(
-    dir = part_path("ch11", "Oef - 11.1"),
+    dir = part_path("ch11", "Oef - 11.1.1 Variabelen en gemiddelden"),
     values = list(afhankelijke_variabele = 3, gemiddelde_x1 = 3.00,
                   gemiddelde_x2 = 7.00, gemiddelde_y = 18.00),
     choices = "afhankelijke_variabele"
   ),
   "11.1.2" = list(
-    dir = part_path("ch11", "Oef - 11.1.2 Deel 2 - somkwadraten en kruisproducten"),
+    dir = part_path("ch11", "Oef - 11.1.2 Somkwadraten en kruisproducten"),
     values = list(SSx1 = 10, SSx2 = 30, SSy = 80,
                   SSx1x2 = 0, SSx1y = -22, SSx2y = 30),
     choices = character()
   ),
   "11.1.3" = list(
-    dir = part_path("ch11", "Oef - 11.1.3 Deel 3 - regressiemodel en voorspelling"),
+    dir = part_path("ch11", "Oef - 11.1.3 Regressiemodel en voorspelling"),
     values = list(determinant_D = 300, b1 = -2.20, b2 = 1.00,
                   intercept_a = 17.60, voorspelling = 19.00,
                   R_kwadraat = 0.9800),
     choices = character()
   ),
   "11.1.4" = list(
-    dir = part_path("ch11", "Oef - 11.1.4 Deel 4 - interpretatie van regressiegewichten"),
+    dir = part_path("ch11", "Oef - 11.1.4 Interpretatie van regressiegewichten"),
     values = list(richting_b1 = 2, sterkste_predictor = 1),
     choices = c("richting_b1", "sterkste_predictor")
   ),
   "11.6.1" = list(
-    dir = part_path("ch11", "Oef - 11.6"),
+    dir = part_path("ch11", "Oef - 11.6.1 Basisconcepten meervoudige regressie"),
     values = as.list(c(vraag1 = 2, vraag2 = 3, vraag3 = 2, vraag4 = 2,
                        vraag5 = 2, vraag6 = 1, vraag7 = 1)),
     choices = paste0("vraag", 1:7)
   ),
   "11.6.2" = list(
-    dir = part_path("ch11", "Oef - 11.6.2 Deel 2 - modelvergelijking en interpretatie"),
+    dir = part_path("ch11", "Oef - 11.6.2 Modelvergelijking en interpretatie"),
     values = as.list(c(vraag8 = 1, vraag9 = 1, vraag10 = 1, vraag11 = 2,
                        vraag12 = 2, vraag13 = 3, vraag14 = 3)),
     choices = paste0("vraag", 8:14)
   ),
   "11.7.1" = list(
-    dir = part_path("ch11", "Oef - 11.7"),
+    dir = part_path("ch11", "Oef - 11.7.1 Modelfit en ANOVA-output"),
     values = as.list(c(vraag1 = 2, vraag2 = 4, vraag3 = 3,
                        vraag4 = 4, vraag5 = 3)),
     choices = paste0("vraag", 1:5)
   ),
   "11.7.2" = list(
-    dir = part_path("ch11", "Oef - 11.7.2 Deel 2 - regressieparameters en voorspelling"),
+    dir = part_path("ch11", "Oef - 11.7.2 Regressieparameters en voorspelling"),
     values = as.list(c(vraag6 = 3, vraag7 = 1, vraag8 = 2,
                        vraag9 = 3, vraag10 = 3, vraag11 = 4)),
     choices = paste0("vraag", 6:11)
@@ -153,27 +153,12 @@ if (!identical(actual_counts, expected_counts)) {
   ))
 }
 
-originals <- c(
-  file.path(chapters$ch9, "Oef - 9.4"),
-  file.path(chapters$ch10, "Oef - 10.1"),
-  file.path(chapters$ch11, "Oef - 11.1"),
-  file.path(chapters$ch11, "Oef - 11.6"),
-  file.path(chapters$ch11, "Oef - 11.7")
-)
-for (dir in originals) {
-  config_text <- paste(readLines(file.path(dir, "config.json"), warn = FALSE, encoding = "UTF-8"),
-                       collapse = "\n")
-  if (!grepl('"internals"', config_text, fixed = TRUE) ||
-      !grepl('"token"', config_text, fixed = TRUE)) {
-    stop("Original part lost its Dodona token: ", dir)
-  }
-}
-for (case in cases[!vapply(cases, function(x) x$dir %in% originals, logical(1))]) {
+for (case in cases) {
   config_text <- paste(readLines(file.path(case$dir, "config.json"), warn = FALSE,
                                 encoding = "UTF-8"), collapse = "\n")
-  if (grepl('"internals"', config_text, fixed = TRUE)) {
-    stop("A new split part contains internals instead of awaiting Dodona bookkeeping: ",
-         case$dir)
+  if (!grepl('"internals"', config_text, fixed = TRUE) ||
+      !grepl('"token"', config_text, fixed = TRUE)) {
+    stop("Split activity has no Dodona token: ", case$dir)
   }
 }
 

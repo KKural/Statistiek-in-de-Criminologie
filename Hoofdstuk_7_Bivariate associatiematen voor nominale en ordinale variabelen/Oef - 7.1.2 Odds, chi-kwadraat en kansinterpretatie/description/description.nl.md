@@ -1,3 +1,5 @@
+## Oef - 7.1.2 Geslacht en crimineel gedrag — Odds en samenhang
+
 Een onderzoeker wil nagaan of er een verband is tussen **geslacht** en **crimineel gedrag**. In een representatieve steekproef van 2.000 volwassenen werd het volgende gevonden:
 
 | Crimineel gedrag | Man | Vrouw |

@@ -208,6 +208,21 @@ for (index in seq_along(configs)) {
   }
 
   if (split_target) {
+    description_first_line <- strsplit(description, "\n", fixed = TRUE)[[1L]][[1L]]
+    expected_heading <- paste0("## ", display_name)
+    if (!identical(trimws(description_first_line), expected_heading)) {
+      failures <- c(
+        failures,
+        sprintf("%s: first description heading does not match the numeric Dodona title", activity_dir)
+      )
+    }
+    legacy_code_pattern <- paste0(
+      "3\\.2[a-d]|3\\.3(?:a2|d[2-5]|[a-e])|",
+      "3\\.4(?:a[23]|c[23]|[a-d])"
+    )
+    if (grepl(legacy_code_pattern, paste(display_name, description), perl = TRUE)) {
+      failures <- c(failures, sprintf("%s: legacy letter-based exercise code remains visible", activity_dir))
+    }
     if (grepl("???", boilerplate, fixed = TRUE)) {
       failures <- c(failures, sprintf("%s: split part still contains syntax-invalid ???", activity_dir))
     }
@@ -284,22 +299,57 @@ exercise_parts <- c(
 
 activity_basenames <- basename(dirname(configs))
 for (exercise in names(exercise_parts)) {
-  pattern <- paste0("^Oef\\s*-\\s*", gsub("\\.", "\\\\.", exercise), "(?:[^0-9]|$)")
-  found <- sum(grepl(pattern, activity_basenames, perl = TRUE))
+  escaped_exercise <- gsub("\\.", "\\\\.", exercise)
+  pattern <- paste0("^Oef\\s*-\\s*", escaped_exercise, "\\.([0-9]+)(?:\\s|$)")
+  extract_pattern <- paste0("^Oef\\s*-\\s*", escaped_exercise, "\\.([0-9]+)(?:\\s.*)?$")
+  family_matches <- grepl(pattern, activity_basenames, perl = TRUE)
+  found <- sum(family_matches)
   if (found != exercise_parts[[exercise]]) {
     failures <- c(
       failures,
       sprintf("Exercise %s: expected %d split activities, found %d", exercise, exercise_parts[[exercise]], found)
     )
   }
-  family_token_count <- sum(grepl(pattern, basename(dirname(token_files)), perl = TRUE))
-  if (family_token_count != 1L) {
+  found_codes <- sub(extract_pattern, paste0(exercise, ".\\1"), activity_basenames[family_matches], perl = TRUE)
+  expected_codes <- paste0(exercise, ".", seq_len(exercise_parts[[exercise]]))
+  if (!setequal(found_codes, expected_codes)) {
     failures <- c(
       failures,
       sprintf(
-        "Exercise %s: expected exactly one retained original Dodona token, found %d",
+        "Exercise %s: expected continuous codes %s; found %s",
         exercise,
-        family_token_count
+        paste(expected_codes, collapse = ", "),
+        paste(sort(found_codes), collapse = ", ")
+      )
+    )
+  }
+
+  family_activities <- activities[family_matches]
+  for (item in family_activities) {
+    folder <- basename(item$dir)
+    code <- sub(extract_pattern, paste0(exercise, ".\\1"), folder, perl = TRUE)
+    title <- as.character(item$config$description$names$nl %||% "")
+    if (!startsWith(title, paste0("Oef - ", code, " "))) {
+      failures <- c(failures, sprintf("%s: Dodona title does not start with its numeric code %s", folder, code))
+    }
+    if (grepl("\\bDeel\\s+[0-9]+", title, perl = TRUE)) {
+      failures <- c(failures, sprintf("%s: Dodona title still uses a redundant Deel label", folder))
+    }
+  }
+
+  family_token_folders <- basename(dirname(token_files))[grepl(
+    paste0("^Oef\\s*-\\s*", escaped_exercise, "\\.[0-9]+(?:\\s|$)"),
+    basename(dirname(token_files)),
+    perl = TRUE
+  )]
+  family_token_codes <- sub(extract_pattern, paste0(exercise, ".\\1"), family_token_folders, perl = TRUE)
+  if (!setequal(family_token_codes, expected_codes)) {
+    failures <- c(
+      failures,
+      sprintf(
+        "Exercise %s: expected a unique Dodona token for every split activity; token-bearing codes are %s",
+        exercise,
+        paste(sort(family_token_codes), collapse = ", ")
       )
     )
   }
@@ -327,6 +377,6 @@ if (length(failures)) {
 }
 
 cat(sprintf(
-  "Exercise-authoring quality passed for %d activities; all 10 long exercises are split, learner slots were checked textually, and no explicit Hint/Tip or NA/NULL boilerplate placeholders remain.\n",
+  "Exercise-authoring quality passed for %d activities; all 10 expanded families use continuous numeric sub-numbering, learner slots were checked textually, and no explicit Hint/Tip or NA/NULL boilerplate placeholders remain.\n",
   length(configs)
 ))

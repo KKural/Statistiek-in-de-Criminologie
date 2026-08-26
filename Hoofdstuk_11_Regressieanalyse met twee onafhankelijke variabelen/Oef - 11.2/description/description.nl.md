@@ -1,4 +1,4 @@
-In deze oefening oefen je met **meervoudige regressie-analyse** (met twee onafhankelijke variabelen) aan de hand van een interactieve Shiny-app. De app genereert criminologische datasets en laat je alle tussenstappen handmatig berekenen — vergelijkbaar met Oefening 11.1, maar nu met directe feedback.
+In deze oefening oefen je met **meervoudige regressie-analyse** (met twee onafhankelijke variabelen) aan de hand van een interactieve Shiny-app. De app genereert criminologische datasets en laat je alle tussenstappen handmatig berekenen — vergelijkbaar met oefeningen 11.1.1 tot en met 11.1.4, maar nu met directe feedback.
 
 ---
 

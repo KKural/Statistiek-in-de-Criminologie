@@ -1,0 +1,23 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.4.3 Huwelijksduur - Frequenties en percentages (150-1657 dagen)"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "huwelijksduur",
+    "frequentietabel",
+    "percentages"
+  ],
+  "internals": {
+    "token": "UrtQ_avid32qCJc6Hf5iHnW3HuQia667yKz_dy4jkK36hQY5VV5vv8RgFNBMuE-m",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

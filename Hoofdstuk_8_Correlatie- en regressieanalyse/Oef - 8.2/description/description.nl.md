@@ -1,4 +1,4 @@
-In deze oefening oefen je met **correlatie-analyse** en **bivariate lineaire regressie** aan de hand van een interactieve Shiny-app. De app genereert criminologische datasets en laat je alle tussenstappen handmatig berekenen, vergelijkbaar met Oefening 8.1, maar nu met directe feedback.
+In deze oefening oefen je met **correlatie-analyse** en **bivariate lineaire regressie** aan de hand van een interactieve Shiny-app. De app genereert criminologische datasets en laat je alle tussenstappen handmatig berekenen, vergelijkbaar met oefeningen 8.1.1 en 8.1.2, maar nu met directe feedback.
 
 ---
 

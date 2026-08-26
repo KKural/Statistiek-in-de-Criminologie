@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.4.8 Huwelijksduur - Variantie en standaardafwijking"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "huwelijksduur",
+    "sum of squares",
+    "variantie",
+    "standaardafwijking"
+  ],
+  "internals": {
+    "token": "3tVpt373trpbfjGzMp-AVipfvfFRuqUs4C2MhDdhnn7Xty3uHNgncn6d-v62f7-P",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

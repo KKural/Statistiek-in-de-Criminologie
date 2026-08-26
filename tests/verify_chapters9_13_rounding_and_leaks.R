@@ -94,7 +94,7 @@ wrong_93 <- correct_93
 wrong_93$quotient <- 44.1001
 expect_score(run_93(wrong_93), FALSE, "9.3 incorrect fourth decimal")
 
-run_94 <- load_evaluator(exercise_file("^Hoofdstuk_9_", "9.4", "evaluation", "Answer.R"))
+run_94 <- load_evaluator(exercise_file("^Hoofdstuk_9_", "9.4.1 Groepsgemiddelden fietsdiefstallen", "evaluation", "Answer.R"))
 correct_94 <- list(
   gemiddelde_groot = 3190, gemiddelde_middel = 1580, gemiddelde_ruraal = 484,
   grand_mean = 1751.33, SS_within_groot = 1514000, SS_within_middel = 321000,
@@ -116,7 +116,7 @@ wrong_95 <- correct_95
 wrong_95$vraag1 <- 2.4
 expect_score(run_95(wrong_95), FALSE, "9.5 decimal choice")
 
-run_101 <- load_evaluator(exercise_file("^Hoofdstuk_10_", "10.1", "evaluation", "Answer.R"))
+run_101 <- load_evaluator(exercise_file("^Hoofdstuk_10_", "10.1.1 Gemiddelden voor partiële correlatie", "evaluation", "Answer.R"))
 correct_101 <- list(
   X_bar = 1.8571, Y_bar = 2.1429, Z_bar = 15.5714,
   SS_X = 28.8571, SS_Y = 10.8571, SS_Z = 13.7143,
@@ -167,7 +167,7 @@ wrong_105 <- correct_105
 wrong_105$vraag1 <- 2.4
 expect_score(run_105(wrong_105), FALSE, "10.5 decimal choice")
 
-run_111 <- load_evaluator(exercise_file("^Hoofdstuk_11_", "11.1", "evaluation", "Answer.R"))
+run_111 <- load_evaluator(exercise_file("^Hoofdstuk_11_", "11.1.1 Variabelen en gemiddelden", "evaluation", "Answer.R"))
 correct_111 <- list(
   afhankelijke_variabele = 3, gemiddelde_x1 = 3.00, gemiddelde_x2 = 7.00,
   gemiddelde_y = 18.00, SSx1 = 10, SSx2 = 30, SSy = 80, SSx1x2 = 0,
@@ -205,7 +205,7 @@ if (grepl("komt overeen met de .*gecorrigeerde", result_115_85$message, ignore.c
 }
 expect_score(run_115(list(r_kwadraat_pct = 88)), FALSE, "11.5 upper neighbour")
 
-run_116 <- load_evaluator(exercise_file("^Hoofdstuk_11_", "11.6", "evaluation", "Answer.R"))
+run_116 <- load_evaluator(exercise_file("^Hoofdstuk_11_", "11.6.1 Basisconcepten meervoudige regressie", "evaluation", "Answer.R"))
 correct_116 <- as.list(c(
   vraag1 = 2, vraag2 = 3, vraag3 = 2, vraag4 = 2, vraag5 = 2, vraag6 = 1,
   vraag7 = 1, vraag8 = 1, vraag9 = 1, vraag10 = 1, vraag11 = 2,
@@ -216,7 +216,7 @@ wrong_116 <- correct_116
 wrong_116$vraag1 <- 2.4
 expect_score(run_116(wrong_116), FALSE, "11.6 decimal choice")
 
-run_117 <- load_evaluator(exercise_file("^Hoofdstuk_11_", "11.7", "evaluation", "Answer.R"))
+run_117 <- load_evaluator(exercise_file("^Hoofdstuk_11_", "11.7.1 Modelfit en ANOVA-output", "evaluation", "Answer.R"))
 correct_117 <- as.list(c(
   vraag1 = 2, vraag2 = 4, vraag3 = 3, vraag4 = 4, vraag5 = 3, vraag6 = 3,
   vraag7 = 1, vraag8 = 2, vraag9 = 3, vraag10 = 3, vraag11 = 4
@@ -231,8 +231,8 @@ leak_targets <- c(
   exercise_file("^Hoofdstuk_10_", "10.3", "description", "description.nl.md"),
   exercise_file("^Hoofdstuk_10_", "10.3", "description", "boilerplate", "boilerplate"),
   exercise_file("^Hoofdstuk_10_", "10.5", "description", "description.nl.md"),
-  exercise_file("^Hoofdstuk_11_", "11.6", "description", "description.nl.md"),
-  exercise_file("^Hoofdstuk_11_", "11.7", "description", "description.nl.md")
+  exercise_file("^Hoofdstuk_11_", "11.6.1 Basisconcepten meervoudige regressie", "description", "description.nl.md"),
+  exercise_file("^Hoofdstuk_11_", "11.7.1 Modelfit en ANOVA-output", "description", "description.nl.md")
 )
 leak_text <- paste(vapply(
   leak_targets,

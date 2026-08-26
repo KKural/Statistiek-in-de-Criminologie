@@ -1,0 +1,23 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.2.2 Tevredenheid - Relatieve frequenties"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "frequentietabel",
+    "relatieve frequentie",
+    "ordinale data"
+  ],
+  "internals": {
+    "token": "n3_ntk5WJEpenxGpx7ViReEazqWrV2NG4hh8na7QDVPYM9PufwHnRgUWjeMYhqV-",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

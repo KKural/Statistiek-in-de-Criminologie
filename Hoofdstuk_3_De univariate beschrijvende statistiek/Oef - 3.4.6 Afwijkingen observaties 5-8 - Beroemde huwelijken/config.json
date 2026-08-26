@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.4.6 Huwelijksduur - Afwijkingen observaties 5-8"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "huwelijksduur",
+    "afwijkingen",
+    "gekwadrateerde afwijkingen",
+    "uitbijters"
+  ],
+  "internals": {
+    "token": "rtqF44yNUN5gVxAKanZvueUCNGVnz7FQ9beTtdunrgKhWS6UcXhTWnSiR9eN6NuX",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

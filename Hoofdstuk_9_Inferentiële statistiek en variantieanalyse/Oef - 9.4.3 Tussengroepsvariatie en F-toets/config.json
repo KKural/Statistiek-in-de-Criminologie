@@ -1,0 +1,25 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 9.4.3 Tussengroepsvariatie en F-toets"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ANOVA",
+    "tussengroepsvariatie",
+    "F-toets",
+    "effectgrootte"
+  ],
+  "internals": {
+    "token": "x6t-qhgc4ZwHvuRPQdhMsbzeV6bGBebB4rjT24m6PPsGfcUtwVjwQRYMHVjZ5Cm9",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

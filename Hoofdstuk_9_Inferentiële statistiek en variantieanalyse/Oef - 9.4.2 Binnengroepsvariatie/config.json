@@ -1,0 +1,25 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 9.4.2 Binnengroepsvariatie"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ANOVA",
+    "binnengroepsvariatie",
+    "SS-within",
+    "MS-within"
+  ],
+  "internals": {
+    "token": "vHUDxU3JykXi26xKxH2QZbq2tTwS9XGA8Jx9_yEB-qfJ2gcFNvsM9-cUij-mNHGW",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

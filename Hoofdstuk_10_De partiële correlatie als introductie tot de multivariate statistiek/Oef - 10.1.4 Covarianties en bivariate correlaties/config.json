@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 10.1.4 Covarianties en bivariate correlaties"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "partiele-correlatie",
+    "covariantie",
+    "bivariate-correlatie"
+  ],
+  "internals": {
+    "token": "aXn6yEP5X2BAQztswv6GwQQ5GsCedbAjQ456qhbp8RgwHdJbkZhF4ueUNkQxQCbw",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

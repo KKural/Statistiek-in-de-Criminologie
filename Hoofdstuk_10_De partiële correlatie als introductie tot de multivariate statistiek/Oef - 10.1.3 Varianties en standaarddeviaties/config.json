@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 10.1.3 Varianties en standaarddeviaties"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "partiele-correlatie",
+    "variantie",
+    "standaarddeviatie"
+  ],
+  "internals": {
+    "token": "auevrTXTgQM3YUujtUFwZ9P-3hrfugq-dhGKUmWzn3VergEedVtfcewZNyM29v7u",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

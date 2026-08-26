@@ -92,7 +92,7 @@ expect_score(run_54(list(vraag_a = 38.30, vraag_b = 15.87)), TRUE, "5.4 rounded 
 expect_score(run_54(list(vraag_a = 38.31, vraag_b = 15.87)), FALSE, "5.4 incorrect hundredth")
 
 run_71_part1 <- load_evaluator(exercise_file(
-  "^Hoofdstuk_7_", "7.1", "evaluation", "Answer.R"
+  "^Hoofdstuk_7_", "7.1.1 Percentages - Geslacht en crimineel gedrag", "evaluation", "Answer.R"
 ))
 correct_71_part1 <- list(
   percentage_mannen = 61.50, percentage_vrouwen = 38.50,
@@ -138,7 +138,7 @@ wrong_72$phi <- 0.19
 expect_score(run_72(wrong_72), FALSE, "7.2 broad-tolerance regression")
 
 run_81_part1 <- load_evaluator(exercise_file(
-  "^Hoofdstuk_8_", "8.1", "evaluation", "Answer.R"
+  "^Hoofdstuk_8_", "8.1.1 Somkwadraten - Koffieprijs en ontbossing", "evaluation", "Answer.R"
 ))
 correct_81_part1 <- list(
   verklarende_variabele = 1, gemiddelde_x = 50.00, gemiddelde_y = 1.7380,
@@ -173,7 +173,7 @@ missing_81_part2$verklaring_euro <- NULL
 expect_score(run_81_part2(missing_81_part2), FALSE, "8.1 part 2 missing explanation")
 
 boilerplate_81 <- paste(readLines(exercise_file(
-  "^Hoofdstuk_8_", "8.1", "description", "boilerplate", "boilerplate"
+  "^Hoofdstuk_8_", "8.1.1 Somkwadraten - Koffieprijs en ontbossing", "description", "boilerplate", "boilerplate"
 ), warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 required_81 <- c(
   "verklarende_variabele", "gemiddelde_x", "gemiddelde_y", "SSx", "SSy", "SSxy"

@@ -1,0 +1,24 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 11.1.2 Somkwadraten en kruisproducten"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "meervoudige-regressie",
+    "somkwadraten",
+    "kruisproducten"
+  ],
+  "internals": {
+    "token": "8YQMtnksAsA5KPVz2UH6FGqsHKNZPbte8_UsEN4pPNcA-WX-wgZScEcWmW7TifiK",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
