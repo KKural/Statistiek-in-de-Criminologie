@@ -126,7 +126,8 @@ context({
               exp_e11 = exp_e11,
               exp_e12 = exp_e12,
               exp_e21 = exp_e21,
-              exp_e22 = exp_e22
+              exp_e22 = exp_e22,
+              exp_chi2 = exp_chi2
             ),
             envir = globalenv()
           )
@@ -540,13 +541,13 @@ context({
             }
 
             # Gave p-value
-            p_val <- suppressWarnings(pchisq(exp_chi2, df = 1, lower.tail = FALSE))
+            p_val <- suppressWarnings(pchisq(cst$exp_chi2, df = 1, lower.tail = FALSE))
             if (!is.na(p_val) && val_num < 0.001) {
               return("**Waarom dit fout is:** Je gaf een zeer kleine waarde - dit lijkt de p-waarde.\n\n**Wat er mogelijk gebeurde:** Je rapporteerde de significantie in plaats van de teststatistiek.\n\n**Wat je miste:** Gevraagd is χ² (chi-kwadraat), niet de p-waarde.\n\n**Uitleg:** Sommeer (O-E)²/E over alle cellen = **59.1983**.")
             }
 
             # Gave Phi or Cramer's V
-            phi <- sqrt(exp_chi2 / total)
+            phi <- sqrt(cst$exp_chi2 / cst$total)
             if (approx_eq(val_num, phi, tol = 0.01)) {
               return("**Waarom dit fout is:** Je gaf ongeveer 0.172 = √(χ²/N) = Phi.\n\n**Wat er mogelijk gebeurde:** Je berekende de effectgrootte in plaats van de teststatistiek.\n\n**Wat je miste:** χ² = som van (O-E)²/E, Phi = √(χ²/N).\n\n**Uitleg:** χ² = **59.1983**, Phi ≈ 0.172.")
             }
@@ -564,7 +565,7 @@ context({
             }
 
             # Divided by N again
-            if (approx_eq(val_num, exp_chi2 / total, tol = 0.01)) {
+            if (approx_eq(val_num, cst$exp_chi2 / cst$total, tol = 0.01)) {
               return("**Waarom dit fout is:** Je gaf ongeveer 0.0296 = χ²/N.\n\n**Wat er mogelijk gebeurde:** Je deelde χ² nog eens door 2000.\n\n**Wat je miste:** Bij χ² deel je per cel door E, niet nog eens door N.\n\n**Uitleg:** χ² = **59.1983** (geen extra deling door N).")
             }
 
