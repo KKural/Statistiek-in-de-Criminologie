@@ -1,0 +1,9 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {"names": {"nl": "Oef - 3.4c2 Huwelijksduur - Afwijkingen observaties 5-8"}},
+  "evaluation": {"handler": "r"},
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": ["huwelijksduur", "afwijkingen", "gekwadrateerde afwijkingen", "uitbijters"]
+}

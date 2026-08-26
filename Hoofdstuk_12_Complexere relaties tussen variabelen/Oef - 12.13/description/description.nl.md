@@ -17,6 +17,4 @@ De assumptie van **normaliteit van de residuen** wordt gecontroleerd via een **Q
 3. Beide figuren tonen een schending van normaliteit.
 4. Geen van beide figuren toont een schending van normaliteit.
 
-**Hint:** *Punten die de diagonaal goed volgen wijzen op normaal verdeelde residuen. Een opwaartse of neerwaartse buiging aan de uiteinden duidt op een scheve verdeling (rechts respectievelijk links scheef).*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

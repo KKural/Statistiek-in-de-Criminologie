@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.3b Werkuren - Centraliteit en spreiding"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ratio data",
+    "centraliteit",
+    "kwartielen",
+    "spreiding"
+  ]
+}

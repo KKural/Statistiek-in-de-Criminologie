@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 7.1 Geslacht en crimineel gedrag"
+      "nl": "Oef - 7.1 Geslacht en crimineel gedrag — Deel 1: percentages"
     }
   },
   "evaluation": {
@@ -15,8 +15,7 @@
   "labels": [
     "kruistabel",
     "percentages",
-    "odds ratio",
-    "chi-kwadraat"
+    "conditionele percentages"
   ],
   "internals": {
     "token": "x_eIEUexA6QNNjUYZYKZyIvRGB35w-KFx3gQUK7wm9yEhHtVrBKkP8mYyVbmJcZD",

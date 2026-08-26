@@ -7,4 +7,4 @@ Analyseer deze onderzoeksvraag en bepaal:
 3. Het meetniveau
 4. De mogelijke waarden
 
-Vervang "??" door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.
+Vervang `???` door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.

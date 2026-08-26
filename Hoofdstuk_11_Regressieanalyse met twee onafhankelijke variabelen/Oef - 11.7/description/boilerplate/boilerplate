@@ -1,39 +1,8 @@
-# ============================================================================
-# OEFENING 11.7: Output lezen - meervoudige regressie (vaste dataset)
-# ============================================================================
-# Lees de regressie-output in de opgave en beantwoord elke vraag.
-# Vervang ??? door 1, 2, 3 of 4.
-# ============================================================================
+# OEFENING 11.7 - DEEL 1 VAN 2
+# Lees de model-fit en ANOVA-output. Vul na <- één optienummer per vraag in.
 
-# 1) Multiple R (afgerond op 2 decimalen)
-vraag1 <- ???
-
-# 2) R² als percentage verklaarde variantie
-vraag2 <- ???
-
-# 3) Percentage NIET verklaarde variantie
-vraag3 <- ???
-
-# 4) Aantal observaties N
-vraag4 <- ???
-
-# 5) F-statistiek en significantie van het model
-vraag5 <- ???
-
-# 6) Intercept en betekenis
-vraag6 <- ???
-
-# 7) b1 voor WanordeIndex en interpretatie
-vraag7 <- ???
-
-# 8) Sterkste relatieve effect en parameter
-vraag8 <- ???
-
-# 9) Significante regressieparameter(s)
-vraag9 <- ???
-
-# 10) Betekenis 95%-CI voor b1 = [-44.02, 71.12]
-vraag10 <- ???
-
-# 11) Verwachte AngstScore voor WanordeIndex=7, ZwerfvuilKlachten=45
-vraag11 <- ???
+vraag1 <-
+vraag2 <-
+vraag3 <-
+vraag4 <-
+vraag5 <-

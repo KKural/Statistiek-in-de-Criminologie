@@ -1,0 +1,9 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {"names": {"nl": "Oef - 3.3d5 Werkuren - Afwijkingen observaties 17-20"}},
+  "evaluation": {"handler": "r"},
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": ["ratio data", "afwijkingen", "gekwadrateerde afwijkingen"]
+}

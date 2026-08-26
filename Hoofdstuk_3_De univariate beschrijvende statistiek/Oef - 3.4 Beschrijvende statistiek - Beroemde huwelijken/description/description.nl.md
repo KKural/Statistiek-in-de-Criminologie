@@ -1,72 +1,11 @@
-In een onderzoek naar de **huwelijksduur van beroemdheden** werden de lengtes van celebrity-huwelijken geregistreerd. Van een **steekproef van 11 bekende koppels** werd de huwelijksduur in dagen vastgelegd.
+## Deel 1A — Frequenties en percentages
 
-De individuele waarden zijn:
+In een steekproef van elf beroemde koppels werd de huwelijksduur in dagen geregistreerd:
 
-`240  144  143  72  30  26  2  150  14  150  1657`
+`240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657`
 
-**Tabel 1**
+**Leerdoel:** een compacte frequentietabel voor numerieke data opbouwen.
 
-*Celebrity Huwelijksduur Dataset*
+Vul voor de oplopende unieke waarden `2, 14, 26, 30` de absolute frequenties en de percentages in. Rond percentages af op twee decimalen en gebruik geen procentteken.
 
-<table style="border-collapse: collapse; width: 75%; margin: 20px auto; font-family: Times, serif;">
-<thead>
-<tr style="border-top: 2px solid #000; border-bottom: 2px solid #000;">
-<th style="padding: 6px 8px; text-align: left; font-weight: bold; width: 60%;">Celebrity Paar</th>
-<th style="padding: 6px 8px; text-align: center; font-weight: bold; width: 40%;">Huwelijksduur<br>(dagen)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Elizabeth Taylor & Larry Fortensky</td>
-<td style="padding: 4px 8px; text-align: center;">240</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Britney Spears & Jason Alexander</td>
-<td style="padding: 4px 8px; text-align: center;">144</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Kim Kardashian & Kris Humphries</td>
-<td style="padding: 4px 8px; text-align: center;">143</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Carmen Electra & Dennis Rodman</td>
-<td style="padding: 4px 8px; text-align: center;">72</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Renée Zellweger & Kenny Chesney</td>
-<td style="padding: 4px 8px; text-align: center;">30</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Jennifer Lopez & Cris Judd</td>
-<td style="padding: 4px 8px; text-align: center;">26</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Britney Spears & Kevin Federline</td>
-<td style="padding: 4px 8px; text-align: center;">2</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Drew Barrymore & Jeremy Thomas</td>
-<td style="padding: 4px 8px; text-align: center;">150</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Mario Lopez & Ali Landry</td>
-<td style="padding: 4px 8px; text-align: center;">14</td>
-</tr>
-<tr>
-<td style="padding: 4px 8px; text-align: left;">Nicolas Cage & Lisa Marie Presley</td>
-<td style="padding: 4px 8px; text-align: center;">150</td>
-</tr>
-<tr style="border-bottom: 2px solid #000;">
-<td style="padding: 4px 8px; text-align: left;">Jennifer Aniston & Brad Pitt</td>
-<td style="padding: 4px 8px; text-align: center;">1657</td>
-</tr>
-</tbody>
-</table>
-
-*Noot.* Dataset bevat n=11 celebrity huwelijken met duur in dagen. Jennifer Aniston & Brad Pitt (1657 dagen) vormt extreme uitbijter.
-
-**Belangrijk:** Let op de extreme waarde (1657 dagen) - dit is een duidelijke uitbijter die de analyses zal beïnvloeden!
-
-Analyseer deze gegevens en bereken de gevraagde beschrijvende statistieken.
-
-Vervang "??" door het juiste antwoord. Gebruik voor niet-gehele numerieke antwoorden steeds een punt als decimaalteken en rond af op **twee decimalen**. Gebruik in elke vervolgstap de afgeronde waarde uit de vorige stap: rond het gemiddelde en de afwijkingen af op twee decimalen en kwadrateer vervolgens die afgeronde afwijkingen. Een neutraal notatievoorbeeld is `12.34` (niet `12,34`).
+Vul elk getal in op de lege plaatsen in de vectoren in het codebestand.

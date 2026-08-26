@@ -1,0 +1,8 @@
+# Oefening 10.1 - Deel 5 van 5
+# Gebruik de correlaties met extra precisie en rond alleen elk eindresultaat af op vier decimalen.
+# Vul de getallen of optienummers in na <-.
+
+r_XY_teller <-
+r_XY_noemer <-
+r_XY_Z <-
+conclusie_type <-   # optie 1, 2, 3 of 4

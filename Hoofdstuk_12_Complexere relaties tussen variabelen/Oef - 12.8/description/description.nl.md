@@ -13,6 +13,4 @@ Hoeveel procent van de variatie in de **uitkomstvariabele** kan **niet** verklaa
 3. 57%
 4. 62%
 
-**Hint:** *Zoek de R² van de uitkomstvariabele ‘Moreel oordeel’ op. Het niet-verklaarde deel = 100% − R².*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

@@ -5,6 +5,4 @@ Waarom is het belangrijk om ook negatieve onderzoeksresultaten te communiceren?
 3. Om beginnende onderzoekers aan te moedigen en realistische verwachtingen te scheppen
 4. Omdat negatieve resultaten altijd betrouwbaarder zijn dan positieve
 
-**Hint:** *Denk na over de gevolgen wanneer alleen 'succesvolle' onderzoeken gepubliceerd worden. Wat gebeurt er met de kennis die 'mislukt' onderzoek oplevert?*
-
 Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.

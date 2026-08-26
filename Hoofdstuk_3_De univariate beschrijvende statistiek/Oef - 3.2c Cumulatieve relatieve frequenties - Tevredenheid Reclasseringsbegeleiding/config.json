@@ -1,0 +1,19 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.2c Tevredenheid - Cumulatieve relatieve frequenties"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "frequentietabel",
+    "cumulatieve relatieve frequentie",
+    "ordinale data"
+  ]
+}

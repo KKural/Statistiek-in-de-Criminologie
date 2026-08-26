@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 8.1 Koffieprijs en ontbossing"
+      "nl": "Oef - 8.1 Koffieprijs en ontbossing — Deel 1: somkwadraten"
     }
   },
   "evaluation": {
@@ -15,7 +15,7 @@
   "labels": [
     "correlatie",
     "pearson",
-    "begrippen"
+    "somkwadraten"
   ],
   "internals": {
     "token": "cHeHfhjWKyr-zUQt5nM8FUuKJU7mziyWrFQyWIW3tFbE-YX5DvGSVRdMCZhqwIwp",

@@ -13,6 +13,4 @@ Welke variabelen in het model zijn **‘intermediaire’** variabelen?
 3. Morele intuïties (individualiserend en groepsgericht), geanticipeerde schuld en morele boosheid
 4. Alleen geanticipeerde schuld en morele boosheid
 
-**Hint:** *Intermediaire variabelen ontvangen pijlen én sturen pijlen door — zij liggen tussen exogene en endogene variabelen.*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

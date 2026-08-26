@@ -1,0 +1,11 @@
+# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
+absolute_frequenties <- c(33, 84, 102, 63, 48)
+
+meetniveau <- ""
+modus <- ""
+mediaan <- ""
+meest_relevante_centraliteit <- ""
+q1 <- ""
+q3 <- ""
+variatiebreedte <- ""
+ika <- ""

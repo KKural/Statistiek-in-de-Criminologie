@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.3a2 Werkuren - Frequenties en percentages (35-40 uur)"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "werkuren",
+    "ratio data",
+    "frequentietabel",
+    "percentages"
+  ]
+}

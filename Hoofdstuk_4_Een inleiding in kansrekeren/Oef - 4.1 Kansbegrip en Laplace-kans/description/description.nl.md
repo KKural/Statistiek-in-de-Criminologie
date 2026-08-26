@@ -5,6 +5,4 @@ Een criminoloog selecteert willekeurig één dossier uit een volledig register. 
 3. Bij een eindig aantal herhalingen is de geobserveerde relatieve frequentie altijd exact gelijk aan de theoretische kans.
 4. Een subjectieve kans wordt uitsluitend berekend door het aantal gunstige uitkomsten te delen door het aantal mogelijke uitkomsten.
 
-**Hint:** *Vraag eerst of de elementaire uitkomsten even waarschijnlijk zijn en onderscheid een theoretische kans van een geobserveerde relatieve frequentie.*
-
 Typ je antwoord als één enkel getal (**1-4**) om je keuze aan te geven.

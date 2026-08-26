@@ -10,6 +10,4 @@ Sommige verdachten behoren tot **beide** groepen. Welke formule berekent de kans
 3. $P(A \cup B)=P(A)\times P(B)$
 4. $P(A \cup B)=P(A \cap B)/P(B)$
 
-**Hint:** *Een dossier in de overlap wordt eenmaal meegeteld in $P(A)$ en eenmaal in $P(B)$.*
-
 Typ je antwoord als één enkel getal (**1-4**) om je keuze aan te geven.

@@ -3,272 +3,105 @@ context({
     "",
     {
       testEqual(
-        " ",
+        "",
         function(env) {
-          # Use the provided environment (env) instead of globalenv()
-          results <- list()
-          
-          # Type vraag
-          if(exists("type_vraag", envir = env)) {
-            current_val <- tolower(as.character(get("type_vraag", envir = env)))
-            current_val <- trimws(current_val)
-            acceptable_answers <- c("bivariate verklarende", "bivariaat verklarende", "bivariate verklarend", "bivariaat verklarend")
-            results$type_vraag <- list(
-              exists = TRUE,
-              value = get("type_vraag", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "Bivariate verklarende"
-            )
-          } else {
-            results$type_vraag <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Bivariate verklarende")
+          read_text <- function(name) {
+            present <- exists(name, envir = env, inherits = FALSE)
+            raw <- if (present) get(name, envir = env, inherits = FALSE) else NA_character_
+            valid <- present && length(raw) == 1L && !is.na(raw)
+            value <- if (valid) tolower(trimws(as.character(raw))) else ""
+            list(exists = present, raw = raw, value = value, valid = valid && nzchar(value))
           }
-          
-          # Bestudeerde variabele
-          if(exists("bestudeerde_variabele", envir = env)) {
-            current_val <- tolower(as.character(get("bestudeerde_variabele", envir = env)))
-            # Remove any trailing punctuation and extra spaces
-            current_val <- gsub("\\.$", "", trimws(current_val))
-            acceptable_answers <- c("kans op recidive en leeftijd van de dader", 
-                                  "kans op recidive en leeftijd",
-                                  "recidive en leeftijd van de dader",
-                                  "recidive en leeftijd",
-                                  "recidivekans en leeftijd",
-                                  "leeftijd van de dader en kans op recidive",
-                                  "leeftijd en kans op recidive",
-                                  "leeftijd en recidive",
-                                  "leeftijd dader en recidive",
-                                  "leeftijd en recidivekans")
-            results$bestudeerde_variabele <- list(
-              exists = TRUE,
-              value = get("bestudeerde_variabele", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "Kans op recidive en leeftijd van de dader"
-            )
-          } else {
-            results$bestudeerde_variabele <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Kans op recidive en leeftijd van de dader")
-          }
-          
-          # Meetniveau recidive
-          if(exists("meetniveau_recidive", envir = env)) {
-            current_val <- tolower(as.character(get("meetniveau_recidive", envir = env)))
-            current_val <- trimws(current_val)
-            acceptable_answers <- c("nominaal")
-            results$meetniveau_recidive <- list(
-              exists = TRUE,
-              value = get("meetniveau_recidive", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "nominaal"
-            )
-          } else {
-            results$meetniveau_recidive <- list(exists = FALSE, value = NA, correct = FALSE, expected = "nominaal")
-          }
-          
-          # Kwantitatief recidive (ja/nee)
-          if(exists("kwantitatief_recidive", envir = env)) {
-            current_val <- tolower(as.character(get("kwantitatief_recidive", envir = env)))
-            acceptable_answers <- c("nee", "no", "n")
-            results$kwantitatief_recidive <- list(
-              exists = TRUE,
-              value = get("kwantitatief_recidive", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "nee"
-            )
-          } else {
-            results$kwantitatief_recidive <- list(exists = FALSE, value = NA, correct = FALSE, expected = "nee")
-          }
-          
 
-          
-          # Meetniveau leeftijd
-          if(exists("meetniveau_leeftijd", envir = env)) {
-            current_val <- tolower(as.character(get("meetniveau_leeftijd", envir = env)))
-            current_val <- trimws(current_val)
-            acceptable_answers <- c("ratio")
-            results$meetniveau_leeftijd <- list(
-              exists = TRUE,
-              value = get("meetniveau_leeftijd", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "ratio"
+          accepted <- list(
+            type_vraag = c(
+              "bivariate verklarende", "bivariaat verklarende",
+              "bivariate verklarend", "bivariaat verklarend"
+            ),
+            bestudeerde_variabele = c(
+              "recidive en leeftijd van de dader",
+              "recidive en exacte leeftijd van de dader",
+              "recidive en leeftijd",
+              "leeftijd van de dader en recidive",
+              "leeftijd en recidive",
+              "leeftijd dader en recidive"
+            ),
+            meetniveau_recidive = "nominaal",
+            kwantitatief_recidive = c("nee", "no", "n"),
+            meetniveau_leeftijd = "ratio",
+            kwantitatief_leeftijd = c("ja", "yes", "j"),
+            type_waarden_leeftijd = c(
+              "continue waarden", "continue waarde", "continu",
+              "continue getallen", "continu waarden"
             )
-          } else {
-            results$meetniveau_leeftijd <- list(exists = FALSE, value = NA, correct = FALSE, expected = "ratio")
-          }
-          
-          # Kwantitatief leeftijd (ja/nee)
-          if(exists("kwantitatief_leeftijd", envir = env)) {
-            current_val <- tolower(as.character(get("kwantitatief_leeftijd", envir = env)))
-            acceptable_answers <- c("ja", "yes", "j")
-            results$kwantitatief_leeftijd <- list(
-              exists = TRUE,
-              value = get("kwantitatief_leeftijd", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "ja"
+          )
+
+          results <- lapply(names(accepted), function(name) {
+            item <- read_text(name)
+            list(
+              exists = item$exists,
+              value = item$raw,
+              correct = item$valid && item$value %in% accepted[[name]]
             )
+          })
+          names(results) <- names(accepted)
+
+          example <- read_text("voorbeeld_waarden_leeftijd")
+          number_matches <- if (example$valid) {
+            regmatches(example$value, gregexpr("[0-9]+(?:[.,][0-9]+)?", example$value, perl = TRUE))[[1L]]
           } else {
-            results$kwantitatief_leeftijd <- list(exists = FALSE, value = NA, correct = FALSE, expected = "ja")
+            character()
           }
-          
-          # Type waarden leeftijd
-          if(exists("type_waarden_leeftijd", envir = env)) {
-            current_val <- tolower(as.character(get("type_waarden_leeftijd", envir = env)))
-            acceptable_answers <- c("continue waarden", "continu", "continue getallen", "ratio waarden", "natuurlijke getallen", "gehele getallen")
-            results$type_waarden_leeftijd <- list(
-              exists = TRUE,
-              value = get("type_waarden_leeftijd", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "continue waarden"
-            )
-          } else {
-            results$type_waarden_leeftijd <- list(exists = FALSE, value = NA, correct = FALSE, expected = "continue waarden")
-          }
-          
-          # Voorbeeld waarden leeftijd
-          if(exists("voorbeeld_waarden_leeftijd", envir = env)) {
-            current_val <- tolower(as.character(get("voorbeeld_waarden_leeftijd", envir = env)))
-            # Check if it contains numbers that could represent ages
-            has_age_numbers <- grepl("[0-9]+", current_val)
-            results$voorbeeld_waarden_leeftijd <- list(
-              exists = TRUE,
-              value = get("voorbeeld_waarden_leeftijd", envir = env),
-              correct = has_age_numbers,
-              expected = "Bijvoorbeeld: 18, 25, 34, 42, ... jaren"
-            )
-          } else {
-            results$voorbeeld_waarden_leeftijd <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Bijvoorbeeld: 18, 25, 34, 42, ... jaren")
-          }
-          
-          # Store results for use in comparator
+          ages <- suppressWarnings(as.numeric(gsub(",", ".", number_matches, fixed = TRUE)))
+          example_ok <- length(ages) >= 2L && all(is.finite(ages)) && all(ages >= 0 & ages <= 120)
+          results$voorbeeld_waarden_leeftijd <- list(
+            exists = example$exists,
+            value = example$raw,
+            correct = example$valid && example_ok
+          )
+
           assign("detailed_results", results, envir = globalenv())
-          
-          # Return overall success
-          all_correct <- all(sapply(results, function(x) x$correct))
-          return(all_correct)
+          all(vapply(results, function(item) isTRUE(item$correct), logical(1)))
         },
         TRUE,
         comparator = function(generated, expected, ...) {
-          # Get detailed results from global environment
           results <- get("detailed_results", envir = globalenv())
-          
-          # Create detailed output showing all variables
-          feedback_parts <- c("**Resultaten per onderdeel:**\n")
-          
-          variable_names <- c(
-            "type_vraag" = "Type onderzoeksvraag",
-            "bestudeerde_variabele" = "Bestudeerde variabele(n)", 
-            "meetniveau_recidive" = "Meetniveau recidive",
-            "kwantitatief_recidive" = "Kwantitatief recidive",
-            "meetniveau_leeftijd" = "Meetniveau leeftijd",
-            "kwantitatief_leeftijd" = "Kwantitatief leeftijd",
-            "type_waarden_leeftijd" = "Type waarden leeftijd",
-            "voorbeeld_waarden_leeftijd" = "Voorbeeld waarden leeftijd"
+          labels <- c(
+            type_vraag = "type onderzoeksvraag",
+            bestudeerde_variabele = "bestudeerde variabelen",
+            meetniveau_recidive = "meetniveau van recidive",
+            kwantitatief_recidive = "kwantitatief karakter van recidive",
+            meetniveau_leeftijd = "meetniveau van leeftijd",
+            kwantitatief_leeftijd = "kwantitatief karakter van leeftijd",
+            type_waarden_leeftijd = "waardetype van leeftijd",
+            voorbeeld_waarden_leeftijd = "voorbeelden van leeftijden"
           )
-          
-          counter <- 1
-          for(var_key in names(variable_names)) {
-            var_display <- variable_names[var_key]
-            result <- results[[var_key]]
-            
-            if(!result$exists) {
-              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: *Ontbreekt* ❌"))
-            } else if(result$correct) {
-              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ✅"))
-            } else {
-              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ❌"))
-            }
-            counter <- counter + 1
-          }
-          
-          if (generated == expected) {
-            feedback_parts <- c(feedback_parts, "\n✅ **Alle onderdelen correct geclassificeerd.**")
-            feedback_parts <- c(feedback_parts, "\n**Uitstekend!** Je begrijpt bivariate verklarende onderzoeksvragen goed.")
-          } else {
-            
-            # Add helpful tips for incorrect answers
-            incorrect_vars <- sapply(results, function(x) !x$correct)
-            if(any(incorrect_vars)) {
-              feedback_parts <- c(feedback_parts, "**📚 Uitleg waarom deze antwoorden fout zijn:**")
-              
-              if(!results$type_vraag$correct) {
-                if(!results$type_vraag$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: ❌ Variabele niet gevonden. Gebruik: `type_vraag <- \"bivariate verklarende\"` (let op de aanhalingstekens!)")
-                } else {
-                  student_answer <- tolower(as.character(results$type_vraag$value))
-                  if(student_answer == "univariate beschrijvende") {
-                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'univariate beschrijvende', maar er zijn twee variabelen: recidive en leeftijd. Het woord 'beïnvloed' wijst op een verklarende relatie → **bivariate verklarende**")
-                  } else if(student_answer == "bivariate beschrijvende") {
-                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Je koos 'bivariate beschrijvende', maar het woord 'beïnvloed' in de vraag wijst op een oorzakelijke/verklarende relatie, niet alleen beschrijven → **bivariate verklarende**")
-                  } else {
-                    feedback_parts <- c(feedback_parts, "• **Type onderzoeksvraag**: Het woord 'beïnvloed' wijst op een verklarende relatie tussen twee variabelen (recidive en leeftijd) → **bivariate verklarende**")
-                  }
-                }
-              }
-              
-              if(!results$bestudeerde_variabele$correct) {
-                if(!results$bestudeerde_variabele$exists) {
-                  feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele(n)**: ❌ Variabele niet gevonden. Gebruik: `bestudeerde_variabele <- \"Kans op recidive en leeftijd van de dader\"` (let op de aanhalingstekens!)")
-                } else {
-                  feedback_parts <- c(feedback_parts, "• **Bestudeerde variabele(n)**: Er zijn twee variabelen: de kans op recidive (uitkomst) en de leeftijd van de dader (mogelijke verklaring)")
-                }
-              }
-              
-              # Detailed feedback for each variable's properties
-              if(!results$meetniveau_recidive$correct && results$meetniveau_recidive$exists) {
-                student_answer <- tolower(as.character(results$meetniveau_recidive$value))
-                if(student_answer == "ordinaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau recidive**: Recidive is ja/nee zonder rangorde → **nominaal**")
-                } else if(student_answer == "ratio") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau recidive**: Recidive is geen getal maar een categorie (ja/nee) → **nominaal**")
-                } else {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau recidive**: Recidive is een binaire variabele (ja/nee) → **nominaal**")
-                }
-              }
-              
-              if(!results$kwantitatief_recidive$correct && results$kwantitatief_recidive$exists) {
-                feedback_parts <- c(feedback_parts, "• **Kwantitatief recidive**: Recidive bestaat uit categorieën (ja/nee), niet uit getallen → **nee**")
-              }
-              
-              if(!results$meetniveau_leeftijd$correct && results$meetniveau_leeftijd$exists) {
-                student_answer <- tolower(as.character(results$meetniveau_leeftijd$value))
-                if(student_answer == "nominaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau leeftijd**: Leeftijd zijn getallen waarmee je kunt rekenen, heeft een echt nulpunt (0 jaar) → **ratio**")
-                } else if(student_answer == "ordinaal") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau leeftijd**: Leeftijd heeft niet alleen rangorde maar ook gelijke afstanden en een echt nulpunt → **ratio**")
-                } else if(student_answer == "interval") {
-                  feedback_parts <- c(feedback_parts, "• **Meetniveau leeftijd**: Leeftijd heeft wel een echt nulpunt: 0 jaar betekent geen leeftijd → **ratio**")
-                }
-              }
-              
-              if(!results$kwantitatief_leeftijd$correct && results$kwantitatief_leeftijd$exists) {
-                feedback_parts <- c(feedback_parts, "• **Kwantitatief leeftijd**: Leeftijd bestaat uit getallen waarmee je kunt rekenen → **ja**")
-              }
-            }
-          }
-          
-          # Always add educational content
-          feedback_parts <- c(feedback_parts, "**📚 Uitleg onderzoeksvraag:**")
-          feedback_parts <- c(feedback_parts, "• **Bivariate verklarende**: Onderzoekt of één variabele (leeftijd) invloed heeft op een andere (recidive)")
-          feedback_parts <- c(feedback_parts, "• **Onafhankelijke variabele**: Leeftijd van de dader (mogelijke verklaring)")
-          feedback_parts <- c(feedback_parts, "• **Afhankelijke variabele**: Kans op recidive (de uitkomst die wordt verklaard)")
-          feedback_parts <- c(feedback_parts, "• **Recidive**: Opnieuw een misdrijf plegen na eerdere veroordeling (ja/nee = nominaal)")
-          feedback_parts <- c(feedback_parts, "• **Leeftijd**: Continue numerieke waarden met echt nulpunt (ratio)")
-          feedback_parts <- c(feedback_parts, "**Meer leren?** <a href='https://www.youtube.com/watch?v=rjEBCOCa2z4' target='_blank' rel='noopener noreferrer'>Bekijk Video: Bivariate Verklarende Onderzoeksvragen</a> | <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Meetniveaus Uitleg</a>")
-          
-          # Learner-facing feedback contract.
+
           if (isTRUE(generated == expected)) {
-            feedback_parts <- c(feedback_parts, "**Bevestiging:** alle gevraagde classificatievelden zijn correct; de veldfeedback hierboven bevestigt per onderdeel waarom.")
-            feedback_parts <- c(feedback_parts, "**Denkregel:** tel eerst de variabelen, bepaal beschrijven versus verklaren, wijs X en Y toe en onderbouw ten slotte elk meetniveau afzonderlijk.\n\n**Transferstap:** gebruik dezelfde vier beslissingen bij een nieuwe criminologische voorspeller-uitkomstvraag.")
+            feedback <- paste(
+              "**Bevestiging:** alle classificaties zijn correct. Dit is een bivariate verklarende vraag met recidive als nominale, niet-kwantitatieve ja/nee-uitkomst en exacte leeftijd als kwantitatieve ratiovariabele met continue waarden.",
+              "**Denkregel:** tel eerst de variabelen, bepaal daarna beschrijven versus verklaren en classificeer ten slotte elk kenmerk los op categorie/rangorde, gelijke afstanden en echt nulpunt.",
+              "**Transferstap:** gebruik dezelfde beslisvolgorde bij een nieuwe criminologische voorspeller-uitkomstvraag en vermeld daarbij altijd hoe elke variabele precies gemeten wordt.",
+              sep = "\n\n"
+            )
           } else {
-            feedback_parts <- c(
-              feedback_parts,
-              "**Waarschijnlijke redenering:** de afwijkende velden kunnen passen bij het verwisselen van voorspeller en uitkomst, of bij het classificeren op één herkenbaar woord zonder de volledige vraagstructuur te controleren. Dit is een hypothese; de antwoordcombinatie bewijst geen unieke denkroute.",
-              "**Waarom dit niet klopt:** aantal variabelen, vraagdoel, X/Y-rol en meetniveau hebben elk een eigen criterium. De veldfeedback hierboven toont waar jouw gekozen label niet aansluit bij dat criterium.",
-              "**Denkregel:** werk in volgorde: (1) tel variabelen, (2) zoek beschrijvende of verklarende formulering, (3) formuleer ‘heeft X invloed op Y?’ en (4) toets per variabele rangorde, afstand en nulpunt.",
-              "**Volgende stap:** herstel eerst het eerste veld met ❌ en schrijf de onderzoeksvraag expliciet als X→Y. Classificeer daarna leeftijd en recidive los van hun rol en probeer dezelfde routine op een nieuwe criminologische vraag."
+            wrong <- names(results)[!vapply(results, function(item) isTRUE(item$correct), logical(1))]
+            missing <- wrong[!vapply(results[wrong], function(item) item$exists, logical(1))]
+            missing_text <- if (length(missing)) {
+              paste0(" Ontbrekende antwoordobjecten: ", paste(labels[missing], collapse = ", "), ".")
+            } else {
+              ""
+            }
+            feedback <- paste(
+              paste0("**Waarschijnlijke redenering:** bij ", paste(labels[wrong], collapse = ", "), " is mogelijk de rol van een variabele verward met haar meetniveau, of het meetniveau met het type waarden. Dit is een hypothese op basis van de afwijkende velden."),
+              paste0("**Waarom dit niet klopt:** vraagdoel, variabelenrol, meetniveau en continu/discreet zijn afzonderlijke beslissingen en hebben elk een eigen criterium.", missing_text),
+              "**Denkregel:** werk in vier stappen: tel de variabelen, zoek het vraagdoel, schrijf de richting als X → Y en toets daarna per variabele rangorde, afstanden, nulpunt en mogelijke tussenwaarden.",
+              "**Volgende stap:** herstel alleen het eerste afwijkende veld. Schrijf eerst in één zin welk criterium je daarvoor gebruikt en dien daarna opnieuw in.",
+              sep = "\n\n"
             )
           }
 
-          get_reporter()$add_message(paste(feedback_parts, collapse = "\n\n"), type = "markdown")
-          
+          get_reporter()$add_message(feedback, type = "markdown")
           generated == expected
         }
       )

@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 3.3 Meetniveau - Werkuren Re-integratieprogramma"
+      "nl": "Oef - 3.3a Werkuren - Frequenties en percentages"
     }
   },
   "evaluation": {
@@ -13,10 +13,9 @@
   "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
     "werkuren",
-    "interval data",
-    "centraliteit",
-    "spreiding",
-    "beschrijvende statistiek"
+    "ratio data",
+    "frequentietabel",
+    "percentages"
   ],
   "internals": {
     "token": "_qArSRjkWzZDr7HNb9u-zS8JuyDhI5hVPyjX2BPWCCGZI5B4ewdQkUaBk-tQ6wrB",

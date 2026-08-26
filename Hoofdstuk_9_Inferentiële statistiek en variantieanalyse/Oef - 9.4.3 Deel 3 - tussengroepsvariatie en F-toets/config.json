@@ -1,0 +1,21 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 9.4.3 Deel 3: tussengroepsvariatie en F-toets"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ANOVA",
+    "tussengroepsvariatie",
+    "F-toets",
+    "effectgrootte"
+  ]
+}

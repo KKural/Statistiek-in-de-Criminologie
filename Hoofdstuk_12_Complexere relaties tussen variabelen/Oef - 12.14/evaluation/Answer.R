@@ -10,10 +10,9 @@ context({
           feedbacks <- list(
             "1" = paste0(
               "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk de VIF-waarden van de twee modellen verwisseld ",
-              "of de grens verkeerd toegepast. In Model A zijn beide waarden circa 1,04, dus ruim lager dan 5.\n\n",
+              "of de grens verkeerd toegepast.\n\n",
               "**Denkregel:** VIF < 5 is hier aanvaardbaar; VIF ≥ 5 is problematisch en VIF ≥ 10 ernstig.\n\n",
-              "**Volgende stap:** vergelijk elk model afzonderlijk met dezelfde grens. Alleen Model B heeft waarden rond 34.\n\n",
-              "**Correct antwoord:** 2"
+              "**Volgende stap:** noteer de twee VIF-waarden per model in aparte rijen en vergelijk iedere rij opnieuw met dezelfde grenzen."
             ),
             "2" = paste0(
               "\u2705 Juist! **Model B** heeft een ernstig multicollineariteitsprobleem: beide VIF-waarden ",
@@ -25,16 +24,14 @@ context({
             "3" = paste0(
               "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk aangenomen dat elke samenhang tussen predictoren ",
               "al een multicollineariteitsprobleem vormt. De diagnose hangt hier af van de VIF-drempel.\n\n",
-              "**Denkregel:** noem een model problematisch wanneer zijn VIF-waarden de grens van 5 bereiken; waarden rond 1 wijzen niet op inflatie.\n\n",
-              "**Volgende stap:** classificeer A (circa 1,04) en B (circa 34) apart. Alleen B overschrijdt de grens.\n\n",
-              "**Correct antwoord:** 2"
+              "**Denkregel:** noem een model pas problematisch wanneer zijn VIF-waarden de opgegeven beslisgrens bereiken.\n\n",
+              "**Volgende stap:** beoordeel Model A en Model B afzonderlijk en combineer de twee classificaties pas daarna tot één antwoord."
             ),
             "4" = paste0(
               "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk Model A als referentie genomen en dezelfde conclusie ",
               "op Model B toegepast zonder de VIF-waarden opnieuw te vergelijken.\n\n",
               "**Denkregel:** beoordeel ieder model op zijn eigen VIF-waarden; boven 10 is volgens de opgegeven grens ernstig.\n\n",
-              "**Volgende stap:** vergelijk A ≈ 1,04 met B ≈ 34. B ligt ruimschoots boven 10 en heeft dus het probleem.\n\n",
-              "**Correct antwoord:** 2"
+              "**Volgende stap:** vergelijk voor elk model beide getoonde waarden onafhankelijk met 5 en 10 en probeer daarna opnieuw."
             )
           )
           key <- as.character(generated)

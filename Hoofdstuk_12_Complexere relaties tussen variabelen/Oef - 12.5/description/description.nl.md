@@ -13,6 +13,4 @@ Hoeveel **‘indirecte’ effecten** van **‘empathische perspectiefneming’**
 3. Drie indirecte paden
 4. Vier indirecte paden
 
-**Hint:** *Volg alle routes van ‘Empathische perspectiefneming’ naar ‘Moreel oordeel’ die via tussenvariabelen lopen. Een direct pad telt niet mee.*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

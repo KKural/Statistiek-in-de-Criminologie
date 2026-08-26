@@ -34,23 +34,20 @@ Opgelet: bepaal vooraf welke variabele je inhoudelijk als **onafhankelijk** besc
 
 ## **Opdrachten**
 
-- 1) **Bereken het relevante percentageverschil (in procentpunten).**
+- 1) **Bereken de relevante kolompercentages** (geslacht is de onafhankelijke variabele).
+- `percentage_ja_bij_mannen`
+- `percentage_ja_bij_vrouwen`
 
-Omdat geslacht de onafhankelijke variabele is, werk je met **kolompercentages** (elke kolom = 100%):
-- `percentage_ja_bij_mannen` = (JA bij mannen / totaal mannen) * 100
-- `percentage_ja_bij_vrouwen` = (JA bij vrouwen / totaal vrouwen) * 100
-- `percentageverschil_ja` = percentage_ja_bij_mannen - percentage_ja_bij_vrouwen
+- 2) **Bereken het percentageverschil (in procentpunten).**
+- `percentageverschil_ja`
 
-- 2) **Bereken chi^2** (chi-kwadraat) voor deze kruistabel.
-- Verwachte frequentie per cel: `E_ij = (rijtotaal_i * kolomtotaal_j) / N`
-- Daarna sommeer je over alle cellen: `(O - E)^2 / E`
+- 3) **Bereken chi^2** (chi-kwadraat) voor deze kruistabel.
 - Noteer je resultaat als `chi_kwadraat`
 
-- 3) **Welke associatiemaat gebaseerd op chi^2 kan je bijkomend berekenen (2x2 tabel)?**
+- 4) **Welke associatiemaat gebaseerd op chi^2 kan je bijkomend berekenen (2x2 tabel)?**
 - Vul je keuze in als `associatiemaat_mc` (A=1, B=2, C=3, D=4)
 
-- 4) **Bereken de waarde van die associatiemaat en interpreteer.**
-- Voor een 2x2 tabel kan je (onder meer) werken met: `phi = sqrt(chi^2 / N)`
+- 5) **Bereken de waarde van die associatiemaat en interpreteer.**
 - Vul in:
   - `phi`
   - `interpretatie_phi_mc` (A=1: zwak, B=2: matig, C=3: sterk)

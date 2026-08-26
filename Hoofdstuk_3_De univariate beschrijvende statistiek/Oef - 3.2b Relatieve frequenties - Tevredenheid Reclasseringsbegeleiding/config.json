@@ -1,0 +1,19 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.2b Tevredenheid - Relatieve frequenties"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "frequentietabel",
+    "relatieve frequentie",
+    "ordinale data"
+  ]
+}

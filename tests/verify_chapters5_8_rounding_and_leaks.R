@@ -91,21 +91,38 @@ run_54 <- load_evaluator(exercise_file(
 expect_score(run_54(list(vraag_a = 38.30, vraag_b = 15.87)), TRUE, "5.4 rounded answers")
 expect_score(run_54(list(vraag_a = 38.31, vraag_b = 15.87)), FALSE, "5.4 incorrect hundredth")
 
-run_71 <- load_evaluator(exercise_file(
+run_71_part1 <- load_evaluator(exercise_file(
   "^Hoofdstuk_7_", "7.1", "evaluation", "Answer.R"
 ))
-correct_71 <- list(
+correct_71_part1 <- list(
   percentage_mannen = 61.50, percentage_vrouwen = 38.50,
   percentage_yes = 25.00, percentage_no = 75.00,
   percentage_yes_bij_mannen = 30.89, percentage_yes_bij_vrouwen = 15.58,
-  percentageverschil_yes = 15.31, odds_mannen = 0.4471,
-  odds_vrouwen = 0.1846, odds_ratio = 2.42, chi_kwadraat = 59.1983,
-  kans_no_bij_vrouwen = 0.8442, antwoord_mc = 3
+  percentageverschil_yes = 15.31
 )
-expect_score(run_71(correct_71), TRUE, "7.1 rounded answers")
-wrong_71 <- correct_71
-wrong_71$percentage_mannen <- 61.60
-expect_score(run_71(wrong_71), FALSE, "7.1 broad-tolerance regression")
+expect_score(run_71_part1(correct_71_part1), TRUE, "7.1 part 1 rounded answers")
+wrong_71_part1 <- correct_71_part1
+wrong_71_part1$percentage_mannen <- 61.60
+expect_score(run_71_part1(wrong_71_part1), FALSE, "7.1 part 1 broad-tolerance regression")
+missing_71_part1 <- correct_71_part1
+missing_71_part1$percentage_no <- NULL
+expect_score(run_71_part1(missing_71_part1), FALSE, "7.1 part 1 missing field")
+
+run_71_part2 <- load_evaluator(exercise_file(
+  "^Hoofdstuk_7_", "7.1.2 Odds, chi-kwadraat en kansinterpretatie", "evaluation", "Answer.R"
+))
+correct_71_part2 <- list(
+  odds_mannen = 0.4471, odds_vrouwen = 0.1846, odds_ratio = 2.42,
+  chi_kwadraat = 59.1983, kans_no_bij_vrouwen = 0.8442, antwoord_mc = 3
+)
+expect_score(run_71_part2(correct_71_part2), TRUE, "7.1 part 2 rounded answers")
+percentage_71_part2 <- correct_71_part2
+percentage_71_part2$kans_no_bij_vrouwen <- 84.42
+percentage_71_part2$antwoord_mc <- "C"
+expect_score(run_71_part2(percentage_71_part2), TRUE, "7.1 part 2 accepted formats")
+wrong_71_part2 <- correct_71_part2
+wrong_71_part2$odds_ratio <- 0.41
+expect_score(run_71_part2(wrong_71_part2), FALSE, "7.1 part 2 reversed odds ratio")
 
 run_72 <- load_evaluator(exercise_file(
   "^Hoofdstuk_7_", "7.2", "evaluation", "Answer.R"
@@ -120,32 +137,51 @@ wrong_72 <- correct_72
 wrong_72$phi <- 0.19
 expect_score(run_72(wrong_72), FALSE, "7.2 broad-tolerance regression")
 
-run_81 <- load_evaluator(exercise_file(
+run_81_part1 <- load_evaluator(exercise_file(
   "^Hoofdstuk_8_", "8.1", "evaluation", "Answer.R"
 ))
-correct_81 <- list(
+correct_81_part1 <- list(
   verklarende_variabele = 1, gemiddelde_x = 50.00, gemiddelde_y = 1.7380,
-  SSx = 1066.0, SSy = 3.4434, SSxy = 57.87, variantie_x = 266.5,
-  variantie_y = 0.8609, sd_x = 16.3248, sd_y = 0.9278,
-  covariantie = 14.4675, pearson_r = 0.9552, correlatie_verandert = 2,
-  verklaring_euro = "De correlatie blijft onveranderd bij een positieve lineaire transformatie."
+  SSx = 1066.0, SSy = 3.4435, SSxy = 57.87
 )
-expect_score(run_81(correct_81), TRUE, "8.1 complete rounded answers")
-wrong_81 <- correct_81
-wrong_81$pearson_r <- 0.955
-expect_score(run_81(wrong_81), FALSE, "8.1 three-decimal r")
+expect_score(run_81_part1(correct_81_part1), TRUE, "8.1 part 1 rounded answers")
+wrong_81_part1 <- correct_81_part1
+wrong_81_part1$SSy <- 3.4434
+expect_score(run_81_part1(wrong_81_part1), FALSE, "8.1 part 1 truncated SSy")
+
+run_81_part2 <- load_evaluator(exercise_file(
+  "^Hoofdstuk_8_", "8.1.2 Variantie, covariantie en Pearson", "evaluation", "Answer.R"
+))
+correct_81_part2 <- list(
+  variantie_x = 266.5, variantie_y = 0.8609,
+  sd_x = 16.3248, sd_y = 0.9278, covariantie = 14.4675,
+  pearson_r = 0.9552, correlatie_verandert = 2,
+  verklaring_euro = "De correlatie verandert niet bij een positieve lineaire eenheidsomzetting."
+)
+expect_score(run_81_part2(correct_81_part2), TRUE, "8.1 part 2 complete rounded answers")
+dimensionless_81_part2 <- correct_81_part2
+dimensionless_81_part2$verklaring_euro <- "Nee, want r is dimensieloos."
+expect_score(run_81_part2(dimensionless_81_part2), TRUE, "8.1 part 2 concise valid explanation")
+contradictory_81_part2 <- correct_81_part2
+contradictory_81_part2$verklaring_euro <- "De correlatie is niet hetzelfde: een schaaltransformatie verandert r."
+expect_score(run_81_part2(contradictory_81_part2), FALSE, "8.1 part 2 contradictory explanation")
+wrong_81_part2 <- correct_81_part2
+wrong_81_part2$pearson_r <- 0.955
+expect_score(run_81_part2(wrong_81_part2), FALSE, "8.1 part 2 three-decimal r")
+missing_81_part2 <- correct_81_part2
+missing_81_part2$verklaring_euro <- NULL
+expect_score(run_81_part2(missing_81_part2), FALSE, "8.1 part 2 missing explanation")
 
 boilerplate_81 <- paste(readLines(exercise_file(
   "^Hoofdstuk_8_", "8.1", "description", "boilerplate", "boilerplate"
 ), warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 required_81 <- c(
-  "gemiddelde_x", "gemiddelde_y", "SSx", "SSy", "SSxy", "variantie_x",
-  "variantie_y", "sd_x", "sd_y", "covariantie", "pearson_r"
+  "verklarende_variabele", "gemiddelde_x", "gemiddelde_y", "SSx", "SSy", "SSxy"
 )
 missing_81 <- required_81[!vapply(required_81, grepl, logical(1), x = boilerplate_81, fixed = TRUE)]
 if (length(missing_81)) stop(paste("8.1 boilerplate missing:", paste(missing_81, collapse = ", ")))
-if (!grepl("Pearson's correlatie (4 decimalen)", boilerplate_81, fixed = TRUE)) {
-  stop("8.1 boilerplate does not request Pearson r to four decimals.")
+if (grepl("???", boilerplate_81, fixed = TRUE)) {
+  stop("8.1 part 1 still contains a syntax-invalid placeholder.")
 }
 
 run_85 <- load_evaluator(exercise_file(

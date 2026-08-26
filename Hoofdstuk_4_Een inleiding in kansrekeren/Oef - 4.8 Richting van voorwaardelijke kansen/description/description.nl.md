@@ -19,4 +19,4 @@ $$P(D\mid M)=\frac{15}{125} \qquad\text{en}\qquad P(M\mid D)=\frac{15}{18}$$
 
 ## Invoer
 
-Vervang elke `NA` door een **decimale kans**, afgerond op **vier decimalen**. Gebruik in R een punt als decimaalteken.
+Vul elke lege plaats na `<-` in met een **decimale kans**, afgerond op **vier decimalen**. Gebruik bij het invoeren een punt als decimaalteken, bijvoorbeeld `0.1250`.

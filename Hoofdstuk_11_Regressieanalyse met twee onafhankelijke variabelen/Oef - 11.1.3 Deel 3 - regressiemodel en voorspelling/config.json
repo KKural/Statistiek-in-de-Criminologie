@@ -1,0 +1,21 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 11.1.3 Deel 3: regressiemodel en voorspelling"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "meervoudige-regressie",
+    "regressiegewichten",
+    "voorspelling",
+    "R-kwadraat"
+  ]
+}

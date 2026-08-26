@@ -22,4 +22,4 @@ en controleer je uitkomst rechtstreeks met de juiste cel en het algemene totaal.
 
 ## Invoer
 
-Vervang in het startbestand elke `NA` door je antwoord als **decimale kans**. Rond af op **vier decimalen** en gebruik in R een punt als decimaalteken.
+Vul in het antwoordvenster je antwoord na `<-` in als **decimale kans**. Rond af op **vier decimalen** en gebruik bij het invoeren een punt als decimaalteken, bijvoorbeeld `0.1250`.

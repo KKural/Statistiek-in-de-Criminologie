@@ -13,6 +13,4 @@ Welke variabelen in het model zijn **‘endogene’** variabelen?
 3. Morele intuïties, geanticipeerde schuld en morele boosheid
 4. Geanticipeerde schuld en morele boosheid
 
-**Hint:** *Een endogene variabele is de uiteindelijke uitkomstvariabele van het model — ze ontvangt pijlen maar stuurt er geen naar andere modelvariabelen.*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

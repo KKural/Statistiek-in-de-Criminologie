@@ -13,6 +13,4 @@ Hoeveel procent van de variatie in **‘morele intuïties (groepsgericht)’** k
 3. 24%
 4. 38%
 
-**Hint:** *Zoek de R² die bij de variabele ‘Morele intuïties (groepsgericht)’ vermeld staat in het padmodel.*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

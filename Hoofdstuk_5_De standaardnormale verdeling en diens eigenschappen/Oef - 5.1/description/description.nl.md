@@ -49,7 +49,7 @@ Geef je antwoord als **percentage** (bijvoorbeeld: 15.67)
 
 Geef je antwoord als **percentage** (bijvoorbeeld: 78.92)
 
-- Vervang "??" door het juiste antwoord
+- Vervang `???` door het juiste antwoord
 - Gebruik decimalen met **punt** (geen komma)
 - Rond de Z-scores en eindpercentages af op **2 decimalen**. Noteer de
   tabelkansen en het verschil tussen de tabelkansen op **4 decimalen**.

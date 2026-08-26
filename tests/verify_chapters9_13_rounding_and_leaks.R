@@ -1,3 +1,11 @@
+if (.Platform$OS.type == "windows") {
+  for (locale in c(".UTF-8", "English_United States.utf8", "C.UTF-8")) {
+    selected <- suppressWarnings(Sys.setlocale("LC_CTYPE", locale))
+    suppressWarnings(Sys.setlocale("LC_COLLATE", locale))
+    if (!is.na(selected)) break
+  }
+}
+
 root <- normalizePath(".", winslash = "/", mustWork = TRUE)
 
 exercise_file <- function(chapter_pattern, exercise, ...) {
@@ -97,8 +105,8 @@ correct_94 <- list(
 )
 expect_score(run_94(correct_94), TRUE, "9.4 requested precision")
 wrong_94 <- correct_94
-wrong_94$F_ratio <- 265.09
-expect_score(run_94(wrong_94), FALSE, "9.4 broad F tolerance")
+wrong_94$grand_mean <- 1751.34
+expect_score(run_94(wrong_94), FALSE, "9.4 part-1 mean tolerance")
 
 run_95 <- load_evaluator(exercise_file("^Hoofdstuk_9_", "9.5", "evaluation", "Answer.R"))
 correct_95 <- as.list(c(vraag1 = 2, vraag2 = 4, vraag3 = 2, vraag4 = 3,
@@ -111,16 +119,16 @@ expect_score(run_95(wrong_95), FALSE, "9.5 decimal choice")
 run_101 <- load_evaluator(exercise_file("^Hoofdstuk_10_", "10.1", "evaluation", "Answer.R"))
 correct_101 <- list(
   X_bar = 1.8571, Y_bar = 2.1429, Z_bar = 15.5714,
-  SS_X = 28.8570, SS_Y = 10.8570, SS_Z = 13.7143,
-  SCP_XY = 8.1430, SCP_XZ = 8.5711, SCP_YZ = 6.4289,
+  SS_X = 28.8571, SS_Y = 10.8571, SS_Z = 13.7143,
+  SCP_XY = 8.1429, SCP_XZ = 8.5714, SCP_YZ = 6.4286,
   Var_X = 4.8095, Var_Y = 1.8095, Var_Z = 2.2857,
   SD_X = 2.1931, SD_Y = 1.3452, SD_Z = 1.5119,
-  Cov_XY = 1.3572, Cov_XZ = 1.4285, Cov_YZ = 1.0715,
-  r_XY = 0.4600, r_XZ = 0.4308, r_YZ = 0.5268,
-  r_XY_teller = 0.2331, r_XY_noemer = 0.7671, r_XY_Z = 0.3039,
+  Cov_XY = 1.3571, Cov_XZ = 1.4286, Cov_YZ = 1.0714,
+  r_XY = 0.4600, r_XZ = 0.4309, r_YZ = 0.5268,
+  r_XY_teller = 0.2330, r_XY_noemer = 0.7670, r_XY_Z = 0.3038,
   conclusie_type = 2
 )
-expect_score(run_101(correct_101), TRUE, "10.1 four-decimal route")
+expect_score(run_101(correct_101), TRUE, "10.1 final-rounding route")
 wrong_101 <- correct_101
 wrong_101$X_bar <- 1.8572
 expect_score(run_101(wrong_101), FALSE, "10.1 broad tolerance")

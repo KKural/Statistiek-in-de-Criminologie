@@ -1,78 +1,9 @@
-# Vervang "???" door het juiste antwoord.
-# Let op: Gebruik decimale punten (niet komma's) en exacte bewoordingen uit de tabel.
+# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
+# De volgorde is: zeer ontevreden, ontevreden, neutraal, tevreden, zeer tevreden.
+absolute_frequenties <- c(33, 84, 102, 63, 48)
 
-# Gegeven absolute frequenties:
-# - Zeer ontevreden: 33
-# - Ontevreden: 84  
-# - Noch tevreden, noch ontevreden: 102
-# - Tevreden: 63
-# - Zeer tevreden: 48
-# - Totaal N: 330
+# Vul vijf cumulatieve absolute frequenties in, in dezelfde volgorde.
+cumulatieve_absolute_frequenties <- c( , , , , )
 
-# =============================================
-# STAP 1.1 - CUMULATIEVE ABSOLUTE FREQUENTIES
-# =============================================
-cumulatieve_absolute_frequenties_zeer_ontevreden <- ???
-cumulatieve_absolute_frequenties_ontevreden <- ???
-cumulatieve_absolute_frequenties_noch_tevreden_noch_ontevreden <- ???
-cumulatieve_absolute_frequenties_tevreden <- ???
-cumulatieve_absolute_frequenties_zeer_tevreden <- ???
-
-# =============================================
-# STAP 1.2 - RELATIEVE FREQUENTIES
-# =============================================
-relatieve_frequenties_zeer_ontevreden <- ???
-relatieve_frequenties_ontevreden <- ???
-relatieve_frequenties_noch_tevreden_noch_ontevreden <- ???
-relatieve_frequenties_tevreden <- ???
-relatieve_frequenties_zeer_tevreden <- ???
-
-# =============================================
-# STAP 1.3 - CUMULATIEVE RELATIEVE FREQUENTIES
-# =============================================
-cumulatieve_relatieve_frequenties_zeer_ontevreden <- ???
-cumulatieve_relatieve_frequenties_ontevreden <- ???
-cumulatieve_relatieve_frequenties_noch_tevreden_noch_ontevreden <- ???
-cumulatieve_relatieve_frequenties_tevreden <- ???
-cumulatieve_relatieve_frequenties_zeer_tevreden <- ???
-
-# =============================================
-# STAP 2 - OVERIGE VRAGEN
-# =============================================
-
-# 4. Wat is het meetniveau van de variabele "tevredenheid met reclasseringsbegeleiding"?
-# Kies uit: "nominaal", "ordinaal", "interval"
-meetniveau <- "???"
-
-# 5. Wat is het totaal aantal respondenten (N)?
-totaal_n <- ???
-
-# 6. Wat is de modus van deze verdeling? (gebruik exacte bewoordingen uit de tabel)
-modus <- "???"
-
-# 7. Wat is de mediaan van deze verdeling? (gebruik exacte bewoordingen uit de tabel)
-mediaan <- "???"
-
-# =============================================
-# STAP 3 - MATEN VAN CENTRALITEIT
-# =============================================
-
-# 8. Welke maat van centraliteit is het meest relevant voor ordinale data?
-# Kies uit: "modus", "mediaan", "gemiddelde"
-meest_relevante_centraliteit <- "???"
-
-# =============================================
-# STAP 4 - MATEN VAN SPREIDING
-# =============================================
-
-# 9. Wat is het eerste kwartiel (Q1)? (gebruik exacte bewoordingen uit de tabel)
-q1 <- "???"
-
-# 10. Wat is het derde kwartiel (Q3)? (gebruik exacte bewoordingen uit de tabel)
-q3 <- "???"
-
-# 11. Wat is de variatiebreedte (range) van deze verdeling?
-variatiebreedte <- "???"
-
-# 12. Wat is de interkwartielafstand (IKA)?
-ika <- "???"
+# Vul het totale aantal respondenten in.
+totaal_n <-

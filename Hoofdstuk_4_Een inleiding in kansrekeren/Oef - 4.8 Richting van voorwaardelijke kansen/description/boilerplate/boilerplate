@@ -1,5 +1,7 @@
+# Vul elk berekend getal in na `<-`.
+
 # P(drugsmisdrijf | man)
-p_drug_given_man <- NA
+p_drug_given_man <-
 
 # P(man | drugsmisdrijf)
-p_man_given_drug <- NA
+p_man_given_drug <-

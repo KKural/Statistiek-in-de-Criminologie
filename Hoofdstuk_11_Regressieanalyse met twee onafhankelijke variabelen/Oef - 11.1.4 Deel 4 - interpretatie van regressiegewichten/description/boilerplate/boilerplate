@@ -1,0 +1,5 @@
+# Oefening 11.1 - Deel 4 van 4
+# Vul per vraag het gekozen optienummer in na <-.
+
+richting_b1 <-        # 1 = positief, 2 = negatief
+sterkste_predictor <- # 1 = X1, 2 = X2

@@ -9,6 +9,4 @@ Welke berekening geeft het aantal mogelijke lottoselecties?
 3. $\dfrac{41!}{(41-6)!}$
 4. $\binom{41}{6}=\dfrac{41!}{6!(41-6)!}$
 
-**Hint:** *Beslis eerst of volgorde een nieuwe uitkomst oplevert. Controleer daarna of teruglegging plaatsvindt.*
-
 Typ je antwoord als één enkel getal (**1-4**).

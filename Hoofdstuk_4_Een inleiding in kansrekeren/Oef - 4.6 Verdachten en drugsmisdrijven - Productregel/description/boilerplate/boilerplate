@@ -1,8 +1,10 @@
+# Vul elk berekend getal in na `<-`.
+
 # Stap 1: marginale kans P(man)
-p_man <- NA
+p_man <-
 
 # Stap 2: voorwaardelijke kans P(drugsmisdrijf | man)
-p_drug_given_man <- NA
+p_drug_given_man <-
 
 # Stap 3: gezamenlijke kans P(man en drugsmisdrijf)
-p_joint <- NA
+p_joint <-

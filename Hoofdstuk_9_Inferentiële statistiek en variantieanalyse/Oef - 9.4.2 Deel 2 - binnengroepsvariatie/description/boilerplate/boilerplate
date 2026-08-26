@@ -1,0 +1,9 @@
+# Oefening 9.4 - Deel 2 van 3
+# Vul de getallen in na <-.
+
+SS_within_groot <-    # geheel getal
+SS_within_middel <-   # geheel getal
+SS_within_ruraal <-   # geheel getal
+SS_within <-          # geheel getal
+df_within <-          # geheel getal
+MS_within <-          # twee decimalen

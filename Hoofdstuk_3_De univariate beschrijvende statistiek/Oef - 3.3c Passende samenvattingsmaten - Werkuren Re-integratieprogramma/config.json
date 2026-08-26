@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.3c Werkuren - Passende samenvattingsmaten"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ratio data",
+    "maatkeuze",
+    "centraliteit",
+    "spreiding"
+  ]
+}

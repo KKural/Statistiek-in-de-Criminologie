@@ -10,6 +10,4 @@ Beide categorieën komen in het register voor, dus $P(A)>0$ en $P(B)>0$. Welke u
 3. $A$ en $B$ zijn onafhankelijk, maar niet disjunct.
 4. $A$ en $B$ zijn noch disjunct, noch onafhankelijk.
 
-**Hint:** *Disjunct gaat over samen kunnen voorkomen. Onafhankelijk gaat over de vraag of het optreden van de ene gebeurtenis de kans op de andere onveranderd laat.*
-
 Typ je antwoord als één enkel getal (**1-4**) om je keuze aan te geven.

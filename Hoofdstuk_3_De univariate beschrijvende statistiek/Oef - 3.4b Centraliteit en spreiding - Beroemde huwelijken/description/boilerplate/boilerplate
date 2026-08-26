@@ -1,0 +1,10 @@
+# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
+huwelijksduren <- c(240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657)
+
+gemiddelde <-
+mediaan <-
+modus <-
+variatiebreedte <-
+q1 <-
+q3 <-
+ika <-

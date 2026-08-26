@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.2d Tevredenheid - Ordinale centraliteit en spreiding"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ordinale data",
+    "mediaan",
+    "kwartielen",
+    "spreiding"
+  ]
+}

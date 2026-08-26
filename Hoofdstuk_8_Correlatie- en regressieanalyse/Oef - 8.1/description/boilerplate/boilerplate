@@ -1,45 +1,11 @@
-# Vervang alle ??? door je antwoord.
-# Bereken met de hand en gebruik een punt als decimaalteken.
+# Oefening 8.1 — Deel 1: van gegevens naar somkwadraten
+# Vul getallen of optienummers in na <-. Gebruik een punt als decimaalteken.
 
-# 1) Verklarende variabele: 1 = prijs, 2 = ontbossing
-verklarende_variabele <- ???
+# 1 = prijs, 2 = ontbossing
+verklarende_variabele <-
 
-# 2) Gemiddelde X (2 decimalen)
-gemiddelde_x <- ???
-
-# 3) Gemiddelde Y (4 decimalen)
-gemiddelde_y <- ???
-
-# 4) SSx (geheel getal of 1 decimaal)
-SSx <- ???
-
-# 5) SSy (4 decimalen)
-SSy <- ???
-
-# 6) SSxy (2 decimalen)
-SSxy <- ???
-
-# 7) Variantie X (1 decimaal)
-variantie_x <- ???
-
-# 8) Variantie Y (4 decimalen)
-variantie_y <- ???
-
-# 9) Standaardafwijking X (4 decimalen)
-sd_x <- ???
-
-# 10) Standaardafwijking Y (4 decimalen)
-sd_y <- ???
-
-# 11) Covariantie (4 decimalen)
-covariantie <- ???
-
-# 12) Pearson's correlatie (4 decimalen)
-pearson_r <- ???
-
-# 13a) Verandert de correlatie bij omzetting naar euro?
-# 1 = ja, 2 = nee
-correlatie_verandert <- ???
-
-# 13b) Korte verklaring (1-3 zinnen)
-verklaring_euro <- "???"
+gemiddelde_x <-   # 2 decimalen
+gemiddelde_y <-   # 4 decimalen
+SSx <-            # 1 decimaal
+SSy <-            # 4 decimalen
+SSxy <-           # 2 decimalen

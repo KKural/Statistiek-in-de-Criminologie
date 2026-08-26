@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.3e Werkuren - Variantie en relatieve spreiding"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ratio data",
+    "variantie",
+    "standaardafwijking",
+    "variatiecoefficient"
+  ]
+}

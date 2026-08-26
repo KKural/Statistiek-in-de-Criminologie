@@ -13,6 +13,4 @@ Hoeveel bedraagt het **totale effect** van **‘empathische bezorgdheid’** op 
 3. 0.4264
 4. 0.48
 
-**Hint:** *Totaal effect = direct effect + indirect effect via Morele intuïties (ind.). Bereken: direct pad + (padcoëff. naar MI(ind.) × padcoëff. MI(ind.) naar Schuld).*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

@@ -17,4 +17,4 @@ b. Het meetniveau van de onafhankelijke variabele
 c. De afhankelijke variabele
 d. Het meetniveau van de afhankelijke variabele
 
-Vervang "??" door het juiste antwoord tussen de aanhalingstekens. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.
+Vervang `???` door het juiste antwoord tussen de aanhalingstekens. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.

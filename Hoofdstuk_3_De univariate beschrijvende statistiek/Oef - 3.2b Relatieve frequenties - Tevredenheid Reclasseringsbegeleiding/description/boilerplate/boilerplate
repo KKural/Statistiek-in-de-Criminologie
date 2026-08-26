@@ -1,0 +1,6 @@
+# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
+# Volgorde: zeer ontevreden, ontevreden, neutraal, tevreden, zeer tevreden.
+absolute_frequenties <- c(33, 84, 102, 63, 48)
+
+# Vul vijf proporties tussen 0 en 1 in en rond af op vier decimalen.
+relatieve_frequenties <- c( , , , , )

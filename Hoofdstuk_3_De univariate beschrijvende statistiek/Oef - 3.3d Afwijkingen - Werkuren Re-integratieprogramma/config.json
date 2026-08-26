@@ -1,0 +1,19 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.3d Werkuren - Afwijkingen en gekwadrateerde afwijkingen"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ratio data",
+    "afwijkingen",
+    "gekwadrateerde afwijkingen"
+  ]
+}

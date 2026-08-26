@@ -5,6 +5,4 @@ Een **gevangenis** onderzoekt de effectiviteit van een **motivatieprogramma** vo
 3. **Interval**
 4. **Ratio**
 
-**Hint:** *Overweeg of de cijfers een **rangorde** aangeven en of de **afstanden** tussen de cijfers gelijk zijn.*
-
 Typ je antwoord als één enkel getal (**1-4**) om je keuze aan te geven.

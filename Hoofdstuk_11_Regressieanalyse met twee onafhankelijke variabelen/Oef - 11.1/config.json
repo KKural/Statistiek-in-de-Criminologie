@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 11.1 Politiedichtheid, werkloosheid en criminaliteit"
+      "nl": "Oef - 11.1 Deel 1: variabelen en gemiddelden"
     }
   },
   "evaluation": {
@@ -14,9 +14,8 @@
   "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
     "meervoudige-regressie",
-    "handberekening",
-    "regressieparameters",
-    "determinant"
+    "variabelen",
+    "gemiddelden"
   ],
   "internals": {
     "token": "-e6zwH5ERwSvRazwM7fGJ4uqF2BF996idzqpnmA5ZtwAjFiDG6uCD4J5ApdwZAXU",

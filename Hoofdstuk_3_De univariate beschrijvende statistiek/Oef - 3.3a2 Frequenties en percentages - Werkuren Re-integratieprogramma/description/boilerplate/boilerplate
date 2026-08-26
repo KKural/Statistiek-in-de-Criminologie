@@ -1,0 +1,8 @@
+# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
+werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
+              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
+waarden <- c(35, 36, 38, 40)
+
+# Eén frequentie en één percentage per waarde, in de volgorde van `waarden`.
+frequenties <- c( , , , )
+percentages <- c( , , , )

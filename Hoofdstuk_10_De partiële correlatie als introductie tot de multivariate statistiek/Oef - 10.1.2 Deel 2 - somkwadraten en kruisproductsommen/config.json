@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 10.1.2 Deel 2: somkwadraten en kruisproductsommen"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "partiele-correlatie",
+    "somkwadraten",
+    "kruisproductsommen"
+  ]
+}

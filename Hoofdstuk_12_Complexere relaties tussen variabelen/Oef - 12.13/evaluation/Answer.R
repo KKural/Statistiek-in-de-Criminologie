@@ -10,10 +10,9 @@ context({
           feedbacks <- list(
             "1" = paste0(
               "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk kleine toevallige afwijkingen in Figuur A ",
-              "als een systematische schending gelezen. De punten volgen daar de diagonaal overwegend goed.\n\n",
+              "als een systematische schending gelezen. Kleine afwijkingen alleen zijn echter onvoldoende voor die conclusie.\n\n",
               "**Denkregel:** normaliteit vraagt geen perfecte lijn; vooral een systematische kromming of duidelijke afwijking in de staarten is een waarschuwingssignaal.\n\n",
-              "**Volgende stap:** volg de punten van het midden naar beide uiteinden. Alleen in Figuur B buigt de rechterstaart duidelijk omhoog.\n\n",
-              "**Correct antwoord:** 2"
+              "**Volgende stap:** volg in beide figuren de punten vanuit het midden naar beide uiteinden en zoek naar een samenhangend afwijkingspatroon."
             ),
             "2" = paste0(
               "\u2705 Juist! **Figuur B** toont een schending van normaliteit: de punten aan het rechter uiteinde ",
@@ -23,17 +22,15 @@ context({
             ),
             "3" = paste0(
               "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk een perfecte aansluiting op de diagonaal verwacht ",
-              "en daardoor de beperkte willekeurige afwijkingen in A te streng beoordeeld.\n\n",
+              "en daardoor beperkte willekeurige afwijkingen te streng beoordeeld.\n\n",
               "**Denkregel:** beoordeel het patroon per figuur; kleine niet-systematische afwijkingen zijn aanvaardbaar, een samenhangende staartafwijking niet.\n\n",
-              "**Volgende stap:** A volgt de lijn zonder systematische buiging; B wijkt in de rechterstaart duidelijk en gericht af.\n\n",
-              "**Correct antwoord:** 2"
+              "**Volgende stap:** beoordeel elke figuur afzonderlijk en onderscheid kleine lokale afwijkingen van een gerichte buiging in een volledige staart."
             ),
             "4" = paste0(
               "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk vooral het midden van beide Q-Q-plots beoordeeld, ",
-              "waar de punten relatief dicht bij de lijn liggen, en de rechterstaart van B gemist.\n\n",
+              "waar de punten relatief dicht bij de lijn liggen, en daardoor een mogelijk staartpatroon gemist.\n\n",
               "**Denkregel:** controleer altijd centrum én beide staarten; een systematische opwaartse afwijking rechts wijst op rechtsscheefheid.\n\n",
-              "**Volgende stap:** inspecteer de meest rechtse punten in B en vergelijk ze met de diagonaal.\n\n",
-              "**Correct antwoord:** 2"
+              "**Volgende stap:** inspecteer voor beide figuren centrum, linkerstaart en rechterstaart afzonderlijk en vergelijk elk deel met de diagonaal."
             )
           )
           key <- as.character(generated)

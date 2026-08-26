@@ -17,6 +17,4 @@ Om de assumptie van **homoscedasticiteit** (gelijke spreiding van de residuen) t
 3. Beide figuren tonen heteroscedasticiteit.
 4. Geen van beide figuren toont een probleem met homoscedasticiteit.
 
-**Hint:** *Bij homoscedasticiteit liggen de punten gelijkmatig verspreid en is de smoother nagenoeg vlak. Een stijgende smoother duidt erop dat de variantie van de residuen toeneemt met de geschatte waarden (= heteroscedasticiteit).*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

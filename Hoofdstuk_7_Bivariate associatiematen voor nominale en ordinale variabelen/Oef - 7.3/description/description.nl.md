@@ -5,6 +5,4 @@ Welke uitspraak over Spearman's rho is fout?
 3. Spearman's rho kan negatief zijn wanneer hogere waarden van de ene variabele samengaan met lagere waarden van de andere (omgekeerde monotone relatie).
 4. Spearman's rho kan niet negatief zijn; een daling in de ene variabele betekent automatisch een daling in de andere.
 
-**Hint:** Een monotone relatie betekent dat de ene variabele systematisch stijgt of daalt wanneer de andere toeneemt.
-
 - Type je antwoord als een enkel getal (1-4) om je keuze aan te geven.

@@ -28,40 +28,19 @@ Een onderzoeker wil nagaan of er een verband is tussen **geslacht** en **crimine
 
 <img src="media/crimineel_geslacht_kruistabel.png" alt="Crimineel gedrag per geslacht (absolute aantallen)" width="600">
 
-Je berekent alles **met de hand** (rekenmachine mag). 
+Je berekent alles **met de hand** (rekenmachine mag). Dit is deel 1 van de oefening. Hier oefen je het onderscheid tussen marginale en conditionele percentages.
 
+## Opdrachten
 
-- 1) Marginale percentages (t.o.v. N = 2000)
-- `percentage_mannen` = (totaal mannen / 2000) * 100
-- `percentage_vrouwen` = (totaal vrouwen / 2000) * 100
-- `percentage_yes` = (totaal YES / 2000) * 100
-- `percentage_no` = (totaal NO / 2000) * 100
+1. Bereken de marginale percentages ten opzichte van **N = 2000**:
+   - `percentage_mannen`
+   - `percentage_vrouwen`
+   - `percentage_yes`
+   - `percentage_no`
+2. Bereken de kolompercentages:
+   - `percentage_yes_bij_mannen`
+   - `percentage_yes_bij_vrouwen`
+3. Bereken `percentageverschil_yes`: het conditionele YES-percentage bij mannen **min** het conditionele YES-percentage bij vrouwen, uitgedrukt in procentpunten.
 
-- 2) Conditionele percentages (kolompercentages)
-- `percentage_yes_bij_mannen` = (YES bij mannen / totaal mannen) * 100
-- `percentage_yes_bij_vrouwen` = (YES bij vrouwen / totaal vrouwen) * 100
-
-- 3) Percentageverschil (procentpunten)
-- `percentageverschil_yes` = percentage_yes_bij_mannen - percentage_yes_bij_vrouwen
-
-- 4) Odds en odds ratio
-- `odds_mannen` = (YES bij mannen) / (NO bij mannen)
-- `odds_vrouwen` = (YES bij vrouwen) / (NO bij vrouwen)
-- `odds_ratio` = odds_mannen / odds_vrouwen
-
-- 5) Chi-kwadraat (chi^2)
-- Verwachte frequentie: `E_ij = (rijtotaal_i * kolomtotaal_j) / N`
-- Daarna: tel voor alle cellen `(O - E)^2 / E` op
-- Noteer het resultaat als `chi_kwadraat`
-
-- 6) Extra + meerkeuze
-- `kans_no_bij_vrouwen` = P(NO | Vrouw) = (NO bij vrouwen) / (totaal vrouwen)
-- Meerkeuze: "Welke interpretatie van `P(NO | Vrouw)` is juist?"
-  - A. Het aandeel zonder misdrijf binnen de mannen.
-  - B. Het aandeel vrouwen binnen de personen zonder misdrijf.
-  - C. Het aandeel zonder misdrijf binnen de vrouwen.
-  - D. Het aandeel vrouwen zonder misdrijf binnen de volledige steekproef.
-  - Zet je keuze in `antwoord_mc` (A=1, B=2, C=3, D=4)
-
-Afronden: percentages op 2 decimalen, odds op 4 decimalen, OR op 2 decimalen, chi^2 op 4 decimalen. Noteer `kans_no_bij_vrouwen` als kans op 4 decimalen of als equivalent percentage op 2 decimalen.
+Rond alle percentages af op **2 decimalen**. Gebruik een punt als decimaalteken en noteer geen procentteken.
 

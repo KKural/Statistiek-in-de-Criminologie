@@ -21,6 +21,4 @@ De **rode lijn** in de plot is een LOESS-smoother die de gemiddelde trend in de 
 3. Beide figuren tonen een schending van lineariteit.
 4. Geen van beide figuren toont een schending van lineariteit.
 
-**Hint:** *Bij een lineair verband liggen de residuen willekeurig rond de nullijn (horizontale stippellijn). Een gebogen patroon in de smoother wijst op niet-lineariteit.*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

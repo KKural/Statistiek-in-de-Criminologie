@@ -1,0 +1,21 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 9.4.2 Deel 2: binnengroepsvariatie"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "ANOVA",
+    "binnengroepsvariatie",
+    "SS-within",
+    "MS-within"
+  ]
+}

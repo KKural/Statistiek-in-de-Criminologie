@@ -1,11 +1,13 @@
+# Vul elk berekend getal in na `<-`.
+
 # Stap 1: P(vrouw)
-p_vrouw <- NA
+p_vrouw <-
 
 # Stap 2: P(diefstal)
-p_diefstal <- NA
+p_diefstal <-
 
 # Stap 3: P(vrouw en diefstal)
-p_overlap <- NA
+p_overlap <-
 
 # Stap 4: P(vrouw of diefstal)
-p_union <- NA
+p_union <-

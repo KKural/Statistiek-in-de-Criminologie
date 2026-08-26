@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 11.1.2 Deel 2: somkwadraten en kruisproducten"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "meervoudige-regressie",
+    "somkwadraten",
+    "kruisproducten"
+  ]
+}

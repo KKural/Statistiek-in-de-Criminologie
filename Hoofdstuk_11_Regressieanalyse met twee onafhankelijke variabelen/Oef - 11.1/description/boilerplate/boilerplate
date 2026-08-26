@@ -1,43 +1,7 @@
-# Vervang ??? door je antwoord.
-# Bereken alles met de hand (rekenmachine mag) en vul alleen eindwaarden in.
-# Gebruik een punt als decimaalteken (niet komma).
+# Oefening 11.1 - Deel 1 van 4
+# Vul de getallen of optienummers in na <-.
 
-# --- Deel A: Variabelen ---
-# Welke variabele is de afhankelijke variabele?
-# 1 = politiedichtheid (X1), 2 = werkloosheid (X2), 3 = criminaliteitsindex (Y)
-afhankelijke_variabele <- ???
-
-# --- Deel B: Gemiddelden (2 decimalen) ---
-gemiddelde_x1 <- ???
-gemiddelde_x2 <- ???
-gemiddelde_y  <- ???
-
-# --- Deel C: Sommen van kwadraten en kruisproducten ---
-SSx1   <- ???   # geheel getal: som van (x1 - x1_gem)^2
-SSx2   <- ???   # geheel getal: som van (x2 - x2_gem)^2
-SSy    <- ???   # geheel getal: som van (Y - Y_gem)^2
-SSx1x2 <- ???   # geheel getal: som van (x1 - x1_gem)(x2 - x2_gem)
-SSx1y  <- ???   # geheel getal: som van (x1 - x1_gem)(Y - Y_gem)
-SSx2y  <- ???   # geheel getal: som van (x2 - x2_gem)(Y - Y_gem)
-
-# --- Deel D: Determinant ---
-determinant_D <- ???   # geheel getal: SSx1 * SSx2 - SSx1x2^2
-
-# --- Deel E: Regressiecoefficienten (2 decimalen) ---
-b1         <- ???   # regressiegewicht voor X1 (politiedichtheid)
-b2         <- ???   # regressiegewicht voor X2 (werkloosheid)
-intercept_a <- ???  # intercept a
-
-# --- Deel F: Voorspelling (2 decimalen) ---
-# Voorspel Y voor een stad met X1 = 3 en X2 = 8
-voorspelling <- ???
-
-# --- Deel G: Model fit (4 decimalen) ---
-R_kwadraat <- ???
-
-# --- Deel H: Interpretatie ---
-# Richting van b1: 1 = positief, 2 = negatief
-richting_b1 <- ???
-
-# Sterkste relatieve effect (beta): 1 = X1 (politiedichtheid), 2 = X2 (werkloosheid)
-sterkste_predictor <- ???
+afhankelijke_variabele <-   # optie 1, 2 of 3
+gemiddelde_x1 <-            # twee decimalen
+gemiddelde_x2 <-            # twee decimalen
+gemiddelde_y <-             # twee decimalen

@@ -23,6 +23,4 @@ In **Model B** vervangt hij de risicoschaal door een **samengestelde risicoschaa
 3. Beide modellen hebben een multicollineariteitsprobleem.
 4. Geen van beide modellen heeft een multicollineariteitsprobleem.
 
-**Hint:** *Vergelijk de VIF-waarden in beide figuren met de grenzen van 5 en 10. Een VIF ≥ 10 wijst op een ernstig probleem waarbij de schattingen van de regressiecoëfficiënten sterk beïnvloed worden door de hoge correlatie tussen de predictoren.*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

@@ -13,6 +13,4 @@ Hoeveel bedraagt de **correlatie** tussen **‘morele intuïties (individualiser
 3. .18
 4. .48
 
-**Hint:** *Zoek de pijl die rechtstreeks van ‘Morele intuïties (individualiserend)’ naar ‘Geanticipeerde schuld’ loopt en lees het getal naast die pijl af.*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

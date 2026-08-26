@@ -13,6 +13,4 @@ Welke variabelen in het model zijn **‘exogene’** variabelen?
 3. Morele intuïties, geanticipeerde schuld en morele boosheid
 4. Geanticipeerde schuld en morele boosheid
 
-**Hint:** *Een exogene variabele heeft geen inkomende pijlen vanuit andere modelvariabelen — het zijn de startpunten van het model.*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

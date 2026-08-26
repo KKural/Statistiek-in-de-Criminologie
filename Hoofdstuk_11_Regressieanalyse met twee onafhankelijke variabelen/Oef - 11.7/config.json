@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 11.7 Output lezen: meervoudige regressie (vaste dataset)"
+      "nl": "Oef - 11.7 Deel 1: modelfit en ANOVA-output lezen"
     }
   },
   "evaluation": {
@@ -15,9 +15,8 @@
   "labels": [
     "meervoudige-regressie",
     "output-lezen",
-    "R-kwadraat",
-    "regressieparameters",
-    "interpretatie"
+    "model-fit",
+    "ANOVA"
   ],
   "internals": {
     "token": "qiKP-8r7atGDevW76jEK7V3eiu-gUVj6tHAwS8MwakhwNWzqaNRSvJXXfFGNJ4aU",

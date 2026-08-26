@@ -4,7 +4,7 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 3.4 Beschrijvende statistiek - Beroemde huwelijken"
+      "nl": "Oef - 3.4a Huwelijksduur - Frequenties en percentages"
     }
   },
   "evaluation": {
@@ -13,13 +13,8 @@
   "boilerplate": "description/boilerplate/boilerplate",
   "labels": [
     "huwelijksduur",
-    "uitbijters",
-    "centraliteit",
-    "spreiding",
-    "variantie",
-    "standaardafwijking",
     "frequentietabel",
-    "beschrijvende statistiek"
+    "percentages"
   ],
   "internals": {
     "token": "gT2wGvTUqSRdmvNSdWs_78ecYub2mjEiU4G8zbcIzDvV2KZVx3QF6mwgYKAi-iKw",

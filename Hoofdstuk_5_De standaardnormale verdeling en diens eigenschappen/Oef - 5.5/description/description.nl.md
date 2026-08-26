@@ -9,8 +9,6 @@ Een gevangenisdirecteur wil een bevraging organiseren bij de oudste 10% van de g
 
 *De afbeelding toont de normale verdeling van leeftijden in de gevangenispopulatie N(37.8, 5.6). Studenten moeten bepalen welke leeftijd correspondeert met de oudste 10%.*
 
-> **Hint:** Denk na over percentielberekeningen bij een normale verdeling - welk percentiel correspondeert met "oudste 10%"?
-
 1. De gevangenen vanaf de leeftijd van (afgerond) 42.5 jaar
 2. De gevangenen vanaf de leeftijd van (afgerond) 47 jaar  
 3. De gevangenen vanaf de leeftijd van (afgerond) 50 jaar

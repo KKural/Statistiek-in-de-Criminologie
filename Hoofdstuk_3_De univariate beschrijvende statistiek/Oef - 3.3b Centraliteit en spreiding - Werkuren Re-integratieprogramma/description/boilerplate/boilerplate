@@ -1,0 +1,11 @@
+# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
+werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
+              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
+
+modus <-
+mediaan <-
+gemiddelde <-
+variatiebreedte <-
+q1 <-
+q3 <-
+ika <-

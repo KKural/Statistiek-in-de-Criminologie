@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 3.4b Huwelijksduur - Centraliteit en spreiding"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "huwelijksduur",
+    "centraliteit",
+    "kwartielen",
+    "spreiding"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 10.1.4 Deel 4: covarianties en bivariate correlaties"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "partiele-correlatie",
+    "covariantie",
+    "bivariate-correlatie"
+  ]
+}

@@ -15,6 +15,4 @@ Wat betekent dit concreet?
 3. De padcoëfficiënten zijn te klein om moreel oordeel te voorspellen
 4. Het model bevat te veel variabelen en is daardoor onbetrouwbaar
 
-**Hint:** *Onverklaarde variantie (1 − R²) weerspiegelt de invloed van factoren die buiten het model vallen.*
-
 - Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven
