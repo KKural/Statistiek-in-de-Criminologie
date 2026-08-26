@@ -1,4 +1,4 @@
-**"Wordt de kans op recidive beïnvloed door de leeftijd van de dader?"**
+**"Wordt recidive (gemeten als ja/nee) beïnvloed door de leeftijd van de dader?"**
 
 **Jouw taak:**
 Analyseer deze onderzoeksvraag en bepaal:
