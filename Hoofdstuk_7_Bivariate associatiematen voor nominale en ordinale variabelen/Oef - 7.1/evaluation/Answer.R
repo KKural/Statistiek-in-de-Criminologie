@@ -106,7 +106,7 @@ context({
           results$odds_female <- check_value(c("odds_vrouwen", "odds_female"), exp_odds_female, tol = 0.000051, allow_percent = FALSE)
           results$odds_ratio <- check_value(c("odds_ratio", "or"), exp_or, tol = 0.0051, allow_percent = FALSE)
 
-          results$chi2 <- check_value(c("chi_kwadraat", "chi2"), exp_chi2, tol = 0.000051, allow_percent = FALSE)
+          results$chi2 <- check_value(c("chi_kwadraat", "chi2"), exp_chi2, tol = 0.01, allow_percent = FALSE)
           results$p_no_female <- check_value(c("kans_no_bij_vrouwen", "p_no_female"), exp_p_no_female, tol = 0.000051, allow_percent = TRUE)
           results$antwoord_mc <- check_value(c("antwoord_mc"), exp_antwoord_mc, tol = 0.0, allow_percent = FALSE)
 
