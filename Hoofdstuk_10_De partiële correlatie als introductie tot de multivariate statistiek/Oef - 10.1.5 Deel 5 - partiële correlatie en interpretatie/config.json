@@ -16,5 +16,9 @@
     "partiele-correlatie",
     "controlevariabele",
     "interpretatie"
-  ]
+  ],
+  "internals": {
+    "token": "HqdaRrHswVds9SwwmjDbB4FvAQWMiy8Tbs_fX5PAmaedYU4pqY5ZUMU6avTmxjtb",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

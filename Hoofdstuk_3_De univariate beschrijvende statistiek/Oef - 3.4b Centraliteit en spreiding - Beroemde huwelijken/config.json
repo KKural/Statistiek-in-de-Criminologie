@@ -16,5 +16,9 @@
     "centraliteit",
     "kwartielen",
     "spreiding"
-  ]
+  ],
+  "internals": {
+    "token": "xA7hTYuvDytUagdWa9kvVScSpCeAjYgmfMdq2DnpPq35ZVkvXU8BBZR4sFRTjtwG",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

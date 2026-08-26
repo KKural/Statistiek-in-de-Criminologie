@@ -16,5 +16,9 @@
     "sum of squares",
     "variantie",
     "standaardafwijking"
-  ]
+  ],
+  "internals": {
+    "token": "3tVpt373trpbfjGzMp-AVipfvfFRuqUs4C2MhDdhnn7Xty3uHNgncn6d-v62f7-P",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

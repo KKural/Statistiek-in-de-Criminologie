@@ -16,5 +16,9 @@
     "maatkeuze",
     "centraliteit",
     "spreiding"
-  ]
+  ],
+  "internals": {
+    "token": "GDsXWqPhsZgyScqiRdG-qc-7Ei-S6vGWy2MEh-9PDtwVRPFs7PzDs_TibuN9ktSG",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

@@ -17,5 +17,9 @@
     "multicollineariteit",
     "modelvergelijking",
     "interpretatie"
-  ]
+  ],
+  "internals": {
+    "token": "6TuniVCHV6diBaezzw8BWH6yDZj9Di9xbUjcsYMDgfFqHUph6dn4UC9KSBMiQw2w",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

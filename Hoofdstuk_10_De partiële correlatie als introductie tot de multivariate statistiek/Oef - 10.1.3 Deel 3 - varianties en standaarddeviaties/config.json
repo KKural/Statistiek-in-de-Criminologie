@@ -16,5 +16,9 @@
     "partiele-correlatie",
     "variantie",
     "standaarddeviatie"
-  ]
+  ],
+  "internals": {
+    "token": "auevrTXTgQM3YUujtUFwZ9P-3hrfugq-dhGKUmWzn3VergEedVtfcewZNyM29v7u",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

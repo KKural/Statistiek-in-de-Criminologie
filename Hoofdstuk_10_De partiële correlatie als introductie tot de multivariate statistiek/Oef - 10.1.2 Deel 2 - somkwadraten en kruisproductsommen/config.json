@@ -16,5 +16,9 @@
     "partiele-correlatie",
     "somkwadraten",
     "kruisproductsommen"
-  ]
+  ],
+  "internals": {
+    "token": "cDYRWc4Z5Hycpf-txBPXCDzGXGrJVcGifrbkQBDAF_Wgurt4kahDX-rA5-JJkVcp",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

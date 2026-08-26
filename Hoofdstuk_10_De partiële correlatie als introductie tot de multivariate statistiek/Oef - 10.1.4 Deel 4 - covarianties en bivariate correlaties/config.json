@@ -16,5 +16,9 @@
     "partiele-correlatie",
     "covariantie",
     "bivariate-correlatie"
-  ]
+  ],
+  "internals": {
+    "token": "aXn6yEP5X2BAQztswv6GwQQ5GsCedbAjQ456qhbp8RgwHdJbkZhF4ueUNkQxQCbw",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

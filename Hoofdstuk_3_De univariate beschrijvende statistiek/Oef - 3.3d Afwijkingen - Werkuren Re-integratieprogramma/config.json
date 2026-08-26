@@ -15,5 +15,9 @@
     "ratio data",
     "afwijkingen",
     "gekwadrateerde afwijkingen"
-  ]
+  ],
+  "internals": {
+    "token": "GyUkq8MH4PB5hFge8-bu37sMU_F4D4ZegR-5ZQxee5pSi484bhskD6aGHRGWGAk_",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

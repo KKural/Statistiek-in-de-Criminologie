@@ -16,5 +16,9 @@
     "variantie",
     "standaardafwijking",
     "variatiecoefficient"
-  ]
+  ],
+  "internals": {
+    "token": "t2T5mr4DyuiuEb3-WAyUG7K7dzPueackCm_fXDJYrWvUQaVNWPPTKeW28-vbKDmG",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

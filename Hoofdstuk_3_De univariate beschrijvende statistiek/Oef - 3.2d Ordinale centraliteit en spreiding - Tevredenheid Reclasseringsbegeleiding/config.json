@@ -16,5 +16,9 @@
     "mediaan",
     "kwartielen",
     "spreiding"
-  ]
+  ],
+  "internals": {
+    "token": "gFQKq7qTYNeUY94bEbQXGsztg2FSjhTtynK_n-h8darv25yaMhHXwbAyCQCiVPu7",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

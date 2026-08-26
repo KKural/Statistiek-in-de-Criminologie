@@ -17,5 +17,9 @@
     "regressiegewichten",
     "voorspelling",
     "R-kwadraat"
-  ]
+  ],
+  "internals": {
+    "token": "tBvhBjp6JWaqyxUSTTD89NwECEAdkwFXMnf2HWkXh3UZKpJjyEJzPrHEx43zf8r4",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

@@ -17,5 +17,9 @@
     "tussengroepsvariatie",
     "F-toets",
     "effectgrootte"
-  ]
+  ],
+  "internals": {
+    "token": "x6t-qhgc4ZwHvuRPQdhMsbzeV6bGBebB4rjT24m6PPsGfcUtwVjwQRYMHVjZ5Cm9",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

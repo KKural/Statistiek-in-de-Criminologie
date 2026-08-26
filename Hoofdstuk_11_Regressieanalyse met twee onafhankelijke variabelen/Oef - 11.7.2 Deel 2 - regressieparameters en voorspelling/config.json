@@ -17,5 +17,9 @@
     "output-lezen",
     "regressieparameters",
     "voorspelling"
-  ]
+  ],
+  "internals": {
+    "token": "GyH7VMSJkjuFgHMy9d6NCjynFCSQJgBe7k9BiwXgPNFiAZBNBzVRS_FfR2Wg4pFq",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

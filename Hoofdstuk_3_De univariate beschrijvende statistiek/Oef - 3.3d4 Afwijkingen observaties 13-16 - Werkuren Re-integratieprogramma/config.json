@@ -2,8 +2,22 @@
   "type": "exercise",
   "programming_language": "r",
   "access": "public",
-  "description": {"names": {"nl": "Oef - 3.3d4 Werkuren - Afwijkingen observaties 13-16"}},
-  "evaluation": {"handler": "r"},
+  "description": {
+    "names": {
+      "nl": "Oef - 3.3d4 Werkuren - Afwijkingen observaties 13-16"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
   "boilerplate": "description/boilerplate/boilerplate",
-  "labels": ["ratio data", "afwijkingen", "gekwadrateerde afwijkingen"]
+  "labels": [
+    "ratio data",
+    "afwijkingen",
+    "gekwadrateerde afwijkingen"
+  ],
+  "internals": {
+    "token": "4F_9Dwe8W9bzH4V2yhfBa7hj92uU2DAh8DEEhzGhyKHdxjp9Sw-ZqqZbpKxF6vDN",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }
