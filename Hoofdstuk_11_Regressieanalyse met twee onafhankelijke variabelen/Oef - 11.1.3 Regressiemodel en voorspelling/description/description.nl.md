@@ -1,5 +1,3 @@
-## Oef - 11.1.3 Regressiemodel en voorspelling
-
 Criminologen onderzoeken hoe politiedichtheid en werkloosheid samen de criminaliteitsindex van vijf steden verklaren.
 
 | Stad | X₁: politiedichtheid | X₂: werkloosheid | Y: criminaliteitsindex |

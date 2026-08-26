@@ -1,5 +1,3 @@
-## Oef - 3.2.2 Tevredenheid - Relatieve frequenties
-
 Gebruik dezelfde tevredenheidsgegevens:
 
 | Categorie | Absolute frequentie |

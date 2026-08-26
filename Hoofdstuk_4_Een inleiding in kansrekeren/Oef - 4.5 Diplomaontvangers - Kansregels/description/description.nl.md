@@ -1,5 +1,3 @@
-# Diplomaontvangers: van kruistabel naar kans
-
 Een onderzoeker selecteert aselect één diplomaontvanger uit de onderstaande groep.
 
 | | Bachelor | Master | Professioneel | Doctoraat | Totaal |

@@ -1,5 +1,3 @@
-## Oef - 3.2.3 Tevredenheid - Cumulatieve relatieve frequenties
-
 | Categorie | Absolute frequentie |
 |---|---:|
 | Zeer ontevreden | 33 |

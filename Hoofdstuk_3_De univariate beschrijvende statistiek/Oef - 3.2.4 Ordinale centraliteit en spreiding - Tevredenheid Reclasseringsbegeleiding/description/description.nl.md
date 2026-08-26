@@ -1,5 +1,3 @@
-## Oef - 3.2.4 Tevredenheid - Ordinale centraliteit en spreiding
-
 | Categorie | Absolute frequentie |
 |---|---:|
 | Zeer ontevreden | 33 |

@@ -1,5 +1,3 @@
-# **Interactieve app - inferentiele statistiek en ANOVA**
-
 In deze oefening oefen je met de **interactieve Shiny-app** voor inferentiele statistiek en variantieanalyse. Je weet al hoe de app werkt vanuit **Oefening 8.2** - hier pas je dezelfde werkwijze toe op de leerstof van Hoofdstuk 9.
 
 De app is beschikbaar op:

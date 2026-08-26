@@ -1,5 +1,3 @@
-## Oef - 3.4.4 Huwelijksduur - Centraliteit en spreiding
-
 Gebruik de huwelijksduren in dagen:
 
 `240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657`

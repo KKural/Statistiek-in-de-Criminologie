@@ -1,5 +1,3 @@
-## Oef - 11.7.1 Modelfit en ANOVA-output lezen
-
 Een criminoloog verklaart AngstScore met WanordeIndex en ZwerfvuilKlachten bij vijf buurten.
 
 Model: `AngstScore = a + b₁·WanordeIndex + b₂·ZwerfvuilKlachten + e`

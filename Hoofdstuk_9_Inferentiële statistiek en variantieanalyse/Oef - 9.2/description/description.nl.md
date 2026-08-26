@@ -1,5 +1,3 @@
-## Oef - 9.2: Betrouwbaarheidsintervallen voor de gemiddelde leeftijd
-
 In een steekproevenverdeling van de gemiddelde leeftijd uit 1899 heeft **95%** van alle steekproeven (elk bestaande uit **1000 personen**) een gemiddelde leeftijd die ligt **tussen 25.8 en 28.4**.
 
 Je berekent alles **met de hand** (rekenmachine mag). In R vul je enkel je **eindresultaten** in.

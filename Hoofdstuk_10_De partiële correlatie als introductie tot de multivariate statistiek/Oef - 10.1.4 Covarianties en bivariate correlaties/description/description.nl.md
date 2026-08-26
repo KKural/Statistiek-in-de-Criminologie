@@ -1,5 +1,3 @@
-## Oef - 10.1.4 Covarianties en bivariate correlaties
-
 Een criminoloog onderzoekt hoe de samenhang tussen het aantal gepleegde delicten (X) en slachtofferschap (Y) verandert wanneer voor leeftijd (Z) wordt gecontroleerd.
 
 | Scholier | X: delicten gepleegd | Y: keer slachtoffer | Z: leeftijd |

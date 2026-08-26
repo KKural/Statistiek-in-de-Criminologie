@@ -1,5 +1,3 @@
-## Oef - 3.2.1 Tevredenheid - Cumulatieve absolute frequenties
-
 Een reclasseringsdienst vroeg aan veroordeelde delictplegers hoe tevreden zij zijn over hun begeleiding.
 
 | Categorie | Absolute frequentie |

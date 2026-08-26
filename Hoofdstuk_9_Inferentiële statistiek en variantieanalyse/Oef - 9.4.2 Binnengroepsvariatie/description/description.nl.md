@@ -1,5 +1,3 @@
-## Oef - 9.4.2 Binnengroepsvariatie
-
 Een criminoloog vergelijkt het aantal geregistreerde fietsdiefstallen in dertig Belgische gemeenten. Er zijn tien gemeenten per gemeentetype.
 
 - Grootsteden: 3500, 2700, 2900, 3200, 3150, 3300, 2650, 4000, 3500, 3000

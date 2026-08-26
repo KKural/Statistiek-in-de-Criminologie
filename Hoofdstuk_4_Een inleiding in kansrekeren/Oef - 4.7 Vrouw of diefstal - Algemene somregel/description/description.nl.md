@@ -1,5 +1,3 @@
-# Vrouw of diefstal: corrigeren voor overlap
-
 Een onderzoeker selecteert aselect één verdachte uit deze registratie.
 
 | | Diefstal | Geweldsmisdrijf | Drugsmisdrijf | Overige | Totaal |

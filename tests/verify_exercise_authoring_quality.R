@@ -149,6 +149,13 @@ for (index in seq_along(configs)) {
   evaluator <- if ("evaluator" %in% names(required)) read_text(required[["evaluator"]]) else ""
   display_name <- config$description$names$nl %||% ""
 
+  description_lines <- strsplit(description, "\n", fixed = TRUE)[[1L]]
+  first_nonempty <- description_lines[nzchar(trimws(description_lines))][1L] %||% ""
+  multi_application <- grepl("^Oef - 1\\.11 Praktische toepassingen$", basename(activity_dir))
+  if (!multi_application && grepl("^#{1,6}\\s+", trimws(first_nonempty), perl = TRUE)) {
+    failures <- c(failures, sprintf("%s: duplicate opening activity-title heading remains", activity_dir))
+  }
+
   split_target <- grepl(
     paste0(
       "^Oef\\s*-\\s*(?:3\\.2|3\\.3|3\\.4|7\\.1|8\\.1|9\\.4|",
@@ -208,14 +215,6 @@ for (index in seq_along(configs)) {
   }
 
   if (split_target) {
-    description_first_line <- strsplit(description, "\n", fixed = TRUE)[[1L]][[1L]]
-    expected_heading <- paste0("## ", display_name)
-    if (!identical(trimws(description_first_line), expected_heading)) {
-      failures <- c(
-        failures,
-        sprintf("%s: first description heading does not match the numeric Dodona title", activity_dir)
-      )
-    }
     legacy_code_pattern <- paste0(
       "3\\.2[a-d]|3\\.3(?:a2|d[2-5]|[a-e])|",
       "3\\.4(?:a[23]|c[23]|[a-d])"

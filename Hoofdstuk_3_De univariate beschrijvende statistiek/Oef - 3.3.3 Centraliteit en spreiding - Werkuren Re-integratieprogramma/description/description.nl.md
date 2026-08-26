@@ -1,5 +1,3 @@
-## Oef - 3.3.3 Werkuren - Centraliteit en spreiding
-
 Gegeven zijn de wekelijkse werkuren van twintig deelnemers:
 
 `24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36`

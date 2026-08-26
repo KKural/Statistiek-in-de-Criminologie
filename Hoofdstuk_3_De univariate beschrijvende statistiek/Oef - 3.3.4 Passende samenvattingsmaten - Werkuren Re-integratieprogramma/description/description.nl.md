@@ -1,5 +1,3 @@
-## Oef - 3.3.4 Werkuren - Passende samenvattingsmaten
-
 De werkuren zijn ratiodata:
 
 `24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36`

@@ -1,5 +1,3 @@
-## Oef - 11.6.1 Basisconcepten meervoudige regressie
-
 Beantwoord zeven vaste meerkeuzevragen. Vul bij elke variabele precies één geheel optienummer van 1 tot en met 4 in.
 
 **1) Wat is het verschil tussen een voorspelde waarde (Ŷ) en een residu (e)?**

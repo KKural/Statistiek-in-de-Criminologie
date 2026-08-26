@@ -1,5 +1,3 @@
-## Oef - 3.4.3 Huwelijksduur - Frequenties en percentages (150-1657 dagen)
-
 In een steekproef van elf beroemde koppels werd de huwelijksduur in dagen geregistreerd:
 
 `240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657`

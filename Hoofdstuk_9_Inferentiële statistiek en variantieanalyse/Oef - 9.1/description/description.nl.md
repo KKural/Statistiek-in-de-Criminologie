@@ -1,5 +1,3 @@
-## Oef - 9.1: Beleidsverklaringen Premier vs. Minister van Binnenlandse Zaken
-
 Dave neemt een willekeurige steekproef uit de toespraken, interviews en officiële verklaringen die de **Premier** en de **minister van Binnenlandse Zaken** in de loop van een jaar hebben gegeven, en waarin wordt gerefereerd naar "gevangenisbeleid". Hij analyseert de inhoud van zijn steekproef en ontdekt **vijf verschillende soorten rechtvaardigingen** voor het gevangenisbeleid van de regering. Dave registreert vervolgens elke keer dat de Premier of minister van Binnenlandse Zaken naar één van de vijf rechtvaardigingstypes verwijst.
 
 De resultaten zijn als volgt:

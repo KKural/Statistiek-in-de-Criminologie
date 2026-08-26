@@ -1,5 +1,3 @@
-## Oef - 3.4.8 Huwelijksduur - Variantie en standaardafwijking
-
 De elf huwelijksduren vormen een steekproef:
 
 `240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657`

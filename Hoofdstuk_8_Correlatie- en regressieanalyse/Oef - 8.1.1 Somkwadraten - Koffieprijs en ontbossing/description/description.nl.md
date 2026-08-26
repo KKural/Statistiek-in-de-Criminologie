@@ -1,5 +1,3 @@
-## Oef - 8.1.1 Koffieprijs en ontbossing — Somkwadraten
-
 Voor verschillende ontwikkelingslanden is koffie een belangrijk exportartikel. Wanneer koffieprijzen hoog zijn, kappen boeren soms bossen om meer koffiebomen te planten. Voor Indonesië werden gedurende vijf jaar de koffieprijs en het percentage ontbossing in een nationaal park gemeten.
 
 | Prijs (dollarcent per Amerikaans pond) | Ontbossing (%) |

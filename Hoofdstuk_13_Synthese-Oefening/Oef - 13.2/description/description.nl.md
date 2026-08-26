@@ -1,5 +1,3 @@
-# Besluit en vooruitblik naar volgende leerpad
-
 **Wat hebben we bereikt in Hoofdstuk 13?**
 
 Dit afsluitende hoofdstuk heeft alle geleerde concepten uit de voorgaande 12 hoofdstukken samengebracht in de **Synthese-Oefening**: een geautomatiseerde examenoefening met gegenereerde datasets. Je hebt geoefend met een volledig statistisch analyseproces, van ruwe gegevens tot kritische interpretatie:

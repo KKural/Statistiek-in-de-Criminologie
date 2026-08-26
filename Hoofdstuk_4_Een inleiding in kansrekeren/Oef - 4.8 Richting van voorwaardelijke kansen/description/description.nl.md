@@ -1,5 +1,3 @@
-# De richting van een voorwaardelijke kans
-
 Gebruik opnieuw de registratie van 147 verdachten.
 
 | | Diefstal | Geweldsmisdrijf | Drugsmisdrijf | Overige | Totaal |

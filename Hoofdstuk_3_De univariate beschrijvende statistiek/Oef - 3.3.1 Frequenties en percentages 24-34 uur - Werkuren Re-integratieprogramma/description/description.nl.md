@@ -1,5 +1,3 @@
-## Oef - 3.3.1 Werkuren - Frequenties en percentages (24-34 uur)
-
 Bij twintig deelnemers aan een re-integratieprogramma werd het aantal gewerkte uren per week geregistreerd:
 
 `24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36`

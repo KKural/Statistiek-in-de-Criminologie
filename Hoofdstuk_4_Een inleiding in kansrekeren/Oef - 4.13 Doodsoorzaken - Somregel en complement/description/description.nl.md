@@ -1,5 +1,3 @@
-# Doodsoorzaken: somregel en complement
-
 Een registratiesysteem kent aan elk onderzocht sterfgeval **exact één primaire doodsoorzaak** toe. Voor een aselect gekozen geregistreerd sterfgeval geldt:
 
 - $P(S)=0.45$ voor een schotwonde;

@@ -1,5 +1,3 @@
-## Oef - 3.3.6 Werkuren - Afwijkingen observaties 5-8
-
 Gebruik de twintig werkuren in hun oorspronkelijke volgorde:
 
 `24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36`

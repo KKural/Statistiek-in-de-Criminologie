@@ -1,5 +1,3 @@
-## Oef - 9.3: Steekproefgrootte voor topsalarissen bij banken
-
 De Vlaamse minister-president vraagt je om een onderzoek in te stellen naar de **topsalarissen** bij enkele vooraanstaande banken. Uit een vooronderzoek blijkt dat de **standaardafwijking σ = € 9.000** bedraagt.
 
 Op uitdrukkelijk verzoek van het ministerie mag de **foutenmarge** van het **95%-betrouwbaarheidsinterval** rond het steekproefgemiddelde **niet meer dan € 400** bedragen.

@@ -1,5 +1,3 @@
-# Verdachten en drugsmisdrijven: de productregel
-
 Een onderzoeker selecteert aselect één verdachte uit de onderstaande registratie.
 
 | | Diefstal | Geweldsmisdrijf | Drugsmisdrijf | Overige | Totaal |

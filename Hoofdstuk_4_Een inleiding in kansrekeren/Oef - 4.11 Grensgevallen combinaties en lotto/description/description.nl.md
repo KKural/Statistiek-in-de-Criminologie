@@ -1,5 +1,3 @@
-# Combinaties: grensgevallen en toepassing
-
 Voor combinaties geldt:
 
 $$\binom{n}{k}=\frac{n!}{k!(n-k)!}$$

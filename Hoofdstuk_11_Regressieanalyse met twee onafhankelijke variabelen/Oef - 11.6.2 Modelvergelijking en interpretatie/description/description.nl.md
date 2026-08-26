@@ -1,5 +1,3 @@
-## Oef - 11.6.2 Modelvergelijking en interpretatie
-
 Beantwoord zeven vaste meerkeuzevragen. Vul bij elke variabele precies één geheel optienummer van 1 tot en met 4 in.
 
 **8) Wat is de kernbetekenis van multicollineariteit?**

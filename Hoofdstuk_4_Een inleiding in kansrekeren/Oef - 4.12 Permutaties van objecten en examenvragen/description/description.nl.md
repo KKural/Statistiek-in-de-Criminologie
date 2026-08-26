@@ -1,5 +1,3 @@
-# Permutaties: volgorde maakt het verschil
-
 Bij een **permutatie** worden alle verschillende objecten gerangschikt en levert een andere volgorde een nieuwe uitkomst op.
 
 Bereken:

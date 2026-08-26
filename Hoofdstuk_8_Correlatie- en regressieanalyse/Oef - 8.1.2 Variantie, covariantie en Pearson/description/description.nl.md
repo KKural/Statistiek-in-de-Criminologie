@@ -1,5 +1,3 @@
-## Oef - 8.1.2 Koffieprijs en ontbossing — Pearson en interpretatie
-
 Voor vijf jaren werden de koffieprijs (X) en het percentage ontbossing (Y) in Indonesië gemeten. Uit de rekentabel van deel 1 volgen de gecontroleerde tussenresultaten:
 
 - n = 5

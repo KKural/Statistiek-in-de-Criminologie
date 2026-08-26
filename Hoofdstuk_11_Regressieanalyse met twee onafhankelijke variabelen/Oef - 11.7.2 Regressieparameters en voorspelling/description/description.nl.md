@@ -1,5 +1,3 @@
-## Oef - 11.7.2 Regressieparameters en voorspelling
-
 Een criminoloog verklaart AngstScore met WanordeIndex en ZwerfvuilKlachten bij vijf buurten.
 
 Model: `AngstScore = a + b₁·WanordeIndex + b₂·ZwerfvuilKlachten + e`

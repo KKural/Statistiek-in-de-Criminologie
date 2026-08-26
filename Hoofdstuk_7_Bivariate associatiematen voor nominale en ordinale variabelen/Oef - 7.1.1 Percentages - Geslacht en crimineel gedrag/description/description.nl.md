@@ -1,5 +1,3 @@
-## Oef - 7.1.1 Geslacht en crimineel gedrag — Percentages
-
 Een onderzoeker wil nagaan of er een verband is tussen **geslacht** en **crimineel gedrag** (wel/geen misdrijf gepleegd). In een representatieve steekproef van **2.000** volwassenen werd het volgende gevonden:
 
 **Tabel 1**

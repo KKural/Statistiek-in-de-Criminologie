@@ -1,5 +1,3 @@
-# Permutatie of combinatie?
-
 Bij een lotto worden **6 verschillende balletjes** uit **41 genummerde balletjes** getrokken. Een getrokken balletje wordt niet teruggelegd. Voor de uitslag maakt de **volgorde niet uit**: de reeks 2–7–11–18–31–40 is dezelfde selectie als 40–31–18–11–7–2.
 
 Welke berekening geeft het aantal mogelijke lottoselecties?

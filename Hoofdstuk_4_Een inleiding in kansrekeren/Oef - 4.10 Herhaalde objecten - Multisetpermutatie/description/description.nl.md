@@ -1,5 +1,3 @@
-# Rangschikken met herhaalde objecten
-
 Een coderingsschema voor acht dossiers gebruikt de labels:
 
 $$A, A, B, B, B, C, C, C$$

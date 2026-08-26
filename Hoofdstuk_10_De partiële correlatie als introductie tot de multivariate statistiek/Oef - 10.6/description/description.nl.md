@@ -1,5 +1,3 @@
-# **Interactieve app — partiële correlatie**
-
 In deze oefening oefen je de **partiële correlatie** aan de hand van de interactieve Shiny-app. De app genereert criminologische datasets met drie variabelen (X, Y en een controlevariabele Z) en laat je stap voor stap de partiële correlatie berekenen — vergelijkbaar met wat je deed in Oefening 8.2 (bivariate correlatie), maar nu inclusief het uitschakelen van een derde variabele.
 
 ---

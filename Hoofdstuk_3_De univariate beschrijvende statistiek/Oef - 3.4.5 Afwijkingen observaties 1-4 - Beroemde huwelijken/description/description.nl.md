@@ -1,5 +1,3 @@
-## Oef - 3.4.5 Huwelijksduur - Afwijkingen observaties 1-4
-
 Werk met de elf huwelijksduren in hun oorspronkelijke volgorde:
 
 `240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657`
