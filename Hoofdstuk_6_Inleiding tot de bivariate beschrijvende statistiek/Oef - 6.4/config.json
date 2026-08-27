@@ -1,0 +1,22 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 6.4 Generatieve causaliteit",
+      "en": "Exercise - 6.4 Generative causality"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "labels": [
+    "begrippen"
+  ],
+  "internals": {
+    "token": "_ETKStVNXdVsbsb9dCZ34Mfzd9rwhWgYIYr2zIE9dpbRy9YvVfm3cXseb9Qe7UtA",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

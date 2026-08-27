@@ -1,0 +1,26 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 7.2 Vuurwapenbezit en geslacht - Chi-kwadraatbeslissing",
+      "en": "Exercise - 7.2 Firearm ownership and gender - Chi-square decision"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "kruistabel",
+    "percentages",
+    "chi-kwadraat",
+    "phi"
+  ],
+  "internals": {
+    "token": "h8zr-RdfamHhQFcfKKF_YwYdM9jrRyJCFQtn9CgCTHCgSwyGvrktVVSnXDrJPiHD",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

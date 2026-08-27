@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 6.2 Bivariate beschrijving en methodekeuze",
-      "en": "Exercise - 6.2 Bivariate description and method selection"
+      "nl": "Oef - 6.5 Waarom bivariate beschrijvende statistiek?",
+      "en": "Exercise - 6.5 Why bivariate descriptive statistics?"
     }
   },
   "programming_language": "R",
@@ -11,7 +11,6 @@
     "handler": "R"
   },
   "test_suite": "evaluation",
-  "boilerplate": "description/boilerplate/boilerplate",
   "access": "public",
   "labels": [
     "begrippen"

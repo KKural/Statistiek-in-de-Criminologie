@@ -5,94 +5,127 @@
 ## Gebruik
 
 - **Correcte inzending** is een volledig ingevulde versie van de boilerplate, of het juiste optienummer bij een keuzeoefening.
-- Een **Foute testinvoer** wijzigt steeds precies één antwoord terwijl de andere antwoorden correct blijven.
-- De uitleg na elke foute invoer benoemt de bijbehorende misvatting en gerichte feedbackroute.
+- Een **Foute testinvoer** vervangt alleen de getoonde regel of keuze.
+- De uitleg bij foute invoer beschrijft de bijbehorende misvatting en feedbackroute.
 
-### Oef - 2.1 Meetniveaus classificeren
+### Oef - 2.1 Meetniveau - Delicten rangschikken
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.1 Meetniveau - Delicten rangschikken`
 
 #### Correcte inzending
 
-Kopieerbare, volledig ingevulde boilerplate:
+Selecteer deze optie:
 
 ```r
-# Kies per variabele 1 (nominaal), 2 (ordinaal), 3 (interval) of 4 (ratio).
-meetniveau_ernst_delict <- 2
-meetniveau_empathieschaal <- 2
-meetniveau_nationaliteit <- 1
-meetniveau_motivatieschaal <- 2
-meetniveau_aantal_diefstallen <- 4
+2
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `meetniveau_ernst_delict` (alle andere velden blijven correct):
+- Foute testinvoer: `1`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je zag delicttypen als categorieën en koppelde die mogelijk aan nominaal, maar de opdracht voegt expliciet een ernstvolgorde toe.
+- Foute testinvoer: `3`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je behandelde de rangplaatsen mogelijk als numerieke scores met gelijke afstanden, terwijl alleen de volgorde van ernst vastligt.
+- Foute testinvoer: `4`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je veronderstelde mogelijk dat een laagste ernstcategorie een werkelijk nulpunt vormt en verhoudingen tussen ernstniveaus mogelijk maakt.
+- Foute testinvoer: `5`
+  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
+
+### Oef - 2.2 Meetniveau - Empathieschaal
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.2 Meetniveau - Empathieschaal`
+
+#### Correcte inzending
+
+Selecteer deze optie:
 
 ```r
-# Kies per variabele 1 (nominaal), 2 (ordinaal), 3 (interval) of 4 (ratio).
-meetniveau_ernst_delict <- 1
-meetniveau_empathieschaal <- 2
-meetniveau_nationaliteit <- 1
-meetniveau_motivatieschaal <- 2
-meetniveau_aantal_diefstallen <- 4
+2
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 1 (ernst van delicten) koos je optie 1. **Waarom dit niet klopt:** De categorieën hebben een rangorde, maar de afstanden in ernst zijn niet meetbaar; dit is ordinaal.
+#### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `meetniveau_empathieschaal` (alle andere velden blijven correct):
+- Foute testinvoer: `1`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je zag antwoordcategorieën en koppelde die mogelijk daarom aan nominaal, zonder hun volgorde van onwaarschijnlijk naar waarschijnlijk mee te nemen.
+- Foute testinvoer: `3`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je behandelde de genummerde antwoordposities mogelijk alsof de afstand tussen elk paar opeenvolgende categorieën gelijk is.
+- Foute testinvoer: `4`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je interpreteerde het laagste antwoord mogelijk als een werkelijk nulpunt waarop empathie volledig afwezig is.
+- Foute testinvoer: `5`
+  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
+
+### Oef - 2.3 Meetniveau - Nationaliteit classificatie
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.3 Meetniveau - Nationaliteit classificatie`
+
+#### Correcte inzending
+
+Selecteer deze optie:
 
 ```r
-# Kies per variabele 1 (nominaal), 2 (ordinaal), 3 (interval) of 4 (ratio).
-meetniveau_ernst_delict <- 2
-meetniveau_empathieschaal <- 1
-meetniveau_nationaliteit <- 1
-meetniveau_motivatieschaal <- 2
-meetniveau_aantal_diefstallen <- 4
+1
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 2 (empathieschaal) koos je optie 1. **Waarom dit niet klopt:** De antwoordcategorieën zijn geordend, maar gelijke betekenisafstanden zijn niet gegarandeerd; dit is ordinaal.
+#### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `meetniveau_nationaliteit` (alle andere velden blijven correct):
+- Foute testinvoer: `2`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je rangschikte nationaliteiten mogelijk op basis van een extern kenmerk, maar de nationaliteitscategorieën zelf hebben geen natuurlijke volgorde.
+- Foute testinvoer: `3`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je behandelde mogelijke categoriecodes misschien als numerieke waarden met gelijke afstanden, terwijl de codes alleen labels zijn.
+- Foute testinvoer: `4`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je dacht mogelijk aan aantallen personen per nationaliteit, die wel ratio zijn, maar de gevraagde variabele is nationaliteit zelf.
+- Foute testinvoer: `5`
+  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
+
+### Oef - 2.4 Meetniveau - Motivatieschaal gevangenis
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.4 Meetniveau - Motivatieschaal gevangenis`
+
+#### Correcte inzending
+
+Selecteer deze optie:
 
 ```r
-# Kies per variabele 1 (nominaal), 2 (ordinaal), 3 (interval) of 4 (ratio).
-meetniveau_ernst_delict <- 2
-meetniveau_empathieschaal <- 2
-meetniveau_nationaliteit <- 2
-meetniveau_motivatieschaal <- 2
-meetniveau_aantal_diefstallen <- 4
+2
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 3 (nationaliteit) koos je optie 2. **Waarom dit niet klopt:** Nationaliteiten zijn categorieën zonder natuurlijke rangorde; dit is nominaal.
+#### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `meetniveau_motivatieschaal` (alle andere velden blijven correct):
+- Foute testinvoer: `1`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je zag vijf benoembare antwoordcategorieën en koppelde die mogelijk aan nominaal, maar de scores hebben een duidelijke lage-naar-hoge volgorde.
+- Foute testinvoer: `3`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** de cijfers 1–5 deden mogelijk vermoeden dat elke stap exact even groot is, terwijl gelijke psychologische afstanden niet zijn aangetoond.
+- Foute testinvoer: `4`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je behandelde score 1 mogelijk als volledige afwezigheid van motivatie en daarmee als werkelijk nulpunt.
+- Foute testinvoer: `5`
+  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
+
+### Oef - 2.5 Meetniveau - Winkeldiefstal registratie
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.5 Meetniveau - Winkeldiefstal registratie`
+
+#### Correcte inzending
+
+Selecteer deze optie:
 
 ```r
-# Kies per variabele 1 (nominaal), 2 (ordinaal), 3 (interval) of 4 (ratio).
-meetniveau_ernst_delict <- 2
-meetniveau_empathieschaal <- 2
-meetniveau_nationaliteit <- 1
-meetniveau_motivatieschaal <- 1
-meetniveau_aantal_diefstallen <- 4
+4
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 4 (motivatieschaal) koos je optie 1. **Waarom dit niet klopt:** Cijfers op een beoordelingsschaal bewijzen geen gelijke afstanden; de geordende antwoorden zijn ordinaal.
+#### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `meetniveau_aantal_diefstallen` (alle andere velden blijven correct):
+- Foute testinvoer: `1`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je zag meldingen mogelijk als afzonderlijke categorieën of registratielabels, terwijl het gevraagde gegeven een telling per winkel is.
+- Foute testinvoer: `2`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je merkte terecht dat aantallen geordend kunnen worden, maar stopte mogelijk vóór de controles op gelijke afstanden en een werkelijk nulpunt.
+- Foute testinvoer: `3`
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je herkende numerieke waarden met gelijke afstanden, maar liet mogelijk buiten beschouwing dat nul meldingen werkelijk geen meldingen betekent.
+- Foute testinvoer: `5`
+  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
 
-```r
-# Kies per variabele 1 (nominaal), 2 (ordinaal), 3 (interval) of 4 (ratio).
-meetniveau_ernst_delict <- 2
-meetniveau_empathieschaal <- 2
-meetniveau_nationaliteit <- 1
-meetniveau_motivatieschaal <- 2
-meetniveau_aantal_diefstallen <- 1
-```
+$12.6 Meetniveaus in een studentenonderzoek
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 5 (aantal diefstallen) koos je optie 1. **Waarom dit niet klopt:** Een telling heeft gelijke afstanden en een werkelijk nulpunt; dit is ratio.
-
-### Oef - 2.2 Meetniveaus in een studentenonderzoek
+### Oef - 2.6 Meetniveaus in een studentenonderzoek
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.6 Variabeletype - Studentnummer classificatie`
 
@@ -242,55 +275,9 @@ studentnummer <- "Ratio"
 
   - Misvatting: een studentnummer is alleen een identificatielabel; rekenkundige bewerkingen hebben geen betekenis, dus het meetniveau is nominaal.
 
-### Oef - 2.3 Meetniveaus classificeren - Pythonversie
+$12.7 Onafhankelijke en afhankelijke variabelen - Jongeren interventie
 
-Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.8.1 Meetniveau classificatie - Python versie`
-
-#### Correcte inzending
-
-Kopieerbare, volledig ingevulde boilerplate:
-
-```python
-# BELANGRIJK: Vul de juiste meetniveaus in!
-# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
-
-# Variabele 1: Favoriete keuze uit meerkeuzevraag
-favoriete_keuze = "Nominaal"
-
-# Variabele 2: Leeftijd in jaren
-leeftijd = "Ratio"
-
-# Variabele 3: Geslacht (man/vrouw)
-geslacht = "Nominaal"
-
-# Variabele 4: Studierichting
-studierichting = "Nominaal"
-
-# Variabele 5: Studentnummer
-studentnummer = "Nominaal"
-
-# Print de antwoorden (NIET AANPASSEN!)
-print(favoriete_keuze)
-print(leeftijd)
-print(geslacht)
-print(studierichting)
-print(studentnummer)
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer: `favoriete_keuze = "Ordinaal"`
-  - Misvatting: de antwoordopties zijn categorieën zonder natuurlijke rangorde; deze variabele is nominaal.
-- Foute testinvoer: `leeftijd = "Interval"`
-  - Misvatting: leeftijd heeft een werkelijk nulpunt en verhoudingen zijn betekenisvol; deze variabele is ratio.
-- Foute testinvoer: `geslacht = "Ordinaal"`
-  - Misvatting: de categorieën hebben geen natuurlijke rangorde; deze variabele is nominaal.
-- Foute testinvoer: `studierichting = "Ordinaal"`
-  - Misvatting: studierichtingen zijn labels zonder natuurlijke rangorde; deze variabele is nominaal.
-- Foute testinvoer: `studentnummer = "Ratio"`
-  - Misvatting: een studentnummer is alleen een identificatielabel; rekenkundige verschillen en verhoudingen hebben geen betekenis, dus het meetniveau is nominaal.
-
-### Oef - 2.4 Onafhankelijke en afhankelijke variabelen - Jongeren interventie
+### Oef - 2.7 Onafhankelijke en afhankelijke variabelen - Jongeren interventie
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.7 Onafhankelijke en afhankelijke variabelen - Jongeren interventie`
 
@@ -396,118 +383,400 @@ meetniveau_afhankelijk_variabele <- "nominaal"
 
   - Misvatting: een aantal is een telling met een werkelijk nulpunt; het meetniveau is ratio.
 
-### Oef - 2.6 Kwantitatieve variabelen en meetniveau
+### Oef - 2.8.1 Meetniveaus classificeren - Pythonversie
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.8.1 Meetniveau classificatie - Python versie`
+
+#### Correcte inzending
+
+Kopieerbare, volledig ingevulde boilerplate:
+
+```python
+# BELANGRIJK: Vul de juiste meetniveaus in!
+# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
+
+# Variabele 1: Favoriete keuze uit meerkeuzevraag
+favoriete_keuze = "Nominaal"
+
+# Variabele 2: Leeftijd in jaren
+leeftijd = "Ratio"
+
+# Variabele 3: Geslacht (man/vrouw)
+geslacht = "Nominaal"
+
+# Variabele 4: Studierichting
+studierichting = "Nominaal"
+
+# Variabele 5: Studentnummer
+studentnummer = "Nominaal"
+
+# Print de antwoorden (NIET AANPASSEN!)
+print(favoriete_keuze)
+print(leeftijd)
+print(geslacht)
+print(studierichting)
+print(studentnummer)
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer: `favoriete_keuze = "Ordinaal"`
+  - Misvatting: de antwoordopties zijn categorieën zonder natuurlijke rangorde; deze variabele is nominaal.
+- Foute testinvoer: `leeftijd = "Interval"`
+  - Misvatting: leeftijd heeft een werkelijk nulpunt en verhoudingen zijn betekenisvol; deze variabele is ratio.
+- Foute testinvoer: `geslacht = "Ordinaal"`
+  - Misvatting: de categorieën hebben geen natuurlijke rangorde; deze variabele is nominaal.
+- Foute testinvoer: `studierichting = "Ordinaal"`
+  - Misvatting: studierichtingen zijn labels zonder natuurlijke rangorde; deze variabele is nominaal.
+- Foute testinvoer: `studentnummer = "Ratio"`
+  - Misvatting: een studentnummer is alleen een identificatielabel; rekenkundige verschillen en verhoudingen hebben geen betekenis, dus het meetniveau is nominaal.
+
+### Oef - 2.9 Inbraken per maand - Meetniveau
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.9 Onderzoeksvraag classificatie - Inbraken per maand`
 
 #### Correcte inzending
 
-Kopieerbare, volledig ingevulde boilerplate:
+Kopieerbare boilerplate:
 
 ```r
-# Vul voor elk onderdeel het nummer van de gekozen optie in.
-meetniveau_aantal_inbraken <- 4
-meetniveau_percentage_onveilig <- 4
-type_politiedichtheid_en_diefstallen <- 1
+# Vul het antwoord in na <-.
+meetniveau <- 4
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `meetniveau_aantal_inbraken` (alle andere velden blijven correct):
+- Foute testinvoer:
 
 ```r
-# Vul voor elk onderdeel het nummer van de gekozen optie in.
-meetniveau_aantal_inbraken <- 1
-meetniveau_percentage_onveilig <- 4
-type_politiedichtheid_en_diefstallen <- 1
+# Vul het antwoord in na <-.
+meetniveau <-1
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 1 (aantal inbraken) koos je optie 1. **Waarom dit niet klopt:** Een telling heeft gelijke afstanden en nul betekent geen gebeurtenissen; daarom is het meetniveau ratio.
+  - Misvatting: **Waarschijnlijke redenering:** Je behandelt de aantallen als categoriecodes zonder numerieke betekenis.
 
-- Foute testinvoer voor `meetniveau_percentage_onveilig` (alle andere velden blijven correct):
+- Foute testinvoer:
 
 ```r
-# Vul voor elk onderdeel het nummer van de gekozen optie in.
-meetniveau_aantal_inbraken <- 4
-meetniveau_percentage_onveilig <- 1
-type_politiedichtheid_en_diefstallen <- 1
+# Vul het antwoord in na <-.
+meetniveau <-2
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 2 (percentage onveiligheid) koos je optie 1. **Waarom dit niet klopt:** Het percentage is numeriek, heeft gelijke afstanden en een betekenisvol nulpunt; daarom is het meetniveau ratio.
+  - Misvatting: **Waarschijnlijke redenering:** Je ziet alleen de rangorde en mist de betekenis van afstanden.
 
-- Foute testinvoer voor `type_politiedichtheid_en_diefstallen` (alle andere velden blijven correct):
+- Foute testinvoer:
 
 ```r
-# Vul voor elk onderdeel het nummer van de gekozen optie in.
-meetniveau_aantal_inbraken <- 4
-meetniveau_percentage_onveilig <- 4
-type_politiedichtheid_en_diefstallen <- 2
+# Vul het antwoord in na <-.
+meetniveau <-3
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 3 (politiedichtheid en diefstallen) koos je optie 2. **Waarom dit niet klopt:** Beide variabelen zijn numerieke aantallen per vaste populatie-eenheid en dus kwantitatief.
+  - Misvatting: **Waarschijnlijke redenering:** Je herkent gelijke afstanden maar mist het werkelijke nulpunt.
 
-### Oef - 2.7 Onderzoeksvragen, variabelerollen en opzet
+- Ongeldige of ontbrekende invoer:
+
+```r
+meetniveau <-
+```
+
+  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+
+### Oef - 2.10 Recidive en leeftijd - Type onderzoeksvraag
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.10 Onderzoeksvraag classificatie - Recidive en leeftijd`
 
 #### Correcte inzending
 
-Kopieerbare, volledig ingevulde boilerplate:
+Kopieerbare boilerplate:
 
 ```r
-# Vul voor elk onderdeel het nummer van de gekozen optie in.
-type_vraag_leeftijd_recidive <- 3
-uitkomst_recidive_geslacht <- 2
-opzet_cameratoezicht <- 2
-type_vraag_gemiddelde_leeftijd <- 1
+# Vul het antwoord in na <-.
+type_onderzoeksvraag <- 3
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `type_vraag_leeftijd_recidive` (alle andere velden blijven correct):
+- Foute testinvoer:
 
 ```r
-# Vul voor elk onderdeel het nummer van de gekozen optie in.
-type_vraag_leeftijd_recidive <- 1
-uitkomst_recidive_geslacht <- 2
-opzet_cameratoezicht <- 2
-type_vraag_gemiddelde_leeftijd <- 1
+# Vul het antwoord in na <-.
+type_onderzoeksvraag <-1
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 1 (leeftijd en recidive) koos je optie 1. **Waarom dit niet klopt:** De vraag bevat een voorspeller en een uitkomst en vraagt naar voorspelling; dit is bivariaat verklarend.
+  - Misvatting: **Waarschijnlijke redenering:** Je hebt slechts één variabele herkend.
 
-- Foute testinvoer voor `uitkomst_recidive_geslacht` (alle andere velden blijven correct):
+- Foute testinvoer:
 
 ```r
-# Vul voor elk onderdeel het nummer van de gekozen optie in.
-type_vraag_leeftijd_recidive <- 3
-uitkomst_recidive_geslacht <- 1
-opzet_cameratoezicht <- 2
-type_vraag_gemiddelde_leeftijd <- 1
+# Vul het antwoord in na <-.
+type_onderzoeksvraag <-2
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 2 (recidive en geslacht) koos je optie 1. **Waarom dit niet klopt:** Recidive is de uitkomst die tussen de geslachtsgroepen wordt vergeleken.
+  - Misvatting: **Waarschijnlijke redenering:** Je ziet twee variabelen maar negeert de verklarende richting.
 
-- Foute testinvoer voor `opzet_cameratoezicht` (alle andere velden blijven correct):
+- Foute testinvoer:
 
 ```r
-# Vul voor elk onderdeel het nummer van de gekozen optie in.
-type_vraag_leeftijd_recidive <- 3
-uitkomst_recidive_geslacht <- 2
-opzet_cameratoezicht <- 1
-type_vraag_gemiddelde_leeftijd <- 1
+# Vul het antwoord in na <-.
+type_onderzoeksvraag <-4
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 3 (cameratoezicht) koos je optie 1. **Waarom dit niet klopt:** Een interventie met een voor-na-vergelijking maar zonder randomisatie is quasi-experimenteel.
+  - Misvatting: **Waarschijnlijke redenering:** De vraag specificeert kwantitatieve variabelen en een toetsbare relatie.
 
-- Foute testinvoer voor `type_vraag_gemiddelde_leeftijd` (alle andere velden blijven correct):
+- Ongeldige of ontbrekende invoer:
 
 ```r
-# Vul voor elk onderdeel het nummer van de gekozen optie in.
-type_vraag_leeftijd_recidive <- 3
-uitkomst_recidive_geslacht <- 2
-opzet_cameratoezicht <- 2
-type_vraag_gemiddelde_leeftijd <- 2
+type_onderzoeksvraag <-
 ```
 
-  - **Waarschijnlijke redenering:** Bij onderdeel 4 (gemiddelde leeftijd) koos je optie 2. **Waarom dit niet klopt:** De vraag vat één variabele samen en onderzoekt geen verschil of relatie; dit is univariaat beschrijvend.
+  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+
+### Oef - 2.11 Onveiligheidsgevoel - Meetniveau van een percentage
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.11 Onderzoeksvraag classificatie - Onveiligheidsgevoel percentage`
+
+#### Correcte inzending
+
+Kopieerbare boilerplate:
+
+```r
+# Vul het antwoord in na <-.
+meetniveau <- 4
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+meetniveau <-1
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Je verwart gemeentelabels met de gemeten percentagevariabele.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+meetniveau <-2
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Je gebruikt alleen de ordening en negeert numerieke afstanden.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+meetniveau <-3
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Je mist dat 0% hier een werkelijk nulpunt is.
+
+- Ongeldige of ontbrekende invoer:
+
+```r
+meetniveau <-
+```
+
+  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+
+### Oef - 2.12 Recidive en geslacht - Afhankelijke variabele
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.12 Onderzoeksvraag classificatie - Recidive verschil geslacht`
+
+#### Correcte inzending
+
+Kopieerbare boilerplate:
+
+```r
+# Vul het antwoord in na <-.
+afhankelijke_variabele <- 2
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+afhankelijke_variabele <-1
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Je hebt de groepsindelende variabele als uitkomst gekozen.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+afhankelijke_variabele <-3
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** De twee variabelen hebben in deze vraag verschillende rollen.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+afhankelijke_variabele <-4
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Een verschilvraag heeft wel degelijk een gemeten uitkomst.
+
+- Ongeldige of ontbrekende invoer:
+
+```r
+afhankelijke_variabele <-
+```
+
+  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+
+### Oef - 2.13 Cameratoezicht - Onderzoeksopzet herkennen
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.13 Onderzoeksvraag classificatie - Cameratoezicht geweldsdelicten`
+
+#### Correcte inzending
+
+Kopieerbare boilerplate:
+
+```r
+# Vul het antwoord in na <-.
+onderzoeksopzet <- 2
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+onderzoeksopzet <-1
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Je neemt randomisatie aan terwijl die ontbreekt.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+onderzoeksopzet <-3
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Je negeert de interventie en de vergelijking tussen twee meetmomenten.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+onderzoeksopzet <-4
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** De gegevens bestaan uit aantallen delicten, niet uit interviewmateriaal.
+
+- Ongeldige of ontbrekende invoer:
+
+```r
+onderzoeksopzet <-
+```
+
+  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+
+### Oef - 2.14 Politiedichtheid en diefstallen - Variabelentype
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.14 Onderzoeksvraag classificatie - Politie dichtheid diefstallen`
+
+#### Correcte inzending
+
+Kopieerbare boilerplate:
+
+```r
+# Vul het antwoord in na <-.
+variabelentype <- 1
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+variabelentype <-2
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Je behandelt numerieke ratio’s als categorieën.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+variabelentype <-3
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Ook het diefstalcijfer is een kwantitatieve ratio.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+variabelentype <-4
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Ook politiedichtheid is een kwantitatieve ratio.
+
+- Ongeldige of ontbrekende invoer:
+
+```r
+variabelentype <-
+```
+
+  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+
+### Oef - 2.15 Leeftijd geweldsdaders - Type onderzoeksvraag
+
+Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.15 Onderzoeksvraag classificatie - Gemiddelde leeftijd geweldsdaders`
+
+#### Correcte inzending
+
+Kopieerbare boilerplate:
+
+```r
+# Vul het antwoord in na <-.
+type_onderzoeksvraag <- 1
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+type_onderzoeksvraag <-2
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Je hebt een tweede variabele verondersteld die niet in de vraag staat.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+type_onderzoeksvraag <-3
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Er wordt geen verklaring of voorspeller onderzocht.
+
+- Foute testinvoer:
+
+```r
+# Vul het antwoord in na <-.
+type_onderzoeksvraag <-4
+```
+
+  - Misvatting: **Waarschijnlijke redenering:** Er is geen gemanipuleerde interventie of experiment.
+
+- Ongeldige of ontbrekende invoer:
+
+```r
+type_onderzoeksvraag <-
+```
+
+  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.

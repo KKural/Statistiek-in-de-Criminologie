@@ -1,6 +1,6 @@
 # generate_scatter_outlier.R
 # Creates: scatter_outlier.png
-# Used in: visible Oef - 11.3 (Hoofdstuk 11)
+# Used in: Oef - 8.3 (Hoofdstuk 8)
 # Topic: Scatterplot of 6 labelled points + OLS regression line.
 #        Students identify point B as having the largest absolute residual.
 # Data:
@@ -25,6 +25,9 @@ df <- data.frame(
 fit  <- lm(y ~ x, data = df)
 # At x=8: yhat ≈ 24.2 (B has residu +4.8, largest absolute)
 
+line_df <- data.frame(x = c(0, 22))
+line_df$y <- predict(fit, newdata = line_df)
+
 # Residual segments (vertical lines from point to fitted line)
 df$yhat   <- predict(fit)
 df$residu <- df$y - df$yhat
@@ -35,15 +38,8 @@ p <- ggplot(df, aes(x = x, y = y)) +
   geom_segment(aes(xend = x, yend = yhat),
                linetype = "dashed", colour = "grey60", linewidth = 0.6) +
   # Regression line
-  geom_abline(
-    data = data.frame(
-      intercept = unname(coef(fit)[1]),
-      slope = unname(coef(fit)[2])
-    ),
-    aes(intercept = intercept, slope = slope),
-    inherit.aes = FALSE,
-    colour = "#2166ac", linewidth = 1.1
-  ) +
+  geom_line(data = line_df, aes(x = x, y = y),
+            colour = "#2166ac", linewidth = 1.1) +
   # All points (open circles — no highlighting to avoid revealing the answer)
   geom_point(size = 3.5, colour = "grey30", fill = "white", shape = 21,
              stroke = 1.2) +

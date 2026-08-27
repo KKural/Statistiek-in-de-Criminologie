@@ -1,0 +1,26 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 11.7 Regressie-output - Modeltoets en voorspelling",
+      "en": "Exercise - 11.7 Regression output - Model test and prediction"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "meervoudige-regressie",
+    "output-lezen",
+    "model-fit",
+    "ANOVA"
+  ],
+  "internals": {
+    "token": "qiKP-8r7atGDevW76jEK7V3eiu-gUVj6tHAwS8MwakhwNWzqaNRSvJXXfFGNJ4aU",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

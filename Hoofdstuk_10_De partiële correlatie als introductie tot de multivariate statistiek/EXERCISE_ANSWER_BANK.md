@@ -1,12 +1,12 @@
 # Antwoordbank — Hoofdstuk 10
 
-> Alleen voor docenten en technische validatie. De correcte inzendingen zijn rechtstreeks afgeleid van de canonieke `evaluation/Answer.R`-bestanden en door die evaluatoren gevalideerd.
+> Alleen voor docenten en technische validatie. Elke correcte inzending is een volledig ingevulde kopie van de bijbehorende boilerplate.
 
 ## Gebruik
 
-- **Correcte inzending** is een volledig ingevulde versie van de boilerplate, of het juiste optienummer bij een keuzeoefening.
-- Een **Foute testinvoer** wijzigt steeds precies één antwoord terwijl de andere antwoorden correct blijven.
-- De uitleg na elke foute invoer benoemt de bijbehorende misvatting en gerichte feedbackroute.
+- **Correcte inzending** kan rechtstreeks in Dodona worden gekopieerd.
+- Een **Foute testinvoer** wijzigt precies één antwoord; alle andere antwoorden blijven correct.
+- De uitleg na elke foute invoer benoemt de waarschijnlijke misvatting.
 
 ### Oef - 10.1 Partiële correlatie - Bouwstenen
 
@@ -27,20 +27,20 @@ r_xy_z <- 0.504
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `gemiddelde_x` (alle andere velden blijven correct):
+- Foute testinvoer voor `gemiddelde_x`:
 
 ```r
 # Vul elk antwoord in na <-.
-gemiddelde_x <- 3.5
+gemiddelde_x <- 10
 scp_xy <- -4
 variantie_x <- 6
 r_xy <- 0.5
 r_xy_z <- 0.504
 ```
 
-  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk de som of het aantal waarnemingen ingevuld in plaats van het gemiddelde. **Waarom dit niet klopt:** (1 + 2 + 3 + 4) / 4 = 2.5.
+  - **Misvatting:** de som is ingevuld zonder door het aantal waarnemingen te delen; het gemiddelde is (1 + 2 + 3 + 4) / 4 = 2.5.
 
-- Foute testinvoer voor `scp_xy` (alle andere velden blijven correct):
+- Foute testinvoer voor `scp_xy`:
 
 ```r
 # Vul elk antwoord in na <-.
@@ -51,35 +51,35 @@ r_xy <- 0.5
 r_xy_z <- 0.504
 ```
 
-  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk de producten zonder hun negatieve teken verwerkt of de afwijkingen opgeteld. **Waarom dit niet klopt:** (−1)(2) + 0(0) + 1(−2) = −4.
+  - **Misvatting:** de negatieve tekens van de gepaarde afwijkingsproducten zijn verloren; de kruisproductsom is -4.
 
-- Foute testinvoer voor `variantie_x` (alle andere velden blijven correct):
+- Foute testinvoer voor `variantie_x`:
 
 ```r
 # Vul elk antwoord in na <-.
 gemiddelde_x <- 2.5
 scp_xy <- -4
-variantie_x <- 1
+variantie_x <- 4.5
 r_xy <- 0.5
 r_xy_z <- 0.504
 ```
 
-  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk door n gedeeld in plaats van door n − 1. **Waarom dit niet klopt:** Een steekproefvariantie gebruikt 18 / (4 − 1) = 6.
+  - **Misvatting:** er is door n gedeeld in plaats van door n - 1; de steekproefvariantie is 18 / 3 = 6.
 
-- Foute testinvoer voor `r_xy` (alle andere velden blijven correct):
+- Foute testinvoer voor `r_xy`:
 
 ```r
 # Vul elk antwoord in na <-.
 gemiddelde_x <- 2.5
 scp_xy <- -4
 variantie_x <- 6
-r_xy <- 50
+r_xy <- 3
 r_xy_z <- 0.504
 ```
 
-  - **Waarschijnlijke redenering:** Je hebt de covariantie waarschijnlijk niet door het product van beide standaarddeviaties gedeeld. **Waarom dit niet klopt:** r_XY = 3 / (2 × 3) = 0.5.
+  - **Misvatting:** de covariantie is overgenomen zonder te standaardiseren; 3 / (2 × 3) = 0.5.
 
-- Foute testinvoer voor `r_xy_z` (alle andere velden blijven correct):
+- Foute testinvoer voor `r_xy_z`:
 
 ```r
 # Vul elk antwoord in na <-.
@@ -87,12 +87,12 @@ gemiddelde_x <- 2.5
 scp_xy <- -4
 variantie_x <- 6
 r_xy <- 0.5
-r_xy_z <- 50.4
+r_xy_z <- 0.6
 ```
 
-  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk alleen de teller berekend of één wortelterm uit de noemer weggelaten. **Waarom dit niet klopt:** De standaardformule geeft (0.60 − 0.50 × 0.40) / √[(1 − 0.50²)(1 − 0.40²)] = 0.5040.
+  - **Misvatting:** de bivariate correlatie is overgenomen zonder voor Z te controleren; de partiële correlatie is ongeveer 0.504.
 
-### Oef - 10.2 Partiële correlatie - Relatiepatronen interpreteren
+### Oef - 10.2 Partiële correlatie - Schijnverband herkennen
 
 Bronmap: `Hoofdstuk_10_De partiële correlatie als introductie tot de multivariate statistiek/Oef - 10.2`
 
@@ -101,59 +101,89 @@ Bronmap: `Hoofdstuk_10_De partiële correlatie als introductie tot de multivaria
 Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Vul voor elk scenario de juiste antwoordcode in na <-.
-afname_na_controle <- 1
-suppressoreffect <- 3
-nauwelijks_verandering <- 3
-unieke_bijdrage <- 2
+# Vul het antwoord in na <-.
+relatietype <- 1
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `afname_na_controle` (alle andere velden blijven correct):
+- Foute testinvoer voor `relatietype`:
 
 ```r
-# Vul voor elk scenario de juiste antwoordcode in na <-.
-afname_na_controle <- 2
-suppressoreffect <- 3
-nauwelijks_verandering <- 3
-unieke_bijdrage <- 2
+# Vul het antwoord in na <-.
+relatietype <- 2
 ```
 
-  - **Waarschijnlijke redenering:** Je hebt een sterke afname mogelijk als suppressie of als bewijs van causaliteit geïnterpreteerd. **Waarom dit niet klopt:** De daling van 0.60 naar 0.10 wijst erop dat Z een groot deel van het oorspronkelijke gedeelde verband verklaart.
+  - **Misvatting:** dit is als suppressie gelezen. Bij suppressie wordt het verband na controle juist sterker; de sterke afname van 0.60 naar 0.10 past bij een schijnverband.
 
-- Foute testinvoer voor `suppressoreffect` (alle andere velden blijven correct):
+### Oef - 10.3 Partiële correlatie - Suppressoreffect herkennen
+
+Bronmap: `Hoofdstuk_10_De partiële correlatie als introductie tot de multivariate statistiek/Oef - 10.3`
+
+#### Correcte inzending
+
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Vul voor elk scenario de juiste antwoordcode in na <-.
-afname_na_controle <- 1
-suppressoreffect <- 1
-nauwelijks_verandering <- 3
-unieke_bijdrage <- 2
+# Vul het antwoord in na <-.
+relatietype <- 3
 ```
 
-  - **Waarschijnlijke redenering:** Je hebt de sterke toename na controle mogelijk als het verdwijnen van een verband gelezen. **Waarom dit niet klopt:** De correlatie wordt na controle veel sterker; dat is het kenmerk van suppressie.
+#### Foute testinvoer en misvattingen
 
-- Foute testinvoer voor `nauwelijks_verandering` (alle andere velden blijven correct):
+- Foute testinvoer voor `relatietype`:
 
 ```r
-# Vul voor elk scenario de juiste antwoordcode in na <-.
-afname_na_controle <- 1
-suppressoreffect <- 3
-nauwelijks_verandering <- 1
-unieke_bijdrage <- 2
+# Vul het antwoord in na <-.
+relatietype <- 1
 ```
 
-  - **Waarschijnlijke redenering:** Je hebt een verschil van slechts 0.02 mogelijk als een grote inhoudelijke verandering beschouwd. **Waarom dit niet klopt:** 0.50 en 0.48 zijn vrijwel gelijk, zodat Z het verband nauwelijks verandert.
+  - **Misvatting:** dit is als schijnverband gelezen. Een schijnverband neemt na controle sterk af; hier wordt het gecontroleerde verband juist duidelijk sterker.
 
-- Foute testinvoer voor `unieke_bijdrage` (alle andere velden blijven correct):
+### Oef - 10.4 Partiële correlatie - Nauwelijks verandering
+
+Bronmap: `Hoofdstuk_10_De partiële correlatie als introductie tot de multivariate statistiek/Oef - 10.4`
+
+#### Correcte inzending
+
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Vul voor elk scenario de juiste antwoordcode in na <-.
-afname_na_controle <- 1
-suppressoreffect <- 3
-nauwelijks_verandering <- 3
-unieke_bijdrage <- 1
+# Vul het antwoord in na <-.
+conclusie <- 3
 ```
 
-  - **Waarschijnlijke redenering:** Je hebt gezamenlijk modelleren mogelijk gelijkgesteld aan automatisch causaal bewijs. **Waarom dit niet klopt:** Meerdere predictors maken het mogelijk hun partiële, unieke bijdragen te schatten; causaliteit volgt daar niet automatisch uit.
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer voor `conclusie`:
+
+```r
+# Vul het antwoord in na <-.
+conclusie <- 1
+```
+
+  - **Misvatting:** een klein verschil is als het verdwijnen van het verband gelezen. De correlaties 0.50 en 0.48 zijn vrijwel gelijk; Z verandert het verband nauwelijks.
+
+### Oef - 10.5 Multivariate statistiek - Unieke bijdrage
+
+Bronmap: `Hoofdstuk_10_De partiële correlatie als introductie tot de multivariate statistiek/Oef - 10.5`
+
+#### Correcte inzending
+
+Kopieerbare, volledig ingevulde boilerplate:
+
+```r
+# Vul het antwoord in na <-.
+antwoord <- 2
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer voor `antwoord`:
+
+```r
+# Vul het antwoord in na <-.
+antwoord <- 4
+```
+
+  - **Misvatting:** statistische controle is gelijkgesteld aan causaal bewijs. Een multivariaat model schat unieke bijdragen bij constante andere predictors, maar bewijst daarmee geen causaliteit.

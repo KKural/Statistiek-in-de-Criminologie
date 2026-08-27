@@ -4,67 +4,54 @@ context({
     {
       testEqual(
         "",
-        function(env) {
-          expected_values <- c(
-            basisregel_kans = 2,
-            algemene_somregel = 2,
-            relatie_gebeurtenissen = 2
-          )
-          read_number <- function(name) {
-            if (!exists(name, envir = env)) return(NA_real_)
-            value <- suppressWarnings(as.numeric(get(name, envir = env)))
-            if (length(value) != 1L || !is.finite(value)) return(NA_real_)
-            value
-          }
-          values <- vapply(names(expected_values), read_number, numeric(1))
-          valid <- is.finite(values)
-          correct <- valid & abs(values - expected_values) <= 0.005
-          assign("results_4_1_combined", list(values = values, expected = expected_values, valid = valid, correct = correct), envir = globalenv())
-          all(correct)
-        },
-        TRUE,
+        function(env) suppressWarnings(as.numeric(env$evaluationResult)),
+        2,
         comparator = function(generated, expected, ...) {
-          results <- get("results_4_1_combined", envir = globalenv())
-          field_titles <- c(
-            basisregel_kans = "onderdeel 1 (kans en Laplace)",
-            algemene_somregel = "onderdeel 2 (somregel met overlap)",
-            relatie_gebeurtenissen = "onderdeel 3 (disjunct en onafhankelijk)"
-          )
-          field_rules <- c(
-            basisregel_kans = "Een kans is een aandeel tussen nul en één; de Laplace-formule geldt wanneer de elementaire uitkomsten even waarschijnlijk zijn.",
-            algemene_somregel = "Bij mogelijke overlap worden de gezamenlijke uitkomsten eerst dubbel geteld en daarom eenmaal afgetrokken.",
-            relatie_gebeurtenissen = "Disjuncte gebeurtenissen met beide een positieve kans kunnen niet onafhankelijk zijn, want hun gezamenlijke kans is nul."
-          )
-          if (isTRUE(generated == expected)) {
-            message <- paste(
-              "**Bevestiging:** alle drie fundamentele kansbegrippen en relaties zijn correct gekozen.",
-              "**Denkregel:** controleer eerst de grenzen van een kans, daarna eventuele overlap en ten slotte afzonderlijk disjunctie en onafhankelijkheid.",
-              "**Transferstap:** teken voor twee nieuwe gebeurtenissen een venndiagram en bepaal welke somregel en onafhankelijkheidscontrole nodig zijn.",
-              sep = "\n\n"
+          feedbacks <- list(
+            "1" = paste0(
+              "**Waarom deze keuze begrijpelijk kan lijken:** negatieve waarden komen voor bij afwijkingen, veranderingen en sommige statistische maten; je hebt zo'n schaal mogelijk op een kans toegepast.\n\n",
+              "**Waarom dit niet klopt:** een kans drukt een aandeel van de uitkomsten uit en ligt daarom altijd tussen 0 en 1. Een onmogelijke gebeurtenis heeft kans 0, niet een negatieve kans.\n\n",
+              "**Denkregel:** controleer eerst de grenzen: voor elke gebeurtenis geldt 0 ≤ P(A) ≤ 1.\n\n",
+              "**Volgende stap:** toets elke uitspraak opnieuw aan dit interval en zoek daarna de optie die ook de voorwaarde van even waarschijnlijke uitkomsten correct gebruikt. ",
+              "<a href='https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology' target='_blank' rel='noopener noreferrer'>Lees meer</a>"
+            ),
+            "2" = paste0(
+              "**Bevestiging:** juist. Wanneer alle elementaire uitkomsten even waarschijnlijk zijn, is de Laplace-kans het aantal gunstige uitkomsten gedeeld door het totale aantal mogelijke uitkomsten: P(A)=N(A)/N. Deze verhouding ligt tussen 0 en 1.\n\n",
+              "**Denkregel:** gebruik N(A)/N alleen nadat je hebt vastgesteld dat de elementaire uitkomsten even waarschijnlijk zijn.\n\n",
+              "**Transferstap:** neem een willekeurige steekproef van 20 gelijk selecteerbare dossiers waarvan er 5 aan criterium A voldoen en bereken P(A). Leg ook uit waarom de formule ongeschikt kan zijn als sommige dossiers een grotere selectiekans hebben. ",
+              "<a href='https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology' target='_blank' rel='noopener noreferrer'>Lees meer</a>"
+            ),
+            "3" = paste0(
+              "**Waarom deze keuze begrijpelijk kan lijken:** de relatieve frequentie nadert bij veel herhalingen de theoretische kans, waardoor 'nadert' mogelijk als 'is altijd exact gelijk' is gelezen.\n\n",
+              "**Waarom dit niet klopt:** in een eindige reeks blijft toevalsvariatie mogelijk. De wet van de grote aantallen beschrijft toenadering op lange termijn, geen exacte gelijkheid in iedere steekproef.\n\n",
+              "**Denkregel:** theoretische kans is een modelwaarde; relatieve frequentie is een steekproefuitkomst die rond die waarde kan variëren.\n\n",
+              "**Volgende stap:** vergelijk twee denkbeeldige reeksen van 20 trekkingen met dezelfde theoretische kans en controleer waarom hun relatieve frequenties toch kunnen verschillen. ",
+              "<a href='https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology' target='_blank' rel='noopener noreferrer'>Lees meer</a>"
+            ),
+            "4" = paste0(
+              "**Waarom deze keuze begrijpelijk kan lijken:** de verhouding N(A)/N is een bekende kansformule en kan daardoor als definitie voor elke soort kans zijn opgevat.\n\n",
+              "**Waarom dit niet klopt:** die verhouding definieert de Laplace-kans bij even waarschijnlijke uitkomsten. Een subjectieve kans berust op een onderbouwde inschatting en hoeft niet uit een telbare, equiprobabele uitkomstenruimte te volgen.\n\n",
+              "**Denkregel:** koppel de berekeningswijze aan het kansbegrip: tellen bij Laplace, observeren bij experimentele kans en beargumenteerd inschatten bij subjectieve kans.\n\n",
+              "**Volgende stap:** bepaal eerst welk kansbegrip past bij een deskundigeninschatting van recidiverisico en kies daarna opnieuw. ",
+              "<a href='https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology' target='_blank' rel='noopener noreferrer'>Lees meer</a>"
             )
-          } else {
-            missing_fields <- names(results$expected)[!results$valid]
-            wrong_fields <- names(results$expected)[results$valid & !results$correct]
-            field <- if (length(missing_fields) > 0L) missing_fields[[1L]] else wrong_fields[[1L]]
-            if (field %in% missing_fields) {
-              likely <- paste0("Bij ", field_titles[[field]], " ontbreekt nog één eindig getal.")
-              why <- "Een leeg of niet-numeriek veld kan niet met de gevraagde keuze of berekening worden vergeleken."
-              next_step <- paste0("Werk ", field_titles[[field]], " uit en vul alleen het eindantwoord in.")
-            } else {
-              likely <- paste0("Voor ", field_titles[[field]], " vulde je ", format(results$values[[field]], trim = TRUE), " in.")
-              why <- field_rules[[field]]
-              next_step <- paste0("Pas de denkregel opnieuw toe op ", field_titles[[field]], ".")
-            }
-            message <- paste(
-              paste0("**Waarschijnlijke redenering:** ", likely),
-              paste0("**Waarom dit niet klopt:** ", why),
-              paste0("**Denkregel:** ", field_rules[[field]]),
-              paste0("**Volgende stap:** ", next_step),
-              sep = "\n\n"
+          )
+
+          key <- if (length(generated) == 1L && is.finite(generated)) as.character(generated) else ""
+          msg <- if (key %in% names(feedbacks)) feedbacks[[key]] else NULL
+
+          if (is.null(msg)) {
+            msg <- paste0(
+              "**Controleer je invoer:** je invoer komt niet overeen met één van de aangeboden optienummers.\n\n",
+              "**Waarom dit niet klopt:** de evaluator kan de inhoudelijke keuze alleen beoordelen wanneer je één getal van 1 tot en met 4 invoert.\n\n",
+              "**Denkregel:** koppel elke antwoordoptie aan haar nummer en voer uitsluitend dat ene nummer in.\n\n",
+              "**Volgende stap:** lees de vier opties opnieuw en dien alleen het nummer van je keuze in. ",
+              "<a href='https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology' target='_blank' rel='noopener noreferrer'>Lees meer</a>"
             )
           }
-          get_reporter()$add_message(message, type = "markdown")
-          generated == expected
+
+          get_reporter()$add_message(msg, type = "markdown")
+          identical(key, as.character(expected))
         }
       )
     }

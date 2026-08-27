@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 4.5 Richting van voorwaardelijke kansen",
-      "en": "Exercise - 4.5 Direction of conditional probabilities"
+      "nl": "Oef - 4.8 Richting van voorwaardelijke kansen",
+      "en": "Exercise - 4.8 Direction of conditional probabilities"
     }
   },
   "programming_language": "R",

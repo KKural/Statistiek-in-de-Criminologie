@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 7.2 Ordinale associatiematen vergelijken",
-      "en": "Exercise - 7.2 Comparing ordinal association measures"
+      "nl": "Oef - 7.3 Spearman's rho",
+      "en": "Exercise - 7.3 Spearman's rho"
     }
   },
   "programming_language": "R",
@@ -11,7 +11,6 @@
     "handler": "R"
   },
   "test_suite": "evaluation",
-  "boilerplate": "description/boilerplate/boilerplate",
   "access": "public",
   "labels": [
     "begrippen"

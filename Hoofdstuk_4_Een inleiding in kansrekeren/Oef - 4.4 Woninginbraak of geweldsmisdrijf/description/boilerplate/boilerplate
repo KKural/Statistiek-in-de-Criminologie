@@ -1,4 +1,8 @@
-# Vul de drie kansen als proporties in.
+# Vul beide lege plaatsen in.
+# Geef proporties met twee decimalen, met een punt en zonder procentteken.
+
+# 1) P(woninginbraak of geweldsmisdrijf)
 kans_inbraak_of_geweld <-
+
+# 2) P(geen woninginbraak en geen geweldsmisdrijf)
 kans_geen_van_beide <-
-kans_met_overlap <-

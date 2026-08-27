@@ -48,8 +48,8 @@ graded_config_count <- sum(vapply(config_files, function(file) {
   grepl('"type"\\s*:\\s*"exercise"', text, perl = TRUE) &&
     grepl('"evaluation"\\s*:', text, perl = TRUE)
 }, logical(1)))
-if (graded_config_count != 59L) {
-  stop(sprintf("Expected 59 active graded exercises, found %d.", graded_config_count))
+if (graded_config_count != 94L) {
+  stop(sprintf("Expected 94 active graded exercises after selective restoration, found %d.", graded_config_count))
 }
 
 evaluator_files <- list.files(
@@ -58,8 +58,8 @@ evaluator_files <- list.files(
   recursive = TRUE,
   full.names = TRUE
 )
-if (length(evaluator_files) != 58L) {
-  stop(sprintf("Expected 58 R evaluators plus one tested Python exercise, found %d R evaluators.",
+if (length(evaluator_files) != 93L) {
+  stop(sprintf("Expected 93 R evaluators plus one tested Python exercise, found %d R evaluators.",
                length(evaluator_files)))
 }
 
@@ -79,9 +79,8 @@ for (evaluator_file in evaluator_files) {
     config = file.path(exercise_dir, "config.json")
   )
   boilerplate_file <- file.path(exercise_dir, "description", "boilerplate", "boilerplate")
-  if (!is_chapter1_simple) paths <- c(paths, boilerplate = boilerplate_file)
   if (!all(file.exists(paths))) {
-    failures <- c(failures, sprintf("%s: missing required description, config, or boilerplate", relative_dir))
+    failures <- c(failures, sprintf("%s: missing required description or config", relative_dir))
     next
   }
 
@@ -91,14 +90,18 @@ for (evaluator_file in evaluator_files) {
   config <- read_text(paths[["config"]])
   fields <- assignment_names(boilerplate)
   expected_fields <- expected_value_names(evaluator)
+  fixed_choice <- grepl("env\\$evaluationResult\\b", evaluator, perl = TRUE)
 
   if (is_chapter1_simple) {
     chapter1_simple_files <- c(chapter1_simple_files, evaluator_file)
-    if (!grepl("evaluationResult", evaluator, fixed = TRUE)) {
+    if (!fixed_choice) {
       failures <- c(failures, sprintf("%s: simple fixed-choice evaluator does not read evaluationResult",
                                       relative_dir))
     }
-  } else if (length(fields) < 1L || length(fields) > 5L) {
+  }
+  if (!fixed_choice && !file.exists(boilerplate_file)) {
+    failures <- c(failures, sprintf("%s: fill exercise has no boilerplate", relative_dir))
+  } else if (!fixed_choice && (length(fields) < 1L || length(fields) > 5L)) {
     failures <- c(
       failures,
       sprintf("%s: expected 1-5 distinct answer fields, found %d", relative_dir, length(fields))
@@ -138,7 +141,7 @@ for (evaluator_file in evaluator_files) {
     )
   }
 
-  multi_answer <- !is_chapter1_simple && length(fields) >= 3L && length(fields) <= 5L &&
+  multi_answer <- !fixed_choice && length(fields) >= 3L && length(fields) <= 5L &&
     length(expected_fields) >= 3L
   if (multi_answer) {
     grouped_files <- c(grouped_files, evaluator_file)
@@ -169,10 +172,10 @@ if (length(chapter1_simple_files) != 10L) {
   )
 }
 
-if (length(grouped_files) != 35L) {
+if (length(grouped_files) != 21L) {
   failures <- c(
     failures,
-    sprintf("Expected 35 multi-answer evaluators with named expected_values, found %d",
+    sprintf("Expected 21 retained multi-answer evaluators with named expected_values, found %d",
             length(grouped_files))
   )
 }

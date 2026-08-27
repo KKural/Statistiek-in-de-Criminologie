@@ -1,0 +1,22 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 7.5 Kendall's tau",
+      "en": "Exercise - 7.5 Kendall's tau"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "labels": [
+    "begrippen"
+  ],
+  "internals": {
+    "token": "WK4ypsmnk3fUhIrYjV79-vu-xHVGG2dbhYt6BSbNXrc8arxdgIVFIAANHbDQq6Zx",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

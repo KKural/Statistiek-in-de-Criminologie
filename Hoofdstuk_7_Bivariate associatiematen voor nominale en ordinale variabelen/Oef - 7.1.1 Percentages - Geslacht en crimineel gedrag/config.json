@@ -16,7 +16,9 @@
   "labels": [
     "kruistabel",
     "percentages",
-    "conditionele percentages"
+    "conditionele percentages",
+    "odds",
+    "oddsratio"
   ],
   "internals": {
     "token": "x_eIEUexA6QNNjUYZYKZyIvRGB35w-KFx3gQUK7wm9yEhHtVrBKkP8mYyVbmJcZD",

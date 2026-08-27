@@ -1,0 +1,25 @@
+{
+  "type": "exercise",
+  "description": {
+    "names": {
+      "nl": "Oef - 10.4 Partiële correlatie - Nauwelijks verandering",
+      "en": "Exercise - 10.4 Partial correlation - Little change after control"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "access": "public",
+  "labels": [
+    "partiele-correlatie",
+    "interpretatie",
+    "multivariate-statistiek"
+  ],
+  "internals": {
+    "token": "TUfTDZj2tXTFS5RAaNVM_Sk-wvfghETWb5F_rtYTP9QpN4gbx4N77vmUbkr6k5CK",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

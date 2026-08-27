@@ -1,73 +1,59 @@
 context({
   testcase(
-    "",
+    "Permutatie of combinatie bij de lotto",
     {
       testEqual(
         "",
-        function(env) {
-          expected_values <- c(
-            telmethode_lotto = 4,
-            aantal_multiset_rangschikkingen = 560,
-            permutaties_7 = 5040,
-            permutaties_10 = 3628800
-          )
-          read_number <- function(name) {
-            if (!exists(name, envir = env)) return(NA_real_)
-            value <- suppressWarnings(as.numeric(get(name, envir = env)))
-            if (length(value) != 1L || !is.finite(value)) return(NA_real_)
-            value
-          }
-          values <- vapply(names(expected_values), read_number, numeric(1))
-          valid <- is.finite(values)
-          correct <- valid & abs(values - expected_values) <= 0.005
-          assign("results_4_9_combined", list(values = values, expected = expected_values, valid = valid, correct = correct), envir = globalenv())
-          all(correct)
-        },
-        TRUE,
+        function(env) suppressWarnings(as.numeric(env$evaluationResult)),
+        4,
         comparator = function(generated, expected, ...) {
-          results <- get("results_4_9_combined", envir = globalenv())
-          field_titles <- c(
-            telmethode_lotto = "onderdeel 1 (lottoselectie)",
-            aantal_multiset_rangschikkingen = "onderdeel 2 (multisetpermutatie)",
-            permutaties_7 = "onderdeel 3 (zeven dossiers)",
-            permutaties_10 = "onderdeel 4 (tien examenvragen)"
+          read_more <- "<a href='https://openstax.org/books/contemporary-mathematics/pages/7-6-probability-with-permutations-and-combinations' target='_blank' rel='noopener noreferrer'>Lees meer over permutaties en combinaties</a>"
+          key <- if (length(generated) == 1L && is.finite(generated)) as.character(generated) else ""
+
+          reasons <- list(
+            "1" = paste0(
+              "**Waarschijnlijke redenering:** je behandelt mogelijk alle 41 balletjes alsof ze volledig moeten worden gerangschikt. Dit is een voorzichtige hypothese op basis van je keuze.",
+              "\n\n**Waarom dit niet klopt:** er worden slechts 6 van de 41 balletjes gekozen; de overige 35 behoren niet tot de selectie."
+            ),
+            "2" = paste0(
+              "**Waarschijnlijke redenering:** je ziet mogelijk zes opeenvolgende trekkingen en gebruikt daarom voor elke trekking opnieuw 41 mogelijkheden. Dit is een voorzichtige hypothese op basis van je keuze.",
+              "\n\n**Waarom dit niet klopt:** `41^6` laat teruglegging en herhaling toe en telt bovendien verschillende volgordes afzonderlijk."
+            ),
+            "3" = paste0(
+              "**Waarschijnlijke redenering:** je houdt rekening met trekken zonder teruglegging, maar telt verschillende volgordes mogelijk nog als verschillende uitkomsten. Dit is een voorzichtige hypothese op basis van je keuze.",
+              "\n\n**Waarom dit niet klopt:** de lotto-uitkomst verandert niet wanneer dezelfde zes getallen in een andere volgorde verschijnen; elke selectie wordt met deze formule `6!` keer geteld."
+            )
           )
-          field_rules <- c(
-            telmethode_lotto = "Omdat de volgorde niet telt, gebruik je een combinatie en deel je ook door 6!.",
-            aantal_multiset_rangschikkingen = "Begin met 8! en deel door de faculteiten van de aantallen onderling gelijke labels.",
-            permutaties_7 = "Voor zeven verschillende objecten waarvan de volledige volgorde telt, gebruik je 7!.",
-            permutaties_10 = "Voor tien verschillende objecten waarvan de volledige volgorde telt, gebruik je 10!."
-          )
-          if (isTRUE(generated == expected)) {
+
+          if (identical(key, as.character(expected))) {
+            message <- paste0(
+              "**Bevestiging:** optie 4 is correct.\n\n",
+              "**Waarom dit klopt:** zes verschillende balletjes worden zonder teruglegging gekozen en de volgorde is niet relevant. Daarom is `C(41,6) = 41!/(6!35!) = 4 496 388`.\n\n",
+              "**Denkregel:** gebruik een combinatie wanneer je een deelverzameling kiest en een andere volgorde geen nieuwe uitkomst vormt.\n\n",
+              "**Transferstap:** bepaal welke formule nodig is wanneer dezelfde zes dossiers niet alleen worden geselecteerd, maar ook in een presentatievolgorde worden geplaatst.\n\n",
+              read_more
+            )
+          } else if (key %in% names(reasons)) {
             message <- paste(
-              "**Bevestiging:** de telmethode en alle drie aantallen zijn correct.",
-              "**Denkregel:** vraag eerst of volgorde telt en controleer daarna of alle objecten verschillend zijn; kies pas dan de formule.",
-              "**Transferstap:** bepaal de formule voor vijf gekozen dossiers uit twaalf en voor het rangschikken van de letters A, A, B, C.",
+              reasons[[key]],
+              "**Denkregel:** vraag bij elk telprobleem achtereenvolgens: hoeveel objecten worden gekozen, is teruglegging mogelijk en levert een andere volgorde een nieuwe uitkomst op?",
+              "**Volgende stap:** noteer ‘6 uit 41, zonder teruglegging, volgorde niet relevant’ en kies daarna de formule die door `6!` corrigeert voor volgorde.",
+              read_more,
               sep = "\n\n"
             )
           } else {
-            missing_fields <- names(results$expected)[!results$valid]
-            wrong_fields <- names(results$expected)[results$valid & !results$correct]
-            field <- if (length(missing_fields) > 0L) missing_fields[[1L]] else wrong_fields[[1L]]
-            if (field %in% missing_fields) {
-              likely <- paste0("Bij ", field_titles[[field]], " ontbreekt nog één eindig getal.")
-              why <- "Een leeg of niet-numeriek veld kan niet met de gevraagde keuze of berekening worden vergeleken."
-              next_step <- paste0("Werk ", field_titles[[field]], " uit en vul alleen het eindantwoord in.")
-            } else {
-              likely <- paste0("Voor ", field_titles[[field]], " vulde je ", format(results$values[[field]], trim = TRUE), " in.")
-              why <- field_rules[[field]]
-              next_step <- paste0("Pas de denkregel opnieuw toe op ", field_titles[[field]], ".")
-            }
             message <- paste(
-              paste0("**Waarschijnlijke redenering:** ", likely),
-              paste0("**Waarom dit niet klopt:** ", why),
-              paste0("**Denkregel:** ", field_rules[[field]]),
-              paste0("**Volgende stap:** ", next_step),
+              "**Controleer je invoer:** de invoer kan niet eenduidig aan één aangeboden optie worden gekoppeld.",
+              "**Waarom dit niet klopt:** de evaluator kan alleen een inhoudelijke keuze beoordelen wanneer exact één getal van 1 tot en met 4 is ingevoerd.",
+              "**Denkregel:** koppel eerst elke formule aan haar optienummer en voer uitsluitend dat nummer in.",
+              "**Volgende stap:** kies één van de vier formules en dien alleen het bijbehorende optienummer in.",
+              read_more,
               sep = "\n\n"
             )
           }
+
           get_reporter()$add_message(message, type = "markdown")
-          generated == expected
+          identical(key, as.character(expected))
         }
       )
     }

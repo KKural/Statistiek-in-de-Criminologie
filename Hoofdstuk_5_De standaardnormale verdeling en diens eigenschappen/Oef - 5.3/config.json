@@ -1,0 +1,32 @@
+{
+  "description": {
+    "names": {
+      "nl": "Oef - 5.3: Anesthesie Risico Analyse",
+      "en": "Exercise - 5.3: Anaesthesia Risk Analysis"
+    }
+  },
+  "programming_language": "R",
+  "evaluation": {
+    "handler": "R",
+    "time_limit": 30,
+    "memory_limit": 268435456
+  },
+  "test_suite": "evaluation",
+  "access": "public",
+  "labels": [
+    "Hoofdstuk 5",
+    "Normaalverdeling",
+    "Multiple Choice",
+    "Anesthesie",
+    "Medische Statistiek",
+    "Risico Analyse"
+  ],
+  "type": "exercise",
+  "author": "Statistiek in de Criminologie - UGent",
+  "contact": "statistiek.criminologie@ugent.be",
+  "workdir": ".",
+  "internals": {
+    "token": "ChvrfAdt7R8Yk68J-aaJuAgTVh_xnvsFeuehrjxCPQQZvxUSQZwx-ZBd2asjrumI",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 5.2 Selectiekans - Complementregel",
+      "en": "Exercise - 5.2 Selection probability - Complement rule"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "standaardnormale verdeling",
+    "z-score",
+    "waarschijnlijkheid",
+    "voetbalacademie",
+    "selectie",
+    "NCAA",
+    "sport statistiek"
+  ],
+  "internals": {
+    "token": "TA_MeC-GVfS9MgM5TZprWgQEkiGNyH6xXCGQ4NXSkx5dQ3tXpUrDGyKID6_jmCpz",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

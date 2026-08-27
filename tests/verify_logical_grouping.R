@@ -21,34 +21,26 @@ find_exercise <- function(code) {
 }
 
 grouped_counts <- c(
-  "2.1" = 5, "2.9" = 3, "2.10" = 4,
   "3.2.1" = 4,
   "3.3.1" = 3, "3.3.3" = 5, "3.3.5" = 3, "3.3.7" = 3, "3.3.9" = 3,
   "3.4.1" = 5, "3.4.4" = 4,
-  "4.1" = 3, "4.4" = 3, "4.9" = 4,
-  "5.1" = 3, "5.4" = 3,
-  "6.1" = 4, "6.5" = 3,
-  "7.1.1" = 4, "7.3" = 4,
-  "8.1.1" = 4, "8.3" = 3,
-  "9.4.1" = 5,
-  "10.1.1" = 5, "10.2" = 4,
-  "11.1.1" = 4, "11.3" = 3, "11.6.1" = 5,
+  "7.1.1" = 3,
+  "8.1.1" = 4,
+  "9.4.1" = 4,
+  "10.1.1" = 5,
+  "11.1.1" = 4, "11.6.1" = 3, "11.7.1" = 2,
   "12.1" = 3, "12.4" = 3, "12.7" = 3, "12.11" = 4
 )
 
 absorbed <- c(
-  "2.2", "2.3", "2.4", "2.5", "2.11", "2.12", "2.13", "2.14", "2.15",
   "3.2.2", "3.2.3", "3.2.4",
   "3.3.2", "3.3.4", "3.3.6", "3.3.8", "3.3.10",
   "3.4.2", "3.4.3", "3.4.5",
-  "4.2", "4.3", "4.7", "4.10", "4.12",
-  "5.2", "5.3", "5.5",
-  "6.2", "6.3", "6.4", "6.6", "6.7",
-  "7.1.2", "7.2", "7.4", "7.5", "7.6",
-  "8.1.2", "8.4", "8.5",
-  "9.4.2", "9.4.3", "9.5",
-  "10.1.2", "10.1.3", "10.1.4", "10.1.5", "10.3", "10.4", "10.5",
-  "11.1.2", "11.1.3", "11.1.4", "11.4", "11.5", "11.6.2", "11.7.1", "11.7.2",
+  "7.1.2",
+  "8.1.2",
+  "9.4.2", "9.4.3",
+  "10.1.2", "10.1.3", "10.1.4", "10.1.5",
+  "11.1.2", "11.1.3", "11.1.4", "11.6.2", "11.7.2",
   "12.2", "12.3", "12.5", "12.6", "12.8", "12.9", "12.12", "12.13", "12.14"
 )
 
@@ -128,6 +120,32 @@ for (code in names(grouped_counts)) {
     failures <- c(failures, paste(code, "has no retained Dodona token"))
   } else {
     tokens <- c(tokens, token_parts[[2L]])
+  }
+}
+
+# These activities predate the extensive split work and teach independent
+# concepts. They must remain standalone rather than being absorbed merely to
+# reach a target number of answer fields.
+restored_standalone <- c(
+  "2.2", "2.3", "2.4", "2.5", "2.11", "2.12", "2.13", "2.14", "2.15",
+  "4.2", "4.3", "4.7", "4.10", "4.12",
+  "5.2", "5.3", "5.5",
+  "6.2", "6.3", "6.4", "6.6", "6.7",
+  "7.2", "7.4", "7.5", "7.6",
+  "8.4", "8.5",
+  "9.5",
+  "10.3", "10.4", "10.5",
+  "11.4", "11.5"
+)
+
+for (code in restored_standalone) {
+  dirs <- find_exercise(code)
+  graded <- dirs[file.exists(file.path(dirs, "evaluation", "Answer.R"))]
+  if (length(graded) != 1L) {
+    failures <- c(
+      failures,
+      sprintf("%s: expected one restored standalone exercise, found %d", code, length(graded))
+    )
   }
 }
 
@@ -282,8 +300,8 @@ if (anyDuplicated(tokens)) {
 }
 evaluator_count <- length(list.files(root, pattern = "^Answer\\.R$", recursive = TRUE,
                                      full.names = TRUE))
-if (evaluator_count != 58L) {
-  failures <- c(failures, sprintf("expected 58 R evaluators after grouping, found %d",
+if (evaluator_count != 93L) {
+  failures <- c(failures, sprintf("expected 93 R evaluators after selective grouping, found %d",
                                   evaluator_count))
 }
 
@@ -306,9 +324,10 @@ if (length(failures)) {
 }
 cat(sprintf(
   paste0(
-    "Validated 10 simple Chapter 1 exercises, %d grouped activities, ",
-    "and retirement of %d absorbed exercises.\n"
+    "Validated 10 simple Chapter 1 exercises, %d selectively grouped activities, ",
+    "%d restored standalone activities, and retirement of %d absorbed exercises.\n"
   ),
   length(grouped_counts),
+  length(restored_standalone),
   length(absorbed)
 ))

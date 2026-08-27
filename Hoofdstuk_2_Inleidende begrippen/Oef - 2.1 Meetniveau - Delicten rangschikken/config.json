@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 2.1 Meetniveaus classificeren",
-      "en": "Exercise - 2.1 Classifying measurement levels"
+      "nl": "Oef - 2.1 Meetniveau - Delicten rangschikken",
+      "en": "Exercise - 2.1 Measurement level - Ranking offences"
     }
   },
   "evaluation": {
@@ -11,7 +11,6 @@
     "test_suite": "evaluation"
   },
   "programming_language": "R",
-  "boilerplate": "description/boilerplate/boilerplate",
   "access": "public",
   "labels": [],
   "internals": {

@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 2.13 Cameratoezicht - Onderzoeksopzet herkennen",
+      "en": "Exercise - 2.13 Camera surveillance - Identifying the research design"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [],
+  "internals": {
+    "token": "v8M-kD28UqxSCysIbJ-ytdss7AB4NjgkABft_HP9s8HZxYKZqZSXfBxVHWXpv2BM",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

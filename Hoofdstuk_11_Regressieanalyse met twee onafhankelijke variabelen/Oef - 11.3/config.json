@@ -4,8 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 11.3 Regressie - Residuen en modelpassing",
-      "en": "Exercise - 11.3 Regression - Residuals and model fit"
+      "nl": "Oef - 11.3 Uitbijter herkennen via residu",
+      "en": "Exercise - 11.3 Identifying an outlier using a residual"
     }
   },
   "evaluation": {

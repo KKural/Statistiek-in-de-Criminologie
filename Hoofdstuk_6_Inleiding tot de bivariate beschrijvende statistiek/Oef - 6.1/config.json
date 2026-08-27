@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 6.1 Causale relaties herkennen",
-      "en": "Exercise - 6.1 Identifying causal relationships"
+      "nl": "Oef - 6.1 Causaliteit en statistische samenhang",
+      "en": "Exercise - 6.1 Causality and statistical association"
     }
   },
   "programming_language": "R",
@@ -11,7 +11,6 @@
     "handler": "R"
   },
   "test_suite": "evaluation",
-  "boilerplate": "description/boilerplate/boilerplate",
   "access": "public",
   "labels": [
     "begrippen"

@@ -4,8 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 11.4 Meervoudige regressie - Output en voorspelling",
-      "en": "Exercise - 11.4 Multiple regression - Output and prediction"
+      "nl": "Oef - 11.6 Meervoudige regressie - Coëfficiënt en modelverbetering",
+      "en": "Exercise - 11.6 Multiple regression - Coefficient and model improvement"
     }
   },
   "evaluation": {

@@ -1,0 +1,20 @@
+{
+  "type": "exercise",
+  "programming_language": "r",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 2.12 Recidive en geslacht - Afhankelijke variabele",
+      "en": "Exercise - 2.12 Recidivism and sex - Dependent variable"
+    }
+  },
+  "evaluation": {
+    "handler": "r"
+  },
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [],
+  "internals": {
+    "token": "Jytmp6Byf6gEQMEWersCt6wC6TM6KJieShrzprdw6Zfn5T2TYJY__rGn88SeY9c5",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 4.8 Doodsoorzaken - Somregel en complement",
-      "en": "Exercise - 4.8 Causes of death - Addition rule and complement"
+      "nl": "Oef - 4.13 Doodsoorzaken - Somregel en complement",
+      "en": "Exercise - 4.13 Causes of death - Addition rule and complement"
     }
   },
   "programming_language": "R",
