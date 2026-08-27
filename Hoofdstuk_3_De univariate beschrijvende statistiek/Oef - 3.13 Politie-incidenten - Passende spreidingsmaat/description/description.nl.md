@@ -2,6 +2,11 @@ Het aantal incidenten per patrouille is ongeveer symmetrisch verdeeld en bevat g
 
 **Leerdoel:** een passende spreidingsmaat kiezen bij kwantitatieve gegevens zonder sterke uitbijters.
 
-Welke spreidingsmaat past het best? 1 = standaardafwijking; 2 = interkwartielafstand; 3 = modus; 4 = mediaan.
+Welke spreidingsmaat past het best?
 
-Vul één antwoord in op de lege plaats in het codebestand.
+1. Standaardafwijking
+2. Interkwartielafstand
+3. Modus
+4. Mediaan
+
+Typ alleen het nummer van je antwoord (1–4).

@@ -15,10 +15,17 @@ chapter_2 <- list.files(
 chapter_2 <- chapter_2[
   grepl("/Oef - 2\\.[1-5] [^/]+/evaluation/Answer\\.R$", gsub("\\\\", "/", chapter_2))
 ]
-files <- c(chapter_1, chapter_2)
+chapter_3 <- file.path(
+  root,
+  "Hoofdstuk_3_De univariate beschrijvende statistiek",
+  "Oef - 3.13 Politie-incidenten - Passende spreidingsmaat",
+  "evaluation",
+  "Answer.R"
+)
+files <- c(chapter_1, chapter_2, chapter_3)
 
-if (length(files) != 15L) {
-  stop(sprintf("Expected 15 fixed-choice evaluators, found %d.", length(files)))
+if (length(files) != 16L) {
+  stop(sprintf("Expected 16 fixed-choice evaluators, found %d.", length(files)))
 }
 
 count_heading <- function(message, heading) {

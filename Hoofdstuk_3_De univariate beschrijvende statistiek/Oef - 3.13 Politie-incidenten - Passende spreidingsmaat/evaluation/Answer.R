@@ -1,18 +1,52 @@
 context({
   testcase("", {
-    testEqual("", function(env) {
-      expected_value <- 1; value <- if (exists("spreidingsmaat", envir = env)) suppressWarnings(as.numeric(get("spreidingsmaat", envir = env))) else NA_real_
-      valid <- length(value) == 1L && is.finite(value); assign("results_3_5", list(valid = valid, value = value), envir = globalenv()); valid && abs(value - expected_value) <= 0.0005
-    }, TRUE, comparator = function(generated, expected, ...) {
-      results <- get("results_3_5", envir = globalenv())
-      if (isTRUE(generated == expected)) message <- paste("**Bevestiging:** je antwoord past bij het leerdoel van deze korte oefening.", "**Denkregel:** Bij kwantitatieve, ongeveer symmetrische data zonder sterke uitbijters past de standaardafwijking bij het gemiddelde.", "**Transferstap:** Controleer meetniveau, verdelingsvorm en uitbijters voordat je de maat kiest.", sep = "\n\n")
-      else if (!results$valid) message <- paste("**Waarschijnlijke redenering:** het antwoord ontbreekt, bevat tekst of is niet één eindig getal.", "**Waarom dit niet klopt:** deze oefening verwacht precies één waarde of optienummer.", "**Denkregel:** Bij kwantitatieve, ongeveer symmetrische data zonder sterke uitbijters past de standaardafwijking bij het gemiddelde.", "**Volgende stap:** Controleer meetniveau, verdelingsvorm en uitbijters voordat je de maat kiest.", sep = "\n\n")
-      else { value <- results$value; likely <- "Je hebt een verwante grootheid of verkeerde antwoordoptie gekozen."
-        if (abs(value - 2) <= 0.0005) likely <- "Je kiest een robuuste maat terwijl de context geen sterke uitbijters of scheefheid vermeldt."
-        if (abs(value - 3) <= 0.0005) likely <- "De modus is een centrummaat en geen spreidingsmaat."
-        if (abs(value - 4) <= 0.0005) likely <- "De mediaan is eveneens een centrummaat."
-        message <- paste(paste0("**Waarschijnlijke redenering:** ", likely), "**Waarom dit niet klopt:** Bij kwantitatieve, ongeveer symmetrische data zonder sterke uitbijters past de standaardafwijking bij het gemiddelde.", "**Denkregel:** Bij kwantitatieve, ongeveer symmetrische data zonder sterke uitbijters past de standaardafwijking bij het gemiddelde.", "**Volgende stap:** Controleer meetniveau, verdelingsvorm en uitbijters voordat je de maat kiest.", sep = "\n\n") }
-      get_reporter()$add_message(message, type = "markdown"); generated == expected
-    })
+    testEqual(
+      "",
+      function(env) as.numeric(env$evaluationResult),
+      1,
+      comparator = function(generated, expected, ...) {
+        feedbacks <- list(
+          "1" = "De standaardafwijking past bij kwantitatieve, ongeveer symmetrische gegevens zonder sterke uitbijters.",
+          "2" = "De interkwartielafstand is vooral aangewezen bij een scheve verdeling of sterke uitbijters.",
+          "3" = "De modus beschrijft het meest voorkomende resultaat en is een centrummaat, geen spreidingsmaat.",
+          "4" = "De mediaan beschrijft het midden van de verdeling en is een centrummaat, geen spreidingsmaat."
+        )
+        likely_reasons <- list(
+          "2" = "je koos mogelijk automatisch voor een robuuste maat, hoewel de context geen scheefheid of sterke uitbijters vermeldt.",
+          "3" = "je herkende de modus als een beschrijvende maat, maar controleerde mogelijk niet of ze centrum of spreiding meet.",
+          "4" = "je koppelde de mediaan mogelijk terecht aan robuuste statistiek, maar de mediaan meet het centrum en niet de spreiding."
+        )
+
+        key <- as.character(generated)
+        if (identical(generated, expected)) {
+          message <- paste(
+            "**Bevestiging:** je koos de standaardafwijking; dat is correct.",
+            feedbacks[[key]],
+            "**Denkregel:** Koppel bij ongeveer symmetrische kwantitatieve gegevens zonder sterke uitbijters het gemiddelde aan de standaardafwijking.",
+            "**Transferstap:** Kies opnieuw een spreidingsmaat wanneer dezelfde verdeling één sterke uitbijter bevat en leg uit waarom je keuze verandert.",
+            sep = "\n\n"
+          )
+        } else if (key %in% names(feedbacks)) {
+          message <- paste(
+            paste0("**Waarom deze keuze begrijpelijk kan lijken:** ", likely_reasons[[key]]),
+            paste0("**Waarom dit niet klopt:** ", feedbacks[[key]]),
+            "**Denkregel:** Controleer eerst of een maat centrum of spreiding beschrijft en kijk daarna naar scheefheid en uitbijters.",
+            "**Volgende stap:** Vergelijk de vier opties opnieuw en kies de spreidingsmaat die bij deze symmetrische verdeling past.",
+            sep = "\n\n"
+          )
+        } else {
+          message <- paste(
+            "**Controleer je invoer:** typ uitsluitend één optienummer van 1 tot en met 4.",
+            "**Waarom dit niet klopt:** alleen de vier aangeboden antwoordopties kunnen inhoudelijk worden beoordeeld.",
+            "**Denkregel:** Koppel elke antwoordoptie aan haar nummer en voer alleen dat nummer in.",
+            "**Volgende stap:** Lees de vier opties opnieuw en dien één geldig nummer in.",
+            sep = "\n\n"
+          )
+        }
+
+        get_reporter()$add_message(message, type = "markdown")
+        generated == expected
+      }
+    )
   })
 })

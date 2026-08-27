@@ -684,8 +684,8 @@ Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.13 Politie-
 Kopieerbare boilerplate:
 
 ```r
-# Vul het antwoord in na <-.
-spreidingsmaat <- 1
+# Typ hieronder alleen het nummer van je antwoord (1-4).
+1
 ```
 
 #### Foute testinvoer en misvattingen
@@ -693,8 +693,8 @@ spreidingsmaat <- 1
 - Foute testinvoer:
 
 ```r
-# Vul het antwoord in na <-.
-spreidingsmaat <- 2
+# Typ hieronder alleen het nummer van je antwoord (1-4).
+2
 ```
 
   - Misvatting: **Waarschijnlijke redenering:** Je kiest een robuuste maat terwijl de context geen sterke uitbijters of scheefheid vermeldt.
@@ -702,8 +702,8 @@ spreidingsmaat <- 2
 - Foute testinvoer:
 
 ```r
-# Vul het antwoord in na <-.
-spreidingsmaat <- 3
+# Typ hieronder alleen het nummer van je antwoord (1-4).
+3
 ```
 
   - Misvatting: **Waarschijnlijke redenering:** De modus is een centrummaat en geen spreidingsmaat.
@@ -711,8 +711,8 @@ spreidingsmaat <- 3
 - Foute testinvoer:
 
 ```r
-# Vul het antwoord in na <-.
-spreidingsmaat <- 4
+# Typ hieronder alleen het nummer van je antwoord (1-4).
+4
 ```
 
   - Misvatting: **Waarschijnlijke redenering:** De mediaan is eveneens een centrummaat.
@@ -720,7 +720,8 @@ spreidingsmaat <- 4
 - Ongeldige of ontbrekende invoer:
 
 ```r
-spreidingsmaat <-
+# Typ hieronder alleen het nummer van je antwoord (1-4).
+99
 ```
 
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+  - Misvatting: geen geldig optienummer ingevuld; de evaluator geeft de aparte route **Controleer je invoer**, **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
