@@ -5,7 +5,7 @@
 ## Gebruik
 
 - **Correcte inzending** is een volledig ingevulde versie van de boilerplate, of het juiste optienummer bij een keuzeoefening.
-- Een **Foute testinvoer** vervangt alleen de getoonde regel of keuze.
-- De uitleg bij foute invoer beschrijft de bijbehorende misvatting en feedbackroute.
+- Een **Foute testinvoer** wijzigt steeds precies één antwoord terwijl de andere antwoorden correct blijven.
+- De uitleg na elke foute invoer benoemt de bijbehorende misvatting en gerichte feedbackroute.
 
 Dit hoofdstuk bevat momenteel geen oefeningen met een canonieke `Answer.R`-evaluator en heeft daarom geen afzonderlijke correcte inzendingen.

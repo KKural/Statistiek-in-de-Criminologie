@@ -1,2 +1,6 @@
-# Vul het antwoord in na <-.
-gemiddelde <-
+# Vul twee berekeningen en daarna drie optienummers in.
+som_werkuren <-
+gemiddelde_werkuren <-
+keuze_centraliteitsmaat <-
+keuze_spreidingsmaat <-
+reden_maatkeuze <-

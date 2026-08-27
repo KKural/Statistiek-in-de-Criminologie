@@ -1,3 +1,11 @@
+if (.Platform$OS.type == "windows") {
+  for (locale in c(".UTF-8", "English_United States.utf8", "C.UTF-8")) {
+    selected <- suppressWarnings(Sys.setlocale("LC_CTYPE", locale))
+    suppressWarnings(Sys.setlocale("LC_COLLATE", locale))
+    if (!is.na(selected)) break
+  }
+}
+
 files <- list.files(
   ".",
   pattern = "^Answer\\.R$",

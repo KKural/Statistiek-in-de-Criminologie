@@ -26,4 +26,4 @@ Besteed bijzondere aandacht aan:
 4. **Welke groep vormt de noemer?** Bij `P(B | A)` bestaat de noemer alleen uit gevallen waarin A optreedt.
 5. **Speelt volgorde een rol?** Dat bepaalt of je een permutatie of combinatie nodig hebt.
 
-In de oefeningen geef je kansen als proportie, tenzij expliciet om een percentage wordt gevraagd. Gebruik een punt als decimaalteken.
+In de oefeningen geef je kansen als proportie, tenzij expliciet om een percentage wordt gevraagd.

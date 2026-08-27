@@ -155,15 +155,9 @@ for (index in seq_along(configs)) {
   if (!multi_application && grepl("^#{1,6}\\s+", trimws(first_nonempty), perl = TRUE)) {
     failures <- c(failures, sprintf("%s: duplicate opening activity-title heading remains", activity_dir))
   }
-
-  split_target <- grepl(
-    paste0(
-      "^Oef\\s*-\\s*(?:3\\.2|3\\.3|3\\.4|7\\.1|8\\.1|9\\.4|",
-      "10\\.1|11\\.1|11\\.6|11\\.7)(?:[^0-9]|$)"
-    ),
-    basename(activity_dir),
-    perl = TRUE
-  )
+  if (grepl("\\bDeel\\s+[0-9]+", display_name, perl = TRUE)) {
+    failures <- c(failures, sprintf("%s: Dodona title still uses a redundant Deel label", activity_dir))
+  }
 
   hint_pattern <- "(?im)^\\s*(?:>\\s*)?(?:#{1,6}\\s*)?(?:\\*\\*)?(?:interpretatiehint|hint|tip)\\s*:"
   if (grepl(hint_pattern, description, perl = TRUE)) {
@@ -194,10 +188,21 @@ for (index in seq_along(configs)) {
   )
   answer_lines <- grep(answer_pattern, boilerplate_lines, value = TRUE, perl = TRUE)
   legacy_answer_vars <- unique(sub("^\\s*([A-Za-z.][A-Za-z0-9._]*).*$", "\\1", answer_lines, perl = TRUE))
-  answer_vars <- unique(c(slot_vars, legacy_answer_vars))
+  assignment_vars <- if (length(assignments)) {
+    unique(vapply(assignments, `[[`, character(1), "name"))
+  } else {
+    character()
+  }
+  answer_vars <- unique(c(assignment_vars, slot_vars, legacy_answer_vars))
+  grouped_target <- grepl("expected_values\\s*<-\\s*c\\(", evaluator, perl = TRUE) &&
+    length(answer_vars) >= 3L
 
-  if (length(answer_vars) > 10L) {
-    failures <- c(failures, sprintf("%s: %d answer objects; split required", activity_dir, length(answer_vars)))
+  if (length(answer_vars) > 5L) {
+    failures <- c(failures, sprintf(
+      "%s: %d answer objects; a coherent grouped exercise may contain at most 5",
+      activity_dir,
+      length(answer_vars)
+    ))
   }
   missing_in_evaluator <- if (nzchar(evaluator)) {
     answer_vars[!vapply(answer_vars, function(name) {
@@ -214,7 +219,7 @@ for (index in seq_along(configs)) {
     )
   }
 
-  if (split_target) {
+  if (nzchar(evaluator)) {
     legacy_code_pattern <- paste0(
       "3\\.2[a-d]|3\\.3(?:a2|d[2-5]|[a-e])|",
       "3\\.4(?:a[23]|c[23]|[a-d])"
@@ -222,22 +227,19 @@ for (index in seq_along(configs)) {
     if (grepl(legacy_code_pattern, paste(display_name, description), perl = TRUE)) {
       failures <- c(failures, sprintf("%s: legacy letter-based exercise code remains visible", activity_dir))
     }
-    if (grepl("???", boilerplate, fixed = TRUE)) {
-      failures <- c(failures, sprintf("%s: split part still contains syntax-invalid ???", activity_dir))
+    if (grouped_target && grepl("???", boilerplate, fixed = TRUE)) {
+      failures <- c(failures, sprintf("%s: learner boilerplate contains syntax-invalid ???", activity_dir))
     }
     zero_placeholders <- vapply(assignments, is_zero_placeholder, logical(1))
-    if (any(zero_placeholders)) {
+    if (grouped_target && any(zero_placeholders)) {
       failures <- c(
         failures,
         sprintf(
-          "%s: split part uses 0 as a learner placeholder for %s",
+          "%s: exercise uses 0 as a learner placeholder for %s",
           activity_dir,
           paste(vapply(assignments[zero_placeholders], `[[`, character(1), "name"), collapse = ", ")
         )
       )
-    }
-    if (!length(slots)) {
-      failures <- c(failures, sprintf("%s: no textual learner slots found", activity_dir))
     }
     string_slots <- vapply(slots, function(slot) identical(slot$kind, "string"), logical(1))
     if (any(string_slots) && !has_string_entry_note(boilerplate)) {
@@ -250,7 +252,7 @@ for (index in seq_along(configs)) {
     if (answer_entry_count > 8L) {
       failures <- c(
         failures,
-        sprintf("%s: split part requires %d submitted values (maximum 8)", activity_dir, answer_entry_count)
+        sprintf("%s: exercise requires %d submitted values (maximum 8)", activity_dir, answer_entry_count)
       )
     }
   }
@@ -283,91 +285,17 @@ if (length(tokens)) {
   }
 }
 
-exercise_parts <- c(
-  "3.2" = 4L,
-  "3.3" = 10L,
-  "3.4" = 8L,
-  "7.1" = 2L,
-  "8.1" = 2L,
-  "9.4" = 3L,
-  "10.1" = 5L,
-  "11.1" = 4L,
-  "11.6" = 2L,
-  "11.7" = 2L
-)
+graded_activities <- Filter(function(item) {
+  if (is.null(item) || !identical(item$config$type, "exercise")) return(FALSE)
+  !is.null(item$config$evaluation)
+}, activities)
 
-activity_basenames <- basename(dirname(configs))
-for (exercise in names(exercise_parts)) {
-  escaped_exercise <- gsub("\\.", "\\\\.", exercise)
-  pattern <- paste0("^Oef\\s*-\\s*", escaped_exercise, "\\.([0-9]+)(?:\\s|$)")
-  extract_pattern <- paste0("^Oef\\s*-\\s*", escaped_exercise, "\\.([0-9]+)(?:\\s.*)?$")
-  family_matches <- grepl(pattern, activity_basenames, perl = TRUE)
-  found <- sum(family_matches)
-  if (found != exercise_parts[[exercise]]) {
-    failures <- c(
-      failures,
-      sprintf("Exercise %s: expected %d split activities, found %d", exercise, exercise_parts[[exercise]], found)
-    )
-  }
-  found_codes <- sub(extract_pattern, paste0(exercise, ".\\1"), activity_basenames[family_matches], perl = TRUE)
-  expected_codes <- paste0(exercise, ".", seq_len(exercise_parts[[exercise]]))
-  if (!setequal(found_codes, expected_codes)) {
-    failures <- c(
-      failures,
-      sprintf(
-        "Exercise %s: expected continuous codes %s; found %s",
-        exercise,
-        paste(expected_codes, collapse = ", "),
-        paste(sort(found_codes), collapse = ", ")
-      )
-    )
-  }
-
-  family_activities <- activities[family_matches]
-  for (item in family_activities) {
-    folder <- basename(item$dir)
-    code <- sub(extract_pattern, paste0(exercise, ".\\1"), folder, perl = TRUE)
-    title <- as.character(item$config$description$names$nl %||% "")
-    if (!startsWith(title, paste0("Oef - ", code, " "))) {
-      failures <- c(failures, sprintf("%s: Dodona title does not start with its numeric code %s", folder, code))
-    }
-    if (grepl("\\bDeel\\s+[0-9]+", title, perl = TRUE)) {
-      failures <- c(failures, sprintf("%s: Dodona title still uses a redundant Deel label", folder))
-    }
-  }
-
-  family_token_folders <- basename(dirname(token_files))[grepl(
-    paste0("^Oef\\s*-\\s*", escaped_exercise, "\\.[0-9]+(?:\\s|$)"),
-    basename(dirname(token_files)),
-    perl = TRUE
-  )]
-  family_token_codes <- sub(extract_pattern, paste0(exercise, ".\\1"), family_token_folders, perl = TRUE)
-  if (!setequal(family_token_codes, expected_codes)) {
-    failures <- c(
-      failures,
-      sprintf(
-        "Exercise %s: expected a unique Dodona token for every split activity; token-bearing codes are %s",
-        exercise,
-        paste(sort(family_token_codes), collapse = ", ")
-      )
-    )
-  }
-}
-
-target_210 <- activities[vapply(activities, function(item) {
-  !is.null(item) && grepl("Oef - 2.10 ", basename(item$dir), fixed = TRUE)
-}, logical(1))]
-if (length(target_210) == 1L) {
-  path <- target_210[[1L]]$dir
-  prompt_and_boilerplate <- paste(
-    read_text(file.path(path, "description", "description.nl.md")),
-    read_text(file.path(path, "description", "boilerplate", "boilerplate")),
-    read_text(file.path(path, "evaluation", "Answer.R"))
+if (length(graded_activities) != 51L) {
+  failures <- c(
+    failures,
+    sprintf("Expected 51 active graded exercises after logical grouping, found %d",
+            length(graded_activities))
   )
-  if (!grepl("type_onderzoeksvraag", prompt_and_boilerplate, fixed = TRUE) ||
-      !grepl("**Leerdoel:**", prompt_and_boilerplate, fixed = TRUE)) {
-    failures <- c(failures, "Exercise 2.10 does not expose its focused classification objective consistently.")
-  }
 }
 
 if (length(failures)) {
@@ -377,6 +305,11 @@ if (length(failures)) {
 }
 
 cat(sprintf(
-  "Exercise-authoring quality passed for %d activities; all 10 expanded families use continuous numeric sub-numbering, learner slots were checked textually, and no explicit Hint/Tip or NA/NULL boilerplate placeholders remain.\n",
-  length(configs)
+  paste0(
+    "Exercise-authoring quality passed for %d activities and %d active graded exercises; ",
+    "learner slots use at most five answer objects, and no explicit Hint/Tip, redundant ",
+    "Deel title, legacy letter code, or grouped NA/NULL/???/zero placeholder remains.\n"
+  ),
+  length(configs),
+  length(graded_activities)
 ))

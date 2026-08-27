@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.7 R-kwadraat Morele intuïties (groepsgericht)"
+      "nl": "Oef - 12.3 Padmodel - R-kwadraat interpreteren",
+      "en": "Exercise - 12.3 Path model - Interpreting R-squared"
     }
   },
   "evaluation": {

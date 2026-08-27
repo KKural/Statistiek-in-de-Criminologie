@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 4.5 Diplomaontvangers - Kansregels"
+      "nl": "Oef - 4.3 Diplomaontvangers - Kansregels",
+      "en": "Exercise - 4.3 Diploma recipients - Probability rules"
     }
   },
   "programming_language": "R",

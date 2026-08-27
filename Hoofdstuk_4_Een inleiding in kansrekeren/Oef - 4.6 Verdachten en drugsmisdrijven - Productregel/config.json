@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 4.6 Verdachten en drugsmisdrijven - Productregel"
+      "nl": "Oef - 4.4 Verdachten en drugsmisdrijven - Productregel",
+      "en": "Exercise - 4.4 Suspects and drug offences - Multiplication rule"
     }
   },
   "programming_language": "R",

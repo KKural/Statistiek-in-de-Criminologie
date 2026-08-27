@@ -1,7 +1,8 @@
 {
   "description": {
     "names": {
-      "nl": "Oef - 8.2 : Interactieve Correlatie- en Regressie-app"
+      "nl": "Oef - 8.2 Interactieve correlatie- en regressie-app",
+      "en": "Exercise - 8.2 Interactive correlation and regression app"
     }
   },
   "access": "public",

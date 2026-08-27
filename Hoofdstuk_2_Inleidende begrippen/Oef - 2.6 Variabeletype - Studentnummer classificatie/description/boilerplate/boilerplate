@@ -1,17 +1,17 @@
-# Vervang ??? door het juiste meetniveau
+# Vul het juiste meetniveau in tussen de aanhalingstekens.
 # Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
 
 # Favoriete keuze voor online onderzoek (Google, Bibliotheek, Wikipedia, etc.)
-favoriete_keuze <- "???"
+favoriete_keuze <- ""
 
 # Leeftijd van studenten (17, 18, 19 jaar etc.)
-leeftijd <- "???"
+leeftijd <- ""
 
 # Geslacht (man/vrouw)
-geslacht <- "???"
+geslacht <- ""
 
 # Studierichting (verschillende richtingen)
-studierichting <- "???"
+studierichting <- ""
 
 # Studentnummer (1-552 voor identificatie)
-studentnummer <- "???"
+studentnummer <- ""

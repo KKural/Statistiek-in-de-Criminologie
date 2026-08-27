@@ -1,16 +1,13 @@
-Het hieronder afgebeelde padmodel is een visualisatie van een partiële test van de Morele Fundamenten Theorie (MFT) van Jonathan Haidt en collega’s. MFT werd gecreëerd om te verklaren hoe en waarom moraliteit zo sterk varieert tussen culturen en tevens zoveel overeenkomsten en terugkerende thema’s vertoont. De theorie vertrekt daarbij vanuit een evolutionair kader. De centrale vraag waarop de theorie een antwoord formuleert is: **Wat zijn de determinanten van een moreel oordeel?** Volgens MFT zijn morele oordelen het resultaat van morele intuïties en morele emoties. In een recente studie (De Buck & Pauwels, 2022) werden de relaties onderzocht tussen dimensies van empathie en moreel oordelen in de context van verschillende vormen van normovertreding. In één geval werd een vignette gebruikt waarin een diefstal wordt beschreven. Aan respondenten werd gevraagd in welke mate zij stelen/diefstal als verkeerd beschouwen.
+Gebruik het vereenvoudigde padmodel over empathie en moreel oordeel.
 
-Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
+<img src="media/padmodel.png" alt="Vereenvoudigd padmodel over empathie en moreel oordeel" width="750">
 
-<img src="media/padmodel.png" alt="MFT padmodel" width="750">
+**Leerdoel:** informatie uit een padmodel aflezen en directe en indirecte routes samenvoegen tot een totaal effect.
 
----
+Beantwoord de drie vragen.
 
-Hoeveel bedraagt de **correlatie** tussen **‘morele intuïties (individualiserend)’** en **‘geanticipeerde schuld’**?
+1. Lees de gerichte padcoëfficiënt af van morele intuïties (individualiserend) naar geanticipeerde schuld.
+2. Hoeveel volledige indirecte paden lopen van empathische perspectiefneming naar moreel oordeel? Tel elke verschillende gerichte route, ook de route die rechtstreeks van perspectiefneming naar geanticipeerde schuld loopt en daarna naar moreel oordeel.
+3. Het directe effect van empathische bezorgdheid op geanticipeerde schuld is 0.34. Het indirecte pad via individualiserende morele intuïties heeft coëfficiënten 0.48 en 0.18. Bereken het totale effect.
 
-1. .21
-2. .34
-3. .18
-4. .48
-
-- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven
+Vul de drie numerieke antwoorden in op de lege plaatsen in het codebestand. Rond het totale effect af op vier decimalen.

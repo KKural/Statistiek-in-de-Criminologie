@@ -5,7 +5,11 @@ context({
       testEqual(
         "",
         function(env) {
-          expected_values <- c(ontbrekende_afwijking = 2, som_afwijkingen = 0)
+          expected_values <- c(
+            ontbrekende_afwijking = 2,
+            som_afwijkingen = 0,
+            steekproefvariantie = 20
+          )
           read_number <- function(name) {
             if (!exists(name, envir = env)) return(NA_real_)
             value <- suppressWarnings(as.numeric(get(name, envir = env)))
@@ -13,49 +17,48 @@ context({
             value
           }
           values <- vapply(names(expected_values), read_number, numeric(1))
-          valid <- all(is.finite(values))
-          correct <- valid && all(abs(values - expected_values) <= 0.0000001)
-          assign("results_3_3_9", list(valid = valid, values = values), envir = globalenv())
-          correct
+          valid <- is.finite(values)
+          correct <- valid & abs(values - expected_values) <= 0.005
+          assign("results_3_3_9_combined", list(values = values, expected = expected_values, valid = valid, correct = correct), envir = globalenv())
+          all(correct)
         },
         TRUE,
         comparator = function(generated, expected, ...) {
-          results <- get("results_3_3_9", envir = globalenv())
-          values <- results$values
+          results <- get("results_3_3_9_combined", envir = globalenv())
+          field_titles <- c(
+            ontbrekende_afwijking = "onderdeel 1 (ontbrekende afwijking)",
+            som_afwijkingen = "onderdeel 2 (som van afwijkingen)",
+            steekproefvariantie = "onderdeel 3 (steekproefvariantie)"
+          )
+          field_rules <- c(
+            ontbrekende_afwijking = "De afwijking van 6 ten opzichte van 4 is 6 min 4.",
+            som_afwijkingen = "Getekende afwijkingen rond hun eigen rekenkundig gemiddelde tellen op tot nul.",
+            steekproefvariantie = "Voor een steekproef deel je SS door n min 1; hier is de noemer vier."
+          )
           if (isTRUE(generated == expected)) {
             message <- paste(
-              "**Bevestiging:** je gebruikt correct dat de getekende afwijkingen rond het gemiddelde tot nul optellen.",
-              "**Denkregel:** voor elke waarde geldt afwijking = x − gemiddelde; de som van alle afwijkingen rond het gemiddelde is nul.",
-              "**Transferstap:** gebruik de nul-som als snelle controle nadat je een reeks afwijkingen hebt berekend.",
+              "**Bevestiging:** de ontbrekende afwijking, nul-som en steekproefvariantie zijn correct.",
+              "**Denkregel:** houd getekende afwijkingen en gekwadrateerde afwijkingen uit elkaar; alleen voor de steekproefvariantie gebruik je SS en de noemer n min 1.",
+              "**Transferstap:** controleer de nul-som voor 3, 5 en 7 en bereken daarna de variantie wanneer SS gelijk is aan 8.",
               sep = "\n\n"
             )
           } else {
-            if (!results$valid) {
-              likely <- "Minstens één antwoord ontbreekt, bevat tekst of is niet één eindig getal."
-              why <- "Elke lege plaats moet met precies één berekend getal worden ingevuld."
-              next_step <- "Controleer alle invoervelden en vul uitsluitend de gevraagde eindwaarden in."
+            missing_fields <- names(results$expected)[!results$valid]
+            wrong_fields <- names(results$expected)[results$valid & !results$correct]
+            field <- if (length(missing_fields) > 0L) missing_fields[[1L]] else wrong_fields[[1L]]
+            if (field %in% missing_fields) {
+              likely <- paste0("Bij ", field_titles[[field]], " ontbreekt nog één eindig getal.")
+              why <- "Een leeg of niet-numeriek veld kan niet met de gevraagde berekening of keuze worden vergeleken."
+              next_step <- paste0("Voer de berekening of classificatie voor ", field_titles[[field]], " uit en vul alleen het eindantwoord in.")
             } else {
-              likely <- "Je hebt een verwante grootheid of tussenstap ingevuld."
-              why <- "De ingevulde waarde beantwoordt niet precies de gevraagde statistische vraag."
-              next_step <- "Lees de gevraagde bewerking opnieuw en voer alleen die stap uit."
-              if (abs(values[["ontbrekende_afwijking"]] + 2) < 0.0001) {
-                likely <- "Je hebt gemiddelde min waarneming gebruikt voor de laatste waarde."
-                why <- "De afwijking gebruikt steeds waarneming min gemiddelde."
-                next_step <- "Bereken 6 − 4 en tel daarna alle drie getekende afwijkingen op."
-              } else if (abs(values[["som_afwijkingen"]] - 4) < 0.0001) {
-                likely <- "Je hebt absolute afstanden opgeteld."
-                why <- "De nul-som-eigenschap geldt voor getekende afwijkingen, inclusief negatieve waarden."
-                next_step <- "Behoud het minteken van de eerste afwijking en tel opnieuw op."
-              } else if (abs(values[["ontbrekende_afwijking"]] - 2) < 0.0001) {
-                likely <- "De ontbrekende afwijking klopt, maar de optelling van de tekens niet."
-                why <- "Tegengestelde afwijkingen met dezelfde grootte heffen elkaar op."
-                next_step <- "Tel -2, 0 en je ontbrekende afwijking zorgvuldig met teken op."
-              }
+              likely <- paste0("Voor ", field_titles[[field]], " vulde je ", format(results$values[[field]], trim = TRUE), " in.")
+              why <- field_rules[[field]]
+              next_step <- paste0("Herbereken of heroverweeg ", field_titles[[field]], " met de genoemde denkregel.")
             }
             message <- paste(
               paste0("**Waarschijnlijke redenering:** ", likely),
               paste0("**Waarom dit niet klopt:** ", why),
-              "**Denkregel:** voor elke waarde geldt afwijking = x − gemiddelde; de som van alle afwijkingen rond het gemiddelde is nul.",
+              paste0("**Denkregel:** ", field_rules[[field]]),
               paste0("**Volgende stap:** ", next_step),
               sep = "\n\n"
             )

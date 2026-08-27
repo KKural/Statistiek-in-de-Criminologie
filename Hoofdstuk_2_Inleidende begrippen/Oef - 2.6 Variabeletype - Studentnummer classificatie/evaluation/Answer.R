@@ -7,72 +7,38 @@ context({
         function(env) {
           # Use the provided environment (env) instead of globalenv()
           results <- list()
+
+          classify_text <- function(name, expected) {
+            if (!exists(name, envir = env, inherits = FALSE)) {
+              return(list(
+                exists = FALSE, valid = FALSE, value = NA_character_,
+                correct = FALSE, expected = expected
+              ))
+            }
+            raw_value <- get(name, envir = env, inherits = FALSE)
+            converted <- tryCatch(
+              suppressWarnings(as.character(raw_value)),
+              error = function(error) character()
+            )
+            valid <- length(converted) == 1L && !is.na(converted) &&
+              nzchar(trimws(converted))
+            display_value <- if (valid) converted else "<ongeldige invoer>"
+            normalized <- if (valid) tolower(trimws(converted)) else NA_character_
+            list(
+              exists = TRUE,
+              valid = valid,
+              value = display_value,
+              correct = isTRUE(valid && normalized == tolower(expected)),
+              expected = expected
+            )
+          }
           
           # Check each variable and store detailed results
-          # Favoriete keuze
-          if(exists("favoriete_keuze", envir = env)) {
-            current_val <- tolower(as.character(get("favoriete_keuze", envir = env)))
-            results$favoriete_keuze <- list(
-              exists = TRUE,
-              value = get("favoriete_keuze", envir = env),
-              correct = current_val == "nominaal",
-              expected = "Nominaal"
-            )
-          } else {
-            results$favoriete_keuze <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Nominaal")
-          }
-          
-          # Leeftijd
-          if(exists("leeftijd", envir = env)) {
-            current_val <- tolower(as.character(get("leeftijd", envir = env)))
-            results$leeftijd <- list(
-              exists = TRUE,
-              value = get("leeftijd", envir = env),
-              correct = current_val == "ratio",
-              expected = "Ratio"
-            )
-          } else {
-            results$leeftijd <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Ratio")
-          }
-          
-          # Geslacht
-          if(exists("geslacht", envir = env)) {
-            current_val <- tolower(as.character(get("geslacht", envir = env)))
-            results$geslacht <- list(
-              exists = TRUE,
-              value = get("geslacht", envir = env),
-              correct = current_val == "nominaal",
-              expected = "Nominaal"
-            )
-          } else {
-            results$geslacht <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Nominaal")
-          }
-          
-          # Studierichting
-          if(exists("studierichting", envir = env)) {
-            current_val <- tolower(as.character(get("studierichting", envir = env)))
-            results$studierichting <- list(
-              exists = TRUE,
-              value = get("studierichting", envir = env),
-              correct = current_val == "nominaal",
-              expected = "Nominaal"
-            )
-          } else {
-            results$studierichting <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Nominaal")
-          }
-          
-          # Studentnummer
-          if(exists("studentnummer", envir = env)) {
-            current_val <- tolower(as.character(get("studentnummer", envir = env)))
-            results$studentnummer <- list(
-              exists = TRUE,
-              value = get("studentnummer", envir = env),
-              correct = current_val == "nominaal",
-              expected = "Nominaal"
-            )
-          } else {
-            results$studentnummer <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Nominaal")
-          }
+          results$favoriete_keuze <- classify_text("favoriete_keuze", "Nominaal")
+          results$leeftijd <- classify_text("leeftijd", "Ratio")
+          results$geslacht <- classify_text("geslacht", "Nominaal")
+          results$studierichting <- classify_text("studierichting", "Nominaal")
+          results$studentnummer <- classify_text("studentnummer", "Nominaal")
           
           # Store results for use in comparator
           assign("detailed_results", results, envir = globalenv())
@@ -104,7 +70,9 @@ context({
             
             if(!result$exists) {
               feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: *Ontbreekt* ❌"))
-            } else if(result$correct) {
+            } else if(!isTRUE(result$valid)) {
+              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: *Ongeldige invoer; vul precies één tekstantwoord in* ❌"))
+            } else if(isTRUE(result$correct)) {
               feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ✅"))
             } else {
               feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ❌"))

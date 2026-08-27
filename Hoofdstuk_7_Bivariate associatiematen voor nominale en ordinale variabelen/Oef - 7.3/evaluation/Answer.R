@@ -1,36 +1,85 @@
-# **Bevestiging:** correct-route feedback below confirms the answer before the Denkregel and Transferstap.
 context({
-  testcase(
-    "",
-    {
-      testEqual(
-        "",
-        function(env) as.numeric(env$evaluationResult),
-        4,
-        comparator = function(generated, expected, ...) {
-          feedbacks <- list(
-            "1" = "❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk gedacht dat een rangcorrelatie buiten de gebruikelijke correlatiegrenzen kan vallen. Spearman's rho is echter begrensd tussen −1 en +1.\n\n**Waarom dit niet klopt:** deze keuze markeert een uitspraak als fout die binnen de definitie wel geldig is; de uitleg hierboven benoemt het beslissende onderscheid.\n\n**Denkregel:** controleer bij elke correlatiemaat eerst het theoretische bereik; voor rho is dat [−1, +1].\n\n**Volgende stap:** behoud uitspraak 1 en zoek de uitspraak die een negatieve rho ten onrechte uitsluit. <a href='https://psychology.town/statistics/spearman-rho-rank-order-correlation-guide/' target='_blank' rel='noopener noreferrer'>Lees meer</a>",
-            "2" = "❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk ‘monotoon’ verward met ‘perfect lineair’. Spearman's rho beoordeelt juist of rangen systematisch in dezelfde of tegengestelde richting bewegen.\n\n**Waarom dit niet klopt:** deze keuze markeert een uitspraak als fout die binnen de definitie wel geldig is; de uitleg hierboven benoemt het beslissende onderscheid.\n\n**Denkregel:** Spearman's rho meet sterkte én richting van een monotone relatie bij ordinale of gerangschikte gegevens.\n\n**Volgende stap:** accepteer uitspraak 2 en controleer welke andere uitspraak de negatieve richting ontkent. <a href='https://psychology.town/statistics/spearman-rho-rank-order-correlation-guide/' target='_blank' rel='noopener noreferrer'>Lees meer</a>",
-            "3" = "❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk aangenomen dat ‘samenhang’ alleen betekent dat beide variabelen samen stijgen. Een consistente tegengestelde rangorde levert echter een negatieve rho op.\n\n**Waarom dit niet klopt:** deze keuze markeert een uitspraak als fout die binnen de definitie wel geldig is; de uitleg hierboven benoemt het beslissende onderscheid.\n\n**Denkregel:** dezelfde rangrichting geeft een positieve rho; tegengestelde rangrichting geeft een negatieve rho.\n\n**Volgende stap:** behoud uitspraak 3 en vergelijk haar met uitspraak 4, die een negatieve rho onmogelijk noemt. <a href='https://psychology.town/statistics/spearman-rho-rank-order-correlation-guide/' target='_blank' rel='noopener noreferrer'>Lees meer</a>",
-            "4" = "**Bevestiging:** Correct. Deze uitspraak is fout: Spearman's rho kan wel degelijk negatief zijn en een daling in de ene variabele betekent niet automatisch een daling in de andere. <a href='https://psychology.town/statistics/spearman-rho-rank-order-correlation-guide/' target='_blank' rel='noopener noreferrer'>Lees meer</a>\n\n**Denkregel:** Spearman's rho ligt tussen -1 en +1; het teken geeft de richting van de monotone rangsamenhang aan.\n\n**Transferstap:** Beschrijf voor rangordes van toezichtintensiteit en recidiverisico een situatie met negatieve rho en leg uit welke twee rangrichtingen elkaar tegenspreken."
-          )
-          key <- as.character(generated)
-          msg <- feedbacks[[key]]
-          if (is.null(msg)) {
-            msg <- "Geef een getal tussen 1 en 4 in."
-          }
-          if (!key %in% names(feedbacks)) {
-            msg <- paste0(
-              "**Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.\n\n",
-              "**Waarom dit niet klopt:** de evaluator kan alleen een inhoudelijke optie beoordelen wanneer één geldig optienummer is ingevoerd.\n\n",
-              "**Denkregel:** koppel eerst elke antwoordoptie aan haar nummer en voer uitsluitend dat ene nummer in.\n\n",
-              "**Volgende stap:** lees de opties opnieuw, kies het nummer dat bij je redenering hoort en dien alleen dat nummer in."
-            )
-          }
-          get_reporter()$add_message(msg, type = "markdown")
-          generated == expected
-        }
+  testcase("", {
+    testEqual("", function(env) {
+      expected_values <- c(spearman_richting = 4, gamma_bereik = 1, kendall_bereik = 2, spearman_nul = 3)
+      tolerances <- c(spearman_richting = 0, gamma_bereik = 0, kendall_bereik = 0, spearman_nul = 0)
+
+      read_number <- function(name) {
+        if (!exists(name, envir = env, inherits = FALSE)) return(NA_real_)
+        value <- suppressWarnings(as.numeric(get(name, envir = env, inherits = FALSE)))
+        if (length(value) != 1L || !is.finite(value)) return(NA_real_)
+        value
+      }
+
+      values <- vapply(names(expected_values), read_number, numeric(1))
+      valid <- is.finite(values)
+      correct_fields <- valid & abs(values - expected_values) <= tolerances
+
+      assign(
+        "results_7_3_grouped",
+        list(
+          values = values,
+          expected = expected_values,
+          valid = valid,
+          correct_fields = correct_fields
+        ),
+        envir = globalenv()
       )
-    }
-  )
+
+      all(correct_fields)
+    }, TRUE, comparator = function(generated, expected, ...) {
+      results <- get("results_7_3_grouped", envir = globalenv())
+
+      if (isTRUE(generated == expected)) {
+        message <- paste(
+          "**Bevestiging:** je herkent de foute uitspraken over negatieve rho, het bereik van Gamma, het bereik van Kendall's tau en de betekenis van rho = 0.",
+          "**Denkregel:** controleer bij elke ordinale associatiemaat eerst het bereik, daarna het teken en ten slotte welk type rangpatroon de maat wel of niet samenvat.",
+          "**Transferstap:** schets een positief monotoon, negatief monotoon en niet-monotoon patroon en voorspel voor elk het teken van een rangcorrelatie.",
+          sep = "\n\n"
+        )
+      } else if (!all(results$valid)) {
+        missing_fields <- names(results$valid)[!results$valid]
+        message <- paste(
+          paste0("**Waarschijnlijke redenering:** er ontbreekt een geldige numerieke invoer voor: ", paste(missing_fields, collapse = ", "), "."),
+          "**Waarom dit niet klopt:** elke genummerde deelvraag heeft precies één getal of optienummer nodig; zonder alle antwoorden kan de volledige redenering niet worden beoordeeld.",
+          "**Denkregel:** controleer bij elke ordinale associatiemaat eerst het bereik, daarna het teken en ten slotte welk type rangpatroon de maat wel of niet samenvat.",
+          paste0("**Volgende stap:** vul eerst alleen de lege velden ", paste(missing_fields, collapse = ", "), " in en dien opnieuw in."),
+          sep = "\n\n"
+        )
+      } else {
+        wrong_field <- names(results$correct_fields)[!results$correct_fields][[1L]]
+        likely <- switch(
+          wrong_field,
+          spearman_richting = { value <- results$values[[wrong_field]]; if (value == 1) "je denkt dat rangcorrelaties buiten de gebruikelijke correlatiegrenzen kunnen vallen." else if (value == 2) "je verwart monotone samenhang met uitsluitend lineaire samenhang." else "je hebt een geldige beschrijving van een negatieve rangrelatie afgewezen." },
+          gamma_bereik = { value <- results$values[[wrong_field]]; if (value == 4) "je hebt Gamma verward met een maat die ties expliciet in de noemer corrigeert." else "je hebt een geldige eigenschap van Gamma als fout aangeduid." },
+          kendall_bereik = { value <- results$values[[wrong_field]]; if (value == 1) "je hebt de geldige begrenzing van tau afgewezen." else "je hebt een geldige rangpaarinterpretatie als fout aangeduid." },
+          spearman_nul = { value <- results$values[[wrong_field]]; if (value == 4) "je denkt dat een niet-monotoon patroon de uitspraak over afwezige monotone samenhang weerlegt." else "je hebt een geldige eigenschap van Spearman's rho afgewezen." }
+        )
+        why <- switch(
+          wrong_field,
+          spearman_richting = "een tegengestelde monotone rangorde levert een negatieve rho; de bewering dat rho niet negatief kan zijn is dus fout.",
+          gamma_bereik = "Gamma = (C - D)/(C + D) blijft tussen -1 en +1; ties maken een waarde boven 1 niet mogelijk.",
+          kendall_bereik = "Kendall's tau is genormaliseerd en kan nooit 2 of -2 zijn; uitspraak 2 is fout.",
+          spearman_nul = "rho = 0 sluit een monotone trend uit, maar niet elk mogelijk niet-monotoon verband; uitspraak 3 is daarom fout."
+        )
+        next_step <- switch(
+          wrong_field,
+          spearman_richting = "vergelijk twee omgekeerde ranglijsten en bepaal of hogere rangen samengaan met lagere rangen.",
+          gamma_bereik = "toets elke uitspraak aan de formule en het vaste bereik [-1,+1].",
+          kendall_bereik = "controleer antwoordwaarden eerst op het theoretische interval [-1,+1].",
+          spearman_nul = "teken een U-vorm: er is duidelijke structuur, maar geen consequent stijgende of dalende rangtrend."
+        )
+        message <- paste(
+          paste0("**Waarschijnlijke redenering:** ", likely),
+          paste0("**Waarom dit niet klopt:** ", why),
+          "**Denkregel:** controleer bij elke ordinale associatiemaat eerst het bereik, daarna het teken en ten slotte welk type rangpatroon de maat wel of niet samenvat.",
+          paste0("**Volgende stap:** ", next_step),
+          sep = "\n\n"
+        )
+      }
+
+      get_reporter()$add_message(message, type = "markdown")
+      generated == expected
+    })
+  })
 })

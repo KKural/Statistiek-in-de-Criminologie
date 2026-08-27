@@ -5,441 +5,205 @@
 ## Gebruik
 
 - **Correcte inzending** is een volledig ingevulde versie van de boilerplate, of het juiste optienummer bij een keuzeoefening.
-- Een **Foute testinvoer** vervangt alleen de getoonde regel of keuze.
-- De uitleg bij foute invoer beschrijft de bijbehorende misvatting en feedbackroute.
+- Een **Foute testinvoer** wijzigt steeds precies één antwoord terwijl de andere antwoorden correct blijven.
+- De uitleg na elke foute invoer benoemt de bijbehorende misvatting en gerichte feedbackroute.
 
-### Oef - 11.1.1 Regressie - Afhankelijke variabele
+### Oef - 11.1 Regressie - Van variabelen naar interpretatie
 
 Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.1.1 Variabelen en gemiddelden`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Vul het antwoord in na <-.
+# Vul elk antwoord in na <-.
 afhankelijke_variabele <- 3
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-afhankelijke_variabele <-1
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt een predictor gekozen omdat die een mogelijke verklaring vormt.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-afhankelijke_variabele <-2
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de tweede predictor als uitkomst gelezen.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-afhankelijke_variabele <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 11.1.2 Regressie - Eén kruisproductsom
-
-Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.1.2 Somkwadraten en kruisproducten`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul het antwoord in na <-.
 scp_x1y <- -4
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-scp_x1y <-4
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de negatieve tekens van de kruisproducten verloren.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-scp_x1y <-0
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de afwijkingen afzonderlijk opgeteld in plaats van gepaarde producten te vormen.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-scp_x1y <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 11.1.3 Regressie - Eén voorspelling
-
-Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.1.3 Regressiemodel en voorspelling`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul het antwoord in na <-.
 voorspelling <- 10
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-voorspelling <-16
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de negatieve coëfficiënt van X2 als positief behandeld.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-voorspelling <-5
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt alleen het intercept ingevuld zonder de predictorbijdragen.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-voorspelling <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 11.1.4 Regressie - Teken van een partiële coëfficiënt
-
-Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.1.4 Interpretatie van regressiegewichten`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul het antwoord in na <-.
 interpretatie_b1 <- 2
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer:
+- Foute testinvoer voor `afhankelijke_variabele` (alle andere velden blijven correct):
 
 ```r
-# Vul het antwoord in na <-.
-interpretatie_b1 <-1
+# Vul elk antwoord in na <-.
+afhankelijke_variabele <- 1
+scp_x1y <- -4
+voorspelling <- 10
+interpretatie_b1 <- 2
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt het minteken van de coëfficiënt genegeerd.
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk een predictor gekozen in plaats van de variabele die wordt voorspeld. **Waarom dit niet klopt:** De angstscore Y wordt voorspeld en is dus de afhankelijke variabele, code 3.
 
-- Foute testinvoer:
+- Foute testinvoer voor `scp_x1y` (alle andere velden blijven correct):
 
 ```r
-# Vul het antwoord in na <-.
-interpretatie_b1 <-3
+# Vul elk antwoord in na <-.
+afhankelijke_variabele <- 3
+scp_x1y <- 4
+voorspelling <- 10
+interpretatie_b1 <- 2
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt negatief verward met afwezig; een niet-nulcoëfficiënt geeft wel een richting aan.
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk de tekens van de gecentreerde producten genegeerd. **Waarom dit niet klopt:** (−1)(2) + 0(0) + 1(−2) = −4.
 
-- Ongeldige of ontbrekende invoer:
+- Foute testinvoer voor `voorspelling` (alle andere velden blijven correct):
 
 ```r
-interpretatie_b1 <-
+# Vul elk antwoord in na <-.
+afhankelijke_variabele <- 3
+scp_x1y <- -4
+voorspelling <- 11
+interpretatie_b1 <- 2
 ```
 
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk het minteken voor X2 gemist of een coëfficiënt niet vermenigvuldigd. **Waarom dit niet klopt:** 5 + 2(4) − 1(3) = 10.
 
-### Oef - 11.3 Uitbijter herkennen via residu
+- Foute testinvoer voor `interpretatie_b1` (alle andere velden blijven correct):
+
+```r
+# Vul elk antwoord in na <-.
+afhankelijke_variabele <- 3
+scp_x1y <- -4
+voorspelling <- 10
+interpretatie_b1 <- 1
+```
+
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk alleen naar de grootte van b1 gekeken en het negatieve teken of de controle voor X2 gemist. **Waarom dit niet klopt:** b1 = −2.2 betekent dat de voorspelde Y daalt wanneer X1 stijgt, bij constante X2; dat is code 2.
+
+### Oef - 11.3 Regressie - Residuen en modelpassing
 
 Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.3`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Welk gelabeld punt heeft het grootste residu (grootste verticale afstand tot de regressielijn)?
-# Geef de bijbehorende letter als tekst (bijv. "A", "B", "C", "D", "E" of "F")
-
-uitbijter <- "B"
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer: `uitbijter <- "uitbijter"`
-  - Misvatting: ❌ **Punt met het grootste absolute residu** — **Fout. Antwoord: `"UITBIJTER"`. Correct: `"B"`**
-- Foute testinvoer: `uitbijter <- "A"`
-  - Misvatting: **Waarschijnlijke redenering:** je koos mogelijk A omdat dit punt de hoogste Y-waarde (33) heeft.
-- Foute testinvoer: `uitbijter <- "F"`
-  - Misvatting: **Waarschijnlijke redenering:** je koos mogelijk F omdat zijn X-waarde het meest extreem is.
-- Foute testinvoer: `uitbijter <- "** — **Fout. Antwoord: '\""`
-  - Misvatting: ❌ **Punt met het grootste absolute residu** — **Fout. Antwoord: `"** — **FOUT. ANTWOORD: `""`. Correct: `"B"`**
-
-### Oef - 11.4 Ligging van een punt t.o.v. de regressielijn
-
-Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.4`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Waar ligt punt P ten opzichte van de regressielijn?
-# Gebruik de juiste code: 1 = boven de lijn, 2 = op de lijn, 3 = onder de lijn
-
+# Vul elk antwoord in na <-.
+uitbijter_code <- 2
 punt_positie <- 3
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer: `punt_positie <- 0`
-  - Misvatting: **Waarom dit niet klopt:** alleen code 1 (boven), 2 (op) of 3 (onder) kan de positie ten opzichte van de lijn weergeven.
-- Foute testinvoer: `punt_positie <- 1`
-  - Misvatting: **Waarschijnlijke redenering:** je hebt mogelijk de visuele positie geschat zonder het residu expliciet te berekenen.
-
-### Oef - 11.5 R² omzetten naar een percentage
-
-Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.5`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Hoeveel procent van de variantie in de responsvariabele wordt verklaard door het model?
-# Geef R² als een geheel getal (bijv. 72 voor 72%)
-
 r_kwadraat_pct <- 87
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `r_kwadraat_pct <- 0`
-  - Misvatting: **Waarschijnlijke redenering:** je antwoord past mogelijk bij een verwisseling van R, R², adjusted R² of de decimale en procentuele schaal.
+- Foute testinvoer voor `uitbijter_code` (alle andere velden blijven correct):
 
-### Oef - 11.6.1 Meervoudige regressie - Partiële interpretatie
+```r
+# Vul elk antwoord in na <-.
+uitbijter_code <- 1
+punt_positie <- 3
+r_kwadraat_pct <- 87
+```
+
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk het punt met een extreme X- of Y-waarde gekozen in plaats van de grootste verticale afstand. **Waarom dit niet klopt:** Punt B heeft een residu van ongeveer +4.8, de grootste absolute verticale afstand; B hoort bij code 2.
+
+- Foute testinvoer voor `punt_positie` (alle andere velden blijven correct):
+
+```r
+# Vul elk antwoord in na <-.
+uitbijter_code <- 2
+punt_positie <- 1
+r_kwadraat_pct <- 87
+```
+
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk de positie visueel benoemd zonder het teken van Y − Ŷ te gebruiken. **Waarom dit niet klopt:** 16 − 18.3 = −2.3, dus P ligt onder de lijn en hoort bij code 3.
+
+- Foute testinvoer voor `r_kwadraat_pct` (alle andere velden blijven correct):
+
+```r
+# Vul elk antwoord in na <-.
+uitbijter_code <- 2
+punt_positie <- 3
+r_kwadraat_pct <- 88
+```
+
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk R, adjusted R² of de decimale R² ingevuld. **Waarom dit niet klopt:** De gewone R² is 0.872; als geheel percentage is dat 87, niet 93, 86 of 0.872.
+
+### Oef - 11.4 Meervoudige regressie - Output en voorspelling
 
 Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.6.1 Basisconcepten meervoudige regressie`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Vul het antwoord in na <-.
+# Vul elk antwoord in na <-.
 interpretatie_b1 <- 1
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-interpretatie_b1 <-2
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je maakt van een gemiddelde modelrelatie een deterministische garantie voor ieder individu.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-interpretatie_b1 <-3
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de uitkomst en de andere predictor verwisseld.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-interpretatie_b1 <-4
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je verwart de helling met het intercept.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-interpretatie_b1 <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 11.6.2 Meervoudige regressie - Toename in verklaarde variantie
-
-Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.6.2 Modelvergelijking en interpretatie`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul de antwoorden in na <-.
 delta_r2 <- 0.08
-conclusie <- 1
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul de antwoorden in na <-.
-delta_r2 <-0.68
-conclusie <-1
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de twee R²-waarden opgeteld in plaats van het verschil te nemen.
-
-- Foute testinvoer:
-
-```r
-# Vul de antwoorden in na <-.
-delta_r2 <-0.21
-conclusie <-1
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt een relatieve procentuele groei berekend in plaats van het absolute R²-verschil.
-
-- Foute testinvoer:
-
-```r
-# Vul de antwoorden in na <-.
-delta_r2 <-0.08
-conclusie <-2
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt p = 0.02 niet correct met α = 0.05 vergeleken.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-delta_r2 <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 11.7.1 Regressie-output - Modeltoets
-
-Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.7.1 Modelfit en ANOVA-output`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul het antwoord in na <-.
+modelverbetering <- 1
 modelconclusie <- 1
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-modelconclusie <-2
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je trekt uit de globale F-toets een conclusie over iedere afzonderlijke coëfficiënt.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-modelconclusie <-3
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je gebruikt de F-toets ten onrechte als normaliteitstoets.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-modelconclusie <-4
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Significantie betekent niet dat het model alle variantie verklaart.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-modelconclusie <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 11.7.2 Regressie-output - Voorspelde waarde
-
-Bronmap: `Hoofdstuk_11_Regressieanalyse met twee onafhankelijke variabelen/Oef - 11.7.2 Regressieparameters en voorspelling`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul het antwoord in na <-.
 voorspelling <- 16
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer:
+- Foute testinvoer voor `interpretatie_b1` (alle andere velden blijven correct):
 
 ```r
-# Vul het antwoord in na <-.
-voorspelling <-11
+# Vul elk antwoord in na <-.
+interpretatie_b1 <- 2
+delta_r2 <- 0.08
+modelverbetering <- 1
+modelconclusie <- 1
+voorspelling <- 16
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt één predictorbijdrage weggelaten.
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk de voorwaarde bij constante X2 of het verschil tussen gemiddeld en altijd gemist. **Waarom dit niet klopt:** b1 = 3 beschrijft de gemiddelde verandering in ŷ per eenheid X1 terwijl X2 constant blijft; dat is code 1.
 
-- Foute testinvoer:
+- Foute testinvoer voor `delta_r2` (alle andere velden blijven correct):
 
 ```r
-# Vul het antwoord in na <-.
-voorspelling <-15
+# Vul elk antwoord in na <-.
+interpretatie_b1 <- 1
+delta_r2 <- 8
+modelverbetering <- 1
+modelconclusie <- 1
+voorspelling <- 16
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt het intercept niet toegevoegd.
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk de twee R²-waarden opgeteld of in de verkeerde richting afgetrokken. **Waarom dit niet klopt:** ΔR² = 0.38 − 0.30 = 0.08.
 
-- Foute testinvoer:
+- Foute testinvoer voor `modelverbetering` (alle andere velden blijven correct):
 
 ```r
-# Vul het antwoord in na <-.
-voorspelling <-10
+# Vul elk antwoord in na <-.
+interpretatie_b1 <- 1
+delta_r2 <- 0.08
+modelverbetering <- 2
+modelconclusie <- 1
+voorspelling <- 16
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt coëfficiënten of predictorwaarden bij elkaar opgeteld zonder de producten te vormen.
+  - **Waarschijnlijke redenering:** Je hebt p = 0.02 waarschijnlijk niet met α = 0.05 vergeleken. **Waarom dit niet klopt:** 0.02 is kleiner dan 0.05, dus de verbetering is significant en hoort bij code 1.
 
-- Ongeldige of ontbrekende invoer:
+- Foute testinvoer voor `modelconclusie` (alle andere velden blijven correct):
 
 ```r
-voorspelling <-
+# Vul elk antwoord in na <-.
+interpretatie_b1 <- 1
+delta_r2 <- 0.08
+modelverbetering <- 1
+modelconclusie <- 2
+voorspelling <- 16
 ```
 
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+  - **Waarschijnlijke redenering:** Je hebt de globale F-toets waarschijnlijk als bewijs over elke afzonderlijke coëfficiënt of aanname gelezen. **Waarom dit niet klopt:** De globale F-toets vergelijkt het volledige predictormodel met het nulmodel; alleen code 1 drukt dat uit.
+
+- Foute testinvoer voor `voorspelling` (alle andere velden blijven correct):
+
+```r
+# Vul elk antwoord in na <-.
+interpretatie_b1 <- 1
+delta_r2 <- 0.08
+modelverbetering <- 1
+modelconclusie <- 1
+voorspelling <- 17
+```
+
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk het intercept of een product van coëfficiënt en predictor weggelaten. **Waarom dit niet klopt:** 5 + 2(1) + 3(3) = 16.

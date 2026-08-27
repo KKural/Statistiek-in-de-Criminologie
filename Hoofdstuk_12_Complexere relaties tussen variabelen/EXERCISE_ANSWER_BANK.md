@@ -5,317 +5,221 @@
 ## Gebruik
 
 - **Correcte inzending** is een volledig ingevulde versie van de boilerplate, of het juiste optienummer bij een keuzeoefening.
-- Een **Foute testinvoer** vervangt alleen de getoonde regel of keuze.
-- De uitleg bij foute invoer beschrijft de bijbehorende misvatting en feedbackroute.
+- Een **Foute testinvoer** wijzigt steeds precies één antwoord terwijl de andere antwoorden correct blijven.
+- De uitleg na elke foute invoer benoemt de bijbehorende misvatting en gerichte feedbackroute.
 
-### Oef - 12.1 Soorten variabelen: exogene variabelen
+### Oef - 12.1 Padmodel - Rollen van variabelen
 
 Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.1`
 
 #### Correcte inzending
 
-Selecteer deze optie:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Type of answer below
-1
+# Vul voor elke variabelenrol de juiste antwoordcode in na <-.
+exogene_variabelen <- 1
+endogene_uitkomst <- 2
+intermediaire_variabelen <- 3
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de uiteindelijke uitkomst gekozen als vertrekpunt van het model.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk variabelen in het midden van de verklarende keten als startvariabelen gelezen.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk variabelen met een directe pijl naar de uitkomst automatisch als exogeen beschouwd.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
-
-### Oef - 12.2 Soorten variabelen: endogene variabelen
-
-Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.2`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `exogene_variabelen` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-2
+# Vul voor elke variabelenrol de juiste antwoordcode in na <-.
+exogene_variabelen <- 2
+endogene_uitkomst <- 2
+intermediaire_variabelen <- 3
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk variabelen met inkomende pijlen gekozen in plaats van de startvariabelen van het model. **Waarom dit niet klopt:** Empathische bezorgdheid en perspectiefneming ontvangen in dit model geen pijlen en horen bij code 1.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de startvariabelen gekozen omdat ze de rest van het model beïnvloeden.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk alle variabelen met inkomende pijlen als finale uitkomst behandeld.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk directe voorspellers verward met de uiteindelijke uitkomst zelf.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
-
-### Oef - 12.3 Soorten variabelen: intermediaire variabelen
-
-Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.3`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `endogene_uitkomst` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-3
+# Vul voor elke variabelenrol de juiste antwoordcode in na <-.
+exogene_variabelen <- 1
+endogene_uitkomst <- 1
+intermediaire_variabelen <- 3
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk een intermediaire variabele gekozen in plaats van het eindpunt van de paden. **Waarom dit niet klopt:** Moreel oordeel is het uiteindelijke knooppunt waarop de verklarende routes uitkomen en hoort bij code 2.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk variabelen aan het begin van de keten als tussenschakels gekozen.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de finale uitkomst meegeteld omdat die inkomende pijlen heeft.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Bijna. **Waarschijnlijke redenering:** je hebt mogelijk alleen de intermediaire variabelen vlak vóór de finale uitkomst geselecteerd.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
+- Foute testinvoer voor `intermediaire_variabelen` (alle andere velden blijven correct):
 
-### Oef - 12.4 Padcoëfficiënt aflezen
+```r
+# Vul voor elke variabelenrol de juiste antwoordcode in na <-.
+exogene_variabelen <- 1
+endogene_uitkomst <- 2
+intermediaire_variabelen <- 1
+```
+
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk alleen de emoties geselecteerd en de morele intuïties met inkomende én uitgaande pijlen gemist. **Waarom dit niet klopt:** De intuïties, schuld en boosheid liggen tussen empathie en het uiteindelijke oordeel en horen samen bij code 3.
+
+### Oef - 12.2 Padmodel - Paden en effecten
 
 Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.4`
 
 #### Correcte inzending
 
-Selecteer deze optie:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Type of answer below
-3
+# Vul elk antwoord in na <-.
+padcoefficient_ind_schuld <- 0.18
+aantal_indirecte_paden <- 3
+totaal_effect <- 0.4264
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de juiste doelvariabele maar een andere bronvariabele gevolgd.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een andere inkomende pijl naar de juiste doelvariabele gelezen.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een pijl gekozen die bij de gevraagde bron eindigt, in plaats van daar te vertrekken.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
-
-### Oef - 12.5 Indirecte paden tellen
-
-Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.5`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `padcoefficient_ind_schuld` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-2
+# Vul elk antwoord in na <-.
+padcoefficient_ind_schuld <- 18
+aantal_indirecte_paden <- 3
+totaal_effect <- 0.4264
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk een nabijgelegen coëfficiënt afgelezen in plaats van de gerichte pijl tussen de twee genoemde knooppunten. **Waarom dit niet klopt:** De gerichte pijl van individualiserende intuïties naar geanticipeerde schuld draagt de padcoëfficiënt 0.18.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een gedeeld beginstuk als één volledig indirect pad geteld en de latere vertakkingen niet afzonderlijk gevolgd.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een route dubbel geteld of een verbinding meegeteld die geen volledig gericht pad vormt.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk elke tussenvariabele of losse pijl als een nieuw pad geteld.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
-
-### Oef - 12.6 Totaal effect berekenen
-
-Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.6`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `aantal_indirecte_paden` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-3
+# Vul elk antwoord in na <-.
+padcoefficient_ind_schuld <- 0.18
+aantal_indirecte_paden <- 2
+totaal_effect <- 0.4264
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk alleen de twee langere routes via de morele intuïties geteld en de kortere route via geanticipeerde schuld gemist. **Waarom dit niet klopt:** Er zijn drie routes: via individualiserende intuïties en schuld, via groepsgerichte intuïties en boosheid, en rechtstreeks via schuld.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk alleen het directe pad afgelezen en het indirecte pad niet meegerekend.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** deze waarde past mogelijk bij een reken- of decimalenfout, maar de precieze route is uit het antwoord alleen niet zeker.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk slechts één coëfficiënt van het indirecte pad als volledig effect gebruikt.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
+- Foute testinvoer voor `totaal_effect` (alle andere velden blijven correct):
 
-### Oef - 12.7 R-kwadraat Morele intuïties (groepsgericht)
+```r
+# Vul elk antwoord in na <-.
+padcoefficient_ind_schuld <- 0.18
+aantal_indirecte_paden <- 3
+totaal_effect <- 42.64
+```
+
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk het directe en indirecte effect opgeteld zonder de coëfficiënten binnen het indirecte pad eerst te vermenigvuldigen. **Waarom dit niet klopt:** Het indirecte effect is 0.48 × 0.18 = 0.0864; 0.34 + 0.0864 = 0.4264.
+
+### Oef - 12.3 Padmodel - R-kwadraat interpreteren
 
 Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.7`
 
 #### Correcte inzending
 
-Selecteer deze optie:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Type of answer below
-1
+# Vul elk antwoord in na <-.
+r2_groepsgericht_pct <- 2
+onverklaard_pct <- 57
+interpretatie_onverklaard <- 2
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een R²-label bij een andere variabele afgelezen.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een nabijgelegen R²-label aan de gevraagde variabele gekoppeld.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk twee inhoudelijk verwante variabelen met een vergelijkbare naam verwisseld.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
-
-### Oef - 12.8 R-kwadraat interpreteren
-
-Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.8`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `r2_groepsgericht_pct` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-3
+# Vul elk antwoord in na <-.
+r2_groepsgericht_pct <- 1
+onverklaard_pct <- 57
+interpretatie_onverklaard <- 2
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk het R²-label van een nabijgelegen, andere endogene variabele afgelezen. **Waarom dit niet klopt:** Het R²-label bij groepsgerichte morele intuïties is 2%.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk het R²-label van een andere modelvariabele gebruikt.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de juiste R² afgelezen maar het verklaarde aandeel zelf als antwoord gegeven.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de juiste complementbewerking uitgevoerd met het R²-label van een andere variabele.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
-
-### Oef - 12.9 R-kwadraat: betekenis onverklaarde variantie
-
-Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.9`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `onverklaard_pct` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-2
+# Vul elk antwoord in na <-.
+r2_groepsgericht_pct <- 2
+onverklaard_pct <- 58
+interpretatie_onverklaard <- 2
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk het verklaarde percentage 43 zelf ingevuld of het verkeerde complement genomen. **Waarom dit niet klopt:** Onverklaard is het complement: 100 − 43 = 57.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk één denkbare bron van onverklaarde variantie als de enige bewezen oorzaak geïnterpreteerd.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de omvang van afzonderlijke padcoëfficiënten gelijkgesteld aan het onverklaarde aandeel.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een onvolledig verklaard aandeel geïnterpreteerd als bewijs dat het model te complex of onbetrouwbaar is.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
+- Foute testinvoer voor `interpretatie_onverklaard` (alle andere velden blijven correct):
 
-### Oef - 12.11 Assumptie regressie: Lineariteit
+```r
+# Vul elk antwoord in na <-.
+r2_groepsgericht_pct <- 2
+onverklaard_pct <- 57
+interpretatie_onverklaard <- 1
+```
+
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk één mogelijke oorzaak als bewezen diagnose geïnterpreteerd. **Waarom dit niet klopt:** R² kwantificeert het niet-verklaarde aandeel, maar identificeert zonder extra analyse geen specifieke oorzaak; code 2 is de voorzichtige interpretatie.
+
+### Oef - 12.4 Regressie - Vier assumpties beoordelen
 
 Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.11`
 
 #### Correcte inzending
 
-Selecteer deze optie:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Type je antwoord als één enkel getal (1-4)
-2
+# Vul voor elke regressieassumptie de juiste antwoordcode in na <-.
+lineariteit <- 2
+homoscedasticiteit <- 1
+normaliteit <- 3
+multicollineariteit <- 4
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk kleine lokale schommelingen in Figuur A als een systematische kromming geïnterpreteerd.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk elke zichtbare spreiding rond nul als niet-lineariteit beschouwd. Willekeurige spreiding is op zichzelf geen schending.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk vooral gekeken of de punten gemiddeld rond nul liggen en daardoor een systematisch patroon in een smoother gemist.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
-
-### Oef - 12.12 Assumptie regressie: Homoscedasticiteit
-
-Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.12`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `lineariteit` (alle andere velden blijven correct):
 
 ```r
-# Type je antwoord als één enkel getal (1-4)
-2
+# Vul voor elke regressieassumptie de juiste antwoordcode in na <-.
+lineariteit <- 1
+homoscedasticiteit <- 1
+normaliteit <- 3
+multicollineariteit <- 4
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk willekeurige verticale spreiding verward met systematische kromming van de gemiddelde residutrend. **Waarom dit niet klopt:** De duidelijke kromming van de LOESS-lijn in B wijst op niet-lineariteit; daarom is code 2 correct.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de aanwezigheid van verticale spreiding in Figuur A als heteroscedasticiteit geïnterpreteerd. Gewone verticale spreiding is op zichzelf echter geen diagnose.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk elke spreiding van punten als een ongelijke variantie beoordeeld. Bij homoscedasticiteit mogen residuen verspreid zijn; die spreiding moet vooral ongeveer constant blijven.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de puntenwolken globaal als vergelijkbaar gezien en de vorm van de smoothers onvoldoende meegewogen.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
-
-### Oef - 12.13 Assumptie regressie: Normaliteit van residuen
-
-Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.13`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `homoscedasticiteit` (alle andere velden blijven correct):
 
 ```r
-# Type je antwoord als één enkel getal (1-4)
-2
+# Vul voor elke regressieassumptie de juiste antwoordcode in na <-.
+lineariteit <- 2
+homoscedasticiteit <- 2
+normaliteit <- 3
+multicollineariteit <- 4
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk de hoogte van afzonderlijke punten beoordeeld in plaats van de verandering van de spreiding over de horizontale as. **Waarom dit niet klopt:** De rode trendlijn stijgt duidelijk in A, terwijl zij in B ongeveer horizontaal blijft; alleen A toont heteroscedasticiteit en code 1 is correct.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk kleine toevallige afwijkingen in Figuur A als een systematische schending gelezen. Kleine afwijkingen alleen zijn echter onvoldoende voor die conclusie.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een perfecte aansluiting op de diagonaal verwacht en daardoor beperkte willekeurige afwijkingen te streng beoordeeld.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk vooral het midden van beide Q-Q-plots beoordeeld, waar de punten relatief dicht bij de lijn liggen, en daardoor een mogelijk staartpatroon gemist.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
-
-### Oef - 12.14 Assumptie regressie: Multicollineariteit (VIF)
-
-Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.14`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `normaliteit` (alle andere velden blijven correct):
 
 ```r
-# Type je antwoord als één enkel getal (1-4)
-2
+# Vul voor elke regressieassumptie de juiste antwoordcode in na <-.
+lineariteit <- 2
+homoscedasticiteit <- 1
+normaliteit <- 2
+multicollineariteit <- 4
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk slechts één soort afwijking herkend: zware staarten in A of rechtsscheefheid in B. **Waarom dit niet klopt:** A vertoont een systematische S-vorm door zware staarten en B een systematische kromming door rechtsscheefheid; beide schenden normaliteit en code 3 is correct.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de VIF-waarden van de twee modellen verwisseld of de grens verkeerd toegepast.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk aangenomen dat elke samenhang tussen predictoren al een multicollineariteitsprobleem vormt. De diagnose hangt hier af van de VIF-drempel.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk Model A als referentie genomen en dezelfde conclusie op Model B toegepast zonder de VIF-waarden opnieuw te vergelijken.
-- Foute testinvoer: `5`
-  - Misvatting: **Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.
+- Foute testinvoer voor `multicollineariteit` (alle andere velden blijven correct):
+
+```r
+# Vul voor elke regressieassumptie de juiste antwoordcode in na <-.
+lineariteit <- 2
+homoscedasticiteit <- 1
+normaliteit <- 3
+multicollineariteit <- 2
+```
+
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk elke VIF groter dan 1 als problematisch beschouwd in plaats van de waarden met de aangegeven grens te vergelijken. **Waarom dit niet klopt:** Alle vier VIF-waarden blijven onder de aangegeven probleemgrens van 10; geen van beide modellen toont dit probleem en code 4 is correct.

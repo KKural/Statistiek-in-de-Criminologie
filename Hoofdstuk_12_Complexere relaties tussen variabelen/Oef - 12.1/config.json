@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.1 Soorten variabelen: exogene variabelen"
+      "nl": "Oef - 12.1 Padmodel - Rollen van variabelen",
+      "en": "Exercise - 12.1 Path model - Roles of variables"
     }
   },
   "evaluation": {

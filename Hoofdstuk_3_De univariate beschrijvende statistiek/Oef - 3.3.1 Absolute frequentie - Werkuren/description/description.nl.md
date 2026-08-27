@@ -1,11 +1,13 @@
-Bij acht deelnemers werd het aantal gewerkte uren in één week geregistreerd:
+Bij acht deelnemers zijn de wekelijkse werkuren:
 
 `20, 24, 24, 28, 32, 32, 32, 36`
 
-Werkuren hebben een **ratiomeetniveau**.
+**Leerdoel:** dezelfde categoriefrequentie achtereenvolgens als absoluut aantal, proportie en percentage uitdrukken.
 
-**Leerdoel:** de absolute frequentie van één waarde bepalen zonder een lange frequentietabel over te schrijven.
+Bereken voor de waarde 32 uur:
 
-Hoe vaak komt **32 uur** voor? Tel alleen de waarnemingen die exact gelijk zijn aan 32.
+1. de absolute frequentie;
+2. de proportie als frequentie gedeeld door acht;
+3. het percentage als proportie maal 100.
 
-Vul één getal in op de lege plaats in het codebestand.
+Rond de proportie en het percentage af op drie decimalen. Vul het percentage zonder procentteken in.

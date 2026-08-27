@@ -5,246 +5,137 @@
 ## Gebruik
 
 - **Correcte inzending** is een volledig ingevulde versie van de boilerplate, of het juiste optienummer bij een keuzeoefening.
-- Een **Foute testinvoer** vervangt alleen de getoonde regel of keuze.
-- De uitleg bij foute invoer beschrijft de bijbehorende misvatting en feedbackroute.
+- Een **Foute testinvoer** wijzigt steeds precies één antwoord terwijl de andere antwoorden correct blijven.
+- De uitleg na elke foute invoer benoemt de bijbehorende misvatting en gerichte feedbackroute.
 
-### Oef - 7.1.1 Geslacht en crimineel gedrag - Conditioneel percentage
+### Oef - 7.1 Nominale samenhang analyseren
 
 Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variabelen/Oef - 7.1.1 Percentages - Geslacht en crimineel gedrag`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Vul het antwoord in na <-.
+# Vul de berekeningen en optienummers in.
 percentage_crimineel_mannen <- 25
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-percentage_crimineel_mannen <-30
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de celfrequentie ingevuld in plaats van een percentage.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-percentage_crimineel_mannen <-0.25
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de proportie ingevuld zonder naar procenten om te zetten.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-percentage_crimineel_mannen <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 7.1.2 Geslacht en crimineel gedrag - Oddsratio
-
-Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variabelen/Oef - 7.1.2 Odds, chi-kwadraat en kansinterpretatie`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul de antwoorden in na <-.
 oddsratio <- 2
 interpretatie <- 1
+chi_kwadraat_conclusie <- 1
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer:
+- Foute testinvoer voor `percentage_crimineel_mannen` (alle andere velden blijven correct):
 
 ```r
-# Vul de antwoorden in na <-.
-oddsratio <-0.5
-interpretatie <-1
+# Vul de berekeningen en optienummers in.
+percentage_crimineel_mannen <- 26
+oddsratio <- 2
+interpretatie <- 1
+chi_kwadraat_conclusie <- 1
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de verhouding omgekeerd en B door A gedeeld.
+  - **Waarschijnlijke redenering:** je hebt waarschijnlijk het verkeerde totaal als conditionele noemer gebruikt. **Waarom dit niet klopt:** de vraag conditioneert op mannen: 30 / 120 × 100 = 25%.
 
-- Foute testinvoer:
+- Foute testinvoer voor `oddsratio` (alle andere velden blijven correct):
 
 ```r
-# Vul de antwoorden in na <-.
-oddsratio <-2
-interpretatie <-2
+# Vul de berekeningen en optienummers in.
+percentage_crimineel_mannen <- 25
+oddsratio <- 1
+interpretatie <- 1
+chi_kwadraat_conclusie <- 1
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je verwart een verhouding van odds met een verhouding van kansen.
+  - **Waarschijnlijke redenering:** je hebt odds mogelijk als kansen behandeld. **Waarom dit niet klopt:** de gevraagde richting is A ten opzichte van B: 0.50 / 0.25 = 2.
 
-- Foute testinvoer:
+- Foute testinvoer voor `interpretatie` (alle andere velden blijven correct):
 
 ```r
-# Vul de antwoorden in na <-.
-oddsratio <-2
-interpretatie <-3
+# Vul de berekeningen en optienummers in.
+percentage_crimineel_mannen <- 25
+oddsratio <- 2
+interpretatie <- 2
+chi_kwadraat_conclusie <- 1
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de richting van de vergelijking omgekeerd.
+  - **Waarschijnlijke redenering:** je hebt een verhouding van odds geïnterpreteerd als een exacte verhouding van kansen. **Waarom dit niet klopt:** OR = 2 zegt dat de odds in A tweemaal die in B zijn; dit betekent niet automatisch dat de kansen exact verdubbelen.
 
-- Ongeldige of ontbrekende invoer:
+- Foute testinvoer voor `chi_kwadraat_conclusie` (alle andere velden blijven correct):
 
 ```r
-oddsratio <-
+# Vul de berekeningen en optienummers in.
+percentage_crimineel_mannen <- 25
+oddsratio <- 2
+interpretatie <- 1
+chi_kwadraat_conclusie <- 2
 ```
 
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+  - **Waarschijnlijke redenering:** je hebt p = 0.03 ten onrechte als groter dan α = 0.05 beoordeeld. **Waarom dit niet klopt:** omdat p < α verwerpen we onafhankelijkheid en concluderen we statistisch bewijs voor samenhang, niet causaliteit.
 
-### Oef - 7.2 Vuurwapenbezit en geslacht - Chi-kwadraatbeslissing
-
-Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variabelen/Oef - 7.2`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul het antwoord in na <-.
-conclusie <- 1
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-conclusie <-2
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de richting van de p-waardevergelijking omgekeerd.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-conclusie <-3
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je trekt een causale conclusie uit een associatietoets.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-conclusie <-4
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Samenhang betekent niet dat twee variabelen identiek zijn.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-conclusie <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 7.3 Spearman's rho
+### Oef - 7.2 Ordinale associatiematen vergelijken
 
 Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variabelen/Oef - 7.3`
 
 #### Correcte inzending
 
-Selecteer deze optie:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Type of answer below
-4
+# Vul voor elke vraag het nummer van de foute uitspraak in.
+spearman_richting <- 4
+gamma_bereik <- 1
+kendall_bereik <- 2
+spearman_nul <- 3
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk gedacht dat een rangcorrelatie buiten de gebruikelijke correlatiegrenzen kan vallen. Spearman's rho is echter begrensd tussen −1 en +1.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk ‘monotoon’ verward met ‘perfect lineair’. Spearman's rho beoordeelt juist of rangen systematisch in dezelfde of tegengestelde richting bewegen.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk aangenomen dat ‘samenhang’ alleen betekent dat beide variabelen samen stijgen. Een consistente tegengestelde rangorde levert echter een negatieve rho op.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
-
-### Oef - 7.4 Gamma
-
-Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variabelen/Oef - 7.4`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `spearman_richting` (alle andere velden blijven correct):
 
 ```r
-1
+# Vul voor elke vraag het nummer van de foute uitspraak in.
+spearman_richting <- 1
+gamma_bereik <- 1
+kendall_bereik <- 2
+spearman_nul <- 3
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** je denkt dat rangcorrelaties buiten de gebruikelijke correlatiegrenzen kunnen vallen. **Waarom dit niet klopt:** een tegengestelde monotone rangorde levert een negatieve rho; de bewering dat rho niet negatief kan zijn is dus fout.
 
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk gedacht dat Gamma alleen de sterkte en niet de richting weergeeft. De verhouding tussen concordante en discordante paren bepaalt ook het teken.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk het negeren van ties geïnterpreteerd als een mogelijkheid om buiten de correlatiegrenzen te vallen. Dat verandert het bereik niet.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk Gamma verward met een ordinale maat die ties expliciet in de noemer corrigeert. In de klassieke Gamma-berekening worden gebonden paren niet als concordant of discordant meegeteld.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
-
-### Oef - 7.5 Kendall's tau
-
-Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variabelen/Oef - 7.5`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `gamma_bereik` (alle andere velden blijven correct):
 
 ```r
-2
+# Vul voor elke vraag het nummer van de foute uitspraak in.
+spearman_richting <- 4
+gamma_bereik <- 2
+kendall_bereik <- 2
+spearman_nul <- 3
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** je hebt een geldige eigenschap van Gamma als fout aangeduid. **Waarom dit niet klopt:** Gamma = (C - D)/(C + D) blijft tussen -1 en +1; ties maken een waarde boven 1 niet mogelijk.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk gedacht dat het aantal rangparen het bereik van tau vergroot. Normalisatie houdt Kendall's tau echter binnen −1 en +1.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk Kendall's tau verward met een maat die rechtstreeks met ruwe waarden rekent. Tau vergelijkt juist rangparen als concordant of discordant.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk ‘overeenkomst’ opgevat als uitsluitend perfecte gelijkheid. Kendall's tau kwantificeert juist de mate waarin twee rangorden overeenkomen.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
-
-### Oef - 7.6 Spearman's rho (II)
-
-Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variabelen/Oef - 7.6`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `kendall_bereik` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-3
+# Vul voor elke vraag het nummer van de foute uitspraak in.
+spearman_richting <- 4
+gamma_bereik <- 1
+kendall_bereik <- 1
+spearman_nul <- 3
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** je hebt de geldige begrenzing van tau afgewezen. **Waarom dit niet klopt:** Kendall's tau is genormaliseerd en kan nooit 2 of -2 zijn; uitspraak 2 is fout.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk ordinale data verward met nominale categorieën zonder rangorde. Spearman's rho gebruikt juist de ranginformatie in ordinale data.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk ‘niet-parametrisch’ geïnterpreteerd als ‘geen correlatiemaat’. Spearman's rho is wel een correlatiemaat, maar werkt met rangen en vereist geen lineair verband tussen ruwe waarden.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk gedacht dat een niet-monotoon patroon uitspraak 4 weerlegt. Rho = 0 sluit zo'n patroon echter niet uit; het zegt juist dat er geen monotone stijgende of dalende trend is.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
+- Foute testinvoer voor `spearman_nul` (alle andere velden blijven correct):
 
-## Hoofdstuk 8
+```r
+# Vul voor elke vraag het nummer van de foute uitspraak in.
+spearman_richting <- 4
+gamma_bereik <- 1
+kendall_bereik <- 2
+spearman_nul <- 1
+```
+
+  - **Waarschijnlijke redenering:** je hebt een geldige eigenschap van Spearman's rho afgewezen. **Waarom dit niet klopt:** rho = 0 sluit een monotone trend uit, maar niet elk mogelijk niet-monotoon verband; uitspraak 3 is daarom fout.

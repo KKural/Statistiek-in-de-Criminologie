@@ -5,7 +5,11 @@ context({
       testEqual(
         "",
         function(env) {
-          expected_values <- c(gemiddelde = 24, afwijking_20 = -4)
+          expected_values <- c(
+            gemiddelde_werkuren = 24,
+            afwijking_20 = -4,
+            teken_afwijking_34 = 1
+          )
           read_number <- function(name) {
             if (!exists(name, envir = env)) return(NA_real_)
             value <- suppressWarnings(as.numeric(get(name, envir = env)))
@@ -13,49 +17,48 @@ context({
             value
           }
           values <- vapply(names(expected_values), read_number, numeric(1))
-          valid <- all(is.finite(values))
-          correct <- valid && all(abs(values - expected_values) <= 0.0000001)
-          assign("results_3_3_5", list(valid = valid, values = values), envir = globalenv())
-          correct
+          valid <- is.finite(values)
+          correct <- valid & abs(values - expected_values) <= 0.005
+          assign("results_3_3_5_combined", list(values = values, expected = expected_values, valid = valid, correct = correct), envir = globalenv())
+          all(correct)
         },
         TRUE,
         comparator = function(generated, expected, ...) {
-          results <- get("results_3_3_5", envir = globalenv())
-          values <- results$values
+          results <- get("results_3_3_5_combined", envir = globalenv())
+          field_titles <- c(
+            gemiddelde_werkuren = "onderdeel 1 (gemiddelde)",
+            afwijking_20 = "onderdeel 2 (afwijking van 20)",
+            teken_afwijking_34 = "onderdeel 3 (teken van 34 min 30)"
+          )
+          field_rules <- c(
+            gemiddelde_werkuren = "Het gemiddelde van 20, 24 en 28 is de som gedeeld door drie.",
+            afwijking_20 = "Gebruik waarneming min gemiddelde; een waarde onder het gemiddelde geeft een negatieve afwijking.",
+            teken_afwijking_34 = "Een waarneming boven het gemiddelde heeft een positieve afwijking."
+          )
           if (isTRUE(generated == expected)) {
             message <- paste(
-              "**Bevestiging:** je gemiddelde en de getekende afwijking van 20 uur zijn correct.",
-              "**Denkregel:** afwijking = waarneming − gemiddelde; onder het gemiddelde betekent negatief.",
-              "**Transferstap:** voorspel bij een nieuwe waarneming eerst het teken en bereken daarna pas de grootte.",
+              "**Bevestiging:** het gemiddelde, de getekende afwijking en de tekeninterpretatie zijn correct.",
+              "**Denkregel:** houd altijd dezelfde volgorde aan: waarneming min gemiddelde; onder is negatief en boven is positief.",
+              "**Transferstap:** bereken en interpreteer de afwijking van 28 uur ten opzichte van het gemiddelde 24.",
               sep = "\n\n"
             )
           } else {
-            if (!results$valid) {
-              likely <- "Minstens één antwoord ontbreekt, bevat tekst of is niet één eindig getal."
-              why <- "Elke lege plaats moet met precies één berekend getal worden ingevuld."
-              next_step <- "Controleer alle invoervelden en vul uitsluitend de gevraagde eindwaarden in."
+            missing_fields <- names(results$expected)[!results$valid]
+            wrong_fields <- names(results$expected)[results$valid & !results$correct]
+            field <- if (length(missing_fields) > 0L) missing_fields[[1L]] else wrong_fields[[1L]]
+            if (field %in% missing_fields) {
+              likely <- paste0("Bij ", field_titles[[field]], " ontbreekt nog één eindig getal.")
+              why <- "Een leeg of niet-numeriek veld kan niet met de gevraagde berekening of keuze worden vergeleken."
+              next_step <- paste0("Voer de berekening of classificatie voor ", field_titles[[field]], " uit en vul alleen het eindantwoord in.")
             } else {
-              likely <- "Je hebt een verwante grootheid of tussenstap ingevuld."
-              why <- "De ingevulde waarde beantwoordt niet precies de gevraagde statistische vraag."
-              next_step <- "Lees de gevraagde bewerking opnieuw en voer alleen die stap uit."
-              if (abs(values[["afwijking_20"]] - 4) < 0.0001) {
-                likely <- "Je hebt de absolute afstand genomen of de aftrekking omgekeerd."
-                why <- "Een afwijking behoudt haar teken en wordt berekend als waarneming min gemiddelde."
-                next_step <- "Schrijf letterlijk 20 min je berekende gemiddelde en behoud het minteken."
-              } else if (abs(values[["gemiddelde"]] - 24) < 0.0001) {
-                likely <- "Het gemiddelde klopt, maar de afwijking gebruikt een verkeerd teken of een verkeerde bewerking."
-                why <- "De afwijking moet rechtstreeks uit 20 min het gemiddelde volgen."
-                next_step <- "Vul je correcte gemiddelde in de formule waarneming − gemiddelde in."
-              } else {
-                likely <- "Het gemiddelde is niet berekend met alle drie waarden."
-                why <- "De referentiewaarde voor de afwijking moet het rekenkundige gemiddelde van de volledige korte reeks zijn."
-                next_step <- "Tel 20, 24 en 28 op en deel door drie voordat je de afwijking berekent."
-              }
+              likely <- paste0("Voor ", field_titles[[field]], " vulde je ", format(results$values[[field]], trim = TRUE), " in.")
+              why <- field_rules[[field]]
+              next_step <- paste0("Herbereken of heroverweeg ", field_titles[[field]], " met de genoemde denkregel.")
             }
             message <- paste(
               paste0("**Waarschijnlijke redenering:** ", likely),
               paste0("**Waarom dit niet klopt:** ", why),
-              "**Denkregel:** afwijking = waarneming − gemiddelde; onder het gemiddelde betekent negatief.",
+              paste0("**Denkregel:** ", field_rules[[field]]),
               paste0("**Volgende stap:** ", next_step),
               sep = "\n\n"
             )

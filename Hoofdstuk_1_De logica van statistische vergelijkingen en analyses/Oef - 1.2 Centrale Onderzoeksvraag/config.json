@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 1.2 Centrale Onderzoeksvraag"
+      "nl": "Oef - 1.2 Onderzoeksproces en onderzoekskwaliteit",
+      "en": "Exercise - 1.2 Research process and research quality"
     }
   },
   "evaluation": {
@@ -10,6 +11,7 @@
     "test_suite": "evaluation"
   },
   "programming_language": "R",
+  "boilerplate": "description/boilerplate/boilerplate",
   "access": "public",
   "labels": [],
   "internals": {

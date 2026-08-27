@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 5.1 Standaardnormale verdeling - Eén z-score"
+      "nl": "Oef - 5.1 Standaardiseren en staartkansen",
+      "en": "Exercise - 5.1 Standardization and tail probabilities"
     }
   },
   "evaluation": {

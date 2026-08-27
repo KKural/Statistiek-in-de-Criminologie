@@ -1,52 +1,69 @@
 context({
-  testcase(
-    "",
-    {
-      testEqual(
-        "",
-        function(env) as.numeric(env$evaluationResult),
-        2,
-        comparator = function(generated, expected, ...) {
-          feedbacks <- list(
-            "1" = paste0(
-              "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk kleine lokale schommelingen in Figuur A ",
-              "als een systematische kromming geïnterpreteerd.\n\n",
-              "**Denkregel:** een lineariteitsschending blijkt uit een duidelijk systematisch gebogen patroon in de smoother, ",
-              "niet uit losse spreiding van residuen.\n\n",
-              "**Volgende stap:** volg de rode smoother in beide figuren van links naar rechts en beoordeel per figuur of de afwijking van een horizontale lijn systematisch is."
-            ),
-            "2" = paste0(
-              "\u2705 Juist! **Figuur B** toont een schending van de lineariteitsassumptie. De rode LOESS-smoother ",
-              "vertoont een duidelijke boog in de residuen, wat aangeeft dat een rechte lijn het verband ",
-              "niet goed beschrijft.\n\n",
-              "**Figuur A** is correct: de residuen liggen willekeurig verspreid rond nul \u2014 geen systematisch patroon."
-            ),
-            "3" = paste0(
-              "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk elke zichtbare spreiding rond nul als niet-lineariteit beschouwd. ",
-              "Willekeurige spreiding is op zichzelf geen schending.\n\n",
-              "**Denkregel:** beoordeel de vorm van de LOESS-smoother per figuur: ongeveer vlak is passend; systematische kromming wijst op niet-lineariteit.\n\n",
-              "**Volgende stap:** bedek één figuur, beoordeel de andere uitsluitend op de vorm van de smoother en herhaal dit daarna voor de tweede figuur."
-            ),
-            "4" = paste0(
-              "\u274c Fout. **Waarschijnlijke redenering:** je hebt mogelijk vooral gekeken of de punten gemiddeld rond nul liggen ",
-              "en daardoor een systematisch patroon in een smoother gemist.\n\n",
-              "**Denkregel:** ook wanneer residuen rond nul liggen, signaleert een systematisch gebogen smoother dat een rechte lijn een patroon mist.\n\n",
-              "**Volgende stap:** inspecteer in beide figuren eerst uitsluitend de rode lijn en vergelijk haar vorm met de horizontale nullijn."
-            )
-          )
-          key <- as.character(generated)
-          msg <- feedbacks[[key]] %||% "\u274c Geef een getal tussen 1 en 4 in."
-          if (identical(generated, expected)) {
-            msg <- paste0(msg, "\n\n**Bevestiging:** deze keuze komt overeen met de ongewijzigde antwoordsleutel.\n\n**Denkregel:** een systematisch gebogen residusmoother rond nul wijst erop dat een rechte regressielijn vorm mist.\n\n**Transferstap:** beoordeel in een nieuwe residuplot eerst de smoother en pas daarna de losse punten.")
-          } else if (key %in% names(feedbacks)) {
-            msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** de gekozen figuurconclusie verwart willekeurige spreiding met een systematisch vormpatroon.\n\n**Denkregel:**", msg, fixed = TRUE)
-          } else {
-          msg <- paste0(msg, "\n\n**Controleer je invoer:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** alleen opties 1-4 kunnen worden gekoppeld aan vlak versus gebogen patroon.\n\n**Volgende stap:** voer één optie in en volg de rode smoother van links naar rechts.")
-          }
-          get_reporter()$add_message(msg, type = "markdown")
-          generated == expected
-        }
-      )
-    }
-  )
+  testcase("", {
+    testEqual("", function(env) {
+      expected_values <- c(lineariteit = 2, homoscedasticiteit = 1, normaliteit = 3, multicollineariteit = 4)
+      read_number <- function(name) {
+        if (!exists(name, envir = env)) return(NA_real_)
+        value <- suppressWarnings(as.numeric(get(name, envir = env)))
+        if (length(value) != 1L || !is.finite(value)) return(NA_real_)
+        value
+      }
+      values <- vapply(names(expected_values), read_number, numeric(1))
+      valid <- all(is.finite(values))
+      correct <- valid && all(abs(values - expected_values) <= 0.0005)
+      assign("results_12_11_combined", list(values = values, expected = expected_values, valid = valid), envir = globalenv())
+      correct
+    }, TRUE, comparator = function(generated, expected, ...) {
+      results <- get("results_12_11_combined", envir = globalenv())
+      if (isTRUE(generated == expected)) {
+        message <- paste(
+          "**Bevestiging:** B schendt lineariteit, A toont heteroscedasticiteit, beide Q-Q-plots schenden normaliteit en geen van beide VIF-diagnoses overschrijdt de probleemgrens.",
+          "**Denkregel:** iedere assumptie heeft een eigen signaal: vorm, spreiding, verdelingspatroon of predictoroverlap.",
+          "**Transferstap:** benoem bij een nieuw regressiemodel eerst de assumptie en kies daarna pas de passende grafiek of maat.",
+          sep = "\n\n"
+        )
+      } else if (!results$valid) {
+        missing_fields <- names(results$expected)[!is.finite(results$values)]
+        message <- paste(
+          paste0("**Waarschijnlijke redenering:** de volgende antwoordcodes ontbreken of zijn niet numeriek: ", paste(missing_fields, collapse = ", "), "."),
+          "**Waarom dit niet klopt:** elke assumptie wordt met een eigen diagnose beoordeeld en vereist één geldige code.",
+          "**Denkregel:** vul alleen een code 1–4 in en behandel de vier diagnostieken afzonderlijk.",
+          "**Volgende stap:** vul alle vier velden in en controleer vervolgens per vraag welk specifiek patroon problematisch is.",
+          sep = "\n\n"
+        )
+      } else {
+        wrong_field <- names(which(abs(results$values - results$expected) > 0.0005))[[1L]]
+        likely <- switch(wrong_field,
+          lineariteit = "Je hebt waarschijnlijk willekeurige verticale spreiding verward met systematische kromming van de gemiddelde residutrend.",
+          homoscedasticiteit = "Je hebt waarschijnlijk de hoogte van afzonderlijke punten beoordeeld in plaats van de verandering van de spreiding over de horizontale as.",
+          normaliteit = "Je hebt waarschijnlijk slechts één soort afwijking herkend: zware staarten in A of rechtsscheefheid in B.",
+          multicollineariteit = "Je hebt waarschijnlijk elke VIF groter dan 1 als problematisch beschouwd in plaats van de waarden met de aangegeven grens te vergelijken.",
+          "Je hebt twee regressieassumpties verwisseld."
+        )
+        why <- switch(wrong_field,
+          lineariteit = "De duidelijke kromming van de LOESS-lijn in B wijst op niet-lineariteit; daarom is code 2 correct.",
+          homoscedasticiteit = "De rode trendlijn stijgt duidelijk in A, terwijl zij in B ongeveer horizontaal blijft; alleen A toont heteroscedasticiteit en code 1 is correct.",
+          normaliteit = "A vertoont een systematische S-vorm door zware staarten en B een systematische kromming door rechtsscheefheid; beide schenden normaliteit en code 3 is correct.",
+          multicollineariteit = "Alle vier VIF-waarden blijven onder de aangegeven probleemgrens van 10; geen van beide modellen toont dit probleem en code 4 is correct.",
+          "De gekozen code hoort niet bij het beschreven diagnostische signaal."
+        )
+        next_step <- switch(wrong_field,
+          lineariteit = "Volg alleen de vorm van de rode gemiddelde trend en zoek systematische kromming.",
+          homoscedasticiteit = "Volg in elke scale-locationplot de rode lijn van links naar rechts en kies A wanneer de spreiding toeneemt.",
+          normaliteit = "Controleer in beide figuren de volledige puntenwolk, inclusief beide staarten, ten opzichte van de rode lijn.",
+          multicollineariteit = "Vergelijk in beide figuren eerst de hoogste staaf met de rode grenslijn op 10.",
+          "Koppel de diagnose opnieuw aan de juiste assumptie."
+        )
+        message <- paste(
+          paste0("**Waarschijnlijke redenering:** ", likely),
+          paste0("**Waarom dit niet klopt:** ", why),
+          "**Denkregel:** diagnoseer lineariteit, gelijke variantie, normaliteit en multicollineariteit met hun eigen patronen.",
+          paste0("**Volgende stap:** ", next_step),
+          sep = "\n\n"
+        )
+      }
+      get_reporter()$add_message(message, type = "markdown")
+      generated == expected
+    })
+  })
 })

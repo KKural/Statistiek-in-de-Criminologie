@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 9.2 Betrouwbaarheidsinterval - Twee grenzen"
+      "nl": "Oef - 9.2 Betrouwbaarheidsinterval - Twee grenzen",
+      "en": "Exercise - 9.2 Confidence interval - Two bounds"
     }
   },
   "programming_language": "R",

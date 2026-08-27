@@ -5,175 +5,121 @@
 ## Gebruik
 
 - **Correcte inzending** is een volledig ingevulde versie van de boilerplate, of het juiste optienummer bij een keuzeoefening.
-- Een **Foute testinvoer** vervangt alleen de getoonde regel of keuze.
-- De uitleg bij foute invoer beschrijft de bijbehorende misvatting en feedbackroute.
+- Een **Foute testinvoer** wijzigt steeds precies één antwoord terwijl de andere antwoorden correct blijven.
+- De uitleg na elke foute invoer benoemt de bijbehorende misvatting en gerichte feedbackroute.
 
-### Oef - 6.1 Causaliteit en statistische samenhang
+### Oef - 6.1 Causale relaties herkennen
 
 Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 6.1`
 
 #### Correcte inzending
 
-Selecteer deze optie:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Type of answer below
-3
+# Vul voor elke vraag één optienummer in.
+causale_stelling <- 3
+contributieve_oorzaak <- 2
+asymmetrische_relatie <- 3
+generatieve_causaliteit <- 2
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze is begrijpelijk:** je koppelt een zichtbaar statistisch verband aan een oorzakelijke verklaring. Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je antwoord past bij een veelvoorkomende overcorrectie:** omdat statistiek geen waterdicht causaal bewijs levert, concludeer je dat causaliteit nooit empirisch onderzocht kan worden. Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze suggereert dat je een causaal begrip en een statistische beschrijving als hetzelfde behandelt.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
-
-### Oef - 6.2 Contributieve oorzaken
-
-Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 6.2`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `causale_stelling` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-2
+# Vul voor elke vraag één optienummer in.
+causale_stelling <- 1
+contributieve_oorzaak <- 2
+asymmetrische_relatie <- 3
+generatieve_causaliteit <- 2
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** je behandelt statistische samenhang als voldoende causaal bewijs. **Waarom dit niet klopt:** causaliteit impliceert een populatiesamenhang, maar samenhang alleen sluit derde variabelen, omgekeerde richting of toeval niet uit.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze is consistent met een deterministisch beeld van causaliteit:** een echte oorzaak moet volgens die redenering zowel altijd nodig als op zichzelf genoeg zijn. Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je antwoord suggereert dat één factor op zichzelf het delict kan veroorzaken, ook al bestaan er andere routes.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze is consistent met de gedachte dat één factor in ieder geval aanwezig móét zijn.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
-
-### Oef - 6.3 Asymmetrische statistische relaties
-
-Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 6.3`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `contributieve_oorzaak` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-3
+# Vul voor elke vraag één optienummer in.
+causale_stelling <- 3
+contributieve_oorzaak <- 1
+asymmetrische_relatie <- 3
+generatieve_causaliteit <- 2
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** je gebruikt een deterministisch model waarin één factor noodzakelijk én voldoende moet zijn. **Waarom dit niet klopt:** criminologische uitkomsten ontstaan meestal via meerdere routes; afzonderlijke factoren verhogen vaak slechts de kans.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze is begrijpelijk omdat beide variabelen samen veranderen, maar je veronderstelt daardoor wederzijdse beïnvloeding.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je antwoord suggereert dat samenhang betekent dat de variabelen dezelfde theoretische rol hebben.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze laat zien dat je terecht aan een derde variabele denkt, maar je verwart twee concepten.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
-
-### Oef - 6.4 Generatieve causaliteit
-
-Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 6.4`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `asymmetrische_relatie` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-2
+# Vul voor elke vraag één optienummer in.
+causale_stelling <- 3
+contributieve_oorzaak <- 2
+asymmetrische_relatie <- 1
+generatieve_causaliteit <- 2
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** je hebt gezamenlijke verandering geïnterpreteerd als wederzijdse beïnvloeding. **Waarom dit niet klopt:** asymmetrie betekent dat theorie een richting X → Y veronderstelt; de cijfers alleen bepalen die richting niet.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze is consistent met het sleutelwoord ‘causaliteit’, maar je focust op een interventievergelijking.** Tegenfeitelijke causaliteit vraagt: *wat zou er gebeuren als X anders was?* De vraag vraagt hier naar het proces dat het effect voortbrengt. Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze suggereert dat een stabiel statistisch verband ook verklaart hoe het effect ontstaat.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze is begrijpelijk omdat contributieve oorzaken een effect helpen verklaren, maar ze beantwoorden een andere vraag.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
+- Foute testinvoer voor `generatieve_causaliteit` (alle andere velden blijven correct):
 
-### Oef - 6.5 Waarom bivariate beschrijvende statistiek?
+```r
+# Vul voor elke vraag één optienummer in.
+causale_stelling <- 3
+contributieve_oorzaak <- 2
+asymmetrische_relatie <- 3
+generatieve_causaliteit <- 1
+```
+
+  - **Waarschijnlijke redenering:** je hebt een vergelijking met een tegenfeitelijke toestand gekozen in plaats van een werkingsmechanisme. **Waarom dit niet klopt:** generatieve of productieve causaliteit vraagt hoe een oorzaak via een mechanisme een effect voortbrengt.
+
+### Oef - 6.2 Bivariate beschrijving en methodekeuze
 
 Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 6.5`
 
 #### Correcte inzending
 
-Selecteer deze optie:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Type of answer below
-3
+# Vul voor elke vraag één optienummer in.
+doel_bivariate_statistiek <- 3
+kruistabel_metrisch <- 2
+keuze_associatiemaat <- 2
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze is consistent met de gedachte dat twee variabelen analyseren automatisch een causale toets is.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je antwoord suggereert dat je ‘beschrijvend’ herkent, maar het voorvoegsel *bi-* negeert.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze suggereert dat de cijfers zelf bepalen welke variabele onafhankelijk is.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
-
-### Oef - 6.6 Kruistabel bij metrische variabelen
-
-Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 6.6`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `doel_bivariate_statistiek` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-2
+# Vul voor elke vraag één optienummer in.
+doel_bivariate_statistiek <- 1
+kruistabel_metrisch <- 2
+keuze_associatiemaat <- 2
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** je hebt beschrijvende samenhang verward met definitief causaal bewijs. **Waarom dit niet klopt:** bivariate beschrijvende statistiek vat de sterkte, richting en vorm van een relatie tussen twee variabelen samen.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je antwoord draait de toepassingsregel om.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze suggereert dat veel numerieke waarden visualisatie onmogelijk maken.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je antwoord verwart de inhoud van een tabel met de keuze van de tabelvorm.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
-
-### Oef - 6.7 Associatiemaat kiezen
-
-Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 6.7`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `kruistabel_metrisch` (alle andere velden blijven correct):
 
 ```r
-# Type of answer below
-2
+# Vul voor elke vraag één optienummer in.
+doel_bivariate_statistiek <- 3
+kruistabel_metrisch <- 1
+keuze_associatiemaat <- 2
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** je hebt de geschiktheid van kruistabellen voor categorieën omgekeerd. **Waarom dit niet klopt:** bij veel unieke metrische waarden ontstaan te veel rijen en kolommen; een scatterplot of correlatiemaat is dan meestal duidelijker.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze bevat relevante kwaliteitsinformatie, maar niet de beslisregel voor het type associatiemaat.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je antwoord suggereert dat je de bouwstenen van een kruistabel gebruikt als keuzecriterium voor de associatiemaat.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ **Waarschijnlijke redenering:** **Je keuze verwart een grafische conventie met een inhoudelijke beslisregel.** Dit is een voorzichtige hypothese op basis van je keuze; dezelfde optie kan ook om een andere reden zijn gekozen.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
+- Foute testinvoer voor `keuze_associatiemaat` (alle andere velden blijven correct):
 
-## Hoofdstuk 7
+```r
+# Vul voor elke vraag één optienummer in.
+doel_bivariate_statistiek <- 3
+kruistabel_metrisch <- 2
+keuze_associatiemaat <- 1
+```
+
+  - **Waarschijnlijke redenering:** je laat steekproefkenmerken de inhoudelijke methodekeuze volledig bepalen. **Waarom dit niet klopt:** het meetniveau bepaalt welke berekeningen betekenisvol zijn; theoretische richting bepaalt of een symmetrische of asymmetrische maat past.

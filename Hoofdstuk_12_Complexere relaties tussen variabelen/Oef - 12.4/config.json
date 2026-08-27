@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.4 Padcoëfficiënt aflezen"
+      "nl": "Oef - 12.2 Padmodel - Paden en effecten",
+      "en": "Exercise - 12.2 Path model - Paths and effects"
     }
   },
   "evaluation": {

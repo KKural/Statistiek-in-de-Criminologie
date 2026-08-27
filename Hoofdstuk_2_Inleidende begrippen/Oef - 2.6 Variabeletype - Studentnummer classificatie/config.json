@@ -2,7 +2,8 @@
   "type": "exercise",
     "description": {
         "names": {
-            "nl": "Oef - 2.6 Variabeletype - Studentnummer classificatie"
+      "nl": "Oef - 2.2 Meetniveaus in een studentenonderzoek",
+      "en": "Exercise - 2.2 Measurement levels in a student survey"
         }
     },
     "evaluation": {

@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 4.11 Grensgevallen combinaties en lotto"
+      "nl": "Oef - 4.7 Grensgevallen combinaties en lotto",
+      "en": "Exercise - 4.7 Boundary cases for combinations and lottery"
     }
   },
   "programming_language": "R",

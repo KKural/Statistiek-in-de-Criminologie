@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 3.3.7 Werkuren - Afwijking kwadrateren"
+      "nl": "Oef - 3.6 Werkuren - Gekwadrateerde afwijkingen",
+      "en": "Exercise - 3.6 Work hours - Squared deviations"
     }
   },
   "evaluation": {

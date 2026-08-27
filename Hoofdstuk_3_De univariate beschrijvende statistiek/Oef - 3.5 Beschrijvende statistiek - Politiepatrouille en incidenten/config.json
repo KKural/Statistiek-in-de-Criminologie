@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 3.5 Politie-incidenten - Passende spreidingsmaat"
+      "nl": "Oef - 3.13 Politie-incidenten - Passende spreidingsmaat",
+      "en": "Exercise - 3.13 Police incidents - Appropriate measure of spread"
     }
   },
   "evaluation": {

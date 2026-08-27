@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 9.3 Steekproefgrootte - Naar boven afronden"
+      "nl": "Oef - 9.3 Steekproefgrootte - Naar boven afronden",
+      "en": "Exercise - 9.3 Sample size - Round up"
     }
   },
   "programming_language": "R",

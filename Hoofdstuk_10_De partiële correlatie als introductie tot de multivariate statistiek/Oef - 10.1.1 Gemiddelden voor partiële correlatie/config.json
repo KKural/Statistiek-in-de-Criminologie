@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 10.1.1 Partiële correlatie - Eén gemiddelde"
+      "nl": "Oef - 10.1 Partiële correlatie - Bouwstenen",
+      "en": "Exercise - 10.1 Partial correlation - Building blocks"
     }
   },
   "evaluation": {

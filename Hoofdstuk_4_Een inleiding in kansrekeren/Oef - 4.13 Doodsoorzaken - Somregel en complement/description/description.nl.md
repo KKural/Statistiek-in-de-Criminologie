@@ -10,4 +10,4 @@ Bereken:
 1. de kans op een schotwonde **of** wurging: $P(S\cup W)$;
 2. de kans op een **andere primaire doodsoorzaak**: $P((S\cup W)^c)$.
 
-Gebruik de speciale somregel en daarna de complementregel. Geef beide antwoorden als **proporties met twee decimalen**, met een punt als decimaalteken.
+Gebruik de speciale somregel en daarna de complementregel. Geef beide antwoorden als **proporties met twee decimalen**.

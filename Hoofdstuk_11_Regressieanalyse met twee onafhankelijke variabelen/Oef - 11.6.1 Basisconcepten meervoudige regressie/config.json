@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 11.6.1 Meervoudige regressie - Partiële interpretatie"
+      "nl": "Oef - 11.4 Meervoudige regressie - Output en voorspelling",
+      "en": "Exercise - 11.4 Multiple regression - Output and prediction"
     }
   },
   "evaluation": {

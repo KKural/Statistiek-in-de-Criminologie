@@ -1,4 +1,4 @@
-# Welk gelabeld punt heeft het grootste residu (grootste verticale afstand tot de regressielijn)?
-# Geef de bijbehorende letter als tekst (bijv. "A", "B", "C", "D", "E" of "F")
-
-uitbijter <- "???"
+# Vul de twee optienummers en het gehele percentage in.
+grootste_residu_punt <-
+punt_positie <-
+r_kwadraat_pct <-

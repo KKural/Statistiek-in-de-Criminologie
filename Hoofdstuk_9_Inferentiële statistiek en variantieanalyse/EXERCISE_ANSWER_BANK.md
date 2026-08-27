@@ -5,8 +5,8 @@
 ## Gebruik
 
 - **Correcte inzending** is een volledig ingevulde versie van de boilerplate, of het juiste optienummer bij een keuzeoefening.
-- Een **Foute testinvoer** vervangt alleen de getoonde regel of keuze.
-- De uitleg bij foute invoer beschrijft de bijbehorende misvatting en feedbackroute.
+- Een **Foute testinvoer** wijzigt steeds precies één antwoord terwijl de andere antwoorden correct blijven.
+- De uitleg na elke foute invoer benoemt de bijbehorende misvatting en gerichte feedbackroute.
 
 ### Oef - 9.1 Chi-kwadraat - Eén verwachte frequentie
 
@@ -14,7 +14,7 @@ Bronmap: `Hoofdstuk_9_Inferentiële statistiek en variantieanalyse/Oef - 9.1`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
@@ -23,31 +23,14 @@ verwachte_frequentie <- 12
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer:
+- Foute testinvoer voor `verwachte_frequentie` (alle andere velden blijven correct):
 
 ```r
 # Vul het antwoord in na <-.
-verwachte_frequentie <-70
+verwachte_frequentie <- 13
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt marginale totalen opgeteld in plaats van vermenigvuldigd.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-verwachte_frequentie <-1200
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt niet door het totale aantal waarnemingen gedeeld.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-verwachte_frequentie <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+  - **Waarschijnlijke redenering:** Je hebt een verwante grootheid of verkeerde antwoordoptie gekozen. **Waarom dit niet klopt:** Onder onafhankelijkheid is E = rijtotaal × kolomtotaal / N.
 
 ### Oef - 9.2 Betrouwbaarheidsinterval - Twee grenzen
 
@@ -55,7 +38,7 @@ Bronmap: `Hoofdstuk_9_Inferentiële statistiek en variantieanalyse/Oef - 9.2`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
 # Vul de antwoorden in na <-.
@@ -65,43 +48,25 @@ bovengrens <- 33.92
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer:
+- Foute testinvoer voor `ondergrens` (alle andere velden blijven correct):
 
 ```r
 # Vul de antwoorden in na <-.
-ondergrens <-28.04
-bovengrens <-33.92
+ondergrens <- 27.08
+bovengrens <- 33.92
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt alleen de kritieke waarde afgetrokken zonder met de standaardfout te vermenigvuldigen.
+  - **Waarschijnlijke redenering:** Je hebt een verwante grootheid of verkeerde antwoordoptie gekozen. **Waarom dit niet klopt:** Een tweezijdig interval is schatting ± kritieke waarde × standaardfout.
 
-- Foute testinvoer:
+- Foute testinvoer voor `bovengrens` (alle andere velden blijven correct):
 
 ```r
 # Vul de antwoorden in na <-.
-ondergrens <-26.08
-bovengrens <-31.96
+ondergrens <- 26.08
+bovengrens <- 34.92
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt alleen de kritieke waarde opgeteld zonder de standaardfout te gebruiken.
-
-- Foute testinvoer:
-
-```r
-# Vul de antwoorden in na <-.
-ondergrens <-33.92
-bovengrens <-33.92
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de onder- en bovengrens verwisseld.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-ondergrens <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+  - **Waarschijnlijke redenering:** Je hebt een verwante grootheid of verkeerde antwoordoptie gekozen. **Waarom dit niet klopt:** Een tweezijdig interval is schatting ± kritieke waarde × standaardfout.
 
 ### Oef - 9.3 Steekproefgrootte - Naar boven afronden
 
@@ -109,7 +74,7 @@ Bronmap: `Hoofdstuk_9_Inferentiële statistiek en variantieanalyse/Oef - 9.3`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
@@ -118,204 +83,95 @@ n_minimum <- 43
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer:
+- Foute testinvoer voor `n_minimum` (alle andere velden blijven correct):
 
 ```r
 # Vul het antwoord in na <-.
-n_minimum <-42
+n_minimum <- 44
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt volgens de gewone afrondingsregel afgerond en daardoor de minimumvoorwaarde onderschreden.
+  - **Waarschijnlijke redenering:** Je hebt een verwante grootheid of verkeerde antwoordoptie gekozen. **Waarom dit niet klopt:** Een minimale steekproefgrootte wordt altijd naar boven afgerond zodat de vereiste precisie behouden blijft.
 
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-n_minimum <-42.3
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt geen geheel aantal personen gerapporteerd.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-n_minimum <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 9.4.1 Fietsdiefstallen - Eén groepsgemiddelde
+### Oef - 9.4 Fietsdiefstallen - ANOVA van beschrijving tot beslissing
 
 Bronmap: `Hoofdstuk_9_Inferentiële statistiek en variantieanalyse/Oef - 9.4.1 Groepsgemiddelden fietsdiefstallen`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Vul het antwoord in na <-.
+# Vul elk antwoord in na <-.
 groepsgemiddelde <- 4
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-groepsgemiddelde <-12
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de groepssom ingevuld zonder door de groepsgrootte te delen.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-groepsgemiddelde <-3
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de groepsgrootte ingevuld in plaats van het gemiddelde.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-groepsgemiddelde <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 9.4.2 Fietsdiefstallen - Binnengroepssom van kwadraten
-
-Bronmap: `Hoofdstuk_9_Inferentiële statistiek en variantieanalyse/Oef - 9.4.2 Binnengroepsvariatie`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul het antwoord in na <-.
 ss_binnen <- 8
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-ss_binnen <-4
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt absolute afwijkingen opgeteld zonder ze te kwadrateren.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-ss_binnen <-16
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt een verkeerde referentiewaarde of een extra factor gebruikt.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-ss_binnen <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 9.4.3 ANOVA - F-ratio en beslissing
-
-Bronmap: `Hoofdstuk_9_Inferentiële statistiek en variantieanalyse/Oef - 9.4.3 Tussengroepsvariatie en F-toets`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul de antwoorden in na <-.
 f_ratio <- 4
 significant <- 1
+relatie_f_p <- 3
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer:
+- Foute testinvoer voor `groepsgemiddelde` (alle andere velden blijven correct):
 
 ```r
-# Vul de antwoorden in na <-.
-f_ratio <-0.25
-significant <-1
+# Vul elk antwoord in na <-.
+groepsgemiddelde <- 1
+ss_binnen <- 8
+f_ratio <- 4
+significant <- 1
+relatie_f_p <- 3
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt teller en noemer van de F-ratio omgekeerd.
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk de groepssom of groepsgrootte gebruikt in plaats van som gedeeld door drie. **Waarom dit niet klopt:** Het gemiddelde van 2, 4 en 6 is 12 / 3 = 4.
 
-- Foute testinvoer:
+- Foute testinvoer voor `ss_binnen` (alle andere velden blijven correct):
 
 ```r
-# Vul de antwoorden in na <-.
-f_ratio <-4
-significant <-2
+# Vul elk antwoord in na <-.
+groepsgemiddelde <- 4
+ss_binnen <- 9
+f_ratio <- 4
+significant <- 1
+relatie_f_p <- 3
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de gevonden F-waarde niet correct met de kritieke grens vergeleken.
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk absolute afwijkingen opgeteld of niet ten opzichte van het groepsgemiddelde gewerkt. **Waarom dit niet klopt:** De gekwadrateerde afwijkingen zijn 4, 0 en 4 en tellen op tot 8.
 
-- Ongeldige of ontbrekende invoer:
+- Foute testinvoer voor `f_ratio` (alle andere velden blijven correct):
 
 ```r
-f_ratio <-
+# Vul elk antwoord in na <-.
+groepsgemiddelde <- 4
+ss_binnen <- 8
+f_ratio <- 1
+significant <- 1
+relatie_f_p <- 3
 ```
 
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+  - **Waarschijnlijke redenering:** Je hebt waarschijnlijk MS_binnen en MS_tussen omgewisseld. **Waarom dit niet klopt:** F gebruikt MS_tussen als teller en MS_binnen als noemer: 24 / 6 = 4.
 
-### Oef - 9.5 ANOVA - Relatie tussen F en p
-
-Bronmap: `Hoofdstuk_9_Inferentiële statistiek en variantieanalyse/Oef - 9.5`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
+- Foute testinvoer voor `significant` (alle andere velden blijven correct):
 
 ```r
-# Vul het antwoord in na <-.
-antwoord <- 3
+# Vul elk antwoord in na <-.
+groepsgemiddelde <- 4
+ss_binnen <- 8
+f_ratio <- 4
+significant <- 2
+relatie_f_p <- 3
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** Je hebt F = 4 waarschijnlijk niet met de kritieke grens 3.2 vergeleken. **Waarom dit niet klopt:** Omdat 4 groter is dan 3.2, is de toets significant en hoort code 1 erbij.
 
-- Foute testinvoer:
+- Foute testinvoer voor `relatie_f_p` (alle andere velden blijven correct):
 
 ```r
-# Vul het antwoord in na <-.
-antwoord <-1
+# Vul elk antwoord in na <-.
+groepsgemiddelde <- 4
+ss_binnen <- 8
+f_ratio <- 4
+significant <- 1
+relatie_f_p <- 1
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de richting tussen toetsingsgrootheid en staartkans omgekeerd.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-antwoord <-2
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je negeert dat de waargenomen toetsingsgrootheid de staartgrens bepaalt.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-antwoord <-4
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Een p-waarde is een kans en kan niet negatief zijn.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-antwoord <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+  - **Waarschijnlijke redenering:** Je hebt de richting tussen een toetsingsgrootheid en haar rechterstaartkans omgekeerd. **Waarom dit niet klopt:** Bij vaste vrijheidsgraden ligt een grotere F verder in de rechterstaart en hoort daar een kleinere p bij.

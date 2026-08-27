@@ -1,1 +1,5 @@
-# Type je antwoord als één enkel getal (1-4)
+# Vul voor elke regressieassumptie de juiste antwoordcode in na <-.
+lineariteit <-
+homoscedasticiteit <-
+normaliteit <-
+multicollineariteit <-

@@ -1,2 +1,6 @@
-# Vul het getal in na <-.
+# Vul de vijf berekende waarden in.
 frequentie_60 <-
+relatieve_frequentie_120 <-
+percentage_120 <-
+cumulatieve_frequentie_90 <-
+cumulatief_percentage_90 <-

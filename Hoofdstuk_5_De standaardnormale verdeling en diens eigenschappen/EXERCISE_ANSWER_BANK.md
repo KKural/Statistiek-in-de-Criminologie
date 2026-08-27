@@ -5,167 +5,105 @@
 ## Gebruik
 
 - **Correcte inzending** is een volledig ingevulde versie van de boilerplate, of het juiste optienummer bij een keuzeoefening.
-- Een **Foute testinvoer** vervangt alleen de getoonde regel of keuze.
-- De uitleg bij foute invoer beschrijft de bijbehorende misvatting en feedbackroute.
+- Een **Foute testinvoer** wijzigt steeds precies één antwoord terwijl de andere antwoorden correct blijven.
+- De uitleg na elke foute invoer benoemt de bijbehorende misvatting en gerichte feedbackroute.
 
-### Oef - 5.1 Standaardnormale verdeling - Eén z-score
+### Oef - 5.1 Standaardiseren en staartkansen
 
 Bronmap: `Hoofdstuk_5_De standaardnormale verdeling en diens eigenschappen/Oef - 5.1`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Vul het antwoord in na <-.
+# Vul elk antwoord in na <-.
 z_score <- 2
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-z_score <-12
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt alleen de afstand tot het gemiddelde berekend.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-z_score <-22
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt gedeeld of afgetrokken in de verkeerde volgorde.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-z_score <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
-
-### Oef - 5.2 Selectiekans - Complementregel
-
-Bronmap: `Hoofdstuk_5_De standaardnormale verdeling en diens eigenschappen/Oef - 5.2`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul het antwoord in na <-.
 kans_boven_grens <- 0.16
+anesthesie_risico <- 2
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer:
+- Foute testinvoer voor `z_score` (alle andere velden blijven correct):
 
 ```r
-# Vul het antwoord in na <-.
-kans_boven_grens <-0.84
+# Vul elk antwoord in na <-.
+z_score <- 1
+kans_boven_grens <- 0.16
+anesthesie_risico <- 2
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de gegeven ondergrenskans overgenomen in plaats van het complement.
+  - **Waarschijnlijke redenering:** je hebt de ruwe afstand en de afstand in standaardafwijkingen door elkaar gehaald. **Waarom dit niet klopt:** een z-score is geen ruwe afstand; 72 ligt 12 punten, dus 12 / 6 = 2 standaardafwijkingen boven het gemiddelde.
 
-- Foute testinvoer:
+- Foute testinvoer voor `kans_boven_grens` (alle andere velden blijven correct):
 
 ```r
-# Vul het antwoord in na <-.
-kans_boven_grens <-1.84
+# Vul elk antwoord in na <-.
+z_score <- 2
+kans_boven_grens <- 16
+anesthesie_risico <- 2
 ```
 
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de kans bij 1 opgeteld in plaats van ervan afgetrokken.
+  - **Waarschijnlijke redenering:** je hebt de grens waarschijnlijk aan de verkeerde staart gekoppeld. **Waarom dit niet klopt:** P(X > grens) is het complement van P(X ≤ grens), dus 1 - 0.84 = 0.16.
 
-- Ongeldige of ontbrekende invoer:
+- Foute testinvoer voor `anesthesie_risico` (alle andere velden blijven correct):
 
 ```r
-kans_boven_grens <-
+# Vul elk antwoord in na <-.
+z_score <- 2
+kans_boven_grens <- 0.16
+anesthesie_risico <- 1
 ```
 
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+  - **Waarschijnlijke redenering:** je hebt de dosisgrens niet consequent van de effectieve naar de letale verdeling overgebracht. **Waarom dit niet klopt:** de 92%-dosis is ongeveer 57.65 mg; in N(100,18) hoort daarbij z ≈ -2.36 en een linkerkans van ongeveer 0.9%, dus optie 2.
 
-### Oef - 5.3: Anesthesie Risico Analyse
-
-Bronmap: `Hoofdstuk_5_De standaardnormale verdeling en diens eigenschappen/Oef - 5.3`
-
-#### Correcte inzending
-
-Selecteer deze optie:
-
-```r
-2
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** 0.3% past mogelijk bij een andere Z-tabelwaarde of een reken-/afrondingsfout, maar deze antwoordwaarde toont niet eenduidig welke stap is misgelopen.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** 1.4% is onder meer verenigbaar met het gebruik van een te hoog effectiviteitspercentiel, bijvoorbeeld ongeveer 95% in plaats van 92%, of met een afwijkende tabelaflezing. De antwoordwaarde alleen bewijst de gevolgde route niet.
-- Foute testinvoer: `4`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** 2.8% past niet eenduidig bij de vereiste eenzijdige berekening; mogelijk zijn de verkeerde staart, verdeling of Z-tabelwaarde gebruikt.
-- Foute testinvoer: `5`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
-
-### Oef - 5.4: Kwaliteitscontrole Trappistenbier
+### Oef - 5.2 Toepassingen van de normale verdeling
 
 Bronmap: `Hoofdstuk_5_De standaardnormale verdeling en diens eigenschappen/Oef - 5.4`
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+Kopieerbare, volledig ingevulde boilerplate:
 
 ```r
-# Gegeven: μ = 33, σ = 2
-
-# INSTRUCTIE: Bereken handmatig alle stappen met de formules uit de beschrijving
-# Gebruik de standaardnormale tabel om de waarschijnlijkheden op te zoeken
-# LET OP: Geef percentages als getallen ZONDER %-teken!
-# Rond beide eindpercentages af op 2 decimalen.
-
-# a. Kans dat inhoud tussen 32cl en 34cl ligt
-# Bereken handmatig alle stappen en voer alleen het eindpercentage in
-vraag_a <- 38.3 # Eindantwoord als percentage
-
-# b. Kans dat inhoud hoger dan 35cl is
-# Bereken handmatig alle stappen en voer alleen het eindpercentage in
-vraag_b <- 15.87 # Eindantwoord als percentage
+# Vul percentages zonder procentteken in.
+bier_tussen_pct <- 38.3
+bier_boven_pct <- 15.87
+leeftijdsgrens_optie <- 4
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `vraag_a <- 15.87`
-  - Misvatting: **Waarschijnlijke redenering:** het afwijkende getal kan passen bij het complement van het gevraagde gebied, één ontbrekende intervalgrens, een verkeerde z-score, delen of verdubbelen door symmetrie, een schaalfactor 100 of vroege afronding. Dit zijn mogelijke signatures, geen zekere reconstructie.
-
-### Oef - 5.5: Gevangenispopulatie - Oudste 10% bevragen
-
-Bronmap: `Hoofdstuk_5_De standaardnormale verdeling en diens eigenschappen/Oef - 5.5`
-
-#### Correcte inzending
-
-Selecteer deze optie:
+- Foute testinvoer voor `bier_tussen_pct` (alle andere velden blijven correct):
 
 ```r
-4
+# Vul percentages zonder procentteken in.
+bier_tussen_pct <- 39.3
+bier_boven_pct <- 15.87
+leeftijdsgrens_optie <- 4
 ```
 
-#### Foute testinvoer en misvattingen
+  - **Waarschijnlijke redenering:** je hebt waarschijnlijk één staart gebruikt in plaats van het verschil tussen beide cumulatieve kansen. **Waarom dit niet klopt:** tussen 32 en 34 liggen z = -0.5 en z = 0.5; Φ(0.5) - Φ(-0.5) = 0.3830 = 38.30%.
 
-- Foute testinvoer: `1`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een percentielgrens gekozen die niet overeenkomt met de gevraagde bovenstaart.
-- Foute testinvoer: `2`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk een grens voor een kleinere bovenstaart gekozen.
-- Foute testinvoer: `3`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk automatisch een grens van ongeveer twee standaardafwijkingen boven het gemiddelde gebruikt.
-- Foute testinvoer: `5`
-  - Misvatting: ❌ Fout. **Waarschijnlijke redenering:** je dacht mogelijk dat individuele leeftijden of de populatieomvang nodig zijn.
-- Foute testinvoer: `6`
-  - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
+- Foute testinvoer voor `bier_boven_pct` (alle andere velden blijven correct):
 
-## Hoofdstuk 6
+```r
+# Vul percentages zonder procentteken in.
+bier_tussen_pct <- 38.3
+bier_boven_pct <- 16.87
+leeftijdsgrens_optie <- 4
+```
+
+  - **Waarschijnlijke redenering:** je hebt waarschijnlijk de verkeerde staart of schaal gebruikt. **Waarom dit niet klopt:** 35 cl geeft z = 1; P(Z > 1) = 1 - 0.8413 = 0.1587 = 15.87%.
+
+- Foute testinvoer voor `leeftijdsgrens_optie` (alle andere velden blijven correct):
+
+```r
+# Vul percentages zonder procentteken in.
+bier_tussen_pct <- 38.3
+bier_boven_pct <- 15.87
+leeftijdsgrens_optie <- 1
+```
+
+  - **Waarschijnlijke redenering:** je hebt een grens gekozen waar meer dan 10% boven ligt. **Waarom dit niet klopt:** de oudste 10% begint bij het 90e percentiel: 37.8 + 1.28 × 5.6 ≈ 45 jaar, optie 4.

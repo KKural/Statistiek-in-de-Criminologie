@@ -1,40 +1,21 @@
-De Trappisten van de Sint-Sixtusabdij in Westvleteren controleren hun productieproces. Na het controleren van een sample van 100 flesjes blijkt dat de inhoud van hun beroemde **Westvleteren** trappistenbier **normaal verdeeld** is.
+In deze oefening pas je de normale verdeling toe op twee concrete beslissingen.
 
-**Onderzoeksgegevens:**
-- **Gemiddelde inhoud (μ):** 33 cl
-- **Standaardafwijking (σ):** 2 cl  
-- **Verdeling:** Normale verdeling N(33, 2)
+**Leerdoel:** intervalkansen, staartkansen en percentielgrenzen in toegepaste normale verdelingen berekenen.
 
-**Formules**
+Voor de inhoud van bierflesjes geldt een gemiddelde van 33 cl en een standaardafwijking van 2 cl.
+Gebruik voor vraag 1 en 2 de standaardnormale tabel uit de cursus, met tabelkansen afgerond op vier decimalen.
 
-**Z-score berekening:**
-$$Z = \frac{X - \mu}{\sigma}$$
+1. Hoeveel procent van de flesjes bevat tussen 32 cl en 34 cl? Rond af op twee decimalen.
+2. Hoeveel procent bevat meer dan 35 cl? Rond af op twee decimalen.
 
-**Waarschijnlijkheden:**
-- P(Z ≤ z) kan je opzoeken in de standaardnormale tabel
-- P(Z ≥ z) = 1 - P(Z ≤ z)
-- P(a ≤ X ≤ b) = P(Z ≤ z_b) - P(Z ≤ z_a)
+De leeftijden in een gevangenispopulatie zijn normaal verdeeld met gemiddelde 37.8 jaar en standaardafwijking 5.6 jaar.
 
-**📊 Volledige Z-score tabel:** <a href='https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm' target='_blank' rel='noopener noreferrer'>Standaardnormale verdeling tabel</a>
+3. Vanaf welke afgeronde leeftijd behoort iemand tot de oudste 10%?
 
-**Vragen**
+   1. 42.5 jaar
+   2. 47 jaar
+   3. 50 jaar
+   4. 45 jaar
+   5. Dit kan niet worden berekend met de gegeven informatie
 
-**a) Aangezien de monniken een eerlijk product willen verkopen, willen ze dat er in alle flesjes minstens 32cl en maximum 34cl zit. Hoeveel procent van de flesjes voldoen aan deze vereiste?**
-
-- *Stap 1:* Bereken de Z-scores voor beide grenzen (32cl en 34cl)
-- *Stap 2:* Zoek de kansen op in de standaardnormale tabel
-- *Stap 3:* Bereken het verschil voor het interval
-
-Geef je antwoord als **percentage** (bijvoorbeeld: 20.43)
-
-**b) Pater Boudewijn, commercieel verantwoordelijke, vraagt zich af hoeveel procent van de flesjes meer dan 35cl bevat.**
-
-- *Stap 1:* Bereken de Z-score voor X = 35
-- *Stap 2:* Zoek P(Z ≤ z) op in de standaardnormale tabel
-- *Stap 3:* Bereken het complement: 1 - P(Z ≤ z)
-
-Geef je antwoord als **percentage** (bijvoorbeeld: 52.54)
-
-Gebruik een punt als decimaalteken, laat het procentteken weg en rond beide
-eindpercentages af op **2 decimalen**.
-
+Vul percentages zonder procentteken in. Vul voor vraag 3 alleen het nummer van de gekozen optie in.

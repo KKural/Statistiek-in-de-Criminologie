@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 3.3.9 Werkuren - Som van de afwijkingen"
+      "nl": "Oef - 3.7 Werkuren - Afwijkingensom en variantie",
+      "en": "Exercise - 3.7 Work hours - Sum of deviations and variance"
     }
   },
   "evaluation": {

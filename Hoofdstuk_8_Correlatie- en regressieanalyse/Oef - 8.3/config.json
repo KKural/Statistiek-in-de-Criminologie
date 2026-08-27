@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 8.3 Uitbijter herkennen via residu"
+      "nl": "Oef - 8.3 Regressieresiduen en modeloutput interpreteren",
+      "en": "Exercise - 8.3 Interpreting regression residuals and model output"
     }
   },
   "evaluation": {

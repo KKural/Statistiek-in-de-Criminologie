@@ -1,19 +1,9 @@
-Een stedelijk politieregister kent aan elk incident **exact één primaire delictcategorie** toe. Voor een willekeurig gekozen incident geldt:
+**Leerdoel:** de somregel bij disjuncte en overlappende gebeurtenissen toepassen en daarna een complement berekenen.
 
-- $P(A)=0.23$, waarbij $A$ staat voor woninginbraak;
-- $P(B)=0.41$, waarbij $B$ staat voor geweldsmisdrijf.
+Bereken drie kansen als proporties.
 
-Omdat elk incident maar één primaire categorie krijgt, zijn $A$ en $B$ **disjunct**.
+1. In een register krijgt elk incident exact één primaire categorie. Voor woninginbraak A geldt `P(A)=0.23` en voor geweldsmisdrijf B geldt `P(B)=0.41`. A en B zijn disjunct. Bereken `P(A of B)`.
+2. Bereken voor dezelfde gebeurtenissen de kans op geen van beide categorieën.
+3. In een tweede onderzoek geldt `P(C)=0.60`, `P(D)=0.50` en `P(C en D)=0.30`. Bereken `P(C of D)`.
 
-Bereken:
-
-1. de kans dat het incident een woninginbraak **of** een geweldsmisdrijf is: $P(A \cup B)$;
-2. de kans dat het incident in **geen van beide** categorieën valt: $P((A \cup B)^c)$.
-
-**Formules**
-
-$$P(A \cup B)=P(A)+P(B) \quad \text{als } A \cap B=\varnothing$$
-
-$$P((A \cup B)^c)=1-P(A \cup B)$$
-
-Vervang beide `???` in het antwoordvenster. Geef je antwoorden als **proporties met twee decimalen**, met een punt als decimaalteken en zonder procentteken.
+Rond alle antwoorden af op twee decimalen.

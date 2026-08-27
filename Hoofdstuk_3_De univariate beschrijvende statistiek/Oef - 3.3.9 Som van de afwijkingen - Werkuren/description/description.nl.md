@@ -1,10 +1,7 @@
-Voor de waarden `2, 4, 6` is het gemiddelde gelijk aan 4. De eerste twee afwijkingen zijn daarom `-2` en `0`.
+**Leerdoel:** de nul-som-eigenschap van afwijkingen gebruiken en een gegeven som van kwadraten omzetten naar een steekproefvariantie.
 
-**Leerdoel:** de nul-som-eigenschap van afwijkingen rond het gemiddelde gebruiken.
+Beantwoord drie onderdelen.
 
-Bereken:
-
-1. de ontbrekende afwijking van de waarde 6;
-2. de som van alle drie afwijkingen.
-
-Gebruik steeds `waarneming - gemiddelde`.
+1. Voor de waarden 2, 4 en 6 is het gemiddelde 4. De eerste twee afwijkingen zijn -2 en 0. Bereken de ontbrekende afwijking van 6.
+2. Bereken de som van alle drie getekende afwijkingen.
+3. In een steekproef met vijf deelnemers is de som van de gekwadrateerde afwijkingen gelijk aan 80. Bereken de steekproefvariantie met `SS / (n - 1)`.

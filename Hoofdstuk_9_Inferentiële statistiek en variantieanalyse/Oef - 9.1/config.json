@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 9.1 Chi-kwadraat - Eén verwachte frequentie"
+      "nl": "Oef - 9.1 Chi-kwadraat - Eén verwachte frequentie",
+      "en": "Exercise - 9.1 Chi-square - One expected frequency"
     }
   },
   "programming_language": "R",

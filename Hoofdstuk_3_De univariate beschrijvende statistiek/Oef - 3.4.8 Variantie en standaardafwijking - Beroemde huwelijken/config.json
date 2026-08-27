@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 3.4.8 Huwelijksduur - Variantie en standaardafwijking"
+      "nl": "Oef - 3.12 Huwelijksduur - Variantie en standaardafwijking",
+      "en": "Exercise - 3.12 Marriage duration - Variance and standard deviation"
     }
   },
   "evaluation": {

@@ -1,28 +1,60 @@
+if (.Platform$OS.type == "windows") {
+  for (locale in c(".UTF-8", "English_United States.utf8", "C.UTF-8")) {
+    selected <- suppressWarnings(Sys.setlocale("LC_CTYPE", locale))
+    suppressWarnings(Sys.setlocale("LC_COLLATE", locale))
+    if (!is.na(selected)) break
+  }
+}
+
 root <- normalizePath(".", winslash = "/", mustWork = TRUE)
-
-chapter_1 <- list.files(
+chapter_roots <- c(
   file.path(root, "Hoofdstuk_1_De logica van statistische vergelijkingen en analyses"),
-  pattern = "^Answer\\.R$",
-  recursive = TRUE,
-  full.names = TRUE
+  file.path(root, "Hoofdstuk_2_Inleidende begrippen")
 )
-chapter_2 <- list.files(
-  file.path(root, "Hoofdstuk_2_Inleidende begrippen"),
-  pattern = "^Answer\\.R$",
-  recursive = TRUE,
-  full.names = TRUE
-)
-chapter_2 <- chapter_2[
-  grepl("/Oef - 2\\.[1-5] [^/]+/evaluation/Answer\\.R$", gsub("\\\\", "/", chapter_2))
-]
-files <- c(chapter_1, chapter_2)
 
-if (length(files) != 15L) {
-  stop(sprintf("Expected 15 fixed-choice evaluators, found %d.", length(files)))
+read_text <- function(path) {
+  paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+}
+
+parse_expected_values <- function(text) {
+  flattened <- gsub("[\r\n]", " ", text)
+  match <- regexec("expected_values\\s*<-\\s*c\\((.*?)\\)", flattened, perl = TRUE)
+  parts <- regmatches(flattened, match)[[1L]]
+  if (length(parts) != 2L) return(numeric())
+  entries <- strsplit(parts[[2L]], ",", fixed = TRUE)[[1L]]
+  entry_pattern <- "^\\s*([A-Za-z.][A-Za-z0-9._]*)\\s*=\\s*(-?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+))\\s*$"
+  matches <- regexec(entry_pattern, entries, perl = TRUE)
+  values <- regmatches(entries, matches)
+  if (!length(values) || any(lengths(values) != 3L)) return(numeric())
+  result <- as.numeric(vapply(values, `[[`, character(1), 3L))
+  names(result) <- vapply(values, `[[`, character(1), 2L)
+  result
+}
+
+candidate_files <- unlist(lapply(chapter_roots, function(chapter) {
+  list.files(chapter, pattern = "^Answer\\.R$", recursive = TRUE, full.names = TRUE)
+}), use.names = FALSE)
+
+targets <- list()
+for (file in candidate_files) {
+  expected_values <- parse_expected_values(read_text(file))
+  is_option_vector <- length(expected_values) >= 3L &&
+    length(expected_values) <= 5L &&
+    all(expected_values %in% 1:4)
+  if (is_option_vector) {
+    targets[[file]] <- expected_values
+  }
+}
+
+if (length(targets) != 5L) {
+  stop(sprintf(
+    "Expected five logically grouped fixed-choice evaluators in Chapters 1-2, found %d.",
+    length(targets)
+  ))
 }
 
 count_heading <- function(message, heading) {
-  hits <- gregexpr(heading, message, fixed = TRUE)[[1]]
+  hits <- gregexpr(heading, message, fixed = TRUE)[[1L]]
   if (length(hits) == 1L && hits[[1L]] == -1L) 0L else length(hits)
 }
 
@@ -36,15 +68,25 @@ expect_count <- function(message, heading, expected, file, route) {
   }
 }
 
-load_comparator <- function(file) {
+expect_diagnostic_intro <- function(message, file, route) {
+  headings <- c(
+    "**Waarschijnlijke redenering:**",
+    "**Waarom deze keuze begrijpelijk kan lijken:**",
+    "**Controleer je invoer:**"
+  )
+  count <- sum(vapply(headings, function(heading) count_heading(message, heading), integer(1)))
+  if (count != 1L) {
+    stop(sprintf("%s [%s]: expected one diagnostic opening heading.\n%s", file, route, message))
+  }
+}
+
+load_evaluator <- function(file) {
   capture <- new.env(parent = emptyenv())
   capture$tests <- list()
   capture$messages <- character()
 
   evaluation <- new.env(parent = globalenv())
-  evaluation[["%||%"]] <- function(left, right) {
-    if (is.null(left)) right else left
-  }
+  evaluation[["%||%"]] <- function(left, right) if (is.null(left)) right else left
   evaluation$context <- function(expression) force(expression)
   evaluation$testcase <- function(name, expression) force(expression)
   evaluation$testEqual <- function(description, generated, expected, comparator, ...) {
@@ -64,54 +106,61 @@ load_comparator <- function(file) {
 
   sys.source(file, envir = evaluation, keep.source = FALSE)
   if (length(capture$tests) != 1L) {
-    stop(sprintf("%s: expected one fixed-choice testcase.", file))
+    stop(sprintf("%s: expected one testcase.", file))
   }
+  test <- capture$tests[[1L]]
 
-  list(
-    test = capture$tests[[1L]],
-    run = function(value) {
-      capture$messages <- character()
-      capture$tests[[1L]]$comparator(value, capture$tests[[1L]]$expected)
-      paste(capture$messages, collapse = "\n\n")
-    }
-  )
+  function(values) {
+    capture$messages <- character()
+    submission <- list2env(as.list(values), parent = emptyenv())
+    generated <- test$generated(submission)
+    score <- test$comparator(generated, test$expected)
+    list(score = isTRUE(score), message = paste(capture$messages, collapse = "\n\n"))
+  }
 }
 
-for (file in files) {
-  loaded <- load_comparator(file)
-  expected <- as.numeric(loaded$test$expected)
+routes <- 0L
+for (file in names(targets)) {
+  expected_values <- targets[[file]]
+  run <- load_evaluator(file)
 
-  correct <- loaded$run(expected)
-  expect_count(correct, "**Bevestiging:**", 1L, file, "correct")
-  expect_count(correct, "**Denkregel:**", 1L, file, "correct")
-  expect_count(correct, "**Transferstap:**", 1L, file, "correct")
-  expect_count(correct, "**Waarom deze keuze begrijpelijk kan lijken:**", 0L, file, "correct")
-  expect_count(correct, "**Volgende stap:**", 0L, file, "correct")
-  expect_count(correct, "**Controleer je invoer:**", 0L, file, "correct")
+  correct <- run(expected_values)
+  if (!correct$score) stop(sprintf("%s [correct]: canonical vector was rejected.", file))
+  expect_count(correct$message, "**Bevestiging:**", 1L, file, "correct")
+  expect_count(correct$message, "**Denkregel:**", 1L, file, "correct")
+  expect_count(correct$message, "**Transferstap:**", 1L, file, "correct")
+  routes <- routes + 1L
 
-  for (wrong_value in setdiff(1:4, expected)) {
-    wrong <- loaded$run(wrong_value)
-    route <- paste0("wrong option ", wrong_value)
-    expect_count(wrong, "**Waarom deze keuze begrijpelijk kan lijken:**", 1L, file, route)
-    expect_count(wrong, "**Waarom dit niet klopt:**", 1L, file, route)
-    expect_count(wrong, "**Denkregel:**", 1L, file, route)
-    expect_count(wrong, "**Volgende stap:**", 1L, file, route)
-    expect_count(wrong, "**Bevestiging:**", 0L, file, route)
-    expect_count(wrong, "**Transferstap:**", 0L, file, route)
-    expect_count(wrong, "**Controleer je invoer:**", 0L, file, route)
+  for (field in names(expected_values)) {
+    wrong_values <- expected_values
+    wrong_values[[field]] <- setdiff(1:4, expected_values[[field]])[[1L]]
+    wrong <- run(wrong_values)
+    route <- paste0("wrong field ", field)
+    if (wrong$score) stop(sprintf("%s [%s]: wrong option was accepted.", file, route))
+    expect_diagnostic_intro(wrong$message, file, route)
+    expect_count(wrong$message, "**Waarom dit niet klopt:**", 1L, file, route)
+    expect_count(wrong$message, "**Denkregel:**", 1L, file, route)
+    expect_count(wrong$message, "**Volgende stap:**", 1L, file, route)
+    expect_count(wrong$message, "**Bevestiging:**", 0L, file, route)
+    expect_count(wrong$message, "**Transferstap:**", 0L, file, route)
+    routes <- routes + 1L
   }
 
-  invalid <- loaded$run(99)
-  expect_count(invalid, "**Controleer je invoer:**", 1L, file, "invalid input")
-  expect_count(invalid, "**Waarom dit niet klopt:**", 1L, file, "invalid input")
-  expect_count(invalid, "**Denkregel:**", 1L, file, "invalid input")
-  expect_count(invalid, "**Volgende stap:**", 1L, file, "invalid input")
-  expect_count(invalid, "**Waarom deze keuze begrijpelijk kan lijken:**", 0L, file, "invalid input")
-  expect_count(invalid, "**Bevestiging:**", 0L, file, "invalid input")
-  expect_count(invalid, "**Transferstap:**", 0L, file, "invalid input")
+  missing_field <- names(expected_values)[[1L]]
+  missing_values <- expected_values[names(expected_values) != missing_field]
+  missing <- run(missing_values)
+  route <- paste0("missing field ", missing_field)
+  if (missing$score) stop(sprintf("%s [%s]: incomplete answer was accepted.", file, route))
+  expect_diagnostic_intro(missing$message, file, route)
+  expect_count(missing$message, "**Waarom dit niet klopt:**", 1L, file, route)
+  expect_count(missing$message, "**Denkregel:**", 1L, file, route)
+  expect_count(missing$message, "**Volgende stap:**", 1L, file, route)
+  expect_count(missing$message, "**Bevestiging:**", 0L, file, route)
+  routes <- routes + 1L
 }
 
 cat(sprintf(
-  "Validated correct, every listed wrong option, and invalid-input feedback for %d fixed-choice evaluators.\n",
-  length(files)
+  "Validated %d correct, field-specific wrong-option, and missing-input routes across %d grouped fixed-choice evaluators.\n",
+  routes,
+  length(targets)
 ))

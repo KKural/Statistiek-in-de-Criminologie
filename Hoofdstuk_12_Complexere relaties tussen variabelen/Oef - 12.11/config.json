@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.11 Assumptie regressie: Lineariteit"
+      "nl": "Oef - 12.4 Regressie - Vier assumpties beoordelen",
+      "en": "Exercise - 12.4 Regression - Assessing four assumptions"
     }
   },
   "evaluation": {

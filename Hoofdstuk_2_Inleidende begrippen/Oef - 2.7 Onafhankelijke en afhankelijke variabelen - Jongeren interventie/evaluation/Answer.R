@@ -7,93 +7,88 @@ context({
         function(env) {
           # Use the provided environment (env) instead of globalenv()
           results <- list()
+
+          classify_text <- function(name, acceptable_answers, expected,
+                                    strip_terminal_period = FALSE) {
+            if (!exists(name, envir = env, inherits = FALSE)) {
+              return(list(
+                exists = FALSE, valid = FALSE, value = NA_character_,
+                correct = FALSE, expected = expected
+              ))
+            }
+            raw_value <- get(name, envir = env, inherits = FALSE)
+            converted <- tryCatch(
+              suppressWarnings(as.character(raw_value)),
+              error = function(error) character()
+            )
+            valid <- length(converted) == 1L && !is.na(converted) &&
+              nzchar(trimws(converted))
+            display_value <- if (valid) converted else "<ongeldige invoer>"
+            normalized <- if (valid) tolower(trimws(converted)) else NA_character_
+            if (valid && strip_terminal_period) {
+              normalized <- gsub("\\.$", "", normalized)
+            }
+            list(
+              exists = TRUE,
+              valid = valid,
+              value = display_value,
+              correct = isTRUE(valid && normalized %in% acceptable_answers),
+              expected = expected
+            )
+          }
           
           # Check each variable and store detailed results
           # Onafhankelijke variabele
-          if(exists("onafhankelijke_variabele", envir = env)) {
-            current_val <- tolower(as.character(get("onafhankelijke_variabele", envir = env)))
-            current_val <- gsub("\\.$", "", trimws(current_val))
-            acceptable_answers <- c("de interventie", 
-                                  "interventie",
-                                  "jongeren afkomstig uit de interventiewijk vs controlegroep",
-                                  "interventiewijk vs controlegroep",
-                                  "wijk zonder interventie",
-                                  "interventiewijk versus controlegroep",
-                                  "groep (interventie of controle)",
-                                  "type wijk",
-                                  "type interventie",
-                                  "interventiegroep vs controlegroep",
-                                  "wel/geen interventie",
-                                  "interventie wel/niet",
-                                  "interventie (ja/nee)",
-                                  "groepsindeling")
-            results$onafhankelijke_variabele <- list(
-              exists = TRUE,
-              value = get("onafhankelijke_variabele", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "De interventie (interventiewijk vs. controlegroep)"
-            )
-          } else {
-            results$onafhankelijke_variabele <- list(exists = FALSE, value = NA, correct = FALSE, expected = "De interventie (interventiewijk vs. controlegroep)")
-          }
-          
+          results$onafhankelijke_variabele <- classify_text(
+            "onafhankelijke_variabele",
+            c("de interventie",
+              "interventie",
+              "jongeren afkomstig uit de interventiewijk vs controlegroep",
+              "interventiewijk vs controlegroep",
+              "wijk zonder interventie",
+              "interventiewijk versus controlegroep",
+              "groep (interventie of controle)",
+              "type wijk",
+              "type interventie",
+              "interventiegroep vs controlegroep",
+              "wel/geen interventie",
+              "interventie wel/niet",
+              "interventie (ja/nee)",
+              "groepsindeling"),
+            "De interventie (interventiewijk vs. controlegroep)",
+            strip_terminal_period = TRUE
+          )
+
           # Meetniveau onafhankelijk variabele
-          if(exists("meetniveau_onafhankelijk_variabele", envir = env)) {
-            current_val <- tolower(as.character(get("meetniveau_onafhankelijk_variabele", envir = env)))
-            current_val <- trimws(current_val)
-            acceptable_answers <- c("nominaal")
-            results$meetniveau_onafhankelijk_variabele <- list(
-              exists = TRUE,
-              value = get("meetniveau_onafhankelijk_variabele", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "nominaal"
-            )
-          } else {
-            results$meetniveau_onafhankelijk_variabele <- list(exists = FALSE, value = NA, correct = FALSE, expected = "nominaal")
-          }
+          results$meetniveau_onafhankelijk_variabele <- classify_text(
+            "meetniveau_onafhankelijk_variabele", "nominaal", "nominaal"
+          )
           
           # Afhankelijke variabele
-          if(exists("afhankelijke_variabele", envir = env)) {
-            current_val <- tolower(as.character(get("afhankelijke_variabele", envir = env)))
-            current_val <- gsub("\\.$", "", trimws(current_val))
-            acceptable_answers <- c("het aantal meldingen van overlast",
-                                  "aantal meldingen van overlast",
-                                  "het aantal meldingen",
-                                  "aantal meldingen",
-                                  "meldingen van overlast",
-                                  "aantal overlastmeldingen",
-                                  "overlastmeldingen",
-                                  "overlast",
-                                  "meldingen",
-                                  "het aantal overlastmeldingen",
-                                  "aantal klachten van overlast",
-                                  "klachten van overlast",
-                                  "overlastklachten",
-                                  "aantal overlastklachten")
-            results$afhankelijke_variabele <- list(
-              exists = TRUE,
-              value = get("afhankelijke_variabele", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "Het aantal meldingen van overlast"
-            )
-          } else {
-            results$afhankelijke_variabele <- list(exists = FALSE, value = NA, correct = FALSE, expected = "Het aantal meldingen van overlast")
-          }
+          results$afhankelijke_variabele <- classify_text(
+            "afhankelijke_variabele",
+            c("het aantal meldingen van overlast",
+              "aantal meldingen van overlast",
+              "het aantal meldingen",
+              "aantal meldingen",
+              "meldingen van overlast",
+              "aantal overlastmeldingen",
+              "overlastmeldingen",
+              "overlast",
+              "meldingen",
+              "het aantal overlastmeldingen",
+              "aantal klachten van overlast",
+              "klachten van overlast",
+              "overlastklachten",
+              "aantal overlastklachten"),
+            "Het aantal meldingen van overlast",
+            strip_terminal_period = TRUE
+          )
           
           # Meetniveau afhankelijk variabele
-          if(exists("meetniveau_afhankelijk_variabele", envir = env)) {
-            current_val <- tolower(as.character(get("meetniveau_afhankelijk_variabele", envir = env)))
-            current_val <- trimws(current_val)
-            acceptable_answers <- c("ratio")
-            results$meetniveau_afhankelijk_variabele <- list(
-              exists = TRUE,
-              value = get("meetniveau_afhankelijk_variabele", envir = env),
-              correct = current_val %in% acceptable_answers,
-              expected = "ratio"
-            )
-          } else {
-            results$meetniveau_afhankelijk_variabele <- list(exists = FALSE, value = NA, correct = FALSE, expected = "ratio")
-          }
+          results$meetniveau_afhankelijk_variabele <- classify_text(
+            "meetniveau_afhankelijk_variabele", "ratio", "ratio"
+          )
           
           # Store results for use in comparator
           assign("detailed_results", results, envir = globalenv())
@@ -124,7 +119,9 @@ context({
             
             if(!result$exists) {
               feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: *Ontbreekt* ❌"))
-            } else if(result$correct) {
+            } else if(!isTRUE(result$valid)) {
+              feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: *Ongeldige invoer; vul precies één tekstantwoord in* ❌"))
+            } else if(isTRUE(result$correct)) {
               feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ✅"))
             } else {
               feedback_parts <- c(feedback_parts, paste0(counter, ". **", var_display, "**: ", result$value, " ❌"))

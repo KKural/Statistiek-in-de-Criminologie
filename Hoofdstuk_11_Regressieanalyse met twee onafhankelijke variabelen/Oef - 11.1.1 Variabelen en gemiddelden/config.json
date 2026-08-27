@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 11.1.1 Regressie - Afhankelijke variabele"
+      "nl": "Oef - 11.1 Regressie - Van variabelen naar interpretatie",
+      "en": "Exercise - 11.1 Regression - From variables to interpretation"
     }
   },
   "evaluation": {

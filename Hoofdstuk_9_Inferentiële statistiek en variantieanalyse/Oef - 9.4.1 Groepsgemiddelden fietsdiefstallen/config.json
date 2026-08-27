@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 9.4.1 Fietsdiefstallen - Eén groepsgemiddelde"
+      "nl": "Oef - 9.4 Fietsdiefstallen - ANOVA van beschrijving tot beslissing",
+      "en": "Exercise - 9.4 Bicycle thefts - ANOVA from description to decision"
     }
   },
   "evaluation": {

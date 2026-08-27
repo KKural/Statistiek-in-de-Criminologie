@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 8.1.1 Koffieprijs en ontbossing - Kruisproductsom"
+      "nl": "Oef - 8.1 Pearsoncorrelatie stap voor stap",
+      "en": "Exercise - 8.1 Pearson correlation step by step"
     }
   },
   "evaluation": {

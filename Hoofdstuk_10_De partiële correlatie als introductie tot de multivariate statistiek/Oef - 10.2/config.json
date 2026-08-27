@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 10.2 Partiële correlatie - Schijnverband herkennen"
+      "nl": "Oef - 10.2 Partiële correlatie - Relatiepatronen interpreteren",
+      "en": "Exercise - 10.2 Partial correlation - Interpreting relationship patterns"
     }
   },
   "programming_language": "R",

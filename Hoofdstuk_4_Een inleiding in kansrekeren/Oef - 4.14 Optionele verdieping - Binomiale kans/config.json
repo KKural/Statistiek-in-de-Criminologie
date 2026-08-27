@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 4.14 Optionele verdieping - Binomiale kans"
+      "nl": "Oef - 4.9 Optionele verdieping - Binomiale kans",
+      "en": "Exercise - 4.9 Optional extension - Binomial probability"
     }
   },
   "programming_language": "R",

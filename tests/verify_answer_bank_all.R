@@ -61,13 +61,17 @@ for (file in evaluators) {
     next
   }
   code <- code_parts[[2L]]
-  heading_pattern <- paste0("(?m)^### Oef - ", gsub(".", "\\.", code, fixed = TRUE),
-                            "(?=[^0-9.]|$)")
-  heading <- regexpr(heading_pattern, bank, perl = TRUE)[[1L]]
-  if (heading < 0L) {
-    failures <- c(failures, paste("Exercise", code, "has no answer-bank section"))
+  exercise_dir <- normalizePath(dirname(dirname(file)), winslash = "/", mustWork = TRUE)
+  relative_dir <- substring(exercise_dir, nchar(root) + 2L)
+  source_marker <- paste0("Bronmap: `", relative_dir, "`")
+  marker <- regexpr(source_marker, bank, fixed = TRUE)[[1L]]
+  if (marker < 0L) {
+    failures <- c(failures, paste("Exercise", code, "has no answer-bank source entry"))
     next
   }
+  heading_positions <- gregexpr("(?m)^### ", bank, perl = TRUE)[[1L]]
+  heading_positions <- heading_positions[heading_positions > 0L & heading_positions < marker]
+  heading <- tail(heading_positions, 1L)
   remainder <- substr(bank, heading, nchar(bank))
   next_heading <- regexpr("\n### ", substr(remainder, 6L, nchar(remainder)), fixed = TRUE)[[1L]]
   section <- if (next_heading < 0L) remainder else substr(remainder, 1L, next_heading + 4L)
@@ -125,11 +129,87 @@ for (file in evaluators) {
   }
 }
 
+tested_suites <- list.files(root, pattern = "^suite\\.yaml$", recursive = TRUE,
+                            full.names = TRUE)
+validated_tested <- 0L
+for (file in tested_suites) {
+  exercise_dir <- normalizePath(dirname(dirname(file)), winslash = "/", mustWork = TRUE)
+  relative_dir <- substring(exercise_dir, nchar(root) + 2L)
+  source_marker <- paste0("Bronmap: `", relative_dir, "`")
+  marker <- regexpr(source_marker, bank, fixed = TRUE)[[1L]]
+  if (marker < 0L) {
+    failures <- c(failures, paste(relative_dir, "has no answer-bank source entry"))
+    next
+  }
+  heading_positions <- gregexpr("(?m)^### ", bank, perl = TRUE)[[1L]]
+  heading_positions <- heading_positions[heading_positions > 0L & heading_positions < marker]
+  heading <- tail(heading_positions, 1L)
+  remainder <- substr(bank, heading, nchar(bank))
+  next_heading <- regexpr("\n### ", substr(remainder, 6L, nchar(remainder)),
+                          fixed = TRUE)[[1L]]
+  section <- if (next_heading < 0L) remainder else substr(remainder, 1L, next_heading + 4L)
+  correct_start <- regexpr("#### Correcte inzending", section, fixed = TRUE)[[1L]]
+  misconception_start <- regexpr("#### Foute testinvoer en misvattingen", section,
+                                 fixed = TRUE)[[1L]]
+  if (correct_start < 0L || misconception_start <= correct_start) {
+    failures <- c(failures, paste(relative_dir,
+                                  "does not place misconceptions after the correct answer"))
+    next
+  }
+  correct_section <- substr(section, correct_start, nchar(section))
+  block_match <- regexec("(?s)```python\\s*\\n(.*?)\\n```", correct_section,
+                         perl = TRUE)
+  block_parts <- regmatches(correct_section, block_match)[[1L]]
+  if (length(block_parts) != 2L) {
+    failures <- c(failures, paste(relative_dir, "has no Python answer block"))
+    next
+  }
+
+  suite_lines <- readLines(file, warn = FALSE, encoding = "UTF-8")
+  expression_indices <- grep('^\\s*- expression: "[A-Za-z_][A-Za-z0-9_]*\\.lower\\(\\)"',
+                             suite_lines, perl = TRUE)
+  if (!length(expression_indices)) {
+    failures <- c(failures, paste(relative_dir, "has no supported canonical suite entries"))
+    next
+  }
+  suite_values <- character()
+  for (index in expression_indices) {
+    variable <- sub(
+      '^\\s*- expression: "([A-Za-z_][A-Za-z0-9_]*)\\.lower\\(\\)".*$',
+      "\\1", suite_lines[[index]], perl = TRUE
+    )
+    following <- seq.int(index + 1L, length(suite_lines))
+    return_indices <- following[grepl('^\\s*return: "[^"]+"', suite_lines[following],
+                                      perl = TRUE)]
+    if (!length(return_indices)) next
+    expected <- sub('^\\s*return: "([^"]+)".*$', "\\1",
+                    suite_lines[[return_indices[[1L]]]], perl = TRUE)
+    suite_values[[variable]] <- tolower(expected)
+  }
+  if (!length(suite_values)) {
+    failures <- c(failures, paste(relative_dir, "has no parseable canonical suite values"))
+    next
+  }
+  answer_values <- vapply(names(suite_values), function(variable) {
+    pattern <- paste0("(?m)^\\s*", variable, "\\s*=\\s*['\"]([^'\"]+)['\"]")
+    parts <- regmatches(block_parts[[2L]], regexec(pattern, block_parts[[2L]], perl = TRUE))[[1L]]
+    if (length(parts) == 2L) tolower(parts[[2L]]) else NA_character_
+  }, character(1))
+  if (anyNA(answer_values) || !identical(answer_values, suite_values)) {
+    failures <- c(failures, paste(relative_dir,
+                                  "answer-bank Python solution disagrees with suite.yaml"))
+  } else {
+    validated_tested <- validated_tested + 1L
+  }
+}
+
 if (length(failures)) {
   cat("Answer-bank validation failed:\n")
   cat(sprintf("- %s\n", failures))
   quit(status = 1)
 }
 
-cat(sprintf("Validated answer-bank solutions against all %d canonical evaluators.\n",
-            validated))
+cat(sprintf(
+  "Validated answer-bank solutions against all %d R evaluators and %d tested exercise.\n",
+  validated, validated_tested
+))

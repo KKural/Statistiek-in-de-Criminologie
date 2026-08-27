@@ -4,7 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 3.4.4 Huwelijksduur - Mediaan bij een uitbijter"
+      "nl": "Oef - 3.9 Huwelijksduur - Uitbijters en centraliteit",
+      "en": "Exercise - 3.9 Marriage duration - Outliers and central tendency"
     }
   },
   "evaluation": {

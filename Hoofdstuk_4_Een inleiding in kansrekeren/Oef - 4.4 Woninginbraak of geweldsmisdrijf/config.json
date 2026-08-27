@@ -2,7 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 4.4 Woninginbraak of geweldsmisdrijf"
+      "nl": "Oef - 4.2 Somregel en complement",
+      "en": "Exercise - 4.2 Addition rule and complement"
     }
   },
   "programming_language": "R",

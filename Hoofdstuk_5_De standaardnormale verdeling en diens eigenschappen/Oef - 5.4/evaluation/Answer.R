@@ -1,309 +1,82 @@
-# **Bevestiging:** correct-route feedback below confirms the result before the Denkregel and Transferstap.
 context({
-  testcase(
-    "",
-    {
-      testEqual(
-        "",
-        function(env) {
-          results <- list()
+  testcase("", {
+    testEqual("", function(env) {
+      expected_values <- c(bier_tussen_pct = 38.30, bier_boven_pct = 15.87, leeftijdsgrens_optie = 4)
+      tolerances <- c(bier_tussen_pct = 0.0051, bier_boven_pct = 0.0051, leeftijdsgrens_optie = 0)
 
-          # Expected answers for Exercise 5.4: Trappist Beer Quality Control
-          # Normal distribution N(33, 2) - bottle contents in cl
-          
-          # Question A - P(32 ≤ X ≤ 34) = 38.30%
-          exp_a <- 38.30
-          
-          # Question B - P(X > 35) = 15.87%  
-          exp_b <- 15.87
+      read_number <- function(name) {
+        if (!exists(name, envir = env, inherits = FALSE)) return(NA_real_)
+        value <- suppressWarnings(as.numeric(get(name, envir = env, inherits = FALSE)))
+        if (length(value) != 1L || !is.finite(value)) return(NA_real_)
+        value
+      }
 
-          # Helper function to check each answer
-          check_value <- function(varname, expected, tol = 0.01, expect_percent = FALSE) {
-            if (!exists(varname, envir = env)) {
-              return(list(exists = FALSE, value = NA, correct = FALSE, expected = expected))
-            }
-            val <- get(varname, envir = env)
-            
-            if (expect_percent) {
-              # Handle percentage strings like "8.08%"
-              if (is.character(val) && grepl("%$", val)) {
-                val_num <- suppressWarnings(as.numeric(gsub("%$", "", val)))
-              } else {
-                val_num <- suppressWarnings(as.numeric(val))
-              }
-            } else {
-              val_num <- suppressWarnings(as.numeric(val))
-            }
-            
-            correct <- !is.na(val_num) && abs(val_num - expected) < tol
-            return(list(exists = TRUE, value = val, correct = correct, expected = expected))
-          }
+      values <- vapply(names(expected_values), read_number, numeric(1))
+      valid <- is.finite(values)
+      correct_fields <- valid & abs(values - expected_values) <= tolerances
 
-          # Check final answers only
-          results$vraag_a <- check_value("vraag_a", exp_a, tol = 0.0051, expect_percent = FALSE)
-          results$vraag_b <- check_value("vraag_b", exp_b, tol = 0.0051, expect_percent = FALSE)
-
-          assign("detailed_results", results, envir = globalenv())
-
-          all_correct <- all(sapply(results, function(x) x$correct))
-          return(all_correct)
-        },
-        TRUE,
-        comparator = function(generated, expected, ...) {
-          results <- get("detailed_results", envir = globalenv())
-
-          qnames <- c(
-            vraag_a = "a) Percentage flesjes tussen 32cl en 34cl",
-            vraag_b = "b) Percentage flesjes meer dan 35cl"
-          )
-
-          # Helper function for parsing student answers
-          parse_num <- function(val) {
-            if (is.character(val) && grepl("%$", val)) {
-              val <- gsub("%$", "", val)
-            }
-            suppressWarnings(as.numeric(val))
-          }
-
-          # --- DIAGNOSTIC FUNCTIONS ---
-
-          wrong_msg_a <- function(val) {
-            val_num <- parse_num(val)
-            if (is.na(val_num)) {
-              return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 38.30%.")
-            }
-
-            # Correct probability but not converted to percentage
-            if (abs(val_num - 0.3830) < 0.0001 || abs(val_num - 0.383) < 0.001) {
-              return("**Wat je goed deed:** Je berekende de kans correct als 0.3830!\n\n**Wat je miste:** De vraag vraagt om een percentage, niet een decimale kans. In statistiek geven we kansen vaak als decimalen (0 tot 1), maar percentages zijn decimalen × 100.\n\n**Correctie:** 0.3830 × 100 = **38.30%**")
-            }
-            
-            # Complement errors - calculated 100% - 38.30% or as decimal
-            if (abs(val_num - 61.70) < 0.1) {
-              return("**Waarom dit fout is:** Je berekende 61.70% = het complement van 38.30%. Dit gebeurt vaak wanneer studenten denken aan 'alles behalve het interval'.\n\n**Wat je miste:** De vraag vraagt specifiek naar P(32 ≤ X ≤ 34) - de kans BINNEN het interval, niet erbuiten.\n\n**Conceptueel:** Voor intervalkansen bereken je P(a ≤ X ≤ b) = P(X ≤ b) - P(X ≤ a)")
-            }
-            if (abs(val_num - 0.6170) < 0.001) {
-              return("**Waarom dit fout is:** Je gaf 0.6170 - dit is het complement van de gezochte kans in decimaalvorm.\n\n**Wat je miste:** Je berekende P(X < 32 of X > 34) in plaats van P(32 ≤ X ≤ 34).\n\n**Conceptueel:** Interval-kansen en complement-kansen zijn verschillende dingen!")
-            }
-            
-            # Used only one tail (half the interval)
-            if (abs(val_num - 19.15) < 0.1) {
-              return("**Waarom dit fout is:** Je gaf 19.15% - dit is ongeveer de helft van het juiste antwoord.\n\n**Wat je miste:** Voor een interval P(a ≤ X ≤ b) moet je BEIDE grenzen gebruiken. Waarschijnlijk berekende je alleen P(33 ≤ X ≤ 34) of P(32 ≤ X ≤ 33).\n\n**Conceptueel:** Interval = rechter grens - linker grens uit de Z-tabel.")
-            }
-            
-            # Used much smaller value - might be calculation error or wrong approach
-            if (abs(val_num - 7.935) < 0.1 || (val_num > 5 && val_num < 15)) {
-              return(paste0("**Waarom dit fout is:** Je antwoord (~", round(val_num, 1), "%) is veel te klein voor dit interval.\n\n**Mogelijke oorzaken:** Verkeerd gebruik van de Z-tabel, gedeeld door 2, of een andere rekenfout.\n\n**Wat je miste:** [32,34] is een relatief groot interval (2cl breed rondom het gemiddelde), dus de kans moet redelijk hoog zijn.\n\n**Realiteitscheck:** ~38% lijkt realistisch voor een interval van 1 standaarddeviatie breed."))
-            }
-            
-            # Doubled the correct answer
-            if (abs(val_num - 76.60) < 0.1) {
-              return("**Waarom dit fout is:** Je gaf 76.60% - dit is bijna het dubbele van het juiste antwoord.\n\n**Wat er waarschijnlijk gebeurde:** Je telde P(Z ≤ 0.5) + P(Z ≤ -0.5) = 0.6915 + 0.3085 = 1.000 = 100%, of je vermenigvuldigde ergens dubbel.\n\n**Wat je miste:** Voor intervallen TREK je de kansen af: P(a ≤ X ≤ b) = P(X ≤ b) - P(X ≤ a).")
-            }
-            
-            # Confused with empirical rule (68%)
-            if (abs(val_num - 68.30) < 0.5 || abs(val_num - 68.27) < 0.5) {
-              return("**Waarom dit fout is:** Je gebruikte de empirische regel (68% binnen μ ± 1σ).\n\n**Wat je miste:** De empirische regel geldt voor het interval [μ-σ, μ+σ] = [31, 35]. Maar de vraag gaat over [32, 34] - een kleiner interval!\n\n**Conceptueel:** Verschillende intervallen hebben verschillende kansen. Gebruik altijd de Z-tabel voor specifieke intervallen.")
-            }
-            
-            # Assumed 50% (symmetric around mean)
-            if (abs(val_num - 50.0) < 0.1) {
-              return("**Waarom dit fout is:** Je nam aan dat een symmetrisch interval rond μ altijd 50% kans heeft.\n\n**Wat je miste:** Symmetrie betekent niet automatisch 50%! De kans hangt af van de BREEDTE van het interval ten opzichte van σ.\n\n**Conceptueel:** [32,34] = μ ± 1 = μ ± 0.5σ. Dit is een relatief smal interval, dus < 50%.")
-            }
-            
-            # Specific wrong calculation errors
-            if (abs(val_num - 138.30) < 0.1) {
-              return("**Waarom dit fout is:** 138.30% = 100% + 38.30%. Je telde waarschijnlijk 1.0000 + 0.3830 = 1.3830.\n\n**Wat er gebeurde:** Je berekende mogelijk P(Z ≤ 0.5) + [P(Z ≤ 0.5) - P(Z ≤ -0.5)] of een soortgelijke dubbeltelling.\n\n**Wat je miste:** Voor intervallen gebruik je aftrekking, niet optelling.")
-            }
-            
-            # Invalid ranges
-            if (val_num < 0) {
-              if (abs(val_num - (-38.30)) < 0.1) {
-                return("**Waarom dit fout is:** Je kreeg -38.30% - kansen zijn altijd tussen 0% en 100%!\n\n**Wat er gebeurde:** Je berekening gaf het juiste getal maar met verkeerd teken. Waarschijnlijk een fout bij P(Z ≤ -0.5) - P(Z ≤ 0.5) in plaats van andersom.\n\n**Wat je miste:** Bij intervallen: kleinere grens van grotere grens aftrekken.")
-              }
-              return("**Waarom dit fout is:** Kansen kunnen nooit negatief zijn - ze liggen altijd tussen 0% en 100%!\n\n**Wat je miste:** Ergens een teken-fout in je berekening.\n\n**Check:** Alle Z-tabel waarden zijn positief, alle kansen zijn positief.")
-            }
-            if (val_num > 100) {
-              return("**Waarom dit fout is:** Kansen kunnen nooit groter dan 100% zijn - dat zou betekenen 'meer dan zeker'!\n\n**Wat er gebeurde:** Waarschijnlijk vermenigvuldigde je ergens dubbel met 100, of telde verkeerd op.\n\n**Wat je miste:** Kansen zijn fracties van het totaal: maximum = 1.0 = 100%.\n\n**Check:** Is je decimale kans tussen 0 en 1? Dan ×100 voor percentage.")
-            }
-
-            # Generic wrong answer with step-by-step guidance
-            return(paste0(
-              "**Je antwoord ", val, "% is niet correct.**\n\n",
-              "**Mogelijke oorzaken:** Verkeerde Z-waarden, fout in Z-tabel opzoeken, of rekenfouten.\n\n",
-              "**Stap-voor-stap controle:**\n",
-              "1. **Z-waarden:** Z₁ = (32-33)/2 = -0.5, Z₂ = (34-33)/2 = 0.5 ✓\n",
-              "2. **Z-tabel:** P(Z ≤ -0.5) = 0.3085, P(Z ≤ 0.5) = 0.6915 ✓\n",
-              "3. **Interval:** P(-0.5 ≤ Z ≤ 0.5) = 0.6915 - 0.3085 = 0.3830 ✓\n",
-              "4. **Percentage:** 0.3830 × 100% = **38.30%** ✓"
-            ))
-          }
-
-          wrong_msg_b <- function(val) {
-            val_num <- parse_num(val)
-            if (is.na(val_num)) {
-              return("Je antwoord kon niet als getal geïnterpreteerd worden. Het juiste antwoord is 15.87%.")
-            }
-
-            # Correct probability but not converted to percentage
-            if (abs(val_num - 0.1587) < 0.0001) {
-              return("**Wat je goed deed:** Je berekende de kans perfect als 0.1587!\n\n**Wat je miste:** De vraag vraagt om een percentage. Decimale kansen moet je vermenigvuldigen met 100.\n\n**Conceptueel:** 0.1587 betekent '15.87 van elke 100 flesjes'.\n\n**Correctie:** 0.1587 × 100 = **15.87%**")
-            }
-            
-            # Complement error - calculated P(X ≤ 35) instead of P(X > 35)
-            if (abs(val_num - 84.13) < 0.1) {
-              return("**Waarom dit fout is:** Je berekende P(X ≤ 35) = 84.13% - dat is de kans op '35cl of minder'.\n\n**Wat je miste:** De vraag vraagt naar 'meer dan 35cl' = P(X > 35). Dit zijn complementaire gebeurtenissen!\n\n**Conceptueel:** P(X > 35) + P(X ≤ 35) = 100%. Je gaf de verkeerde helft.")
-            }
-            if (abs(val_num - 0.8413) < 0.001) {
-              return("**Waarom dit fout is:** Je gaf 0.8413 - dit is P(X ≤ 35) in decimaalvorm.\n\n**Wat je miste:** De vraag vraagt naar P(X > 35), niet P(X ≤ 35). Let op het verschil tussen '≤' en '>'!\n\n**Conceptueel:** Uit de Z-tabel lees je altijd P(Z ≤ z). Voor P(Z > z) moet je 1 - P(Z ≤ z) berekenen.")
-            }
-            
-            # Doubled the correct answer
-            if (abs(val_num - 31.74) < 0.1) {
-              return("**Waarom dit fout is:** Je gaf 31.74% - dit is bijna het dubbele van het juiste antwoord.\n\n**Wat er gebeurde:** Waarschijnlijk berekende je 2 × 15.87% of maakte een fout bij symmetrie-aannames.\n\n**Wat je miste:** P(X > 35) is een enkelvoudige staart-kans, geen symmetrische berekening.")
-            }
-            
-            # Used half value
-            if (abs(val_num - 7.935) < 0.1 || abs(val_num - 7.94) < 0.1) {
-              return("**Waarom dit fout is:** Je gaf ~7.94% - dit is ongeveer de helft van het juiste antwoord.\n\n**Wat er gebeurde:** Je deelde waarschijnlijk door 2, misschien vanwege symmetrie-verwarring of een verkeerde formule.\n\n**Wat je miste:** Voor staart-kansen gebruik je direct de Z-tabel, geen deling door 2.\n\n**Conceptueel:** Deling door 2 is alleen bij sommige symmetrische intervallen relevant, niet bij staart-kansen.")
-            }
-            
-            # Assumed 50% for anything above mean
-            if (abs(val_num - 50.0) < 0.1) {
-              return("**Waarom dit fout is:** Je nam aan dat P(X > μ) altijd 50% is.\n\n**Wat je miste:** 50% geldt alleen voor P(X > μ) waar μ = gemiddelde. Maar hier is 35 ≠ μ = 33!\n\n**Conceptueel:** P(X > 35) ≠ P(X > 33). 35 ligt 1σ boven het gemiddelde, dus veel minder dan 50% van de waarden ligt erboven.\n\n**Realiteitscheck:** 35cl is vrij veel - logisch dat < 50% van de flesjes zoveel bevat.")
-            }
-            
-            # Wrong Z-table value
-            if (abs(val_num - 34.13) < 0.1) {
-              return("**Waarom dit fout is:** Je gaf 34.13% - dit suggereert een verkeerde Z-tabelwaarde.\n\n**Wat er gebeurde:** Misschien gebruikte je P(Z ≤ 0.4) = 0.6554 of een andere Z-waarde in plaats van Z = 1.\n\n**Wat je miste:** Controleer altijd je Z-berekening: Z = (35-33)/2 = 1.\n\n**Z-tabel check:** Voor Z = 1.00 moet je P(Z ≤ 1) = 0.8413 vinden.")
-            }
-            
-            # Confused with empirical rule (68%)
-            if (abs(val_num - 68.27) < 0.5 || abs(val_num - 68.3) < 0.5) {
-              return("**Waarom dit fout is:** Je gebruikte de empirische regel (68% binnen μ ± 1σ).\n\n**Wat je miste:** De empirische regel geldt voor INTERVALLEN [μ-σ, μ+σ], niet voor staart-kansen P(X > waarde).\n\n**Conceptueel:** 68% = P(31 < X < 35), maar we willen P(X > 35) - een enkele staart.\n\n**Logica:** Als 68% tussen 31 en 35 ligt, dan ligt slechts ~16% boven 35 (door symmetrie).")
-            }
-            
-            # Specific wrong calculation errors
-            if (abs(val_num - 115.87) < 0.1) {
-              return("**Waarom dit fout is:** 115.87% = 100% + 15.87%. Je telde waarschijnlijk 1.0000 + 0.1587.\n\n**Wat er gebeurde:** Mogelijk berekende je 1 + (1 - 0.8413) in plaats van (1 - 0.8413) alleen.\n\n**Wat je miste:** Kansen kunnen nooit > 100% zijn. Voor P(X > 35) heb je alleen het complement nodig.")
-            }
-            
-            # Invalid ranges
-            if (val_num < 0) {
-              if (abs(val_num - (-15.87)) < 0.1) {
-                return("**Waarom dit fout is:** Je kreeg -15.87% - kansen zijn altijd tussen 0% en 100%!\n\n**Wat er gebeurde:** Je berekening was correct maar met verkeerd teken. Waarschijnlijk 0.8413 - 1 in plaats van 1 - 0.8413.\n\n**Wat je miste:** Bij complement-berekeningen: altijd 1 minus de Z-tabelwaarde.")
-              }
-              return("**Waarom dit fout is:** Kansen kunnen nooit negatief zijn!\n\n**Wat je miste:** Ergens een teken-fout. Alle kansen liggen tussen 0% en 100%.\n\n**Check:** 1 - 0.8413 = +0.1587 (positief).")
-            }
-            if (val_num > 100) {
-              return("**Waarom dit fout is:** Kansen kunnen nooit > 100% zijn!\n\n**Wat er gebeurde:** Waarschijnlijk vermenigvuldigde je dubbel met 100 of telde verkeerd op.\n\n**Realiteitscheck:** P(X > 35) betekent 'percentage flesjes met meer dan 35cl'. Dit kan nooit alle flesjes (100%) overtreffen!")
-            }
-
-            # Generic wrong answer with step-by-step guidance
-            return(paste0(
-              "**Je antwoord ", val, "% is niet correct.**\n\n",
-              "**Mogelijke oorzaken:** Verkeerde Z-waarde, fout bij complement-berekening, of Z-tabel afleesfout.\n\n",
-              "**Stap-voor-stap controle:**\n",
-              "1. **Z-waarde:** Z = (35-33)/2 = 1 ✓\n",
-              "2. **Z-tabel:** P(Z ≤ 1) = 0.8413 ✓\n",
-              "3. **Complement:** P(X > 35) = P(Z > 1) = 1 - 0.8413 = 0.1587 ✓\n",
-              "4. **Percentage:** 0.1587 × 100% = **15.87%** ✓"
-            ))
-          }
-
-          # --- BUILD FEEDBACK TEXT ---
-
-          feedback_text <- "**Gegeven:** N(33, 2) — μ = 33 cl, σ = 2 cl\n\n"
-
-          # Vraag A
-          q <- "vraag_a"
-          if (results[[q]]$exists) {
-            if (results[[q]]$correct) {
-              feedback_text <- paste0(
-                feedback_text,
-                "✅ ", qnames[[q]],
-                " **Correct! (", round(as.numeric(results[[q]]$value), 2), "%)**\n\n"
-              )
-            } else {
-              msg <- wrong_msg_a(results[[q]]$value)
-              feedback_text <- paste0(
-                feedback_text,
-                "❌ ", qnames[[q]], " **Fout.**\n\n",
-                msg, "\n\n"
-              )
-            }
-          } else {
-            feedback_text <- paste0(
-              feedback_text,
-              "❌ ", qnames[[q]],
-              " **Je hebt geen antwoord gegeven.**\n\n"
-            )
-          }
-          
-          # Add step-by-step explanation for Question A
-          feedback_text <- paste0(
-            feedback_text,
-            "**Uitleg Vraag A:** Z₁ = (32−33)/2 = −0.5, Z₂ = (34−33)/2 = 0.5 → P(−0.5 ≤ Z ≤ 0.5) = 0.6915 − 0.3085 = 0.3830 = 38.30%.\n\n"
-          )
-
-          # Vraag B
-          q <- "vraag_b"
-          if (results[[q]]$exists) {
-            if (results[[q]]$correct) {
-              feedback_text <- paste0(
-                feedback_text,
-                "✅ ", qnames[[q]],
-                " **Correct! (", round(as.numeric(results[[q]]$value), 2), "%)**\n\n"
-              )
-            } else {
-              msg <- wrong_msg_b(results[[q]]$value)
-              feedback_text <- paste0(
-                feedback_text,
-                "❌ ", qnames[[q]], " **Fout.**\n\n",
-                msg, "\n\n"
-              )
-            }
-          } else {
-            feedback_text <- paste0(
-              feedback_text,
-              "❌ ", qnames[[q]],
-              " **Je hebt geen antwoord gegeven.**\n\n"
-            )
-          }
-          
-          # Add step-by-step explanation for Question B
-          feedback_text <- paste0(
-            feedback_text,
-            "**Uitleg Vraag B:** Z = (35−33)/2 = 1 → P(Z > 1) = 1 − 0.8413 = 0.1587 = 15.87%.\n\n"
-          )
-
-          # Z-table reference
-          feedback_text <- paste0(
-            feedback_text,
-            "**Z-tabel:** <a href='https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm' target='_blank' rel='noopener noreferrer'>https://www.belfactorij.nl/voorinloggen/kansverdelingen/Normaal.htm</a>"
-          )
-
-          # Learner-facing feedback contract.
-          if (isTRUE(generated == expected)) {
-            feedback_text <- paste0(
-              feedback_text,
-              "\n\n**Bevestiging:** zowel de intervalkans als de rechterstaartkans is correct berekend.\n\n**Denkregel:** teken het interval of de staart, standaardiseer elke grens en gebruik Φ(b)−Φ(a) voor een interval of 1−Φ(c) voor een rechterstaart; zet pas daarna om naar procent.\n\n",
-              "**Transferstap:** kies een nieuw vulvolume en bepaal vóór het rekenen of je een linkerstaart, rechterstaart of interval nodig hebt."
-            )
-          } else {
-            feedback_text <- paste0(
-              feedback_text,
-              "\n\n**Waarschijnlijke redenering:** het afwijkende getal kan passen bij het complement van het gevraagde gebied, één ontbrekende intervalgrens, een verkeerde z-score, delen of verdubbelen door symmetrie, een schaalfactor 100 of vroege afronding. Dit zijn mogelijke signatures, geen zekere reconstructie.\n\n",
-              "**Waarom dit niet klopt:** de oppervlakte moet exact overeenkomen met het getekende gebied; linkerstaartwaarden optellen, een interval halveren of een percentage als proportie behandelen verandert die gebeurtenis.\n\n",
-              "**Denkregel:** markeer eerst het gebied; gebruik voor [a,b] Φ(z_b)−Φ(z_a) en voor X>c de worked rule 1−Φ(z_c). Controleer daarna dat 0≤p≤1 of 0%≤p≤100%.\n\n",
-              "**Volgende stap:** herbereken het eerste veld met ❌ vanaf de z-score(s), zonder tussentijds af te ronden. Voor vraag B: z=(35−33)/2=1 en P(X>35)=1−0.8413=0.1587=15.87%."
-            )
-          }
-
-          get_reporter()$add_message(feedback_text, type = "markdown")
-          generated == expected
-        }
+      assign(
+        "results_5_4_grouped",
+        list(
+          values = values,
+          expected = expected_values,
+          valid = valid,
+          correct_fields = correct_fields
+        ),
+        envir = globalenv()
       )
-    }
-  )
+
+      all(correct_fields)
+    }, TRUE, comparator = function(generated, expected, ...) {
+      results <- get("results_5_4_grouped", envir = globalenv())
+
+      if (isTRUE(generated == expected)) {
+        message <- paste(
+          "**Bevestiging:** de intervalkans is 38.30%, de rechterstaart is 15.87% en optie 4 geeft de grens van ongeveer 45 jaar voor de oudste 10%.",
+          "**Denkregel:** zet elke ruwe grens om naar z, kies de juiste oppervlakte en zet een kans alleen dan om naar procent wanneer de vraag een percentage verlangt.",
+          "**Transferstap:** noteer bij een nieuwe toepassing naast elke grens het bijbehorende z-teken en arceer het gevraagde gebied.",
+          sep = "\n\n"
+        )
+      } else if (!all(results$valid)) {
+        missing_fields <- names(results$valid)[!results$valid]
+        message <- paste(
+          paste0("**Waarschijnlijke redenering:** er ontbreekt een geldige numerieke invoer voor: ", paste(missing_fields, collapse = ", "), "."),
+          "**Waarom dit niet klopt:** elke genummerde deelvraag heeft precies één getal of optienummer nodig; zonder alle antwoorden kan de volledige redenering niet worden beoordeeld.",
+          "**Denkregel:** zet elke ruwe grens om naar z, kies de juiste oppervlakte en zet een kans alleen dan om naar procent wanneer de vraag een percentage verlangt.",
+          paste0("**Volgende stap:** vul eerst alleen de lege velden ", paste(missing_fields, collapse = ", "), " in en dien opnieuw in."),
+          sep = "\n\n"
+        )
+      } else {
+        wrong_field <- names(results$correct_fields)[!results$correct_fields][[1L]]
+        likely <- switch(
+          wrong_field,
+          bier_tussen_pct = { value <- results$values[[wrong_field]]; if (abs(value - 0.3830) <= 0.0005) "je hebt de juiste kans berekend maar niet naar procent omgezet." else "je hebt waarschijnlijk één staart gebruikt in plaats van het verschil tussen beide cumulatieve kansen." },
+          bier_boven_pct = { value <- results$values[[wrong_field]]; if (abs(value - 84.13) <= 0.01) "je hebt de linkerkans onder 35 cl gebruikt in plaats van de rechterstaart." else if (abs(value - 0.1587) <= 0.0005) "je hebt de kans niet naar procent omgezet." else "je hebt waarschijnlijk de verkeerde staart of schaal gebruikt." },
+          leeftijdsgrens_optie = { value <- results$values[[wrong_field]]; if (value == 2 || value == 3) "je hebt een te extreme z-grens gekozen en selecteert minder dan 10%." else if (value == 1) "je hebt een grens gekozen waar meer dan 10% boven ligt." else "je hebt ten onrechte aangenomen dat de grens niet uit μ, σ en het percentiel kan worden berekend." }
+        )
+        why <- switch(
+          wrong_field,
+          bier_tussen_pct = "tussen 32 en 34 liggen z = -0.5 en z = 0.5; Φ(0.5) - Φ(-0.5) = 0.3830 = 38.30%.",
+          bier_boven_pct = "35 cl geeft z = 1; P(Z > 1) = 1 - 0.8413 = 0.1587 = 15.87%.",
+          leeftijdsgrens_optie = "de oudste 10% begint bij het 90e percentiel: 37.8 + 1.28 × 5.6 ≈ 45 jaar, optie 4."
+        )
+        next_step <- switch(
+          wrong_field,
+          bier_tussen_pct = "trek de twee cumulatieve kansen van elkaar af en vermenigvuldig daarna met 100.",
+          bier_boven_pct = "bereken het complement van Φ(1) en zet dit resultaat om naar procent.",
+          leeftijdsgrens_optie = "gebruik z0.90 ≈ 1.28 in X = μ + zσ en rond pas het eindresultaat af."
+        )
+        message <- paste(
+          paste0("**Waarschijnlijke redenering:** ", likely),
+          paste0("**Waarom dit niet klopt:** ", why),
+          "**Denkregel:** zet elke ruwe grens om naar z, kies de juiste oppervlakte en zet een kans alleen dan om naar procent wanneer de vraag een percentage verlangt.",
+          paste0("**Volgende stap:** ", next_step),
+          sep = "\n\n"
+        )
+      }
+
+      get_reporter()$add_message(message, type = "markdown")
+      generated == expected
+    })
+  })
 })

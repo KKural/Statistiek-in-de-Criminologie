@@ -1,16 +1,13 @@
-Het hieronder afgebeelde padmodel is een visualisatie van een partiële test van de Morele Fundamenten Theorie (MFT) van Jonathan Haidt en collega’s. MFT werd gecreëerd om te verklaren hoe en waarom moraliteit zo sterk varieert tussen culturen en tevens zoveel overeenkomsten en terugkerende thema’s vertoont. De theorie vertrekt daarbij vanuit een evolutionair kader. De centrale vraag waarop de theorie een antwoord formuleert is: **Wat zijn de determinanten van een moreel oordeel?** Volgens MFT zijn morele oordelen het resultaat van morele intuïties en morele emoties. In een recente studie (De Buck & Pauwels, 2022) werden de relaties onderzocht tussen dimensies van empathie en moreel oordelen in de context van verschillende vormen van normovertreding. In één geval werd een vignette gebruikt waarin een diefstal wordt beschreven. Aan respondenten werd gevraagd in welke mate zij stelen/diefstal als verkeerd beschouwen.
+Het padmodel onderzoekt hoe twee dimensies van empathie samenhangen met morele intuïties, morele emoties en het uiteindelijke morele oordeel.
 
-Je vindt hieronder het padmodel dat om didactische redenen is vereenvoudigd.
+<img src="media/padmodel.png" alt="Vereenvoudigd padmodel over empathie en moreel oordeel" width="750">
 
-<img src="media/padmodel.png" alt="MFT padmodel" width="750">
+**Leerdoel:** exogene variabelen, een uiteindelijke endogene uitkomst en intermediaire variabelen in één padmodel onderscheiden.
 
----
+Beantwoord de drie vragen.
 
-Welke variabelen in het model zijn **‘exogene’** variabelen?
+1. Welke variabelen zijn exogeen? Gebruik 1 = empathische bezorgdheid en empathische perspectiefneming; 2 = moreel oordeel; 3 = morele intuïties, geanticipeerde schuld en morele boosheid; of 4 = geanticipeerde schuld en morele boosheid.
+2. Welke variabele is de uiteindelijke endogene uitkomst? Gebruik 1 = de twee empathiedimensies; 2 = moreel oordeel; 3 = de morele intuïties; of 4 = de twee morele emoties.
+3. Welke variabelen vervullen een intermediaire rol? Gebruik 1 = de twee empathiedimensies; 2 = alleen moreel oordeel; 3 = beide typen morele intuïties, geanticipeerde schuld en morele boosheid; of 4 = alleen geanticipeerde schuld en morele boosheid.
 
-1. Empathische bezorgdheid en empathische perspectiefneming
-2. Moreel oordeel (Stelen is OK)
-3. Morele intuïties, geanticipeerde schuld en morele boosheid
-4. Geanticipeerde schuld en morele boosheid
-
-- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven
+Vul de drie antwoordcodes in op de lege plaatsen in het codebestand.
