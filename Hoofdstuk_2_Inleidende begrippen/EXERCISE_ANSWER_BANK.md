@@ -383,7 +383,7 @@ meetniveau_afhankelijk_variabele <- "nominaal"
 
   - Misvatting: een aantal is een telling met een werkelijk nulpunt; het meetniveau is ratio.
 
-### Oef - 2.8.1 Meetniveaus classificeren - Pythonversie
+### Oef - 2.9 Meetniveaus classificeren - Pythonversie
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.8.1 Meetniveau classificatie - Python versie`
 
@@ -431,7 +431,7 @@ print(studentnummer)
 - Foute testinvoer: `studentnummer = "Ratio"`
   - Misvatting: een studentnummer is alleen een identificatielabel; rekenkundige verschillen en verhoudingen hebben geen betekenis, dus het meetniveau is nominaal.
 
-### Oef - 2.9 Inbraken per maand - Meetniveau
+### Oef - 2.10 Inbraken per maand - Meetniveau
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.9 Onderzoeksvraag classificatie - Inbraken per maand`
 
@@ -481,7 +481,7 @@ meetniveau <-
 
   - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
 
-### Oef - 2.10 Recidive en leeftijd - Type onderzoeksvraag
+### Oef - 2.11 Recidive en leeftijd - Type onderzoeksvraag
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.10 Onderzoeksvraag classificatie - Recidive en leeftijd`
 
@@ -531,7 +531,7 @@ type_onderzoeksvraag <-
 
   - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
 
-### Oef - 2.11 Onveiligheidsgevoel - Meetniveau van een percentage
+### Oef - 2.12 Onveiligheidsgevoel - Meetniveau van een percentage
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.11 Onderzoeksvraag classificatie - Onveiligheidsgevoel percentage`
 
@@ -581,7 +581,7 @@ meetniveau <-
 
   - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
 
-### Oef - 2.12 Recidive en geslacht - Afhankelijke variabele
+### Oef - 2.13 Recidive en geslacht - Afhankelijke variabele
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.12 Onderzoeksvraag classificatie - Recidive verschil geslacht`
 
@@ -631,7 +631,7 @@ afhankelijke_variabele <-
 
   - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
 
-### Oef - 2.13 Cameratoezicht - Onderzoeksopzet herkennen
+### Oef - 2.14 Cameratoezicht - Onderzoeksopzet herkennen
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.13 Onderzoeksvraag classificatie - Cameratoezicht geweldsdelicten`
 
@@ -681,7 +681,7 @@ onderzoeksopzet <-
 
   - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
 
-### Oef - 2.14 Politiedichtheid en diefstallen - Variabelentype
+### Oef - 2.15 Politiedichtheid en diefstallen - Variabelentype
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.14 Onderzoeksvraag classificatie - Politie dichtheid diefstallen`
 
@@ -731,7 +731,7 @@ variabelentype <-
 
   - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
 
-### Oef - 2.15 Leeftijd geweldsdaders - Type onderzoeksvraag
+### Oef - 2.16 Leeftijd geweldsdaders - Type onderzoeksvraag
 
 Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.15 Onderzoeksvraag classificatie - Gemiddelde leeftijd geweldsdaders`
 

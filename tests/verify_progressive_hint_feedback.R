@@ -134,9 +134,9 @@ if (any(chapter1_targets)) {
   stop("Simple Chapter 1 exercises must not enter the grouped progressive-feedback set.")
 }
 
-if (length(targets) != 35L) {
+if (length(targets) != 21L) {
   stop(sprintf(
-    "Expected 35 grouped multi-answer evaluators with 3-5 named answers, found %d.",
+    "Expected 21 retained multi-answer evaluators with 3-5 named answers, found %d.",
     length(targets)
   ))
 }
@@ -180,8 +180,8 @@ for (file in names(targets)) {
   routes <- routes + 1L
 }
 
-if (routes != 198L) {
-  stop(sprintf("Expected 198 grouped progressive-feedback routes, found %d.", routes))
+if (routes != 117L) {
+  stop(sprintf("Expected 117 retained progressive-feedback routes, found %d.", routes))
 }
 
 cat(sprintf(

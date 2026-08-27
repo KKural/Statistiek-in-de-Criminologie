@@ -86,7 +86,7 @@ Bronmap: `Hoofdstuk_4_Een inleiding in kansrekeren/Oef - 4.4 Woninginbraak of ge
 Kopieerbare boilerplate:
 
 ```r
-# Vervang beide ??? door je antwoord.
+# Vul beide lege plaatsen in.
 # Geef proporties met twee decimalen, met een punt en zonder procentteken.
 
 # 1) P(woninginbraak of geweldsmisdrijf)
