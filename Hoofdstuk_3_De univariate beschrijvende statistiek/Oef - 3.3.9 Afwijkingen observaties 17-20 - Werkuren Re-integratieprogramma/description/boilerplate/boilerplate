@@ -1,8 +1,0 @@
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
-              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-posities <- 17:20
-
-# Eén afwijking en één kwadraat per geselecteerde observatie.
-afwijkingen <- c( , , , )
-gekwadrateerde_afwijkingen <- c( , , , )

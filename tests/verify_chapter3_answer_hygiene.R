@@ -173,6 +173,38 @@ for (path in part_dirs) {
   }
 }
 
+# The redesigned mini-exercises must remain concept-focused rather than split
+# one long table into arbitrary value or observation ranges.
+mini_exercise_dirs <- c(
+  exercise_dir("3.1"), exercise_dir("3.2"),
+  exercise_dir("3.5"), exercise_dir("3.6"), exercise_dir("3.7"),
+  exercise_dir("3.8"), exercise_dir("3.9"),
+  exercise_dir("4.1"), exercise_dir("4.2"), exercise_dir("4.3"),
+  exercise_dir("4.5"), exercise_dir("4.6"), exercise_dir("4.7")
+)
+for (path in mini_exercise_dirs) {
+  description <- read_text(file.path(path, "description", "description.nl.md"))
+  boilerplate <- read_text(file.path(path, "description", "boilerplate", "boilerplate"))
+  config <- read_text(file.path(path, "config.json"))
+  visible_text <- paste(config, description)
+  if (!grepl("**Leerdoel:**", description, fixed = TRUE)) {
+    stop("Redesigned mini-exercise has no explicit learning objective: ", basename(path))
+  }
+  if (grepl("observaties [0-9]+-[0-9]+|\\([0-9]+-[0-9]+ (?:uur|dagen)\\)",
+            visible_text, ignore.case = TRUE, perl = TRUE)) {
+    stop("Redesigned mini-exercise still exposes an arbitrary data chunk: ", basename(path))
+  }
+  assignments <- Filter(
+    Negate(is.null),
+    lapply(strsplit(boilerplate, "\n", fixed = TRUE)[[1L]], parse_assignment_line)
+  )
+  slots <- Filter(Negate(is.null), lapply(assignments, slot_from_assignment))
+  submitted_values <- sum(vapply(slots, `[[`, integer(1), "count"))
+  if (submitted_values > 3L) {
+    stop("Redesigned mini-exercise asks for more than three answers: ", basename(path))
+  }
+}
+
 # Existing neighbouring exercises retain their answer-hygiene protections.
 visible_31 <- paste(
   read_text(file.path(exercise_dir("1"), "description", "description.nl.md")),
@@ -237,27 +269,17 @@ all_33_text <- paste(vapply(part_dirs[5:14], function(path) {
 if (!grepl("ratio", all_33_text, ignore.case = TRUE)) stop("Exercise 3.3 must identify work hours as ratio data.")
 if (!grepl("Tukey-hinges", all_33_text, fixed = TRUE)) stop("Exercise 3.3 must state the quartile convention.")
 
-hours <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-
 run_33a <- load_evaluator(file.path(exercise_dir("3.1"), "evaluation", "Answer.R"))
-correct_33a <- list(
-  frequenties = c(3, 2, 2, 1),
-  percentages = c(15, 10, 10, 5)
-)
+correct_33a <- list(frequentie_32 = 3)
 expect_score(run_33a, correct_33a, TRUE, "3.3.1 correct", "Bevestiging")
-wrong_33a <- correct_33a
-wrong_33a$frequenties[1] <- 2
-expect_score(run_33a, wrong_33a, FALSE, "3.3.1 frequency route", "telling voor 24 uur")
+expect_score(run_33a, list(frequentie_32 = 32), FALSE,
+             "3.3.1 copied-value route", "waarde zelf overgenomen")
 
 run_33a2 <- load_evaluator(file.path(exercise_dir("3.2"), "evaluation", "Answer.R"))
-correct_33a2 <- list(
-  frequenties = c(1, 7, 1, 3),
-  percentages = c(5, 35, 5, 15)
-)
+correct_33a2 <- list(proportie_32 = 0.375, percentage_32 = 37.5)
 expect_score(run_33a2, correct_33a2, TRUE, "3.3.2 correct", "Bevestiging")
-wrong_33a2 <- correct_33a2
-wrong_33a2$percentages <- wrong_33a2$percentages / 100
-expect_score(run_33a2, wrong_33a2, FALSE, "3.3.2 proportion route", "proporties tussen 0 en 1")
+expect_score(run_33a2, list(proportie_32 = 37.5, percentage_32 = 0.375), FALSE,
+             "3.3.2 swapped scales route", "proportie en het percentage verwisseld")
 
 run_33b <- load_evaluator(file.path(exercise_dir("3.3"), "evaluation", "Answer.R"))
 correct_33b <- list(
@@ -285,40 +307,37 @@ wrong_33c <- list(
 expect_score(run_33c, wrong_33c, FALSE, "3.3.4 robust-route mismatch", "problematische uitbijter")
 
 run_33d <- load_evaluator(file.path(exercise_dir("3.5"), "evaluation", "Answer.R"))
-correct_33d <- list(
-  afwijkingen = round(hours[1:4] - mean(hours), 4),
-  gekwadrateerde_afwijkingen = round((hours[1:4] - mean(hours))^2, 4)
-)
+correct_33d <- list(gemiddelde = 24, afwijking_20 = -4)
 expect_score(run_33d, correct_33d, TRUE, "3.3.5 correct", "Bevestiging")
 wrong_33d <- correct_33d
-wrong_33d$afwijkingen <- abs(wrong_33d$afwijkingen)
-expect_score(run_33d, wrong_33d, FALSE, "3.3.5 absolute-deviation route", "absolute afstanden")
-expect_feedback_absent(run_33d, c("-9.5500", "91.2025", "juiste antwoord"), "3.3.5 leak guard")
+wrong_33d$afwijking_20 <- 4
+expect_score(run_33d, wrong_33d, FALSE, "3.3.5 absolute-deviation route", "absolute afstand")
+expect_feedback_absent(run_33d, c("afwijking is -4", "juiste antwoord"), "3.3.5 leak guard")
 
-deviation_parts_33 <- list(
-  "3.6" = 5:8,
-  "3.7" = 9:12,
-  "3.8" = 13:16,
-  "3.9" = 17:20
-)
-for (part in names(deviation_parts_33)) {
-  positions <- deviation_parts_33[[part]]
-  run <- load_evaluator(file.path(exercise_dir(part), "evaluation", "Answer.R"))
-  correct <- list(
-    afwijkingen = round(hours[positions] - mean(hours), 4),
-    gekwadrateerde_afwijkingen = round((hours[positions] - mean(hours))^2, 4)
-  )
-  expect_score(run, correct, TRUE, paste0("3.", part, " correct"), "Bevestiging")
-}
+run_33d2 <- load_evaluator(file.path(exercise_dir("3.6"), "evaluation", "Answer.R"))
+expect_score(run_33d2, list(teken_afwijking = 1), TRUE, "3.3.6 correct", "Bevestiging")
+expect_score(run_33d2, list(teken_afwijking = 3), FALSE,
+             "3.3.6 reversed subtraction route", "gemiddelde min waarneming")
 
-run_33d3_wrong <- load_evaluator(file.path(exercise_dir("3.7"), "evaluation", "Answer.R"))
-wrong_33d3 <- list(
-  afwijkingen = round(hours[9:12] - mean(hours), 4),
-  gekwadrateerde_afwijkingen = round((hours[9:12] - mean(hours))^2, 4)
-)
-wrong_33d3$gekwadrateerde_afwijkingen[1] <- -wrong_33d3$gekwadrateerde_afwijkingen[1]
-expect_score(run_33d3_wrong, wrong_33d3, FALSE, "3.3.7 negative-square route", "nooit negatief")
-expect_feedback_absent(run_33d3_wrong, c("2.4025", "juiste kwadraat"), "3.3.7 leak guard")
+run_33d3 <- load_evaluator(file.path(exercise_dir("3.7"), "evaluation", "Answer.R"))
+correct_33d3 <- list(afwijking_26 = -4, gekwadrateerde_afwijking_26 = 16)
+expect_score(run_33d3, correct_33d3, TRUE, "3.3.7 correct", "Bevestiging")
+wrong_33d3 <- correct_33d3
+wrong_33d3$gekwadrateerde_afwijking_26 <- -16
+expect_score(run_33d3, wrong_33d3, FALSE, "3.3.7 negative-square route", "nooit negatief")
+
+run_33d4 <- load_evaluator(file.path(exercise_dir("3.8"), "evaluation", "Answer.R"))
+expect_score(run_33d4, list(reden_kwadrateren = 2), TRUE, "3.3.8 correct", "Bevestiging")
+expect_score(run_33d4, list(reden_kwadrateren = 3), FALSE,
+             "3.3.8 zero-sum confusion route", "nul-som")
+
+run_33d5 <- load_evaluator(file.path(exercise_dir("3.9"), "evaluation", "Answer.R"))
+correct_33d5 <- list(ontbrekende_afwijking = 2, som_afwijkingen = 0)
+expect_score(run_33d5, correct_33d5, TRUE, "3.3.9 correct", "Bevestiging")
+wrong_33d5 <- correct_33d5
+wrong_33d5$ontbrekende_afwijking <- -2
+expect_score(run_33d5, wrong_33d5, FALSE,
+             "3.3.9 reversed subtraction route", "gemiddelde min waarneming")
 
 run_33e <- load_evaluator(file.path(exercise_dir("3.10"), "evaluation", "Answer.R"))
 correct_33e <- list(
@@ -333,35 +352,29 @@ wrong_33e$variantie <- 26.4475
 expect_score(run_33e, wrong_33e, FALSE, "3.3.10 population variance route", "populatievariantie")
 expect_feedback_absent(run_33e, c("27.8395", "gevraagde eindantwoord"), "3.3.10 leak guard")
 
-# Exercise 3.4: eight parts and unrounded intermediate calculations.
-durations <- c(240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657)
-
+# Exercise 3.4: eight parts, including short concept checks and a final application.
 run_34a <- load_evaluator(file.path(exercise_dir("4.1"), "evaluation", "Answer.R"))
-correct_34a <- list(
-  frequenties = c(1, 1, 1, 1),
-  percentages = c(9.09, 9.09, 9.09, 9.09)
-)
+correct_34a <- list(frequentie_60 = 2)
 expect_score(run_34a, correct_34a, TRUE, "3.4.1 correct", "Bevestiging")
-wrong_34a <- correct_34a
-wrong_34a$frequenties[1] <- 2
-expect_score(run_34a, wrong_34a, FALSE, "3.4.1 frequency route", "telling van 2 dagen")
+expect_score(run_34a, list(frequentie_60 = 60), FALSE,
+             "3.4.1 copied-value route", "duur zelf ingevuld")
 
 run_34a2 <- load_evaluator(file.path(exercise_dir("4.2"), "evaluation", "Answer.R"))
-correct_34a2 <- list(
-  frequenties = c(1, 1, 1),
-  percentages = c(9.09, 9.09, 9.09)
-)
+correct_34a2 <- list(relatieve_frequentie_120 = 0.33, percentage_120 = 33.33)
 expect_score(run_34a2, correct_34a2, TRUE, "3.4.2 correct", "Bevestiging")
+expect_score(run_34a2, list(relatieve_frequentie_120 = 33.33, percentage_120 = 0.33), FALSE,
+             "3.4.2 swapped scales route", "relatieve frequentie en het percentage verwisseld")
+expect_score(run_34a2, list(relatieve_frequentie_120 = 0.33, percentage_120 = 33), FALSE,
+             "3.4.2 premature rounding route", "afgeronde relatieve frequentie")
 
 run_34a3 <- load_evaluator(file.path(exercise_dir("4.3"), "evaluation", "Answer.R"))
-correct_34a3 <- list(
-  frequenties = c(2, 1, 1),
-  percentages = c(18.18, 9.09, 9.09)
-)
+correct_34a3 <- list(cumulatieve_frequentie_90 = 4, cumulatief_percentage_90 = 66.67)
 expect_score(run_34a3, correct_34a3, TRUE, "3.4.3 correct", "Bevestiging")
 wrong_34a3 <- correct_34a3
-wrong_34a3$frequenties[1] <- 1
-expect_score(run_34a3, wrong_34a3, FALSE, "3.4.3 duplicate-value route", "telling van 150 dagen")
+wrong_34a3$cumulatieve_frequentie_90 <- 1
+expect_score(run_34a3, wrong_34a3, FALSE, "3.4.3 non-cumulative route", "gewone frequentie")
+expect_score(run_34a3, list(cumulatieve_frequentie_90 = 4, cumulatief_percentage_90 = 67), FALSE,
+             "3.4.3 premature rounding route", "afgeronde proportie")
 
 run_34b <- load_evaluator(file.path(exercise_dir("4.4"), "evaluation", "Answer.R"))
 correct_34b <- list(
@@ -375,33 +388,32 @@ expect_score(run_34b, wrong_34b, FALSE, "3.4.4 median-as-mean route", "mediaan i
 expect_feedback_absent(run_34b, c("238.91", "gevraagde eindantwoord"), "3.4.4 leak guard")
 
 run_34c <- load_evaluator(file.path(exercise_dir("4.5"), "evaluation", "Answer.R"))
-exact_mean_34 <- sum(durations) / length(durations)
-correct_34c <- list(
-  afwijkingen = round(durations[1:4] - exact_mean_34, 2),
-  gekwadrateerde_afwijkingen = round((durations[1:4] - exact_mean_34)^2, 2)
-)
+correct_34c <- list(gemiddelde = 120, mediaan = 50, beste_centraliteitsmaat = "mediaan")
 expect_score(run_34c, correct_34c, TRUE, "3.4.5 correct", "Bevestiging")
 wrong_34c <- correct_34c
-wrong_34c$gekwadrateerde_afwijkingen <- round(wrong_34c$afwijkingen^2, 2)
-expect_score(run_34c, wrong_34c, FALSE, "3.4.5 rounded-deviation square route", "afgeronde afwijkingen gekwadrateerd")
-expect_feedback_absent(run_34c, c("1.19", "9007.74", "juiste kwadraat"), "3.4.5 leak guard")
+wrong_34c$beste_centraliteitsmaat <- "gemiddelde"
+expect_score(run_34c, wrong_34c, FALSE, "3.4.5 outlier route", "sterke uitbijter")
+expect_feedback_absent(run_34c, c("gemiddelde is 120", "juiste antwoord"), "3.4.5 leak guard")
 
 run_34c2 <- load_evaluator(file.path(exercise_dir("4.6"), "evaluation", "Answer.R"))
-correct_34c2 <- list(
-  afwijkingen = round(durations[5:8] - exact_mean_34, 2),
-  gekwadrateerde_afwijkingen = round((durations[5:8] - exact_mean_34)^2, 2)
-)
+correct_34c2 <- list(gemiddelde = 30, afwijking_20 = -10, gekwadrateerde_afwijking_20 = 100)
 expect_score(run_34c2, correct_34c2, TRUE, "3.4.6 correct", "Bevestiging")
+wrong_34c2 <- correct_34c2
+wrong_34c2$gekwadrateerde_afwijking_20 <- -100
+expect_score(run_34c2, wrong_34c2, FALSE, "3.4.6 negative-square route", "niet negatief")
 
 run_34c3 <- load_evaluator(file.path(exercise_dir("4.7"), "evaluation", "Answer.R"))
-correct_34c3 <- list(
-  afwijkingen = round(durations[9:11] - exact_mean_34, 2),
-  gekwadrateerde_afwijkingen = round((durations[9:11] - exact_mean_34)^2, 2)
-)
+correct_34c3 <- list(kwadraat_20 = 400, kwadraat_100 = 3600, grootste_bijdrage = 2)
 expect_score(run_34c3, correct_34c3, TRUE, "3.4.7 correct", "Bevestiging")
 wrong_34c3 <- correct_34c3
-wrong_34c3$gekwadrateerde_afwijkingen[3] <- -wrong_34c3$gekwadrateerde_afwijkingen[3]
-expect_score(run_34c3, wrong_34c3, FALSE, "3.4.7 negative-square route", "nooit negatief")
+wrong_34c3$grootste_bijdrage <- 1
+expect_score(run_34c3, wrong_34c3, FALSE, "3.4.7 distance route", "laagste waarneming")
+
+for (part in c("3.1", "3.2", "3.5", "3.6", "3.7", "3.8", "3.9",
+               "4.1", "4.2", "4.3", "4.5", "4.6", "4.7")) {
+  run <- load_evaluator(file.path(exercise_dir(part), "evaluation", "Answer.R"))
+  expect_score(run, list(), FALSE, paste0("3.", part, " missing route"), "ontbreekt")
+}
 
 run_34d <- load_evaluator(file.path(exercise_dir("4.8"), "evaluation", "Answer.R"))
 correct_34d <- list(
@@ -432,4 +444,4 @@ population_35$variantie_incidenten <- 6.67
 population_35$standaarddeviatie_incidenten <- 2.58
 expect_score(run_35, population_35, FALSE, "3.5 population denominator")
 
-cat("Chapter 3 split-activity and answer-hygiene verification passed.\n")
+cat("Chapter 3 concept-focused mini-exercise and answer-hygiene verification passed.\n")

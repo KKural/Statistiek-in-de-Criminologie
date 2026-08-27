@@ -1,7 +1,0 @@
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-huwelijksduren <- c(240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657)
-waarden <- c(2, 14, 26, 30)
-
-# Eén frequentie en één percentage per waarde, in de volgorde van `waarden`.
-frequenties <- c( , , , )
-percentages <- c( , , , )

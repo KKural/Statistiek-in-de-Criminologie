@@ -855,61 +855,50 @@ ika <- "ontevreden tot tevreden"
 - Foute testinvoer: `meest_relevante_centraliteit <- "gemiddelde"`
   - Misvatting: **Waarschijnlijke redenering:** Je hebt categorieposities behandeld alsof de afstanden ertussen exact gelijk zijn.
 
-### Oef - 3.3.1 Werkuren - Frequenties en percentages (24-34 uur)
+### Oef - 3.3.1 Werkuren - Absolute frequentie
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.1 Frequenties en percentages 24-34 uur - Werkuren Re-integratieprogramma`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
-              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-waarden <- c(24, 28, 32, 34)
-
-# Eén frequentie en één percentage per waarde, in de volgorde van `waarden`.
-frequenties <- c(3, 2, 2, 1)
-percentages <- c(15, 10, 10, 5)
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer: `frequenties <- c(15, 10, 10, 5)`
-  - Misvatting: **Waarschijnlijke redenering:** De telling voor 24 uur wijkt af.
-- Foute testinvoer: `percentages <- c(3, 2, 2, 1)`
-  - Misvatting: **Waarschijnlijke redenering:** De percentageberekening of afronding voor 24 uur wijkt af.
-- Foute testinvoer: `percentages <- c(0.15, 0.1, 0.1, 0.05)`
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt proporties tussen 0 en 1 ingevuld in plaats van percentages.
-
-### Oef - 3.3.2 Werkuren - Frequenties en percentages (35-40 uur)
-
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.2 Frequenties en percentages 35-40 uur - Werkuren Re-integratieprogramma`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.1 Absolute frequentie - Werkuren`
 
 #### Correcte inzending
 
 Kopieerbare boilerplate:
 
 ```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
-              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-waarden <- c(35, 36, 38, 40)
-
-# Eén frequentie en één percentage per waarde, in de volgorde van `waarden`.
-frequenties <- c(1, 7, 1, 3)
-percentages <- c(5, 35, 5, 15)
+# Vul het getal in na <-.
+frequentie_32 <- 3
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `frequenties <- c(5, 35, 5, 15)`
-  - Misvatting: **Waarschijnlijke redenering:** De telling voor 35 uur wijkt af.
-- Foute testinvoer: `percentages <- c(1, 7, 1, 3)`
-  - Misvatting: **Waarschijnlijke redenering:** De percentageberekening of afronding voor 35 uur wijkt af.
-- Foute testinvoer: `percentages <- c(0.05, 0.35, 0.05, 0.15)`
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt proporties tussen 0 en 1 ingevuld in plaats van percentages.
+- Foute testinvoer: `frequentie_32 <- 32`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de gezochte waarde zelf overgenomen in plaats van haar voorkomens te tellen.
+- Foute testinvoer: `frequentie_32 <- 0.375`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt een relatieve frequentie ingevuld terwijl een geheel aantal voorkomens wordt gevraagd.
+- Foute testinvoer: `frequentie_32 <- 2`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt een voorkomen gemist of een andere waarde geteld.
+
+### Oef - 3.3.2 Werkuren - Van frequentie naar percentage
+
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.2 Van frequentie naar percentage - Werkuren`
+
+#### Correcte inzending
+
+Kopieerbare boilerplate:
+
+```r
+# Vul de getallen in na <-.
+proportie_32 <- 0.375
+percentage_32 <- 37.5
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer: `proportie_32 <- 37.5`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de proportie en het percentage verwisseld.
+- Foute testinvoer: `proportie_32 <- 3`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de absolute frequentie laten staan zonder door het totaal te delen.
+- Foute testinvoer: `percentage_32 <- 0.375`
+  - Misvatting: **Waarschijnlijke redenering:** de proportie klopt, maar je hebt haar niet met 100 omgezet naar een percentage.
 
 ### Oef - 3.3.3 Werkuren - Centraliteit en spreiding
 
@@ -971,136 +960,120 @@ reden <- "gebruikt alle informatie"
 - Foute testinvoer: `meest_relevante_centraliteit <- ""`
   - Misvatting: **Waarschijnlijke redenering:** Minstens één keuzeveld is leeg, `NA` of gebruikt niet exact een aangeboden term.
 
-### Oef - 3.3.5 Werkuren - Afwijkingen observaties 1-4
+### Oef - 3.3.5 Werkuren - Getekende afwijking
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.5 Afwijkingen observaties 1-4 - Werkuren Re-integratieprogramma`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
-              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-posities <- 1:4
-
-# Eén afwijking en één kwadraat per geselecteerde observatie.
-afwijkingen <- c(-9.55, 2.45, 1.45, -5.55)
-gekwadrateerde_afwijkingen <- c(91.2025, 6.0025, 2.1025, 30.8025)
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer: `afwijkingen <- c(-5.55, 1.45, 2.45, -9.55)`
-  - Misvatting: **Waarschijnlijke redenering:** De afwijking voor de 1e geselecteerde observatie gebruikt waarschijnlijk een verkeerd gemiddelde, teken of volgorde.
-- Foute testinvoer: `gekwadrateerde_afwijkingen <- c(30.8025, 2.1025, 6.0025, 91.2025)`
-  - Misvatting: **Waarschijnlijke redenering:** Het kwadrateren of afronden wijkt voor het eerst af bij de 1e geselecteerde observatie.
-
-### Oef - 3.3.6 Werkuren - Afwijkingen observaties 5-8
-
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.6 Afwijkingen observaties 5-8 - Werkuren Re-integratieprogramma`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.5 Getekende afwijking - Werkuren`
 
 #### Correcte inzending
 
 Kopieerbare boilerplate:
 
 ```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
-              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-posities <- 5:8
-
-# Eén afwijking en één kwadraat per geselecteerde observatie.
-afwijkingen <- c(-9.55, -5.55, -9.55, 2.45)
-gekwadrateerde_afwijkingen <- c(91.2025, 30.8025, 91.2025, 6.0025)
+# Vul de getallen in na <-.
+gemiddelde <- 24
+afwijking_20 <- -4
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `afwijkingen <- c(2.45, -9.55, -5.55, -9.55)`
-  - Misvatting: **Waarschijnlijke redenering:** De afwijking voor de 1e geselecteerde observatie gebruikt waarschijnlijk een verkeerd gemiddelde, teken of volgorde.
-- Foute testinvoer: `gekwadrateerde_afwijkingen <- c(6.0025, 91.2025, 30.8025, 91.2025)`
-  - Misvatting: **Waarschijnlijke redenering:** Het kwadrateren of afronden wijkt voor het eerst af bij de 1e geselecteerde observatie.
+- Foute testinvoer: `afwijking_20 <- 4`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de absolute afstand genomen of de aftrekking omgekeerd.
+- Foute testinvoer: `afwijking_20 <- 20`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de ruwe waarneming ingevuld in plaats van waarneming min gemiddelde.
+- Foute testinvoer: `gemiddelde <- 72`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de som gebruikt zonder door het aantal waarnemingen te delen.
 
-### Oef - 3.3.7 Werkuren - Afwijkingen observaties 9-12
+### Oef - 3.3.6 Werkuren - Teken van een afwijking
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.7 Afwijkingen observaties 9-12 - Werkuren Re-integratieprogramma`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.6 Teken van een afwijking - Werkuren`
 
 #### Correcte inzending
 
 Kopieerbare boilerplate:
 
 ```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
-              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-posities <- 9:12
-
-# Eén afwijking en één kwadraat per geselecteerde observatie.
-afwijkingen <- c(-1.55, 2.45, 6.45, 4.45)
-gekwadrateerde_afwijkingen <- c(2.4025, 6.0025, 41.6025, 19.8025)
+# Kies 1 (positief), 2 (nul) of 3 (negatief).
+teken_afwijking <- 1
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `afwijkingen <- c(4.45, 6.45, 2.45, -1.55)`
-  - Misvatting: **Waarschijnlijke redenering:** De afwijking voor de 1e geselecteerde observatie gebruikt waarschijnlijk een verkeerd gemiddelde, teken of volgorde.
-- Foute testinvoer: `gekwadrateerde_afwijkingen <- c(19.8025, 41.6025, 6.0025, 2.4025)`
-  - Misvatting: **Waarschijnlijke redenering:** Het kwadrateren of afronden wijkt voor het eerst af bij de 1e geselecteerde observatie.
+- Foute testinvoer: `teken_afwijking <- 2`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de afwijking als nul beschouwd, terwijl waarneming en gemiddelde niet gelijk zijn.
+- Foute testinvoer: `teken_afwijking <- 3`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt gemiddelde min waarneming gebruikt in plaats van waarneming min gemiddelde.
+- Foute testinvoer: `teken_afwijking <- 4`
+  - Misvatting: de invoer verwijst niet naar één van de drie aangeboden tekens.
 
-### Oef - 3.3.8 Werkuren - Afwijkingen observaties 13-16
+### Oef - 3.3.7 Werkuren - Afwijking kwadrateren
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.8 Afwijkingen observaties 13-16 - Werkuren Re-integratieprogramma`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.7 Afwijking kwadrateren - Werkuren`
 
 #### Correcte inzending
 
 Kopieerbare boilerplate:
 
 ```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
-              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-posities <- 13:16
-
-# Eén afwijking en één kwadraat per geselecteerde observatie.
-afwijkingen <- c(2.45, 0.45, 6.45, 2.45)
-gekwadrateerde_afwijkingen <- c(6.0025, 0.2025, 41.6025, 6.0025)
+# Vul de getallen in na <-.
+afwijking_26 <- -4
+gekwadrateerde_afwijking_26 <- 16
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `afwijkingen <- c(2.45, 6.45, 0.45, 2.45)`
-  - Misvatting: **Waarschijnlijke redenering:** De afwijking voor de 2e geselecteerde observatie gebruikt waarschijnlijk een verkeerd gemiddelde, teken of volgorde.
-- Foute testinvoer: `gekwadrateerde_afwijkingen <- c(6.0025, 41.6025, 0.2025, 6.0025)`
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt absolute afstanden gebruikt en tekens onder het gemiddelde verwijderd.
+- Foute testinvoer: `gekwadrateerde_afwijking_26 <- -16`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt het minteken buiten het kwadraat laten staan; een kwadraat kan niet negatief zijn.
+- Foute testinvoer: `afwijking_26 <- 4`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de afwijking als absolute afstand behandeld en het teken verloren.
+- Foute testinvoer: `gekwadrateerde_afwijking_26 <- 4`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de grootte van de afwijking gekopieerd zonder haar met zichzelf te vermenigvuldigen.
 
-### Oef - 3.3.9 Werkuren - Afwijkingen observaties 17-20
+### Oef - 3.3.8 Werkuren - Waarom afwijkingen kwadrateren
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.9 Afwijkingen observaties 17-20 - Werkuren Re-integratieprogramma`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.8 Waarom afwijkingen kwadrateren - Werkuren`
 
 #### Correcte inzending
 
 Kopieerbare boilerplate:
 
 ```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-werkuren <- c(24, 36, 35, 28, 24, 28, 24, 36, 32, 36,
-              40, 38, 36, 34, 40, 36, 32, 36, 40, 36)
-posities <- 17:20
-
-# Eén afwijking en één kwadraat per geselecteerde observatie.
-afwijkingen <- c(-1.55, 2.45, 6.45, 2.45)
-gekwadrateerde_afwijkingen <- c(2.4025, 6.0025, 41.6025, 6.0025)
+# Kies 1, 2, 3 of 4.
+reden_kwadrateren <- 2
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `afwijkingen <- c(2.45, 6.45, 2.45, -1.55)`
-  - Misvatting: **Waarschijnlijke redenering:** De afwijking voor de 1e geselecteerde observatie gebruikt waarschijnlijk een verkeerd gemiddelde, teken of volgorde.
-- Foute testinvoer: `gekwadrateerde_afwijkingen <- c(6.0025, 41.6025, 6.0025, 2.4025)`
-  - Misvatting: **Waarschijnlijke redenering:** Het kwadrateren of afronden wijkt voor het eerst af bij de 1e geselecteerde observatie.
+- Foute testinvoer: `reden_kwadrateren <- 1`
+  - Misvatting: **Waarschijnlijke redenering:** je denkt dat kwadrateren waarden altijd kleiner maakt.
+- Foute testinvoer: `reden_kwadrateren <- 3`
+  - Misvatting: **Waarschijnlijke redenering:** je verwart de nul-som van gewone afwijkingen met het doel van kwadrateren.
+- Foute testinvoer: `reden_kwadrateren <- 4`
+  - Misvatting: **Waarschijnlijke redenering:** je koppelt een rekenbewerking ten onrechte aan een verandering van meetniveau.
+- Foute testinvoer: `reden_kwadrateren <- 5`
+  - Misvatting: de invoer verwijst niet naar één van de vier aangeboden verklaringen.
 
+### Oef - 3.3.9 Werkuren - Som van de afwijkingen
+
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.9 Som van de afwijkingen - Werkuren`
+
+#### Correcte inzending
+
+Kopieerbare boilerplate:
+
+```r
+# Vul de getallen in na <-.
+ontbrekende_afwijking <- 2
+som_afwijkingen <- 0
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer: `ontbrekende_afwijking <- -2`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt gemiddelde min waarneming gebruikt voor de laatste waarde.
+- Foute testinvoer: `som_afwijkingen <- 4`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt absolute afstanden opgeteld en het negatieve teken verwijderd.
+- Foute testinvoer: `som_afwijkingen <- 2`
+  - Misvatting: **Waarschijnlijke redenering:** de ontbrekende afwijking klopt, maar de optelling van tegengestelde tekens niet.
 ### Oef - 3.3.10 Werkuren - Variantie en relatieve spreiding
 
 Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.10 Variantie en standaardafwijking - Werkuren Re-integratieprogramma`
@@ -1131,86 +1104,79 @@ variatiecoefficient <- 0.1573
 - Foute testinvoer: `variatiecoefficient <- 15.73`
   - Misvatting: **Waarschijnlijke redenering:** Je hebt de variatiecoëfficiënt als percentage genoteerd.
 
-### Oef - 3.4.1 Huwelijksduur - Frequenties en percentages (2-30 dagen)
+### Oef - 3.4.1 Huwelijksduur - Absolute frequentie
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.1 Frequenties en percentages 2-30 dagen - Beroemde huwelijken`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-huwelijksduren <- c(240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657)
-waarden <- c(2, 14, 26, 30)
-
-# Eén frequentie en één percentage per waarde, in de volgorde van `waarden`.
-frequenties <- c(1, 1, 1, 1)
-percentages <- c(9.09, 9.09, 9.09, 9.09)
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer: `frequenties <- c(9.09, 9.09, 9.09, 9.09)`
-  - Misvatting: **Waarschijnlijke redenering:** De telling van 2 dagen wijkt af.
-- Foute testinvoer: `percentages <- c(1, 1, 1, 1)`
-  - Misvatting: **Waarschijnlijke redenering:** De percentageberekening of afronding voor 2 dagen wijkt af.
-- Foute testinvoer: `percentages <- c(0.0909, 0.0909, 0.0909, 0.0909)`
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt proporties tussen 0 en 1 ingevuld in plaats van percentages.
-
-### Oef - 3.4.2 Huwelijksduur - Frequenties en percentages (72-144 dagen)
-
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.2 Frequenties en percentages 72-144 dagen - Beroemde huwelijken`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.1 Absolute frequentie - Huwelijksduur`
 
 #### Correcte inzending
 
 Kopieerbare boilerplate:
 
 ```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-huwelijksduren <- c(240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657)
-waarden <- c(72, 143, 144)
-
-# Eén frequentie en één percentage per waarde, in de volgorde van `waarden`.
-frequenties <- c(1, 1, 1)
-percentages <- c(9.09, 9.09, 9.09)
+# Vul het getal in na <-.
+frequentie_60 <- 2
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `frequenties <- c(9.09, 9.09, 9.09)`
-  - Misvatting: **Waarschijnlijke redenering:** De telling van 72 dagen wijkt af.
-- Foute testinvoer: `percentages <- c(1, 1, 1)`
-  - Misvatting: **Waarschijnlijke redenering:** De percentageberekening of afronding voor 72 dagen wijkt af.
-- Foute testinvoer: `percentages <- c(0.0909, 0.0909, 0.0909)`
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt proporties tussen 0 en 1 ingevuld in plaats van percentages.
+- Foute testinvoer: `frequentie_60 <- 60`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de duur zelf ingevuld in plaats van het aantal voorkomens.
+- Foute testinvoer: `frequentie_60 <- 0.33`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt een relatieve frequentie ingevuld terwijl een absoluut aantal wordt gevraagd.
+- Foute testinvoer: `frequentie_60 <- 1`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt één voorkomen gemist of een andere duur geteld.
 
-### Oef - 3.4.3 Huwelijksduur - Frequenties en percentages (150-1657 dagen)
+### Oef - 3.4.2 Huwelijksduur - Relatieve frequentie en percentage
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.3 Frequenties en percentages 150-1657 dagen - Beroemde huwelijken`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.2 Relatieve frequentie en percentage - Huwelijksduur`
 
 #### Correcte inzending
 
 Kopieerbare boilerplate:
 
 ```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-huwelijksduren <- c(240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657)
-waarden <- c(150, 240, 1657)
-
-# Eén frequentie en één percentage per waarde, in de volgorde van `waarden`.
-frequenties <- c(2, 1, 1)
-percentages <- c(18.18, 9.09, 9.09)
+# Vul de getallen in na <-.
+relatieve_frequentie_120 <- 0.33
+percentage_120 <- 33.33
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `frequenties <- c(18.18, 9.09, 9.09)`
-  - Misvatting: **Waarschijnlijke redenering:** De telling van 150 dagen wijkt af.
-- Foute testinvoer: `percentages <- c(2, 1, 1)`
-  - Misvatting: **Waarschijnlijke redenering:** De percentageberekening of afronding voor 150 dagen wijkt af.
-- Foute testinvoer: `percentages <- c(0.1818, 0.0909, 0.0909)`
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt proporties tussen 0 en 1 ingevuld in plaats van percentages.
+- Foute testinvoer: `relatieve_frequentie_120 <- 33.33`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de relatieve frequentie en het percentage verwisseld.
+- Foute testinvoer: `relatieve_frequentie_120 <- 2`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de absolute frequentie ingevuld zonder door het totaal te delen.
+- Foute testinvoer: `percentage_120 <- 0.33`
+  - Misvatting: **Waarschijnlijke redenering:** de relatieve frequentie klopt, maar je hebt de percentageschaal niet toegepast.
+- Foute testinvoer: `percentage_120 <- 33`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de afgeronde relatieve frequentie als tussenwaarde gebruikt in plaats van pas het eindantwoord af te ronden.
+
+### Oef - 3.4.3 Huwelijksduur - Cumulatieve frequentie
+
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.3 Cumulatieve frequentie - Huwelijksduur`
+
+#### Correcte inzending
+
+Kopieerbare boilerplate:
+
+```r
+# Vul de getallen in na <-.
+cumulatieve_frequentie_90 <- 4
+cumulatief_percentage_90 <- 66.67
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer: `cumulatieve_frequentie_90 <- 1`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt alleen de gewone frequentie van 90 dagen genomen.
+- Foute testinvoer: `cumulatieve_frequentie_90 <- 3`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de waarden onder 90 geteld maar de grenswaarde zelf weggelaten.
+- Foute testinvoer: `cumulatief_percentage_90 <- 0.6667`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de cumulatieve proportie ingevuld in plaats van het percentage.
+- Foute testinvoer: `cumulatief_percentage_90 <- 4`
+  - Misvatting: **Waarschijnlijke redenering:** de cumulatieve telling klopt, maar de omzetting naar een percentage niet.
+- Foute testinvoer: `cumulatief_percentage_90 <- 67`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt een afgeronde proportie als tussenwaarde gebruikt.
 
 ### Oef - 3.4.4 Huwelijksduur - Centraliteit en spreiding
 
@@ -1244,81 +1210,83 @@ ika <- 124
 - Foute testinvoer: `ika <- 238.91`
   - Misvatting: **Waarschijnlijke redenering:** Je hebt mogelijk de variatiebreedte gebruikt of Q1 en Q3 in de verkeerde volgorde afgetrokken.
 
-### Oef - 3.4.5 Huwelijksduur - Afwijkingen observaties 1-4
+### Oef - 3.4.5 Huwelijksduur - Uitbijter, gemiddelde en mediaan
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.5 Afwijkingen observaties 1-4 - Beroemde huwelijken`
-
-#### Correcte inzending
-
-Kopieerbare boilerplate:
-
-```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-huwelijksduren <- c(240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657)
-posities <- 1:4
-
-# Eén afwijking en één kwadraat per geselecteerde observatie.
-afwijkingen <- c(1.09, -94.91, -95.91, -166.91)
-gekwadrateerde_afwijkingen <- c(1.19, 9007.74, 9198.55, 27858.64)
-```
-
-#### Foute testinvoer en misvattingen
-
-- Foute testinvoer: `afwijkingen <- c(-166.91, -95.91, -94.91, 1.09)`
-  - Misvatting: **Waarschijnlijke redenering:** De afwijking voor de 1e geselecteerde observatie gebruikt waarschijnlijk een afgerond gemiddelde of een andere volgorde.
-- Foute testinvoer: `gekwadrateerde_afwijkingen <- c(27858.64, 9198.55, 9007.74, 1.19)`
-  - Misvatting: **Waarschijnlijke redenering:** Het kwadrateren of afronden wijkt voor het eerst af bij de 1e geselecteerde observatie.
-
-### Oef - 3.4.6 Huwelijksduur - Afwijkingen observaties 5-8
-
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.6 Afwijkingen observaties 5-8 - Beroemde huwelijken`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.5 Uitbijter, gemiddelde en mediaan - Huwelijksduur`
 
 #### Correcte inzending
 
 Kopieerbare boilerplate:
 
 ```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-huwelijksduren <- c(240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657)
-posities <- 5:8
-
-# Eén afwijking en één kwadraat per geselecteerde observatie.
-afwijkingen <- c(-208.91, -212.91, -236.91, -88.91)
-gekwadrateerde_afwijkingen <- c(43643.01, 45330.28, 56125.92, 7904.83)
+# Vul getallen in na <-; plaats tekst tussen "".
+gemiddelde <- 120
+mediaan <- 50
+beste_centraliteitsmaat <- "mediaan"
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `afwijkingen <- c(-88.91, -236.91, -212.91, -208.91)`
-  - Misvatting: **Waarschijnlijke redenering:** De afwijking voor de 1e geselecteerde observatie gebruikt waarschijnlijk een afgerond gemiddelde of een andere volgorde.
-- Foute testinvoer: `gekwadrateerde_afwijkingen <- c(7904.83, 56125.92, 45330.28, 43643.01)`
-  - Misvatting: **Waarschijnlijke redenering:** Het kwadrateren of afronden wijkt voor het eerst af bij de 1e geselecteerde observatie.
+- Foute testinvoer: `beste_centraliteitsmaat <- "gemiddelde"`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt het gemiddelde gekozen omdat het alle waarden gebruikt, zonder rekening te houden met de sterke uitbijter.
+- Foute testinvoer: `gemiddelde <- 50`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt gemiddelde en mediaan verwisseld.
+- Foute testinvoer: `beste_centraliteitsmaat <- "modus"`
+  - Misvatting: je hebt een andere term gebruikt dan één van de twee gevraagde centraliteitsmaten.
+- Foute testinvoer: `beste_centraliteitsmaat <- ""`
+  - Misvatting: de gekozen maat ontbreekt of is niet als tekst tussen aanhalingstekens ingevuld.
 
-### Oef - 3.4.7 Huwelijksduur - Afwijkingen observaties 9-11
+### Oef - 3.4.6 Huwelijksduur - Afwijking en kwadraat
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.7 Afwijkingen observaties 9-11 - Beroemde huwelijken`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.6 Afwijking en kwadraat - Huwelijksduur`
 
 #### Correcte inzending
 
 Kopieerbare boilerplate:
 
 ```r
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-huwelijksduren <- c(240, 144, 143, 72, 30, 26, 2, 150, 14, 150, 1657)
-posities <- 9:11
-
-# Eén afwijking en één kwadraat per geselecteerde observatie.
-afwijkingen <- c(-224.91, -88.91, 1418.09)
-gekwadrateerde_afwijkingen <- c(50584.1, 7904.83, 2010981.83)
+# Vul de getallen in na <-.
+gemiddelde <- 30
+afwijking_20 <- -10
+gekwadrateerde_afwijking_20 <- 100
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer: `afwijkingen <- c(1418.09, -88.91, -224.91)`
-  - Misvatting: **Waarschijnlijke redenering:** De afwijking voor de 1e geselecteerde observatie gebruikt waarschijnlijk een afgerond gemiddelde of een andere volgorde.
-- Foute testinvoer: `gekwadrateerde_afwijkingen <- c(2010981.83, 7904.83, 50584.1)`
-  - Misvatting: **Waarschijnlijke redenering:** Het kwadrateren of afronden wijkt voor het eerst af bij de 1e geselecteerde observatie.
+- Foute testinvoer: `afwijking_20 <- 10`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de absolute afstand genomen of de aftrekking omgekeerd.
+- Foute testinvoer: `gekwadrateerde_afwijking_20 <- -100`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt het negatieve teken na het kwadrateren behouden.
+- Foute testinvoer: `gekwadrateerde_afwijking_20 <- 10`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de grootte van de afwijking gekopieerd zonder haar te kwadrateren.
+- Foute testinvoer: `gemiddelde <- 90`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de som gebruikt zonder door drie te delen.
 
+### Oef - 3.4.7 Huwelijksduur - Bijdrage aan de spreiding
+
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.7 Bijdrage aan de spreiding - Huwelijksduur`
+
+#### Correcte inzending
+
+Kopieerbare boilerplate:
+
+```r
+# Vul de kwadraten in en kies daarna 1 (huwelijk A) of 2 (huwelijk B).
+kwadraat_20 <- 400
+kwadraat_100 <- 3600
+grootste_bijdrage <- 2
+```
+
+#### Foute testinvoer en misvattingen
+
+- Foute testinvoer: `kwadraat_20 <- 20`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de waarneming overgenomen in plaats van haar afwijking tot het gemiddelde te kwadrateren.
+- Foute testinvoer: `kwadraat_20 <- -400`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt bij een kwadraat een negatief teken behouden.
+- Foute testinvoer: `grootste_bijdrage <- 1`
+  - Misvatting: **Waarschijnlijke redenering:** je hebt de laagste waarneming gekozen in plaats van de grootste afstand tot het gemiddelde.
+- Foute testinvoer: `grootste_bijdrage <- 3`
+  - Misvatting: de keuze verwijst niet naar huwelijk A of huwelijk B.
 ### Oef - 3.4.8 Huwelijksduur - Variantie en standaardafwijking
 
 Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.8 Variantie en standaardafwijking - Beroemde huwelijken`
