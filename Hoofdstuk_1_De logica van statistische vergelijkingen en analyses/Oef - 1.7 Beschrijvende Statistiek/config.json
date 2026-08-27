@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 1.2 Centrale Onderzoeksvraag",
-      "en": "Exercise - 1.2 Central research question"
+      "nl": "Oef - 1.7 Beschrijvende Statistiek",
+      "en": "Exercise - 1.7 Descriptive statistics"
     }
   },
   "evaluation": {
@@ -14,7 +14,7 @@
   "access": "public",
   "labels": [],
   "internals": {
-    "token": "sFSs5mMZXeuAgdjXp-HGY7vjbhDQUv_IjzVaWyB5uRvyFkG_AvA7e3FgWpsUNAA3",
+    "token": "JYRFfedSsQeIxs98U_Jdp7R_ATT9286PcW6XU99sHvgNEiwehP6xnq-cYtPnNqW6",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

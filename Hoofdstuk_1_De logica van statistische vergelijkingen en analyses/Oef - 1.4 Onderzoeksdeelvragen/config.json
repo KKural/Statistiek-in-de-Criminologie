@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 1.2 Centrale Onderzoeksvraag",
-      "en": "Exercise - 1.2 Central research question"
+      "nl": "Oef - 1.4 Onderzoeksdeelvragen",
+      "en": "Exercise - 1.4 Research subquestions"
     }
   },
   "evaluation": {
@@ -14,7 +14,7 @@
   "access": "public",
   "labels": [],
   "internals": {
-    "token": "sFSs5mMZXeuAgdjXp-HGY7vjbhDQUv_IjzVaWyB5uRvyFkG_AvA7e3FgWpsUNAA3",
+    "token": "hWUnzVRS2-rqiXs95ms2TIpEqt7rANugRpnPSB9UxhcVt_ZGhfMhx434BRwAR3h8",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

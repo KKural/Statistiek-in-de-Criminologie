@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 1.2 Centrale Onderzoeksvraag",
-      "en": "Exercise - 1.2 Central research question"
+      "nl": "Oef - 1.8 Correlatie vs. Causatie",
+      "en": "Exercise - 1.8 Correlation versus causation"
     }
   },
   "evaluation": {
@@ -14,7 +14,7 @@
   "access": "public",
   "labels": [],
   "internals": {
-    "token": "sFSs5mMZXeuAgdjXp-HGY7vjbhDQUv_IjzVaWyB5uRvyFkG_AvA7e3FgWpsUNAA3",
+    "token": "68Th35YGIBvTCCY5tawMRXfUqUHHUfvAtZAPiWrfM7-ys7qDa7cr9gGdBiy9TUqz",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

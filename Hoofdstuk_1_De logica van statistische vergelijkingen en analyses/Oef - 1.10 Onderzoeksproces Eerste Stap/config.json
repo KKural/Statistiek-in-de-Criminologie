@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 1.2 Centrale Onderzoeksvraag",
-      "en": "Exercise - 1.2 Central research question"
+      "nl": "Oef - 1.10 Representativiteit van een steekproef",
+      "en": "Exercise - 1.10 Sample representativeness"
     }
   },
   "evaluation": {
@@ -14,7 +14,7 @@
   "access": "public",
   "labels": [],
   "internals": {
-    "token": "sFSs5mMZXeuAgdjXp-HGY7vjbhDQUv_IjzVaWyB5uRvyFkG_AvA7e3FgWpsUNAA3",
+    "token": "dP67g3Dxineux6rnM78bhGTSbaD5xh8VpT8xbS7zMhPE7_NX4j-CtEXPV6eC5u2j",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

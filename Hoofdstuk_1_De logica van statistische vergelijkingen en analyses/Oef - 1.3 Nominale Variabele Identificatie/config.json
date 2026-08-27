@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 1.2 Centrale Onderzoeksvraag",
-      "en": "Exercise - 1.2 Central research question"
+      "nl": "Oef - 1.3 Nominale Variabele Identificatie",
+      "en": "Exercise - 1.3 Identifying a nominal variable"
     }
   },
   "evaluation": {
@@ -14,7 +14,7 @@
   "access": "public",
   "labels": [],
   "internals": {
-    "token": "sFSs5mMZXeuAgdjXp-HGY7vjbhDQUv_IjzVaWyB5uRvyFkG_AvA7e3FgWpsUNAA3",
+    "token": "Qv2dAtdKQr-w-A_jjSxnB6Ur2HxCjh8Rbd2qaQ8F9Tb6YIdK7GWqNG5jps82f4qS",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

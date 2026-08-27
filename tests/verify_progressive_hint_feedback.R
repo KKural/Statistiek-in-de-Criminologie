@@ -121,9 +121,22 @@ for (file in all_evaluators) {
   }
 }
 
-if (length(targets) != 37L) {
+chapter1_root <- normalizePath(
+  file.path(root, "Hoofdstuk_1_De logica van statistische vergelijkingen en analyses"),
+  winslash = "/",
+  mustWork = TRUE
+)
+chapter1_targets <- startsWith(
+  normalizePath(names(targets), winslash = "/", mustWork = TRUE),
+  paste0(chapter1_root, "/")
+)
+if (any(chapter1_targets)) {
+  stop("Simple Chapter 1 exercises must not enter the grouped progressive-feedback set.")
+}
+
+if (length(targets) != 35L) {
   stop(sprintf(
-    "Expected 37 multi-answer evaluators with 3-5 named answers, found %d.",
+    "Expected 35 grouped multi-answer evaluators with 3-5 named answers, found %d.",
     length(targets)
   ))
 }
@@ -165,6 +178,10 @@ for (file in names(targets)) {
   missing_values <- expected_values[names(expected_values) != missing_field]
   expect_diagnostic(run(missing_values), file, paste0("missing field ", missing_field))
   routes <- routes + 1L
+}
+
+if (routes != 198L) {
+  stop(sprintf("Expected 198 grouped progressive-feedback routes, found %d.", routes))
 }
 
 cat(sprintf(

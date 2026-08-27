@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 1.2 Centrale Onderzoeksvraag",
-      "en": "Exercise - 1.2 Central research question"
+      "nl": "Oef - 1.9 Negatieve Resultaten",
+      "en": "Exercise - 1.9 Negative results"
     }
   },
   "evaluation": {
@@ -14,7 +14,7 @@
   "access": "public",
   "labels": [],
   "internals": {
-    "token": "sFSs5mMZXeuAgdjXp-HGY7vjbhDQUv_IjzVaWyB5uRvyFkG_AvA7e3FgWpsUNAA3",
+    "token": "5Y5GQCtBiFKXPcrX_YvuB7eJ85_fvY4HSeWwAcu86_IHrQ3htD_rQxuvqqutY8Uf",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

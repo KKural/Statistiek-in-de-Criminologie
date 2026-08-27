@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 1.1 Statistische basisbegrippen",
-      "en": "Exercise - 1.1 Statistical foundations"
+      "nl": "Oef - 1.1 Meetniveau - Leeftijd",
+      "en": "Exercise - 1.1 Measurement level - Age"
     }
   },
   "programming_language": "R",
@@ -11,7 +11,6 @@
     "handler": "R"
   },
   "test_suite": "evaluation",
-  "boilerplate": "description/boilerplate/boilerplate",
   "access": "public",
   "labels": [],
   "internals": {

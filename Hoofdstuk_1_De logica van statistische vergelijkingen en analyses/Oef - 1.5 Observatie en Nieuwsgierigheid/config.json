@@ -2,8 +2,8 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 1.2 Centrale Onderzoeksvraag",
-      "en": "Exercise - 1.2 Central research question"
+      "nl": "Oef - 1.5 Observatie en Nieuwsgierigheid",
+      "en": "Exercise - 1.5 Observation and curiosity"
     }
   },
   "evaluation": {
@@ -14,7 +14,7 @@
   "access": "public",
   "labels": [],
   "internals": {
-    "token": "sFSs5mMZXeuAgdjXp-HGY7vjbhDQUv_IjzVaWyB5uRvyFkG_AvA7e3FgWpsUNAA3",
+    "token": "yyyQApswbSCrhWtbV6HXYIKzbDTDC88UPRPYS_mQkWzsbHtCS_ZR4Dp_j3ErnZrt",
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }

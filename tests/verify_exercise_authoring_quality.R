@@ -290,10 +290,10 @@ graded_activities <- Filter(function(item) {
   !is.null(item$config$evaluation)
 }, activities)
 
-if (length(graded_activities) != 51L) {
+if (length(graded_activities) != 59L) {
   failures <- c(
     failures,
-    sprintf("Expected 51 active graded exercises after logical grouping, found %d",
+    sprintf("Expected 59 active graded exercises after restoring Chapter 1, found %d",
             length(graded_activities))
   )
 }

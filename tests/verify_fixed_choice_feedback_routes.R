@@ -7,10 +7,7 @@ if (.Platform$OS.type == "windows") {
 }
 
 root <- normalizePath(".", winslash = "/", mustWork = TRUE)
-chapter_roots <- c(
-  file.path(root, "Hoofdstuk_1_De logica van statistische vergelijkingen en analyses"),
-  file.path(root, "Hoofdstuk_2_Inleidende begrippen")
-)
+chapter_roots <- file.path(root, "Hoofdstuk_2_Inleidende begrippen")
 
 read_text <- function(path) {
   paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
@@ -46,10 +43,19 @@ for (file in candidate_files) {
   }
 }
 
-if (length(targets) != 5L) {
+expected_target_dirs <- c(
+  "Oef - 2.1 Meetniveau - Delicten rangschikken",
+  "Oef - 2.9 Onderzoeksvraag classificatie - Inbraken per maand",
+  "Oef - 2.10 Onderzoeksvraag classificatie - Recidive en leeftijd"
+)
+actual_target_dirs <- basename(dirname(dirname(names(targets))))
+if (length(targets) != 3L || !setequal(actual_target_dirs, expected_target_dirs)) {
   stop(sprintf(
-    "Expected five logically grouped fixed-choice evaluators in Chapters 1-2, found %d.",
-    length(targets)
+    paste0(
+      "Expected the three Chapter 2 grouped fixed-choice evaluators, found %d: %s."
+    ),
+    length(targets),
+    if (length(actual_target_dirs)) paste(actual_target_dirs, collapse = ", ") else "none"
   ))
 }
 
@@ -157,6 +163,10 @@ for (file in names(targets)) {
   expect_count(missing$message, "**Volgende stap:**", 1L, file, route)
   expect_count(missing$message, "**Bevestiging:**", 0L, file, route)
   routes <- routes + 1L
+}
+
+if (routes != 18L) {
+  stop(sprintf("Expected 18 Chapter 2 fixed-choice feedback routes, found %d.", routes))
 }
 
 cat(sprintf(
