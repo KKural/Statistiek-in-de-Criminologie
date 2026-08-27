@@ -7,8 +7,15 @@ if (.Platform$OS.type == "windows") {
 }
 
 root <- normalizePath(".", winslash = "/", mustWork = TRUE)
-bank <- paste(readLines(file.path(root, "EXERCISE_ANSWER_BANK.md"), warn = FALSE,
-                        encoding = "UTF-8"), collapse = "\n")
+bank_files <- list.files(root, pattern = "^EXERCISE_ANSWER_BANK\\.md$", recursive = TRUE,
+                         full.names = TRUE)
+if (length(bank_files) != 14L) {
+  stop(sprintf("Expected one answer bank in each of 14 chapter folders, found %d.",
+               length(bank_files)))
+}
+bank <- paste(vapply(bank_files, function(file) {
+  paste(readLines(file, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+}, character(1)), collapse = "\n")
 evaluators <- list.files(root, pattern = "^Answer\\.R$", recursive = TRUE,
                          full.names = TRUE)
 if (!length(evaluators)) stop("No evaluators found.")

@@ -119,8 +119,15 @@ assignment_names <- function(text) {
   vapply(parts[lengths(parts) > 0L], `[[`, character(1), 2L)
 }
 
-bank <- paste(readLines(file.path(root, "EXERCISE_ANSWER_BANK.md"), warn = FALSE,
-                        encoding = "UTF-8"), collapse = "\n")
+bank_files <- list.files(root, pattern = "^EXERCISE_ANSWER_BANK\\.md$", recursive = TRUE,
+                         full.names = TRUE)
+if (length(bank_files) != 14L) {
+  stop(sprintf("Expected one answer bank in each of 14 chapter folders, found %d.",
+               length(bank_files)))
+}
+bank <- paste(vapply(bank_files, function(file) {
+  paste(readLines(file, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+}, character(1)), collapse = "\n")
 
 for (code in names(cases)) {
   values <- cases[[code]]
