@@ -1,10 +1,2 @@
-# Oefening 10.1 - Deel 2 van 5
-# Behoud ongeronde tussenresultaten en rond alleen deze eindsommen af op vier decimalen.
-# Vul de getallen in na <-.
-
-SS_X <-
-SS_Y <-
-SS_Z <-
-SCP_XY <-
-SCP_XZ <-
-SCP_YZ <-
+# Vul het antwoord in na <-.
+scp_xy <-

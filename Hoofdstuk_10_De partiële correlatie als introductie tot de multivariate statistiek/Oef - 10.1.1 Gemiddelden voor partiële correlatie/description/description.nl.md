@@ -1,21 +1,7 @@
-Een criminoloog onderzoekt hoe de samenhang tussen het aantal gepleegde delicten (X) en slachtofferschap (Y) verandert wanneer voor leeftijd (Z) wordt gecontroleerd.
+Voor variabele X zijn de vier waarden 1, 2, 3 en 4.
 
-| Scholier | X: delicten gepleegd | Y: keer slachtoffer | Z: leeftijd |
-|---:|---:|---:|---:|
-| 1 | 2 | 2 | 17 |
-| 2 | 0 | 0 | 15 |
-| 3 | 0 | 1 | 14 |
-| 4 | 6 | 3 | 16 |
-| 5 | 3 | 2 | 15 |
-| 6 | 0 | 3 | 14 |
-| 7 | 2 | 4 | 18 |
+**Leerdoel:** één gemiddelde als voorbereiding op centreren berekenen.
 
-Gebruik in de volledige vijfdelige reeks **ongeronde tussenresultaten**. Rond alleen elk gevraagd eindresultaat af op vier decimalen en gebruik steeds een punt als decimaalteken.
+Bereken het gemiddelde van X.
 
-### Opdracht
-
-Bereken de gemiddelden van X, Y en Z. Rond elk gemiddelde af op vier decimalen.
-
-- `X_bar`
-- `Y_bar`
-- `Z_bar`
+Vul één antwoord in op de lege plaats in het codebestand.

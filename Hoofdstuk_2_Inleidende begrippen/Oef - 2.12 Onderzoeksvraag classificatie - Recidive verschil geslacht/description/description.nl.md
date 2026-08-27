@@ -1,15 +1,7 @@
+De onderzoeksvraag is: ‘Verschilt recidive tussen mannen en vrouwen?’
 
-**"Hoe verschilt het percentage recidive tussen mannen en vrouwen in België?"**
+**Leerdoel:** de afhankelijke variabele in een groepsvergelijking herkennen.
 
-**Jouw taak:**
-Analyseer deze onderzoeksvraag en bepaal:
-1. Het type onderzoeksvraag
-2. De bestudeerde variabele(n)
-3. Het meetniveau van elke variabele
-4. Of elke variabele kwantitatief is
-5. Het type waarden van elke variabele
-6. Voorbeelden van mogelijke waarden
+Welke variabele is de uitkomst? 1 = geslacht; 2 = recidive; 3 = beide zijn uitkomsten; 4 = er is geen uitkomst.
 
-Vervang `???` door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.
-
-**Vergeet niet:** Deze oefening test je begrip van de theorie uit Oef - 2.8. Zorg dat je die goed hebt bestudeerd!
+Vul één antwoord in op de lege plaats in het codebestand.

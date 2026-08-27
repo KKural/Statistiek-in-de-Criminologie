@@ -1,11 +1,2 @@
-# Oefening 8.1 — Deel 1: van gegevens naar somkwadraten
-# Vul getallen of optienummers in na <-. Gebruik een punt als decimaalteken.
-
-# 1 = prijs, 2 = ontbossing
-verklarende_variabele <-
-
-gemiddelde_x <-   # 2 decimalen
-gemiddelde_y <-   # 4 decimalen
-SSx <-            # 1 decimaal
-SSy <-            # 4 decimalen
-SSxy <-           # 2 decimalen
+# Vul het antwoord in na <-.
+kruisproductsom <-

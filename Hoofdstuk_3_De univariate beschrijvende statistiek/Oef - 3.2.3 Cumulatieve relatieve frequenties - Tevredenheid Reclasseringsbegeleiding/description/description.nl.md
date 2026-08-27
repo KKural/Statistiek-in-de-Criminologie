@@ -1,13 +1,7 @@
-| Categorie | Absolute frequentie |
-|---|---:|
-| Zeer ontevreden | 33 |
-| Ontevreden | 84 |
-| Noch tevreden, noch ontevreden | 102 |
-| Tevreden | 63 |
-| Zeer tevreden | 48 |
+De relatieve frequenties zijn 0.10, 0.20, 0.35, 0.25 en 0.10 van zeer ontevreden tot zeer tevreden.
 
-**Leerdoel:** uit een geordende frequentieverdeling afleiden welk aandeel op of onder iedere categorie ligt.
+**Leerdoel:** een cumulatieve relatieve frequentie berekenen bij één grenscategorie.
 
-Bereken voor iedere rij de cumulatieve relatieve frequentie als de cumulatieve absolute frequentie gedeeld door het totale aantal respondenten. Noteer proporties tussen 0 en 1, in de tabelvolgorde, en rond af op vier decimalen.
+Bereken de cumulatieve relatieve frequentie tot en met neutraal.
 
-Vul je antwoorden in op de lege plaatsen in het codebestand.
+Vul één antwoord in op de lege plaats in het codebestand.

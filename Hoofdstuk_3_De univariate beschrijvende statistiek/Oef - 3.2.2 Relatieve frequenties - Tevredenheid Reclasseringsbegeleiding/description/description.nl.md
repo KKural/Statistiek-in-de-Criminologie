@@ -1,15 +1,7 @@
-Gebruik dezelfde tevredenheidsgegevens:
+In een groep van 40 respondenten zijn 12 personen tevreden.
 
-| Categorie | Absolute frequentie |
-|---|---:|
-| Zeer ontevreden | 33 |
-| Ontevreden | 84 |
-| Noch tevreden, noch ontevreden | 102 |
-| Tevreden | 63 |
-| Zeer tevreden | 48 |
+**Leerdoel:** één absolute frequentie omzetten naar een proportie.
 
-**Leerdoel:** absolute frequenties omzetten naar proporties.
+Bereken de relatieve frequentie van tevreden respondenten. Rond af op twee decimalen.
 
-Bereken eerst zelf het totale aantal respondenten. Deel daarna iedere absolute frequentie door dat totaal. Vul de vijf relatieve frequenties als proporties tussen 0 en 1 in, in de tabelvolgorde, en rond af op vier decimalen.
-
-Vul je antwoorden in op de lege plaatsen in het codebestand.
+Vul één antwoord in op de lege plaats in het codebestand.

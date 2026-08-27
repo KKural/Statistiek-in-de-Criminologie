@@ -1,10 +1,2 @@
-# Oefening 11.1 - Deel 2 van 4
-# Vul de zes onverdeelde sommen als gehele getallen in.
-# Vul de getallen in na <-.
-
-SSx1 <-
-SSx2 <-
-SSy <-
-SSx1x2 <-
-SSx1y <-
-SSx2y <-
+# Vul het antwoord in na <-.
+scp_x1y <-

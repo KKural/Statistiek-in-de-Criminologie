@@ -1,84 +1,35 @@
 context({
-  testcase(
-    "",
-    {
-      testEqual(
-        "",
-        function(env) {
-          expected_values <- c(
-            odds_mannen = 0.4471,
-            odds_vrouwen = 0.1846,
-            odds_ratio = 2.42,
-            chi_kwadraat = 59.1983,
-            kans_no_bij_vrouwen = 0.8442,
-            antwoord_mc = 3
-          )
-          tolerances <- c(
-            odds_mannen = 0.000051,
-            odds_vrouwen = 0.000051,
-            odds_ratio = 0.0051,
-            chi_kwadraat = 0.000051,
-            kans_no_bij_vrouwen = 0.000051,
-            antwoord_mc = 0
-          )
-
-          parse_value <- function(raw, name) {
-            if (name == "antwoord_mc" && is.character(raw) && grepl("^[A-Da-d]$", trimws(raw))) {
-              return(match(toupper(trimws(raw)), LETTERS[1:4]))
-            }
-            if (is.character(raw)) raw <- sub("%$", "", trimws(raw))
-            suppressWarnings(as.numeric(raw))
-          }
-
-          results <- lapply(names(expected_values), function(name) {
-            present <- exists(name, envir = env, inherits = FALSE)
-            raw <- if (present) get(name, envir = env, inherits = FALSE) else NA
-            value <- parse_value(raw, name)
-            valid <- length(value) == 1L && !is.na(value) && is.finite(value)
-            correct <- valid && abs(value - expected_values[[name]]) <= tolerances[[name]]
-            if (name == "kans_no_bij_vrouwen" && valid) {
-              correct <- correct || abs(value / 100 - expected_values[[name]]) <= tolerances[[name]]
-            }
-            list(exists = present, value = raw, correct = correct)
-          })
-          names(results) <- names(expected_values)
-          assign("detailed_results", results, envir = globalenv())
-          all(vapply(results, function(item) item$correct, logical(1)))
-        },
-        TRUE,
-        comparator = function(generated, expected, ...) {
-          results <- get("detailed_results", envir = globalenv())
-          labels <- c(
-            odds_mannen = "odds bij mannen",
-            odds_vrouwen = "odds bij vrouwen",
-            odds_ratio = "odds ratio",
-            chi_kwadraat = "chi-kwadraat",
-            kans_no_bij_vrouwen = "P(NO | Vrouw)",
-            antwoord_mc = "interpretatie van P(NO | Vrouw)"
-          )
-
-          if (isTRUE(generated == expected)) {
-            feedback <- paste(
-              "**Bevestiging:** alle onderdelen zijn correct. De odds zijn 0.4471 en 0.1846, de odds ratio is 2.42, χ² = 59.1983 en P(NO | Vrouw) = 0.8442 (84.42%); optie C verwoordt die voorwaardelijke kans juist.",
-              "**Denkregel:** bij odds vergelijk je binnen één groep YES met NO; bij een odds ratio vergelijk je vervolgens die twee odds. In P(A | B) bepaalt B altijd de groep die de noemer vormt.",
-              "**Transferstap:** formuleer voor een nieuwe 2 × 2-tabel eerst de richting van de vergelijking en benoem daarna in woorden de groep achter de verticale streep.",
-              sep = "\n\n"
-            )
-          } else {
-            wrong <- names(results)[!vapply(results, function(item) item$correct, logical(1))]
-            feedback <- paste(
-              paste0("**Waarschijnlijke redenering:** bij ", paste(labels[wrong], collapse = ", "), " zijn mogelijk de vergelijkingsrichting, de voorwaarde of geobserveerde en verwachte aantallen verwisseld. Dit is een hypothese op basis van de foutieve velden."),
-              "**Waarom dit niet klopt:** odds, odds ratio, chi-kwadraat en een conditionele kans gebruiken elk een andere vergelijking. Eén vaste deling kan daarom niet voor alle velden worden hergebruikt.",
-              "**Denkregel:** schrijf per onderdeel eerst in woorden welke twee aantallen worden vergeleken; bouw voor χ² afzonderlijk de verwachte aantallen uit de rij- en kolomtotalen op.",
-              "**Volgende stap:** herstel het eerste afwijkende veld zonder de andere antwoorden te wijzigen en controleer of de noemer overeenkomt met de gevraagde groep.",
-              sep = "\n\n"
-            )
-          }
-
-          get_reporter()$add_message(feedback, type = "markdown")
-          generated == expected
-        }
-      )
-    }
-  )
+  testcase("", {
+    testEqual("", function(env) {
+      expected_values <- c(oddsratio = 2, interpretatie = 1)
+      read_number <- function(name) {
+        if (!exists(name, envir = env)) return(NA_real_)
+        value <- suppressWarnings(as.numeric(get(name, envir = env)))
+        if (length(value) != 1L || !is.finite(value)) return(NA_real_)
+        value
+      }
+      values <- vapply(names(expected_values), read_number, numeric(1))
+      valid <- all(is.finite(values))
+      correct <- valid && all(abs(values - expected_values) <= 0.0005)
+      assign("results_7_1_2", list(valid = valid, values = values, expected = expected_values), envir = globalenv())
+      correct
+    }, TRUE, comparator = function(generated, expected, ...) {
+      results <- get("results_7_1_2", envir = globalenv())
+      if (isTRUE(generated == expected)) {
+        message <- paste("**Bevestiging:** je antwoord past bij het leerdoel van deze korte oefening.", "**Denkregel:** Een oddsratio vergelijkt odds, niet rechtstreeks kansen; de volgorde van teller en noemer bepaalt de richting.", "**Transferstap:** Deel 0.50 door 0.25 en koppel de verhouding aan groep A versus B.", sep = "\n\n")
+      } else if (!results$valid) {
+        message <- paste("**Waarschijnlijke redenering:** minstens één antwoord ontbreekt, bevat tekst of is niet één eindig getal.", "**Waarom dit niet klopt:** elke lege plaats verwacht precies één berekende waarde of geldig optienummer.", "**Denkregel:** Een oddsratio vergelijkt odds, niet rechtstreeks kansen; de volgorde van teller en noemer bepaalt de richting.", "**Volgende stap:** Deel 0.50 door 0.25 en koppel de verhouding aan groep A versus B.", sep = "\n\n")
+      } else {
+        wrong_field <- names(which(abs(results$values - results$expected) > 0.0005))[[1L]]
+        values <- results$values
+        likely <- "Je hebt een verwante grootheid, verkeerde schaal of verkeerde antwoordoptie gebruikt."
+              if (identical(wrong_field, "oddsratio") && abs(values[[wrong_field]] - 0.5) <= 0.0005) likely <- "Je hebt de verhouding omgekeerd en B door A gedeeld."
+              if (identical(wrong_field, "interpretatie") && abs(values[[wrong_field]] - 2) <= 0.0005) likely <- "Je verwart een verhouding van odds met een verhouding van kansen."
+              if (identical(wrong_field, "interpretatie") && abs(values[[wrong_field]] - 3) <= 0.0005) likely <- "Je hebt de richting van de vergelijking omgekeerd."
+        message <- paste(paste0("**Waarschijnlijke redenering:** ", likely), "**Waarom dit niet klopt:** Een oddsratio vergelijkt odds, niet rechtstreeks kansen; de volgorde van teller en noemer bepaalt de richting.", "**Denkregel:** Een oddsratio vergelijkt odds, niet rechtstreeks kansen; de volgorde van teller en noemer bepaalt de richting.", "**Volgende stap:** Deel 0.50 door 0.25 en koppel de verhouding aan groep A versus B.", sep = "\n\n")
+      }
+      get_reporter()$add_message(message, type = "markdown")
+      generated == expected
+    })
+  })
 })

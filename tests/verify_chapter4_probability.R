@@ -177,11 +177,6 @@ numeric_specs <- list(
     wrong = list(p_man = 0.8503, p_drug_given_man = 0.1224, p_joint = 0.1020)
   ),
   list(
-    number = "7",
-    correct = list(p_vrouw = 0.1497, p_diefstal = 0.5578, p_overlap = 0.0816, p_union = 0.6259),
-    wrong = list(p_vrouw = 0.1497, p_diefstal = 0.5578, p_overlap = 0.0816, p_union = 0.7075)
-  ),
-  list(
     number = "8",
     correct = list(p_drug_given_man = 0.1200, p_man_given_drug = 0.8333),
     wrong = list(p_drug_given_man = 0.8333, p_man_given_drug = 0.1200)

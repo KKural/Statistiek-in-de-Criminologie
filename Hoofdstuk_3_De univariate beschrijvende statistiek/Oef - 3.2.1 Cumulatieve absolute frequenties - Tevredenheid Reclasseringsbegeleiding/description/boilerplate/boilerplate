@@ -1,9 +1,2 @@
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-# De volgorde is: zeer ontevreden, ontevreden, neutraal, tevreden, zeer tevreden.
-absolute_frequenties <- c(33, 84, 102, 63, 48)
-
-# Vul vijf cumulatieve absolute frequenties in, in dezelfde volgorde.
-cumulatieve_absolute_frequenties <- c( , , , , )
-
-# Vul het totale aantal respondenten in.
-totaal_n <-
+# Vul het antwoord in na <-.
+cumulatieve_frequentie_neutraal <-

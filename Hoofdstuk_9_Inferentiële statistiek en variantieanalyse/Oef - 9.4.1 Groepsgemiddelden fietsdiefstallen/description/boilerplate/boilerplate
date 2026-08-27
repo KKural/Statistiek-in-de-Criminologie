@@ -1,8 +1,2 @@
-# Oefening 9.4 - Deel 1 van 3
-# Vul de getallen in na <-.
-# Gebruik een punt als decimaalteken.
-
-gemiddelde_groot <-    # geheel getal
-gemiddelde_middel <-   # geheel getal
-gemiddelde_ruraal <-   # geheel getal
-grand_mean <-          # twee decimalen
+# Vul het antwoord in na <-.
+groepsgemiddelde <-

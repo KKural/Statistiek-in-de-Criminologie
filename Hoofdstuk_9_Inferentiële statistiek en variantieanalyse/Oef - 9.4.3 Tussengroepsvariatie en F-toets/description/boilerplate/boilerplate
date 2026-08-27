@@ -1,9 +1,3 @@
-# Oefening 9.4 - Deel 3 van 3
-# Vul de getallen of optienummers in na <-.
-
-SS_between <-           # twee decimalen
-df_between <-           # geheel getal
-MS_between <-           # twee decimalen
-F_ratio <-              # twee decimalen
-eta_kwadraat <-         # vier decimalen
-significant_anova <-    # 1 = significant, 2 = niet significant
+# Vul de antwoorden in na <-.
+f_ratio <-
+significant <-

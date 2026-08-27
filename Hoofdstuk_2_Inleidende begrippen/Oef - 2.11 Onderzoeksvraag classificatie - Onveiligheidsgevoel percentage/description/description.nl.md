@@ -1,15 +1,7 @@
-**"Wat is het percentage burgers dat zich onveilig voelt in hun buurt?"**
+Voor elke gemeente wordt het percentage inwoners dat zich onveilig voelt geregistreerd.
 
-**Jouw taak:**
-Analyseer deze onderzoeksvraag en bepaal:
-1. Het type onderzoeksvraag
-2. De bestudeerde variabele(n)
-3. Het meetniveau
-4. Of de variabele kwantitatief is
-5. Het type waarden
-6. Voorbeelden van mogelijke waarden
+**Leerdoel:** het meetniveau van een percentage als kwantitatieve variabele bepalen.
 
-Vervang `???` door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.
+Welk meetniveau heeft dit percentage? 1 = nominaal; 2 = ordinaal; 3 = interval; 4 = ratio.
 
-
-**Vergeet niet:** Deze oefening test je begrip van de theorie uit Oef - 2.8. Zorg dat je die goed hebt bestudeerd!
+Vul één antwoord in op de lege plaats in het codebestand.

@@ -1,10 +1,2 @@
-# Oefening 11.1 - Deel 3 van 4
-# Gebruik de opgegeven tussenresultaten; rond alleen elk gevraagd eindresultaat af.
-# Vul de getallen in na <-.
-
-determinant_D <-   # geheel getal
-b1 <-              # twee decimalen
-b2 <-              # twee decimalen
-intercept_a <-     # twee decimalen
-voorspelling <-    # twee decimalen, X1 = 3 en X2 = 8
-R_kwadraat <-      # vier decimalen
+# Vul het antwoord in na <-.
+voorspelling <-

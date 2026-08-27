@@ -1,10 +1,2 @@
-# Oefening 10.1 - Deel 3 van 5
-# Gebruik n - 1 = 6, behoud volledige precisie en rond alleen de eindresultaten af.
-# Vul de getallen in na <-.
-
-Var_X <-
-Var_Y <-
-Var_Z <-
-SD_X <-
-SD_Y <-
-SD_Z <-
+# Vul het antwoord in na <-.
+variantie_x <-

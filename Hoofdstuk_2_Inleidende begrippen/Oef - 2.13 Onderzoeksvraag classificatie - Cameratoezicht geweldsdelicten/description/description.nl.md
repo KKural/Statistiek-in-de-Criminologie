@@ -1,14 +1,7 @@
-**"Heeft de aanwezigheid van cameratoezicht in een buurt invloed op het aantal geregistreerde geweldsdelicten?"**
+Een stad vergelijkt geweldsdelicten vóór en na de plaatsing van camera’s, zonder willekeurige toewijzing of controlegroep.
 
-**Jouw taak:**
-Analyseer deze onderzoeksvraag en bepaal:
-1. Het type onderzoeksvraag
-2. De bestudeerde variabele(n)
-3. Het meetniveau van elke variabele
-4. Of elke variabele kwantitatief is
-5. Het type waarden van elke variabele
-6. Voorbeelden van mogelijke waarden
+**Leerdoel:** een voor-na-vergelijking zonder randomisatie herkennen.
 
-Vervang `???` door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.
+Welke omschrijving past? 1 = gerandomiseerd experiment; 2 = quasi-experimentele voor-na-studie; 3 = zuiver univariaat overzicht; 4 = kwalitatief interviewonderzoek.
 
-**Vergeet niet:** Deze oefening test je begrip van de theorie uit Oef - 2.8. Zorg dat je die goed hebt bestudeerd!
+Vul één antwoord in op de lege plaats in het codebestand.

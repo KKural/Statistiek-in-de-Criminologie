@@ -364,8 +364,9 @@ if (length(target_210) == 1L) {
     read_text(file.path(path, "description", "boilerplate", "boilerplate")),
     read_text(file.path(path, "evaluation", "Answer.R"))
   )
-  if (grepl("kans op recidive", prompt_and_boilerplate, ignore.case = TRUE)) {
-    failures <- c(failures, "Exercise 2.10 still describes the binary recidive variable as a recidive probability.")
+  if (!grepl("type_onderzoeksvraag", prompt_and_boilerplate, fixed = TRUE) ||
+      !grepl("**Leerdoel:**", prompt_and_boilerplate, fixed = TRUE)) {
+    failures <- c(failures, "Exercise 2.10 does not expose its focused classification objective consistently.")
   }
 }
 

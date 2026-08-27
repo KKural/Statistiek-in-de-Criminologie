@@ -2,7 +2,7 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 9.2: Betrouwbaarheidsintervallen - gemiddelde leeftijd"
+      "nl": "Oef - 9.2 Betrouwbaarheidsinterval - Twee grenzen"
     }
   },
   "programming_language": "R",

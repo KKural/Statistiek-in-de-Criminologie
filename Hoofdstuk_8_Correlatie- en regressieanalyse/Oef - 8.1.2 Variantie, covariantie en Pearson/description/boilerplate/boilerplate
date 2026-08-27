@@ -1,14 +1,2 @@
-# Oefening 8.1 — Deel 2: variantie, covariantie en Pearson
-# Gegeven: n=5, SSx=1066, SSy=3.44348 en SSxy=57.87.
-# Vul getallen of optienummers in na <-; typ tekst tussen "".
-
-variantie_x <-   # 1 decimaal
-variantie_y <-   # 4 decimalen
-sd_x <-          # 4 decimalen
-sd_y <-          # 4 decimalen
-covariantie <-   # 4 decimalen
-pearson_r <-     # 4 decimalen
-
-# 1 = ja, 2 = nee
-correlatie_verandert <-
-verklaring_euro <- ""
+# Vul het antwoord in na <-.
+pearson_r <-

@@ -1,10 +1,7 @@
-**"Hoeveel inbraken worden er gemiddeld per maand gerapporteerd in Belgische steden?"**
+Een onderzoeker registreert per maand het aantal inbraken: 0, 2, 5, 1, …
 
-**Jouw taak:**
-Analyseer deze onderzoeksvraag en bepaal:
-1. Het type onderzoeksvraag
-2. De bestudeerde variabele(n)
-3. Het meetniveau
-4. De mogelijke waarden
+**Leerdoel:** het meetniveau van een telling herkennen.
 
-Vervang `???` door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.
+Welk meetniveau heeft ‘aantal inbraken’? 1 = nominaal; 2 = ordinaal; 3 = interval; 4 = ratio.
+
+Vul één antwoord in op de lege plaats in het codebestand.

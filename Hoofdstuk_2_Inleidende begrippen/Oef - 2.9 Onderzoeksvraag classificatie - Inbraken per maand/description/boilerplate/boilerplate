@@ -1,19 +1,2 @@
-# Vervang ??? door het juiste antwoord
-
-# Type onderzoeksvraag (univariate beschrijvende, bivariate beschrijvende, of bivariate verklarende)
-type_vraag <- "???"
-
-# Bestudeerde variabele(n) - beschrijf kort maar volledig
-bestudeerde_variabele <- "???"
-
-# Meetniveau (nominaal, ordinaal, interval, ratio)
-meetniveau <- "???"
-
-# Kwantitatief (ja of nee)
-kwantitatief <- "???"
-
-# Type waarden (natuurlijke getallen, gehele getallen, rationale getallen, continue waarden)
-type_waarden <- "???"
-
-# Voorbeeld waarden - geef enkele voorbeelden
-voorbeeld_waarden <- "???"
+# Vul het antwoord in na <-.
+meetniveau <-

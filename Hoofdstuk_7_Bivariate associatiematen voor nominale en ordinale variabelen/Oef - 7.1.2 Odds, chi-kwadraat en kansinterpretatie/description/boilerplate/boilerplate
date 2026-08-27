@@ -1,12 +1,3 @@
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-# Oefening 7.1 — Deel 2: odds, chi-kwadraat en kansinterpretatie
-# Gegeven: Man (YES=380, NO=850), Vrouw (YES=120, NO=650), N=2000.
-
-odds_mannen <-           # 4 decimalen
-odds_vrouwen <-          # 4 decimalen
-odds_ratio <-            # 2 decimalen
-chi_kwadraat <-          # 4 decimalen
-kans_no_bij_vrouwen <-   # kans of equivalent percentage
-
-# A=1, B=2, C=3, D=4; een letter mag ook.
-antwoord_mc <-
+# Vul de antwoorden in na <-.
+oddsratio <-
+interpretatie <-

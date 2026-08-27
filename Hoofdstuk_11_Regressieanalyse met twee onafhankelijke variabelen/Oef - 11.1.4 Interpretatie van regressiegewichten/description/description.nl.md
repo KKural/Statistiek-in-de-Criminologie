@@ -1,24 +1,7 @@
-Criminologen onderzoeken hoe politiedichtheid en werkloosheid samen de criminaliteitsindex van vijf steden verklaren.
+In een model met X1 en X2 is b1 = -2.2.
 
-| Stad | X₁: politiedichtheid | X₂: werkloosheid | Y: criminaliteitsindex |
-|:--|--:|--:|--:|
-| A | 1 | 5 | 20 |
-| B | 2 | 10 | 24 |
-| C | 3 | 5 | 16 |
-| D | 4 | 10 | 18 |
-| E | 5 | 5 | 12 |
+**Leerdoel:** het teken van een regressiecoëfficiënt gecontroleerd voor een andere predictor interpreteren.
 
-Bereken met de weergegeven gegevens. Gebruik een punt als decimaalteken en rond alleen af zoals bij elk veld vermeld.
+Welke interpretatie past? 1 = Y stijgt wanneer X1 stijgt, gecontroleerd voor X2; 2 = Y daalt wanneer X1 stijgt, gecontroleerd voor X2; 3 = er is geen verband.
 
-Gebruik voor dit zelfstandige deel:
-
-- `b1 = −2.20` voor politiedichtheid
-- `b2 = 1.00` voor werkloosheid
-- steekproefstandaarddeviaties: `SD_X1 = 1.5811`, `SD_X2 = 2.7386`, `SD_Y = 4.4721`
-
-### Opdracht
-
-1. `richting_b1`: 1 = positief, 2 = negatief
-2. `sterkste_predictor`: 1 = X1 politiedichtheid, 2 = X2 werkloosheid
-
-Vergelijk voor relatieve sterkte de absolute gestandaardiseerde effecten; het teken bepaalt de richting, niet de sterkte.
+Vul één antwoord in op de lege plaats in het codebestand.

@@ -1,68 +1,34 @@
 context({
-  testcase(
-    "",
-    {
-      testEqual(
-        "",
-        function(env) {
-          expected_values <- c(0.1000, 0.3545, 0.6636, 0.8545, 1.0000)
-          if (!exists("cumulatieve_relatieve_frequenties", envir = env)) {
-            result <- list(ok = FALSE, valid = FALSE, value = numeric(0), expected = expected_values)
-          } else {
-            value <- suppressWarnings(as.numeric(get("cumulatieve_relatieve_frequenties", envir = env)))
-            valid <- length(value) == 5L && all(is.finite(value))
-            result <- list(
-              ok = valid && all(abs(value - expected_values) <= 0.00005),
-              valid = valid,
-              value = value,
-              expected = expected_values
-            )
-          }
-          assign("results_3_2c", result, envir = globalenv())
-          isTRUE(result$ok)
-        },
-        TRUE,
-        comparator = function(generated, expected, ...) {
-          result <- get("results_3_2c", envir = globalenv())
-          gewone_relatieve <- c(0.1000, 0.2545, 0.3091, 0.1909, 0.1455)
-          if (isTRUE(generated == expected)) {
-            message <- paste(
-              "**Bevestiging:** de cumulatieve proporties zijn correct, lopen niet terug en eindigen op 1.",
-              "**Denkregel:** cumulatief relatief = cumulatief absoluut / N; iedere rij bevat alle eerdere categorieën.",
-              "**Transferstap:** gebruik een nieuwe ordinale schaal en zoek met de cumulatieve proporties waar 25%, 50% en 75% worden bereikt.",
-              sep = "\n\n"
-            )
-          } else {
-            if (!result$valid) {
-              likely <- "Je vector bevat waarschijnlijk nog een `NA`, tekst of een verkeerd aantal waarden."
-              why <- "Er is precies één eindige cumulatieve proportie per categorie nodig."
-              next_step <- "Vul vijf getallen tussen 0 en 1 in, in de tabelvolgorde."
-            } else if (all(abs(result$value - gewone_relatieve) <= 0.00005)) {
-              likely <- "Je hebt de gewone relatieve frequenties ingevuld zonder ze cumulatief op te bouwen."
-              why <- "Vanaf de tweede rij moet ook het aandeel van alle eerdere categorieën worden meegenomen."
-              next_step <- "Behoud de eerste proportie en tel bij iedere volgende rij de nieuwe proportie op bij het vorige lopende totaal."
-            } else if (abs(tail(result$value, 1) - 1) > 0.00005) {
-              likely <- "Een eerdere fout in de lopende som werkt door tot de laatste categorie."
-              why <- "Na de laatste categorie is de volledige steekproef opgenomen, dus de eindwaarde moet 1 zijn."
-              next_step <- "Werk opnieuw van boven naar beneden en controleer na elke rij het lopende totaal."
-            } else {
-              first_wrong <- which(abs(result$value - result$expected) > 0.00005)[1]
-              likely <- paste0("De cumulatieve berekening wijkt voor het eerst af op positie ", first_wrong, ".")
-              why <- paste0("Daar hoort de cumulatieve proportie ", format(result$expected[first_wrong], nsmall = 4), " te staan.")
-              next_step <- "Deel de cumulatieve absolute frequentie op die rij door N en herbereken de volgende rijen."
-            }
-            message <- paste(
-              paste0("**Waarschijnlijke redenering:** ", likely),
-              paste0("**Waarom dit niet klopt:** ", why),
-              "**Denkregel:** cumulatieve proporties kunnen alleen gelijk blijven of stijgen en eindigen bij 1.",
-              paste0("**Volgende stap:** ", next_step),
-              sep = "\n\n"
-            )
-          }
-          get_reporter()$add_message(message, type = "markdown")
-          generated == expected
-        }
-      )
-    }
-  )
+  testcase("", {
+    testEqual("", function(env) {
+      expected_values <- c(cumulatieve_relatieve_frequentie_neutraal = 0.65)
+      read_number <- function(name) {
+        if (!exists(name, envir = env)) return(NA_real_)
+        value <- suppressWarnings(as.numeric(get(name, envir = env)))
+        if (length(value) != 1L || !is.finite(value)) return(NA_real_)
+        value
+      }
+      values <- vapply(names(expected_values), read_number, numeric(1))
+      valid <- all(is.finite(values))
+      correct <- valid && all(abs(values - expected_values) <= 0.0005)
+      assign("results_3_2_3", list(valid = valid, values = values, expected = expected_values), envir = globalenv())
+      correct
+    }, TRUE, comparator = function(generated, expected, ...) {
+      results <- get("results_3_2_3", envir = globalenv())
+      if (isTRUE(generated == expected)) {
+        message <- paste("**Bevestiging:** je antwoord past bij het leerdoel van deze korte oefening.", "**Denkregel:** Een cumulatieve proportie telt alle relatieve frequenties tot en met de gekozen grens op.", "**Transferstap:** Tel de eerste drie proporties met behoud van de schaal 0–1.", sep = "\n\n")
+      } else if (!results$valid) {
+        message <- paste("**Waarschijnlijke redenering:** minstens één antwoord ontbreekt, bevat tekst of is niet één eindig getal.", "**Waarom dit niet klopt:** elke lege plaats verwacht precies één berekende waarde of geldig optienummer.", "**Denkregel:** Een cumulatieve proportie telt alle relatieve frequenties tot en met de gekozen grens op.", "**Volgende stap:** Tel de eerste drie proporties met behoud van de schaal 0–1.", sep = "\n\n")
+      } else {
+        wrong_field <- names(which(abs(results$values - results$expected) > 0.0005))[[1L]]
+        values <- results$values
+        likely <- "Je hebt een verwante grootheid, verkeerde schaal of verkeerde antwoordoptie gebruikt."
+              if (identical(wrong_field, "cumulatieve_relatieve_frequentie_neutraal") && abs(values[[wrong_field]] - 0.35) <= 0.0005) likely <- "Je hebt alleen de relatieve frequentie van neutraal genomen."
+              if (identical(wrong_field, "cumulatieve_relatieve_frequentie_neutraal") && abs(values[[wrong_field]] - 65) <= 0.0005) likely <- "Je hebt een percentage ingevuld in plaats van een proportie."
+        message <- paste(paste0("**Waarschijnlijke redenering:** ", likely), "**Waarom dit niet klopt:** Een cumulatieve proportie telt alle relatieve frequenties tot en met de gekozen grens op.", "**Denkregel:** Een cumulatieve proportie telt alle relatieve frequenties tot en met de gekozen grens op.", "**Volgende stap:** Tel de eerste drie proporties met behoud van de schaal 0–1.", sep = "\n\n")
+      }
+      get_reporter()$add_message(message, type = "markdown")
+      generated == expected
+    })
+  })
 })

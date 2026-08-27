@@ -1,17 +1,7 @@
-Een reclasseringsdienst vroeg aan veroordeelde delictplegers hoe tevreden zij zijn over hun begeleiding.
+Een ordinale tevredenheidstabel heeft frequenties 5 (zeer ontevreden), 8 (ontevreden), 7 (neutraal), 6 (tevreden) en 4 (zeer tevreden).
 
-| Categorie | Absolute frequentie |
-|---|---:|
-| Zeer ontevreden | 33 |
-| Ontevreden | 84 |
-| Noch tevreden, noch ontevreden | 102 |
-| Tevreden | 63 |
-| Zeer tevreden | 48 |
+**Leerdoel:** een cumulatieve absolute frequentie interpreteren als ‘tot en met’.
 
-**Leerdoel:** een geordende frequentietabel opbouwen en het totale aantal respondenten bepalen.
+Hoeveel respondenten vallen cumulatief tot en met de categorie neutraal?
 
-Bereken voor iedere categorie de cumulatieve absolute frequentie, in dezelfde volgorde als in de tabel. Vul daarnaast het totale aantal respondenten in. Een cumulatieve frequentie telt de huidige categorie en alle voorafgaande categorieën mee.
-
-Vul je antwoorden in op de lege plaatsen in het codebestand.
-
-Na deze oefening volgt Deel 2 met de relatieve frequenties.
+Vul één antwoord in op de lege plaats in het codebestand.

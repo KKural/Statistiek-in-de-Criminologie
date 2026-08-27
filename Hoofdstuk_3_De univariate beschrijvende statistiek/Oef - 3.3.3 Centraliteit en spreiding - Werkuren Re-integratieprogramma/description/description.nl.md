@@ -1,11 +1,7 @@
-Gegeven zijn de wekelijkse werkuren van twintig deelnemers:
+Drie deelnemers werkten 20, 24 en 28 uur.
 
-`24, 36, 35, 28, 24, 28, 24, 36, 32, 36, 40, 38, 36, 34, 40, 36, 32, 36, 40, 36`
+**Leerdoel:** het rekenkundig gemiddelde van een korte ratioreeks berekenen.
 
-**Leerdoel:** centrum- en spreidingsmaten voor ratiodata berekenen.
+Bereken het gemiddelde aantal werkuren.
 
-Bereken modus, mediaan, gemiddelde, variatiebreedte, Q1, Q3 en de interkwartielafstand. Rond alleen het uiteindelijke gemiddelde af op twee decimalen.
-
-Gebruik voor de kwartielen de **Tukey-hinges**: sorteer de twintig waarnemingen, splits ze in een onderste en bovenste helft van elk tien waarden en neem de mediaan van iedere helft. Deze afspraak voorkomt dat verschillende geldige softwareconventies tot een andere beoordeling leiden.
-
-Vul je antwoorden in op de lege plaatsen in het codebestand.
+Vul één antwoord in op de lege plaats in het codebestand.

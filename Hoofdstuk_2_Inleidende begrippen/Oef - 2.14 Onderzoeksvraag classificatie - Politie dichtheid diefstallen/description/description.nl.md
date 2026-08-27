@@ -1,14 +1,7 @@
-**"Wat is de relatie tussen het aantal politiemensen per 1000 inwoners en het aantal geregistreerde diefstallen in Belgische gemeenten?"**
+Per wijk worden het aantal agenten per 10.000 inwoners en het aantal diefstallen per 1.000 inwoners geregistreerd.
 
-**Jouw taak:**
-Analyseer deze onderzoeksvraag en bepaal:
-1. Het type onderzoeksvraag
-2. De bestudeerde variabele(n)
-3. Het meetniveau van elke variabele
-4. Of elke variabele kwantitatief is
-5. Het type waarden van elke variabele
-6. Voorbeelden van mogelijke waarden
+**Leerdoel:** herkennen dat twee tellingen kwantitatieve variabelen zijn.
 
-Vervang `???` door het juiste antwoord tussen de aanhalingstekens. Let op hoofdletters en spaties - gebruik exact de formuleringen zoals gegeven in de theorie. Je kunt zowel hoofdletters als kleine letters gebruiken - het systeem accepteert beide.
+Welke classificatie past? 1 = beide kwantitatief; 2 = beide kwalitatief; 3 = alleen politiedichtheid kwantitatief; 4 = alleen diefstallen kwantitatief.
 
-**Vergeet niet:** Deze oefening test je begrip van de theorie uit Oef - 2.8. Zorg dat je die goed hebt bestudeerd!
+Vul één antwoord in op de lege plaats in het codebestand.

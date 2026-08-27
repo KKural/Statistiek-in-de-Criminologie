@@ -1,76 +1,34 @@
 context({
-  testcase(
-    "",
-    {
-      testEqual(
-        "",
-        function(env) {
-          expected_values <- c(
-            verklarende_variabele = 1,
-            gemiddelde_x = 50.00,
-            gemiddelde_y = 1.7380,
-            SSx = 1066.0,
-            SSy = 3.4435,
-            SSxy = 57.87
-          )
-          tolerances <- c(
-            verklarende_variabele = 0,
-            gemiddelde_x = 0.0051,
-            gemiddelde_y = 0.000051,
-            SSx = 0.0501,
-            SSy = 0.000051,
-            SSxy = 0.0051
-          )
-
-          results <- lapply(names(expected_values), function(name) {
-            present <- exists(name, envir = env, inherits = FALSE)
-            raw <- if (present) get(name, envir = env, inherits = FALSE) else NA
-            value <- suppressWarnings(as.numeric(raw))
-            valid <- length(value) == 1L && !is.na(value) && is.finite(value)
-            list(
-              exists = present,
-              value = raw,
-              correct = valid && abs(value - expected_values[[name]]) <= tolerances[[name]]
-            )
-          })
-          names(results) <- names(expected_values)
-          assign("detailed_results", results, envir = globalenv())
-          all(vapply(results, function(item) item$correct, logical(1)))
-        },
-        TRUE,
-        comparator = function(generated, expected, ...) {
-          results <- get("detailed_results", envir = globalenv())
-          labels <- c(
-            verklarende_variabele = "verklarende variabele",
-            gemiddelde_x = "gemiddelde van X",
-            gemiddelde_y = "gemiddelde van Y",
-            SSx = "SSx",
-            SSy = "SSy",
-            SSxy = "SSxy"
-          )
-
-          if (isTRUE(generated == expected)) {
-            feedback <- paste(
-              "**Bevestiging:** alle tussenresultaten zijn correct: prijs is de verklarende variabele, x̄ = 50.00, ȳ = 1.7380, SSx = 1066.0, SSy = 3.4435 en SSxy = 57.87.",
-              "**Denkregel:** SSx en SSy tellen gekwadrateerde afwijkingen op; SSxy telt de producten van gekoppelde X- en Y-afwijkingen op. De kruisproductsom behoudt daardoor de richting van de gezamenlijke beweging.",
-              "**Transferstap:** gebruik deze drie sommen in deel 2 om varianties, covariantie en Pearsons r te berekenen.",
-              sep = "\n\n"
-            )
-          } else {
-            wrong <- names(results)[!vapply(results, function(item) item$correct, logical(1))]
-            feedback <- paste(
-              paste0("**Waarschijnlijke redenering:** bij ", paste(labels[wrong], collapse = ", "), " kan een afwijking, kwadraat of kruisproduct te vroeg zijn afgerond. Dit is een hypothese op basis van de foutieve velden."),
-              "**Waarom dit niet klopt:** te vroeg afgeronde tussenwaarden veranderen de sommen. SSxy gebruikt bovendien producten van gekoppelde afwijkingen en is dus geen som van twee afzonderlijke somkwadraten.",
-              "**Denkregel:** bereken eerst beide gemiddelden, maak per rij de twee afwijkingen en behoud de volledige precisie tot de drie kolomsommen klaar zijn.",
-              "**Volgende stap:** controleer voor het eerste afwijkende veld één rij van je rekentabel en tel daarna de betreffende kolom opnieuw op.",
-              sep = "\n\n"
-            )
-          }
-
-          get_reporter()$add_message(feedback, type = "markdown")
-          generated == expected
-        }
-      )
-    }
-  )
+  testcase("", {
+    testEqual("", function(env) {
+      expected_values <- c(kruisproductsom = 4)
+      read_number <- function(name) {
+        if (!exists(name, envir = env)) return(NA_real_)
+        value <- suppressWarnings(as.numeric(get(name, envir = env)))
+        if (length(value) != 1L || !is.finite(value)) return(NA_real_)
+        value
+      }
+      values <- vapply(names(expected_values), read_number, numeric(1))
+      valid <- all(is.finite(values))
+      correct <- valid && all(abs(values - expected_values) <= 0.0005)
+      assign("results_8_1_1", list(valid = valid, values = values, expected = expected_values), envir = globalenv())
+      correct
+    }, TRUE, comparator = function(generated, expected, ...) {
+      results <- get("results_8_1_1", envir = globalenv())
+      if (isTRUE(generated == expected)) {
+        message <- paste("**Bevestiging:** je antwoord past bij het leerdoel van deze korte oefening.", "**Denkregel:** Vermenigvuldig de gepaarde afwijkingen en tel de producten met hun teken op.", "**Transferstap:** Bereken per rij het product en tel daarna de drie producten.", sep = "\n\n")
+      } else if (!results$valid) {
+        message <- paste("**Waarschijnlijke redenering:** minstens één antwoord ontbreekt, bevat tekst of is niet één eindig getal.", "**Waarom dit niet klopt:** elke lege plaats verwacht precies één berekende waarde of geldig optienummer.", "**Denkregel:** Vermenigvuldig de gepaarde afwijkingen en tel de producten met hun teken op.", "**Volgende stap:** Bereken per rij het product en tel daarna de drie producten.", sep = "\n\n")
+      } else {
+        wrong_field <- names(which(abs(results$values - results$expected) > 0.0005))[[1L]]
+        values <- results$values
+        likely <- "Je hebt een verwante grootheid, verkeerde schaal of verkeerde antwoordoptie gebruikt."
+              if (identical(wrong_field, "kruisproductsom") && abs(values[[wrong_field]] - -4) <= 0.0005) likely <- "Je hebt bij minstens één gepaard product het teken omgekeerd."
+              if (identical(wrong_field, "kruisproductsom") && abs(values[[wrong_field]] - 0) <= 0.0005) likely <- "Je hebt de afwijkingen afzonderlijk opgeteld in plaats van gepaarde producten te vormen."
+        message <- paste(paste0("**Waarschijnlijke redenering:** ", likely), "**Waarom dit niet klopt:** Vermenigvuldig de gepaarde afwijkingen en tel de producten met hun teken op.", "**Denkregel:** Vermenigvuldig de gepaarde afwijkingen en tel de producten met hun teken op.", "**Volgende stap:** Bereken per rij het product en tel daarna de drie producten.", sep = "\n\n")
+      }
+      get_reporter()$add_message(message, type = "markdown")
+      generated == expected
+    })
+  })
 })

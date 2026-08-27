@@ -1,24 +1,7 @@
-Een onderzoeker selecteert aselect één verdachte uit deze registratie.
+P(A) = 0.60, P(B) = 0.50 en P(A ∩ B) = 0.30.
 
-| | Diefstal | Geweldsmisdrijf | Drugsmisdrijf | Overige | Totaal |
-|---|---:|---:|---:|---:|---:|
-| Vrouw | 12 | 5 | 3 | 2 | 22 |
-| Man | 70 | 30 | 15 | 10 | 125 |
-| **Totaal** | **82** | **35** | **18** | **12** | **147** |
+**Leerdoel:** de algemene somregel met overlap toepassen.
 
-Bereken de kans dat de geselecteerde verdachte **een vrouw is of voor diefstal is geregistreerd**.
+Bereken P(A ∪ B). Rond af op twee decimalen.
 
-De gebeurtenissen overlappen: 12 personen behoren tot beide groepen. Gebruik daarom de algemene somregel:
-
-$$P(V\cup D)=P(V)+P(D)-P(V\cap D)$$
-
-Bereken afzonderlijk:
-
-1. `p_vrouw` voor $P(V)$;
-2. `p_diefstal` voor $P(D)$;
-3. `p_overlap` voor $P(V\cap D)$;
-4. `p_union` voor $P(V\cup D)$.
-
-## Invoer
-
-Vul elke lege plaats na `<-` in met een **decimale kans**, afgerond op **vier decimalen**. Gebruik bij het invoeren een punt als decimaalteken, bijvoorbeeld `0.1250`.
+Vul één antwoord in op de lege plaats in het codebestand.

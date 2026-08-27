@@ -1,8 +1,2 @@
-# OEFENING 11.7 - DEEL 1 VAN 2
-# Lees de model-fit en ANOVA-output. Vul na <- één optienummer per vraag in.
-
-vraag1 <-
-vraag2 <-
-vraag3 <-
-vraag4 <-
-vraag5 <-
+# Vul het antwoord in na <-.
+modelconclusie <-

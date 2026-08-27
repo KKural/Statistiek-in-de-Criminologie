@@ -1,9 +1,2 @@
-# OEFENING 11.7 - DEEL 2 VAN 2
-# Lees de regressieparameters. Vul na <- één optienummer per vraag in.
-
-vraag6 <-
-vraag7 <-
-vraag8 <-
-vraag9 <-
-vraag10 <-
-vraag11 <-
+# Vul het antwoord in na <-.
+voorspelling <-

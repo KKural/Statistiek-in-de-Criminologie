@@ -2,7 +2,7 @@
   "type": "exercise",
   "description": {
     "names": {
-      "nl": "Oef - 10.3: Partiële correlatie — schoolbetrokkenheid en suppressorvariabele (correlatietabel)"
+      "nl": "Oef - 10.3 Partiële correlatie - Suppressoreffect herkennen"
     }
   },
   "programming_language": "R",

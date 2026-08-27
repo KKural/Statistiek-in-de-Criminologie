@@ -1,77 +1,34 @@
 context({
-  testcase(
-    "",
-    {
-      testEqual(
-        "",
-        function(env) {
-          expected_values <- c(
-            percentage_mannen = 61.50,
-            percentage_vrouwen = 38.50,
-            percentage_yes = 25.00,
-            percentage_no = 75.00,
-            percentage_yes_bij_mannen = 30.89,
-            percentage_yes_bij_vrouwen = 15.58,
-            percentageverschil_yes = 15.31
-          )
-
-          results <- lapply(names(expected_values), function(name) {
-            present <- exists(name, envir = env, inherits = FALSE)
-            raw <- if (present) get(name, envir = env, inherits = FALSE) else NA
-            value <- suppressWarnings(as.numeric(raw))
-            valid <- length(value) == 1L && !is.na(value) && is.finite(value)
-            list(
-              exists = present,
-              value = raw,
-              correct = valid && abs(value - expected_values[[name]]) <= 0.0051
-            )
-          })
-          names(results) <- names(expected_values)
-          assign("detailed_results", results, envir = globalenv())
-          all(vapply(results, function(item) item$correct, logical(1)))
-        },
-        TRUE,
-        comparator = function(generated, expected, ...) {
-          results <- get("detailed_results", envir = globalenv())
-          labels <- c(
-            percentage_mannen = "marginaal percentage mannen",
-            percentage_vrouwen = "marginaal percentage vrouwen",
-            percentage_yes = "marginaal percentage YES",
-            percentage_no = "marginaal percentage NO",
-            percentage_yes_bij_mannen = "YES binnen mannen",
-            percentage_yes_bij_vrouwen = "YES binnen vrouwen",
-            percentageverschil_yes = "verschil in procentpunten"
-          )
-
-          if (isTRUE(generated == expected)) {
-            feedback <- paste(
-              "**Bevestiging:** alle zeven percentages zijn correct. De marginale percentages zijn 61.50%, 38.50%, 25.00% en 75.00%; de conditionele YES-percentages zijn 30.89% en 15.58%, met een verschil van 15.31 procentpunten.",
-              "**Denkregel:** een marginaal percentage gebruikt de volledige steekproef als noemer; een conditioneel percentage gebruikt het totaal van de groep achter de voorwaarde.",
-              "**Transferstap:** pas dezelfde noemercontrole toe op een nieuwe kruistabel en formuleer vóór elke deling expliciet welke groep 100% vormt.",
-              sep = "\n\n"
-            )
-          } else {
-            wrong <- names(results)[!vapply(results, function(item) item$correct, logical(1))]
-            missing <- wrong[!vapply(results[wrong], function(item) item$exists, logical(1))]
-            status <- paste(labels[wrong], collapse = ", ")
-            missing_text <- if (length(missing)) {
-              paste0(" Ontbrekende velden: ", paste(labels[missing], collapse = ", "), ".")
-            } else {
-              ""
-            }
-            feedback <- paste(
-              paste0("**Waarschijnlijke redenering:** bij ", status, " is vermoedelijk een rij-, kolom- of totaaltelling als verkeerde noemer gebruikt. Dit is een hypothese op basis van de afwijkende velden."),
-              paste0("**Waarom dit niet klopt:** de noemer bepaalt de betekenis van een percentage. Marginale en conditionele percentages beantwoorden verschillende vragen.", missing_text),
-              "**Denkregel:** schrijf vóór elke breuk in woorden: ‘aantal in de gevraagde categorie / totaal van de groep die 100% vormt’. Trek pas daarna de twee conditionele percentages van elkaar af.",
-              "**Volgende stap:** controleer eerst het eerste afwijkende veld, markeer in de tabel de teller en de juiste noemer en dien vervolgens opnieuw in.",
-              sep = "\n\n"
-            )
-          }
-
-          get_reporter()$add_message(feedback, type = "markdown")
-          generated == expected
-        }
-      )
-    }
-  )
+  testcase("", {
+    testEqual("", function(env) {
+      expected_values <- c(percentage_crimineel_mannen = 25)
+      read_number <- function(name) {
+        if (!exists(name, envir = env)) return(NA_real_)
+        value <- suppressWarnings(as.numeric(get(name, envir = env)))
+        if (length(value) != 1L || !is.finite(value)) return(NA_real_)
+        value
+      }
+      values <- vapply(names(expected_values), read_number, numeric(1))
+      valid <- all(is.finite(values))
+      correct <- valid && all(abs(values - expected_values) <= 0.0005)
+      assign("results_7_1_1", list(valid = valid, values = values, expected = expected_values), envir = globalenv())
+      correct
+    }, TRUE, comparator = function(generated, expected, ...) {
+      results <- get("results_7_1_1", envir = globalenv())
+      if (isTRUE(generated == expected)) {
+        message <- paste("**Bevestiging:** je antwoord past bij het leerdoel van deze korte oefening.", "**Denkregel:** Een conditioneel percentage deelt de cel door het totaal van de gekozen groep.", "**Transferstap:** Gebruik 30 als teller en 120 mannen als noemer; vermenigvuldig met 100.", sep = "\n\n")
+      } else if (!results$valid) {
+        message <- paste("**Waarschijnlijke redenering:** minstens één antwoord ontbreekt, bevat tekst of is niet één eindig getal.", "**Waarom dit niet klopt:** elke lege plaats verwacht precies één berekende waarde of geldig optienummer.", "**Denkregel:** Een conditioneel percentage deelt de cel door het totaal van de gekozen groep.", "**Volgende stap:** Gebruik 30 als teller en 120 mannen als noemer; vermenigvuldig met 100.", sep = "\n\n")
+      } else {
+        wrong_field <- names(which(abs(results$values - results$expected) > 0.0005))[[1L]]
+        values <- results$values
+        likely <- "Je hebt een verwante grootheid, verkeerde schaal of verkeerde antwoordoptie gebruikt."
+              if (identical(wrong_field, "percentage_crimineel_mannen") && abs(values[[wrong_field]] - 30) <= 0.0005) likely <- "Je hebt de celfrequentie ingevuld in plaats van een percentage."
+              if (identical(wrong_field, "percentage_crimineel_mannen") && abs(values[[wrong_field]] - 0.25) <= 0.0005) likely <- "Je hebt de proportie ingevuld zonder naar procenten om te zetten."
+        message <- paste(paste0("**Waarschijnlijke redenering:** ", likely), "**Waarom dit niet klopt:** Een conditioneel percentage deelt de cel door het totaal van de gekozen groep.", "**Denkregel:** Een conditioneel percentage deelt de cel door het totaal van de gekozen groep.", "**Volgende stap:** Gebruik 30 als teller en 120 mannen als noemer; vermenigvuldig met 100.", sep = "\n\n")
+      }
+      get_reporter()$add_message(message, type = "markdown")
+      generated == expected
+    })
+  })
 })

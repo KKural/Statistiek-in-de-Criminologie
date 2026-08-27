@@ -1,18 +1,2 @@
-# Vul getallen in na <- of tussen de komma's in c(...); typ tekst tussen "".
-# Oefening 7.1 — Deel 1: marginale en conditionele percentages
-# Gegeven: N = 2000, Man (YES=380, NO=850), Vrouw (YES=120, NO=650)
-# Vul de zeven onderstaande objecten in.
-# Gebruik decimalen met punt (niet komma) en geen procentteken.
-
-# 1) Marginale percentages (t.o.v. N = 2000)
-percentage_mannen <-
-percentage_vrouwen <-
-percentage_yes <-
-percentage_no <-
-
-# 2) Conditionele percentages (kolompercentages)
-percentage_yes_bij_mannen <-
-percentage_yes_bij_vrouwen <-
-
-# 3) Percentageverschil (procentpunten)
-percentageverschil_yes <-
+# Vul het antwoord in na <-.
+percentage_crimineel_mannen <-
