@@ -17,8 +17,8 @@ De volgende **correlatietabel** is beschikbaar:
 </thead>
 <tbody>
 <tr><td style="padding: 4px 10px;">X (Schoolbetrokkenheid)</td><td style="padding: 4px 10px; text-align: center;">1</td><td style="padding: 4px 10px; text-align: center;">0.10</td><td style="padding: 4px 10px; text-align: center;">-0.65</td></tr>
-<tr><td style="padding: 4px 10px;">Y (Delinquentie)</td><td style="padding: 4px 10px; text-align: center;">0.10</td><td style="padding: 4px 10px; text-align: center;">1</td><td style="padding: 4px 10px; text-align: center;">-0.55</td></tr>
-<tr style="border-bottom: 2px solid #000;"><td style="padding: 4px 10px;">Z (Lage zelfcontrole)</td><td style="padding: 4px 10px; text-align: center;">-0.65</td><td style="padding: 4px 10px; text-align: center;">-0.55</td><td style="padding: 4px 10px; text-align: center;">1</td></tr>
+<tr><td style="padding: 4px 10px;">Y (Delinquentie)</td><td style="padding: 4px 10px; text-align: center;">0.10</td><td style="padding: 4px 10px; text-align: center;">1</td><td style="padding: 4px 10px; text-align: center;">0.55</td></tr>
+<tr style="border-bottom: 2px solid #000;"><td style="padding: 4px 10px;">Z (Lage zelfcontrole)</td><td style="padding: 4px 10px; text-align: center;">-0.65</td><td style="padding: 4px 10px; text-align: center;">0.55</td><td style="padding: 4px 10px; text-align: center;">1</td></tr>
 </tbody>
 </table>
 

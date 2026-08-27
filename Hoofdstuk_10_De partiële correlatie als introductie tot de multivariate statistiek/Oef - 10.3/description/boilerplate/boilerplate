@@ -7,8 +7,8 @@
 #
 #         X       Y       Z
 #   X    1       0.10   -0.65
-#   Y    0.10    1      -0.55
-#   Z   -0.65   -0.55    1
+#   Y    0.10    1       0.55
+#   Z   -0.65    0.55    1
 #
 # Vul je eindresultaten in (vervang alle ???).
 # Gebruik decimalen met PUNT (niet komma). Rond af op 4 decimalen.
