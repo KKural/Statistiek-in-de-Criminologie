@@ -10,7 +10,7 @@
 
 ### Oef - 3.1 Energiedrankjes - Eén absolute frequentie
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.1 Frequentietabel - Energiedrankjes consumptie`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.1 Energiedrankjes - Een absolute frequentie`
 
 #### Correcte inzending
 
@@ -51,7 +51,7 @@ frequentie_vaak <-
 
 ### Oef - 3.2 Tevredenheid - Frequenties en passende maten
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.2.1 Cumulatieve absolute frequenties - Tevredenheid Reclasseringsbegeleiding`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.2 Tevredenheid - Frequenties en passende maten`
 
 #### Correcte inzending
 
@@ -117,7 +117,7 @@ samenvattingspaar_ordinaal <- 1
 
 ### Oef - 3.3 Werkuren - Frequentie, proportie en percentage
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.1 Absolute frequentie - Werkuren`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3 Werkuren - Frequentie, proportie en percentage`
 
 #### Correcte inzending
 
@@ -167,7 +167,7 @@ percentage_32 <- 38.5
 
 ### Oef - 3.4 Werkuren - Centrum- en spreidingsmaten
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.3 Centraliteit en spreiding - Werkuren Re-integratieprogramma`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4 Werkuren - Centrum- en spreidingsmaten`
 
 #### Correcte inzending
 
@@ -251,7 +251,7 @@ reden_maatkeuze <- 1
 
 ### Oef - 3.5 Werkuren - Getekende afwijkingen
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.5 Getekende afwijking - Werkuren`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.5 Werkuren - Getekende afwijkingen`
 
 #### Correcte inzending
 
@@ -301,7 +301,7 @@ teken_afwijking_34 <- 2
 
 ### Oef - 3.6 Werkuren - Gekwadrateerde afwijkingen
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.7 Afwijking kwadrateren - Werkuren`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.6 Werkuren - Gekwadrateerde afwijkingen`
 
 #### Correcte inzending
 
@@ -351,7 +351,7 @@ reden_kwadrateren <- 1
 
 ### Oef - 3.7 Werkuren - Afwijkingensom en variantie
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.3.9 Som van de afwijkingen - Werkuren`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.7 Werkuren - Afwijkingensom en variantie`
 
 #### Correcte inzending
 
@@ -401,7 +401,7 @@ steekproefvariantie <- 21
 
 ### Oef - 3.8 Huwelijksduur - Frequenties en percentages
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.1 Absolute frequentie - Huwelijksduur`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.8 Huwelijksduur - Frequenties en percentages`
 
 #### Correcte inzending
 
@@ -485,7 +485,7 @@ cumulatief_percentage_90 <- 67.67
 
 ### Oef - 3.9 Huwelijksduur - Uitbijters en centraliteit
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.4 Centraliteit en spreiding - Beroemde huwelijken`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.9 Huwelijksduur - Uitbijters en centraliteit`
 
 #### Correcte inzending
 
@@ -551,7 +551,7 @@ beste_centraliteitsmaat <- 1
 
 ### Oef - 3.10 Huwelijksduur - Afwijking en kwadraat
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.6 Afwijking en kwadraat - Huwelijksduur`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.10 Huwelijksduur - Afwijking en kwadraat`
 
 #### Correcte inzending
 
@@ -601,7 +601,7 @@ gekwadrateerde_afwijking_20 <- 101
 
 ### Oef - 3.11 Huwelijksduur - Bijdrage aan de spreiding
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.7 Bijdrage aan de spreiding - Huwelijksduur`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.11 Huwelijksduur - Bijdrage aan de spreiding`
 
 #### Correcte inzending
 
@@ -651,7 +651,7 @@ grootste_bijdrage <- 1
 
 ### Oef - 3.12 Huwelijksduur - Variantie en standaardafwijking
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.4.8 Variantie en standaardafwijking - Beroemde huwelijken`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.12 Huwelijksduur - Variantie en standaardafwijking`
 
 #### Correcte inzending
 
@@ -677,7 +677,7 @@ standaardafwijking <- 476.29
 
 ### Oef - 3.13 Politie-incidenten - Passende spreidingsmaat
 
-Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.5 Beschrijvende statistiek - Politiepatrouille en incidenten`
+Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.13 Politie-incidenten - Passende spreidingsmaat`
 
 #### Correcte inzending
 
