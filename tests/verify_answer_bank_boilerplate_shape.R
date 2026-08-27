@@ -30,6 +30,7 @@ correct_block <- function(section) {
 normalize_shape <- function(text) {
   lines <- strsplit(gsub("\\r\\n?", "\n", text), "\n", fixed = TRUE)[[1L]]
   lines <- sub("[[:space:]]+$", "", lines)
+  lines <- ifelse(startsWith(trimws(lines), "#"), sub("[.]$", "", lines), lines)
   while (length(lines) && !nzchar(lines[[length(lines)]])) lines <- head(lines, -1L)
   assignment <- "^(\\s*[A-Za-z.][A-Za-z0-9._]*\\s*(?:<-|=))"
   lines <- ifelse(grepl(assignment, lines, perl = TRUE),

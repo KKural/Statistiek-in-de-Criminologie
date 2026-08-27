@@ -4,8 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.1 Padmodel - Rollen van variabelen",
-      "en": "Exercise - 12.1 Path model - Roles of variables"
+      "nl": "Oef - 12.1 Soorten variabelen: exogene variabelen",
+      "en": "Exercise - 12.1 Variable types: exogenous variables"
     }
   },
   "evaluation": {
@@ -22,3 +22,4 @@
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
+

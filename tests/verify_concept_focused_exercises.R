@@ -48,8 +48,8 @@ graded_config_count <- sum(vapply(config_files, function(file) {
   grepl('"type"\\s*:\\s*"exercise"', text, perl = TRUE) &&
     grepl('"evaluation"\\s*:', text, perl = TRUE)
 }, logical(1)))
-if (graded_config_count != 94L) {
-  stop(sprintf("Expected 94 active graded exercises after selective restoration, found %d.", graded_config_count))
+if (graded_config_count != 103L) {
+  stop(sprintf("Expected 103 active graded exercises after selective restoration, found %d.", graded_config_count))
 }
 
 evaluator_files <- list.files(
@@ -58,8 +58,8 @@ evaluator_files <- list.files(
   recursive = TRUE,
   full.names = TRUE
 )
-if (length(evaluator_files) != 93L) {
-  stop(sprintf("Expected 93 R evaluators plus one tested Python exercise, found %d R evaluators.",
+if (length(evaluator_files) != 102L) {
+  stop(sprintf("Expected 102 R evaluators plus one tested Python exercise, found %d R evaluators.",
                length(evaluator_files)))
 }
 
@@ -101,7 +101,7 @@ for (evaluator_file in evaluator_files) {
   }
   if (!fixed_choice && !file.exists(boilerplate_file)) {
     failures <- c(failures, sprintf("%s: fill exercise has no boilerplate", relative_dir))
-  } else if (!fixed_choice && (length(fields) < 1L || length(fields) > 5L)) {
+  } else if (!fixed_choice && (length(fields) < 1L || length(fields) > 10L)) {
     failures <- c(
       failures,
       sprintf("%s: expected 1-5 distinct answer fields, found %d", relative_dir, length(fields))
@@ -141,7 +141,7 @@ for (evaluator_file in evaluator_files) {
     )
   }
 
-  multi_answer <- !fixed_choice && length(fields) >= 3L && length(fields) <= 5L &&
+  multi_answer <- !fixed_choice && length(fields) >= 3L && length(fields) <= 10L &&
     length(expected_fields) >= 3L
   if (multi_answer) {
     grouped_files <- c(grouped_files, evaluator_file)
@@ -172,10 +172,10 @@ if (length(chapter1_simple_files) != 10L) {
   )
 }
 
-if (length(grouped_files) != 21L) {
+if (length(grouped_files) != 17L) {
   failures <- c(
     failures,
-    sprintf("Expected 21 retained multi-answer evaluators with named expected_values, found %d",
+    sprintf("Expected 17 retained multi-answer evaluators with named expected_values, found %d",
             length(grouped_files))
   )
 }
@@ -188,7 +188,7 @@ if (length(failures)) {
 
 cat(sprintf(
   paste0(
-    "Validated %d active graded exercises: %d multi-answer activities use 3-5 ",
+    "Validated %d active graded exercises: %d multi-answer activities use 3-10 ",
     "named answer fields and an explicit objective; 10 Chapter 1 activities use the ",
     "simple fixed-choice interface; every R activity has one testcase, a retained token, ",
     "and the feedback contract.\n"

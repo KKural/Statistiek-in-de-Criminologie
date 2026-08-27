@@ -28,8 +28,7 @@ grouped_counts <- c(
   "8.1.1" = 4,
   "9.4.1" = 4,
   "10.1.1" = 5,
-  "11.1.1" = 4, "11.6.1" = 3, "11.7.1" = 2,
-  "12.1" = 3, "12.4" = 3, "12.7" = 3, "12.11" = 4
+  "11.1.1" = 4, "11.6.1" = 3, "11.7.1" = 2
 )
 
 absorbed <- c(
@@ -40,8 +39,7 @@ absorbed <- c(
   "8.1.2",
   "9.4.2", "9.4.3",
   "10.1.2", "10.1.3", "10.1.4", "10.1.5",
-  "11.1.2", "11.1.3", "11.1.4", "11.6.2", "11.7.2",
-  "12.2", "12.3", "12.5", "12.6", "12.8", "12.9", "12.12", "12.13", "12.14"
+  "11.1.2", "11.1.3", "11.1.4", "11.6.2", "11.7.2"
 )
 
 assignment_names <- function(text) {
@@ -135,7 +133,9 @@ restored_standalone <- c(
   "8.4", "8.5",
   "9.5",
   "10.3", "10.4", "10.5",
-  "11.4", "11.5"
+  "11.4", "11.5",
+  "12.1", "12.2", "12.3", "12.4", "12.5", "12.6", "12.7", "12.8", "12.9",
+  "12.11", "12.12", "12.13", "12.14"
 )
 
 for (code in restored_standalone) {
@@ -300,8 +300,8 @@ if (anyDuplicated(tokens)) {
 }
 evaluator_count <- length(list.files(root, pattern = "^Answer\\.R$", recursive = TRUE,
                                      full.names = TRUE))
-if (evaluator_count != 93L) {
-  failures <- c(failures, sprintf("expected 93 R evaluators after selective grouping, found %d",
+if (evaluator_count != 102L) {
+  failures <- c(failures, sprintf("expected 102 R evaluators after selective grouping, found %d",
                                   evaluator_count))
 }
 

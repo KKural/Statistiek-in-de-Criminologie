@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 12.5 Indirecte paden tellen",
+      "en": "Exercise - 12.5 Counting indirect paths"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "padmodel",
+    "indirect effect",
+    "totaal effect",
+    "berekening"
+  ],
+  "internals": {
+    "token": "we_7ipUu6Ek96H2xg_KB4dmcFKA59t7pJFvrFhiT9R_tn3cUEWyKT_jYnErMi_ym",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
+

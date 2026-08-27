@@ -681,7 +681,7 @@ Bronmap: `Hoofdstuk_3_De univariate beschrijvende statistiek/Oef - 3.13 Politie-
 
 #### Correcte inzending
 
-Kopieerbare boilerplate:
+1
 
 ```r
 # Typ hieronder alleen het nummer van je antwoord (1-4).

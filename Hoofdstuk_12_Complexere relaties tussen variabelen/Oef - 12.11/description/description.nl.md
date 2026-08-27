@@ -1,36 +1,25 @@
-Diagnostische grafieken en kengetallen helpen bepalen of de assumpties van een regressiemodel aannemelijk zijn.
+Een criminoloog onderzoekt welke factoren de **recidivescore** (0–100) van ex-gedetineerden beïnvloeden. Hij past een meervoudige regressie toe met als predictoren **ondersteuningsuren per maand** (X₁) en **risicoschaal** (X₂, hogere score = hoger risico).
 
-**Leerdoel:** vier regressieassumpties afzonderlijk beoordelen door in elke diagnose het relevante patroon te herkennen.
+Na het schatten van het model inspecteert hij de diagnostische plots om de assumptie van **lineariteit** te controleren.
 
-Gebruik bij **elke** vraag dezelfde antwoordcodes:
+---
 
-- 1 = alleen figuur of model A toont het probleem;
-- 2 = alleen figuur of model B toont het probleem;
-- 3 = beide tonen het probleem;
-- 4 = geen van beide toont het probleem.
+Hieronder zie je twee versies van de **Residuen vs Geschatte waarden**-plot.
 
-## 1. Lineariteit
+<img src="media/resfit_a.png" alt="Residuen versus geschatte waarden, figuur A" width="680">
 
-Welke residuenplot toont een systematische niet-lineaire trend?
+<img src="media/resfit_b.png" alt="Residuen versus geschatte waarden, figuur B" width="680">
 
-<img src="media/resfit_a.png" alt="Figuur A: residuen tegen geschatte waarden" width="420"> <img src="media/resfit_b.png" alt="Figuur B: residuen tegen geschatte waarden" width="420">
+---
 
-## 2. Homoscedasticiteit
+De **rode lijn** in de plot is een LOESS-smoother die de gemiddelde trend in de residuen weergeeft.
 
-Welke scale-locationplot toont heteroscedasticiteit?
+**Welke uitspraak is JUIST?**
 
-<img src="media/scaleloc_a.png" alt="Figuur A: scale-locationplot" width="420"> <img src="media/scaleloc_b.png" alt="Figuur B: scale-locationplot" width="420">
+1. Figuur A toont een schending van lineariteit — de rode lijn is systematisch gebogen.
+2. Figuur B toont een schending van lineariteit — de rode lijn vertoont een duidelijke kromming.
+3. Beide figuren tonen een schending van lineariteit.
+4. Geen van beide figuren toont een schending van lineariteit.
 
-## 3. Normaliteit van de residuen
 
-Welke Q-Q-plot wijkt systematisch af van de rode referentielijn?
-
-<img src="media/qq_a.png" alt="Figuur A: normale Q-Q-plot" width="420"> <img src="media/qq_b.png" alt="Figuur B: normale Q-Q-plot" width="420">
-
-## 4. Multicollineariteit
-
-Welke VIF-diagnose overschrijdt de aangegeven probleemgrens van 10?
-
-<img src="media/vif_a.png" alt="Figuur A: VIF-waarden" width="420"> <img src="media/vif_b.png" alt="Figuur B: VIF-waarden" width="420">
-
-Vul in het codebestand voor de vier diagnoses telkens de juiste antwoordcode in.
+- Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven

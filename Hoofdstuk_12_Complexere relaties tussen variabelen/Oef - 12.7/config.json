@@ -4,8 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 12.3 Padmodel - R-kwadraat interpreteren",
-      "en": "Exercise - 12.3 Path model - Interpreting R-squared"
+      "nl": "Oef - 12.7 R-kwadraat Morele intuïties (groepsgericht)",
+      "en": "Exercise - 12.7 R-squared for group-focused moral intuitions"
     }
   },
   "evaluation": {
@@ -24,3 +24,4 @@
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
+

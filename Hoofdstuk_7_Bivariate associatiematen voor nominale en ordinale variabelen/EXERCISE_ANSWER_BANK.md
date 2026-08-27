@@ -58,7 +58,7 @@ interpretatie <- 2
 
   - **Waarschijnlijke redenering:** je hebt een verhouding van odds geïnterpreteerd als een exacte verhouding van kansen. **Waarom dit niet klopt:** OR = 2 zegt dat de odds in A tweemaal die in B zijn; de kansen hoeven niet exact te verdubbelen.
 
-### Oef - 7.2 Vuurwapenbezit en geslacht - Chi-kwadraatbeslissing
+### Oef - 7.2 Vuurwapenbezit en geslacht
 
 Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variabelen/Oef - 7.2`
 
@@ -67,46 +67,57 @@ Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variab
 Kopieerbare boilerplate:
 
 ```r
-# Vul het antwoord in na <-.
-conclusie <- 1
+# Vul je eindantwoorden in na <-.
+# Let op:
+# - Je berekent alles met de hand (rekenmachine mag).
+# - Vul in R enkel je eindresultaten in (geen R-berekeningen nodig).
+# - Gebruik decimalen met punt (niet komma) en geen procentteken.
+#
+# Afronden:
+# - Percentages: 2 decimalen
+# - chi^2: 2 decimalen
+# - phi: 2 decimalen
+
+# 1) Relevante kolompercentages (geslacht is de onafhankelijke variabele = kolommen)
+percentage_ja_bij_mannen <- 41.98
+percentage_ja_bij_vrouwen <- 25.00
+
+# 2) Relevante percentageverschil (in procentpunten)
+percentageverschil_ja <- 16.98  # mannen% - vrouwen%
+
+# 3) Chi-kwadraat (chi^2)
+chi_kwadraat <- 60.18
+
+# 4) Associatiemaat gebaseerd op chi^2 (meerkeuze)
+# A=1: Phi
+# B=2: Cramer's V
+# C=3: Spearman rho
+# D=4: Pearson r
+associatiemaat_mc <- 1
+
+# 5) Phi + interpretatie (meerkeuze)
+phi <- 0.18
+# Interpretatie:
+# A=1: zwak
+# B=2: matig
+# C=3: sterk
+interpretatie_phi_mc <- 1
 ```
 
 #### Foute testinvoer en misvattingen
 
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-conclusie <-2
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je hebt de richting van de p-waardevergelijking omgekeerd.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-conclusie <-3
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Je trekt een causale conclusie uit een associatietoets.
-
-- Foute testinvoer:
-
-```r
-# Vul het antwoord in na <-.
-conclusie <-4
-```
-
-  - Misvatting: **Waarschijnlijke redenering:** Samenhang betekent niet dat twee variabelen identiek zijn.
-
-- Ongeldige of ontbrekende invoer:
-
-```r
-conclusie <-
-```
-
-  - Misvatting: geen eindig getal ingevuld; de evaluator geeft de aparte route **Waarom dit niet klopt**, **Denkregel** en **Volgende stap**.
+- `percentage_ja_bij_mannen <- 42` of `percentage_ja_bij_vrouwen <- 20.38`
+  - Misvatting: verkeerde conditionele noemer of de twee kolommen verwisseld.
+- `percentageverschil_ja <- -16.98`
+  - Misvatting: het verschil in de omgekeerde richting berekend.
+- `chi_kwadraat <- 0.18`
+  - Misvatting: Phi ingevuld op de plaats van de chi-kwadraatwaarde.
+- `associatiemaat_mc <- 3` of `4`
+  - Misvatting: een correlatiemaat gekozen die niet de gevraagde op chi-kwadraat gebaseerde maat voor een 2×2-tabel is.
+- `phi <- 60.18`
+  - Misvatting: chi-kwadraat ingevuld zonder omzetting naar Phi.
+- `interpretatie_phi_mc <- 2` of `3`
+  - Misvatting: een Phi van ongeveer 0.18 te sterk geïnterpreteerd.
 
 ### Oef - 7.3 Spearman's rho
 
@@ -198,3 +209,5 @@ Selecteer deze optie:
   - Misvatting: ❌ Dit is niet de foute uitspraak. **Waarschijnlijke redenering:** je hebt mogelijk gedacht dat een niet-monotoon patroon uitspraak 4 weerlegt. Rho = 0 sluit zo'n patroon echter niet uit; het zegt juist dat er geen monotone stijgende of dalende trend is.
 - Foute testinvoer: `5`
   - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
+
+

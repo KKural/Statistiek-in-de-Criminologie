@@ -1,4 +1,4 @@
-De onderzoeksvraag luidt: ‘In welke mate voorspelt leeftijd de kans op recidive?’
+De onderzoeksvraag luidt: ‘Wordt recidive (gemeten als ja/nee) beïnvloed door de leeftijd van de dader?’
 
 **Leerdoel:** een verklarende bivariate onderzoeksvraag herkennen.
 

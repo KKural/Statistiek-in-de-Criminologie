@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 12.14 Assumptie regressie: Multicollineariteit (VIF)",
+      "en": "Exercise - 12.14 Regression assumption: multicollinearity (VIF)"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "labels": [
+    "regressie",
+    "assumpties",
+    "multicollineariteit",
+    "VIF",
+    "diagnostiek"
+  ],
+  "internals": {
+    "token": "BqGDc-PNq6g_jQBb8tirPzHviQT5SnRkYp99DNeiujPSdEk2Thu3FN2Y7-KqTkT6",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
+

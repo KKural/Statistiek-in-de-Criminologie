@@ -14,11 +14,13 @@ Studiemateriaal en leerdoelen:
 
 ## **Aanbevolen kennisclips**
 
-1. **Inleiding tot associatiematen**
+1. **Chi-kwadraattoets uitgelegd: stappenplan en voorbeeld**
 
 <div style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vuFKAFEcmy0" title="Inleiding tot associatiematen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fYBLloXNr6M" title="Chi-kwadraattoets uitgelegd: stappenplan en voorbeeld" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
+
+*De oorspronkelijke kennisclip was beschikbaar toen dit leerpad werd samengesteld, maar is inmiddels door YouTube verwijderd. Daarom gebruiken we hier een beschikbare vervangende uitleg.*
 
 ---
 

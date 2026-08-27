@@ -4,8 +4,8 @@
   "access": "public",
   "description": {
     "names": {
-      "nl": "Oef - 7.2 Vuurwapenbezit en geslacht - Chi-kwadraatbeslissing",
-      "en": "Exercise - 7.2 Firearm ownership and gender - Chi-square decision"
+      "nl": "Oef - 7.2 Vuurwapenbezit en geslacht",
+      "en": "Exercise - 7.2 Firearm ownership and sex"
     }
   },
   "evaluation": {
@@ -24,3 +24,4 @@
     "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
   }
 }
+

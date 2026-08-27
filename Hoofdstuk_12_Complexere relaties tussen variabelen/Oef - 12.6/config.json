@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "programming_language": "R",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oef - 12.6 Totaal effect berekenen",
+      "en": "Exercise - 12.6 Calculating a total effect"
+    }
+  },
+  "evaluation": {
+    "handler": "R"
+  },
+  "test_suite": "evaluation",
+  "boilerplate": "description/boilerplate/boilerplate",
+  "labels": [
+    "padmodel",
+    "totaal effect",
+    "direct effect",
+    "indirect effect"
+  ],
+  "internals": {
+    "token": "pAUbeRgC-JS4a-RRHz58GNTwGNfprcnazXFN_ePrZzjeHaQdsZg2aZsiPkthwj6J",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
+

@@ -116,7 +116,7 @@ all_evaluators <- list.files(
 targets <- list()
 for (file in all_evaluators) {
   expected_values <- parse_expected_values(read_text(file))
-  if (length(expected_values) >= 3L && length(expected_values) <= 5L) {
+  if (length(expected_values) >= 3L && length(expected_values) <= 10L) {
     targets[[file]] <- expected_values
   }
 }
@@ -134,9 +134,9 @@ if (any(chapter1_targets)) {
   stop("Simple Chapter 1 exercises must not enter the grouped progressive-feedback set.")
 }
 
-if (length(targets) != 21L) {
+if (length(targets) != 17L) {
   stop(sprintf(
-    "Expected 21 retained multi-answer evaluators with 3-5 named answers, found %d.",
+    "Expected 17 retained multi-answer evaluators with 3-10 named answers, found %d.",
     length(targets)
   ))
 }
@@ -180,8 +180,8 @@ for (file in names(targets)) {
   routes <- routes + 1L
 }
 
-if (routes != 117L) {
-  stop(sprintf("Expected 117 retained progressive-feedback routes, found %d.", routes))
+if (routes != 96L) {
+  stop(sprintf("Expected 96 retained progressive-feedback routes, found %d.", routes))
 }
 
 cat(sprintf(

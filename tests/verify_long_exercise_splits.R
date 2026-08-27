@@ -1,5 +1,5 @@
 # Compatibility entry point for the former split-exercise check. The sourced
-# validator now checks the complete 94-exercise bank and the 21 retained multi-answer
+# validator now checks the complete 103-exercise bank and the 17 retained multi-answer
 # activities, each with one objective and three to five related answer fields.
 source(file.path("tests", "verify_concept_focused_exercises.R"), chdir = FALSE)
 cat("All logically grouped and formerly long exercises passed.\n")

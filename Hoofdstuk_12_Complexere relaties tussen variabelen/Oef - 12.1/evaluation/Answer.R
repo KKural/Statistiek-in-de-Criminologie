@@ -1,66 +1,31 @@
 context({
-  testcase("", {
-    testEqual("", function(env) {
-      expected_values <- c(exogene_variabelen = 1, endogene_uitkomst = 2, intermediaire_variabelen = 3)
-      read_number <- function(name) {
-        if (!exists(name, envir = env)) return(NA_real_)
-        value <- suppressWarnings(as.numeric(get(name, envir = env)))
-        if (length(value) != 1L || !is.finite(value)) return(NA_real_)
-        value
-      }
-      values <- vapply(names(expected_values), read_number, numeric(1))
-      valid <- all(is.finite(values))
-      correct <- valid && all(abs(values - expected_values) <= 0.0005)
-      assign("results_12_1_combined", list(values = values, expected = expected_values, valid = valid), envir = globalenv())
-      correct
-    }, TRUE, comparator = function(generated, expected, ...) {
-      results <- get("results_12_1_combined", envir = globalenv())
-      if (isTRUE(generated == expected)) {
-        message <- paste(
-          "**Bevestiging:** de empathiedimensies zijn exogeen, moreel oordeel is de uiteindelijke endogene uitkomst en de intuïties en emoties zijn intermediair.",
-          "**Denkregel:** pijlen vertrekken vanuit exogene variabelen; intermediaire variabelen ontvangen én verzenden pijlen; de uiteindelijke uitkomst ontvangt de laatste pijlen.",
-          "**Transferstap:** volg in een nieuw padmodel de richting van de pijlen voordat je inhoudelijke namen gebruikt.",
-          sep = "\n\n"
-        )
-      } else if (!results$valid) {
-        missing_fields <- names(results$expected)[!is.finite(results$values)]
-        message <- paste(
-          paste0("**Waarschijnlijke redenering:** de volgende antwoordcodes ontbreken of zijn niet numeriek: ", paste(missing_fields, collapse = ", "), "."),
-          "**Waarom dit niet klopt:** iedere variabelenrol moet afzonderlijk aan een aangeboden antwoordcode worden gekoppeld.",
-          "**Denkregel:** gebruik precies één code per lege plaats en baseer de rol op inkomende en uitgaande pijlen.",
-          "**Volgende stap:** vul alle drie velden in en controleer daarna de pijlrichting per variabelengroep.",
-          sep = "\n\n"
-        )
-      } else {
-        wrong_field <- names(which(abs(results$values - results$expected) > 0.0005))[[1L]]
-        likely <- switch(wrong_field,
-          exogene_variabelen = "Je hebt waarschijnlijk variabelen met inkomende pijlen gekozen in plaats van de startvariabelen van het model.",
-          endogene_uitkomst = "Je hebt waarschijnlijk een intermediaire variabele gekozen in plaats van het eindpunt van de paden.",
-          intermediaire_variabelen = "Je hebt waarschijnlijk alleen de emoties geselecteerd en de morele intuïties met inkomende én uitgaande pijlen gemist.",
-          "Je hebt twee variabelenrollen verwisseld."
-        )
-        why <- switch(wrong_field,
-          exogene_variabelen = "Empathische bezorgdheid en perspectiefneming ontvangen in dit model geen pijlen en horen bij code 1.",
-          endogene_uitkomst = "Moreel oordeel is het uiteindelijke knooppunt waarop de verklarende routes uitkomen en hoort bij code 2.",
-          intermediaire_variabelen = "De intuïties, schuld en boosheid liggen tussen empathie en het uiteindelijke oordeel en horen samen bij code 3.",
-          "De gekozen code past niet bij de pijlstructuur."
-        )
-        next_step <- switch(wrong_field,
-          exogene_variabelen = "Zoek de knooppunten zonder inkomende enkelvoudige pijlen.",
-          endogene_uitkomst = "Volg alle routes tot het laatste knooppunt.",
-          intermediaire_variabelen = "Markeer alle knooppunten die zowel een inkomende als een uitgaande pijl hebben.",
-          "Teken de pijlrichting per knooppunt opnieuw."
-        )
-        message <- paste(
-          paste0("**Waarschijnlijke redenering:** ", likely),
-          paste0("**Waarom dit niet klopt:** ", why),
-          "**Denkregel:** variabelenrollen worden door de positie in het padmodel bepaald, niet alleen door de inhoudelijke naam.",
-          paste0("**Volgende stap:** ", next_step),
-          sep = "\n\n"
-        )
-      }
-      get_reporter()$add_message(message, type = "markdown")
-      generated == expected
-    })
-  })
+  testcase(
+    "",
+    {
+      testEqual(
+        "",
+        function(env) as.numeric(env$evaluationResult),
+        1,
+        comparator = function(generated, expected, ...) {
+          feedbacks <- list(
+            "1" = "✅ Juist! **Empathische bezorgdheid** en **Empathische perspectiefneming** zijn de exogene variabelen. Zij ontvangen geen pijlen vanuit andere modelvariabelen — zij vormen het vertrekpunt van de verklarende keten.",
+            "2" = "❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de uiteindelijke uitkomst gekozen als vertrekpunt van het model. **Moreel oordeel** ontvangt echter pijlen en is hier endogeen.\n\n**Denkregel:** een exogene variabele heeft geen inkomende pijlen vanuit andere modelvariabelen.\n\n**Volgende stap:** controleer bij elke kandidaat eerst of er een pijlpunt naar de variabele wijst. Alleen Empathische bezorgdheid en Empathische perspectiefneming hebben geen inkomende pijlen.\n\n**Correct antwoord:** 1",
+            "3" = "❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk de variabelen in het midden van de verklarende keten als startvariabelen gelezen. Deze morele intuïties en emoties ontvangen én sturen pijlen en zijn dus intermediair.\n\n**Denkregel:** exogeen = geen inkomende pijlen; intermediair = zowel inkomende als uitgaande pijlen.\n\n**Volgende stap:** volg de pijlen achterwaarts. Bij deze variabelen kom je nog bij andere modelvariabelen uit; bij de twee empathiedimensies niet.\n\n**Correct antwoord:** 1",
+            "4" = "❌ Fout. **Waarschijnlijke redenering:** je hebt mogelijk variabelen met een directe pijl naar de uitkomst als exogeen beschouwd. Geanticipeerde schuld en Morele boosheid ontvangen zelf ook pijlen en zijn daarom intermediair.\n\n**Denkregel:** een uitgaande pijl alleen maakt een variabele niet exogeen; er mogen ook geen inkomende pijlen zijn.\n\n**Volgende stap:** inspecteer beide kanten van elke variabele en kies de variabelen zonder inkomende pijlen.\n\n**Correct antwoord:** 1"
+          )
+          key <- as.character(generated)
+          msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."
+          if (identical(generated, expected)) {
+            msg <- paste0(msg, "\n\n**Bevestiging:** deze keuze komt overeen met de ongewijzigde antwoordsleutel.\n\n**Denkregel:** exogene variabelen hebben in het getekende model geen inkomende pijlen.\n\n**Transferstap:** classificeer in een nieuw padmodel elke variabele door eerst uitsluitend de inkomende pijlen te tellen.")
+          } else if (key %in% names(feedbacks)) {
+            msg <- sub("**Denkregel:**", "**Waarom dit niet klopt:** de gekozen set bevat minstens één variabele met een inkomende pijl en voldoet dus niet aan de definitie van exogeen.\n\n**Denkregel:**", msg, fixed = TRUE)
+          } else {
+          msg <- paste0(msg, "\n\n**Controleer je invoer:** de invoer is leeg, niet-numeriek of buiten de aangeboden opties; daardoor kan geen inhoudelijke keuze worden vastgesteld.\n\n**Waarom dit niet klopt:** alleen één van de aangeboden optienummers kan met de antwoordsleutel worden beoordeeld.\n\n**Denkregel:** koppel eerst één geldige optie aan de regel 'geen inkomende pijlen'.\n\n**Volgende stap:** voer 1, 2, 3 of 4 in en controleer de pijlen opnieuw.")
+          }
+          get_reporter()$add_message(msg, type = "markdown")
+          generated == expected
+        }
+      )
+    }
+  )
 })

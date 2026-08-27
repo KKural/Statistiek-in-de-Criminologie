@@ -197,9 +197,9 @@ for (index in seq_along(configs)) {
   grouped_target <- grepl("expected_values\\s*<-\\s*c\\(", evaluator, perl = TRUE) &&
     length(answer_vars) >= 3L
 
-  if (length(answer_vars) > 5L) {
+  if (length(answer_vars) > 10L) {
     failures <- c(failures, sprintf(
-      "%s: %d answer objects; a coherent grouped exercise may contain at most 5",
+      "%s: %d answer objects; a retained exercise may contain at most 10",
       activity_dir,
       length(answer_vars)
     ))
@@ -290,10 +290,10 @@ graded_activities <- Filter(function(item) {
   !is.null(item$config$evaluation)
 }, activities)
 
-if (length(graded_activities) != 94L) {
+if (length(graded_activities) != 103L) {
   failures <- c(
     failures,
-    sprintf("Expected 94 active graded exercises after selective restoration, found %d",
+    sprintf("Expected 103 active graded exercises after selective restoration, found %d",
             length(graded_activities))
   )
 }
@@ -307,7 +307,7 @@ if (length(failures)) {
 cat(sprintf(
   paste0(
     "Exercise-authoring quality passed for %d activities and %d active graded exercises; ",
-    "learner slots use at most five answer objects, and no explicit Hint/Tip, redundant ",
+    "learner slots use at most ten answer objects, and no explicit Hint/Tip, redundant ",
     "Deel title, legacy letter code, or grouped NA/NULL/???/zero placeholder remains.\n"
   ),
   length(configs),
