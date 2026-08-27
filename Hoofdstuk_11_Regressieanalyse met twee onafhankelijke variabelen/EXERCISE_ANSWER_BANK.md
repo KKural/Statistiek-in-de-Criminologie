@@ -18,7 +18,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-afhankelijke_variabele <-3
+afhankelijke_variabele <- 3
 ```
 
 #### Foute testinvoer en misvattingen
@@ -59,7 +59,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-scp_x1y <--4
+scp_x1y <- -4
 ```
 
 #### Foute testinvoer en misvattingen
@@ -100,7 +100,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-voorspelling <-10
+voorspelling <- 10
 ```
 
 #### Foute testinvoer en misvattingen
@@ -141,7 +141,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-interpretatie_b1 <-2
+interpretatie_b1 <- 2
 ```
 
 #### Foute testinvoer en misvattingen
@@ -250,7 +250,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-interpretatie_b1 <-1
+interpretatie_b1 <- 1
 ```
 
 #### Foute testinvoer en misvattingen
@@ -300,8 +300,8 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul de antwoorden in na <-.
-delta_r2 <-0.08
-conclusie <-1
+delta_r2 <- 0.08
+conclusie <- 1
 ```
 
 #### Foute testinvoer en misvattingen
@@ -354,7 +354,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-modelconclusie <-1
+modelconclusie <- 1
 ```
 
 #### Foute testinvoer en misvattingen
@@ -404,7 +404,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-voorspelling <-16
+voorspelling <- 16
 ```
 
 #### Foute testinvoer en misvattingen

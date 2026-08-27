@@ -18,7 +18,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-z_score <-2
+z_score <- 2
 ```
 
 #### Foute testinvoer en misvattingen
@@ -59,7 +59,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-kans_boven_grens <-0.16
+kans_boven_grens <- 0.16
 ```
 
 #### Foute testinvoer en misvattingen

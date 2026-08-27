@@ -18,7 +18,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-verwachte_frequentie <-12
+verwachte_frequentie <- 12
 ```
 
 #### Foute testinvoer en misvattingen
@@ -59,8 +59,8 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul de antwoorden in na <-.
-ondergrens <-26.08
-bovengrens <-33.92
+ondergrens <- 26.08
+bovengrens <- 33.92
 ```
 
 #### Foute testinvoer en misvattingen
@@ -113,7 +113,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-n_minimum <-43
+n_minimum <- 43
 ```
 
 #### Foute testinvoer en misvattingen
@@ -154,7 +154,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-groepsgemiddelde <-4
+groepsgemiddelde <- 4
 ```
 
 #### Foute testinvoer en misvattingen
@@ -195,7 +195,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-ss_binnen <-8
+ss_binnen <- 8
 ```
 
 #### Foute testinvoer en misvattingen
@@ -236,8 +236,8 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul de antwoorden in na <-.
-f_ratio <-4
-significant <-1
+f_ratio <- 4
+significant <- 1
 ```
 
 #### Foute testinvoer en misvattingen
@@ -280,7 +280,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-antwoord <-3
+antwoord <- 3
 ```
 
 #### Foute testinvoer en misvattingen

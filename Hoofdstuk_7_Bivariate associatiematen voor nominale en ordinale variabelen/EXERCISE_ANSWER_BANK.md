@@ -18,7 +18,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-percentage_crimineel_mannen <-25
+percentage_crimineel_mannen <- 25
 ```
 
 #### Foute testinvoer en misvattingen
@@ -59,8 +59,8 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul de antwoorden in na <-.
-oddsratio <-2
-interpretatie <-1
+oddsratio <- 2
+interpretatie <- 1
 ```
 
 #### Foute testinvoer en misvattingen
@@ -113,7 +113,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-conclusie <-1
+conclusie <- 1
 ```
 
 #### Foute testinvoer en misvattingen
@@ -162,6 +162,7 @@ Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variab
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 4
 ```
 
@@ -231,6 +232,7 @@ Bronmap: `Hoofdstuk_7_Bivariate associatiematen voor nominale en ordinale variab
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 3
 ```
 

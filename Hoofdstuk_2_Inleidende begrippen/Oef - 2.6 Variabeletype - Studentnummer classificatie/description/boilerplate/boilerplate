@@ -10,7 +10,7 @@ leeftijd <- "???"
 # Geslacht (man/vrouw)
 geslacht <- "???"
 
-# Studierichting (verschillende richtingen)  
+# Studierichting (verschillende richtingen)
 studierichting <- "???"
 
 # Studentnummer (1-552 voor identificatie)

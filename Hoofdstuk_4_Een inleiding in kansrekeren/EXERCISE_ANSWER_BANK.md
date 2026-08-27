@@ -227,7 +227,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-kans_a_of_b <-0.8
+kans_a_of_b <- 0.8
 ```
 
 #### Foute testinvoer en misvattingen

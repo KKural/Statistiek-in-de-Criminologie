@@ -18,7 +18,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-gemiddelde_x <-2.5
+gemiddelde_x <- 2.5
 ```
 
 #### Foute testinvoer en misvattingen
@@ -59,7 +59,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-scp_xy <--4
+scp_xy <- -4
 ```
 
 #### Foute testinvoer en misvattingen
@@ -100,7 +100,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-variantie_x <-6
+variantie_x <- 6
 ```
 
 #### Foute testinvoer en misvattingen
@@ -141,7 +141,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-r_xy <-0.5
+r_xy <- 0.5
 ```
 
 #### Foute testinvoer en misvattingen
@@ -182,7 +182,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-r_xy_z <-0.504
+r_xy_z <- 0.504
 ```
 
 #### Foute testinvoer en misvattingen
@@ -223,7 +223,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-relatietype <-1
+relatietype <- 1
 ```
 
 #### Foute testinvoer en misvattingen
@@ -273,7 +273,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-relatietype <-3
+relatietype <- 3
 ```
 
 #### Foute testinvoer en misvattingen
@@ -323,7 +323,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-conclusie <-3
+conclusie <- 3
 ```
 
 #### Foute testinvoer en misvattingen
@@ -373,7 +373,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-antwoord <-2
+antwoord <- 2
 ```
 
 #### Foute testinvoer en misvattingen

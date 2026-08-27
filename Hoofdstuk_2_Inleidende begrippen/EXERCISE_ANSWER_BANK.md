@@ -132,10 +132,22 @@ Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.6 Variabeletype - Studentnumm
 Kopieerbare boilerplate:
 
 ```r
+# Vervang ??? door het juiste meetniveau
+# Mogelijke antwoorden: "Nominaal", "Ordinaal", "Interval", "Ratio"
+
+# Favoriete keuze voor online onderzoek (Google, Bibliotheek, Wikipedia, etc.)
 favoriete_keuze <- "Nominaal"
+
+# Leeftijd van studenten (17, 18, 19 jaar etc.)
 leeftijd <- "Ratio"
+
+# Geslacht (man/vrouw)
 geslacht <- "Nominaal"
+
+# Studierichting (verschillende richtingen)
 studierichting <- "Nominaal"
+
+# Studentnummer (1-552 voor identificatie)
 studentnummer <- "Nominaal"
 ```
 
@@ -153,9 +165,18 @@ Bronmap: `Hoofdstuk_2_Inleidende begrippen/Oef - 2.7 Onafhankelijke en afhankeli
 Kopieerbare boilerplate:
 
 ```r
+# Vervang ??? door het juiste antwoord
+
+# a. Wat is hier de onafhankelijke variabele?
 onafhankelijke_variabele <- "De interventie"
+
+# b. Wat is het meetniveau van de onafhankelijke variabele? (nominaal, ordinaal, interval, ratio)
 meetniveau_onafhankelijk_variabele <- "nominaal"
+
+# c. Wat is hier de afhankelijke variabele?
 afhankelijke_variabele <- "Het aantal meldingen van overlast"
+
+# d. Wat is het meetniveau van de afhankelijke variabele? (nominaal, ordinaal, interval, ratio)
 meetniveau_afhankelijk_variabele <- "ratio"
 ```
 
@@ -174,7 +195,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-meetniveau <-4
+meetniveau <- 4
 ```
 
 #### Foute testinvoer en misvattingen
@@ -224,7 +245,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-type_onderzoeksvraag <-3
+type_onderzoeksvraag <- 3
 ```
 
 #### Foute testinvoer en misvattingen
@@ -274,7 +295,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-meetniveau <-4
+meetniveau <- 4
 ```
 
 #### Foute testinvoer en misvattingen
@@ -324,7 +345,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-afhankelijke_variabele <-2
+afhankelijke_variabele <- 2
 ```
 
 #### Foute testinvoer en misvattingen
@@ -374,7 +395,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-onderzoeksopzet <-2
+onderzoeksopzet <- 2
 ```
 
 #### Foute testinvoer en misvattingen
@@ -424,7 +445,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-variabelentype <-1
+variabelentype <- 1
 ```
 
 #### Foute testinvoer en misvattingen
@@ -474,7 +495,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-type_onderzoeksvraag <-1
+type_onderzoeksvraag <- 1
 ```
 
 #### Foute testinvoer en misvattingen

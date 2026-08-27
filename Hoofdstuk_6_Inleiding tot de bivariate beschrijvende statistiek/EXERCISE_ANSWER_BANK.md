@@ -17,6 +17,7 @@ Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 3
 ```
 
@@ -40,6 +41,7 @@ Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 2
 ```
 
@@ -63,6 +65,7 @@ Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 3
 ```
 
@@ -86,6 +89,7 @@ Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 2
 ```
 
@@ -109,6 +113,7 @@ Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 3
 ```
 
@@ -132,6 +137,7 @@ Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 2
 ```
 
@@ -155,6 +161,7 @@ Bronmap: `Hoofdstuk_6_Inleiding tot de bivariate beschrijvende statistiek/Oef - 
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 2
 ```
 

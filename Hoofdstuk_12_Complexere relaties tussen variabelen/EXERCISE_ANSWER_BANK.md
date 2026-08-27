@@ -17,6 +17,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.1`
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 1
 ```
 
@@ -40,6 +41,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.2`
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 2
 ```
 
@@ -63,6 +65,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.3`
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 3
 ```
 
@@ -86,6 +89,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.4`
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 3
 ```
 
@@ -109,6 +113,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.5`
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 2
 ```
 
@@ -132,6 +137,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.6`
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 3
 ```
 
@@ -155,6 +161,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.7`
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 1
 ```
 
@@ -178,6 +185,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.8`
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 3
 ```
 
@@ -201,6 +209,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.9`
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 2
 ```
 
@@ -224,6 +233,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.11`
 Selecteer deze optie:
 
 ```r
+# Type je antwoord als één enkel getal (1-4)
 2
 ```
 
@@ -247,6 +257,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.12`
 Selecteer deze optie:
 
 ```r
+# Type je antwoord als één enkel getal (1-4)
 2
 ```
 
@@ -270,6 +281,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.13`
 Selecteer deze optie:
 
 ```r
+# Type je antwoord als één enkel getal (1-4)
 2
 ```
 
@@ -293,6 +305,7 @@ Bronmap: `Hoofdstuk_12_Complexere relaties tussen variabelen/Oef - 12.14`
 Selecteer deze optie:
 
 ```r
+# Type je antwoord als één enkel getal (1-4)
 2
 ```
 

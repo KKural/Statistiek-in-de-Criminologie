@@ -18,7 +18,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-frequentie_vaak <-3
+frequentie_vaak <- 3
 ```
 
 #### Foute testinvoer en misvattingen
@@ -59,7 +59,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-cumulatieve_frequentie_neutraal <-20
+cumulatieve_frequentie_neutraal <- 20
 ```
 
 #### Foute testinvoer en misvattingen
@@ -100,7 +100,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-relatieve_frequentie_tevreden <-0.3
+relatieve_frequentie_tevreden <- 0.3
 ```
 
 #### Foute testinvoer en misvattingen
@@ -141,7 +141,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-cumulatieve_relatieve_frequentie_neutraal <-0.65
+cumulatieve_relatieve_frequentie_neutraal <- 0.65
 ```
 
 #### Foute testinvoer en misvattingen
@@ -182,7 +182,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-samenvattingspaar <-2
+samenvattingspaar <- 2
 ```
 
 #### Foute testinvoer en misvattingen
@@ -277,7 +277,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-gemiddelde <-24
+gemiddelde <- 24
 ```
 
 #### Foute testinvoer en misvattingen
@@ -460,7 +460,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-steekproefvariantie <-20
+steekproefvariantie <- 20
 ```
 
 #### Foute testinvoer en misvattingen
@@ -575,7 +575,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-mediaan <-30
+mediaan <- 30
 ```
 
 #### Foute testinvoer en misvattingen
@@ -720,7 +720,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-spreidingsmaat <-1
+spreidingsmaat <- 1
 ```
 
 #### Foute testinvoer en misvattingen

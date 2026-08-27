@@ -76,6 +76,20 @@ for (file in evaluators) {
     failures <- c(failures, paste("Exercise", code, "has no correct-answer heading"))
     next
   }
+  misconception_start <- regexpr("#### Foute testinvoer en misvattingen", section,
+                                 fixed = TRUE)[[1L]]
+  if (misconception_start < 0L || misconception_start <= correct_start) {
+    failures <- c(failures, paste("Exercise", code,
+                                  "does not place misconceptions after the correct answer"))
+    next
+  }
+  misconception_section <- substr(section, misconception_start, nchar(section))
+  if (!grepl("Foute testinvoer|Ongeldige of ontbrekende invoer",
+             misconception_section, perl = TRUE)) {
+    failures <- c(failures, paste("Exercise", code,
+                                  "has no misconception test input after the correct answer"))
+    next
+  }
   correct_section <- substr(section, correct_start, nchar(section))
   block_match <- regexec("(?s)```r\\s*\\n(.*?)\\n```", correct_section, perl = TRUE)
   block_parts <- regmatches(correct_section, block_match)[[1L]]

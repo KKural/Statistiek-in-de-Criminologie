@@ -17,6 +17,7 @@ Bronmap: `Hoofdstuk_1_De logica van statistische vergelijkingen en analyses/Oef 
 Selecteer deze optie:
 
 ```r
+# Type of answer below
 4
 ```
 

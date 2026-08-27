@@ -18,7 +18,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-kruisproductsom <-4
+kruisproductsom <- 4
 ```
 
 #### Foute testinvoer en misvattingen
@@ -59,7 +59,7 @@ Kopieerbare boilerplate:
 
 ```r
 # Vul het antwoord in na <-.
-pearson_r <-1
+pearson_r <- 1
 ```
 
 #### Foute testinvoer en misvattingen
