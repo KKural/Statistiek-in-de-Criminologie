@@ -29,7 +29,10 @@ context({
               "**Juist:**\n",
               "Het resultaat toont een **samenhang**, maar levert onvoldoende bewijs om één causale verklaring te kiezen.\n\n",
               "**In het handboek:** **Deel I, Hoofdstuk 6, 115** bespreekt expliciet dat statistiek samenhang toont, maar causaliteit niet bewijst.\n\n",
-              "**Lees meer:** [Correlatie en causaliteit](https://maatschappij-wetenschappen.nl/havo/druk2/5-correlatie-en-causaliteit/)"
+              "**Lees meer:** [Correlatie en causaliteit](https://maatschappij-wetenschappen.nl/havo/druk2/5-correlatie-en-causaliteit/)\n\n",
+              "**Verdieping (advanced):**\n",
+              "- **Open textbook:** [Causal Inference: What If](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)\n",
+              "- **Research article:** Rohrer, J. M. (2018). *Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data*. DOI: 10.1177/2515245917745629"
             ),
             "4" = paste0(
               "**Waarom je keuze niet klopt:**\n",
