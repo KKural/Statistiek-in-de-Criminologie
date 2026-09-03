@@ -5,15 +5,12 @@ context({
       testEqual(
         "",
         function(env) as.numeric(env$evaluationResult),
-        3,  # Correct answer: Q8 from your rotation pattern
+        3, # Correct answer: Q8 from your rotation pattern
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
             "1" = "❌ Fout. Een kosten-batenanalyse is beleidsmatig relevant, maar niet de kernbeperking van deze causale conclusie.",
-
             "2" = "❌ Fout. Meetbeperkingen zijn mogelijk, maar zelfs met perfecte meting volgt causaliteit niet automatisch uit samenhang.",
-
             "3" = "✅ Juist! Er kunnen confounding variabelen zijn: rijkere wijken hebben misschien zowel meer straatverlichting ALS minder criminaliteit door andere factoren (meer politie, beter onderwijs, meer werkgelegenheid).",
-
             "4" = "❌ Fout. Beperkte generaliseerbaarheid naar andere steden is relevant, maar dat is niet de kernbeperking van deze causale conclusie."
           )
 
