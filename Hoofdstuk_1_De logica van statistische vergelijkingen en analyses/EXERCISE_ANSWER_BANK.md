@@ -183,11 +183,11 @@ Selecteer deze optie:
 #### Foute testinvoer en misvattingen
 
 - Foute testinvoer: `1`
-  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je zocht het probleem mogelijk in een te kleine steekproef, omdat steekproefgrootte vaak de betrouwbaarheid beïnvloedt, maar hier gaat het om de logische conclusie.
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je zag mogelijk meteen een praktische beleidsvraag en koos daarom voor kosten-baten, terwijl de vraag focust op de logica van causale inferentie.
 - Foute testinvoer: `2`
-  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je vermoedde mogelijk een fout in de statistische berekening, terwijl een correct verband nog steeds causaal kan worden overgeïnterpreteerd.
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je legde de nadruk mogelijk op datakwaliteit, maar ook kwalitatief sterke metingen kunnen een causaal besluit niet op zichzelf rechtvaardigen.
 - Foute testinvoer: `4`
-  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je zag de gekozen tijdsperiode mogelijk als belangrijkste beperking, maar zelfs een langere periode sluit alternatieve verklaringen niet uit.
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je dacht mogelijk aan veralgemeenbaarheid naar andere steden, terwijl de belangrijkste beperking hier intern-causaal is.
 - Foute testinvoer: `5`
   - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
 

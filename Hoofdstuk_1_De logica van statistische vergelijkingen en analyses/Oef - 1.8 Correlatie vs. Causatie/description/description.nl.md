@@ -1,8 +1,8 @@
 Analyseer dit onderzoeksresultaat: "Onderzoek toont dat wijken met meer straatverlichting minder criminaliteit hebben." Wat is de belangrijkste beperking van deze conclusie?
 
-1. Te weinig data
-2. Verkeerde statistische test
-3. Correlatie betekent niet causatie
-4. Onderzoek is te oud
+1. De studie vermeldt geen kosten-batenanalyse van extra straatverlichting
+2. De criminaliteitsmeting steunt alleen op geregistreerde politiecijfers
+3. Het gevonden verband bewijst geen causaal effect van straatverlichting
+4. De resultaten komen uit slechts één stad en zijn daardoor beperkt generaliseerbaar
 
 Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.
