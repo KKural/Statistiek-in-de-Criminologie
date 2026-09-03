@@ -183,11 +183,11 @@ Selecteer deze optie:
 #### Foute testinvoer en misvattingen
 
 - Foute testinvoer: `1`
-  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je herkende terecht het confounding-probleem en koos de concrete uitwerking daarvan, terwijl de vraag de meest algemene kernbeperking laat aanduiden.
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je interpreteert de samenhang mogelijk als bewijs dat straatverlichting criminaliteit vermindert.
 - Foute testinvoer: `2`
-  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je redeneerde terecht dat de pijl ook omgekeerd kan lopen, maar die redenering is een specifieke vorm van dezelfde bredere causale beperking.
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je herkent mogelijk omgekeerde causaliteit als alternatief.
 - Foute testinvoer: `4`
-  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je focuste mogelijk op hoe sterk een correlatie geïnterpreteerd mag worden, terwijl de kern hier is dat samenhang op zich geen richting van oorzaak-gevolg vastlegt.
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je denkt mogelijk dat een sterke correlatie andere verklaringen uitsluit.
 - Foute testinvoer: `5`
   - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
 
