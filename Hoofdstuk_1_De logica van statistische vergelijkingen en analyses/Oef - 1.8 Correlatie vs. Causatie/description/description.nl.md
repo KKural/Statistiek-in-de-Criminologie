@@ -1,8 +1,12 @@
-Analyseer dit onderzoeksresultaat: "Onderzoek toont dat wijken met meer straatverlichting minder criminaliteit hebben." Wat is de belangrijkste beperking van deze conclusie?
+Analyseer dit onderzoeksresultaat:
 
-1. Omdat wijken met meer straatverlichting minder criminaliteit hebben, vermindert straatverlichting criminaliteit
-2. Minder criminaliteit kan ertoe leiden dat gemeenten extra straatverlichting plaatsen
-3. Het resultaat toont alleen een samenhang en bewijst geen oorzaak-gevolgrelatie
-4. Als de correlatie sterk genoeg is, zijn derde variabelen als verklaring onwaarschijnlijk
+> "Wijken met meer straatverlichting hebben gemiddeld minder criminaliteit."
 
-Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.
+Welke interpretatie is methodologisch het meest correct?
+
+1. Meer straatverlichting veroorzaakt minder criminaliteit, omdat de twee variabelen negatief samenhangen.
+2. Meer criminaliteit veroorzaakt extra straatverlichting; dit is daarom de juiste richting van het verband.
+3. Straatverlichting en criminaliteit hangen samen, maar het resultaat bepaalt niet welke causale verklaring correct is.
+4. Een sterke samenhang sluit derde variabelen voldoende uit en maakt een causale conclusie betrouwbaar.
+
+Typ je antwoord als één enkel getal (1-4).
