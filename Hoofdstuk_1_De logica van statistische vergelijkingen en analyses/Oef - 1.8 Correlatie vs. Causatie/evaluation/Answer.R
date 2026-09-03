@@ -10,32 +10,34 @@ context({
           key <- as.character(generated)
           option_feedback <- list(
             "1" = paste0(
-              "### **Optie 1**\n\n",
-              "**Waarom klopt dit niet?**\n",
-              "Een **negatief verband** bewijst niet dat verlichting de daling **veroorzaakt**. **Buurtwelvaart** of **politie-inzet** kan beide variabelen beïnvloeden.\n\n",
-              "**Controleer:** Werden de **tijdsvolgorde** en **derde variabelen** onderzocht?\n\n",
-              "**Probeer:** Vervang **veroorzaakt** door **hangt samen met**."
+              "**Waarom je keuze niet klopt:**\n",
+              "De gevonden **samenhang** toont niet dat straatverlichting eerst veranderde en daarna de criminaliteit verminderde. Andere factoren, zoals **politie-inzet** of **buurtwelvaart**, kunnen beide variabelen beïnvloeden.\n\n",
+              "**Controleer:**\n",
+              "Vermeldt het onderzoek dat de verlichting doelgericht werd veranderd en dat andere verklaringen werden gecontroleerd? Zo niet, welke optie beschrijft alleen de samenhang zonder een oorzaak vast te leggen?\n\n",
+              "**In het handboek:** **Deel I, Hoofdstuk 6, p. 115** (**PDF p. 129**) bespreekt expliciet dat statistiek samenhang toont, maar causaliteit niet bewijst.\n\n",
+              "**Lees meer:** [Correlatie en causaliteit](https://maatschappij-wetenschappen.nl/havo/druk2/5-correlatie-en-causaliteit/)"
             ),
             "2" = paste0(
-              "### **Optie 2**\n\n",
-              "**Waarom klopt dit niet?**\n",
-              "**Omgekeerde causaliteit** is mogelijk, maar niet bewezen. We weten niet welke variabele eerst veranderde.\n\n",
-              "**Controleer:** Een mogelijke verklaring is nog geen **aangetoonde verklaring**.\n\n",
-              "**Probeer:** Teken beide richtingen: verlichting -> criminaliteit en criminaliteit -> verlichting."
+              "**Waarom je keuze niet klopt:**\n",
+              "**Omgekeerde causaliteit** is mogelijk, maar het resultaat bewijst deze richting niet. Je vervangt daardoor één onbewezen causale conclusie door een andere.\n\n",
+              "**Controleer:**\n",
+              "Toont het onderzoek welke variabele eerst veranderde? Als de tijdsvolgorde onbekend is, welke optie laat de causale richting dan open?\n\n",
+              "**In het handboek:** **Deel I, Hoofdstuk 6, p. 115** (**PDF p. 129**) bespreekt expliciet dat statistiek samenhang toont, maar causaliteit niet bewijst.\n\n",
+              "**Lees meer:** [Correlatie en causaliteit](https://maatschappij-wetenschappen.nl/havo/druk2/5-correlatie-en-causaliteit/)"
             ),
             "3" = paste0(
-              "### **Optie 3**\n\n",
-              "**Juist.**\n",
-              "Het resultaat toont een **samenhang**, maar bepaalt niet wat de **oorzaak** is. Beide richtingen en **derde variabelen** blijven mogelijk.\n\n",
-              "**Onthoud:** Laat de sterkte van je conclusie aansluiten bij de **onderzoeksopzet**.\n\n",
-              "**Verdieping:** Welk aanvullend onderzoek kan de **causale richting** bepalen?"
+              "**Juist:**\n",
+              "Het resultaat toont een **samenhang**, maar levert onvoldoende bewijs om één causale verklaring te kiezen.\n\n",
+              "**In het handboek:** **Deel I, Hoofdstuk 6, p. 115** (**PDF p. 129**) bespreekt expliciet dat statistiek samenhang toont, maar causaliteit niet bewijst.\n\n",
+              "**Lees meer:** [Correlatie en causaliteit](https://maatschappij-wetenschappen.nl/havo/druk2/5-correlatie-en-causaliteit/)"
             ),
             "4" = paste0(
-              "### **Optie 4**\n\n",
-              "**Waarom klopt dit niet?**\n",
-              "Ook een **sterke correlatie** kan door een **derde variabele** ontstaan. **Buurtwelvaart** kan bijvoorbeeld samenhangen met meer verlichting en betere criminaliteitspreventie.\n\n",
-              "**Controleer:** Correlatiesterkte toont **hoe sterk** variabelen samenhangen, niet **waarom**.\n\n",
-              "**Probeer:** Teken **buurtwelvaart** als mogelijke oorzaak van beide variabelen."
+              "**Waarom je keuze niet klopt:**\n",
+              "De sterkte van een **correlatie** toont niet dat **derde variabelen** zijn uitgesloten. Ook een sterke samenhang kan ontstaan doordat bijvoorbeeld **buurtwelvaart** zowel de straatverlichting als de criminaliteit beïnvloedt.\n\n",
+              "**Controleer:**\n",
+              "Staat er dat buurtwelvaart, politie-inzet of andere factoren werden gecontroleerd? Zo niet, welke optie houdt deze alternatieve verklaringen open?\n\n",
+              "**In het handboek:** **Deel I, Hoofdstuk 6, p. 115** (**PDF p. 129**) bespreekt expliciet dat statistiek samenhang toont, maar causaliteit niet bewijst.\n\n",
+              "**Lees meer:** [Correlatie en causaliteit](https://maatschappij-wetenschappen.nl/havo/druk2/5-correlatie-en-causaliteit/)"
             )
           )
 

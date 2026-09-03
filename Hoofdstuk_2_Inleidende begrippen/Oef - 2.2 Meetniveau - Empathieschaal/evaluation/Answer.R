@@ -8,13 +8,13 @@ context({
         2,  # Correct answer
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
-            "1" = "Nominale categorieën hebben geen rangorde, terwijl de empathie-antwoorden wel lopen van 'heel onwaarschijnlijk' naar 'heel waarschijnlijk'.",
+            "1" = "Nominale categorieën hebben geen rangorde, terwijl de empathie-antwoorden wel lopen van 'heel onwaarschijnlijk' naar 'heel waarschijnlijk'. **In het handboek:** **Deel I, Hoofdstuk 2, p. 29-30** (**PDF p. 12-13**).",
 
-            "2" = "✅ Juist - **ordinaal** meetniveau met antwoordopties gaande van heel onwaarschijnlijk tot en met heel waarschijnlijk, de categorieën zijn ordenbaar maar de afstand tussen de categorieën is niet gelijk. Het verschil in betekenis tussen onwaarschijnlijk en neutraal is niet exact hetzelfde als tussen waarschijnlijk en heel waarschijnlijk. <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Lees meer</a>",
+            "2" = "✅ Juist - **ordinaal** meetniveau met antwoordopties gaande van heel onwaarschijnlijk tot en met heel waarschijnlijk, de categorieën zijn ordenbaar maar de afstand tussen de categorieën is niet gelijk. Het verschil in betekenis tussen onwaarschijnlijk en neutraal is niet exact hetzelfde als tussen waarschijnlijk en heel waarschijnlijk. **In het handboek:** **Deel I, Hoofdstuk 2, p. 29-30** (**PDF p. 12-13**). <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Lees meer</a>",
 
-            "3" = "De categorieën zijn geordend, maar het betekenisverschil tussen 'onwaarschijnlijk' en 'neutraal' hoeft niet gelijk te zijn aan dat tussen 'waarschijnlijk' en 'heel waarschijnlijk'. Nummers op antwoordopties bewijzen geen gelijke intervallen. <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Lees meer</a>",
+            "3" = "De categorieën zijn geordend, maar het betekenisverschil tussen 'onwaarschijnlijk' en 'neutraal' hoeft niet gelijk te zijn aan dat tussen 'waarschijnlijk' en 'heel waarschijnlijk'. Nummers op antwoordopties bewijzen geen gelijke intervallen. **In het handboek:** **Deel I, Hoofdstuk 2, p. 29-30** (**PDF p. 12-13**). <a href='https://www.youtube.com/watch?v=KJPXZIEmvfA' target='_blank' rel='noopener noreferrer'>Lees meer</a>",
 
-            "4" = "'Heel onwaarschijnlijk' betekent niet dat empathie objectief nul is, en ook gelijke afstanden zijn niet aangetoond. Ratio vereist zowel gelijke intervallen als een werkelijk nulpunt waarbij afwezigheid van de eigenschap betekenisvol is."
+            "4" = "'Heel onwaarschijnlijk' betekent niet dat empathie objectief nul is, en ook gelijke afstanden zijn niet aangetoond. Ratio vereist zowel gelijke intervallen als een werkelijk nulpunt waarbij afwezigheid van de eigenschap betekenisvol is. **In het handboek:** **Deel I, Hoofdstuk 2, p. 29-30** (**PDF p. 12-13**)."
           )
 
           likely_reasons <- list(
