@@ -8,16 +8,16 @@ context({
         3, # Correct answer: Q8 from your rotation pattern
         comparator = function(generated, expected, ...) {
           feedbacks <- list(
-            "1" = "❌ Fout. Een kosten-batenanalyse is beleidsmatig relevant, maar niet de kernbeperking van deze causale conclusie.",
-            "2" = "❌ Fout. Meetbeperkingen zijn mogelijk, maar zelfs met perfecte meting volgt causaliteit niet automatisch uit samenhang.",
+            "1" = "❌ Niet de beste keuze. Derde variabelen zijn een belangrijke concrete verklaring, maar de vraag zoekt de meest fundamentele methodologische beperking van de conclusie.",
+            "2" = "❌ Niet de beste keuze. Omgekeerde causaliteit is een mogelijke verklaring, maar ook dit valt onder dezelfde bredere beperking dat correlatie op zich causaliteit niet bewijst.",
             "3" = "✅ Juist! Er kunnen confounding variabelen zijn: rijkere wijken hebben misschien zowel meer straatverlichting ALS minder criminaliteit door andere factoren (meer politie, beter onderwijs, meer werkgelegenheid).",
-            "4" = "❌ Fout. Beperkte generaliseerbaarheid naar andere steden is relevant, maar dat is niet de kernbeperking van deze causale conclusie."
+            "4" = "❌ Niet de beste keuze. Dit klopt als nuance over interpretatie van correlaties, maar het verklaart niet de kernfout in de conclusie over wat straatverlichting veroorzaakt."
           )
 
           likely_reasons <- list(
-            "1" = "je zag mogelijk meteen een praktische beleidsvraag en koos daarom voor kosten-baten, terwijl de vraag focust op de logica van causale inferentie.",
-            "2" = "je legde de nadruk mogelijk op datakwaliteit, maar ook kwalitatief sterke metingen kunnen een causaal besluit niet op zichzelf rechtvaardigen.",
-            "4" = "je dacht mogelijk aan veralgemeenbaarheid naar andere steden, terwijl de belangrijkste beperking hier intern-causaal is."
+            "1" = "je herkende terecht het confounding-probleem en koos de concrete uitwerking daarvan, terwijl de vraag de meest algemene kernbeperking laat aanduiden.",
+            "2" = "je redeneerde terecht dat de pijl ook omgekeerd kan lopen, maar die redenering is een specifieke vorm van dezelfde bredere causale beperking.",
+            "4" = "je focuste mogelijk op hoe sterk een correlatie geïnterpreteerd mag worden, terwijl de kern hier is dat samenhang op zich geen richting van oorzaak-gevolg vastlegt."
           )
           key <- as.character(generated)
           msg <- feedbacks[[key]] %||% "❌ Geef een getal tussen 1 en 4 in."

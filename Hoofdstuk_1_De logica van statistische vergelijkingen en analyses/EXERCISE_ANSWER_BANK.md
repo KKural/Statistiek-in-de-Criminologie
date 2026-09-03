@@ -183,11 +183,11 @@ Selecteer deze optie:
 #### Foute testinvoer en misvattingen
 
 - Foute testinvoer: `1`
-  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je zag mogelijk meteen een praktische beleidsvraag en koos daarom voor kosten-baten, terwijl de vraag focust op de logica van causale inferentie.
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je herkende terecht het confounding-probleem en koos de concrete uitwerking daarvan, terwijl de vraag de meest algemene kernbeperking laat aanduiden.
 - Foute testinvoer: `2`
-  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je legde de nadruk mogelijk op datakwaliteit, maar ook kwalitatief sterke metingen kunnen een causaal besluit niet op zichzelf rechtvaardigen.
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je redeneerde terecht dat de pijl ook omgekeerd kan lopen, maar die redenering is een specifieke vorm van dezelfde bredere causale beperking.
 - Foute testinvoer: `4`
-  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je dacht mogelijk aan veralgemeenbaarheid naar andere steden, terwijl de belangrijkste beperking hier intern-causaal is.
+  - Misvatting: **Waarom deze keuze begrijpelijk kan lijken:** je focuste mogelijk op hoe sterk een correlatie geïnterpreteerd mag worden, terwijl de kern hier is dat samenhang op zich geen richting van oorzaak-gevolg vastlegt.
 - Foute testinvoer: `5`
   - Misvatting: **Controleer je invoer:** je invoer lijkt niet overeen te komen met één van de aangeboden optienummers; dit kan een typefout of een andere invoerinterpretatie zijn.
 

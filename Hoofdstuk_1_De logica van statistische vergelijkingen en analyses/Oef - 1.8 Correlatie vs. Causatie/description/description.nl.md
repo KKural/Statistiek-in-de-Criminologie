@@ -1,8 +1,8 @@
 Analyseer dit onderzoeksresultaat: "Onderzoek toont dat wijken met meer straatverlichting minder criminaliteit hebben." Wat is de belangrijkste beperking van deze conclusie?
 
-1. De studie vermeldt geen kosten-batenanalyse van extra straatverlichting
-2. De criminaliteitsmeting steunt alleen op geregistreerde politiecijfers
-3. Het gevonden verband bewijst geen causaal effect van straatverlichting
-4. De resultaten komen uit slechts één stad en zijn daardoor beperkt generaliseerbaar
+1. Mogelijke derde variabelen (zoals politie-inzet of buurtwelvaart) kunnen het verband verklaren
+2. De richting van het verband kan omgekeerd zijn (meer criminaliteit kan leiden tot extra verlichting)
+3. Het gevonden patroon is een correlatie en toont niet dat straatverlichting de daling in criminaliteit veroorzaakt
+4. Een sterke correlatie zegt op zichzelf niets over de grootte van het effect
 
 Typ je antwoord als één enkel getal (1-4) om je keuze aan te geven.
